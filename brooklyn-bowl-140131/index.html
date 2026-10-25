@@ -1,0 +1,116 @@
+<html>
+<head>
+<title>Brooklyn Bowl - 31 January 2014</title>
+<script src="player/jquery.js"></script>	
+<script src="player/mediaelement-and-player.min.js"></script>
+<link rel="stylesheet" href="player/mediaelementplayer.min.css" />
+<link rel="stylesheet" href="style.css" />
+<script>
+function play(num, title) {
+  var src = num + ' ' + title + '.mp3';
+  var elt = $('#player')[0];
+  elt.pause();
+  $('#player').attr('src', src);
+  $('#title').html(title);
+  elt.play();
+}
+</script>
+</head>
+<body>
+<h2>Sister Sparrow and the Dirty Birds</h2>
+<h3>Brooklyn Bowl - 31 January 2014</h3>
+
+<p>
+<span id='title'>The Way You Make Me Feel</span>
+<audio id='player' src="02 The Way You Make Me Feel.mp3" type="audio/mp3" controls="controls"></audio>
+</p>
+
+<p>Click a triangle below to play that track. Right-click a title and "Save Link As..." to download.</p>
+
+<ol>
+<li>
+  <a href="01 Crowd Noise.mp3">Crowd Noise</a>
+  <a href='javascript:play("01", "Crowd Noise")'> &nbsp;<img src='play.png'/>&nbsp;</a>
+</li>
+<li>
+  <a href="02 The Way You Make Me Feel.mp3">The Way You Make Me Feel</a>
+  <a href='javascript:play("02", "The Way You Make Me Feel")'> &nbsp;<img src='play.png'/>&nbsp;</a>
+</li>
+<li>
+  <a href="03 The Long Way.mp3">The Long Way</a>
+  <a href='javascript:play("03", "The Long Way")'> &nbsp;<img src='play.png'/>&nbsp;</a>
+</li>
+<li>
+  <a href="04 Don't Be Jealous.mp3">Don't Be Jealous</a>
+  <a href='javascript:play("04", "Don&#39;t Be Jealous")'> &nbsp;<img src='play.png'/>&nbsp;</a>
+</li>
+<li>
+  <a href="05 Make It Rain.mp3">Make It Rain</a>
+  <a href='javascript:play("05", "Make It Rain")'> &nbsp;<img src='play.png'/>&nbsp;</a>
+</li>
+<li>
+  <a href="06 Way Down South.mp3">Way Down South</a>
+  <a href='javascript:play("06", "Way Down South")'> &nbsp;<img src='play.png'/>&nbsp;</a>
+</li>
+<li>
+  <a href="07 Take Your Shoes Off.mp3">Take Your Shoes Off</a>
+  <a href='javascript:play("07", "Take Your Shoes Off")'> &nbsp;<img src='play.png'/>&nbsp;</a>
+</li>
+<li>
+  <a href="08 Interlude.mp3">Interlude</a>
+  <a href='javascript:play("08", "Interlude")'> &nbsp;<img src='play.png'/>&nbsp;</a>
+</li>
+<li>
+  <a href="09 Black Dog.mp3">Black Dog</a>
+  <a href='javascript:play("09", "Black Dog")'> &nbsp;<img src='play.png'/>&nbsp;</a>
+</li>
+<li>
+  <a href="10 Rock and Roll.mp3">Rock and Roll</a>
+  <a href='javascript:play("10", "Rock and Roll")'> &nbsp;<img src='play.png'/>&nbsp;</a>
+</li>
+<li>
+  <a href="11 The Battle of Evermore.mp3">The Battle of Evermore</a>
+  <a href='javascript:play("11", "The Battle of Evermore")'> &nbsp;<img src='play.png'/>&nbsp;</a>
+</li>
+<li>
+  <a href="12 Stairway to Heaven.mp3">Stairway to Heaven</a>
+  <a href='javascript:play("12", "Stairway to Heaven")'> &nbsp;<img src='play.png'/>&nbsp;</a>
+</li>
+<li>
+  <a href="13 Misty Mountain Hop.mp3">Misty Mountain Hop</a>
+  <a href='javascript:play("13", "Misty Mountain Hop")'> &nbsp;<img src='play.png'/>&nbsp;</a>
+</li>
+<li>
+  <a href="14 Four Sticks.mp3">Four Sticks</a>
+  <a href='javascript:play("14", "Four Sticks")'> &nbsp;<img src='play.png'/>&nbsp;</a>
+</li>
+<li>
+  <a href="15 Going to California.mp3">Going to California</a>
+  <a href='javascript:play("15", "Going to California")'> &nbsp;<img src='play.png'/>&nbsp;</a>
+</li>
+<li>
+  <a href="16 When the Levee Breaks.mp3">When the Levee Breaks</a>
+  <a href='javascript:play("16", "When the Levee Breaks")'> &nbsp;<img src='play.png'/>&nbsp;</a>
+</li>
+<li>
+  <a href="17 Encore Intro.mp3">Encore Intro</a>
+  <a href='javascript:play("17", "Encore Intro")'> &nbsp;<img src='play.png'/>&nbsp;</a>
+</li>
+<li>
+  <a href="18 D'yer Mak'er & Vices.mp3">D'yer Mak'er & Vices</a>
+  <a href='javascript:play("18", "D&#39;yer Mak&#39;er &amp; Vices")'> &nbsp;<img src='play.png'/>&nbsp;</a>
+</li>
+<li>
+  <a href="19 Canned Exit Music.mp3">Canned Exit Music</a>
+  <a href='javascript:play("19", "Canned Exit Music")'> &nbsp;<img src='play.png'/>&nbsp;</a>
+</li>
+</ol>
+
+<p>Many thanks to John Dyer for <a href='http://mediaelementjs.com/'>MediaElement.js</a>.</p>
+
+<script>
+$('audio,video').mediaelementplayer();
+</script>
+
+</body>
+</html>
