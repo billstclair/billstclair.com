@@ -1,0 +1,325 @@
+<html>
+<head>
+<title>iPhone Muzzle Energy Computer</title>
+<meta name="viewport" content="width=320">
+<script language="JavaScript">
+addEventListener("load", function()
+{
+	setTimeout(hideAddressbar, 0);
+}, false);
+
+function hideAddressbar()
+{
+	window.scrollTo(0, 1);
+}
+
+function calc() {
+  var grains_per_lb = 7000;
+  var lb_per_slug = 32.17;
+  var grains_per_slug = grains_per_lb * lb_per_slug;
+  var pi = 3.141592654;
+  var velocity = new Number(document.mainform.velocity.value);
+  var weight = new Number(document.mainform.weight.value);
+  var diameter = new Number(document.mainform.diameter.value);
+  var energy = 0.5 * (weight / grains_per_slug) * velocity * velocity;
+  var r = diameter / 2;
+  var efficacy = energy * Math.PI * r * r;
+  var secdens = (weight / grains_per_lb) / (diameter * diameter);
+  var jem = energy * secdens;
+  document.mainform.energy.value = Math.round(energy);
+  document.mainform.joule.value = Math.round(1.36 * energy);
+  document.mainform.efficacy.value = Math.round(efficacy);
+  document.mainform.secdens.value = round(secdens, 3);
+  document.mainform.jem.value = Math.round(jem);
+}
+
+function wchg() {
+  grcalc();
+  ozcalc();
+  calc();
+}
+
+function grchg() {
+  document.mainform.weight.value = 
+    round(15.429718 * document.mainform.gr.value, 2);
+  ozcalc();
+  calc();
+}
+
+function grcalc() {
+  document.mainform.gr.value =
+    round(document.mainform.weight.value / 15.429718, 3);
+}
+
+function ozchg1() {
+  document.mainform.weight.value = 
+    round(6999 * document.mainform.oz.value / 16, 0);
+  grcalc();
+}
+
+function ozchg() {
+  ozchg1();
+  calc();
+}
+
+function ozcalc() {
+  document.mainform.oz.value =
+    round(16 * document.mainform.weight.value / 6999, 3);
+}
+
+function dchg() {
+  mmcalc();
+  ggcalc();
+  calc();
+}
+
+function mmchg() {
+  document.mainform.diameter.value =
+    round(document.mainform.mm.value / 25.4, 3);
+  ggcalc();
+  calc();
+}
+
+function vchg() {
+  mpscalc();
+  calc();
+}
+
+function mmcalc() {
+  document.mainform.mm.value =
+    round(document.mainform.diameter.value * 25.4, 3);
+}
+
+function ggchg1() {
+  document.mainform.diameter.value =
+    round(Math.pow(4.648224 / document.mainform.gauge.value, 0.3333333), 3);
+  mmcalc();
+}
+
+function ggchg() {
+  ggchg1();
+  calc();
+}
+
+function ggcalc() {
+  document.mainform.gauge.value =
+    round(4.648224 / Math.pow(document.mainform.diameter.value, 3), 3);
+}
+
+function mpscalc() {
+  document.mainform.mps.value =
+    round(0.3048 * document.mainform.velocity.value, 1)
+}
+
+function mpschg1() {
+  document.mainform.velocity.value =
+    round(3.281 * document.mainform.mps.value, 0)
+}
+
+function mpschg() {
+  mpschg1();
+  calc();
+}
+
+function revcalc() {
+}
+
+function revdens() {
+}
+
+function revjem() {
+}
+
+function jrevcalc() {
+}
+
+function round(x, places) {
+  fac = Math.pow(10, places);
+  return Math.round(x * fac) / fac
+}
+
+function modify(weight, velocity, diameter) {
+  document.mainform.weight.value = weight
+  document.mainform.velocity.value = velocity;
+  document.mainform.diameter.value = diameter;
+  grcalc();
+  ozcalc();
+  mmcalc();
+  ggcalc();
+  mpscalc();
+  calc();
+}
+
+function shotmodify(ounces, velocity, gauge) {
+  document.mainform.oz.value = ounces;
+  document.mainform.velocity.value = velocity;
+  document.mainform.gauge.value = gauge;
+  ozchg1();
+  ggchg1();
+  mpscalc();
+  calc();
+  
+}
+</script>
+</head>
+<body onLoad="modify(150, 2820, 0.308);">
+<table width="320px"><tr><td>
+<b><center>iPhone Muzzle Energy Computer</center></b>
+<p>
+<form name="mainform">
+<table>
+<tr>
+<td align="center">Weight (gr)</td>
+<td align="center">(grams)</td>
+<td align="center">(ounces)</td>
+</tr>
+<tr>
+<td><input size="10" type="text" name="weight" onChange="wchg();" onKeyup="wchg();"></td>
+<td><input size="10" type="text" name="gr" onChange="grchg();" onKeyup="grchg();"></td>
+<td><input size="10" type="text" name="oz" onChange="ozchg();" onKeyup="ozchg();"></td>
+</tr>
+<tr>
+<td align="center">Velocity (f/s)</td>
+<td align="center">(m/s)</td>
+</tr>
+<tr>
+<td><input size="10" type="text" name="velocity" onChange="vchg();" onKeyup="vchg();"></td>
+<td><input size="10" type="text" name="mps" onchange="mpschg();" onKeyup="mpschg();"></td>
+</tr>
+<tr>
+<td align="center">Diameter (in)</td>
+<td align="center">(mm)</td>
+<td align="center">(gauge)</td>
+</tr>
+<tr>
+<td><input size="10" type="text" name="diameter" onChange="dchg();" onKeyup="dchg();"></td>
+<td><input size="10" type="text" name="mm" onChange="mmchg();" onKeyup="mmchg();"></td>
+<td><input size="10" type="text" name="gauge" onChange="ggchg();" onKeyup="ggchg();"></td>
+<tr>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td align="center">Energy (ft lbs)</td>
+<td align="center">(joules)</td>
+</tr><tr>
+<td><input size="10" type="text" name="energy" onChange="revcalc();" onKeyup="revcalc();"></td>
+<td><input size="10" type="text" name="joule" onChange="jrevcalc();" onKeyup="jrevcalc();"></td>
+</tr>
+<tr>
+<td align="center"><a href="#efficacy">Efficacy</a></td>
+<td align="center"><a href="#secdens">Sec. Dens.</a></td>
+<td align="center">E*SD</td>
+</tr>
+<tr>
+<td><input size="10" type="text" name="efficacy" onChange="revcalc();" onKeyup="revcalc();"></td>
+<td><input size="10" type="text" name="secdens" onChange="revdens();" onKeyup="revdens();"></td>
+<td><input size="10" type="text" name="jem" onChange="revjem();" onKeyup="revjem();"></td>
+</tr>
+</table>
+</form>
+
+The top three rows above are active. Change any number and everything
+dependent on it will be recomputed. Click a button below to fill in
+values for the linked load. More ballistics for Remington ammo
+<a href="http://www.remington.com/products/ammunition/ballistics/">
+here</a>.<br>
+<br>
+Rifle:<br>
+<button onClick="modify(55, 3240, .224);">223 (5.56 Nato)</button>
+<button onClick="modify(55, 2773, .224);">100 yards</button>
+<button onClick="modify(55, 2352, .224);">200</button>
+<button onClick="modify(55, 1969, .224);">300</button>
+<a href="http://www.remington.com/products/ammunition/ballistics/results/default.aspx?type=centerfire&cal=6">*</a><br>
+<button onClick="modify(125, 2365, .309);">7.62x39</button>
+<button onClick="modify(125, 2062, .309);">100 yards</button>
+<button onClick="modify(125, 1783, .309);">200</button>
+<button onClick="modify(125, 1533, .309);">300</button>
+<a href="http://www.remington.com/products/ammunition/ballistics/results/default.aspx?type=centerfire&cal=36">*</a><br>
+<button onClick="modify(150, 2820, .308);">308 (7.62 Nato)</button>
+<button onClick="modify(150, 2533, .308);">100 yards</button>
+<button onClick="modify(150, 2263, .308);">200</button>
+<button onClick="modify(150, 2009, .308);">300</button>
+<a href="http://www.remington.com/products/ammunition/ballistics/results/default.aspx?type=centerfire&cal=33">*</a><br>
+<button onClick="modify(180, 2700, .308);">30-06</button>
+<button onClick="modify(180, 2485, .308);">100 yards</button>
+<button onClick="modify(180, 2280, .308);">200</button>
+<button onClick="modify(180, 2084, .308);">300</button>
+<a href="http://www.remington.com/products/ammunition/ballistics/results/default.aspx?type=centerfire&cal=30">*</a><br>
+<button onClick="modify(240, 2350, .430);">444 Marlin</button>
+<button onClick="modify(240, 1815, .430);">100 yards</button>
+<button onClick="modify(240, 1377, .430);">200</button>
+<button onClick="modify(240, 1087, .430);">300</button>
+<a href="http://www.remington.com/products/ammunition/ballistics/results/default.aspx?type=centerfire&cal=53">*</a><br>
+<br>
+Handgun:<br>
+<button onClick="modify(124, 1180, .355);">9mm Luger</button>
+<button onClick="modify(124, 1089, .355);">50 feet</button>
+<button onClick="modify(124, 1021, .355);">100</button>
+<a href="http://www.remington.com/products/ammunition/ballistics/results/default.aspx?type=pistol&cal=6">*</a><br>
+<button onClick="modify(158, 1235, .358);">357 Magnum</button>
+<button onClick="modify(158, 1104, .358);">50 feet</button>
+<button onClick="modify(158, 1015, .358);">100</button>
+<a href="http://www.remington.com/products/ammunition/ballistics/results/default.aspx?type=pistol&cal=5">*</a><br>
+<button onClick="modify(165, 1150, .402);">40 S&W</button>
+<button onClick="modify(165, 1040, .402);">50 feet</button>
+<button onClick="modify(165, 964, .402);">100</button>
+<a href="http://www.remington.com/products/ammunition/ballistics/results/default.aspx?type=pistol&cal=14">*</a><br>
+<button onClick="modify(230, 875, .451);">45 Auto</button>
+<button onClick="modify(230, 833, .451);">50 feet</button>
+<button onClick="modify(230, 795, .451);">100</button>
+<a href="http://www.remington.com/products/ammunition/ballistics/results/default.aspx?type=pistol&cal=19">*</a><br>
+<button onClick="modify(240, 1180, .430);">44 Magnum</button>
+<button onClick="modify(240, 1081, .430);">50 feet</button>
+<button onClick="modify(240, 1010, .430);">100</button>
+<a href="http://www.remington.com/products/ammunition/ballistics/results/default.aspx?type=pistol&cal=16">*</a><br>
+<br>
+Shotgun:<br>
+<button onClick="shotmodify(1, 1680, 12);">12 Gauge Slug</button>
+<button onClick="shotmodify(1, 1285, 12);">50 yards</button>
+<button onClick="shotmodify(1, 1045, 12);">100</button>
+<a href="http://www.remington.com/products/ammunition/ballistics/shotshell_slug_loads.asp">*</a><br>
+<p>
+Note: this page is entirely self-contained. It requires no server-side
+code to operate. All the computations are done by JavaScript code
+embedded in the HTML. If you "Save As..." in your browser, you can run
+it off-line.
+<p>
+<a name="efficacy">
+<b>Efficacy</b> is a measure proposed by
+<a href="http://lneilsmith.org">
+L. Neil Smith</a>. It is defined as energy in foot pounds multiplied
+by projectile cross-sectional area in square inches. Neil says that
+this is a pretty good indicator of the relative efficacy against live
+targets of different projectiles and loads. In an email about this
+page, Neil wrote, "I'm not absolutely certain of its applicability to
+rifles (although it looks pretty good and is fine for slugs and rifles
+like .45/70). There are other factors at work above 2000-2500 feet per
+second. But every year that passes convinces me more that this is the
+perfect program for predicting handgun performance."</a>
+<p>
+<a name="secdens">
+<b>Sectional Density</b> ("Sec. Dens." above) is defined as the weight (w)
+of the bullet in pounds divided by the square of its diameter (d) in
+inches: w/d^2 = pounds per square inch.</a>
+<p>
+I used Remington ammo for the preset buttons only because the
+ballistics were easy to find on the web. I handload or use military
+surplus for most of my shooting. You can fairly easily change the
+&lt;button> tags for your favorite loads.
+<p>
+<a href="energy.html">
+billstclair.com/energy.html</a> is the original version of this page,
+sized for a standard web browser.
+<p>
+You can store a local copy of this page on your iPhone by
+<a href="data:text/html;base64,PGh0bWw%2BDQo8aGVhZD4NCjx0aXRsZT5pUGhvbmUgTXV6emxlIEVuZXJneSBDb21wdXRlcjwvdGl0bGU%2BDQo8bWV0YSBuYW1lPSJ2aWV3cG9ydCIgY29udGVudD0id2lkdGg9MzIwIj4NCjxzY3JpcHQgbGFuZ3VhZ2U9IkphdmFTY3JpcHQiPg0KYWRkRXZlbnRMaXN0ZW5lcigibG9hZCIsIGZ1bmN0aW9uKCkNCnsNCglzZXRUaW1lb3V0KGhpZGVBZGRyZXNzYmFyLCAwKTsNCn0sIGZhbHNlKTsNCg0KZnVuY3Rpb24gaGlkZUFkZHJlc3NiYXIoKQ0Kew0KCXdpbmRvdy5zY3JvbGxUbygwLCAxKTsNCn0NCg0KZnVuY3Rpb24gY2FsYygpIHsNCiAgdmFyIGdyYWluc19wZXJfbGIgPSA3MDAwOw0KICB2YXIgbGJfcGVyX3NsdWcgPSAzMi4xNzsNCiAgdmFyIGdyYWluc19wZXJfc2x1ZyA9IGdyYWluc19wZXJfbGIgKiBsYl9wZXJfc2x1ZzsNCiAgdmFyIHBpID0gMy4xNDE1OTI2NTQ7DQogIHZhciB2ZWxvY2l0eSA9IG5ldyBOdW1iZXIoZG9jdW1lbnQubWFpbmZvcm0udmVsb2NpdHkudmFsdWUpOw0KICB2YXIgd2VpZ2h0ID0gbmV3IE51bWJlcihkb2N1bWVudC5tYWluZm9ybS53ZWlnaHQudmFsdWUpOw0KICB2YXIgZGlhbWV0ZXIgPSBuZXcgTnVtYmVyKGRvY3VtZW50Lm1haW5mb3JtLmRpYW1ldGVyLnZhbHVlKTsNCiAgdmFyIGVuZXJneSA9IDAuNSAqICh3ZWlnaHQgLyBncmFpbnNfcGVyX3NsdWcpICogdmVsb2NpdHkgKiB2ZWxvY2l0eTsNCiAgdmFyIHIgPSBkaWFtZXRlciAvIDI7DQogIHZhciBlZmZpY2FjeSA9IGVuZXJneSAqIE1hdGguUEkgKiByICogcjsNCiAgdmFyIHNlY2RlbnMgPSAod2VpZ2h0IC8gZ3JhaW5zX3Blcl9sYikgLyAoZGlhbWV0ZXIgKiBkaWFtZXRlcik7DQogIHZhciBqZW0gPSBlbmVyZ3kgKiBzZWNkZW5zOw0KICBkb2N1bWVudC5tYWluZm9ybS5lbmVyZ3kudmFsdWUgPSBNYXRoLnJvdW5kKGVuZXJneSk7DQogIGRvY3VtZW50Lm1haW5mb3JtLmpvdWxlLnZhbHVlID0gTWF0aC5yb3VuZCgxLjM2ICogZW5lcmd5KTsNCiAgZG9jdW1lbnQubWFpbmZvcm0uZWZmaWNhY3kudmFsdWUgPSBNYXRoLnJvdW5kKGVmZmljYWN5KTsNCiAgZG9jdW1lbnQubWFpbmZvcm0uc2VjZGVucy52YWx1ZSA9IHJvdW5kKHNlY2RlbnMsIDMpOw0KICBkb2N1bWVudC5tYWluZm9ybS5qZW0udmFsdWUgPSBNYXRoLnJvdW5kKGplbSk7DQp9DQoNCmZ1bmN0aW9uIHdjaGcoKSB7DQogIGdyY2FsYygpOw0KICBvemNhbGMoKTsNCiAgY2FsYygpOw0KfQ0KDQpmdW5jdGlvbiBncmNoZygpIHsNCiAgZG9jdW1lbnQubWFpbmZvcm0ud2VpZ2h0LnZhbHVlID0gDQogICAgcm91bmQoMTUuNDI5NzE4ICogZG9jdW1lbnQubWFpbmZvcm0uZ3IudmFsdWUsIDIpOw0KICBvemNhbGMoKTsNCiAgY2FsYygpOw0KfQ0KDQpmdW5jdGlvbiBncmNhbGMoKSB7DQogIGRvY3VtZW50Lm1haW5mb3JtLmdyLnZhbHVlID0NCiAgICByb3VuZChkb2N1bWVudC5tYWluZm9ybS53ZWlnaHQudmFsdWUgLyAxNS40Mjk3MTgsIDMpOw0KfQ0KDQpmdW5jdGlvbiBvemNoZzEoKSB7DQogIGRvY3VtZW50Lm1haW5mb3JtLndlaWdodC52YWx1ZSA9IA0KICAgIHJvdW5kKDY5OTkgKiBkb2N1bWVudC5tYWluZm9ybS5vei52YWx1ZSAvIDE2LCAwKTsNCiAgZ3JjYWxjKCk7DQp9DQoNCmZ1bmN0aW9uIG96Y2hnKCkgew0KICBvemNoZzEoKTsNCiAgY2FsYygpOw0KfQ0KDQpmdW5jdGlvbiBvemNhbGMoKSB7DQogIGRvY3VtZW50Lm1haW5mb3JtLm96LnZhbHVlID0NCiAgICByb3VuZCgxNiAqIGRvY3VtZW50Lm1haW5mb3JtLndlaWdodC52YWx1ZSAvIDY5OTksIDMpOw0KfQ0KDQpmdW5jdGlvbiBkY2hnKCkgew0KICBtbWNhbGMoKTsNCiAgZ2djYWxjKCk7DQogIGNhbGMoKTsNCn0NCg0KZnVuY3Rpb24gbW1jaGcoKSB7DQogIGRvY3VtZW50Lm1haW5mb3JtLmRpYW1ldGVyLnZhbHVlID0NCiAgICByb3VuZChkb2N1bWVudC5tYWluZm9ybS5tbS52YWx1ZSAvIDI1LjQsIDMpOw0KICBnZ2NhbGMoKTsNCiAgY2FsYygpOw0KfQ0KDQpmdW5jdGlvbiB2Y2hnKCkgew0KICBtcHNjYWxjKCk7DQogIGNhbGMoKTsNCn0NCg0KZnVuY3Rpb24gbW1jYWxjKCkgew0KICBkb2N1bWVudC5tYWluZm9ybS5tbS52YWx1ZSA9DQogICAgcm91bmQoZG9jdW1lbnQubWFpbmZvcm0uZGlhbWV0ZXIudmFsdWUgKiAyNS40LCAzKTsNCn0NCg0KZnVuY3Rpb24gZ2djaGcxKCkgew0KICBkb2N1bWVudC5tYWluZm9ybS5kaWFtZXRlci52YWx1ZSA9DQogICAgcm91bmQoTWF0aC5wb3coNC42NDgyMjQgLyBkb2N1bWVudC5tYWluZm9ybS5nYXVnZS52YWx1ZSwgMC4zMzMzMzMzKSwgMyk7DQogIG1tY2FsYygpOw0KfQ0KDQpmdW5jdGlvbiBnZ2NoZygpIHsNCiAgZ2djaGcxKCk7DQogIGNhbGMoKTsNCn0NCg0KZnVuY3Rpb24gZ2djYWxjKCkgew0KICBkb2N1bWVudC5tYWluZm9ybS5nYXVnZS52YWx1ZSA9DQogICAgcm91bmQoNC42NDgyMjQgLyBNYXRoLnBvdyhkb2N1bWVudC5tYWluZm9ybS5kaWFtZXRlci52YWx1ZSwgMyksIDMpOw0KfQ0KDQpmdW5jdGlvbiBtcHNjYWxjKCkgew0KICBkb2N1bWVudC5tYWluZm9ybS5tcHMudmFsdWUgPQ0KICAgIHJvdW5kKDAuMzA0OCAqIGRvY3VtZW50Lm1haW5mb3JtLnZlbG9jaXR5LnZhbHVlLCAxKQ0KfQ0KDQpmdW5jdGlvbiBtcHNjaGcxKCkgew0KICBkb2N1bWVudC5tYWluZm9ybS52ZWxvY2l0eS52YWx1ZSA9DQogICAgcm91bmQoMy4yODEgKiBkb2N1bWVudC5tYWluZm9ybS5tcHMudmFsdWUsIDApDQp9DQoNCmZ1bmN0aW9uIG1wc2NoZygpIHsNCiAgbXBzY2hnMSgpOw0KICBjYWxjKCk7DQp9DQoNCmZ1bmN0aW9uIHJldmNhbGMoKSB7DQp9DQoNCmZ1bmN0aW9uIHJldmRlbnMoKSB7DQp9DQoNCmZ1bmN0aW9uIHJldmplbSgpIHsNCn0NCg0KZnVuY3Rpb24ganJldmNhbGMoKSB7DQp9DQoNCmZ1bmN0aW9uIHJvdW5kKHgsIHBsYWNlcykgew0KICBmYWMgPSBNYXRoLnBvdygxMCwgcGxhY2VzKTsNCiAgcmV0dXJuIE1hdGgucm91bmQoeCAqIGZhYykgLyBmYWMNCn0NCg0KZnVuY3Rpb24gbW9kaWZ5KHdlaWdodCwgdmVsb2NpdHksIGRpYW1ldGVyKSB7DQogIGRvY3VtZW50Lm1haW5mb3JtLndlaWdodC52YWx1ZSA9IHdlaWdodA0KICBkb2N1bWVudC5tYWluZm9ybS52ZWxvY2l0eS52YWx1ZSA9IHZlbG9jaXR5Ow0KICBkb2N1bWVudC5tYWluZm9ybS5kaWFtZXRlci52YWx1ZSA9IGRpYW1ldGVyOw0KICBncmNhbGMoKTsNCiAgb3pjYWxjKCk7DQogIG1tY2FsYygpOw0KICBnZ2NhbGMoKTsNCiAgbXBzY2FsYygpOw0KICBjYWxjKCk7DQp9DQoNCmZ1bmN0aW9uIHNob3Rtb2RpZnkob3VuY2VzLCB2ZWxvY2l0eSwgZ2F1Z2UpIHsNCiAgZG9jdW1lbnQubWFpbmZvcm0ub3oudmFsdWUgPSBvdW5jZXM7DQogIGRvY3VtZW50Lm1haW5mb3JtLnZlbG9jaXR5LnZhbHVlID0gdmVsb2NpdHk7DQogIGRvY3VtZW50Lm1haW5mb3JtLmdhdWdlLnZhbHVlID0gZ2F1Z2U7DQogIG96Y2hnMSgpOw0KICBnZ2NoZzEoKTsNCiAgbXBzY2FsYygpOw0KICBjYWxjKCk7DQogIA0KfQ0KPC9zY3JpcHQ%2BDQo8L2hlYWQ%2BDQo8Ym9keSBvbkxvYWQ9Im1vZGlmeSgxNTAsIDI4MjAsIDAuMzA4KTsiPg0KPHRhYmxlIHdpZHRoPSIzMjBweCI%2BPHRyPjx0ZD4NCjxiPjxjZW50ZXI%2BaVBob25lIE11enpsZSBFbmVyZ3kgQ29tcHV0ZXI8L2NlbnRlcj48L2I%2BDQo8cD4NCjxmb3JtIG5hbWU9Im1haW5mb3JtIj4NCjx0YWJsZT4NCjx0cj4NCjx0ZCBhbGlnbj0iY2VudGVyIj5XZWlnaHQgKGdyKTwvdGQ%2BDQo8dGQgYWxpZ249ImNlbnRlciI%2BKGdyYW1zKTwvdGQ%2BDQo8dGQgYWxpZ249ImNlbnRlciI%2BKG91bmNlcyk8L3RkPg0KPC90cj4NCjx0cj4NCjx0ZD48aW5wdXQgc2l6ZT0iMTAiIHR5cGU9InRleHQiIG5hbWU9IndlaWdodCIgb25DaGFuZ2U9IndjaGcoKTsiIG9uS2V5dXA9IndjaGcoKTsiPjwvdGQ%2BDQo8dGQ%2BPGlucHV0IHNpemU9IjEwIiB0eXBlPSJ0ZXh0IiBuYW1lPSJnciIgb25DaGFuZ2U9ImdyY2hnKCk7IiBvbktleXVwPSJncmNoZygpOyI%2BPC90ZD4NCjx0ZD48aW5wdXQgc2l6ZT0iMTAiIHR5cGU9InRleHQiIG5hbWU9Im96IiBvbkNoYW5nZT0ib3pjaGcoKTsiIG9uS2V5dXA9Im96Y2hnKCk7Ij48L3RkPg0KPC90cj4NCjx0cj4NCjx0ZCBhbGlnbj0iY2VudGVyIj5WZWxvY2l0eSAoZi9zKTwvdGQ%2BDQo8dGQgYWxpZ249ImNlbnRlciI%2BKG0vcyk8L3RkPg0KPC90cj4NCjx0cj4NCjx0ZD48aW5wdXQgc2l6ZT0iMTAiIHR5cGU9InRleHQiIG5hbWU9InZlbG9jaXR5IiBvbkNoYW5nZT0idmNoZygpOyIgb25LZXl1cD0idmNoZygpOyI%2BPC90ZD4NCjx0ZD48aW5wdXQgc2l6ZT0iMTAiIHR5cGU9InRleHQiIG5hbWU9Im1wcyIgb25jaGFuZ2U9Im1wc2NoZygpOyIgb25LZXl1cD0ibXBzY2hnKCk7Ij48L3RkPg0KPC90cj4NCjx0cj4NCjx0ZCBhbGlnbj0iY2VudGVyIj5EaWFtZXRlciAoaW4pPC90ZD4NCjx0ZCBhbGlnbj0iY2VudGVyIj4obW0pPC90ZD4NCjx0ZCBhbGlnbj0iY2VudGVyIj4oZ2F1Z2UpPC90ZD4NCjwvdHI%2BDQo8dHI%2BDQo8dGQ%2BPGlucHV0IHNpemU9IjEwIiB0eXBlPSJ0ZXh0IiBuYW1lPSJkaWFtZXRlciIgb25DaGFuZ2U9ImRjaGcoKTsiIG9uS2V5dXA9ImRjaGcoKTsiPjwvdGQ%2BDQo8dGQ%2BPGlucHV0IHNpemU9IjEwIiB0eXBlPSJ0ZXh0IiBuYW1lPSJtbSIgb25DaGFuZ2U9Im1tY2hnKCk7IiBvbktleXVwPSJtbWNoZygpOyI%2BPC90ZD4NCjx0ZD48aW5wdXQgc2l6ZT0iMTAiIHR5cGU9InRleHQiIG5hbWU9ImdhdWdlIiBvbkNoYW5nZT0iZ2djaGcoKTsiIG9uS2V5dXA9ImdnY2hnKCk7Ij48L3RkPg0KPHRyPg0KPHRkPiZuYnNwOzwvdGQ%2BDQo8L3RyPg0KPHRyPg0KPHRkIGFsaWduPSJjZW50ZXIiPkVuZXJneSAoZnQgbGJzKTwvdGQ%2BDQo8dGQgYWxpZ249ImNlbnRlciI%2BKGpvdWxlcyk8L3RkPg0KPC90cj48dHI%2BDQo8dGQ%2BPGlucHV0IHNpemU9IjEwIiB0eXBlPSJ0ZXh0IiBuYW1lPSJlbmVyZ3kiIG9uQ2hhbmdlPSJyZXZjYWxjKCk7IiBvbktleXVwPSJyZXZjYWxjKCk7Ij48L3RkPg0KPHRkPjxpbnB1dCBzaXplPSIxMCIgdHlwZT0idGV4dCIgbmFtZT0iam91bGUiIG9uQ2hhbmdlPSJqcmV2Y2FsYygpOyIgb25LZXl1cD0ianJldmNhbGMoKTsiPjwvdGQ%2BDQo8L3RyPg0KPHRyPg0KPHRkIGFsaWduPSJjZW50ZXIiPjxhIGhyZWY9IiNlZmZpY2FjeSI%2BRWZmaWNhY3k8L2E%2BPC90ZD4NCjx0ZCBhbGlnbj0iY2VudGVyIj48YSBocmVmPSIjc2VjZGVucyI%2BU2VjLiBEZW5zLjwvYT48L3RkPg0KPHRkIGFsaWduPSJjZW50ZXIiPkUqU0Q8L3RkPg0KPC90cj4NCjx0cj4NCjx0ZD48aW5wdXQgc2l6ZT0iMTAiIHR5cGU9InRleHQiIG5hbWU9ImVmZmljYWN5IiBvbkNoYW5nZT0icmV2Y2FsYygpOyIgb25LZXl1cD0icmV2Y2FsYygpOyI%2BPC90ZD4NCjx0ZD48aW5wdXQgc2l6ZT0iMTAiIHR5cGU9InRleHQiIG5hbWU9InNlY2RlbnMiIG9uQ2hhbmdlPSJyZXZkZW5zKCk7IiBvbktleXVwPSJyZXZkZW5zKCk7Ij48L3RkPg0KPHRkPjxpbnB1dCBzaXplPSIxMCIgdHlwZT0idGV4dCIgbmFtZT0iamVtIiBvbkNoYW5nZT0icmV2amVtKCk7IiBvbktleXVwPSJyZXZqZW0oKTsiPjwvdGQ%2BDQo8L3RyPg0KPC90YWJsZT4NCjwvZm9ybT4NCg0KVGhlIHRvcCB0aHJlZSByb3dzIGFib3ZlIGFyZSBhY3RpdmUuIENoYW5nZSBhbnkgbnVtYmVyIGFuZCBldmVyeXRoaW5nDQpkZXBlbmRlbnQgb24gaXQgd2lsbCBiZSByZWNvbXB1dGVkLiBDbGljayBhIGJ1dHRvbiBiZWxvdyB0byBmaWxsIGluDQp2YWx1ZXMgZm9yIHRoZSBsaW5rZWQgbG9hZC4gTW9yZSBiYWxsaXN0aWNzIGZvciBSZW1pbmd0b24gYW1tbw0KPGEgaHJlZj0iaHR0cDovL3d3dy5yZW1pbmd0b24uY29tL3Byb2R1Y3RzL2FtbXVuaXRpb24vYmFsbGlzdGljcy8iPg0KaGVyZTwvYT4uPGJyPg0KPGJyPg0KUmlmbGU6PGJyPg0KPGJ1dHRvbiBvbkNsaWNrPSJtb2RpZnkoNTUsIDMyNDAsIC4yMjQpOyI%2BMjIzICg1LjU2IE5hdG8pPC9idXR0b24%2BDQo8YnV0dG9uIG9uQ2xpY2s9Im1vZGlmeSg1NSwgMjc3MywgLjIyNCk7Ij4xMDAgeWFyZHM8L2J1dHRvbj4NCjxidXR0b24gb25DbGljaz0ibW9kaWZ5KDU1LCAyMzUyLCAuMjI0KTsiPjIwMDwvYnV0dG9uPg0KPGJ1dHRvbiBvbkNsaWNrPSJtb2RpZnkoNTUsIDE5NjksIC4yMjQpOyI%2BMzAwPC9idXR0b24%2BDQo8YSBocmVmPSJodHRwOi8vd3d3LnJlbWluZ3Rvbi5jb20vcHJvZHVjdHMvYW1tdW5pdGlvbi9iYWxsaXN0aWNzL3Jlc3VsdHMvZGVmYXVsdC5hc3B4P3R5cGU9Y2VudGVyZmlyZSZjYWw9NiI%2BKjwvYT48YnI%2BDQo8YnV0dG9uIG9uQ2xpY2s9Im1vZGlmeSgxMjUsIDIzNjUsIC4zMDkpOyI%2BNy42MngzOTwvYnV0dG9uPg0KPGJ1dHRvbiBvbkNsaWNrPSJtb2RpZnkoMTI1LCAyMDYyLCAuMzA5KTsiPjEwMCB5YXJkczwvYnV0dG9uPg0KPGJ1dHRvbiBvbkNsaWNrPSJtb2RpZnkoMTI1LCAxNzgzLCAuMzA5KTsiPjIwMDwvYnV0dG9uPg0KPGJ1dHRvbiBvbkNsaWNrPSJtb2RpZnkoMTI1LCAxNTMzLCAuMzA5KTsiPjMwMDwvYnV0dG9uPg0KPGEgaHJlZj0iaHR0cDovL3d3dy5yZW1pbmd0b24uY29tL3Byb2R1Y3RzL2FtbXVuaXRpb24vYmFsbGlzdGljcy9yZXN1bHRzL2RlZmF1bHQuYXNweD90eXBlPWNlbnRlcmZpcmUmY2FsPTM2Ij4qPC9hPjxicj4NCjxidXR0b24gb25DbGljaz0ibW9kaWZ5KDE1MCwgMjgyMCwgLjMwOCk7Ij4zMDggKDcuNjIgTmF0byk8L2J1dHRvbj4NCjxidXR0b24gb25DbGljaz0ibW9kaWZ5KDE1MCwgMjUzMywgLjMwOCk7Ij4xMDAgeWFyZHM8L2J1dHRvbj4NCjxidXR0b24gb25DbGljaz0ibW9kaWZ5KDE1MCwgMjI2MywgLjMwOCk7Ij4yMDA8L2J1dHRvbj4NCjxidXR0b24gb25DbGljaz0ibW9kaWZ5KDE1MCwgMjAwOSwgLjMwOCk7Ij4zMDA8L2J1dHRvbj4NCjxhIGhyZWY9Imh0dHA6Ly93d3cucmVtaW5ndG9uLmNvbS9wcm9kdWN0cy9hbW11bml0aW9uL2JhbGxpc3RpY3MvcmVzdWx0cy9kZWZhdWx0LmFzcHg%2FdHlwZT1jZW50ZXJmaXJlJmNhbD0zMyI%2BKjwvYT48YnI%2BDQo8YnV0dG9uIG9uQ2xpY2s9Im1vZGlmeSgxODAsIDI3MDAsIC4zMDgpOyI%2BMzAtMDY8L2J1dHRvbj4NCjxidXR0b24gb25DbGljaz0ibW9kaWZ5KDE4MCwgMjQ4NSwgLjMwOCk7Ij4xMDAgeWFyZHM8L2J1dHRvbj4NCjxidXR0b24gb25DbGljaz0ibW9kaWZ5KDE4MCwgMjI4MCwgLjMwOCk7Ij4yMDA8L2J1dHRvbj4NCjxidXR0b24gb25DbGljaz0ibW9kaWZ5KDE4MCwgMjA4NCwgLjMwOCk7Ij4zMDA8L2J1dHRvbj4NCjxhIGhyZWY9Imh0dHA6Ly93d3cucmVtaW5ndG9uLmNvbS9wcm9kdWN0cy9hbW11bml0aW9uL2JhbGxpc3RpY3MvcmVzdWx0cy9kZWZhdWx0LmFzcHg%2FdHlwZT1jZW50ZXJmaXJlJmNhbD0zMCI%2BKjwvYT48YnI%2BDQo8YnV0dG9uIG9uQ2xpY2s9Im1vZGlmeSgyNDAsIDIzNTAsIC40MzApOyI%2BNDQ0IE1hcmxpbjwvYnV0dG9uPg0KPGJ1dHRvbiBvbkNsaWNrPSJtb2RpZnkoMjQwLCAxODE1LCAuNDMwKTsiPjEwMCB5YXJkczwvYnV0dG9uPg0KPGJ1dHRvbiBvbkNsaWNrPSJtb2RpZnkoMjQwLCAxMzc3LCAuNDMwKTsiPjIwMDwvYnV0dG9uPg0KPGJ1dHRvbiBvbkNsaWNrPSJtb2RpZnkoMjQwLCAxMDg3LCAuNDMwKTsiPjMwMDwvYnV0dG9uPg0KPGEgaHJlZj0iaHR0cDovL3d3dy5yZW1pbmd0b24uY29tL3Byb2R1Y3RzL2FtbXVuaXRpb24vYmFsbGlzdGljcy9yZXN1bHRzL2RlZmF1bHQuYXNweD90eXBlPWNlbnRlcmZpcmUmY2FsPTUzIj4qPC9hPjxicj4NCjxicj4NCkhhbmRndW46PGJyPg0KPGJ1dHRvbiBvbkNsaWNrPSJtb2RpZnkoMTI0LCAxMTgwLCAuMzU1KTsiPjltbSBMdWdlcjwvYnV0dG9uPg0KPGJ1dHRvbiBvbkNsaWNrPSJtb2RpZnkoMTI0LCAxMDg5LCAuMzU1KTsiPjUwIGZlZXQ8L2J1dHRvbj4NCjxidXR0b24gb25DbGljaz0ibW9kaWZ5KDEyNCwgMTAyMSwgLjM1NSk7Ij4xMDA8L2J1dHRvbj4NCjxhIGhyZWY9Imh0dHA6Ly93d3cucmVtaW5ndG9uLmNvbS9wcm9kdWN0cy9hbW11bml0aW9uL2JhbGxpc3RpY3MvcmVzdWx0cy9kZWZhdWx0LmFzcHg%2FdHlwZT1waXN0b2wmY2FsPTYiPio8L2E%2BPGJyPg0KPGJ1dHRvbiBvbkNsaWNrPSJtb2RpZnkoMTU4LCAxMjM1LCAuMzU4KTsiPjM1NyBNYWdudW08L2J1dHRvbj4NCjxidXR0b24gb25DbGljaz0ibW9kaWZ5KDE1OCwgMTEwNCwgLjM1OCk7Ij41MCBmZWV0PC9idXR0b24%2BDQo8YnV0dG9uIG9uQ2xpY2s9Im1vZGlmeSgxNTgsIDEwMTUsIC4zNTgpOyI%2BMTAwPC9idXR0b24%2BDQo8YSBocmVmPSJodHRwOi8vd3d3LnJlbWluZ3Rvbi5jb20vcHJvZHVjdHMvYW1tdW5pdGlvbi9iYWxsaXN0aWNzL3Jlc3VsdHMvZGVmYXVsdC5hc3B4P3R5cGU9cGlzdG9sJmNhbD01Ij4qPC9hPjxicj4NCjxidXR0b24gb25DbGljaz0ibW9kaWZ5KDE2NSwgMTE1MCwgLjQwMik7Ij40MCBTJlc8L2J1dHRvbj4NCjxidXR0b24gb25DbGljaz0ibW9kaWZ5KDE2NSwgMTA0MCwgLjQwMik7Ij41MCBmZWV0PC9idXR0b24%2BDQo8YnV0dG9uIG9uQ2xpY2s9Im1vZGlmeSgxNjUsIDk2NCwgLjQwMik7Ij4xMDA8L2J1dHRvbj4NCjxhIGhyZWY9Imh0dHA6Ly93d3cucmVtaW5ndG9uLmNvbS9wcm9kdWN0cy9hbW11bml0aW9uL2JhbGxpc3RpY3MvcmVzdWx0cy9kZWZhdWx0LmFzcHg%2FdHlwZT1waXN0b2wmY2FsPTE0Ij4qPC9hPjxicj4NCjxidXR0b24gb25DbGljaz0ibW9kaWZ5KDIzMCwgODc1LCAuNDUxKTsiPjQ1IEF1dG88L2J1dHRvbj4NCjxidXR0b24gb25DbGljaz0ibW9kaWZ5KDIzMCwgODMzLCAuNDUxKTsiPjUwIGZlZXQ8L2J1dHRvbj4NCjxidXR0b24gb25DbGljaz0ibW9kaWZ5KDIzMCwgNzk1LCAuNDUxKTsiPjEwMDwvYnV0dG9uPg0KPGEgaHJlZj0iaHR0cDovL3d3dy5yZW1pbmd0b24uY29tL3Byb2R1Y3RzL2FtbXVuaXRpb24vYmFsbGlzdGljcy9yZXN1bHRzL2RlZmF1bHQuYXNweD90eXBlPXBpc3RvbCZjYWw9MTkiPio8L2E%2BPGJyPg0KPGJ1dHRvbiBvbkNsaWNrPSJtb2RpZnkoMjQwLCAxMTgwLCAuNDMwKTsiPjQ0IE1hZ251bTwvYnV0dG9uPg0KPGJ1dHRvbiBvbkNsaWNrPSJtb2RpZnkoMjQwLCAxMDgxLCAuNDMwKTsiPjUwIGZlZXQ8L2J1dHRvbj4NCjxidXR0b24gb25DbGljaz0ibW9kaWZ5KDI0MCwgMTAxMCwgLjQzMCk7Ij4xMDA8L2J1dHRvbj4NCjxhIGhyZWY9Imh0dHA6Ly93d3cucmVtaW5ndG9uLmNvbS9wcm9kdWN0cy9hbW11bml0aW9uL2JhbGxpc3RpY3MvcmVzdWx0cy9kZWZhdWx0LmFzcHg%2FdHlwZT1waXN0b2wmY2FsPTE2Ij4qPC9hPjxicj4NCjxicj4NClNob3RndW46PGJyPg0KPGJ1dHRvbiBvbkNsaWNrPSJzaG90bW9kaWZ5KDEsIDE2ODAsIDEyKTsiPjEyIEdhdWdlIFNsdWc8L2J1dHRvbj4NCjxidXR0b24gb25DbGljaz0ic2hvdG1vZGlmeSgxLCAxMjg1LCAxMik7Ij41MCB5YXJkczwvYnV0dG9uPg0KPGJ1dHRvbiBvbkNsaWNrPSJzaG90bW9kaWZ5KDEsIDEwNDUsIDEyKTsiPjEwMDwvYnV0dG9uPg0KPGEgaHJlZj0iaHR0cDovL3d3dy5yZW1pbmd0b24uY29tL3Byb2R1Y3RzL2FtbXVuaXRpb24vYmFsbGlzdGljcy9zaG90c2hlbGxfc2x1Z19sb2Fkcy5hc3AiPio8L2E%2BPGJyPg0KPHA%2BDQpOb3RlOiB0aGlzIHBhZ2UgaXMgZW50aXJlbHkgc2VsZi1jb250YWluZWQuIEl0IHJlcXVpcmVzIG5vIHNlcnZlci1zaWRlDQpjb2RlIHRvIG9wZXJhdGUuIEFsbCB0aGUgY29tcHV0YXRpb25zIGFyZSBkb25lIGJ5IEphdmFTY3JpcHQgY29kZQ0KZW1iZWRkZWQgaW4gdGhlIEhUTUwuIElmIHlvdSAiU2F2ZSBBcy4uLiIgaW4geW91ciBicm93c2VyLCB5b3UgY2FuIHJ1bg0KaXQgb2ZmLWxpbmUuDQo8cD4NCjxhIG5hbWU9ImVmZmljYWN5Ij4NCjxiPkVmZmljYWN5PC9iPiBpcyBhIG1lYXN1cmUgcHJvcG9zZWQgYnkNCjxhIGhyZWY9Imh0dHA6Ly9sbmVpbHNtaXRoLm9yZyI%2BDQpMLiBOZWlsIFNtaXRoPC9hPi4gSXQgaXMgZGVmaW5lZCBhcyBlbmVyZ3kgaW4gZm9vdCBwb3VuZHMgbXVsdGlwbGllZA0KYnkgcHJvamVjdGlsZSBjcm9zcy1zZWN0aW9uYWwgYXJlYSBpbiBzcXVhcmUgaW5jaGVzLiBOZWlsIHNheXMgdGhhdA0KdGhpcyBpcyBhIHByZXR0eSBnb29kIGluZGljYXRvciBvZiB0aGUgcmVsYXRpdmUgZWZmaWNhY3kgYWdhaW5zdCBsaXZlDQp0YXJnZXRzIG9mIGRpZmZlcmVudCBwcm9qZWN0aWxlcyBhbmQgbG9hZHMuIEluIGFuIGVtYWlsIGFib3V0IHRoaXMNCnBhZ2UsIE5laWwgd3JvdGUsICJJJ20gbm90IGFic29sdXRlbHkgY2VydGFpbiBvZiBpdHMgYXBwbGljYWJpbGl0eSB0bw0KcmlmbGVzIChhbHRob3VnaCBpdCBsb29rcyBwcmV0dHkgZ29vZCBhbmQgaXMgZmluZSBmb3Igc2x1Z3MgYW5kIHJpZmxlcw0KbGlrZSAuNDUvNzApLiBUaGVyZSBhcmUgb3RoZXIgZmFjdG9ycyBhdCB3b3JrIGFib3ZlIDIwMDAtMjUwMCBmZWV0IHBlcg0Kc2Vjb25kLiBCdXQgZXZlcnkgeWVhciB0aGF0IHBhc3NlcyBjb252aW5jZXMgbWUgbW9yZSB0aGF0IHRoaXMgaXMgdGhlDQpwZXJmZWN0IHByb2dyYW0gZm9yIHByZWRpY3RpbmcgaGFuZGd1biBwZXJmb3JtYW5jZS4iPC9hPg0KPHA%2BDQo8YSBuYW1lPSJzZWNkZW5zIj4NCjxiPlNlY3Rpb25hbCBEZW5zaXR5PC9iPiAoIlNlYy4gRGVucy4iIGFib3ZlKSBpcyBkZWZpbmVkIGFzIHRoZSB3ZWlnaHQgKHcpDQpvZiB0aGUgYnVsbGV0IGluIHBvdW5kcyBkaXZpZGVkIGJ5IHRoZSBzcXVhcmUgb2YgaXRzIGRpYW1ldGVyIChkKSBpbg0KaW5jaGVzOiB3L2ReMiA9IHBvdW5kcyBwZXIgc3F1YXJlIGluY2guPC9hPg0KPHA%2BDQpJIHVzZWQgUmVtaW5ndG9uIGFtbW8gZm9yIHRoZSBwcmVzZXQgYnV0dG9ucyBvbmx5IGJlY2F1c2UgdGhlDQpiYWxsaXN0aWNzIHdlcmUgZWFzeSB0byBmaW5kIG9uIHRoZSB3ZWIuIEkgaGFuZGxvYWQgb3IgdXNlIG1pbGl0YXJ5DQpzdXJwbHVzIGZvciBtb3N0IG9mIG15IHNob290aW5nLiBZb3UgY2FuIGZhaXJseSBlYXNpbHkgY2hhbmdlIHRoZQ0KJmx0O2J1dHRvbj4gdGFncyBmb3IgeW91ciBmYXZvcml0ZSBsb2Fkcy4NCjxwPg0KPGEgaHJlZj0iZW5lcmd5Lmh0bWwiPg0KYmlsbHN0Y2xhaXIuY29tL2VuZXJneS5odG1sPC9hPiBpcyB0aGUgb3JpZ2luYWwgdmVyc2lvbiBvZiB0aGlzIHBhZ2UsDQpzaXplZCBmb3IgYSBzdGFuZGFyZCB3ZWIgYnJvd3Nlci4NCjxwPg0KPGhyPg0KPHA%2BDQpDb3B5cmlnaHQgJmNvcHk7IDIwMDcgPGEgaHJlZj0iaHR0cDovL2JpbGxzdGNsYWlyLmNvbS8iPkJpbGwgU3QuIENsYWlyPC9hPjxicj4NCkNvcHlpbmcgYW5kIHJlcG9zdGluZyBhbGxvd2VkIGFzIGxvbmcgYXMgdGhpcyBjb3B5cmlnaHQgcmVtYWlucyBpbnRhY3QNCjwvdHI%2BPC90ZD48L3RhYmxlPg0KPC9ib2R5Pg0KPC9odG1sPg0K">
+clicking here</a>, and saving as a bookmark. Thanks to the
+<a href="http://software.hixie.ch/utilities/cgi/data/data">
+data: URI kitchen</a>.
+<hr>
+<p>
+Copyright &copy; 2007-2009 <a href="http://billstclair.com/">Bill St. Clair</a><br>
+Copying and reposting allowed as long as this copyright remains intact
+</tr></td></table>
+</body>
+</html>
