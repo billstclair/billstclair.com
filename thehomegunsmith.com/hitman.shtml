@@ -1,0 +1,190 @@
+<html>
+<head>
+<title>"Hit Man" On-Line</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="A .pdf showing how to make a compressed-air machine gun.">
+<meta name="keywords" content="freedom,liberty,gunsmithing,guns,gun making,ammo,ammunition,self-defense">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="MSSmartTagsPreventParsing" content="TRUE">
+</head>
+
+<body bgcolor="#ffffff" background="pics/brick.gif" text="#000000" link="#0000ff" vlink="#ff0000" topmargin="0" leftmargin="0">
+
+<a name="top"></a>
+<div align="center">
+
+<table width="99%" border="0" cellpadding="0" cellspacing="1" bgcolor="#0000ff">
+<tr>
+<td valign="bottom" align="left">
+<img src="pics/bsp-animation.gif" width="200" height="150" border="0" alt="BSP in Action">
+</td>
+<td valign="bottom" align="left">
+<br><font face="verdana,arial,sans-serif" size="7"><b>THE HOMEGUNSMITH.COM</b></font>
+<br><font face="verdana,arial,sans-serif" size="1" color="white"><center>Only through mass non-compliance with all gun and knife<br>laws will we ever overthrow Britains anti-gun fascist gun laws.
+<br><i>"Vengeance will be mine, one bullet at a time"</i></center></font>
+</td>
+<td valign="bottom" align="right">
+<img src="pics/banner251x150.jpg" width="251" height="150" border="0" alt="subgun">
+</td>
+</tr>
+</table>
+
+<p>
+<table width="99%" border="0" cellpadding="0" cellspacing="10">
+<tr>
+<td width="25%" valign="top" align="left" bgcolor="#ddddff">
+<img src="pics/UnionJack.gif" align="bottom" width="180" height="135" border="0" alt="Union Jack">
+<font face="verdana,arial,sans-serif" size="3">
+<b>
+<p><a href="index.shtml">Home & Intro</a>
+
+<p><a href="aboutauthor.shtml">About the Author</a>
+
+<p><a href="familyandfriends.shtml">Family and Friends</a>
+
+<p><a href="abookwasborn.shtml">Book History</a>
+
+<p><a href="furtherreading.shtml">More Reading
+<br><img src="pics/frontcover185x236.jpg" width="185" height="236" alt="Front Cover"></a>
+
+<p><a href="readthis.shtml">Read This</a>
+
+<p><a href="gunbarrels.shtml">Gun Barrels</a>
+
+<p><a href="greatguns.shtml">GREAT GUNS</a>
+
+<p><a href="firearm-archive.shtml">Firearm Archive</a>
+
+<p><a href="pdf/DrinkBottleSilencer.pdf">.22 Silencer (.pdf)</a>
+
+<p><a href="pdf/BSP-Semi-Auto.pdf">Semi-Auto BSP SMG (.pdf)</a>
+
+<p><a href="stopguns.shtml"><b>STOP GUNS!</b></a>
+
+<p><a href="homemadeammo.shtml"><font size="+3"><b>New Book</b></font></a>
+
+<p><a href="homemadeammo.shtml"><img src="pics/HomemadeAmmo.jpg" width="185" height="238" border="0" alt="Homemade Ammo"></a>
+
+<p><a href="12g-pistol.shtml"><img src="pics/12GaugePistol-thumbnail.jpg" width="185" height="300" border="0" alt="12 Gauge Pistol"></a>
+
+<p><a href="22pistol.shtml"><img src="pics/22SilencedPistol-thumbnail.jpg" width="185" height="279" border="0" alt=".22 Pistol"></a>
+
+<p><a href="9mmPistol.shtml"><img src="pics/9mmMachinePistol-thumbnail.jpg" width="185" height="263" border="0" alt="9mm MP"></a>
+
+<p><a href="CaselmanAPMG.shtml">Air Machine Gun Plans!
+<br><img src="pics/caselman-mg-verysmall.jpg" width="185" height="59" alt="Caselman Air Machine Gun"></a>
+<br><a href="http://www.youtube.com/watch?v=POCGiy5VpxI" target="_blank">Caselman Air Machine Gun Video!</a>
+
+<p><a href="ZipGun.shtml">A simple "Zip Gun" design</a>
+
+<p><a href="pdf/AIR-POWERED-PCP_ARROW_RIFLE.pdf">Arrow Rifle</a>
+
+<p><a href="Off-Wpns.shtml">Offensive Weapons</a>
+
+<p><a href="video.shtml">Videos</a>
+
+<p><a href="links.shtml">Links</a>
+
+<p><a href="http://www.ak47world.com/" target="new"><img src="pics/ak47-185x123.jpg" width="185" height="123" border="0" alt="AK-47 in good hands...YOURS!"></a>
+
+<p><img src="pics/Churchill.jpg" width="185" height="307" border="0" alt="Mr. Churchill's favorite gun">
+
+</td>
+
+
+<!-- End Top Banner -->
+
+<td valign="top" align="left"><font face="georgia,timesroman,serif" size="3">
+
+<div align="center">
+<p><table width="95%" border=0 cellpadding=10 cellspacing=10>
+<tr>
+<td valign=top align=left><font face="georgia,timesroman,serif">
+
+<p><center><font color="red" size=7 style="font-size: 48pt"><b><i>"HIT MAN"
+<br>ON-LINE</i></b></font>
+<br>
+<br><font color="blue" size="6"><b><i>A Technical Manual 
+<br>for 
+<br>Independent Contractors</i></b></font>
+<br>
+<br><font size="+1"><b>Originally published by Paladin Press
+<br>
+<br>Written by Rex Feral (*)</b></font></center></p>
+
+<font size="+1">
+
+<p><b>In 1993, a triple murder was committed in Montgomery County by a man who was alleged to have used this book, Hit Man, as his guide. He was caught and convicted and sentenced to death. Wanting to profit from their loved one's murder, and realizing that the murderer himself was too poor to be worth suing, the family of those killed by the hit man sued Paladin Press, the publisher of the book Hit Man, saying Paladin Press "aided and abetted" the murder.</b></p>
+
+<p><b>May 21, 1999, Paladin Press settled the case, giving the families of those killed by the hit man several million dollars, agreeing to destroy the remaining 700 copies of the book in their possession, and surrendering any rights they have to publish and reproduce the work. While the families were successful in profiting from their loved one's death, they have not been successful in stifling the book. </b></p>
+
+<p><b>The book was initially published in 1983. 13,000 copies of the book are now in existence. There has only ever been one case where the book was associated with a crime, in that case the criminal had recently finished a lengthy prison sentence and had a history of prior violent crime. It is our opinion this book has never incited a murder, that the settlement of the Paladin Press case was wrong and forced by the insurance company, and that this book, and no book, should be banned. We invite the public to judge for themselves.</b></p>
+
+<p><font color="darkblue" size="+3"><b>That said, here is <i>Hit Man:</i></b></font>
+<br><b>"Success is nothing more than taking advantage of an opportunity"
+<br>'Anonymous'</b></p>
+
+<p><center><font color="darkblue" size="+3"><b><u>WARNING</u></b></font></center></p>
+
+<p><b><i>IT IS AGAINST THE LAW TO:</i> Commit murder and/or manufacture a silencer without an appropriate license. <i>For academic study purposes only!</i></b></p>
+
+<p><center><font size="+4"><b><u>CONTENTS</u></b></font></center></p>
+
+<p><font color="darkblue"><b>1. Preface
+<br>2. Prologue 
+<br>3. THE BEGINNING - Mental and Physical Preparations 
+<br>4. EQUIPMENT - Selection and Purpose 
+<br>5. THE DISPOSABLE SILENCER - A Poor Man's Access To A Rich Man's  Toy 
+<br>6. MORE THAN ONE WAY TO KILL A RABBIT - The Direct Hit Is Not  Your Only Alternative 
+<br>7. HOMEWORK AND SURVEILLANCE - Mapping a Plan And Checking It For Accuracy 
+<br>8. OPPORTUNITY KNOCKS - Finding Employment, What To Charge, Who To Avoid 
+<br>9. GETTING THE JOB DONE RIGHT - Why The Described Hit Went Down The Way It Did 
+<br>10.  DANGER! EGO, WOMEN AND PARTNERS - Controlling Your Situation
+<br>11.  LEGALLY  ILLEGAL - Enjoying the Fruits</b></font></p>
+
+<p><br><font color="red" size=7 style="font-size: 48pt"><b><i>Hit Man:</i></b></font></p>
+
+<p><font color="darkblue" size="4"><b><i>A Technical Manual for 
+<br>Independent Contractors:</i></b></font>
+
+<p><b><i>Hit Man: A Technical Manual for Independent Contractors</i> is a book written under the <a href="http://en.wikipedia.org/wiki/Pseudonym" target="new">pseudonym</a> Rex Feral (*) and published by <a href="http://en.wikipedia.org/wiki/Paladin_Press" target="new">Paladin Press</a> in 1983. It has been claimed that the book started life as a detailed crime novel written by somebody described as a <a href="http://en.wikipedia.org/wiki/Florida" target="new">Florida</a> <a href="http://en.wikipedia.org/wiki/Housewife" target="new">housewife</a>, and that the format was later changed to appeal to Paladin's reader base. It has been disclosed that Rex Feral is the pseudonym of a woman, who wrote only one other book under this name: <a href="http://en.wikipedia.org/w/index.php?title=How_to_Rip_off_a_Drug_Dealer&action=edit" target="new">"How to Rip off a Drug Dealer"</a>.</b></p>
+
+<p><b>Existing copies at Paladin Press were destroyed, after the book was claimed to be used as a guide during a triple murder in 1993 (see below), but one can noweasily read the book here on-line. It is believed that 13,000 copies were sold, although <a href="http://en.wikipedia.org/wiki/Reason_(magazine)" target="new"><i>Reason Magazine</i></a> estimates there are 20,000 copies of the book in existence.</b></p>
+
+<p><font color="darkblue" size="4"><b><u>Controversy</u></b></font></p>
+
+<p><b>In 1993, a triple murder was committed in <a href="http://en.wikipedia.org/wiki/Montgomery_County%2C_Maryland" target="new">Montgomery County, Maryland</a> by a man who used this book, <i>Hit Man,</i> as his guide. <a href="http://en.wikipedia.org/wiki/James_Perry" target="new">James Perry</a>, who had been previously imprisoned for violent crime, was caught, convicted and sentenced to death. He had been hired by <a href="http://en.wikipedia.org/wiki/Lawrence_Horn" target="new">Lawrence T Horn</a>, who sought to receive the proceeds of a life insurance policy. The families of Mildred Horn, her son Trevor and her nurse Janice Saunders sued Paladin Press, the publisher of the book Hit Man, saying Paladin Press "aided and abetted" the murder. The suit, <i>Rice v Paladin Press</i>, claimed that Paladin Press had a share of responsibility in the murders by virtue of their publication of a book that might be used by criminals and would-be criminals in the solicitation, planning, and commission of murder for hire.</b></p>
+
+<p><b>May 21, 1999, Paladin Press' insurance company decided to settle the case, giving the families of those killed by the hit man several million dollars, agreeing to destroy the remaining 700 copies of the book in their possession, and surrendering any rights they have to publish and reproduce the work. However, the families were not entirely successful in stifling the book.</b></p>
+
+<p><b>The book was also cited as a source of information in a similar crime committed by Robert Vaughn Jones in 1999.</b></p>
+
+<p><font color="darkblue" size="4"><b>Now read <i>'Hit Man'</i> here and make your own decision!</b></font></p>
+
+<p><a href="pdf/HitMan.pdf"><img src="pics/hitman.jpg" width="180" height="284" alt="Hit Man">
+<br><b>FREE DOWNLOAD</b></a>
+<br>643.306-byte .pdf file
+
+<p><font color="darkblue" size="4"><b>(*) Rex Feral is a latin expression meaning “King of Beasts”
+
+<blockquote>
+<p><br><font size="-1">If you don't have a copy of Adobe Acrobat Reader, you can 
+download a free copy from 
+<a href="http://www.adobe.com/products/acrobat/alternate.html">Adobe</a>.
+<br><b>Note: you <u>may</u> need the most recent version to see these files!</b>
+<br>
+<br><a href="http://www.adobe.com/products/acrobat/alternate.html">
+<img src="pics/getacro.gif" border="0" width="88" height="31" alt="[Acrobat Icon]"></a></font>
+</blockquote>
+
+</font>
+</td>
+</tr>
+</table>
+</div>
+</font>
+</div>
+</body>
+</html>
+
