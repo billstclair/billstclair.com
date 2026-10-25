@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<rss version="2.0" xml:base="http://billstclair.com/journal/">
+<channel>
+ <title>Tech | Glory All Around</title>
+ <link>http://billstclair.com/journal/categories/tech.html</link>
+ <description>Technology/Computers</description>
+ <language>en</language>
+ <managingEditor>Bill St. Clair</managingEditor>
+ <generator>Lisplog</generator>
+<item>
+ <title>Saab 9-5 Brights Wouldn&#039;t Stay On</title>
+ <link>http://billstclair.com/journal/saab_95_brights_wouldnt_stay_on.html</link>
+ <description>&lt;p&gt;I have a 1999 Saab 9-5, gifted to my son by my sister-in-law. He loves the car, but doesn&#039;t like paying for its 20-mile-per-gallon gas, so he drives my 2005 Honda Civic, and I drive the Saab. I recently had two problems with the Saab&#039;s high beams.&lt;/p&gt;
+
+&lt;p&gt;First, the left high beam wasn&#039;t working. I got a new bulb, but that didn&#039;t fix the problem. Turned out I needed to get a new orange light control relay. &lt;a href=&#039;http://www.amazon.com/gp/product/B00BQS8DUE/&#039;&gt;Amazon has it&lt;/a&gt; for $25, or you can find it for less on eBay. Replacing the relay made the left high-beam work, but the brights wouldn&#039;t stay on by themselves. I had to hold the high beam handle back to keep them on, a real pain while driving. My mechanic recommended replacing the gray relay associated with the high beams. &lt;a href=&#039;www.amazon.com/gp/product/B000C7YBMY&#039;&gt;Amazon has that&lt;/a&gt; for $12.&lt;/p&gt;
+
+&lt;p&gt;Replacing that relay didn&#039;t work either, so I went to &lt;a href=&#039;http://www.cartalk.com/mechanics-files/mechanic/vt/shaftsbury-vt/shaftsbury-saab-auto-repair&#039;&gt;Shaftsbury Saab&lt;/a&gt;, about 15 minutes from my apartment in Bennington, and asked the guy there what to do. He asked a few questions, then recommended that I turn the light control switch inside the car to the farthest clockwise position. I had never noticed that switch to do anything, but since I did that, the brights stay on. Yay!&lt;/p&gt;
+
+&lt;p style=&#039;text-align: center;&#039;&gt;&lt;img src=&#039;&lt;!-- TMPL_VAR home --&gt;/images/saab-light-switch-600x450.jpg&#039; alt=&#039;Saab light switch&#039; width=&#039;600&#039; height=&#039;450&#039;/&gt;&lt;/p&gt;</description>
+ <pubDate>Mon, 20 Apr 2015 23:23:20 GMT</pubDate>
+</item>
+<item>
+ <title>Connecting to a printer via iPhone Personal Hotspot</title>
+ <link>http://billstclair.com/journal/connecting_to_a_printer_via_iphone_personal_hotspot.html</link>
+ <description>&lt;p&gt;In my new apartment, I do not yet have always-on internet. I&#039;m using my iPhone&#039;s Personal Hotspot feature to use the AT&amp;T cellular network for an internet connection for my computer. I have a wifi-accessible printer as well, so I connected it to the iPhone via wifi. This allowed my Mac to print as long as it, too, was connected via wifi, but reconnection is much easier if I just plug the iPhone in to the USB port of the Mac. That gives the Mac access, but on a different internal network than the wifi network, so it can&#039;t talk to the printer. Solution: make a wifi connection to the iPhone from the Mac before attempting to access the printer.&lt;/p&gt;</description>
+ <pubDate>Sun, 05 Apr 2015 01:01:04 GMT</pubDate>
+</item>
+</channel>
+</rss>

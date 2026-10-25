@@ -1,0 +1,26 @@
+# Make sure "AllowOverride All" is in your config
+
+# Also make sure you've enabled the following Apache modules:
+#   rewrite, proxy, proxy_http
+
+# These shouldn't be necessary, since I use an http-equiv line
+# in the <head> of the HTML. Left here commented out just as
+# a reminder.
+#AddType 'text/html; charset=UTF-8' html
+#AddCharset utf-8 .html
+
+# Set some options.
+Options -Indexes
+Options +FollowSymLinks
+
+# Rewriting rules for the lisp server
+RewriteEngine on
+
+# You might need this. It's a path in the file system, not URI space
+#RewriteBase /home/wws/lisplog/site
+
+RewriteCond %{QUERY_STRING} ^(.+)$
+RewriteRule ^admin/(.*)$ http://%{HTTP_HOST}:5480/$1?%1&uri=%{HTTP_HOST}%{REQUEST_URI}&https=%{HTTPS} [P]
+
+RewriteCond %{QUERY_STRING} ^$
+RewriteRule ^admin/(.*)$ http://%{HTTP_HOST}:5480/$1?uri=%{HTTP_HOST}%{REQUEST_URI}&https=%{HTTPS} [P]

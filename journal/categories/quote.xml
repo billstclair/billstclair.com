@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<rss version="2.0" xml:base="http://billstclair.com/journal/">
+<channel>
+ <title>Quote | Glory All Around</title>
+ <link>http://billstclair.com/journal/categories/quote.html</link>
+ <description>Quotes to live by</description>
+ <language>en</language>
+ <managingEditor>Bill St. Clair</managingEditor>
+ <generator>Lisplog</generator>
+<item>
+ <title>Quote</title>
+ <link>http://billstclair.com/journal/quote_4.html</link>
+ <description>&lt;p&gt;&quot;I am a soul, currently living in a human body in a landmass called America, on a water planet circling an average star near the outside of a galaxy in a universe that is part of a manifest creation. I wonder about the reality where that creation is a single quark.&quot; -- Bill St. Clair&lt;/p&gt;</description>
+ <pubDate>Mon, 29 Jan 2018 22:32:15 GMT</pubDate>
+</item>
+<item>
+ <title>Quote</title>
+ <link>http://billstclair.com/journal/quote_3.html</link>
+ <description>&lt;p&gt;&quot;Dusting is easy, if you think of it as an opportunity to love everything you own.&quot; -- Bill St. Clair&lt;/p&gt;</description>
+ <pubDate>Sun, 05 Apr 2015 07:35:27 GMT</pubDate>
+</item>
+<item>
+ <title>Quote</title>
+ <link>http://billstclair.com/journal/quote.html</link>
+ <description>&lt;p&gt;The meaning of life is to find your gift.&lt;/p&gt;
+
+&lt;p&gt;The purpose of life is to give it away.&lt;/p&gt;
+
+&lt;p&gt;-- Unknown&lt;/p&gt;</description>
+ <pubDate>Tue, 26 Jun 2012 19:05:45 GMT</pubDate>
+</item>
+</channel>
+</rss>
