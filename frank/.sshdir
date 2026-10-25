@@ -1,0 +1,3 @@
+#!/bin/bash
+
+echo $DO:/var/www/billstclair.com/frank
