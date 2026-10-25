@@ -1,0 +1,138 @@
+
+<HTML>
+<HEAD>
+<script language="JavaScript"><!--
+function opensrk() {
+      msgWindow=open('../srk.asp','srk','toolbar=no,location=yes,scrollbars=no,directories=no,status=yes,menubar=no,resizeable=no,width=390,height=136');
+      if (msgWindow.opener == null) msgWindow.opener = self;
+}
+//--></script>
+
+<META HTTP-EQUIV="Content-Type" content="text/html; charset=iso-8859-1">
+
+<TITLE>e-metal Payment Order Form</TITLE>
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+</HEAD>
+<BODY bgcolor="#FFFFFF" onLoad="if (self != top) top.location=self.document.location"><a href="/e-gold.asp"><img src="../gif/logo.gif" width="105" height="45" alt="e-gold logo" border="0" hspace="50" align="absmiddle"></a><b><font size="5" face="Arial, Helvetica, sans-serif" color="#000000">e-metal&reg; 
+Payment Order Form</font></b> 
+<p align="center"><br>
+  <font face="Arial, Helvetica, sans-serif">To pay directly from your e-gold&reg; account, 
+  fill out this payment order form and press the <I><b>Preview</b></I> button.</font></p>
+<p align="center"><font face="Arial, Helvetica, sans-serif">The system will then 
+  present you with a screen displaying all details of your payment order. At that 
+  point you may confirm, cancel, or edit your order. You must have an <b>e-metal&reg;</b> 
+  account.<br>
+  <font size="1">(to create a new account please <a href="/e-gold.asp?cid=833966">visit the 
+  <b>e-gold&reg; </b>home page</a>)</font></font></p>
+<form name="f" action="/sci_asp/verify.asp" method="POST">
+    <table border="0" width="95%" bgcolor="#FFF0A0">
+        <tr>
+            
+      <td><font size="5" face="Arial, Helvetica, sans-serif">e-metal payment order</font></td>
+        </tr>
+        <tr>
+            <td>
+        <table width="80%" border="0">
+          <tr> 
+            <td align="right" nowrap valign="middle"><font face="Arial, Helvetica, sans-serif">Pay: 
+              </font></td>
+            <td align="left" colspan="3" valign="middle"> <font face="Arial, Helvetica, sans-serif"><b>Lux Lucre</b></font></td>
+            <td valign="middle">&nbsp;</td>
+          </tr>
+          <tr valign="middle"> 
+            <td align="right" nowrap><font face="Arial, Helvetica, sans-serif">Account: 
+              </font></td>
+            <td> <font face="Arial, Helvetica, sans-serif"><b>833966</b></font></td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr valign="middle"> 
+            <td align="right" nowrap><font face="Arial, Helvetica, sans-serif">Amount: 
+              </font></td>
+            <td align="right"> <font face="Arial, Helvetica, sans-serif"><b>.50</b></font></td>
+            <td nowrap > <font face="Arial, Helvetica, sans-serif"><b>g</b>' worth of</font></td>
+            <td> <font face="Arial, Helvetica, sans-serif"><b> 
+              Gold
+              </b></font></td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr> 
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr> 
+            <td align="right" nowrap valign="middle"><font face="Arial, Helvetica, sans-serif">Memo: 
+              </font></td>
+            <td colspan="3" nowrap valign="middle"> 
+              <input taborder=1 tabindex=1 type="text"
+
+                    size="50" maxlength="50" name="Memo">
+            </td>
+            <td valign="middle" align=right nowrap> <font face="Arial, Helvetica, sans-serif" size="1"> 
+              &nbsp;
+              </font> </td>
+          </tr>
+          <tr valign="middle"> 
+            <td>&nbsp;</td>
+            <td nowrap>&nbsp;</td>
+            <td align="right" nowrap><font face="Arial, Helvetica, sans-serif">From: 
+              </font></td>
+            <td nowrap>
+              <input taborder=2 tabindex=2 type="text" size="20" maxlength="15" name="Account_ID">
+            </td>
+            <td nowrap><font size="1" face="Arial, Helvetica, sans-serif"><b>(Account 
+              Number)</b></font> </td>
+          </tr>
+          <tr valign="middle"> 
+            <td>&nbsp;</td>
+            <td nowrap>&nbsp;</td>
+            <td nowrap>&nbsp;</td>
+            <td nowrap> 
+              <input taborder=3 tabindex=3 type="password" size="32" maxlength="64" name="PassPhrase" autocomplete="off">
+            </td>
+            <td nowrap><font size="1" face="Arial, Helvetica, sans-serif"><b>(Passphrase)</b></font> 
+              <a href="javascript:opensrk()"><img src="../gif/srk.gif" alt="Use SRK Passphrase Entry..." border="0" align="absmiddle" onClick></a> 
+            </td>
+          </tr>
+          <tr valign="middle">
+            <td>&nbsp;</td>
+            <td nowrap>&nbsp;</td>
+            <td nowrap align="right">&nbsp;</td>
+            <td nowrap><input type="hidden" name="jumbo" value=1008><font face="Arial, Helvetica, sans-serif" size=2> 
+              <input taborder=4 tabindex=4 type="text" name="Turing" maxlength="10" size="10" autocomplete="off">&nbsp; <img 
+     src="gen4.asp?x=1008&y=F0BEFBABD8F5C59A41712E47F1EED8A8" width="121" height="25" vspace="0" hspace="0" 
+     align="top" border="0" alt="Turing Number"><br>
+              </font><font size="1" face="Arial, Helvetica, sans-serif">Enter 
+              sequence of numbers displayed in <br>
+              grid directly above. <a href="gen4s.asp?x=1008&y=F0BEFBABD8F5C59A41712E47F1EED8A8"><i>Audible 
+              Turing Number</i></a></font></td>
+            <td nowrap><font size="1" face="Arial, Helvetica, sans-serif"><b>(Turing 
+              Number)<br>
+              <br>
+              </b></font></td>
+          </tr>
+        </table>
+            </td>
+        </tr>
+    </table>
+    <hr>
+    <div align="center"><input type="submit" name="action"
+    value="Preview"> <input type="reset"></div>
+</form>
+<div align=center> <table border=1 hspace=0 vspace=0 bgcolor=#C0C0C0 cellspacing=0 cellpadding=2><tr><td><a style="text-decoration: none;" href="http://www.e-gold.com"><font face="Arial, Helvetica, sans-serif" color=#000000>Cancel</a></td></tr></table> <br>
+  <font face="Arial, Helvetica, sans-serif" size="1">This <b>e-gold</b> payment 
+  order requires that cookies be enabled on your browser to function properly.</font> 
+  <br>
+  <font face="Arial, Helvetica, sans-serif" size="1">(would you like to have an 
+  <b>e-gold</b> checkout button on <i>your</i> web site? <a href="http://www.e-gold.com/unsecure/sci_home.html" target="_top">visit 
+  the <b>e-gold&reg; </b>programmer's page</a>)</font> </div>
+<hr>
+<div align="right"> <font size="1" face="Arial, Helvetica, sans-serif">&copy;2000,2001 
+  e-gold Ltd.</font> </div>
+</BODY>
+
+</html>
