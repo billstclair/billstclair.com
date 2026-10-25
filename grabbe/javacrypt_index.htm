@@ -1,0 +1,127 @@
+<html>
+<head>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<title>Encryption by Example: Simple Java Programs, by J. Orlin Grabbe</title>
+</head>
+<body bgcolor="white" link="#0000ff" vlink="#800080">
+<p>
+<h1 align=center>Encryption by Example: Simple Java Programs</h1>
+<h3 align=center><i>by J. Orlin Grabbe</i></h3>
+<hr>
+In order to understand encryption, you have to be able to do it yourself: to see 
+the input numbers, text, etc., and the encryption output.  
+<p>
+Getting to that stage is often frustrating, even if you know something
+about a given programming language, and something about the theoretical encryption
+process.  So maybe these pages will help you get started, using
+an open-source language, <b>Java</b>, and an open-source encryption toolkit, 
+<b>Cryptix</b>.
+<h3 align=center><font color="#0000FF">First: Install Java</font></h3>
+<p>
+The first thing to do is get Java off the web for free.  The programs here
+were compiled with Java version 1.1.7b.  (I haven't had sufficient experience
+with later versions to feel confident about using them.)
+<p>
+To download your own copy of the Java programming language (1.1.7b) and
+operating system, click below:
+<p align=center>
+<a href="http://java.sun.com/products/jdk/1.1.7B/">http://java.sun.com/products/jdk/1.1.7B/</a>
+<p>
+If you are using Windows, be sure to insert a <b>PATH command in the AUTOEXEC.BAT file</b>
+to the Java directory, and to the directory where you will be compiling your
+sample encryption program.  So if you install Java in the directory
+<b>c:\jdk1.1.7b</b> and your Java programs in<b> c:\jdk1.1.7b\practice</b>, your path
+command will look like this:
+<p>
+<b><font color="#FF0000">set PATH=%PATH%;c:\jdk1.1.7b;c:\jdk1.1.7b\practice;</font></b>
+<p>
+<h3 align=center><font color="#0000FF">Second: Install the Cryptix Class Library</font></h3>
+<p>
+Go to the location below to get the Cryptix class library (binary), version 3.1.1:
+<p align=center>
+<a href="http://www.cryptix.org/products/cryptix31/index.html">http://www.cryptix.org/products/cryptix31/index.html</a>
+<p>
+After you have unzipped the Cryptix class files and documentation, you
+will need to add a <b>CLASSPATH command to the Windows AUTOEXEC.BAT file</b>
+(see the Cryptix documentation for Unix, or for both Windows and Unix if you wish to compile your
+own binaries directly from the Cryptix source files).  The classpath
+will need to identify the location of the Cryptix Jar files (a Jar file
+is the Java equivalent of a Zip file), as well as the location of the
+Java class files (including the ones you create yourself).  Something
+like the following:
+<p>
+<b>
+<font color="#FF0000">set CLASSPATH=%CLASSPATH%;c:\jdk1.1.7b;c:\jdk1.1.7b\practice;<br>
+set CLASSPATH=%CLASSPATH%;c:\cryptix\classes\SPT_0-1-1.jar;c:\cryptix\classes\TOOLS_0-1-1.jar;<br>
+set CLASSPATH=%CLASSPATH%;c:\cyptix\classes\ALG_0-1-1.jar;c:\cryptix\classes\RSA_0-1-1.jar;<br>
+set CLASSPATH=%CLASSPATH%;c:\cryptix\classes\ELGAMAL_0-1-1.jar;c:\cryptix\classes\IJCE_0-1-1.jar;<br></font>
+</b>
+<p>
+<h3 align=center><font color="#0000FF">Third: Install Cryptix as a Java Security Provider</font></h3>
+<p>
+You will need to execute a Java command to install Cryptix as one of the
+Java security providers.  To do this from a DOS command line, type and
+execute:
+<p>
+<b><font color="#FF0000">java cryptix.provider.Install</font></b>
+<p>
+Okay.  You are now ready to compile and run the sample programs.
+<p>
+<hr>
+<p>
+To run the programs, copy them as a text file into your practice
+directory (c:\jdk1.1.7b\practice).  For example, for a program
+called <b>encryption.java</b>, which uses an input text file called
+<b>data</b>,  first execute the following from the DOS
+command line:
+<p>
+<b>
+<font color="#FF0000">javac encryption.java</font>
+</b>
+<p>
+The Java compiler will compile the program and produce <b>encryption.class</b>.
+<p>
+Next execute the following from the DOS command line:
+<p>
+<b>
+<font color="#FF0000">java encryption data</font>
+</b>
+<p>
+This will execute the <b>encryption.class</b> program, using <b>data</b> as the
+input file to be encrypted.
+<p>
+Of course, you can save time by putting both commands back-to-back in a Windows
+batch file, if you are going to be altering the Java program and/or data input file frequently.
+<p>
+<hr>
+<p>
+<h1 align=center>Java Encryption Programs Menu</h1>
+<p>
+<menu>
+<li><a href="des_java.htm">DES</a>
+<li><a href="3des1_java.htm">Triple DES, Program 1</a>
+<li><a href="3des2_java.htm">Triple DES, Program 2</a>
+<li><a href="3des1_cbc.htm">Triple DES with Cipher Block Chaining, Program 1</a>
+<li><a href="3des2_cbc.htm">Triple DES with Cipher Block Chaining, Program 2</a>
+<li><a href="md_java.htm">Message Digests</a>
+<li><a href="rsa_java.htm">RSA Signature and Calculations</a>
+<li><a href="dsa_java.htm">Digital Signature Algorithm (DSA) and Calculations</a>
+</menu>
+
+<hr>
+<h3 align="center">This material is part of a work in progress.  &copy;1998-2000 J. Orlin Grabbe.  All Rights Reserved.</h3>
+<P ALIGN="JUSTIFY">J. Orlin Grabbe is the author of
+<a href="http://www.amazon.com/exec/obidos/ASIN/0132069881/qid=924154369/sr=1-1/002-9261014-2388004">International Financial Markets</A>, and is an internationally recognized derivatives expert who has recently branched out into cryptology, banking security, and digital cash.  His home page is located at <A HREF="index.html">http://www.aci.net/kalliste/</A>.
+He currently resides in Costa Rica. </P>
+<hr>
+<br>
+<h4 align="center"><a href="homepage.html">Return to Home Page</h4>
+<br><br>
+<center>
+<a href="http://www.newworldvisitormap.com/myspace_map.aspx?id=58621"><img src="http://www.newworldvisitormap.com/maps/1/58621.png" alt="" border="0" /></a></center>
+
+</body>
+</html>
+
+
+

@@ -1,0 +1,2217 @@
+<HTML><BODY><BASEFONT SIZE=3><FONT SIZE=+0><A     
+HREF="mailto:orlingrabbe@orlingrabbe.com"> [Email Reply] </A><p>
+<CENTER></FONT><FONT NAME="Times New Roman" SIZE=+3><b>Stefan     
+Brands' System of Digital Cash</b><p>     
+</FONT><FONT     
+NAME="Times New Roman" SIZE=+2><b><i>by J. Orlin Grabbe</b></i><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+2></FONT><FONT   
+NAME="Times New Roman"  SIZE=+0></CENTER></FONT>  
+<hr>          
+<blockquote><i>Note:  In order to read the following text properly, your web browser         
+must be able to handle subscripts and superscripts; i.e. the html commands "sub" and         
+"sup". These commands are used as necessary. </i></blockquote>         
+<hr> <p>         
+<FONT NAME="Times New Roman"     
+SIZE=+2><b>A. General  Features</b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1></b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1> Here we will step through     
+the details of a digital cash system created by Stefan Brands, while a Ph.D. student at the     
+Centrum voor Wiskunde en Informatica (CWI) in Amsterdam. Brands' off-line digital     
+cash system allows the up-front prevention of double-spending (using an     
+<b><i>observer</b></i>), yet maintains complete user privacy provided no double-    
+spending takes place.  The revelation of identity under double-spending is a backup     
+precaution to observer failure.<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	Brands' system is laid     
+out in a series of CWI technical reports with varying notation. The basic system is based     
+on discrete logarithms--in particular the <b><i>representation problem</b></i>. The     
+security of the system depends on the existence of a collision-free hash function and the     
+difficulty of finding discrete logarithms. There is, however, a variant of the system which     
+uses RSA, in which case the security of the system supposedly depends on the existence     
+of a collision-free hash function and the difficulty of factoring.  (I say "supposedly,"     
+because this is the consensus on RSA security.  But I believe that RSA is less secure than     
+factoring.)<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	Some importants     
+features of the system include these:<p><menu>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><li> the on-line system is a     
+self-contained subset of the off-line system, and if the off-line features are not used, the     
+remaining software-only system still could be efficiently implemented;<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1> <li>payments are private--    
+i.e. untraceable and unlinkable;<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1> <li>the customer is protected     
+from fraudulent bank claims that the customer is double-spending (i.e. protected from     
+framing attempts by the bank);<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1> <li>there is nonrepudiation--    
+customers cannot deny having made a valid payment;<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1> <li>there is prior restraint of     
+customer double-spending in the off-line system through a tamper-resistant device     
+containing the secret key; but if this device somehow fails, double-spending will     
+nevertheless reveal the customer's identity;<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1> <li>the tamper-resistant     
+device needs no cryptographic co-processors or dynamic storage;<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1> <li>there is traceability of     
+customer double-spending after the fact, which allows the on-line	system	to be run in     
+off-line mode;<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1> <li>the system allows for     
+multiple banks;<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1> <li>payment information     
+may be efficiently stored (17 bytes per payment);<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1> <li>it is easy to make off-    
+line payments over the Internet:  a payment using only 140 bytes can be appended to an     
+email message.<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1> <li>the system can be     
+implemented in smart cards capable of performing the Schnorr signature scheme, using     
+only 126 bytes during payment transfers, and no on-line computation; dynamic storage     
+requirements are on the order of 30 bytes.<p></menu>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>	</b>Brands' scheme     
+uses a Schnorr-type protocol both at withdrawal of digital cash--where the bank performs     
+a restrictive blind signature--and also in interaction with the merchant, where the     
+customer does a Schnorr proof-of-possession (shows knowledge of a representation) as a     
+challenge-and-response.  The system's security hinges on the security of the signature     
+scheme.  More than one signature scheme can be implemented.<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	Brands' off-line cash     
+system is just one instance of a general technique: namely a <b><i>credential-sharing     
+system</b></i> in which credentials that are shown only once can be transferred between     
+"organizations", while privacy is guaranteed.  For example, an off-line cash system can     
+be constructed in which payments are made under a pseudonym.  Then, in order to pay     
+with a coin, an account holder need send no more than 35 bytes to an "organization" at     
+which he has a pseudonym.<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	With this     
+introduction, let's look at the different pieces of Brands' digital cash system, then     
+combine them into a workable whole.<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+2>	<b>B.  Restrictive     
+Blind Signatures</b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1></b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>	</b>Restrictive blind     
+signatures are used in the protocol to withdraw digital cash from the bank. Each     
+withdrawn coin is represented as a unique piece of digital information containing the     
+bank's digital signature. Recall that a <b><i>blind signature</b></i> allows one to obtain     
+a signature on a message (on digital cash, in this case) in such a way that the message     
+itself remains unknown to the signer.<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	We begin with a     
+generator <b>g</b> of a group G(q)<b> </b>of prime order <b>q </b>mod <b>p,     
+</b>and the <i>public key</i>  <b>h </b>of the signer: <b>h</b> = <b>g^x</b>.  Here     
+<b>x </b>(the power) is the signer's <i>private key</i>, which can only be discovered by     
+taking discrete logarithms:  <b>x = log_g (h).  </b>Note that this public-private key pair     
+differs from the RSA system, but corresponds to the public/private key pairs in the Digital     
+Signature Algorithm.  <p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	All calculations are     
+done modulo <b>p</b>, for some large prime <b>p</b>, unless otherwise stated.<b>      
+</b>The powers of each generator <b>g </b> produce each of the <b>q</b> numbers in     
+G(q), and the prime <b>q</b> divides <b>p</b>-1.  This means 1 = <b>g^q =     
+g^</b>(<b>p</b>-1) mod <b>p.  </b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b></b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	Let <b>M </b>denote     
+a message.  This message may be anything, including a piece of digital cash to be signed.      
+To sign this message, the bank will raise it to the power <b>x</b>  mod <b>p</b>,     
+yielding<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>		<b>[1] z =     
+signed(M) = M^x</b>.                                                                                       <p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b></b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	Now, let's introduce     
+some a few terms to make it easier to keep track of various pieces of the protocol. (This     
+terminology is my own, and not that of Stefan Brands or Chaum-Pederson, from whom     
+some of the basics of the scheme are derived.)  If we raise the message <b>M</b> to a     
+<i>random</i> power <b>w</b>, we will call the result <b>b</b> a <b><i>pseudo-    
+signature</b></i>.  That is,<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>		<b>[2] b =     
+pseudo-signed(M) = M^w.</b>                                                                         <p>    
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b></b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	The public key of the     
+signer is a generator <b>g</b> raised to the power <b>x</b>.  So let's call the generator     
+<b>g</b> raised to a <i>random</i> power <b>w</b> a <b><i>pseudo-public key</i>.      
+</b>Label this <b>a</b>.<b>  </b>Thus we have<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	            <b>[3] public     
+key  h = g^x,                                                                                           </b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1></b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>	[4]	pseudo-public     
+key a = g^w.                                                                              </b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b></b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	We now have the     
+essential elements that will be used in the restrictive blind signature scheme (see     
+<b>Table 1</b>).  Remember that <b>h</b>, <b>g</b>, <b>q</b>, and <b>p </b>are     
+already known to both parties, before anything takes place.<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	The steps in the     
+restrictive blind signature protocol are as follows (all calculations in this protocol are     
+done mod <b>p</b>, unless otherwise stated):<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><blockquote>	<b>Step 1:      
+</b>The receiver (customer) sends a message (piece of digital cash) <b>M</b> to the     
+signer (the bank).  It is intended that the bank sign <b>M</b> with its secret key <b>x     
+(</b>yielding <b>z = M^x) </b>and <i>to also supply a signed proof about <b>x     
+</b>using the bank's  public key <b></i>h</b>; namely, that <b>log_g (h) = x = log_M     
+(z)</b>.  The proof is to guarantee to the customer that the bank has signed <b>M</b>     
+with a valid signature; namely with its secret key <b>x</b>.<p> </blockquote>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1></FONT><FONT     
+NAME="Times New Roman" SIZE=+2><b></b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+2></b><p>     
+<hr>  
+<p>  
+<center>     
+</FONT><FONT NAME="Times New Roman" SIZE=+2><b>Table 1:  Elements of     
+Restrictive Blind Signature Scheme</b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+2></b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+2><table border><tr     
+valign=top><td></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b>primes</td><td><b></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b>p, q  </b>where <b>q </b>divides <b>p</b>-1<b></b></td></tr><tr     
+valign=top>     
+<td></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b>generator</td><td><b></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b>g  </b>of G(q) in Z(p)*<b></b></td></tr><tr valign=top>     
+<td></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b>message</td><td><b></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b>M</b></td></tr><tr valign=top>     
+<td></FONT><FONT NAME="Times New Roman" SIZE=+1><b>signer private     
+key</td><td><b></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b>x</b></td></tr><tr valign=top>     
+<td></FONT><FONT NAME="Times New Roman" SIZE=+1><b>signer random     
+number</td><td><b></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b>w</b></td></tr><tr valign=top>     
+<td></FONT><FONT NAME="Times New Roman" SIZE=+1><b>signer public     
+key</td><td><b></FONT><FONT NAME="Times New Roman" SIZE=+1><b>h = g^x       
+</b>mod <b>p</b></td></tr><tr valign=top>     
+<td></FONT><FONT NAME="Times New Roman" SIZE=+1><b>signer pseudo-public     
+key</td><td><b></FONT><FONT NAME="Times New Roman" SIZE=+1><b>a = g^w       
+</b>mod <b>p</b></td></tr><tr valign=top>     
+<td></FONT><FONT NAME="Times New Roman" SIZE=+1><b>signed     
+message</td><td><b></FONT><FONT NAME="Times New Roman" SIZE=+1><b>z =     
+M^x  </b>mod <b>p</b></td></tr><tr valign=top>     
+<td></FONT><FONT NAME="Times New Roman" SIZE=+1><b>pseudo-signed     
+message</td><td><b></FONT><FONT NAME="Times New Roman" SIZE=+1><b>b =     
+M^w  </b>mod <b>p</b></td></tr><tr valign=top>     
+<td></FONT><FONT NAME="Times New Roman" SIZE=+1><b>collision-free hash     
+function</td><td><b></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b>H</b></td></tr><tr valign=top>     
+<td></FONT><FONT NAME="Times New Roman" SIZE=+1><b>challenge from     
+receiver</td><td><b></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b>c</b></td></tr><tr valign=top>     
+<td></FONT><FONT NAME="Times New Roman" SIZE=+1><b>signer response to     
+challenge</td><td><b></FONT><FONT NAME="Times New Roman" SIZE=+1><b>r     
+= w + c*x      </b>mod <b>q</b></td></tr><tr valign=top>     
+<td></FONT><FONT NAME="Times New Roman" SIZE=+1><b>verification that     
+signature x is on </b><br>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>g (g^x=h) and M     
+(M^x=z)</td><td><b></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b>a*h^c = g^r    </b>mod <b>p</b><br>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>b*z^c = M^r   </b>mod     
+<b>p</b></td></tr><tr valign=top>     
+<td></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b></td><td><b></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b></b></td></tr><tr valign=top>     
+<td></FONT><FONT NAME="Times New Roman" SIZE=+1><b><i>   
+receiver-generated random numbers</td><td><b></i></FONT><FONT NAME="Times    
+New Roman" SIZE=+1><b><i></i>s, t,</b> <b>u, v</b></td></tr><tr valign=top>     
+<td></FONT><FONT NAME="Times New Roman" SIZE=+1><b><i>blinded     
+message</td><td><b></i></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b><i></i>M' = M^s * g^t</b></td></tr><tr valign=top>     
+<td></FONT><FONT NAME="Times New Roman" SIZE=+1><b><i>signed blinded     
+message</td><td><b></i></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b><i></i>z' = z^s*h^t = M'^x</b></td></tr><tr valign=top>     
+<td></FONT><FONT NAME="Times New Roman" SIZE=+1><b><i>blinded pseudo-    
+public key</td><td><b></i></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b><i></i>a' = a^u*g^v = g^w'</b></td></tr><tr valign=top>     
+<td></FONT><FONT NAME="Times New Roman" SIZE=+1><b><i>blinded pseudo-    
+signed message</td><td><b></i></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b><i></i>b' =[a^(u*t)]*[b^(u*s)]*M'^v = M'^w'</b></td></tr><tr     
+valign=top>     
+<td></FONT><FONT NAME="Times New Roman" SIZE=+1><b><i> equivalent     
+blinded intercept</td><td></i></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b><i></i>w'  = u*w + v   </b>mod <b>q</b></td></tr><tr valign=top>     
+<td></FONT><FONT NAME="Times New Roman" SIZE=+1><b><i>blinded challenge     
+(hash value)</td><td></i></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b><i></i>c' = H(M', z', a', b')</b></td></tr><tr valign=top>     
+<td></FONT><FONT NAME="Times New Roman" SIZE=+1><b><i>returned     
+challenge to signer</td></i><td></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b><i></i>c = c'/u  </b>mod <b>q</b></td></tr><tr valign=top>     
+<td></FONT><FONT NAME="Times New Roman" SIZE=+1><b><i>receiver     
+calculated response</td><td><b></i></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b><i></i>r' = v + u*r </b>= <b>w' + c'*x     </b>mod     
+<b>q</b></td></tr></table></center><p>    
+<hr><p>   
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><blockquote>	<b>Step     
+2:</b>  The signer (the bank) generates a random number <b>w</b> and sends to the     
+receiver (customer) the following elements:<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><blockquote>	the signed     
+message                <b>z  = M^x</b><br>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>		</b>the     
+pseudo-public key            <b>a = g^w</b><br>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>		</b>the     
+pseudo-signed message    <b>b = M^w.</b><p></blockquote>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1></b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b></b>At this point the     
+customer now has two objects signed with the bank's private key <b>x</b>: namely, the     
+signed message <b>z = M^x </b>and the bank's public key, which is itself a "signed"     
+generator <b>h = g^x</b>.  The customer also has two objects pseudo-signed with the     
+random number <b>w</b>:  the pseudo-signed message <b>b = M^w</b> and the     
+pseudo-public key <b>a = g^w</b>.  These additional objects will allow the bank to give     
+a zero-knowledge proof that it has performed a valid signature on <b>M</b> with its     
+private key <b>x</b>.   That is, <b>a</b> and <b>b </b>will be used to verify a     
+relationship with respect to the customer's challenge <b>c</b> (in <b>Step 5</b>,     
+below).<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b></b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>	Step 3:  </b>The     
+receiver (customer) generates a challenge <b>c</b>.  To do this, the customer first     
+generates four random numbers:  <b>s, t  </b>and <b>u, v</b>. Using <b>s</b> and     
+<b>t</b>, the customer computes modifications of <b>M </b>and <b>z</b>, namely the     
+<i>blinded message</i> <b>M' </b>and the <i>signed blinded message </i>     
+<b>z'</b>:<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p> <blockquote>    
+</FONT><FONT NAME="Times New Roman" SIZE=+1>		<b>[5] M' =     
+M^s * g^t                   (blinded message)		     </b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b></b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>		  <b>[6] z' =     
+z^s*h^t </b><p><blockquote>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>		      =     
+(M^x)^s*(g^x)^t </b><br>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>		      =     
+[M^s*g^t]^x</b><br>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>		      = M'^x                           
+(signed blinded message) 	     </b><p></blockquote> </blockquote>    
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b></b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>So at this point the customer     
+has a <b><i>valid signature on the transformed message M', which is unknown to the     
+bank</b></i>.  The original signed message <b>z</b> has been "blinded" by raising it to     
+the power <b>s</b> and multiplying it by <b>h^t</b>.<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	Using <b>u </b>and     
+<b>v</b>, the receiver (customer) computes modifications of  <b>a</b>, and <b>b</b>,     
+namely, <b>a'</b>, and <b>b'</b>:<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>			    
+	<b></b><p> <blockquote>    
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>		[7] a' =     
+a^u*g^v = (g^w)^u*g^v = g^w',                                      </b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1></b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>	[8]	b' =     
+[a^(u*t)]*[b^(u*s)]*M'^v </b><p><blockquote>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>		    =     
+[(g^w)^(u*t)]*[(M^w)^(u*s)]*M'^v</b><br>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>		    =     
+[(g^t)^(u*w)]*[(M^s)^(u*w)]*M'^v</b><br>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>		    =     
+[M'^(u*w)]*M'^v</b><br>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>		    = M'^w'.                                                                                     
+</b><p></blockquote> </blockquote>    
+</FONT><FONT NAME="Times New Roman" SIZE=+1></b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b></b>where<p>    
+<blockquote>    
+</FONT><FONT NAME="Times New Roman" SIZE=+1>  	         <b>[9] w'  =     
+u*w + v   </b>mod <b>q.                                                                   </b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>			    
+	</b><p> </blockquote>    
+</FONT><FONT NAME="Times New Roman" SIZE=+1>The customer then computes     
+the hash value<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b></b><p> <blockquote>    
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>		[10] c' =     
+H(M', z', a', b')</b>,                                                                  <p> </blockquote>    
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b></b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>and sends to the bank the     
+challenge <b>c</b>:<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p><blockquote>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>		<b>[11] c =     
+c'/u  </b>mod <b>q</b> .                                                                          <p>    
+</blockquote>    
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b></b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>	</b><b>Step 4:     
+</b>The signer (bank) responds with <p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p> <blockquote>    
+</FONT><FONT NAME="Times New Roman" SIZE=+1>		<b>[12] r = w     
++ c*x  </b>mod <b>q</b>.                                                                     <p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b></b><p> </blockquote>    
+</FONT><FONT NAME="Times New Roman" SIZE=+1>Notice this is a point on a line     
+with slope <b>x</b> (the secret key) and intercept <b>w</b>.  <p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	<b>Step 5: </b>The     
+receiver (customer) uses the challenge <b>c</b> and the response <b>r</b> to check     
+that<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p> <blockquote>    
+</FONT><FONT NAME="Times New Roman" SIZE=+1>		<b>[13] a*h^c     
+= g^r                                                                                </b><p> </blockquote>    
+</FONT><FONT NAME="Times New Roman" SIZE=+1></b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b></b>and<p>    
+<blockquote>    
+</FONT><FONT NAME="Times New Roman" SIZE=+1>		<b>[14] b*z^c     
+= M^r</b>  <b>.                                                                            </b><p> </blockquote>    
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b></b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>If so, the receiver accepts the     
+signature.  <p></blockquote> </blockquote>    
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	Note that in Step 5, if     
+the bank has responded with the proper value of <b>r</b>, namely <b>r = w+c*x</b>,     
+then<p>  <blockquote>   
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>			                
+<b>a*h^c = (g^w)*(g^x)^c </b><p><blockquote>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>				               
+= g^(w+c*x)</b><br>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>			    
+	</b>           = <b>g^r  </b><p></blockquote>  </blockquote>   
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b></b>and also<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>  <blockquote>   
+</FONT><FONT NAME="Times New Roman" SIZE=+1>			    
+	<b>b*z^c </b>= (<b>M^w</b>)*<b>(M^x)^c</b><p><blockquote>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>				               
+= M^(w+c*x)</b><br>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>				               
+= M^r .</b><p></blockquote> </blockquote>    
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b></b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	Step 3 may look     
+confusing.  But it is just a formalized way of generating the challenge <b>c</b> in such a     
+way that the signer (bank) does not know the transformed message <b>M'</b>, which     
+has a valid signature <b>z' = M'^x</b>.  Neither can the bank link transactions by     
+manipulating the random number <b>w</b>, since this has been effectively modified to a     
+new value <b>w'</b>.<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	The receiver     
+(customer) can also compute <p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>  <blockquote>   
+</FONT><FONT NAME="Times New Roman" SIZE=+1>			    
+	<b>r' = u*r + v                     </b>mod <b>q</b><p><blockquote>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>			    
+	</b>    <b>= (u*w + v) + u*c*x   </b>mod <b>q		</b>    <br>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>				        
+=  <b>w' + c' *x                </b>mod <b>q</b>.<p></blockquote>  </blockquote>   
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>Here <b>r'</b> is the proper     
+response to the challenge <b>c'</b>, but is, however, only known to the customer and     
+not the bank.<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	<b></b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1></b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+2><b>	C.The Basic Digital     
+Cash System.</b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1></b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b></b>	<b><i>1.     
+Preliminary Setup</b></i><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b><i></b></i>    
+	<b></b>There are three participant types in the basic digital cash system: a bank     
+<b>banque</b>, a merchant or shop <b>S</b>, and a customer or user <b>U</b>.      
+<b>U</b> can also be thought of as the user's smart card, personal digital assistant, or     
+computer.  <p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>	</b>The bank     
+<b>banque</b> chooses three generators--<b>g</b>, <b>g<sub>1</sub></b>,     
+<b>g<sub>2</sub></b>--from G(q) in Z(p)*.  The bank also selects a secret key, or     
+exponent, <b>x</b>, 1< <b>x</b> < <b>q</b>, and announces its public key <b>h</b>     
+= <b>g^x </b>mod <b>p</b>.<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	The bank additionally     
+needs two collision-free hash functions--<b>H</b> and <b>H<sub>o</sub> </b>.  Each     
+of <b>H</b> and <b>H<sub>o</sub></b> has as its output a member of the set Z(q)* =     
+{1, 2, ..., <b>q</b>-1}.  <b>H</b>  takes as its input set any five members of G(q), while     
+<b>H<sub>o</sub> </b>takes as its input set any two members of G(q), along with two     
+additional variables SHOP-ID and DATE-TIME:<p><blockquote>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	    
+	<b>H</b>(<b>g<sub>a</sub>, g<sub>b</sub>, g<sub>c</sub>, g<sub>d</sub>,     
+g<sub>e</sub>) = k</b>,  where <b>k</b> is<b> </b>some member of Z(q)*,<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	    
+	</FONT><FONT NAME="Times New Roman" SIZE=+1><b></FONT><FONT     
+NAME="Times New Roman" SIZE=+1><b>H<sub>o</sub>(g<sub>f</sub>, 
+g<sub>g</sub>,     
+</b>SHOP-ID, DATE-TIME<b>) = k'</b>,  where <b>k'</b> is<b> </b>some member     
+of Z(q)*.<p></blockquote>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>The bank announces     
+<b>p</b>, <b>q</b>, <b>g</b>, <b>g<sub>1</sub></b>, <b>g<sub>2</sub></b>,     
+<b>h</b>, <b>H</b> and <b>H<sub>o</sub></b> as public information, but keeps     
+<b>x</b> secret. <p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	A <b><i>coin     
+</b></i>issued by the bank is a piece of signed digital information.  For simplicity, we     
+will assume that all coins have the same size (say $100).  This will make the mathematics     
+simpler in the following discussion.  But the system can be readily modified to allow for     
+coins of different value.  Both the user <b>U</b> and the bank <b>banque</b> are     
+involved in the production of a coin, as both supply random information used in its     
+creation.  <p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>    
+<center>    
+<table border="2" width=80%>    
+<tr><td valign=bottom>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>	<b>Definition:</b>  a     
+<b><i>coin</b></i> is two numbers <b>A</b>, <b>B</b>, and a     
+<b><i>signature</b></i> on <b>A</b> and <b>B</b> composed of four numbers<br>     
+{<b>z, a, b, r</b>} which have the following relationship:<p><blockquote>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>		    
+	<b>a*h^c = g^r   </b>mod <b>p</b><br>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>		    
+	</b><b>b*z^c = A^r</b>  mod <b>p</b><p></blockquote>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b></b>where<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><blockquote>			        
+<b>c</b> = <b>H(A,B,z,a,b)</b>.<p></blockquote>    
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>    
+</td></tr></table></center>    
+<p>    
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	Note that this     
+definition looks exactly like equations [13] and [14], as it should, since the coin is the     
+signed message outcome of a restrictive blind signature.  Now, where the different     
+numbers in the coin definition come from is explained in the following two sections.  But,     
+briefly, <b></b> is a <i>challenge</i> issued by the user <b>U</b> to the bank     
+<b>banque</b>.  The number <b>r </b>is a <i>response</i> to that challenge.  The     
+number <b>g</b> is a generator announced by the bank, while <b>h</b> is the bank's     
+public key.  The number <b>z</b> is the bank's signature on some customer identifying     
+information.  The origin of <b>A</b>, <b>B</b>, <b>a</b>, and <b>b</b> will be     
+explained presently.<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	<b><i>2. Opening an     
+Account.</b></i><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b><i></b></i>	The     
+user has public/private key pairs.  These are not used in the protocols that follow so will     
+not be denoted by individual symbols.  But we require that the user be able to send     
+digitally signed messages to the bank.<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	To <i>open an     
+account</i>, the user <b>U</b> generates a random number <b>u<sub>1</sub></b>     
+from Z(q)*, and computes an <i>identifier </i>or public key<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>  <blockquote>   
+</FONT><FONT NAME="Times New Roman" SIZE=+1>		<b>[15]     
+h<sub>u</sub></b> = <b>g<sub>1</sub></b>^<b>u<sub>1</sub>   </b>mod <b>p     
+</b>.                                                                                            <p> </blockquote>    
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b></b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>The user checks that     
+<b>h<sub>u</sub>*g<sub>2</sub></b> is not equal to 1 mod <b>p</b>, and if so sends     
+</FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b>h<sub>u</sub></FONT><FONT NAME="Times New Roman"     
+SIZE=+1></b> to the bank, keeping <b>u<sub>1</sub></b> secret. The bank stores     
+<b>h<sub>u</sub></b> along with any other information it requires on <b>U</b>.  The     
+bank computes and returns to the user <b>U</b> a <i>signature</i> with its secret key     
+<b>x</b> as follows:<p> <blockquote>   
+<b>[16] z = (h<sub>u</sub>*g<sub>2</sub>)^x  </b>mod <b>p  .                                                                                       
+</b><p>  </blockquote>  
+<hr><p>   
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p><center>     
+</FONT><FONT  NAME="Times New Roman" SIZE=+2><b>Table 2:  Basic Digital   
+Cash  System</b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+2><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+2></FONT><FONT     
+NAME="Times New Roman" SIZE=+1><b></b><table border><tr     
+valign=top><td></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b>primes</td><td><b></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b>p, q  </b>where <b>q </b>divides <b>p</b>-1<b></FONT><FONT     
+NAME="Times New Roman" SIZE=+1></FONT><FONT NAME="Times New     
+Roman" SIZE=+1></td></tr><tr valign=top>     
+<td><b></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b>generators</td><td><b></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b>g</b>, <b>g<sub>1</sub></b>, <b>g<sub>2</sub>  </b>of G(q) in     
+Z(p)*<b></FONT><FONT NAME="Times New Roman" SIZE=+1></FONT><FONT     
+NAME="Times New Roman" SIZE=+1></td></tr><tr valign=top>     
+<td><b></FONT><FONT NAME="Times New Roman" SIZE=+1></FONT><FONT     
+NAME="Times New Roman" SIZE=+1></td><td><b></FONT><FONT     
+NAME="Times New Roman" SIZE=+1></FONT><FONT NAME="Times New     
+Roman" SIZE=+1></td></tr><tr valign=top>     
+<td><b></FONT><FONT NAME="Times New Roman" SIZE=+1><b>secret identifier     
+key of user</td><td><b></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b>u<sub>1</sub></FONT><FONT NAME="Times New Roman"     
+SIZE=+1></FONT><FONT NAME="Times New Roman" SIZE=+1></td></tr><tr     
+valign=top>     
+<td><b></FONT><FONT NAME="Times New Roman" SIZE=+1><b>user public     
+key</td><td><b></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b>h<sub>u</sub></b> = <b>g<sub>1</sub></b>^<b>u<sub>1</sub>       
+</b>mod <b>p</FONT><FONT NAME="Times New Roman"     
+SIZE=+1></FONT><FONT NAME="Times New Roman" SIZE=+1></td></tr><tr     
+valign=top>     
+<td><b></FONT><FONT NAME="Times New Roman" SIZE=+1><b>equivalent     
+identifier signed by bank</td><td><b></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b>M = h<sub>u</sub>*g<sub>2</sub></FONT><FONT NAME="Times     
+New Roman" SIZE=+1></FONT><FONT NAME="Times New Roman"     
+SIZE=+1></td></tr><tr valign=top>     
+<td><b></FONT><FONT NAME="Times New Roman" SIZE=+1></FONT><FONT     
+NAME="Times New Roman" SIZE=+1></td><td><b></FONT><FONT     
+NAME="Times New Roman" SIZE=+1></FONT><FONT NAME="Times New     
+Roman" SIZE=+1></td></tr><tr valign=top>     
+<td><b></FONT><FONT NAME="Times New Roman" SIZE=+1><b>bank's private     
+key</td><td><b></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b>x</FONT><FONT NAME="Times New Roman"     
+SIZE=+1></FONT><FONT NAME="Times New Roman" SIZE=+1></td></tr><tr     
+valign=top>     
+<td><b></FONT><FONT NAME="Times New Roman" SIZE=+1><b>bank's random     
+number</td><td><b></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b>w</FONT><FONT NAME="Times New Roman"     
+SIZE=+1></FONT><FONT NAME="Times New Roman" SIZE=+1></td></tr><tr     
+valign=top>     
+<td><b></FONT><FONT NAME="Times New Roman" SIZE=+1><b>bank's public     
+key</td><td><b></FONT><FONT NAME="Times New Roman" SIZE=+1><b>h = g^x       
+</b>mod <b>p</FONT><FONT NAME="Times New Roman"     
+SIZE=+1></FONT><FONT NAME="Times New Roman" SIZE=+1></td></tr><tr     
+valign=top>     
+<td><b></FONT><FONT NAME="Times New Roman" SIZE=+1><b>bank's pseudo-    
+public key</td><td><b></FONT><FONT NAME="Times New Roman" SIZE=+1><b>a     
+= g^w   </b>mod <b>p</FONT><FONT NAME="Times New Roman"     
+SIZE=+1></FONT><FONT NAME="Times New Roman" SIZE=+1></td></tr><tr     
+valign=top>     
+<td><b></FONT><FONT NAME="Times New Roman" SIZE=+1><b>bank-signed user     
+identifier</td><td><b></FONT><FONT NAME="Times New Roman" SIZE=+1><b>z     
+= M^x  </b>mod <b>p</FONT><FONT NAME="Times New Roman"     
+SIZE=+1></FONT><FONT NAME="Times New Roman" SIZE=+1></td></tr><tr     
+valign=top>     
+<td><b></FONT><FONT NAME="Times New Roman" SIZE=+1><b>bank-pseudo-    
+signed user identifier</td><td><b></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b>b = M^w  </b>mod <b>p</FONT><FONT NAME="Times New Roman"     
+SIZE=+1></FONT><FONT NAME="Times New Roman" SIZE=+1></td></tr><tr     
+valign=top>     
+<td><b></FONT><FONT NAME="Times New Roman" SIZE=+1><b>collision-free     
+hash function</td><td><b></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b>H</FONT><FONT NAME="Times New Roman"     
+SIZE=+1></FONT><FONT NAME="Times New Roman" SIZE=+1></td></tr><tr     
+valign=top>     
+<td><b></FONT><FONT NAME="Times New Roman" SIZE=+1><b> challenge to     
+bank</td><td><b></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b>c</FONT><FONT NAME="Times New Roman"     
+SIZE=+1></FONT><FONT NAME="Times New Roman" SIZE=+1></td></tr><tr     
+valign=top>     
+<td><b></FONT><FONT NAME="Times New Roman" SIZE=+1><b>bank's response     
+to challenge</td><td><b></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b>r = w + c*x  </b>mod <b>q</FONT><FONT NAME="Times New     
+Roman" SIZE=+1></FONT><FONT NAME="Times New Roman"     
+SIZE=+1></td></tr><tr valign=top>     
+<td><b></FONT><FONT NAME="Times New Roman" SIZE=+1><b>verification that     
+signature x is on g (g^x=h) <br> and M (M^x=z)</td><td><b></FONT><FONT     
+NAME="Times New Roman" SIZE=+1><b>a*h^c = g^r                          </b>mod     
+<b>p</b><br>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>b*z^c = M^r =     
+(h<sub>u</sub>*g<sub>2</sub>)^r   </b>mod <b>p</FONT><FONT NAME="Times     
+New Roman" SIZE=+1></FONT><FONT NAME="Times New Roman"     
+SIZE=+1></td></tr><tr valign=top>     
+<td><b></FONT><FONT NAME="Times New Roman" SIZE=+1></FONT><FONT     
+NAME="Times New Roman" SIZE=+1></td><td><b></FONT><FONT     
+NAME="Times New Roman" SIZE=+1></FONT><FONT NAME="Times New     
+Roman" SIZE=+1></td></tr><tr valign=top>     
+<td><b></FONT><FONT NAME="Times New Roman" SIZE=+1><b><i>user-    
+generated random numbers</i></td><td><b></FONT><FONT NAME="Times New     
+Roman" SIZE=+1><b><i></i>s</b>, <b>x<sub>1</sub></b>, <b>x<sub>2</sub></b>,     
+<b>u</b>, <b>v</FONT><FONT NAME="Times New Roman"     
+SIZE=+1></FONT><FONT NAME="Times New Roman" SIZE=+1></td></tr><tr     
+valign=top>     
+<td><b></FONT><FONT NAME="Times New Roman" SIZE=+1><b><i>blinded user     
+identifier (coin element)</i></td><td><b></FONT><FONT NAME="Times New     
+Roman" SIZE=+1><b><i></i>A</b> = <b>M^s</b> =     
+(<b>h<sub>u</sub>*g<sub>2</sub></b>)^<b>s        </FONT><FONT NAME="Times     
+New Roman" SIZE=+1></b></FONT><FONT NAME="Times New Roman"     
+SIZE=+1></td></tr><tr valign=top>     
+<td></FONT><FONT NAME="Times New Roman" SIZE=+1><b><i>additional coin     
+element</i></td><td><b></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b><i></i>B =     
+g<sub>1</sub></b>^<b>x<sub>1</sub>*g<sub>2</sub>^x<sub>2</sub>                   
+</FONT><FONT NAME="Times New Roman" SIZE=+1></b></FONT><FONT     
+NAME="Times New Roman" SIZE=+1></td></tr><tr valign=top>     
+<td></FONT><FONT NAME="Times New Roman" SIZE=+1><b><i>signed blinded     
+user identifier</i></td><td><b></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b><i></i>z' = z^s = A^x</FONT><FONT NAME="Times New Roman"     
+SIZE=+1></b></FONT><FONT NAME="Times New Roman" SIZE=+1></td></tr><tr     
+valign=top>     
+<td></FONT><FONT NAME="Times New Roman" SIZE=+1><b><i>blinded pseudo-    
+public key</i></td><td><b></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b><i></i>a' = a^u*g^v</FONT><FONT NAME="Times New Roman"     
+SIZE=+1></b></FONT><FONT NAME="Times New Roman" SIZE=+1></td></tr><tr     
+valign=top>     
+<td></FONT><FONT NAME="Times New Roman" SIZE=+1><b><i>blinded pseudo-    
+signed user identifier</i></td><td><b></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b><i></i>b' = b^(s*u)*A^v</FONT><FONT NAME="Times New Roman"     
+SIZE=+1></b></FONT><FONT NAME="Times New Roman" SIZE=+1></td></tr><tr     
+valign=top>     
+<td></FONT><FONT NAME="Times New Roman" SIZE=+1><b><i> equivalent     
+blinded intercept</i></td><td><b></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b><i></i>w'  = u*w + v   </b>mod <b>q</FONT><FONT NAME="Times     
+New Roman" SIZE=+1></b></FONT><FONT NAME="Times New Roman"     
+SIZE=+1></td></tr><tr valign=top>     
+<td></FONT><FONT NAME="Times New Roman" SIZE=+1><b><i>blinded challenge     
+(hash value)</i></td><td><b></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b><i></i>c' = H(A, B, z', a', b')</FONT><FONT NAME="Times New     
+Roman" SIZE=+1></b></FONT><FONT NAME="Times New Roman"     
+SIZE=+1></td></tr><tr valign=top>     
+<td></FONT><FONT NAME="Times New Roman" SIZE=+1><b><i>challenge     
+returned to bank</i></td><td><b></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b><i></i>c = c'/u  </b>mod <b>q</FONT><FONT NAME="Times New     
+Roman" SIZE=+1></b></FONT><FONT NAME="Times New Roman"     
+SIZE=+1></td></tr><tr valign=top>     
+<td></FONT><FONT NAME="Times New Roman" SIZE=+1><b><i>user-calculated     
+transformed response</i></td><td><b></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b><i></i>r'</b> = <b>v</b> + <b>r*u</b> = <b>w' + c'*x</b>  mod     
+<b>q</FONT><FONT NAME="Times New Roman" SIZE=+1></FONT><FONT     
+NAME="Times New Roman" SIZE=+1></td></tr><tr valign=top>     
+<td><b></FONT><FONT NAME="Times New Roman" SIZE=+1><b><i>coin     
+definition</i></td><td><b></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b></b>{<b>A</b>, <b>B</b>, (<b>z',a',b',r'</b>)}, where<br>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>a'* h^c' = g^r'  </b>mod     
+<b>p</b><br>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>b'*z'^c' = A^r'</b>      
+mod <b>p</b><br>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b></b><b>c'</b> =     
+<b>H(A,B,z',a',b')</FONT><FONT NAME="Times New Roman"     
+SIZE=+1></FONT><FONT NAME="Times New Roman" SIZE=+1></td></tr><tr     
+valign=top>     
+<td><b></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b><i></td><td><b><i></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b><i></i></FONT><FONT NAME="Times New Roman"     
+SIZE=+1></FONT><FONT NAME="Times New Roman" SIZE=+1></td></tr><tr     
+valign=top>     
+<td><b></FONT><FONT NAME="Times New Roman" SIZE=+1><b>challenge from     
+shop</td><td><b></FONT><FONT NAME="Times New Roman" SIZE=+1><b>d</b>     
+= <b>H<sub>o</sub></b>(<b>A, B, </b>SHOP-ID, DATE-    
+TIME<b>)</FONT><FONT NAME="Times New Roman" SIZE=+1></FONT><FONT     
+NAME="Times New Roman" SIZE=+1></td></tr><tr valign=top>     
+<td><b></FONT><FONT NAME="Times New Roman" SIZE=+1><b>user response to     
+shop challenge</td><td><b></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b>r<sub>1</sub></b>  = <b>d*</b>(<b>u<sub>1</sub>*s</b>) +     
+<b>x<sub>1</sub></b>            mod <b>q</b><br>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>r<sub>2</sub>  = d*s +     
+x<sub>2</sub>                     </b>mod<b> q</FONT><FONT NAME="Times New     
+Roman" SIZE=+1></FONT><FONT NAME="Times New Roman"     
+SIZE=+1></td></tr><tr valign=top>     
+<td><b></FONT><FONT NAME="Times New Roman" SIZE=+1><b>shop     
+verification</td><td><b></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b>A^d*B</b>  =     
+<b>g<sub>1</sub></b>^<b>r<sub>1</sub>*g<sub>2</sub>^r<sub>2</sub></b> <b>        
+</b>mod<b> p</FONT><FONT NAME="Times New Roman"     
+SIZE=+1></td></tr></table></center>  
+<hr><p>	     
+</FONT><FONT NAME="Times New Roman" SIZE=+1></b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b></b>Note that this last     
+relationship, equation [16], is the same as equation [1], where in this case the message     
+<b>M</b> = <b>h<sub>u</sub>*g<sub>2</sub> </b>.  The <i>representation</i> of     
+<b>z  </b>(in terms of <b>g<sub>1</sub></b>, <b>g<sub>2</sub></b>) is     
+{<b>u<sub>1</sub>*x</b>,<b> x</b>} because <b>z </b>=     
+(<b>g<sub>1</sub></b>^<b>u<sub>1</sub>*g<sub>2</sub></b>)^<b>x =     
+g<sub>1</sub></b>^(<b>u<sub>1</sub>*x)*g<sub>2</sub>^x</b>.  The     
+representation of <b>M</b> is {<b>u<sub>1</sub></b>, 1}.  <p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	<b><i>3.  Withdrawal     
+Protocol.</b></i><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b><i></i>	</b>Before     
+the user <b>U</b> is allowed to withdraw a coin, <b>U </b>must first prove ownership     
+of his account.  Such proof will eliminate imposters.  To do this, <b>U</b> sends a     
+digitally signed coin withdrawal request to the bank.   Next the following protocol is     
+enacted.  This protocol will generate the numbers defining the coin.<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p><blockquote>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	<b>Step 1:</b>  The     
+bank <b>banque</b> generates a random number <b>w</b> from Z(q)*, and sends the     
+pseudo-public key <b>a</b> and the pseudo-signed message <b>b</b> to the user     
+<b>U</b>:<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>  <blockquote>   
+</FONT><FONT NAME="Times New Roman" SIZE=+1>		<b>[17]     
+a</b>= <b>g^w</b>            mod <b>p       				           	     </b><br>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>		</b><b>[18]     
+b</b> = (<b>h<sub>u</sub>*g<sub>2</sub></b>)<b>^w</b>    mod <b>p .		    
+			     </b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1></b><p>  </blockquote>   
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>	</b><b>Step 2:</b>      
+The user <b>U</b> generates three random numbers <b>s</b>, <b>x<sub>1</sub></b>     
+, and <b>x<sub>2</sub></b> from Z(q)*.  These are used to calculate <p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>  <blockquote>   
+</FONT><FONT NAME="Times New Roman" SIZE=+1>		<b>[19]     
+A</b> = (<b>h<sub>u</sub>*g<sub>2</sub></b>)^<b>s </b>          mod <b>p		    
+			    </b><br>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b></b>	    
+	<b>[20] B =     
+g<sub>1</sub></b>^<b>x<sub>1</sub>*g<sub>2</sub>^x<sub>2</sub>     </b>mod     
+<b>p 					     </b><br>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>[21]		z' =     
+z^s                  </b>mod <b>p </b>.				<p> </blockquote>    
+</FONT><FONT NAME="Times New Roman" SIZE=+1></b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b></b>Note that <b>z'</b>     
+is a <i>signature</i> <i>on <b></i>A</b>.  That is, <b>z' = z^s =     
+[(h<sub>u</sub>*g<sub>2</sub>)^x]^s = A^x</b>.  Hence <b>A</b> plays the same     
+role as the blinded message <b>M'</b> in equation [5].<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b></b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>	U</b> also generates     
+two random numbers <b>u</b>, <b>v</b>  from Z(q)*.  These are used to calculate 	    
+		<b></b><p>  <blockquote>   
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>[22]	a' = a^u*g^v              
+</b>mod <b>p 					     <br>[23]	b' = b^(s*u)*A^v      
+</b> mod <b>p 				           	     </b><p>  </blockquote>   
+</FONT><FONT NAME="Times New Roman" SIZE=+1></b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b></b>The user <b>U</b>     
+then computes the the challenge <b>c' </b>as follows:<p>  <blockquote>   
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>		<b>[24] c' =     
+H(A, B, z', a', b') 				   	     </b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1></b><p> </blockquote>    
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b></b>and then sends the     
+<i>blinded challenge<b> </i>c</b> back to the bank <b>banque</b>:<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b></b><p><blockquote>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>[25]	c = c'/u       
+</b>mod <b>q </b>.						<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1></b><p>  </blockquote>   
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>	Step 3:  </b>The bank     
+<b>banque</b> sends the response <b>r </b>:<p>  <blockqutoe>   
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>  <blockquote>   
+</FONT><FONT NAME="Times New Roman" SIZE=+1>		<b>[26] r = w     
++ c*x  </b>mod <b>q 					  </b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1></b><p>  </blockquote>   
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b></b>and debits     
+<b>U</b>'s account in the amount equal to the value of one coin.<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	<b>Step 4:</b>      
+<b>U</b> accepts the debit only if<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>  <blockquote>   
+</FONT><FONT NAME="Times New Roman" SIZE=+1>		       <b>[27]     
+g^r = a*h^c    </b>mod <b>p 				   	     </b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>[28]	    
+	</b>(<b>h<sub>u</sub>*g<sub>2</sub></b>)^<b>r = b*z^c    </b>mod <b>p     
+	.				     </b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b></b><p>  </blockquote>   
+</FONT><FONT NAME="Times New Roman" SIZE=+1>Note that equations [27] and     
+[28] are the same as [13] and [14], which we verified previously.  The user <b>U</b>     
+also calculates <b>r'</b>:<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p> <blockquote>    
+</FONT><FONT NAME="Times New Roman" SIZE=+1>		    
+	<b>[29] r'</b> = <b>v</b> + <b>r*u</b>  mod <b>q</b>   .  			  
+	      <p>  </blockquote></blockquote>   
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b></b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	The     
+<b><i>coin</b></i> is the set of numbers {<b>A, B, (z',a',b',r')</b>}.  The user knows     
+the representation or signature {<b>z',a',b',r'</b>} on the coin. Note, however, that in     
+the withdrawal protocol described above, nowhere did we specify the     
+<i>denomination</i> of the coin (say $100).  Hence the limited system we are using here     
+implicitly assumes all coins are of the same size. But the set of numbers {<b>A, B,     
+(z',a',b',r')</b>}  allows the user to prove that he made a coin withdrawal from the bank,     
+and hence the set of numbers represents an obligation of the bank equal to one coin.  <p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	Now, if one can't     
+forge the bank's signature, which involves <b>x </b>(see equation [16]), then one can't     
+forge coins.  There can't be more coins in circulation than there are coin withdrawals.      
+But forging the bank's signature would require the ability to extract discrete logarithms.      
+Moreover, no one else can spend this coin without knowing its representation (<b>z',     
+a',b',r'</b>).<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	<b><i>4.  Payment     
+Protocol.</b></i><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b><i></i>	</b>When the     
+user <b>U</b> is ready to spend the coin, the following protocol is enacted between the     
+user and the shop <b>S</b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b></b><p>  <blockquote>   
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>	Step 1:  </b>The user     
+sends {<b>A</b>, <b>B</b>, (<b>z',a',b',r'</b>)} to <b>S.</b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b></b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	<b>Step 2:  </b>The     
+shop returns the challenge <b>d</b>:<p>  <blockquote>   
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b></b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	    
+	</FONT><FONT NAME="Times New Roman" SIZE=+3></FONT><FONT     
+NAME="Times New Roman" SIZE=+1><b>[30] d</b> =   
+<b>H<sub>o</sub></b>(<b>A, B,  </b>SHOP-ID, DATE-TIME<b>) . 		                   
+</b><p>  </blockquote>   
+</FONT><FONT NAME="Times New Roman" SIZE=+1></b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>	Step 3:  </b>The user     
+<b>U</b> calculates the responses <b>r<sub>1</sub>, r<sub>2</sub></b>:<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>  <blockquote>   
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	    
+	<b>[31] r<sub>1</sub></b>  = <b>d*</b>(<b>u<sub>1</sub>*s</b>) +     
+<b>x<sub>1</sub></b>   mod <b>q 					    </b><br>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>[32] 		    
+	r<sub>2</sub>  = d*s + x<sub>2</sub>           </b>mod<b> q 			    
+		     </b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1></b><p>  </blockquote>   
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>	Step 4:  </b>The shop     
+<b>S </b>accepts the coin only if<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>  <blockquote>   
+</FONT><FONT NAME="Times New Roman" SIZE=+1>		     
+<b>[33] A^d*B</b>  =     
+<b>g<sub>1</sub></b>^<b>r<sub>1</sub>*g<sub>2</sub>^r<sub>2</sub></b> <b>        
+</b>mod<b> p 			     	     </b><br>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>		</b>           
+<b>[34] g^r' = a'*h^c'          </b>mod <b>p 				     </b><br>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>		</b>          
+<b>[35] A^r' = b'*z'^c'         </b>mod <b>p .				       
+</b><p></blockquote></blockquote>    
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b></b>	<b></b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1></b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>	</b>Recall that <b>c'     
+= H(A, B, z', a', b')</b>, so the shop can calculate this value for itself.  The other     
+relationships may be verified as follows.  Equation [33] follows from <p> <blockquote>    
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b></b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>	    
+	</b><b>A^d*B</b>  =      
+(<b>h<sub>u</sub>*g<sub>2</sub></b>)^(<b>s*d</b>)<b>*</b>[<b>g<sub>1</sub>    
+</b>^<b>x<sub>1</sub>*g<sub>2</sub>^x<sub>2</sub>]   </b>mod<b> p <p>		   
+<blockquote>   	     		             	  =      
+g<sub>1</sub></b>^(<b>u<sub>1</sub>*s*d+     
+x<sub>1</sub>)*g<sub>2</sub>^(s*d+x<sub>2</sub>)  </b>mod <b>p</b><br>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>		              =      
+g<sub>1</sub></b>^<b>r<sub>1</sub>*g<sub>2</sub>^r<sub>2</sub></b>                                           
+<b>    </b>mod<b> p</b>.<br>  </blockquote>   
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b></b><p> </blockquote>    
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>	</b>Equation [34]     
+follows from<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>  <blockquote>   
+</FONT><FONT NAME="Times New Roman" SIZE=+1>		    
+	<b>g^r'</b> = <b>g^(v+r*u)</b>                    mod <b>p</b><p> <blockquote>    
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>			</b>           
+= <b>g^(v+(w+c*x)*u)</b>          mod <b>p</b><br>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>			       =     
+g^(w*u+v)*g^(x*c*u)  </b>mod <b>p</b><br>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>			       =     
+(a^u*g^v)*h^(c*u)      </b>mod <b>p</b><br>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>			       =     
+a'*h^c' </b>                         mod <b>p</b>.<p>  </blockquote>   
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b></b><p></blockquote>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>	</b>Equation [35]     
+follows from<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>  <blockquote>   
+</FONT><FONT NAME="Times New Roman" SIZE=+1>		           
+<b>A</b>^<b>r'  = (</b>(<b>h<sub>u</sub>*g<sub>2</sub></b>)^<b>s)^(v+r*u)                                             
+</b>mod <b>p</b><p>  <blockquote>   
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>	                           =     
+</b>(<b>h<sub>u</sub>*g<sub>2</sub></b>)^<b>(s*v+s*(w+c*x)*u)                                  
+</b>mod <b>p</b><br>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>			   =     
+[</b>(<b>h<sub>u</sub>*g<sub>2</sub></b>)<b>^(s*w*u)]*[(     
+h<sub>u</sub>*g<sub>2</sub>)^(s*x*c*u+s*v)]  </b>mod<b> p</b><br>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>			   =     
+[b^(s*u)]*[A^(x*c*u+v)]                                 </b>mod<b> p</b><br>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>			   =     
+[b^(s*u)]*[z'^(c*u)*A^v]                               </b> mod <b>p</b><br>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>			   =     
+[b^(s*u)*A^v]*z'^(c*u)</b>                                   mod <b>p</b> <br>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>			<b>   =      
+b'*z'^c'</b>                                                             mod <b>p</b>.<p> </blockquote>    
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b></b><p>  </blockquote>   
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b></b>In equation [35],     
+which is the analog of equation [28], the shop uses uses <b>A</b> = <b>M'</b> =     
+(<b>h<sub>u</sub>*g<sub>2</sub>)^s  </b>instead of<b> M =     
+h<sub>u</sub>*g<sub>2</sub> </b>to verify the coin in the protocol, because the shop     
+does not see <b>M</b>, but only the blinded value <b>M'</b>.<b> </b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1></b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1></b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>	<i>5. Deposit     
+Protocol.</b></i><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b><i></b></i>	When     
+the shop <b>S</b> is ready to deposit the coin at the bank <b>banque</b>, the shop     
+sends the payment transcript consisting of the coin {<b>A, B, (z',a',b',r')</b>}, along with     
+(<b>r<sub>1</sub>, r<sub>2</sub></b>) and the DATE-TIME of the transaction.  The     
+bank already knows the SHOP-ID, which is used in the communication.<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p> <blockquote>    
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	<b>Step 1:</b>  The     
+bank verifies equations [33] to [35] to see that this is a valid coin.<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	<b>Step 2:</b>  If the     
+coin is valid, the bank checks its database to see if the coin was spent previously (that is,     
+the bank checks for double-spending).  <p>  <blockquote>   
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	<b>a.</b> If the coin     
+is not in the database, then it was not previously spent.  Hence the bank credits the     
+account of <b>S</b>, and records the coin in the form<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><blockquote>		    
+	{<b>A</b>, <b>B</b>, DATE-TIME, <b>r<sub>1</sub>,     
+r<sub>2</sub></b>}<b>.</b><p>  </blockquote>   
+</FONT><FONT NAME="Times New Roman" SIZE=+1></b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>	b.  </b>If the coin is     
+already in the database, then a fraud has occurred.  If <b>S</b> previously deposited the     
+coin, and the DATE-TIME are the same, then <b>S</b> is trying to deposit the same coin     
+or transcript twice. The deposit is rejected for that reason.  The bank knows the identity of     
+the shop <b>S</b> responsible.<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	<b>c.</b>      
+Otherwise, the coin has been double-spent, and the bank takes steps to unmask the     
+double-spender.  The bank has two sets of information on the coin:<p>  <blockquote>   
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>		{<b>A</b>,     
+<b>B</b>, DATE-TIME, <b>r<sub>1</sub>, r<sub>2</sub></b>}<b>.</b><br>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>	    
+	</b>{<b>A</b>, <b>B</b>, DATE-TIME', <b>r'<sub>1</sub>,    
+r'<sub>2</sub></b>}<b>.</b><p>  </blockquote>   
+</FONT><FONT NAME="Times New Roman" SIZE=+1></b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b></b>Hence, the bank can     
+calculate<p>  <blockquote>   
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	(<b>r<sub>1</sub> -     
+r'<sub>1</sub>) / </b>(<b>r<sub>2</sub> - r'<sub>2</sub>) =    
+[d*</b>(<b>u<sub>1</sub>*s</b>) -     
+<b>d'*</b>(<b>u<sub>1</sub>*s</b>)] / [<b>d*s - d's]</b><br>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>			                      
+= u<sub>1</sub>    </b>mod <b>q.</b><p>  </blockquote>   
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b></b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>Thus it can check its database     
+for the user identity (see equation [15])<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>  <blockquote>   
+</FONT><FONT NAME="Times New Roman" SIZE=+1>			    
+	<b>h<sub>u</sub></b> = <b>g<sub>1</sub></b>^<b>u<sub>1</sub>       
+</b>mod <b>p</b>.<p>  </blockquote>   
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>In addition, the bank now     
+knows <b>u<sub>1</sub></b> also,  which it would not otherwise known (without     
+taking discrete logarithms).  Hence the bank's knowledge of <p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>  <blockquote>   
+</FONT><FONT NAME="Times New Roman" SIZE=+1>		    
+	<b>u<sub>1</sub> = </b>log_<b>g<sub>1</sub></b>     
+(<b>h<sub>u</sub></b>) mod <b>p</b><p>  </blockquote>   
+</FONT><FONT NAME="Times New Roman" SIZE=+1></b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b></b>serves as proof of     
+the double-spending.<p>  </blockquote></blockquote>   
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+2>	<b>D.  The Digital     
+Cash System with Observer.</b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1></b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b></b>	To incorporate     
+an observer--for the prior prevention of double-spending--in this framework only requires     
+a slight modification of the above procedure.  The essential change is that the bank     
+provides the user with an observer which contains a hidden random number     
+<b>o<sub>1</sub></b> embedded in memory (ROM).  In addition, when the user     
+withdraws a coin from the bank, the observer itself creates a second random number     
+<b>o<sub>2</sub></b> which is stored in non-volatile memory (EEPROM). This     
+second number is erased when the coin is spent in the payment protocol.  <p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	Since the basic     
+equations in the modified protocols are very similar to equations [15]-[35], we will     
+number the equations with the same numbers, but with an "<b>O</b>" appended to     
+denote the "observer" equations (e.g. <b>[15-O] corresponds to [15]</b>). <p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	To <i>open an     
+account</i>, the user <b>U</b> generates a random number <b>u<sub>1</sub></b>     
+from Z(q)*, and computes the following number (an identifier or public key) which is     
+sent to the bank<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>  <blockquote>   
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	    
+	<b>h<sub>u</sub></b> = <b>g<sub>1</sub></b>^<b>u<sub>1</sub>       
+</b>mod <b>p </b>.                                                                                                <p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>  </blockquote>   
+</FONT><FONT NAME="Times New Roman" SIZE=+1>The user keeps   
+<b>u<sub>1</sub></b>     
+secret. <p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	The bank provides     
+<b>U</b> with an observer (<b>O</b>), which has embedded within ROM a random     
+number <b>o<sub>1</sub></b> from Z(q)*.  The user <b>U</b> does not know what     
+<b>o<sub>1</sub></b> is. The bank computes the observer public key     
+<b>h<sub>o</sub> </b>= <b>g<sub>1</sub></b>^<b>o<sub>1</sub></b> and issues     
+the user identifier (account number) <b>I</b>,<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>  <blockquote>   
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	 <b>[15-O]  I =</b>     
+<b>h<sub>u</sub>* h<sub>o</sub> = g<sub>1</sub>^(o<sub>1</sub> +     
+u<sub>1</sub>)     </b>mod <b>p</b>,  			            	<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b></b><p> </blockquote>    
+</FONT><FONT NAME="Times New Roman" SIZE=+1>and stores <b>I</b> along     
+with any other information it requires on <b>U</b>.  The bank computes a signature     
+using its secret key <b>x</b> as follows:<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p> <blockquote>    
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	<b>[16-O] z =     
+(I*g<sub>2</sub>)^x  </b>mod <b>p</b>,   <p>  </blockquote>   
+</FONT><FONT NAME="Times New Roman" SIZE=+1></b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b></b>and returns     
+<b>h<sub>o</sub> </b>and <b>z</b> to the user.  <p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	Note that, unlike     
+previously, the user <b>U</b> does not know a representation of either <b>z</b> or     
+<b>M</b>.  If we set <b>M</b> = <b>I*g<sub>2</sub></b>, the representation of <b>z     
+</b>(in terms of <b>g<sub>1</sub></b>, <b>g<sub>2</sub></b>) is     
+{(<b>o<sub>1</sub></b>+<b>u<sub>1</sub>)*x</b>,<b> x</b>}, while the     
+representation of <b>M</b> is {<b>o<sub>1</sub></b>+<b>u<sub>1</sub></b>, 1}.      
+Neither party knows these representations; the bank doesn't know     
+<b>u<sub>1</sub></b> and the user doesn't know <b>o<sub>1</sub></b> .<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	<b><i>1.  Withdrawal     
+Protocol with Observer.</b></i><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b><i></i>	</b>Before     
+the user <b>U</b> is allowed to withdraw a coin, <b>U </b>must first prove ownership     
+of his account, as before. To do this, <b>U</b> sends a digitally signed coin withdrawal     
+request to the bank.   Next the following protocol is enacted.<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p> <blockquote>    
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	<b>Step 1:</b>  This     
+step is new.  Here the observer <b>O </b>generates a random number     
+<b>o<sub>2</sub></b> from Z(q)*.  The observer calculates <b>h<sub>c</sub> </b>=     
+<b>g<sub>1</sub></b>^<b>o<sub>2</sub></b> and transfers this to the user     
+<b>U</b> (i.e. the user's hardware or software).		<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1></FONT><FONT   
+NAME="Times  New Roman" SIZE=+1><b>Step 2:</b>  The bank generates a random   
+number  <b>w</b> from Z(q)*, and sends the pseudo-public key <b>a</b> and the   
+pseudo-signed  message <b>b</b> to the user <b>U</b>:<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>  <blockquote>   
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	<b>[17-O] a</b> =     
+<b>g^w</b>            mod <b>p       				           	</b><br>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>	</b><b>[18-O] b</b>     
+= (<b>I*g<sub>2</sub></b>)<b>^w</b>    mod <b>p .				    
+	</b><p>  </blockquote>   
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b></b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	<b>Step 3:</b>  The     
+user <b>U</b> generates <i>four</i> (not just three) random numbers <b>s</b>,     
+<b>x<sub>1</sub></b>, <b>x<sub>2</sub></b>, and <b>e</b> from Z(q)*.  These are     
+used to calculate <p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>  <blockquote>   
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	<b>[19-O] A</b> =     
+(<b>I*g<sub>2</sub></b>)^<b>s </b>                                 mod <b>p		            
+</b><br>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>		</b><b> [20-    
+O] B = g<sub>1</sub></b>^<b>x<sub>1</sub>*g<sub>2</sub>^x<sub>2</sub>*     
+h<sub>o</sub>^(e*s)* h<sub>c</sub>    </b>mod <b>p 		</b><br>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>[21-O]		z' = z^s                      
+		      </b>mod <b>p .			</b><p> </blockquote>    
+</FONT><FONT NAME="Times New Roman" SIZE=+1></b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b></b>As before,     
+<b>z'</b> is a signature on <b>A</b>.  That is, <b>z' = A^x</b>.<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	<b>U</b> also     
+generates two random numbers <b>u</b>, <b>v</b>  from Z(q)*.  These are used to     
+calculate 			<b></b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1></b><p>  <blockquote>   
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>[22-O] a' = a^u*g^v              
+</b>mod <b>p 		<br> [23-O]	    	b' =     
+b^(s*u)*A^v  </b> mod <b>p 				           	</b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1></FONT><FONT     
+NAME="Times New Roman" SIZE=+2><p>  </blockquote></blockquote>  
+<hr><p>   
+</FONT><FONT NAME="Times New Roman" SIZE=+2><p><center>     
+</FONT><FONT NAME="Times New Roman" SIZE=+2><b>Table 3: Digital Cash     
+System with Observer</b><p>     
+</FONT><FONT  NAME="Times New Roman" SIZE=+1><b></b><table border><tr     
+valign=top><td></FONT><FONT NAME="Times New Roman"   
+SIZE=+1><b>primes</b></td><td><b></FONT><FONT NAME="Times New     
+Roman" SIZE=+1><b>p, q  </b>where <b>q </b>divides <b>p</b>-1<b></td></tr><tr     
+valign=top>     
+<td><b></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b>generators</td><td><b></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b>g</b>, <b>g<sub>1</sub></b>, <b>g<sub>2</sub>  </b>of G(q) in     
+Z(p)*<b></td></tr><tr valign=top>     
+<td><b></FONT><FONT NAME="Times New Roman"     
+SIZE=+1></td><td><b></FONT><FONT NAME="Times New Roman"     
+SIZE=+1></td></tr><tr valign=top>     
+<td><b></FONT><FONT NAME="Times New Roman" SIZE=+1><b>secret key of     
+observer</td><td><b></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b>o<sub>1</sub></td></tr><tr valign=top>     
+<td><b></FONT><FONT NAME="Times New Roman" SIZE=+1><b>secret identifier     
+key of user</td><td><b></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b>u<sub>1</sub></td></tr><tr valign=top>     
+<td><b></FONT><FONT NAME="Times New Roman" SIZE=+1><b>public key of     
+observer</td><td><b></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b>h<sub>o</sub> </b>= <b>g<sub>1</sub></b>^<b>o<sub>1</sub>          
+</b>mod <b>p </td></tr><tr valign=top>     
+<td><b></FONT><FONT NAME="Times New Roman" SIZE=+1><b>public key of     
+user </td><td><b></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b>h<sub>u</sub> = g<sub>1</sub></b>^<b>u<sub>1</sub>   </b>mod     
+<b>p</td></tr><tr valign=top>     
+<td><b></FONT><FONT NAME="Times New Roman" SIZE=+1><b>user identifier     
+(joint public key)</td><td><b></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b>I =</b> <b>h<sub>o</sub>* h<sub>u</sub> =     
+g<sub>1</sub>^(o<sub>1</sub> + u<sub>1</sub>)   </b>mod <b>p</td></tr><tr     
+valign=top>     
+<td><b></FONT><FONT NAME="Times New Roman" SIZE=+1><b>equivalent     
+identifier signed by bank</td><td><b></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b>M = I*g<sub>2</sub></td></tr><tr valign=top>     
+<td><b></FONT><FONT NAME="Times New Roman"     
+SIZE=+1></td><td><b></FONT><FONT NAME="Times New Roman"     
+SIZE=+1></td></tr><tr valign=top>     
+<td><b></FONT><FONT NAME="Times New Roman" SIZE=+1><b>bank's private     
+key</td><td><b></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b>x</td></tr><tr valign=top>     
+<td><b></FONT><FONT NAME="Times New Roman" SIZE=+1><b>bank's random     
+number</td><td><b></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b>w</td></tr><tr valign=top>     
+<td><b></FONT><FONT NAME="Times New Roman" SIZE=+1><b>observer-created     
+random number</td><td><b></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b>o<sub>2</sub></td></tr><tr valign=top>     
+<td><b></FONT><FONT NAME="Times New Roman" SIZE=+1><b>observer public     
+key in coin withdrawal </td><td><b></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b>h<sub>c</sub> </b>=     
+<b>g<sub>1</sub></b>^<b>o<sub>2</sub></td></tr><tr valign=top>     
+<td><b></FONT><FONT NAME="Times New Roman" SIZE=+1><b>bank's public     
+key</td><td><b></FONT><FONT NAME="Times New Roman" SIZE=+1><b>h = g^x       
+</b>mod <b>p</td></tr><tr valign=top>     
+<td><b></FONT><FONT NAME="Times New Roman" SIZE=+1><b>bank's pseudo-    
+public key</td><td><b></FONT><FONT NAME="Times New Roman" SIZE=+1><b>a     
+= g^w   </b>mod <b>p</td></tr><tr valign=top>     
+<td><b></FONT><FONT NAME="Times New Roman" SIZE=+1><b>bank-signed user     
+identifier</td><td><b></FONT><FONT NAME="Times New Roman" SIZE=+1><b>z     
+= M^x  </b>mod <b>p</td></tr><tr valign=top>     
+<td><b></FONT><FONT NAME="Times New Roman" SIZE=+1><b>bank-pseudo-    
+signed user identifier</td><td><b></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b>b = M^w  </b>mod <b>p</td></tr><tr valign=top>     
+<td><b></FONT><FONT NAME="Times New Roman" SIZE=+1><b>collision-free     
+hash function</td><td><b></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b>H</td></tr><tr valign=top>     
+<td><b></FONT><FONT NAME="Times New Roman" SIZE=+1><b> challenge to     
+bank</td><td><b></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b>c</td></tr><tr valign=top>     
+<td><b></FONT><FONT NAME="Times New Roman" SIZE=+1><b>response to     
+challenge</td><td><b></FONT><FONT NAME="Times New Roman" SIZE=+1><b>r     
+= w + c*x  </b>mod <b>q</td></tr><tr valign=top>     
+<td><b></FONT><FONT NAME="Times New Roman" SIZE=+1><b>verification that     
+signature x is on g (g^x=h) and M (M^x=z)</td><td><b></FONT><FONT     
+NAME="Times New Roman" SIZE=+1><b>a*h^c = g^r</b><br>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>b*z^c = M^r =     
+(I*g<sub>2</sub>)^r</td></tr><tr valign=top><td></FONT><FONT NAME="Times     
+New Roman" SIZE=+1><b><i>user-generated random     
+numbers</td><td><b></i></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b><i></i>s</b>, <b>x<sub>1</sub></b>, <b>x<sub>2</sub></b>,     
+<b>u</b>, <b>v</td></tr><tr valign=top>     
+<td><b></FONT><FONT NAME="Times New Roman" SIZE=+1><b><i>blinded user     
+identifier (coin element)</td><td><b></i></FONT><FONT NAME="Times New     
+Roman" SIZE=+1><b><i></i>A</b> = <b>M^s</b> =     
+(<b>I*g<sub>2</sub></b>)^<b>s  </b></td></tr><tr valign=top>     
+<td></FONT><FONT NAME="Times New Roman" SIZE=+1><b><i>additional coin     
+element</td><td><b></i></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b><i></i>B =     
+g<sub>1</sub></b>^<b>x<sub>1</sub>*g<sub>2</sub>^x<sub>2</sub>*     
+h<sub>o</sub>^(e*s)* h<sub>c</sub></b></td></tr><tr valign=top>     
+<td></FONT><FONT NAME="Times New Roman" SIZE=+1><b><i>signed blinded     
+user identifier</td><td><b></i></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b><i></i>z' = z^s = A^x</b></td></tr><tr valign=top>     
+<td></FONT><FONT NAME="Times New Roman" SIZE=+1><b><i>blinded pseudo-    
+public key</td><td><b></i></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b><i></i>a' = a^u*g^v</b></td></tr><tr valign=top>     
+<td></FONT><FONT NAME="Times New Roman" SIZE=+1><b><i>blinded pseudo-    
+signed user identifier</td><td><b></i></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b><i></i>b' = b^(s*u)*A^v</b></td></tr><tr valign=top>     
+<td></FONT><FONT NAME="Times New Roman" SIZE=+1><b><i> equivalent     
+blinded intercept</td><td><b></i></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b><i></i>w'  = u*w + v   </b>mod <b>q</b></td></tr><tr valign=top>     
+<td></FONT><FONT NAME="Times New Roman" SIZE=+1><b><i>blinded challenge     
+(hash value)</td><td><b></i></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b><i></i>c' = H(A, B, z', a', b')</b></td></tr><tr valign=top>     
+<td></FONT><FONT NAME="Times New Roman" SIZE=+1><b><i>challenge     
+returned to bank</td><td><b></i></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b><i></i>c = c'/u  </b>mod <b>q</b></td></tr><tr valign=top>     
+<td></FONT><FONT NAME="Times New Roman" SIZE=+1><b><i>user-calculated     
+transformed response</td><td><b></i></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b><i></i>r'</b> = <b>v</b> + <b>r*u = w' + c'*x</b>  mod     
+<b>q</td></tr><tr valign=top>     
+<td><b></FONT><FONT NAME="Times New Roman" SIZE=+1><b><i>coin     
+definition</i></td><td><b></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b></b>{<b>A</b>, <b>B</b>, (<b>z',a',b',r'</b>)}, where<br>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>a'* h^c' = g^r'  </b>mod     
+<b>p</b><br>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>b'*z'^c' = A^r'</b>      
+mod <b>p</b><br>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b></b><b>c'</b> =     
+<b>H(A,B,z',a',b')</td></tr><tr valign=top>     
+<td><b></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b><i></td><td><b><i></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b><i></i></td></tr><tr valign=top>     
+<td><b></FONT><FONT NAME="Times New Roman" SIZE=+1><b>challenge from     
+shop to user</td><td><b></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b>d</b> = <b>H<sub>o</sub></b>(<b>A, B, </b>SHOP-ID, DATE-    
+TIME<b>)</td></tr><tr valign=top>     
+<td><b></FONT><FONT NAME="Times New Roman" SIZE=+1><b>user's challenge     
+to observer</td><td><b></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b>d<sup>o</sup>= s*(d+e)          </b>mod <b>q</td></tr><tr valign=top>     
+<td><b></FONT><FONT NAME="Times New Roman" SIZE=+1><b>response from     
+observer</td><td><b></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b>r<sub>1</sub><sup>o</sup></b> = 
+<b>d<sup>o</sup>*o<sub>1</sub></b> +     
+<b>o<sub>2</sub></b>     mod <b>q</td></tr><tr valign=top>     
+<td><b></FONT><FONT NAME="Times New Roman" SIZE=+1><b>user verfication     
+of observer response</td><td><b></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b>g<sub>1</sub></b>^<b>r<sub>1</sub><sup>o</sup> =     
+h<sub>o</sub>^d<sup>o</sup>*h<sub>c</sub>  </b>mod <b>p</td></tr>
+<tr valign=top>     
+<td><b></FONT><FONT NAME="Times New Roman" SIZE=+1><b>user response to     
+shop challenge</td><td><b></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b>r<sub>1</sub></b>  = <b>r<sub>1</sub><sup>o</sup></b> +     
+<b>d*</b>(<b>u<sub>1</sub>*s</b>) + <b>x<sub>1</sub></b>   mod <b>q</b> <br>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>r<sub>2</sub>  = d*s +     
+x<sub>2</sub>                    </b>mod<b> q</td></tr><tr valign=top>     
+<td><b></FONT><FONT NAME="Times New Roman" SIZE=+1><b>shop     
+verification</td><td><b></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b>A^d*B</b>  =     
+<b>g<sub>1</sub></b>^<b>r<sub>1</sub>*g<sub>2</sub>^r<sub>2</sub></b> <b>        
+</b>mod<b> p</td></tr></table></center><p>  
+<hr><p><blockquote>  
+The user <b>U</b> then computes     
+the the challenge <b>c' </b>as follows:<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p> <blockquote>    
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	<b>[24-O] c' = H(A,     
+B, z', a', b') 		   	    	            </b><p>  </blockquote>   
+</FONT><FONT NAME="Times New Roman" SIZE=+1></b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b></b>and then sends the     
+blinded challenge<b><i> </i>c</b> back to the bank <b>banque</b>:<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b></b><p><blockquote>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>[25-O]		c = c'/u       
+</b>mod <b>q </b>.						<p>  </blockquote>   
+</FONT><FONT NAME="Times New Roman" SIZE=+1></b><p>    
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>	Step 4:  </b>The bank     
+sends the response <b>r </b>:<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>  <blockquote>   
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	<b>[26-O] r = w +     
+c*x  </b>mod <b>q 						</b><p>  </blockquote>   
+</FONT><FONT NAME="Times New Roman" SIZE=+1></b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b></b>and debits     
+<b>U</b>'s account in the amount equal to the value of one coin.<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	<b>Step 5:</b>      
+<b>U</b> accepts the debit only if<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p> <blockquote>    
+</FONT><FONT NAME="Times New Roman" SIZE=+1>       <b>[27-O] g^r =     
+a*h^c    </b>mod <b>p 				       	</b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>	    
+		[28-O] </b>(<b>I*g<sub>2</sub></b>)^<b>r = b*z^c    </b>mod <b>p   
+	.		 </b><p>  </blockquote>   
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b></b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>The user <b>U</b> also     
+calculates <b>r'</b>:<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><blockquote>		    
+	<b>[29-O] r'</b> = <b>v</b> + <b>r*u</b>  mod <b>q</b>   .  			    
+	<p>  </blockquote></blockquote>   
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b></b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	The coin is the set of     
+numbers {<b>A, B, (z',a',b',r')</b>}, as before.<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	<b><i>2.  Payment     
+Protocol with Observer.</b></i><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b><i></i>	</b>When the     
+user <b>U</b> is ready to spend the coin, the following protocol is enacted between the     
+user and the shop <b>S</b>.<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b></b><p>  <blockquote>   
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>	Step 1:  </b>The user     
+sends {<b>A</b>, <b>B</b>, (<b>z',a',b',r'</b>)} to <b>S.</b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b></b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	<b>Step 2:  </b>The     
+shop returns the challenge <b>d</b>:<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b></b><p>  <blockquote>   
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>[30-O]</b>	    
+</FONT><FONT  NAME="Times New Roman" SIZE=+1><b>d</b> =   
+<b>H<sub>o</sub></b>(<b>A, B,  </b>SHOP-ID, DATE-TIME<b>) . 	       </b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1></b><p>  </blockquote>   
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>	Step 3:  </b>This step     
+is new.  The user <b>U</b> calculates the response <p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>  <blockquote>   
+</FONT><FONT NAME="Times New Roman" SIZE=+1>		<b>[30A-O]     
+d<sup>o</sup> = s*(d+e)     </b>mod <b>q                                            </b><p>    
+</blockquote>   
+</FONT><FONT NAME="Times New Roman" SIZE=+1></b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b></b>and sends     
+<b>d<sup>o</sup></b> to the observer <b>O</b>.  The observer calculates its 
+response<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>  <blockquote>   
+</FONT><FONT NAME="Times New Roman" SIZE=+1>       <b>[30B-O]     
+r<sub>1</sub><sup>o</sup></b> = <b>d<sup>o</sup>*o<sub>1</sub></b> +    
+<b>o<sub>2</sub></b>  mod     
+<b>q ,				      </b><p>  </blockquote>   
+</FONT><FONT NAME="Times New Roman" SIZE=+1></b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b></b>returns     
+<b>o<sub>2</sub></b> to the user <b>U</b>,  and erases <b>o<sub>2</sub></b> from     
+memory.  Note<i> this is the point where the observer prevents double-spending</i>.  For     
+if <b>o<sub>2</sub></b>  has already been erased, the observer locks up, and the     
+transaction is not allowed to take place.<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b></b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>	</b>The observer     
+here is in effect performing the Schnorr identification protocol, by proving its knowledge     
+of the representation (<b>o<sub>1</sub></b>, <b>o<sub>2</sub></b>).<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b></b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>	Step 4:  </b>The user     
+<b>U </b>first verifies the response from the observer <b>O</b>:<p>  <blockquote>   
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	    
+	<b>[30C-O] g<sub>1</sub></b>^<b>r<sub>1</sub><sup>o</sup> =    
+h<sub>o</sub>^d<sup>o</sup>*     
+h<sub>c</sub>	 </b>mod <b>p . 		              </b><p>  </blockquote>   
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b></b>The user <b>U</b>     
+then calculates the responses <b>r<sub>1</sub>, r<sub>2</sub> </b>for the shop     
+<b>S</b>:<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>  <blockquote>   
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	    
+	<b>[31-O] r<sub>1</sub></b>  = <b>r<sub>1</sub><sup>o</sup></b> +     
+<b>d*</b>(<b>u<sub>1</sub>*s</b>) + <b>x<sub>1</sub></b>   mod <b>q 		    
+		</b><br>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>[32-O] 	    
+	r<sub>2</sub>  = d*s + x<sub>2</sub>                    </b>mod<b> q 	 	                         
+</b><p>  </blockquote>   
+</FONT><FONT NAME="Times New Roman" SIZE=+1></b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>	Step 5:  </b>The shop     
+<b>S </b>accepts the coin only if (using <b>c' </b>calculated<b> </b>from the publicly     
+known hash function):<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>  <blockquote>   
+</FONT><FONT NAME="Times New Roman" SIZE=+1>		     
+<b>[33-O] A^d*B</b>  =     
+<b>g<sub>1</sub></b>^<b>r<sub>1</sub>*g<sub>2</sub>^r<sub>2</sub></b> <b>        
+</b>mod<b> p 			            </b><br>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>		</b>           
+<b>[34-O] g^r' = a'*h^c'          </b>mod <b>p 			</b><br>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>		</b>          
+<b>[35-O] A^r' = b'*z'^c'         </b>mod <b>p .				</b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>    
+</blockquote></blockquote>   
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>	</b>Note that     
+equation [<b>33-O</b>] follows from <p>  <blockquote>   
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b></b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>	    
+	</b><b>A^d*B</b>  =      
+(<b>I*g<sub>2</sub></b>)^(<b>s*d</b>)<b>*</b>[<b>g<sub>1</sub></b>^<b>x  
+<sub>1</sub>*g<sub>2</sub>^x<sub>2</sub>*h<sub>o</sub>^(e*s)* h<sub>c</sub>]                    
+</b>mod<b> p 		     	  <br><blockquote>   		  =      
+g<sub>1</sub></b>^[(<b>o<sub>1</sub></b>+<b>u<sub>1</sub>)*s*d+     
+x<sub>1</sub>+ o<sub>1</sub>*e*s+     
+o<sub>2</sub>]*g<sub>2</sub>^(s*d+x<sub>2</sub>)      </b>mod <b>p</b><br>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>	     		  =      
+g<sub>1</sub></b>^[<b>s*(d+e)*o<sub>1</sub></b>+<b> o<sub>2</sub> +     
+d*u<sub>1</sub>*s + x<sub>1</sub>]*g<sub>2</sub>^(s*d+x<sub>2</sub>)         
+</b>mod <b>p</b><br>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>			  =      
+g<sub>1</sub></b>^<b>r<sub>1</sub>*g<sub>2</sub>^r<sub>2</sub></b> <b> 	    
+				     </b>mod<b> p .</b><p>  </blockquote></blockquote>   
+</FONT><FONT NAME="Times New Roman" SIZE=+1></b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>	</b>The user     
+<b>U</b> does not know a representation of  his identifying information <b>I</b>     
+(because he doesn't know <b>o<sub>1</sub></b>), hence he does not know <b>A</b>     
+by himself. Hence the user can't spend the coin without the help of the observer     
+<b>O</b>.<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	However, if the     
+tamper-resistance is broken, and the user spends the coin without the help of the observer,     
+the user can be identified, as we see next.<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	<b><i>3.  Deposit     
+Protocol with Observer.</b></i><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b><i></i>	</b>As     
+before, when the shop <b>S</b> is ready to deposit the coin at the bank <b>banque</b>,     
+the shop sends the payment transcript consisting of the coin {<b>A, B, (z',a',b',r')</b>},     
+along with (<b>r<sub>1</sub>, r<sub>2</sub></b>) and the DATE-TIME of the     
+transaction.  The bank already knows the SHOP-ID, which is used in the communication.      
+The steps below are exactly as those seen previously.<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>  <blockquote>   
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	<b>Step 1:</b>  The     
+bank verifies equations [33-O] to [35-O] to see that this is a valid coin.<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	<b>Step 2:</b>  If the     
+coin is valid, the bank checks its database to see if the coin was spent previously (that is,     
+the bank checks for double-spending).  <p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p> <blockquote>    
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	<b>a.</b> If the coin     
+is not in the database, then it was not previously spent.  Hence the bank credits the     
+account of <b>S</b>, and records the coin in the form<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>  <blockquote>   
+</FONT><FONT NAME="Times New Roman" SIZE=+1>		    
+	{<b>A</b>, <b>B</b>, DATE-TIME, <b>r<sub>1</sub>,     
+r<sub>2</sub></b>}<b>.</b><p>  </blockquote>   
+</FONT><FONT NAME="Times New Roman" SIZE=+1></b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>	b.  </b>If the coin is     
+already in the database, then a fraud has occurred.  If <b>S</b> previously deposited the     
+coin, and the DATE-TIME are the same, then <b>S</b> is trying to deposit the same coin     
+or transcript twice. The deposit is rejected for that reason.  The bank knows the identity of     
+the shop <b>S</b> responsible and can take steps to ascertain whether this is error or     
+fraud.<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	<b>c.</b>      
+Otherwise, the coin has been double-spent, and the bank takes steps to unmask the     
+double-spender.  The bank will have two sets of information regarding the coin:<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>  <blockquote>   
+</FONT><FONT NAME="Times New Roman" SIZE=+1>		{<b>A</b>,     
+<b>B</b>, DATE-TIME, <b>r<sub>1</sub>, r<sub>2</sub></b>}<b>.</b><br>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>	    
+	</b>{<b>A</b>, <b>B</b>, DATE-TIME', <b>r'<sub>1</sub>,    
+r'<sub>2</sub></b>}<b>.</b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1></b><p>  </blockquote>   
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b></b>Hence, the shop can     
+calculate<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>  <blockquote>   
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	(<b>r<sub>1</sub> -     
+r'<sub>1</sub>) / </b>(<b>r<sub>2</sub> - r'<sub>2</sub>) =     
+[d*s*</b>(<b>o<sub>1</sub></b>+<b>u<sub>1</sub></b>) -     
+<b>d'*s*</b>(<b>o<sub>1</sub></b>+<b>u<sub>1</sub></b>)] / [<b>d*s -     
+d's]</b><br>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>			                      
+= o<sub>1</sub></b>+ <b>u<sub>1</sub>  </b>.<p>  </blockquote>   
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>Thus the bank  can check its     
+database for the user identity (see equation [15-O])<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><blockquote>			    
+	<b>I</b> =     
+<b>g<sub>1</sub></b>^(<b>o<sub>1</sub></b>+<b>u<sub>1</sub> )  </b>mod     
+<b>p</b>.<p>  </blockquote>   
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>In addition, the bank, which     
+already knew <b>o<sub>1</sub></b>, now knows <b>u<sub>1</sub></b> also, which     
+it would not otherwise known (without taking discrete logarithms).  Hence the bank's     
+knowledge of <p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><blockquote>		    
+	<b>u<sub>1</sub> = </b>log_<b>g<sub>1</sub></b> (<b>I</b>) -     
+<b>o<sub>1</sub></b> mod <b>p</b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1></b><p> </blockquote>    
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b></b>serves as proof of     
+the double-spending.<p>  </blockquote></blockquote>   
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+2>	<b>E.  Internet Cash     
+Using a Counter</b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b></b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	To this point we have     
+a digital cash system that uses a restrictive blind signature.  The latter prevents the bank     
+from tracing a coin after signing it, because the user transforms the withdrawn coin into a     
+blinded version that has a valid signature of the bank.  But if the coin is double-spent the     
+blinding is stripped away, and the secret key (and hence the identity) of the user who     
+double-spent is revealed. The latter is accomplished using the "two points determine a     
+line" principle--the slope of the line being the user's secret key. We have also added an     
+observer into the system, which prevents double-spending at its source (provided the     
+tamper-resistance isn't broken), making the system more efficient, because resources do     
+not have to be wasted tracking down counterfeiters.  <p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	The use of Schnorr     
+authentication (a Schnorr signature, in fact, as the challenge is generated from a hash     
+function) between the bank and the user at withdrawal means the user does not have to     
+trust the bank to provide a valid signature on the coin.  The use of Schnorr authentication     
+between the user and the merchant means that the coin can be spent with a merchant off-    
+line, because double-spenders can be traced after the fact.  Schnorr authentication also     
+takes place between the user and the observer to prevent double-spending before it     
+occurs, and to assure the user the observer isn't secretly leaking identifying     
+information.<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	 But all coins in the     
+system are of the same size.  This would not be practical if the system were used for the     
+small payments (micropayments) for information that are often contemplated for the     
+Internet, such as pennies for several kilobytes of information from a research journal.       
+Penny-sized coins would make the total number of coins much too large.  So in this     
+section we add a <b><i>counter</b></i>, which is a running (changeable) balance     
+maintained in EEPROM by the observer in a smart card or a PC (PCMCIA) card.      
+Withdrawals from the bank increase the counter balance, while payments to merchants     
+decrease the balance.<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	This requires some     
+system modifications.  When a payment is made to a merchant, the observer will provide     
+a <b>digital signature on the payment amount</b>.  This will ensure that the counter has     
+been decreased by the same amount as the payment to the merchant. (The observer will     
+also verify that the amount of the payment is not greater than the existing balance on the     
+counter.)  An observer secret key that is used to sign the payment amount will be unique     
+to the observer.  Such a <b>unique secret key in each observer</b> is necessary because     
+otherwise, if one observer were cracked and the secret key extracted, the entire system     
+would be compromised.  <p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	The observer will also     
+<b>provide the merchant the observer's public key</b> so that it can verify the     
+observer's signature on the amount.  This, however, creates a practical problem.  How     
+does the merchant know that the public key sent to it is a valid public key of the observer,     
+and not one substituted by the user who has signed an invalid payment amount?  The     
+merchant <i>could</i> keep a large database of all valid observer public keys for     
+comparison, but this would not be practical.  A more realistic solution is to have the user     
+also submit a certificate at payment time, where <b><i>a certificate is the bank's     
+signature on the observer's public key</b></i>.   <p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	However, this alone is     
+not sufficient for the bank's security.  If the user were to break the tamper-resistance of     
+the observer, the user could then forge a signature on payment amounts of arbitrary size,     
+using the secret key embedded in the observer.  (Meanwhile, the user could continue to     
+supply certificates showing the bank's signature on the public key corresponding to this     
+secret key.)  So a further refinement, to limit the amount of damage to the bank (or digital     
+cash supplier) in the event of observer failure or tampering, is to have <b>each payment     
+amount signed with a separate secret key of the observer, each of which is accompanied     
+by a public key which has been certified by the bank</b>.  That means that a set of such     
+key pairs will have to be periodically downloaded from the bank into the observer.  (Only     
+the secret keys need be stored in the observer.  The public keys and certificates could be     
+stored elsewhere in the user's computer.)  Thus if the observer were cracked, the attacker-    
+thief would have to keep withdrawing new certified keys from the bank in order to keep     
+spending. This should limit the amount of damage before the double-spender is identified,     
+and also limit the incentive to invest resources in order to compromise observers.<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	The use of payment     
+certificates requires a <b><i>certificate-issuing protocol</b></i>.  These payment     
+certificates can be thought of as individual checks in an electronic checkbook.  Each     
+check (certificate) can only be used once, and the amount of the certificate is filled in at     
+payment time.  Once all the blank checks have been used, more must be downloaded     
+from the bank.  (This contrasts with the previous protocol, in which the user would     
+download a set of  coins of predetermined size.  Because the coin size was fixed, we did     
+not have to worry about filling in the amount.)  <p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	The details of this     
+certificate-issuing protocol will be highlighted in the description of the modified system     
+that follows.<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	<b><i>1.  Opening an     
+Internet Account.</b></i><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b><i>	</b></i>To     
+open an account, the user (user's computer) <b>U</b> generates a random number     
+<b>u<sub>1</sub></b> from Z(q)*, and computes the following number (a user     
+identifier public key) which is sent to the bank<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>  <blockquote>   
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	    
+	<b>h<sub>u</sub></b> = <b>g<sub>1</sub></b>^<b>u<sub>1</sub>       
+</b>mod <b>p </b>.                                                                                                <p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>   </blockquote>  
+</FONT><FONT NAME="Times New Roman" SIZE=+1>The user keeps     
+<b>u<sub>1</sub></b> secret, perhaps even keeping part of <b>u<sub>1</sub></b> in     
+the form of a password that must be typed into the computer as needed.  <p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	The bank     
+<b>banque</b> verifies the identity of the user in some fashion. The bank generates for     
+<b>U</b> a secret random number <b>o<sub>1</sub></b> from Z(q)*, and stores this     
+along with the user information in an account database.  The account database contains a     
+balance variable representing the amount of money the user has with the bank.   <p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	The bank provides     
+<b>U</b> with an observer (<b>O</b>), which has embedded within ROM the secret     
+key <b>o<sub>1</sub></b>, the generator <b>g<sub>1</sub></b>, a description of     
+G(q) (namely, <b>p</b> and <b>q)</b>, computer code to enact the  protocols below,     
+and a variable called </FONT><FONT NAME="Arial"     
+SIZE=+1><b>balance</FONT><FONT NAME="Times New Roman" SIZE=+1></b>     
+representing the amount of money withdrawn from the bank.  The user <b>U</b> does     
+not know what <b>o<sub>1</sub></b> is.  The bank computes the observer identifier     
+public key <b>h<sub>o</sub> </b>= <b>g<sub>1</sub></b>^<b>o<sub>1</sub></b>     
+and the joint user/observer identifier public key <b>I,</b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b></b><p> <blockquote>    
+</FONT><FONT NAME="Times New Roman" SIZE=+1>		  <b>[15-I] I     
+=</b> <b>h<sub>u</sub>* h<sub>o</sub> = g<sub>1</sub>^(o<sub>1</sub> +     
+u<sub>1</sub>)     </b>mod <b>p</b>,  			          	 <p>   </blockquote>  
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b></b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>and stores these in the     
+account database.  The bank also computes a signature <b>z </b>on user identification     
+information using its secret key <b>x</b>:<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p> <blockquote>    
+</FONT><FONT NAME="Times New Roman" SIZE=+1>		<b>[16-I] z =     
+(I*g<sub>2</sub>)^x  </b>mod <b>p</b>, <p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1></b><p> </blockquote>    
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b></b>and makes     
+<b>h<sub>o</sub></b> and <b>z</b> known to the user.  The variables     
+<b>h<sub>o</sub></b>, <b>I</b>, and <b>z</b> are stored in the user's software along     
+with <b>h<sub>u</sub></b> and <b>u<sub>1</sub></b>.<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	Because the user     
+<b>U</b> does not know <b>o<sub>1</sub></b>, he cannot compute for himeself     
+signatures with respect to the joint public key <b>I</b>.  This will prevent him from     
+double-spending certified keys issued by the bank <b>banque</b>.  The user's secret key     
+<b>u<sub>1</sub></b>, meanwhile, prevents framing attempts by the bank.  The bank     
+can't falsely accuse the user of double-spending, because the bank can't demonstrate     
+knowledge of <b>u<sub>1</sub></b>.  The bank can only learn <b>u<sub>1</sub></b>     
+if the user (by breaking the observer) double-spends the same certified keys.  <p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	In addition to the key     
+<b>o<sub>1</sub></b>, the generator <b>g<sub>1</sub></b>, the primes <b>p</b>     
+and <b>q</b>, and the </FONT><FONT NAME="Arial" SIZE=+1><b>balance     
+</FONT><FONT NAME="Times New Roman" SIZE=+1></b>variable, the observer     
+will need the following items:<p><menu>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><i> </FONT><FONT     
+NAME="Arial" SIZE=+1><li><b>key</FONT><FONT NAME="Times New Roman"     
+SIZE=+1></i></b>, a secret symmetric encryption key, which the observer shares in    
+common     
+with the bank;<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><li></FONT><FONT     
+NAME="Arial" SIZE=+1><b>seq</FONT><FONT NAME="Times New Roman"     
+SIZE=+1></b>, a sequence number, which the bank has set to some initial number;<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><li><b><i>f(.)</b></i>, a     
+one-way function, such as a hash function. </menu><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b></b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>These stored variables will be     
+used by the observer <b>O</b> in the protocols that follow.<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	<b><i>2.  Internet     
+Withdrawal Protocol.</b></i><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b><i></i>	</b>Because     
+we are now using a digital cash counter, we have to keep track of the circumstances under     
+which the counter </FONT><FONT NAME="Arial"     
+SIZE=+1><b>balance</FONT><FONT NAME="Times New Roman" SIZE=+1></b>     
+can be changed.  Assuming that the bank does not extend credit in connection with digital     
+cash, the first requirement will be that any amount paid via a digitally-signed check must     
+not be greater than the available counter </FONT><FONT NAME="Arial"     
+SIZE=+1><b>balance</FONT><FONT NAME="Times New Roman" SIZE=+1></b>.      
+Payments made will reduce the counter </FONT><FONT NAME="Arial"     
+SIZE=+1><b>balance</FONT><FONT NAME="Times New Roman" SIZE=+1></b>,     
+while withdrawals from the bank will increase it.<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b></b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>	</b>The following     
+withdrawal protocol is performed between the observer and the bank, intermediated  by     
+the user's software.  The user identifies himself to the bank using the joint key <b>I</b>     
+of the user and observer, and requests to withdraw an </FONT><FONT NAME="Arial"     
+SIZE=+1><b>amount</FONT><FONT NAME="Times New Roman" SIZE=+1></b>.      
+Then  <p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b></b><p><blockquote>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b></b>	<b>Step     
+1:</b>  The bank <b>banque</b> decreases the account balance of the user <b>U</b> by     
+the </FONT><FONT NAME="Arial" SIZE=+1><b>amount</FONT><FONT     
+NAME="Times New Roman" SIZE=+1></b> the user withdraws.  Using the notation     
+":=" to mean "replaced by", and </FONT><FONT NAME="Arial"     
+SIZE=+1><b>balance'</FONT><FONT NAME="Times New Roman" SIZE=+1></b>     
+to denote the user's balance at the bank:<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><blockquote>	    
+	</FONT><FONT NAME="Arial" SIZE=+1><b>balance'</FONT><FONT     
+NAME="Times New Roman" SIZE=+1></b> := </FONT><FONT NAME="Arial"     
+SIZE=+1><b>balance'</FONT><FONT NAME="Times New Roman" SIZE=+1></b> -     
+</FONT><FONT NAME="Arial" SIZE=+1><b>amount</b><br>     
+</FONT><FONT NAME="Arial" SIZE=+1><b>		</FONT><FONT     
+NAME="Times New Roman" SIZE=+1></b>         </FONT><FONT NAME="Arial"     
+SIZE=+1><b>seq</FONT><FONT NAME="Times New Roman" SIZE=+1></b> :=     
+</FONT><FONT NAME="Arial" SIZE=+1><b>seq</FONT><FONT NAME="Times     
+New Roman" SIZE=+1></b> + 1<br>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>			      
+<b>v</b> := <b><i>f</b></i>(</FONT><FONT NAME="Arial" SIZE=+1><b>key,     
+sequence, amount</FONT><FONT NAME="Times New Roman" SIZE=+1></b>) .<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p></blockquote>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	<b>Step 2:</b>  This     
+information is passed to the observer <b>O</b> via the user.  The observer first verifies     
+that<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p><blockquote>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>			      
+<b>v</b> := <b><i>f</b></i>(</FONT><FONT NAME="Arial" SIZE=+1><b>key,     
+sequence, amount</FONT><FONT NAME="Times New Roman" SIZE=+1></b>) .<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p></blockquote>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>If so, then the observer     
+adjusts the balance in the counter:<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p><blockquote>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	    
+	</FONT><FONT NAME="Arial" SIZE=+1><b>balance </FONT><FONT     
+NAME="Times New Roman" SIZE=+1></b> := </FONT><FONT NAME="Arial"     
+SIZE=+1><b>balance </FONT><FONT NAME="Times New Roman" SIZE=+1></b>     
+<b>+</b> </FONT><FONT NAME="Arial" SIZE=+1><b>amount</b><br>     
+</FONT><FONT NAME="Arial" SIZE=+1><b>		</FONT><FONT     
+NAME="Times New Roman" SIZE=+1></b>         </FONT><FONT NAME="Arial"     
+SIZE=+1><b>seq</FONT><FONT NAME="Times New Roman" SIZE=+1></b> :=     
+</FONT><FONT NAME="Arial" SIZE=+1><b>seq</FONT><FONT NAME="Times     
+New Roman" SIZE=+1></b> + 1.<p></blockquote></blockquote>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>This transfer is very simple,     
+because we have only adjusted a total, without specifying anything about how this total     
+will be spent.  <p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>The use of a sequence     
+number is intended to prevent replay attacks.  If the user replays the same bank     
+instructions to the observer, in an attempt to increase the </FONT><FONT     
+NAME="Arial" SIZE=+1><b>balance</FONT><FONT NAME="Times New Roman"     
+SIZE=+1></b> without another withdrawal, the replay attack will fail because the     
+sequence number has changed.  The observer created verification <b>v</b> will not     
+match the one sent by the bank.<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	<b><i>3.  Key     
+Certificate Issuing Protocol.</b></i><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b><i>	</b></i>To     
+make payment to a shop <b>S</b> (merchant, service provider), the user <b>U</b> must     
+provide a signature on the intended payment amount, along with a key certificate from the     
+bank <b>banque</b> certifying the public key corresponding to the signature.  Various     
+schemes are possible, but for explicitness, we will assume that each key certificate is     
+good for a payment amount up to a prepaid maximum, and in any case is only good for an     
+amount that does not exceed the available </FONT><FONT NAME="Arial"     
+SIZE=+1><b>balance</FONT><FONT NAME="Times New Roman"     
+SIZE=+1></b>.<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	First, in the off-line     
+<i>preprocessing</i> stage,  these two steps take place:<p><blockquote>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b><i></b></i><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b><i>    
+	</b></i><b>Step 1:</b>  The observer <b>O </b>generates a random number     
+<b>o<sub>2</sub></b> from Z(q)*.  The observer calculates the corresponding public     
+key <b>h<sub>c</sub> </b>= <b>g<sub>1</sub></b>^<b>o<sub>2</sub></b> and     
+transfers this to the user <b></b> (i.e. the user's hardware or software).		<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1></FONT><FONT     
+NAME="Times New Roman" SIZE=+1><b>	</FONT><FONT NAME="Times     
+New Roman" SIZE=+1></b><b>Step 2:</b>  The user <b>U</b> generates five random     
+numbers <b>s</b>, <b>x<sub>1</sub></b>, <b>x<sub>2</sub></b>, <b>u</b>, and     
+<b>v</b> from Z(q)*.  These are used to calculate <p><blockquote>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>     <b>[19-I] A =     
+(I*g<sub>2</sub></b>)^<b>s </b>                                 mod <b>p	 </b><br>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>	</b><b>[20-I] B =     
+g<sub>1</sub></b>^<b>x<sub>1</sub>*g<sub>2</sub>^x<sub>2</sub>*h<sub>c    
+</sub>^s                  </b>mod <b>p 	            	 </b><br>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>[21-I] z' = z^s                  	    
+	      </b>mod <b>p 			 </b><br>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>[22-I]   a' = h^u*g^v                                   
+</b>mod <b>p                                 </b><br>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>[23-I]   b' = z'^u*A^v                                 
+</b>mod <b>p                                 </b><p></blockquote>    
+</FONT><FONT NAME="Times New Roman" SIZE=+1></b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b></b>As before,     
+<b>z'</b> is a signature on <b>A</b>.  That is, <b>z' = A^x</b>.  The user (user's     
+computer) stores <b>A</b>, <b>B</b>, and <b>s</b>, <b>x<sub>1</sub></b>,     
+<b>x<sub>2</sub> </b> for later use in the payment protocol.  The variables <b>a'</b>,     
+<b>b'</b>, and <b>u</b>, <b>v</b> are stored temporarily. <p> </blockquote>    
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	A certificate is then     
+withdrawn by the following on-line protocol between the bank <b>banque</b> and the     
+user <b>U</b>.<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p><blockquote>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	<b>Step 1:</b>  The     
+bank generates a random number <b>w</b> from Z(q)*, and sends the pseudo-public key     
+<b>a</b> and the pseudo-signed identifier <b>b</b> to the user <b>U</b>:<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p> <blockquote>    
+</FONT><FONT NAME="Times New Roman" SIZE=+1>		<b>[17-I]     
+a</b> = <b>g^w</b>            mod <b>p       				           	 </b><br>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>		</b><b>[18-I]     
+ b</b> = (<b>I*g<sub>2</sub></b>)<b>^w</b>    mod <b>p .				    
+	</b><p> </blockquote>    
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b></b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	<b>Step 2:</b> The     
+user <b>U</b> then computes the challenge <b>c' </b><p> <blockquote>    
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b></b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>		<b>[24-I] c' =     
+H(A, B, z', a*a', b^s*b'),	           	    	            </b><p> </blockquote>    
+</FONT><FONT NAME="Times New Roman" SIZE=+1></b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b></b>stores <b>c',</b>     
+and then sends the blinded challenge<b><i> </i>c</b> back to the bank     
+<b>banque</b>:<p> <blockquote>    
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b></b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>	[25-I]	c = c' + u       
+</b>mod <b>q </b>.			<p> </blockquote>    
+</FONT><FONT NAME="Times New Roman" SIZE=+1></b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>	Step 3:  </b>The bank     
+sends the response <b>r </b>:<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p><blockquote>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	<b>[26-I]  r = w +     
+c*x  </b>mod <b>q 			  		</b><p> </blockquote>    
+</FONT><FONT NAME="Times New Roman" SIZE=+1></b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b></b>and debits     
+<b>U</b>'s account in the amount equal to the value of one coin.<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	<b>Step 4:</b>      
+<b>U</b>, either while on-line or off-line, accepts the debit only if<p> <blockquote>    
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>		       <b>[27-I]     
+g^r = a*h^c    </b>mod <b>p 				       	</b><br>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>[28-I] 	    
+	</b>(<b>I*g<sub>2</sub></b>)^<b>r = b*z^c    </b>mod <b>p 	.		    
+		</b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b></b><p> </blockquote>    
+</FONT><FONT NAME="Times New Roman" SIZE=+1>The user <b>U</b> also     
+calculates <b>r'</b>:<p> <blockquote>    
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>		    
+	<b>[29-I] r'</b> = <b>r</b> + <b>v</b>  mod <b>q</b>   .      			    
+	<p> </blockquote>    
+</FONT><FONT NAME="Times New Roman" SIZE=+1></b><p></blockquote>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b></b>and stores     
+<b>r'</b>.  The numbers <b>a'</b>, <b>b'</b>, and <b>u</b>, <b>v</b> can now be     
+erased, as they are no longer needed.  <p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	The pair     
+(<b>A,B</b>) can be considered the public key of the user with respect to a subsequent     
+payment.  <b>The triple (z',c',r') is the bank's certificate on this key</b>.  Note the     
+calculation of <b>c'</b> includes <b>a</b>, <b>b</b>, as well as <b>A</b>,     
+<b>B</b>; <b>z'</b> bears the bank's signature <b>x</b> directly; and <b>r'</b> is     
+calculated from the bank's reponse to the challenge <b>c</b>. <p>  
+<hr><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1></FONT><FONT     
+NAME="Times New Roman" SIZE=+2><b></b><p><center>     
+</FONT><FONT NAME="Times New Roman" SIZE=+2><b>Table 4: Internet Cash     
+with a Counter<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b></b><table border><tr     
+valign=top><td></FONT><FONT NAME="Times New Roman"    
+SIZE=+1><b>primes</b></td><td><b></FONT><FONT NAME="Times New     
+Roman" SIZE=+1><b>p, q  </b>where <b>q </b>divides <b>p</b>-1<b></td></tr><tr     
+valign=top>     
+<td><b></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b>generators</td><td><b></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b>g</b>, <b>g<sub>1</sub></b>, <b>g<sub>2</sub>  </b>of G(q) in     
+Z(p)*<b></td></tr><tr valign=top>     
+<td><b></FONT><FONT NAME="Times New Roman"     
+SIZE=+1></td><td><b></FONT><FONT NAME="Times New Roman"     
+SIZE=+1></td></tr><tr valign=top>     
+<td><b></FONT><FONT NAME="Times New Roman" SIZE=+1><b>secret key of     
+observer</td><td><b></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b>o<sub>1</sub></td></tr><tr valign=top>     
+<td><b></FONT><FONT NAME="Times New Roman" SIZE=+1><b>secret identifier     
+key of user</td><td><b></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b>u<sub>1</sub></td></tr><tr valign=top>     
+<td><b></FONT><FONT NAME="Times New Roman" SIZE=+1><b>identifier public     
+key of observer</td><td><b></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b>h<sub>o</sub> </b>= <b>g<sub>1</sub></b>^<b>o<sub>1</sub>          
+</b>mod <b>p </td></tr><tr valign=top>     
+<td><b></FONT><FONT NAME="Times New Roman" SIZE=+1><b>identifier public     
+key of user </td><td><b></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b>h<sub>u</sub> = g<sub>1</sub></b>^<b>u<sub>1</sub>   </b>mod     
+<b>p</td></tr><tr valign=top>     
+<td><b></FONT><FONT NAME="Times New Roman" SIZE=+1><b>joint user     
+identifier (joint public key)</td><td><b></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b>I =</b> <b>h<sub>o</sub>* h<sub>u</sub> =     
+g<sub>1</sub>^(o<sub>1</sub> + u<sub>1</sub>)   </b>mod <b>p</td></tr><tr     
+valign=top>     
+<td><b></FONT><FONT NAME="Times New Roman" SIZE=+1><b>equivalent     
+identifier signed by bank</td><td><b></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b>M = I*g<sub>2</sub></td></tr><tr valign=top>     
+<td><b></FONT><FONT NAME="Times New Roman" SIZE=+1><b> amount of     
+observer-stored digital cash</FONT><FONT NAME="Arial"     
+SIZE=+1></td><td><b></FONT><FONT NAME="Arial"     
+SIZE=+1><b>balance</FONT><FONT NAME="Times New Roman"     
+SIZE=+1></td></tr><tr valign=top>     
+<td><b></FONT><FONT NAME="Times New Roman" SIZE=+1><b>symmetric key     
+shared between bank &amp; observer</FONT><FONT NAME="Arial"     
+SIZE=+1></td><td><b></FONT><FONT NAME="Arial"     
+SIZE=+1><b>key</FONT><FONT NAME="Times New Roman"     
+SIZE=+1></td></tr><tr valign=top>     
+<td><b></FONT><FONT NAME="Times New Roman" SIZE=+1><b>observer     
+sequence number</FONT><FONT NAME="Arial"     
+SIZE=+1></td><td><b></FONT><FONT NAME="Arial"     
+SIZE=+1><b>seq</FONT><FONT NAME="Times New Roman"     
+SIZE=+1></td></tr><tr valign=top>     
+<td><b></FONT><FONT NAME="Times New Roman" SIZE=+1><b>observer one-    
+way function</td><td><b></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b><i>f(</i>.<i>)</i></td></tr><tr valign=top>     
+<td><b></FONT><FONT NAME="Times New Roman"     
+SIZE=+1></td><td><b></FONT><FONT NAME="Times New Roman"     
+SIZE=+1></td></tr><tr valign=top>     
+<td><b></FONT><FONT NAME="Times New Roman" SIZE=+1><b>bank's private     
+key</td><td><b></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b>x</td></tr><tr valign=top>     
+<td><b></FONT><FONT NAME="Times New Roman" SIZE=+1><b>bank's random     
+number</td><td><b></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b>w</td></tr><tr valign=top>     
+<td><b></FONT><FONT NAME="Times New Roman" SIZE=+1><b>observer-created     
+random number</td><td><b></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b>o<sub>2</sub></td></tr><tr valign=top>     
+<td><b></FONT><FONT NAME="Times New Roman" SIZE=+1><b>observer public     
+key in certificiate withdrawal </td><td><b></FONT><FONT NAME="Times New     
+Roman" SIZE=+1><b>h<sub>c</sub> </b>=     
+<b>g<sub>1</sub></b>^<b>o<sub>2</sub>   </b>mod <b>p</td></tr><tr valign=top>     
+<td><b></FONT><FONT NAME="Times New Roman" SIZE=+1><b>bank's public     
+key</td><td><b></FONT><FONT NAME="Times New Roman" SIZE=+1><b>h = g^x         
+</b>mod <b>p</td></tr><tr valign=top>     
+<td><b></FONT><FONT NAME="Times New Roman" SIZE=+1><b>bank's pseudo-    
+public key</td><td><b></FONT><FONT NAME="Times New Roman" SIZE=+1><b>a     
+= g^w    </b>mod <b>p</td></tr><tr valign=top>     
+<td><b></FONT><FONT NAME="Times New Roman" SIZE=+1><b>bank-signed user     
+identifier</td><td><b></FONT><FONT NAME="Times New Roman" SIZE=+1><b>z     
+= M^x   </b>mod <b>p</td></tr><tr valign=top>     
+<td><b></FONT><FONT NAME="Times New Roman" SIZE=+1><b>bank-pseudo-    
+signed user identifier</td><td><b></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b>b = M^w  </b>mod <b>p</td></tr><tr valign=top>     
+<td><b></FONT><FONT NAME="Times New Roman" SIZE=+1><b>collision-free     
+hash function</td><td><b></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b>H</td></tr><tr valign=top>     
+<td><b></FONT><FONT NAME="Times New Roman" SIZE=+1><b> challenge to     
+bank</td><td><b></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b>c</td></tr><tr valign=top>     
+<td><b></FONT><FONT NAME="Times New Roman" SIZE=+1><b>response to     
+challenge</td><td><b></FONT><FONT NAME="Times New Roman" SIZE=+1><b>r     
+= w + c*x  </b>mod <b>q</td></tr><tr valign=top>     
+<td><b></FONT><FONT NAME="Times New Roman" SIZE=+1><b>verification that     
+signature x is on g (g^x=h) and M (M^x=z)</td><td><b></FONT><FONT     
+NAME="Times New Roman" SIZE=+1><b>a*h^c = g^r</b><br>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>b*z^c = M^r =     
+(I*g<sub>2</sub>)^r</td></tr><tr valign=top><td></FONT><FONT NAME="Times     
+New Roman" SIZE=+1><b><i>user-generated random     
+numbers</td><td><b></i></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b><i></i>s</b>, <b>x<sub>1</sub></b>, <b>x<sub>2</sub></b>, <b>u,     
+v</td></tr><tr valign=top>     
+<td><b></FONT><FONT NAME="Times New Roman" SIZE=+1><b><i>blinded     
+certificate element</td><td><b></i></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b><i></i>A</b> = <b>M^s</b> = (<b>I*g<sub>2</sub></b>)^<b>s      
+</b></td></tr><tr valign=top>     
+<td></FONT><FONT NAME="Times New Roman" SIZE=+1><b><i>additional     
+certificate element</td><td><b></i></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b><i></i>B =     
+g<sub>1</sub></b>^<b>x<sub>1</sub>*g<sub>2</sub>^x<sub>2</sub>*h<sub>c   
+</sub>^s</b></td></tr><tr valign=top>     
+<td></FONT><FONT NAME="Times New Roman" SIZE=+1><b><i>certificate public     
+key of user</td><td><b></i></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b><i></i>(A,B)</b></td></tr><tr valign=top>     
+<td></FONT><FONT NAME="Times New Roman" SIZE=+1><b><i>signed blinded     
+user identifier</td><td><b></i></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b><i></i>z' = z^s = A^x</b></td></tr><tr valign=top>     
+<td></FONT><FONT NAME="Times New Roman" SIZE=+1><b><i>temporary     
+variable</td><td><b></i></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b><i></i>a' = h^u*g^v</b></td></tr><tr valign=top>     
+<td></FONT><FONT NAME="Times New Roman" SIZE=+1><b><i>second temporary     
+variable</td><td><b></i></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b><i></i>b' = z'^u*A^v</b></td></tr><tr valign=top>     
+<td></FONT><FONT NAME="Times New Roman" SIZE=+1><b><i>blinded challenge     
+(hash value)</td><td><b></i></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b><i></i>c' = H(A, B, z', a*a', b^s*b')</b></td></tr><tr valign=top>     
+<td></FONT><FONT NAME="Times New Roman" SIZE=+1><b><i>challenge sent to     
+bank</td><td><b></i></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b><i></i>c = c' + u  </b>mod <b>q</b></td></tr><tr valign=top>     
+<td></FONT><FONT NAME="Times New Roman" SIZE=+1><b><i>user-calculated     
+transformed response</td><td><b></i></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b><i></i>r'</b> = <b>r</b> + <b>v </b> mod <b>q</td></tr><tr     
+valign=top>     
+<td><b></FONT><FONT NAME="Times New Roman" SIZE=+1><b><i>bank     
+certificate on public key of user</td><td><b></i></FONT><FONT NAME="Times New     
+Roman" SIZE=+1><b><i></i>(z',c',r') </b>on <b>(A,B) </b>such that<br>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>c'</b> = <b>H(A, B, z',      
+g^r'*h^(-c'), A^r'*z'^(-c'))</td></tr><tr valign=top>     
+<td><b></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b><i></td><td><b></i></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b><i></i></td></tr><tr valign=top>     
+<td><b></FONT><FONT NAME="Times New Roman" SIZE=+1><b>payment     
+specification<i></FONT><FONT NAME="Arial"     
+SIZE=+1></td><td><b></i></FONT><FONT NAME="Arial"     
+SIZE=+1><b><i></i>spec</FONT><FONT NAME="Times New Roman" SIZE=+1> =     
+(</b>AMOUNT, SHOP-ID, DATE-TIME)<b></td></tr><tr valign=top>     
+<td><b></FONT><FONT NAME="Times New Roman" SIZE=+1><b>equivalent     
+challenge from user to observer</td><td><b></FONT><FONT NAME="Times New     
+Roman" SIZE=+1><b>d</b> = <b>H<sub>o</sub></b>(<b>A, B, </FONT><FONT     
+NAME="Arial" SIZE=+1>spec</FONT><FONT NAME="Times New Roman"     
+SIZE=+1>)</td></tr><tr valign=top>     
+<td><b></FONT><FONT NAME="Times New Roman" SIZE=+1><b>response from     
+observer</td><td><b></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b>r<sub>1</sub><sup>o</sup></b> = <b>d*o<sub>1</sub></b> +     
+<b>o<sub>2</sub></b>     mod <b>q</td></tr><tr valign=top>     
+<td><b></FONT><FONT NAME="Times New Roman" SIZE=+1><b>user verfication     
+of observer response</td><td><b></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b>g<sub>1</sub></b>^<b>r<sub>1</sub><sup>o</sup> =     
+h<sub>o</sub>^d*h<sub>c</sub>  </b>mod <b>p</td></tr><tr valign=top>     
+<td><b></FONT><FONT NAME="Times New Roman" SIZE=+1><b>equivalent user     
+response to shop</td><td><b></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b>r<sub>1</sub></b>  = <b>s*(r<sub>1</sub><sup>o</sup></b> +     
+<b>d*u<sub>1</sub></b>) + <b>x<sub>1</sub></b>   mod <b>q</b> <br>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>r<sub>2</sub>  = d*s +     
+x<sub>2</sub>                    </b>mod<b> q</td></tr><tr valign=top>     
+<td><b></FONT><FONT NAME="Times New Roman" SIZE=+1><b>shop     
+verifications</td><td><b></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b>A^d*B</b> =     
+<b>g<sub>1</sub></b>^<b>r<sub>1</sub>*g<sub>2</sub>^r<sub>2</sub></b> <b>          
+</b>mod<b> p</b><br>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>c'</b> = <b>H(A, B, z',      
+g^r'*h^(-c'), A^r'*z'^(-c')) </td></tr><tr valign=top>     
+<td><b></FONT><FONT NAME="Times New Roman" SIZE=+1><b>deposited     
+payment transcript</td><td><b></FONT><FONT NAME="Times New Roman"     
+SIZE=+1><b>{(A,B), (z', c', r'), (r<sub>1</sub>, r<sub>2</sub>),     
+spec}</td></tr></table></center></b><p>   
+<hr><p>    
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b></b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	<b><i>4.  Internet     
+Payment Protocol.</b></i><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b><i></i>	</b>When the     
+user <b>U</b> is ready to spend an amount AMOUNT at a shop <b>S, </b>the user first     
+performs the following <i>pre-processing</i> off-line.<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b></b><p><blockquote>    
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>	Step 1:  </b>The user     
+decides on the amount AMOUNT to be transferred.  This is concatenated into a     
+</FONT><FONT NAME="Arial" SIZE=+1><b>spec</FONT><FONT NAME="Times     
+New Roman" SIZE=+1></b> vector,<p> <blockquote>    
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	    
+	</FONT><FONT NAME="Arial" SIZE=+1><b>spec</FONT><FONT     
+NAME="Times New Roman" SIZE=+1></b> = (AMOUNT, SHOP-ID, DATE-    
+TIME).<p> </blockquote>    
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>The user <b>U</b> then     
+sends <b>A</b>, <b>B</b>, </FONT><FONT NAME="Arial"     
+SIZE=+1><b>spec</FONT><FONT NAME="Times New Roman" SIZE=+1></b> to     
+the observer <b>O</b>.<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	<b>Step 2:</b>  The     
+observer <b>O</b> verifies that <b>o<sub>2</sub> </b>is still in memory and that     
+AMOUNT<=<b>balance</FONT><FONT NAME="Times New Roman"     
+SIZE=+1></b>.  <b>O </b>then computes<p> <blockquote>    
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	    
+	</FONT><FONT NAME="Times New Roman" SIZE=+1><b>[30-I]    
+</FONT><FONT     
+NAME="Times New Roman" SIZE=+1><b>d = H<sub>o</sub></b>(<b>A, B,     
+</FONT><FONT NAME="Arial" SIZE=+1><b>spec</b></FONT><FONT 
+NAME="Times New     
+Roman" SIZE=+1>)  	                    			              </b><br>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>	</b>              
+<b>[30B-I] r<sub>1</sub><sup>o</sup></b> = <b>d*o<sub>1</sub></b> +    
+<b>o<sub>2</sub></b>          
+mod <b>q 	      			           </b><br>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1></FONT><FONT     
+NAME="Arial" SIZE=+1><b>          balance</FONT><FONT NAME="Times New     
+Roman" SIZE=+1></b> := </FONT><FONT NAME="Arial"     
+SIZE=+1><b>balance</FONT><FONT NAME="Times New Roman" SIZE=+1></b> -     
+AMOUNT.<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p> </blockquote>    
+</FONT><FONT NAME="Times New Roman" SIZE=+1>The observer erases     
+<b>o<sub>2</sub> </b>from memory and returns <b>r<sub>1</sub></b> to the user     
+<b>U</b>.<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b></b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>	Step 3:  </b>The user     
+<b>U</b> also computes<p> <blockquote>    
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	    
+	</FONT><FONT NAME="Times New Roman" SIZE=+1></FONT><FONT     
+NAME="Times New Roman" SIZE=+1><b>d</b> = <b>H<sub>o</sub></b>(<b>A, B,     
+</FONT><FONT NAME="Arial" SIZE=+1><b>spec</b></FONT><FONT 
+NAME="Times New     
+Roman" SIZE=+1>)  	                    			              </b><p> </blockquote>    
+</FONT><FONT NAME="Times New Roman" SIZE=+1></b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b></b>and verifies that<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p> <blockquote>    
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	    
+	<b>[30C-I] g<sub>1</sub></b>^<b>r<sub>1</sub><sup>o</sup> =     
+h<sub>o</sub>^d*h<sub>c</sub>	 </b>mod <b>p . 		                           
+	</b><p></blockquote>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1></b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b></b>The user <b>U</b>     
+then calculates the responses <b>r<sub>1</sub>, r<sub>2</sub> </b>to be used vis-    
+&agrave;-vis the shop <b>S</b>:<p> <blockquote>    
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	    
+	<b>[31-I] r<sub>1</sub></b>  = <b>s*(r<sub>1</sub><sup>o</sup></b> +     
+<b>d*u<sub>1</sub></b>) + <b>x<sub>1</sub></b>   mod <b>q 			    
+	  </b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>[32-I] 	    
+	r<sub>2</sub>  = d*s + x<sub>2</sub>                    </b>mod<b> q 	 	                              
+</b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1></b><p>    
+</blockquote></blockquote>    
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b></b>The actual payment     
+will be done on-line between the user and the shop <b>S</b>:<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b></b><p> <blockquote>    
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>	Step 1:  </b>The user     
+<b>U</b> sends {(<b>A, B), (z', c', r'),</b> (<b>r<sub>1</sub></b>,     
+<b>r<sub>2</sub></b>), </FONT><FONT NAME="Arial"     
+SIZE=+1><b>spec</FONT><FONT NAME="Times New Roman" SIZE=+1></b>} to     
+<b>S</b>.  <p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b></b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1></b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1></b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>	</b><b>Step 2</b>:      
+The shop <b>S </b>accepts the coin only if:<p> <blockquote>    
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>		     
+<b>[33-I] A^d*B</b>  =     
+<b>g<sub>1</sub></b>^<b>r<sub>1</sub>*g<sub>2</sub>^r<sub>2</sub></b> <b>        
+</b>mod<b> p 			            </b>, and <p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>		<b>c'</b> =     
+<b>H(A, B, z', g^r'*h^(-c'), A^r'*z'^(-c')) .                   </b><p> </blockquote>    
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>	</b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1></b><p> </blockquote>    
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>	</b>Note that     
+equation [<b>33-I</b>] follows from <p> <blockquote>    
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b></b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>	    
+	</b><b>A^d*B</b>  =      
+(<b>I*g<sub>2</sub></b>)^(<b>s*d</b>)<b>*</b>[<b>g<sub>1</sub></b>^<b>x   
+<sub>1</sub>*g<sub>2</sub>^x<sub>2</sub>* h<sub>c</sub>^s]                                
+</b>mod<b> p <p> 	<blockquote>	     	     		  =      
+g<sub>1</sub></b>^[(<b>o<sub>1</sub></b>+<b>u<sub>1</sub>)*s*d+     
+x<sub>1</sub>+ o<sub>2</sub>*s]*g<sub>2</sub>^(s*d+x<sub>2</sub>)                    
+</b>mod <b>p</b><br>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>	     		  =      
+g<sub>1</sub></b>^[<b>s*((d*o<sub>1</sub></b>+<b> o<sub>2</sub>) +     
+d*u<sub>1</sub>) + x<sub>1</sub> ]*g<sub>2</sub>^(s*d+x<sub>2</sub>)             
+</b>mod <b>p</b><br>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>			  =      
+g<sub>1</sub></b>^<b>r<sub>1</sub>*g<sub>2</sub>^r<sub>2</sub></b> <b> 	    
+				    </b>mod<b> p .</b><p> </blockquote></blockquote> 
+</FONT><FONT NAME="Times New Roman" SIZE=+1></b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b></b>The last two inputs     
+to the hash function <b>H</b> correspond to <b>a*a'</b> and <b>b^s*b'</b>, as can be     
+seen from the following identities:<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>    <blockquote> 
+</FONT><FONT NAME="Times New Roman" SIZE=+1>		     <b>a*a' =     
+g^w*h^u*g^v </b><p><blockquote>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>		             =     
+g^(w+u*x+v) </b><br>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>		             =     
+g^(w+c*x+v)*g^(u*x-c*x)  </b><br>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>		</b>             =     
+<b>g^r'*h^(u-c)</b><br>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>		</b>             =     
+<b>g^r'*h^(-c'), </b><p></blockquote>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1></b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>		b^s*b' =     
+(I*g<sub>2</sub></b>)<b>^(w*s)*z'^u*A^v</b><p><blockquote>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>			</b>=     
+<b>A^w*A^(x*u)*A^v		</b><br>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>			=     
+<b>A^(w+x*u+v)</b><br>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>		</b>            =     
+<b>A^(r'-c*x+u*x)</b><br>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>			</b>=     
+<b>A^r'*z'^(u-c)</b><br>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>		</b>            =     
+<b>A^r'*z'^(-c').</b><p></blockquote>   </blockquote>  
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b></b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	<b><i>5.  Internet     
+Deposit Protocol.</b></i><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b><i></i>	</b>When the     
+shop <b>S</b> is ready to deposit the payment transcript at the bank <b>(     
+</b>(preferably when network traffic is low), the shop sends it the transcript {(<b>A,B),     
+(z',c',r')</b>, (<b>r<sub>1</sub>,r<sub>2</sub></b>), </FONT><FONT     
+NAME="Arial" SIZE=+1><b>spec</FONT><FONT NAME="Times New Roman"     
+SIZE=+1></b>}.<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p> <blockquote>    
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	<b>Step 1:</b>  The     
+bank checks its database to see if the transcript (<b>A,B</b>) was stored previously.      
+<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	<b>a.</b> If not, the     
+bank calculates <b>d</b> = <b>H<sub>o</sub></b>(<b>A, B, </FONT><FONT     
+NAME="Arial" SIZE=+1><b>spec</b></FONT><FONT NAME="Times New Roman"     
+SIZE=+1>), </b>and<b> </b>verifies equation [33-I] and the calculation of <b>c'</b>.      
+If these are verified, the bank stores {<b>A</b>, <b>B</b>, <b>r<sub>1</sub>,     
+r<sub>2</sub></b>, </FONT><FONT NAME="Arial" SIZE=+1><b>spec</b>}     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>in the bank's deposit     
+database, and credits AMOUNT to the shop's account.<b> 	                    			                  
+</b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1></b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b></b>	<b>b.  </b>If     
+the coin is already in the database, then a fraud has occurred.  If the </FONT><FONT     
+NAME="Arial" SIZE=+1><b>spec</FONT><FONT NAME="Times New Roman"     
+SIZE=+1></b> of the information already stored is identical to that of the new payment     
+transcript, then <b>S</b> is trying to deposit the same coin or transcript twice. The     
+deposit is rejected for that reason.  The bank knows the identity of the shop <b>S</b>     
+responsible and can take steps to ascertain whether this is error or fraud.<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	<b>c.</b>      
+Otherwise, the coin has been double-spent, and the bank takes steps to unmask the     
+double-spender. To this end, the bank will have two sets of information regarding the     
+coin:<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p> <blockquote>    
+</FONT><FONT NAME="Times New Roman" SIZE=+1>		{<b>A</b>,     
+<b>B</b>, <b>r<sub>1</sub>, r<sub>2</sub></b>, </FONT><FONT NAME="Arial"     
+SIZE=+1><b>spec</FONT><FONT NAME="Times New Roman"     
+SIZE=+1></b>}<b>.</b><br>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>	    
+	</b>{<b>A</b>, <b>B</b>, <b>r'<sub>1</sub>, r'<sub>2</sub></b>,    
+</FONT><FONT NAME="Arial"     
+SIZE=+1><b>spec</FONT><FONT NAME="Times New Roman"     
+SIZE=+1></b>}<b>.</b><p> </blockquote>    
+</FONT><FONT NAME="Times New Roman" SIZE=+1></b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b></b>Hence, the shop can     
+calculate<p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p> <blockquote>    
+</FONT><FONT NAME="Times New Roman" SIZE=+1>	(<b>r<sub>1</sub> -     
+r'<sub>1</sub>) / </b>(<b>r<sub>2</sub> - r'<sub>2</sub>) = [s*d*</b>(<b>     
+o<sub>1</sub></b>+<b>u<sub>1</sub></b>) - <b>s*d'*</b>(<b>     
+o<sub>1</sub></b>+<b>u<sub>1</sub></b>) ] / [<b>d*s - d's]</b><br>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b>			                      
+= o<sub>1</sub>+ u<sub>1</sub>  </b>.<p> </blockquote>    
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>The bank  can check its     
+database for the user identity, or joint public key (see equation [15-I]),<p> <blockquote>    
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>			    
+	<b>I</b> =     
+<b>g<sub>1</sub></b>^(<b>o<sub>1</sub></b>+<b>u<sub>1</sub> )  </b>mod     
+<b>p</b>.<p> </blockquote>    
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>In addition, the bank now     
+knows <b>u<sub>1</sub></b> also, since it knows <b>o<sub>1</sub></b>, which it     
+would not otherwise known (without taking discrete logarithms).  Hence the bank's     
+knowledge of <p> <blockquote>    
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>		    
+	<b>u<sub>1</sub> = </b>log_<b>g<sub>1</sub></b> (<b>I</b>) -<b>     
+o<sub>1</sub>  </b> mod <b>p</b><p> </blockquote>    
+</FONT><FONT NAME="Times New Roman" SIZE=+1></b><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1><b></b>serves as proof of     
+the double-spending.<p> </blockquote>    
+</FONT><FONT NAME="Times New Roman" SIZE=+1><p>     
+</FONT><FONT NAME="Times New Roman" SIZE=+1>   
+<hr> 
+Web Page: http://www.aci.net/kalliste/<p>  
+Copyright 1997  J. Orlin Grabbe, 1475 Terminal Way, Suite E, Reno, NV 89502 <br>    
+  
+</BODY></HTML>

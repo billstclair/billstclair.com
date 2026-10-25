@@ -1,0 +1,213 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content=
+"text/html; charset=iso-8859-1">
+<title>Chaos and Fractals in Financial Markets, Part 8, by J.
+Orlin Grabbe</title>
+</head>
+<body bgcolor="white" link="#0000ff" vlink="#800080">
+<h1 align="center">Chaos and Fractals in Financial Markets</h1>
+
+<h3 align="center">Part 8: The Correlation Integral and the
+Correlation Dimension</h3>
+
+<h3 align="center"><i>by J. Orlin Grabbe</i></h3>
+
+<center><img src="chaos8.jpg" width="400" height="300"></center>
+<p align="center">[<u>Note:</u> Go <a href="http://64.33.76.120/chaos_index.htm">here</a> to
+read Parts 1-7.]</p>
+
+<br>
+<center>
+<table border="0" width="55%">
+<tr>
+<td>
+<p align="justify"> Dimension is a way of measuring things to get
+accurate probabilities. If we use the correct dimension, we get
+the right probabilities, and if we use the wrong dimension, we
+get the wrong probabilities.</p>
+
+<p align="justify"> Let's approach the concept of correlation
+dimension by throwing darts at a dart board. Stand ten feet away,
+aim at the center of the board, and let fly with a dart. Keep
+track of where the dart hits. Do this, say, ten thousand times.
+Now, let's create a measure of the points where the darts hit
+with respect to the center of the board. Draw a one-inch circle
+around the center of the dart board, and count the number of
+points within the circle. Now, draw a two-inch circle around the
+center of the board, and count the number of points within the
+two-inch circle. (Naturally, all the points in the one-inch
+circle are also in the two-inch circle.) The area A of a circle
+is A = <font style="Symbol">&pi;</font> r<sup>2</sup>, where r is
+is radius of the circle. The area grows with the square of r.
+Thus, we might think the number of points is proportional to
+r<sup>2</sup>. The area of the 1-inch circle is A = <font style= 
+"Symbol">&pi;</font>(1)<sup>2</sup> = <font style="Symbol">
+&pi;</font>. The area of the two-inch circle is A = <font style= 
+"Symbol">&pi;</font>(2)<sup>2</sup> = 4<font style=
+"Symbol">&pi;</font>. Thus, taking the ratio of areas, 4<font
+style="Symbol">&pi;</font>/<font style="Symbol">&pi;</font> = 4,
+one might expect four times as many points in the two-inch
+circle. This would be true if our throws were totally random,
+independently and uniformly distributed over the face of the
+target. On the other hand, if our aim is very good, there might
+only be twice as many points in the two-inch circle as in the
+one-inch circle. In that case, the number of points grows with r,
+not r<sup>2</sup>.</p>
+
+<p align="justify"> Let C(r) be the number of points in a circle
+of radius r, divided by the total number of points (the total
+number of throws). Then, as the number of points (throws) goes to
+infinity, C(r) becomes simply the probability of finding a given
+point in a circle of radius r. Let's call C(r) the <b>correlation
+integral.</b> It's simply a measure of probability based on the
+radius r. C(r) is a probability distribution function, because
+obviously C(0) = 0, and C(infinity) = 1. No points will be found
+inside a circle of zero radius; all points will be found inside a
+circle of infinite radius.</p>
+
+<p align="justify"> In general, it may be that, for a
+sufficiently small radius r, the number of points, C(r), grows
+with r<sup>D*</sup>:<br>
+<br>
+ (8.1)      C(r) = lim<sub><b> r --&gt; 0</b></sub> K
+r<sup>D*</sup>.</p>
+
+<p align="justify">We will call D* the <b>correlation dimension</b> of
+the point distribution. It is a measure of how fast points accumulate 
+as the radius of the circle increases. Note
+that equation (8.1) implies that D* is the slope of the ln C(r)
+curve versus the ln r curve:<br>
+<br>
+(8.2)      D* = lim<sub><b> r --&gt; 0</b></sub> [ln C(r)] / ln r
+.</p>
+
+<p align="justify">The correlation dimension D* is related to the
+fractal dimension we defined previously. Grassberger and
+Procaccia[1] show that in general D*&lt;=D.</p>
+
+<h4 align="center">Time-Series Data</h4>
+
+<p align="justify"> Let's apply the concept of correlation
+dimension to time-series data. When we threw darts, we measured
+the distance between each point and the center of the dart board,
+and drew circles of radius r around the center of the dart board.
+But market prices and other economic observations, unfortunately,
+are not found on the wall near dart boards. So we have to measure
+distance by a different procedure. Suppose we have a time series
+of N price returns: x<sub>1</sub>, x<sub>2</sub>, . . . ,
+x<sub>m</sub>, x<sub>m+1</sub>, . . . x<sub>N</sub>.</p>
+
+<p align="justify"> If we compare each of these N prices with all
+of the others, there are N(N-1) possible comparisons. So in this
+case we define the correlation integral as<br>
+<br>
+(8.3)     C(r) = {the number of pairs (i , j ) such that
+|x<sub>i</sub> - x<sub>j</sub>| &lt; r }/[N(N-1)].</p>
+
+<p align="justify">That is, C(r) is simply the porportion of
+those pairs whose absolute difference lies within a circle of
+radius r. Restated: All pairs of values of the time series are
+compared; we count the number within a distance r from each
+other; and then we divide by the total number of pairs to get
+C(r). As N goes to infinity, C(r) becomes the probability of
+finding that any two randomly selected values differ by less than
+r. As before, C(r) is a probability distribution function.</p>
+
+<p align="justify"> Finally, let's define C(r) in such a way that
+it looks at <i>sets of <b>m</b></i> successive observations. That is, we look
+at consecutive vectors
+X<sub>1</sub>=(x<sub>1</sub>,x<sub>2</sub>,x<sub>3</sub>, . . .
+x<sub>m</sub>), X<sub>2</sub>= (x<sub>2</sub>,x<sub>3</sub>,x<sub>4</sub>,
+. . . ,x<sub>m</sub>, x<sub>m+1</sub>), etc. The number of such
+vectors is N-m+1, and if we compare each vector with each of the
+others, the number of comparisons is (N-m+1)(N-m). So for
+m-vectors we define a correlation integral C<sub>m</sub>(r)
+as<br>
+<br>
+(8.4)     </p>
+
+<blockquote>C<sub>m</sub>(r) = {the number of pairs (i, j ) such that each
+corresponding component of X<sub>i</sub> , X<sub>j</sub> , is
+less than r apart }/[(N-m+1)(N-m)].</blockquote>
+
+<p align="justify">As before we can calculate the correlation D*
+from (8.2).</p>
+
+<p align="justify"> In applying equation (8.4), the number <b>m</b> of
+successive observations we use is called the <b>embedding
+dimension.</b> The relationship between the embedding dimension
+<b>m</b> and the correlation dimension D* is very important. We
+can distinguish three cases.</p>
+
+<blockquote>
+<p align="justify"> <b>Case 1:</b> If we increase the embedding
+dimension m, and the estimate of the correlation dimension D*
+stops increasing, then the correlation dimension is said to <b>
+saturate.</b> For example, suppose we look at m-tuples of m = 5,
+and our estimate of the correlation dimension is also D* = 5. But
+then we look at m-tuples of m=30, and find our estimate of the
+correlation dimension is D* = 6. In that case the correlation
+dimension saturated at 6. We can be fairly sure the system is
+chaotic. (See Brock, Hsieh, and LeBaron [2].) Thus, short-term
+prediction will be possible within the parameters given by the
+Lyapunov exponents, but long-term prediction will not be
+possible. Saturation equals chaos. Peters [3], for example,
+finds D* = 2.33 for the S&P 500 index. This indicates a low-order
+chaotic system that could modelled by three (the greatest integer
+larger than D*) variables.</p>
+
+<p align="justify"> <b>Case 2:</b> If we increase the embedding
+dimension, and the correlation dimension keeps increasing, but
+remains well below the embedding dimension, then we can be pretty
+sure either the observations are Gaussian and correlated (the
+Hurst exponent H is not equal to .5), or they come from an
+independent and identically-distributed infinite-variance
+distribution (in which case the Hurst exponent H = 1/<font face= 
+"Symbol">&#97;</font>, and 1/2 &lt; H &lt; infinity), or else they
+are both correlated and come from an infinite-variance
+distribution (in which case H &gt; 1/<font face="Symbol">&#97;</font>
+for positive correlation, or H &lt; 1/<font face="Symbol">&#97;</font> for
+negative correlation, where <font face="Symbol">&#97;</font>&gt;1,
+and 0&lt;H&lt;1). In that case we should be able to make some
+long-term predictions.</p>
+
+<p align="justify"> <b>Case 3:</b> If we increase the embedding
+dimension, and the correlation dimension keeps increasing in line
+with the embedding dimension, and stays more or less equal to the
+embedding dimension, then the series follows a martingale
+process. In this case, no prediction is possible (there are no
+predictable variations around trend).</p>
+</blockquote>
+
+<hr>
+<h4 align="center">References</h4>
+<p>
+[1] Grassberger, P., and I. Procaccia, Measuring the Strangeness of Strange Attractors, <i>Physica, 9D,</i> 1983, 189-208.
+</p><p>
+[2] Brock, Willam A., David A. Hsieh, and Blake LeBaron, <i>Nonlinear Dynamics, Chaos, and Instability:  Statistical Theory and Economic Evidence,</i> The MIT Press, Cambridge MA, 1991.
+</p><p>
+[3] Peters, Edgar E., <i>Chaos and Order in the Capital Markets,</i> John Wiley & Sons, New York, 1991.
+</p>
+<hr>
+<p align="justify">J. Orlin Grabbe is the author of <i>
+International Financial Markets,</i> and is an internationally
+recognized derivatives expert. He has recently branched out into
+cryptology, banking security, and digital cash. His home page is
+located at <a href="http:/www.aci.net/kalliste/homepage.html">
+http://www.aci.net/kalliste//homepage.html</a> .</p>
+
+<center><b>-30-</b></center>
+
+<br>
+<center><b>from <i>The Laissez
+Faire Electronic Times</i>, Vol 2, No 32, August 18,
+2003</b></center>
+
+</td>
+</tr>
+</table>
+</center>
+</body>
+</html>
+

@@ -1,0 +1,1135 @@
+<html>
+<head>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<title>The Digital Monetary Trust, Part 2, by J. Orlin Grabbe</title>
+</head>
+<body bgcolor="white" link="#0000ff" vlink="#800080">
+<p>
+<h1 align=center>The Digital Monetary Trust</h1>
+<h2 align=center>Part 2: The Anonymous Account System</h2>
+<h3 align=center><i>by J. Orlin Grabbe</i></h3>
+<center><table border=0 width=55%><tr><td>
+<p align=justify>
+This article describes the <a href="http://zolatimes.com/V3.44/dmt1.html">DMT</a>'s  
+anonymous account system.  There are four parts to the explanation.  The first part is a 
+simple description of the set of activities that are involved in various DMT transactions—
+such as placing assets into DMT, transferring value between accounts, and removing 
+money from the system.  The second part is a precise mathematical description of the 
+protocols followed in effecting these transactions.  The third part is a detailed numerical 
+example illustrating one of these protocols.  The final part is a concluding discussion of 
+the merits and limitations of the system.
+<p align=justify>
+
+The anonymous account system is essentially a set of protocols--a set of procedures
+which maintain anonymity and security--and that is what is described here.  Those who have 
+difficulty following the mathematics (in the sections labeled "Part 2", below) 
+may want to skip forward to the numerical example, before looking at the math behind 
+the system. (For an introduction to the mathematics involved, see the author's <a href=
+"cryptnum.htm">"Cryptography and Number Theory for Digital Cash"</a>.)
+<p align=justify>
+
+We began at the point a customer has downloaded a copy of the User Module and 
+installed it on his machine.  The module--written in Java--will operate cross-platform: in 
+a Microsoft Windows, Macintosh, or Linux environment.  The module may be 
+downloaded free of charge by the potential customer, since DMT does not want to create 
+barriers to entry into its banking system
+<p align=justify>
+
+<h3 align=center>Part 1: Preliminary Considerations</h3>
+<p align=justify>
+
+The design criterion followed here is <b>KISS: keep it simple, stupid</b>.  Software systems go 
+awry because it becomes increasingly easy to make implementation mistakes the more 
+complicated the underlying system.  There should be nothing present in the underlying 
+system not necessary to accomplish its goals.  And the principal goals--anonymity and 
+security--should be kept clearly in mind at all times.  
+<p align=justify>
+
+A survey of digital cash systems planned or being implemented in the real world shows 
+that there is misplaced emphasis in preserving the anonymity of the spending of 
+individual coins ($100 coins, say).  But there is no attention whatsoever paid to the 
+anonymity of the account from which they are withdrawn, or to which they are deposited.  
+In short, all existing systems that we have surveyed miss the point, if the point is defined 
+as the creation of a system that allows the anonymous holdings of assets.
+<p align=justify>
+
+In order to understand the anonymous account system, it is helpful to approach the 
+system synthetically.  First, we look at the minimal numerical information that must be 
+present in order for the DMT to carry out its essential activities.  Next, we outline the 
+specific actions where those numbers are used.  Then, in the sections following, we fill in 
+some mathematical details, and point out how this system meets the necessary privacy 
+requirements.
+<p align=justify>
+
+<h3 align=center>Part 1:  Minimal Numerical Information Requirements</h3>
+<p align=justify>
+
+<B>1.</B>  For a customer deposit into the DMT system, there must be present 
+<p>
+
+<menu>
+<li> a deposit amount, this amount having been transferred to an overt 
+account;
+<li> an identification number associated with this deposit.
+</menu>
+
+<p>
+<B>2.</B>  For the DMT customer data base (each currency kept separately), there must be stored
+<p>
+
+<menu>
+<li> the currency amount
+<li> an account number.
+</menu>
+
+<p>
+<B>3.</B>  For enacting a transfer within the DMT system, there must be revealed
+<p>
+
+<menu>
+<li> the amount of transfer
+<li> an account number from whence the transfer comes
+<li> an identification number for the receiving party to collect the transfer.
+</menu>
+
+<p>
+<B>4.</B>  For withdrawal out of the DMT system, there must be revealed
+<p>
+
+<menu>
+<li> the amount of the withdrawal
+<li> the number of the account the withdrawal comes from
+<li> a claim number for receiving the withdrawal at an overt account.
+</menu>
+
+<p align=justify>
+Considerable thought indicates that the system cannot be reduced smaller than this. 
+However, the numbers mentioned here do not themselves constitute a system.  Rather, 
+they acquire significance once we explain their use in a specific context , and show the 
+procedure for their generation and transfer.
+
+<p align=justify>
+
+<h3 align=center>Part 1:  Activities Associated with the Minimal Numerical Information</h3>
+
+<p align=justify>
+The next step is to outline the activities associated which these various numbers.  Here we 
+supply a bare minimum of detail, because the listed actions are capable of being 
+implemented in a variety of different ways.  Only afterward, in the following sections, do 
+we specify precisely how we propose to enact the protocols. 
+
+<p align=justify>
+
+<B>1.</B>  To initiate a customer deposit into the DMT system
+<p>
+
+<menu>
+<li> a customer's software generates a deposit identification number;
+<li> the customer (or someone making payments to a customer) transfers currency to 
+an overt account;
+<li> upon notification by the account trustee, the DMT transfers this 
+information to a pending deposit data base;
+<li> the customer (or someone on the customer's behalf) contacts DMT and 
+claims the deposit by showing a pre-image of the deposit 
+identification number (note that the identification number could be 
+stolen, but only the customer knows the pre-image);
+<li> the DMT then issues the customer an account, using the pre-image as the 
+account number.
+</menu>
+
+<p>
+<B>2.</B>  For the DMT customer data base (each currency kept separately)
+<p>
+
+<menu>
+<li> the DMT chooses the appropriate currency database;
+<li> the account balance is stored, this amount being irrevocably linked to 
+<li> an account number.
+</menu>
+
+<p>
+<B>3.</B>  For enacting a transfer within the DMT system
+<p>
+
+<menu>
+<li> a customer contacts the DMT, indicating
+<p>
+<menu>
+   <li> the amount of transfer,
+   <li> an account number for the withdrawal, and
+   <li> an identification number for the receiving party to collect the money.
+</menu>
+<p>
+<li> the DMT then
+<p>
+<menu>
+   <li> challenges the customer to show knowledge of the account 
+   private key (see below for details); if the challenge is replied 
+   to successfully, the DMT
+   <li> deducts the transfer amount from the customer's balance, and
+   <li> issues the customer a new account.
+</menu>
+<p>
+<li> the receiving party
+<p>
+<menu>
+   <li> claims the transfer by producing a pre-image of the identification number
+</menu>
+<p>
+<li> the DMT 
+<p>
+<menu>
+   <li> adds the transferred amount to the account associated with the pre-image.
+</menu>
+</menu>
+
+<p>
+<B>4.</B>  For withdrawal
+<p>
+
+<menu>
+<li> the customer contacts the DMT, indicating
+<p>
+<menu>
+      <li> the amount of the withdrawal
+      <li> the customer account number for withdrawal
+      <li> a claim number for receiving the withdrawal into an overt account 
+           (for forwarding to wherever).
+</menu>
+<p>
+<li> the DMT 
+<p>
+<menu>
+      <li> challenges the customer to show knowledge of the account 
+                private key; if the challenged is replied to sucessfully, the DMT
+      <li> deducts the transfer amount from the customer's balance
+      <li> issues the customer a new account
+      <li> makes the transfer as instructed by the holder of the claim 
+           number, provided the receiver can demonstrate knowledge of 
+           the claim number's pre-image.
+</menu>
+</menu>
+
+<p align=justify>
+We now proceed to give a mathematical description of these activities.
+
+<h3 align=center>Part 2:  Making an Anonymous Deposit into DMT</h3>
+
+<p align=justify>
+Opening an account at DMT is as simple as depositing money into an account.  There is 
+no separate account opening protocol, but only a deposit protocol.  Customers are 
+anonymous, so DMT needs no customer information.  The account number is generated 
+by the customer, and stored by DMT along with a record of the deposit.  Here are the 
+mathematical details (bit lengths are for illustration):
+
+<p>
+<menu>
+<li> a customer's software generates a random number <B>x</B> < <B>q</B>, where <B>q</B> is 
+~160-bits. The software uses a generator <B>g</B> (a generator of the group 
+G(<B>q</B>) in Z(<B>p*</B>)) supplied by the DMT to calculate <B>y</B> = <B>g<sup>x</sup></B> mod <B>p</B>, and 
+then also the identifying number <B>H(y)</B>. Here <B>p</B> (and <B>y</B>) might be 1024 bits in length.  <B>H(y)</B> is a 160-bit SHA-1 hash 
+of <B>y</B>, where <B>y</B> is a member of G(<B>q</B>).
+<p>
+<li> the customer (or someone on the customer's behalf, or someone paying 
+the customer money, or whoever) transfers an amount of money <B>C</B>, a 
+32-bit integer, in some currency to a DMT overt account, and also 
+supplies <B>H(y)</B> to the account trustee as a number associated with the 
+transferred amount.  Notice that at this point the trustee has no 
+information except the receipt of money from some source, and the 
+number <B>H(y)</B>.  
+<p>
+<li> upon notification by the account trustee, the DMT transfers the 
+information {<B>currency flag, C, H(y)</B>} into a pending deposit data base.
+<p>
+<li> the customer contacts DMT via the customer software (or by anonymous 
+email, with the final message--if chaining is used--encrypted with the 
+DMT public key), and claims the deposit by showing the pre-image <B>y</B> 
+of the deposit identification number <B>H(y)</B>. Notice that if  some unauthorized 
+party happens to observe <B>H(y)</B> (as could happen if <B>H(y)</B> were included as part 
+of the identifying information on a wire transfer), this party will not be able 
+to claim the deposit in the form of an anonymous account, without the 
+knowledge of <B>y</B>.  However, even knowledge of <B>y</B> will not be sufficient to 
+collect the deposit.
+<p>
+<li> as a precaution, the customer is also required to demonstrate knowledge 
+of his private key <B>x</B> at this point.  (He will, after all, need to do this to 
+later withdraw money from the account.)  This is done with a 
+challenge-response protocol.  At the time the customer claims the 
+deposit, the customer's software generates a random number <B>w</B> < <B>q</B>, 
+and calculates the 1024-bit number <B>A</B> = <B>g<sup>w</sup></B> mod <B>p</B>.  The customer 
+sends the DMT the vector of information {<B>currency flag, C, H(y), y, A</B>}.  This 
+information is sent encrypted under the DMT's public key.  (This 
+latter encryption is important, because--as shown later--it will enable 
+the DMT to ensure that no DMT employee will ever observe the account 
+number <B>y</B>.  Decryption will take place inside a secure 
+coprocessor.)
+<p>
+<li> the DMT scans its pending deposit data base for {<B>C, H(y)</B>}.  If found, 
+the DMT then verifies that the SHA-1 hash of the received <B>y</B> 
+corresponds to the received <B>H(y)</B>.  If <B>y</B> is a valid pre-image, the DMT 
+then generates a random challenge <B>c</B> < <B>q</B>, and returns <B>c</B> to the 
+customer. 
+<p>
+<li> the customer responds with <B>r = w + c x</B>  mod <B>q</B>.
+<p>
+<li> the DMT checks that <B>g<sup>r</sup></B> = <B>A y<sup>c</sup></B>;  if so, the DMT issues the customer an 
+account, using the pre-image <B>y</B> as the account number.  
+<p>
+<li> the DMT returns the customer a signature for the account number <B>y</B>, this 
+signature made with the DMT's private key <B>k</B>.  Specifically, the DMT 
+produces a random number <B>w*</B> and calculates <B>A*</B> = <B>g<sup>w*</sup></B> mod <B>p</B>.  The 
+DMT then concatenates <B>C</B>, <B>y</B>, and <B>A*</B>, and produces <B>c*</B> = <B>H(C||y||A*)</B>.  
+The DMT also calculates <B>r*</B> = <B>w*</B> + <B>c* k</B> mod <B>q</B>, and then returns 
+{<B>A*, r*</B>} to the customer.  The DMT stores {<B>c*, y, C</B>} in its database 
+as  described in the following section.
+<p>
+<li> the customer uses <B>A*</B> to calculate <B>c*</B> = <B>H(C||y||A*)</B> and then <B>r*</B> to verify 
+that <B>g<sup>r*</sup></B> = <B>A*</B> <B>(g<sup>k</sup>)c*</B>, where <B>g<sup>k</sup></B> is the DMT's public key for that 
+currency denomination. This shows the customer the account has been 
+properly signed with the DMT's private key, and also verifies the 
+deposit amount <B>C</B>.
+<p>
+<li> the customer stores {<B>y, C, A*, r*</B>} as proof of deposit. (Note that if the 
+account has been opened by anonymous email, some return email 
+address will be required for a signed confirmation vector {<B>A*, r*</B>} to 
+be returned.  The challenge and response that takes place prior to this 
+will have to take place within some limited time period.)
+</menu>
+
+<p align=justify>
+Notice that at this point DMT has no idea who the owner of the deposit is.  Even if the 
+transfer to the overt account is identifiable, there is no way to know if the customer 
+claiming the account is the same person.    
+
+<p align=justify>
+Notice further that the customer who claims the account contacts DMT without revealing 
+the customer's own identity.  This contact can be done conveniently through the User 
+Module, but also through anonymous email, or a nym server.  (To be sure, the challenge-
+response may be laborious in the latter two cases.  However, the User Module may be 
+used to produce the relevant numbers and export them in ASCII format, in a manner 
+similar to PGP.)
+
+<p align=justify>
+It is up to be customer to take ordinary privacy precautions with respect to the email 
+address used. The Digital Monetary Trust will not be recording a customer's Internet 
+activities, but others may be.  This process is analogous to a "walk-in" customer at an 
+Austrian bank who requests an anonymous passbook account.  Even though the bank may 
+not ask for customer identification, there is no assurance that someone is not across the 
+street taking videos of entrances and exits, and attempting to match pictures with names.
+
+<p align=justify>
+In addition, to the extent banking regulations permit, the original transfer could be 
+anonymous.  It could be a payment in anonymous ecash coins, for example. (At least that is
+an eventual goal.  Digital cash purveyors have done little to get their systems off the
+ground.) Another approach is to take advantage of the sheer cost of information,and to receive consulting or 
+other payments as transfers to the DMT system.  Such payments are in principle traceable 
+up to the point of deposit, but at high cost to the researcher.  However, since the origin 
+of the funds is clearly legal, there is a high-cost burden-of-proof on any agency that wants 
+to make an issue over the deposit.
+
+<p align=justify>
+Note also that <B>outside transfers into <I>existing</I> accounts are not allowed</B>.  For in that 
+case, the initial identifying number <B>H(y</B>) could be the same as the identifying number of a 
+previous outside transfer into the system.  This would make cheap correlations possible 
+for someone monitoring wire transfers to a DMT trustee.
+
+<p align=justify>
+<h3 align=center>Part 2:  Account Storage in the DMT Database</h3>
+
+<p align=justify>
+Each currency is stored separately in the customer data base.  The DMT has a separate 
+public signing key <B>g<sup>k</sup></B> (where <B>k</B> is one of the DMT's private keys) for each currency 
+denomination.  The DMT stores the 160-bit account number <B>y</B>, the amount <B>C</B> (a 32-bit 
+number), and also a 32-bit random <B>nonce</B>.  In addition, <B>c*</B> is stored as an index (record 
+locator).  The latter is important, because the rest of the record will be encrypted, but <B>c*</B> 
+can be located by a simple comparison.  If each record had to be individually decrypted as 
+part of the search process, then the database search time might take too long, once the 
+database becomes large.
+<p>
+
+<menu>
+<li> the DMT concatenates (<B>y||C||nonce</B>), generates a 192-bit symmetric 
+encryption key <B>s</B> (assuming triple-DES), encrypts (<B>E</B>) the 
+concatenation, yielding <B>E<sub>s</sub></B>(<B>y||C||nonce</B>), encrypts the encryption key <B>s</B> 
+with its public key <B>g<sup>k</sup></B>, and stores the result.  (The latter ElGammal-type 
+encryption takes place as follows.  The DMT generates a random 
+<B>u</B> < <B>q</B>, calculates <B>g<sup>u</sup></B> mod <B>p</B>, and also the product <B>s(g<sup>k</sup>)<sup>u</sup></B> mod <B>p</B>.)  
+Thus, stored in the DMT database will be the following four fields for 
+each customer record:  {<B>c*</B>, <B>E<sub>s</sub></B>(<B>y||C||nonce</B>), <B>g<sup>u</sup></B>,  <B>s(g<sup>k</sup>)<sup>u</sup></B> }.  (To 
+recover the encryption key <B>s</B>, the DMT takes the number in the third 
+field, <B>g<sup>u</sup></B>, raises it to the power of <B>q</B> minus its secret key <B>k</B> (that is, to 
+the power <B>q-k</B>), and multiplies it by the number in the fourth field. 
+Thus, because <B>g<sup>q</sup></B> = 1, we have that <B>s (g<sup>k</sup>)<sup>u</sup> ((g<sup>u</sup>)<sup>(q-k)</sup>)</B> = <B>s (g<sup>q</sup>)<sup>u</sup></B> = <B>s</B>.  
+Then the DMT uses <B>s</B> to decrypt the second field, and recover the 
+account number <B>y</B> and amount <B>C</B>.)
+</menu>
+
+<p align=justify>
+Notice that, in the absence of decryption, the only thing stored in the DMT database that 
+correlates with any number stored in a customer's browser is <B>c*</B> = <B>H(C||y||A*)</B>.  Seizure 
+of the database would supply no information about customer accounts, unless the 
+customer account information <B>C</B>, <B>y</B>, <B>A*</B> were already known (so that the hash of the 
+concatenation could be calculated), in which case the seizure of the DMT database is 
+irrelevant.  Even so, seizure of customer records stored with the customer's browser 
+would not allow one to make a withdrawal, without knowledge of the customer's private 
+key also.  (The private key will be stored in encrypted form, and accessed with a pass 
+phrase in a manner similar to a private PGP key.) 
+<p align=justify>
+
+Each time the computer stores an account record, two backup copies are made at 
+remote locations.  With respect to the two backup servers, the DMT primary server 
+generates symmetric encryptions keys and encrypts the record information with the 
+public keys of the backup servers.  The actions with respect to the backup servers take 
+place as follows:
+<p>
+
+<menu>
+<li> when the DMT primary server concatenates (<B>y||C||nonce</B>), it also 
+generates two additional 192-bit symmetric encryption keys <B>s<sub>1</sub></B>, <B>s<sub>2</sub></B>, encrypts (<B>E</B>) 
+the concatenation, yielding <B>E<sub>s<sub>i</sub></sub></B>(<B>y||C||nonce</B>), and encrypts the 
+encryption keys <B>s<sub>i</sub></B> (<B>i</B>=1,2) with the public keys of the appropriate 
+backup servers,  <B>g<sub>l</sub></B>, <B>g<sub>m</sub></B>.
+<p>
+<li> the DMT primary server forwards the two messages to the 
+respective backup servers.
+<p>
+<li> a DMT backup server uses its private key to decrypt the information 
+(this decryption taking place inside the secure module).  The 
+decryption yields (<B>y||C||nonce</B>).  The DMT backup server then follows 
+the same steps as the primary server to store the information in its database.
+</menu>
+
+<p align=justify>
+<h3 align=center>Part 2:  Transfers Between Anonymous DMT Accounts</h3>
+
+<p align=justify>
+When a customer ("paying" customer) desires to make a transfer to another DMT customer 
+("receiving" customer), the paying customer first requests an identification number from the 
+receiving customer.
+
+<p>
+<menu>
+<li> as in the account opening procedure, the receiving customer's software 
+generates a random number <B>x*</B> < <B>q</B>, where <B>q</B> is ~160-bits. The 
+software uses a generator <B>g</B> (a generator of the group G(<B>q</B>) in Z(<B>p*</B>)) 
+supplied by the DMT to calculate <B>y*</B> = <B>g<sup>x*</sup></B> mod <B>p</B>, and then also the 
+identifying number <B>H(y*</B>).  <B>H(y*)</B> is a 160-bit SHA-1 hash of <B>y*</B>, 
+where <B>y*</B> is a member of G(<B>q</B>).
+</menu>
+
+<p align=justify>
+Note that, as an alternative to generating a new account number <B>y*</B>, the receiving 
+customer could simply supply <B>H(z)</B> to the paying customer, where <B>z</B> is an existing 
+account number.  If observed, however, this use of <B>H(z)</B> could potentially be linked with 
+previous or subsequent uses of <B>H(z)</B>.  Nevertheless, internal transfers into existing 
+accounts will be allowed, as opposed to outside transfers into the DMT system.
+
+<p>
+<menu>
+<li> the paying customer, who has existing account <B>y</B>, contacts the DMT, and 
+supplies it with the vector {<B>H(y*),y,C,A*,r*</B>}, the transfer amount <B>T</B>, 
+and with <B>A**</B> = <B>g<sup>w**</sup></B>,  from a randomly generated <B>w**</B><<B>q</B>. This 
+information arrives encrypted under the DMT's public key.  
+<p>
+<li> the DMT calculates <B>c*</B> = <B>H(C||y||A*)</B>, and verifies <B>g<sup>r*</sup></B> = <B>A* (g<sup>k</sup>)<sup>c*</sup></B>.  If 
+this verification passes, the DMT then sends the paying customer a 
+random challenge <B>c**</B>.
+<p>
+<li> the paying customer replies with <B>r**</B> = <B>w** + c** x</B>.
+<p>
+<li> the DMT verifies that <B>g<sup>r**</sup></B> = <B>A** (y)<sup>c**</sup></B>.  If so, the paying customer has 
+demonstrated knowledge of his secret key <B>x</B>.  Next the DMT scans its 
+database for <B>c*</B>, and decrypts the appropriate record to obtain {<B>y, C</B>}.  
+When this record is found, the record value is replaced with {<B>y, C-T</B>} 
+and resealed with a new symmetric encryption key, as previously discussed.  
+(Aborted if <B>T</B>><B>C</B>, or no such record exists.)
+<p>
+<li> the DMT returns the paying customer a signature on the account number 
+<B>y</B> and the amount <B>C-T</B>. Specifically, the DMT produces a new random 
+number <B>w*</B> (not the same as the previous <B>w*</B>, but for simplicity the 
+same notation is used) and calculates <B>A*</B> = <B>g<sup>w*</sup></B> mod <B>p</B>.  The DMT 
+then concatenates <B>C-T</B>, <B>y</B>, and <B>A*</B>, and produces the hash value <B>c*</B> = 
+<B>H(C-T||y||A*)</B>.  The DMT also calculates <B>r*</B> = <B>w*</B> + <B>c* k</B> mod <B>q</B>, and 
+then returns {<B>A*, r*</B>} to the customer. The DMT stores {<B>c*, y, C-T</B>} in 
+its database as  described previously, and places {<B>T, H(y*)</B>} into a 
+pending deposit database.
+<p>
+<li> the paying customer calculates <B>c*</B> = <B>H(C-T||y||A*)</B> and verifies that <B>g<sup>r*</sup></B> 
+= <B>A* (g<sup>k</sup>)<sup>c*</sup></B>, where <B>g<sup>k</sup></B> is the DMT's public key for that currency 
+denomination. This shows the customer the account has been properly 
+signed with the DMT's private key, and also verifies the new balance 
+amount <B>C-T</B>.
+<p>
+<li> the paying customer stores {<B>y, C-T, A*, r*</B>} as proof of deposit. (Note 
+that if the account has been opened by anonymous email, some return 
+email address will be required for the customer to receive a signed 
+confirmation vector.  The challenge and response will have to take 
+place within some limited time period.)
+<p>
+<li> the receiving customer contacts DMT via the customer software (or by 
+anonymous email, with the final message--if chaining is used--
+encrypted with the DMT public key), and claims the deposit by 
+showing the pre-image <B>y*</B> of the deposit identification number <B>H(y*)</B>. 
+<p>
+<li> as a precaution, the receiving customer is also required to demonstrate 
+knowledge of his private key <B>x*</B> at this point.  As before, in order to 
+claim the deposit, the customer's software generates a random number 
+<B>w</B> < <B>q</B>, and calculates <B>A</B> = <B>g<sup>w</sup></B> mod <B>p</B>.  The customer sends the DMT 
+the vector of information {<B>T, H(y*), y*, A</B>}.  
+</menu>
+
+<p align=justify>
+Recall that this deposit, or transfer, may be made to an existing account or to a new 
+account.  We will here assume the receiving customer deposits to a new account.
+
+<p>
+<menu>
+<li> the DMT scans its pending deposit data base for {<B>T, H(y*)</B>}.  If found, 
+the DMT then verifies that the SHA-1 hash of the received <B>y*</B> 
+corresponds to the received <B>H(y*)</B>.  If the pre-image is valid, the DMT 
+then generates a random challenge <B>c</B> < <B>p</B>, and returns <B>c</B> to the 
+customer. 
+<p>
+<li> the receiving customer responds with <B>r = w + c x*</B>  mod <B>q</B>.
+<p>
+<li> the DMT checks that <B>g<sup>r</sup></B> = <B>A y*<sup>c</sup></B>;  if so, the DMT issues the customer an 
+account, using the pre-image <B>y*</B> as the account number.  
+<p>
+<li> the DMT returns the receiving customer a signature on the account 
+number <B>y*</B> and on the amount <B>T</B>.  Specifically, the DMT produces a 
+random number <B>w<sup>+</sup></B> and calculates <B>A<sup>+</sup></B> = <B>g<sup>w+</sup></B> mod <B>p</B>.  The DMT then 
+concatenates <B>T</B>, <B>y*</B>, and <B>A<sup>+</sup></B>, and produces <B>c<sup>+</sup></B> = <B>H(T||y*||A<sup>+</sup></B>).  The 
+DMT also calculates <B>r<sup>+</sup> = w + c<sup>+</sup> k</B> mod <B>q</B>, and then returns {<B>A<sup>+</sup>, r<sup>+</sup></B>} to 
+the customer. The DMT stores {<B>c<sup>+</sup>, y*, T</B>} in its database as  described 
+previously.
+<p>
+<li> the receiving customer calculates <B>c<sup>+</sup></B> = <B>H(T||y*||A<sup>+</sup>)</B>, and verifies that <B>g<sup>r+</sup></B> 
+= <B>A<sup>+</sup> (g<sup>k</sup>)<sup>c+</sup></B>, where <B>g<sup>k</sup></B> is the DMT's public key for that currency 
+denomination. This shows the customer the account has been properly 
+signed with the DMT's private key, and also verifies the transferred 
+amount <B>T</B>.
+<p>
+<li> the customer stores {<B>y*, T, A<sup>+</sup>, r<sup>+</sup></B>} as proof of deposit.
+</menu>
+
+<p align=justify>
+Note that the DMT (which is not looking in the first place) has no idea to whom the 
+transfer has been made.  The paying and receiving customers may, in fact, be the same 
+person.  But there is no way to know this.
+<p align=justify>
+
+<h3 align=center>Part 2:  Transfers Out of the DMT</h3>
+
+<p align=justify>
+For withdrawals out of the DMT system, the owner of the account from which the 
+transfer is made must supply the trustee of the DMT overt account with a claim number.  
+The same claim number, as well as a pre-image, must be supplied to the person who receives
+the transfer.  If the person receiving the transfer ("beneficiary") is a DMT customer (or 
+has the DMT software), the beneficiary can generate his own claim number and pre-image.  
+The steps are those following.
+
+<p align=justify>
+When a customer (paying customer) desires to make a transfer to a beneficiary outside 
+the DMT system, the paying customer first requests an identification number from the 
+beneficiary, or else creates these number himself and forwards them to the beneficiary.
+<p>
+<menu>
+<li> as in the account opening procedure, the beneficiary's (or paying 
+customer's) software generates a random number <B>x*</B> < <B>q</B>, where <B>q</B> is 
+~160-bits.  The software uses a generator <B>g</B> (a generator of the group 
+G(<B>q</B>) in Z(<B>p*</B>)) supplied by the DMT to calculate <B>y*</B> = <B>g<sup>x*</sup></B> mod <B>p</B>, and 
+then also the identifying number <B>H(y*)</B>.  <B>H(y*)</B> is a 160-bit SHA-1 
+hash of <B>y*</B>, where <B>y*</B> is a member of <B>G(q)</B>.
+<p>
+<li> the paying customer contacts the DMT, and supplies it with the vector 
+{<B>H(y*),y,C,A*,r*</B>}, the withdrawal amount <B>W</B>, and also with <B>A**</B> = 
+<B>g<sup>w**</sup></B>,  from a randomly generated <B>w**</B><<B>q</B>. This information is 
+encrypted under the DMT's public key.
+<p>
+<li> the DMT calculates <B>c*</B> = <B>H(C||y||A*)</B>, and verifies <B>g<sup>r*</sup></B> = <B>A* (g<sup>k</sup>)<sup>c*</sup></B>.  If 
+this verification passes, the DMT then sends the paying customer a 
+random challenge <B>c**</B>.
+<p>
+<li> the paying customer replies with <B>r** = w** + c** x</B>.
+<p>
+<li> the DMT verifies that <B>g<sup>r**</sup></B> = <B>A** (y)<sup>c**</sup></B>.  If so, the paying customer has 
+demonstrated knowledge of his secret key. Next the DMT scans its 
+database for <B>c*</B>, and decrypts the appropriate record to obtain {<B>y, C</B>}. 
+When this record is found, the record value is replaced with {<B>y, C-W</B>} 
+and is resealed with a new symmetric encryption key, as discussed previously.
+(Aborted if <B>W</B>><B>C</B>, or there is no such record.)
+<p>
+<li> the DMT returns the paying customer the account number <B>y</B> signed with 
+its private key <B>k</B>.  Specifically, the DMT produces a new random 
+number <B>w</B> (not the same as the previous <B>w</B>, but for simplicity the same 
+notation is used) and calculates <B>A</B> = <B>g<sup>w</sup></B> mod <B>p</B>.  The DMT then 
+concatenates <B>C-W</B>, <B>y</B>, and <B>A</B>, and produces the hash value <B>c</B> = <B>H(C-W||y||A)</B>. 
+The DMT also calculates <B>r = w + c k</B> mod <B>q</B>, and then 
+sends {<B>A, r</B>} back to the customer. The DMT stores {<B>c, y, C-W</B>} in its 
+database as  described previously.
+<p>
+<li> the paying customer calculates <B>c</B> = <B>H(C-W||y||A)</B> and verifies 
+that <B>g<sup>r</sup></B> = <B>A (g<sup>k</sup>)<sup>c</sup></B>, 
+where <B>g<sup>k</sup></B> is the DMT's public key for that currency 
+denomination. This shows the customer the account has been properly 
+signed with the DMT's private key, and also verifies the new balance 
+amount <B>C-W</B>.
+<p>
+<li> the paying customer stores {<B>y, C-W, A, r</B>} as proof of deposit. (Note 
+that if the account has been opened by anonymous email, some return 
+email address will be required both for the signed confirmation vector, 
+and prior to that for the challenge and response protocol.)
+<p>
+<li> the beneficiary contacts the DMT account trustee, and claims the deposit 
+by showing the pre-image <B>y*</B> of the deposit identification number 
+<B>H(y*)</B>. In particular, the beneficiary reveals the vector {<B>W, y*, H(y*)</B>}.  
+The trustee verifies that the SHA-1 hash of the reported <B>y*</B> is 
+equal to the reported <B>H(y*)</B>, then transfers the money according to the 
+beneficiary's instructions.
+
+<p align=justify>
+<h3 align=center>Part 3: A Numerical Example</h3>
+
+<p align=justify>
+The anonymous account system is a number creation and transmission machine.  The 
+User Module needs to create such numbers accurately, efficiently, and securely, with a 
+convenient graphical user interface (GUI).  In addition it needs to store keys and account 
+numbers.  In this respect, the needs are much like those for freeware software programs 
+such as PGP or Private Idaho.  The latter two programs can be viewed as numerical text 
+transformation machines with email interfaces.  Similarly, at its basis the DMT User 
+software will be a machine that generates, transmits, and stores numbers, and which also 
+enacts the Worldwide Web's SSL/TLS protocol. The needs at the server end are similar.  
+The security of the system hinges on the accuracy of the calculations and transformations 
+between data types.   
+
+<p align=justify>
+To emphasize this point, we consider a detailed, realistic example of the generation of 
+DMT account numbers, the opening of an account, and the storage of this account in the 
+DMT database. The calculations here were done in Java, using the Java Big Integer and 
+Security packages.  These modules were supplemented with the Cryptix class library for 
+the triple-DES calculation.
+
+<p align=justify>
+All numbers here are presented in hexidecimal (base 16) notation.  For the purposes of 
+this illustration, we will assume the DMT system operates using the following generator 
+<B>g</B> and prime <B>p</B>, which produces a group G(<B>q</B>) of order <B>q</B>: 
+<p align=justify>
+
+generator <B>g</B> = 
+<p>
+<pre>
+F7E1A085D69B3DDE CBBCAB5C36B857B9 7994AFBBFA3AEA82
+F9574C0B3D078267 5159578EBAD4594F E67107108180B449 
+167123E84C281613 B7CF09328CC8A6E1 3C167A8B547C8D28 
+E0A3AE1E2BB3A675 916EA37F0BFA2135 62F1FB627A01243B  
+CCA4F1BEA8519089 A883DFE15AE59F06 928B665E807B5525 
+64014C3BFECF492A
+</pre>
+<p>
+prime <B>p</B> =
+<p>
+<pre>
+FD7F53811D751229 52DF4A9C2EECE4E7 F611B7523CEF4400 
+C31E3F80B6512669 455D402251FB593D 8D58FABFC5F5BA30 
+F6CB9B556CD7813B 801D346FF26660B7 6B9950A5A49F9FE8 
+047B1022C24FBBA9 D7FEB7C61BF83B57 E7C6A8A6150F04FB 
+83F6D3C51EC30235 54135A169132F675 F3AE2B61D72AEFF2 
+2203199DD14801C7
+</pre>
+<p>
+order <B>q</B> of group G(<B>q</B>) =
+<p>
+<pre>
+	9760508F15230BCC B292B982A2EB840B F0581CF5
+</pre>
+<p>
+Note that these numbers satisfy the following relationships as required by theory:
+<p>
+<B>p</B> mod <B>q</B> = 1
+<p>
+<B>g<sup>q</sup></B> mod <B>p</B> = 1
+<p>
+To start the new account process, the  customer's software generates a random private key 
+<B>x</B><<B>q</B> as follows: 
+<p>
+private key <B>x</B> = 
+<p>
+<pre>
+	577DCB07A66D7F7F F1A6F25D50B367E0 C4F820E0
+</pre>
+<p>
+The customer's software generates a public key <B>y</B> as follows: 
+<p>
+public key <B>y</B> = 
+<p>
+<pre>
+	BE064969F69CF7A1 A85ADF5CB8C2721B 793DC5FAC16352DC 
+	F17C3B206F7BD005 2F7A32D3371D2F3A 75267DEA606931BE 
+	DBF43EB6D2121FFB B194AB58B4420676 C8864BDC2EB0E8FC 
+	D49EC8EF0034220D AE5EFEE21EE20579 51C6122D2E38D5FF 
+	AF5ED475669DE647 0563731EBC3488E7 49E59DD920A25BBF 
+	EBB74D4DAAC809A2
+</pre>
+<p>
+Note here the value of 
+<p>
+<B>g<sup>x</sup></B> mod <B>p</B> = 
+<p>
+<pre>
+	BE064969F69CF7A1 A85ADF5CB8C2721B 793DC5FAC16352DC 
+	F17C3B206F7BD005 2F7A32D3371D2F3A 75267DEA606931BE 
+	DBF43EB6D2121FFB B194AB58B4420676 C8864BDC2EB0E8FC 
+	D49EC8EF0034220D AE5EFEE21EE20579 51C6122D2E38D5FF  
+	AF5ED475669DE647 0563731EBC3488E7 49E59DD920A25BBF 
+	EBB74D4DAAC809A2
+</pre>
+<p>
+which verifies the public key <B>y</B>.
+<p align=justify>
+The customer produces an identifying number <B>H(y)</B> for the transfer of money into the 
+DMT system. The identifying number <B>H(y)</B> is the SHA-1 hash of <B>y</B>:
+<p>
+<pre>
+<B>H(y)</B> = A46C91FD7FD96111 4BAE16CB7495612D D271A361
+</pre>
+<p align=justify>
+A transfer of say $5000 into a DMT overt account would be accompanied by <B>H(y)</B>. In 
+this case the currency flag would be '<B>USD</B>', and the currency amount <B>C</B> would be a 32-bit 
+integer representing the hex equivalent of 5000. 
+<p>
+<B>C</B> = 1388
+<p>
+The variables
+<p>
+<pre> 
+{<B>USD</B>, 1388, A46C91FD7FD96111 4BAE16CB7495612D D271A361 } 
+</pre>
+<p align=justify>
+will be transferred to the DMT pending deposit database, awaiting a claim for the money. 
+When the customer submits a claim, he chooses 'Submit Claim' on his software menu.  
+The software also calculates a new random number that will be later used to respond to a 
+DMT challenge: 
+<p>
+random <B>w</B> = 
+<p>
+<pre>
+	D8B467C54FFD1DE1 A3ABEEF1A39947CB 023BCA7E
+</pre>
+<p>
+The customer's software then calculates <B>A</B> = <B>g<sup>w</sup></B> mod <B>p</B>: 
+<p>
+<pre>
+<B>A</B> = 
+	D8CD33720408314B 1068A7BFE7F3BC99 3A07C89FDD4F0A3B 
+	76C67C72E89D1966 B3313F266572275D D3549FFD80F54A2F 
+	3EEAE819CDB633A8 F2631E2F37E79D26 2262A1EC053AEF9E 
+	B9B778AF99D1F7E5 F2A4E6BEB79B0E20 F6CCDC8CB929F337  
+	27DB92B7A245D6F0 5B18DC390C8ADA5C 6A6990FF41BF312C 
+	5E060E9112DFB9C7
+</pre>
+<p>
+The customer's software then transmits to DMT the vector: 
+<p>
+<pre>
+{<B>USD, C, H(y), y, A</B>} = 
+
+{<B>USD</B>, 1388, A46C91FD7FD96111 4BAE16CB7495612D D271A361,
+	
+	BE064969F69CF7A1 A85ADF5CB8C2721B 793DC5FAC16352DC 
+	F17C3B206F7BD005 2F7A32D3371D2F3A 75267DEA606931BE 
+	DBF43EB6D2121FFB B194AB58B4420676 C8864BDC2EB0E8FC 
+	D49EC8EF0034220D AE5EFEE21EE20579 51C6122D2E38D5FF 
+	AF5ED475669DE647 0563731EBC3488E7 49E59DD920A25BBF 
+	EBB74D4DAAC809A2,
+
+	D8CD33720408314B 1068A7BFE7F3BC99 3A07C89FDD4F0A3B 
+	76C67C72E89D1966 B3313F266572275D D3549FFD80F54A2F 
+	3EEAE819CDB633A8 F2631E2F37E79D26 2262A1EC053AEF9E 
+	B9B778AF99D1F7E5 F2A4E6BEB79B0E20 F6CCDC8CB929F337 
+	27DB92B7A245D6F0 5B18DC390C8ADA5C 6A6990FF41BF312C 
+	5E060E9112DFB9C7 }
+</pre>
+<p align=justify>
+The DMT scans its pending deposit database for {<B>USD, C, H(y)</B>}. If found, it next 
+calculates the SHA-1 hash of <B>y</B>: 
+<p>
+<pre>
+<B>H(y)</B> = A46C91FD7FD96111 4BAE16CB7495612D D271A361
+</pre>
+<p>
+Since this is the same as the claim number, the DMT now issues a random challenge <B>c</B>:
+<p>
+random <B>c</B> = 
+<p>
+<pre>
+	39D86D40E031CC99 B2EBEA26DB007226 228E4F52
+</pre>
+<p>
+The customer responds with <B>r = w + c x</B> mod <B>q</B>: 
+<p>
+<pre>
+<B>r</B> = 26E7C3D9620A953C AFAC0E2C226BDB6A AA53E761
+</pre>
+<p>
+The DMT checks that <B>g<sup>r</sup></B> = <B>A y<sup>c</sup></B>.  Note  that
+<p> 
+<B>g<sup>r</sup></B> mod <B>p</B> = 
+<p>
+<pre>
+	14E3913CA50B3FA5 068B30E41BF18AC3 A664A8E5956F4DC9 
+	690EA16E191EAF4E 4FBA1074593519A6 B52E763D50050C84 
+	F693C6E317EF5086 EDB38AB78CD17E87 6C3EB94DBEE02292 
+	C9270FD74D71A1AB 217013EE95EF9FEA F5A45E7DDF88783E  
+	3E81BA2A74497079 B098B6EC5FE9D04F BFC7043C50C4476C 
+	89038C88DE044968
+</pre>
+<p>
+<B>A y<sup>c</sup></B> mod <B>p</B> = 
+<p>
+<pre>
+	14E3913CA50B3FA5 068B30E41BF18AC3 A664A8E5956F4DC9 
+	690EA16E191EAF4E 4FBA1074593519A6 B52E763D50050C84 
+	F693C6E317EF5086 EDB38AB78CD17E87 6C3EB94DBEE02292 
+	C9270FD74D71A1AB 217013EE95EF9FEA F5A45E7DDF88783E  
+	3E81BA2A74497079 B098B6EC5FE9D04F BFC7043C50C4476C 
+	89038C88DE044968 
+</pre>
+<p align=justify>
+The difference between the equation sides is 0.  The customer has shown knowledge of 
+his secret key, so DMT is now ready to sign the new account.  For this purpose, we need 
+<p>
+DMT private key <B>x*</B> =
+<p>
+<pre> 
+	3BDD7954CA743FB3 D1009FAE26B90F69 55A367B6
+</pre>
+<p>
+DMT public key <B>y*</B> = 
+<p>
+<pre>
+	8DC2AFDD3F1185A4 60C18ADD169FF2F0 4196CC044E4FCB53 
+	8014D466956E1D72 BEA71475D8944A74 556F3161AB188AED 
+	395454935B8B9C76 897C50A69CEC56FA BC49C4F504BBA74A 
+	F5AAD7596B89A4D5 C351842A4DA0C6B4 FC91D7B573657092 
+	3FC8035AB569F7DC B556901C780B5B6F B095616222587CD2 
+	B0F86E0C948C3070 
+</pre>
+<p>
+The DMT generates a random number <B>w*</B> for its signature: 
+<p>
+DMT random <B>w*</B> = 
+<p>
+<pre>
+	6B33A767BC2C0284 7F9DD1D3ED530189 5C11A4DD
+</pre>
+<p>
+The exponential of random <B>w*</B>, <B>A*</B> = <B>g<sup>w*</sup></B> mod <B>p</B>, is: 
+<p>
+<B>A*</B> = 
+<p>
+<pre>
+	7734A91C56FA9B07 CE381EA3EB36E834 1D9EC206D6EC7AAA 
+	C51FA7C4871FE16F D8ACAAD21DA561ED A89649D75B9CAA73 
+	A967495826DA5C6D 73FC01A699C97EFF 76131C0EE86D3900 
+	06BBEB86F0B8A8F1 4515BC79D197335E A0DC52989AB1CAFC  
+	84E768A081F78111 F9755D496657FE8C EB905C26C97F6B7E 
+	6E1093086AF9A85A
+</pre>
+<p> 
+The DMT produces the concatenation (<B>C||y||A*</B>):
+<p>
+concatenation = 
+<p>
+<pre>
+	1388BE064969F69C F7A1A85ADF5CB8C2 721B793DC5FAC163 
+	52DCF17C3B206F7B D0052F7A32D3371D 2F3A75267DEA6069 
+	31BEDBF43EB6D212 1FFBB194AB58B442 0676C8864BDC2EB0 
+	E8FCD49EC8EF0034 220DAE5EFEE21EE2 057951C6122D2E38 
+	D5FFAF5ED475669D E6470563731EBC34 88E749E59DD920A2 
+	5BBFEBB74D4DAAC8 09A27734A91C56FA 9B07CE381EA3EB36 
+	E8341D9EC206D6EC 7AAAC51FA7C4871F E16FD8ACAAD21DA5 
+	61EDA89649D75B9C AA73A967495826DA 5C6D73FC01A699C9 
+	7EFF76131C0EE86D 390006BBEB86F0B8 A8F14515BC79D197 
+	335EA0DC52989AB1 CAFC84E768A081F7 8111F9755D496657 
+	FE8CEB905C26C97F 6B7E6E1093086AF9 A85A
+</pre>
+<p>
+and creates the SHA-1 hash 
+<p>
+<pre>
+<B>c*</B> = <B>H(C||y||A*)</B> = 
+
+	6744A66B27894E27 0DB8C89E31F332C0 0F0A0549
+</pre>
+<p>
+The DMT sends back to the customer <B>A*</B> and also <B>r* = w* + c* x*</B> mod <B>q</B>: 
+<p>
+<pre>
+<B>r*</B> = 
+
+	1F9E2D786B408D12 1BC7CCBBF1BBBC09 F92984F3
+</pre>
+<p align=justify>
+The customer, upon receiving <B>A*</B> and <B>r*</B>, independently calculates <B>c*</B> = <B>H(C||y||A*)</B>,  and 
+then verifies the signature: 
+<p>
+<pre>
+<B>g<sup>r*</sup></B> mod <B>p</B> =
+
+	B4281C82BA06D37C 0417D9BDA034BFEE C5713465F3EB0D61 
+	20D371FB61E96894 6A7DD58C726CC699 62FFF2E67DA73D8D 
+	8CF8423BDECB7ECE C9DF99F5A9088D4A CDEC92CC502D71ED 
+	0F9F3EC1151E0A50 B381C8FDCB6F13B2 E7286378811F418A  
+	22B1569FBE93CD1E 5B7E12E6CD782768 924A1CE5B63B63A3 
+	D3B696E15530050B
+</pre>
+<p>
+This is compared to the received <B>A*</B> multiplied by the DMT's public key <B>y*</B> raised to the 
+power <B>c*</B>:
+<p>
+<pre>
+<B>A* y*<sup>c*</sup></B> mod <B>p</B> = 
+
+	B4281C82BA06D37C 0417D9BDA034BFEE C5713465F3EB0D61 
+	20D371FB61E96894 6A7DD58C726CC699 62FFF2E67DA73D8D 
+	8CF8423BDECB7ECE C9DF99F5A9088D4A CDEC92CC502D71ED 
+	0F9F3EC1151E0A50 B381C8FDCB6F13B2 E7286378811F418A  
+	22B1569FBE93CD1E 5B7E12E6CD782768 924A1CE5B63B63A3 
+	D3B696E15530050B
+</pre>
+<p align=justify>
+The difference between the equation sides is 0.  The customer stores {<B>y, C, A*, r*</B>} as 
+proof of deposit.
+<p align=justify>
+For database storage, the DMT uses <B>c*</B> as an index. The account number and amount are 
+encrypted as follows: 
+<p>
+Concatenate (<B>y||C||nonce</B>), where <B>nonce</B> is a 32 bit random number:
+<p>
+<pre>
+<B>nonce</B> = EDC8229B
+</pre>
+<p>
+<pre>
+concatenation (<B>y||C||nonce</B>) = 
+
+	BE064969F69CF7A1 A85ADF5CB8C2721B 793DC5FAC16352DC 
+	F17C3B206F7BD005 2F7A32D3371D2F3A 75267DEA606931BE 
+	DBF43EB6D2121FFB B194AB58B4420676 C8864BDC2EB0E8FC 
+	D49EC8EF0034220D AE5EFEE21EE20579 51C6122D2E38D5FF 
+	AF5ED475669DE647 0563731EBC3488E7 49E59DD920A25BBF 
+	EBB74D4DAAC809A2 00001388EDC8229B 
+</pre>
+<p>
+The DMT next produces a 192-bit random triple-DES encryption key <B>s</B>:
+<p>
+<pre>
+random key <B>s</B> = 
+
+	5AACD15ABE5559DE 0369B784B7E412BD BEE4A9279099AFFC 
+</pre>
+<p align=justify>
+Next it encrypts the concatenation(<B>y||C||nonce</B>), using triple-DES in ECB mode (for
+this illustration), and padding according to PCKS#7.  This produces the cipher text:
+<p>
+<pre>
+cipher = <B>E<sub>s</sub></B>(<B>y||C||nonce</B>) =
+
+	F94F3E2B8F098FCC 372E22938EB9C99E 374B1288F0A4F685 
+	CEA134F606072DF4 BC1BE6F18E8BC78C 538EEDE94D4BDAFD 
+	22C5A76BB4ACF958 09708B0C76572164 E9466493C16AB694 
+	751B9845FB151BA8 A52E255A8314376F B915F799A3359720 
+	EF62BC907074A9AC 1F615E2B46A457D9 5FDFF33C3587A52B 
+	319EDD119A198D5F C21A2B22DD1BC7CC D3E4DBCF052BA3AB 
+</pre>
+<p align=justify>
+The DMT next encrypts the encryption key <B>s</B> using ElGammal-type encryption.  To do 
+this, it first produces a random number <B>u</B> < <B>g</B>:
+<p>
+<pre>
+random <B>u</B> = 8ED3FF4641365FA1 913DE2CBC2A6C0D0 49BE9204
+</pre>
+<p>
+Then it produces the first of two numbers for storage.  The first number is <B>g<sup>u</sup></B> mod <B>p</B>:
+<p>
+<pre>
+<B>g<sup>u</sup></B> mod <B>p</B> = 
+
+	F8B12E511CA101FE 148A2B0EC37E0EAA AE00CD99932B1255 
+	B485BB0C96B14144 30147AEB970C6C47 2F8CBAF56BAAFA38 
+	2411030CB2BB1678 B71207AD9A9CB490 6D045F8A366B8014 
+	6342DB257C0BA0E6 B116B44A1F9ED109 577A940DF3A51E38  
+	079D84EBBE96E956 587836450BF82FF5 DD2D9018370E3B2B 
+	D41393A0AD170BB7 
+</pre>
+<p align=justify>
+The second number is the DMT's own secret key <B>y*</B> raised to the power <B>u</B>, and multiplied by 
+the secret symmetric encryption key <B>s</B>:
+<p>
+<pre>
+<B>s(y*<sup>u</sup>)</B> mod <B>p</B> = 
+
+	7B8E24CB7FF36D1B 548B6C27BE2B30F4 3A050384A04D3D5C 
+	53F9B6522871DAEB 28336F671EEBF607 E7CBA04C2978F560 
+	582DCC24A5138002 A076943805FAE559 9333C98EAA701030 
+	7411A0322B6A95A8 A2F8ABA17B17053D 6110BBA4803FE757 
+	60DBA019859E922E BEA45E61B0E61B67 28A52BAA17271A1F 
+	E7BEDA4C65E0C311 
+</pre>
+<p>
+The DMT stores {<B>c*</B>, <B>E<sub>s</sub></B>(<B>y||C||nonce</B>), <B>g<sup>u</sup></B>, <B>s (y*<sup>u</sup>)</B> }.
+<p align=justify>
+Note that to decrypt (<B>y||C||nonce</B>), the DMT takes the third number <B>g<sup>u</sup></B>, raises it to the power 
+of the group order <B>q</B> minus it's secret key <B>x*</B>, yielding (<B>g<sup>u</sup></B>)<B><sup>(q-x*)</sup></B>, and then multiplying this 
+latter number by the fourth number <B>s (y*<sup>u</sup>)</B>.  This yields the secret symmetric encryption key 
+<B>s</B>.  The key <B>s</B> is then used to decrypt, obtaining (<B>y||C||nonce</B>).  This recovers the account 
+number <B>y</B> and the deposit amount <B>C</B>.  
+<p>
+<h3 align=center>Stage 4:  Discussion of the Anonymous Account System</h3>
+<p align=justify>
+<B>The Merits of the System.</B>  The DMT anonymous account system gives a powerful way 
+for DMT to issue, redeem, or transfer accounts without collecting any identifying 
+information on the account holder, yet to also have absolute assurance that the 
+person collecting or receiving money is in all cases the authorized party.  
+<p align=justify>
+A person collecting an initial deposit has to present the pre-image of an identifying hash 
+value, to identify the amount being collected, and then to accurately respond to a 
+challenge based on the pre-image.  The pre-image is a public key, and the collector has to 
+demonstrate knowledge of the associated private key.
+<p align=justify>
+A person collecting a transfer has to go through the same steps as just mentioned.  The 
+person initiating the transfer has to produce the account balance and account  number, to 
+show a valid bank signature on these variables, and then to again respond to a challenge 
+based on the private key associated with the account number (the public key).
+<p align=justify>
+A person collecting a transfer out of the system has to present a pre-image and identify 
+the amount being collected.  
+<p align=justify>
+The customer's balance and account numbers are stored both by the customer and the 
+bank.  Only the customer has the bank signature, and only the customer can respond to a 
+challenge requiring knowledge of the secret key associated with this account.  
+<p align=justify>
+Customer information can thus only be stolen from the customer's own computer.  But 
+even if one steals knowledge of the amount, account number, and the bank's signature, 
+this will do the thief no good without the ability to also demonstrate knowledge of the 
+associated secret key.  
+<p align=justify>
+Can a customer recover from catastrophic failure--such as the computer records getting 
+lost or stolen, or a hard drive crash destroying the customer information?  Yes, but only 
+with total loss of anonymity.  The customer must present identifying information and 
+sign a notarized statement declaring ownership of an account, the amount, and giving the 
+circumstances of the loss of records.  The customer must also pay for a DMT database 
+search, a financial check on the customer (does this person have a history of financial 
+fraud?), and any other background check that DMT might consider appropriate.  This 
+way, the customer will bear the cost of his or her negligence, frivilous claims of lost 
+accounts will be eliminated, and the DMT will have thorough information on the person 
+to whom it may give funds outside the normal DMT system.
+<p align=justify>
+<B>What About a Malicious Bank?</B>  When an amount is deposited into the DMT system, 
+there is an identifying number <B>H(x)</B>.  This gets deposited into an account <B>x</B>.  Transfers out 
+of <B>x</B> are collected by showing <B>H(y)</B>.  This gets deposited into account <B>y</B>.  Hence, if the 
+bank were malicious, the bank could, rather than operating the system in the method 
+described above, instead keep track of the chain <B>H(x)</B>, <B>x</B>, <B>H(y)</B>, <B>y</B>, . . .  
+This may appear to be an inherent defect in the system.  But appearances can be deceiving.
+<p align=justify>
+First of all, for the paranoid, the chain can be broken simply by withdrawing the account 
+balance in the form of digital coins, and then later depositing these coins into new 
+accounts. (This option will be available at a later stage of the system, assuming digital
+cash is more than cypherpunk delusion.) 
+<p align=justify>
+Secondly, the advantage of the anonymous account system is it allows for 
+nonhomogeneous account sizes--not just for the fixed sizes of digital coins. This means, 
+for example, that there might be only one account of size $50,000 at a particular time in 
+the DMT system.  It is naive to think that anonymizing, say, the account number will 
+deceive anyone into believing that the sudden appearance of the balance number "50,000" 
+might not involve this same account.  (This problem does not arise in the system described 
+here, except for transfers into or out of the DMT system.  However, a malicious bank 
+would attempt to do traffic analysis on its own operations.) 
+<p align=justify>
+The difference in the case of homogeneous digital coins, of say size $100, is there will be 
+many of them, and so the size anonymity relies on large numbers. (Otherwise, the 
+blinding doesn't work.) By definition, nonhomogeneous accounts allow for unique 
+balance sizes, and hence cannot rely on the same "hidding in the crowd" large number 
+effect.
+<p align=justify>
+But appealing to the virtuous homogeneity of digital coins missed the point:  
+homogenous digital coins are, as currently practiced, withdrawn from non-anonymous 
+accounts.  So in digital coin systems we see chains of the form  
+<p>
+<pre>
+	Bob--> Alice --> Gloria ---> Julio --> Julio withdraws digital coins. 	
+</pre>
+<p>
+And we know who Bob, Alice, Gloria, and Julio all are.
+<p align=justify>
+But in the DMT anonymous account system, if operated by a malicious bank, it would 
+see chains of the form
+<p>
+<pre>
+	<B>H(x</B>)--> <B>x</B> --> <B>H(y)</B> --> <B>y</B> -->  <B>y</B> withdraws digital coins.
+</pre>
+<p>
+And it would not know who <B>x</B> and  <B>y</B> are.  (And when the system is operated as intended, 
+the anonymous chain disappears entirely.)
+<p align=justify>
+The anonymous digital account system allows for the parsimony of maintaining a 
+$50,000 account identified by a single set of numbers (amount, account number, 
+signature, private key).  The same $50,000 could be maintained by holding 500 digital 
+coins, each of size $100.  This requires keeping track of 500 numbers.  Nevertheless, both 
+possibilities should eventually be available to DMT customers. 
+<p align=justify>
+Moreover, until digital coins gain widespread acceptance, they largely rely on the deposit 
+into a bank account to guarantee their value.  Such an account is not anonymous--
+excepting for the availability of the DMT anonymous system.  Appealing to the virtues of 
+anonymous digital coins which require non-anonymous accounts foolishly evades the 
+critical issue.
+<p align=justify>
+Moreover, the chain <B>H(x)--> x --> H(y) --> y</B>, if maintained by the bank, really proves 
+nothing whatsoever.  Suppose the bank claims that, "See this $X account in Bank A, and 
+this $X account in Bank B?  Well, it came from the following chain:
+<p>
+<pre>
+	$X in Bank A --> H(x) --> x --> H(y) --> y --> $X in Bank B."
+</pre>
+<p align=justify>
+The owner of the $X in Bank B could simply retort that the bank's claim is a fabrication, 
+that the real chain is "W-->Y-->Z."  Anyone can produce numbers and hash values.  <B>The 
+point is that no transaction within the system is associated with any personal identifying 
+information, and there is no way to distinguish one computer-generated number of the 
+same form from another one.</B>
+<p align=justify>
+Moreover, either the $X in Bank A was legally owned or it wasn't.  If was legally owned 
+then, and the malicious bank's chain is to be believed, then it is legally owned now. 
+<p align=justify>
+Alternatively, the chain originated somewhere else within the bank system.  In which 
+case one could claim the money came from illegal sources, but there is no way to show 
+this, and the claim is frivolous.
+<p align=justify>
+What if the bank is malicious and the customer is also being monitored by electronic 
+surveillance?  This could bolster the bank's claim that the customer made transactions at 
+certain times--or at least made an Internet connection with the bank, but would provide 
+no evidence of what communication occurred between the bank and the customer (the 
+traffic is encrypted), except at the bank end.  
+<p align=justify>
+So what it boils down to, is the customer is really at risk only from bank fraud--the bank 
+takes the money and runs, or turns over the customer's money to the government.  But 
+this same risk exists with digital cash:  a digital cash-issuing bank can simply repudiate 
+the coins it issued, or turn over the customer's account to the government.  A customer 
+always has to evaluate the trustworthiness of anyone, including any bank or similar entity, with 
+whom he forms a financial relationship. This fact of life has gone unchanged for thousands of
+years.
+<hr>
+Those interested in <b>DMT employment opportunities</b> please click <a href="http://zolatimes.com/V3.44/dmt_employment.htm">here</a>.
+<p>
+Those looking to <b>invest in the DMT project</b> please click <a href="http://zolatimes.com/V3.44/dmt_invest.htm">here</a>.
+<hr>
+<P ALIGN="JUSTIFY">J. Orlin Grabbe is the author of
+<a href="http://www.amazon.com/exec/obidos/ASIN/0132069881/qid=924154369/sr=1-1/002-9261014-2388004">
+International Financial Markets</A>, and is an internationally recognized derivatives expert who has recently branched out into cryptology, banking security, and digital cash.  His home page is located at <A HREF="homepage.html">http://www.aci.net/kalliste/homepage.html</A>.
+He currently resides in Costa Rica. </P>
+<center><b>-30-</b></center>
+<p>
+<center><b>from <a href="http://zolatimes.com/"><i>The Laissez Faire City Times</i></a>, Vol 3, No 45, November 22, 1999</b></center>
+</td></tr></table></center>
+</body>
+</html>

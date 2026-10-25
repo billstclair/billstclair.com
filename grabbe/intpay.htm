@@ -1,0 +1,1872 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<HTML>
+
+<HEAD>
+
+   <TITLE>Internet Payment Schemes:  Part 1</TITLE>
+
+</HEAD>
+
+<BODY>
+
+<A HREF="mailto:orlingrabbe@orlingrabbe.com"> [Email Reply] </A>
+
+<hr>
+
+<BR>
+
+<DIV align = center><FONT size=5><B>Internet Payment
+
+Schemes:  Part 1</B></FONT></DIV>
+
+<P>
+
+<DIV align = center><FONT size=4><B><I>by J. Orlin Grabbe</I></B></FONT></DIV>
+
+<P>
+
+	Digital cash doesn&#146;t have to involve the Internet. 
+
+But a number of Internet payment schemes are digital
+
+cash.  Some of the confusion about digital cash is
+
+a confusion about Internet payment schemes.  So let&#146;s
+
+look at these in context.
+
+<P>
+
+	Most Internet payment schemes address some issues of
+
+security, but make little effort to address personal
+
+privacy.  However, our time will not be wasted by looking
+
+at them.  For almost all practical issues surrounding
+
+Internet payments are practical issues in any digital
+
+cash system.  Our goal is to make privacy <I>practical</I>--and
+
+not to leave it at the mercy of those hot-air libertarians
+
+who can discourse endlessly on politics, but who cannot
+
+in fact write a check.
+
+<P>
+
+	Cypherpunk founder Eric Hughes formulated the motto:
+
+&#147;Cypherpunks write code.&#148;  Which was intended to emphasize
+
+that the use of cryptology to preserve freedom is a
+
+<I>practical</I> agenda.  As it turned out, some cypherpunks
+
+write code and some don&#146;t.  Government agencies like
+
+the NSA and the FBI have dedicated themselves to making
+
+tyranny practical.  The least that sovereign individuals
+
+can do is to work to make privacy practical.  Or else
+
+they must concede that the Masters of Tyranny represent
+
+a superior force, deserving--de facto and de jure--of
+
+every obeisance the masses can give them.  Kneel, slave.
+
+<P>
+
+<DIV align = center><B>Categories of Payment Systems</B></DIV>
+
+<P>
+
+	Internet payment schemes generally fall into one of
+
+three broad categories.  
+
+<P>
+
+        First, are <b><I>secure credit card transactions</I></b>.
+
+ Here the focus is on securely interfacing with the
+
+existing credit card network.  Security is provided
+
+by encrypting the credit card number.  This type of
+
+system raises important issues.  An encrypted credit
+
+card number is not itself a digitally signed medium
+
+of exchange, and hence does not qualify as bona fide
+
+digital cash.  But it does highlight a principal concern
+
+of all digital cash systems.  A customer must be identified
+
+or authenticated in some sense before the encryption
+
+on the card number becomes a signature.  True, the
+
+encrypted number cannot be read en route by an eavesdropper.
+
+ But just as anyone can place a fraudulent order over
+
+the telephone, so can anyone who knows a card number
+
+send it encrypted over a network.
+
+<P>
+
+        Next are <b><I>credit-debit systems</I></b>.  In these systems,
+
+customers open an account in one of a specialized network
+
+of payment servers.  They then authorize charges against
+
+their account.  For example, in NetCheque, customers
+
+can digitally sign a payment check against their account.
+
+ It is digitally countersigned by another account holder
+
+receiving the check.  By definition, this represents
+
+a digital payment message bearing a digital signature
+
+which functions as a medium of exchange or store of
+
+value, so these checks are bona fide digital cash.
+
+ The accounting servers handle the formalized payment
+
+protocols which allow for Internet payments in a simple
+
+and efficient manner.  The payment server itself maintains
+
+a line to the ordinary banking system.  There is no
+
+reason the payment server cannot handle anonymous accounts--in
+
+which case the payment server becomes the interface
+
+between the anonymous and non-anonymous banking system.
+
+ If a customer must always maintain a positive balance
+
+with the payment server, it is called a &#147;debit&#148; system,
+
+while if a customer is allowed negative balances which
+
+are billed later, it is called a &#147;credit&#148; system. 
+
+
+
+<P>
+
+	
+
+<BR>
+
+        Third are <b><I>digital token systems</I></b>.  Here customers
+
+purchase electronic certificates from a bank or a currency
+
+server.  These certificates are digitally signed and
+
+function as digital tokens which can be transferred
+
+off-line to others in payment.  This contrasts with
+
+the credit-debit model, where one customer account
+
+must be reduced while a second customer&#146;s account is
+
+simultaneously increased.  Instead, the digitally signed
+
+tokens which are digital cash circulate as a general
+
+liability of the bank or currency server.  A withdrawal
+
+of digital cash by one customer does not result in
+
+an imediate credit to the account of another customer.
+
+ In fact, in anonymous digital cash, any connection
+
+between one customer&#146;s withdrawal and another customer&#146;s
+
+deposit is automatically severed.    
+
+<P>
+
+	The remainder of this article focuses on the first category:
+
+ secure credit card transactions.  We will look at
+
+some general protocols such as <I>i</I>KP, SET, and
+
+EMV, as well as some actual and proposed commercial
+
+implementations, including CyberCash, First Virtual,
+
+Security First, First Bank of Internet, BankNet, and
+
+Open Financial Exchange. 
+
+<P>
+
+<DIV align = center><B><I>i</I>KP (IBM)</B></DIV>
+
+<P>
+
+<B>	<I>i</I>KP</B> is a family (<I>i</I> = 1, 2, 3, .
+
+. .) of on-line payment (<B><I>Internet Keyed Payments</I></B>)
+
+protocols built on existing authorization and clearing
+
+systems for credit cards.  These protocols are only
+
+for <I>payment</I>, and not <I>order,</I> information.
+
+ The latter is assumed to be protected by some other
+
+security mechanism, such as S-HTTP or SSL (which we
+
+will not discuss in this article).  This separation
+
+between payment and order information is intentional,
+
+in order to allow <I>i</I>KP compatibility with different
+
+web browsers, and to separate <I>i</I>KP from issues
+
+related to the restrictions that U.S. ITAR regulations
+
+may impose on bulk encryption. The <I>i</I>KP protocols
+
+were developed by IBM, and can be implemented in hardware
+
+or in software.
+
+<P>
+
+	The <I>i</I>KP protocols are intended to take advantage
+
+of the already existing credit card network, and proceed
+
+from there by evolution. In its simplest conception,
+
+<I>i</I>KP allows someone to transmit his credit card
+
+number securely over the Internet.  To do this, it
+
+uses public key cryptography, which involves public
+
+key/private key pairs (referred to simply as &quot;key pairs,&quot;
+
+below).  <I>i</I>KP uses RSA as its public key signature
+
+and encryption algorithm.  
+
+<P>
+
+	There are three actors in the protocols.  The <I>customer</I>
+
+is the one who makes the payment.  The <I>merchant</I>
+
+is the one who receives the payment.  And the <I>gateway</I>
+
+or <I>acquirer</I> is the one who authorizes the payment
+
+(Visa, MasterCard, or Europay,  for example).  The
+
+acquirer-gateway serves as a front end that connects
+
+to the already existing credit card clearing and authorization
+
+network.  
+
+<P>
+
+	In <B>1KP</B>, only the acquirer-gateway has key pairs.
+
+It might, for example, be Visa. Alice encrypts her
+
+credit card number with Visa's public key. She sends
+
+this to the merchant. The merchant never sees her card
+
+number.  The merchant forwards her order containing
+
+the encrypted number to Visa, who decrypts the card
+
+number with its private key.  Visa then authorizes
+
+the transaction, placing its signature on the transaction
+
+data to guarantee payment to the merchant. Thus neither
+
+the merchant, nor other observers who intercept the
+
+encrypted message, will be able to fraudulently take
+
+advantage of the card number without having possession
+
+of Visa's private key also.  In 1KP the identity of
+
+a customer is authenticated on the basis of her credit
+
+card number and (possibly) her secret PIN.  1KP does
+
+not, however, offer non-repudiation for either customers
+
+or merchants.
+
+<P>
+
+	<B>2KP</B> adds to this another key pair for the merchant.
+
+ This allows for non-repudiation of messages originated
+
+by merchants, and allows customers to verify they are
+
+dealing with <I>bona fide</I> merchants.  <B>3KP</B>
+
+additionally adds a key pair for the customer. This
+
+allows for non-repudiation by customers, and allows
+
+payment orders to be authenticated by the customer's
+
+digital signature (in addition to the credit card number
+
+and PIN).  
+
+<BR>
+
+  
+
+<BR>
+
+	<I>i</I>KP assumes a central <I>certification authority
+
+</I>(CA) to authenticate the public keys of customers,
+
+merchants, and the acquirer-gateway.  The CA certifies
+
+Alice&#146;s public key by signing her public key, along
+
+with information about Alice's identity, with the CA&#146;s
+
+own secret key.  Then anyone who trusts the CA can
+
+verify the authenticity of Alice's public key by using
+
+the CA's public key to verify the CA&#146;s signature. 
+
+ 
+
+<P>
+
+	<I>i</I>KP is intended to protect payments from several
+
+potential adversaries or security risks.  These include
+
+the  <I>eavesdropper</I> (who listens to messages,
+
+and may attempt to get credit card numbers and PINs),
+
+the <I>active attacker</I> (who sends forged messages),
+
+and the <I>insider</I> (e.g. a dishonest merchant getting
+
+unauthorized payments, or a Visa employee stealing
+
+PINs).  The levels of security provided for each of
+
+the three <I>i</I>KP actors by the different protocols
+
+are listed in the following <B>Table</B>.  
+
+<P>
+
+<FONT size=4><B>Table:  <I>i</I>KP Security Levels</B></FONT>
+
+<TABLE border=1 cols=5>
+
+<TR valign = top><TD width=191 bgcolor="#ffffff"><DIV align = center><B>Actor
+
+Requirements</B></DIV></TD><TD width=270 bgcolor="#ffffff"><DIV align = center><B>Type
+
+of Proof</B></DIV></TD><TD width=46 bgcolor="#ffffff"><DIV align = center><B>1KP</B></DIV></TD>
+
+<TD width=48 bgcolor="#ffffff"><DIV align = center><B>2KP</B></DIV></TD>
+
+<TD width=49 bgcolor="#ffffff"><DIV align = center><B>3KP</B></DIV></TD>
+
+</TR>
+
+<TR valign = top><TD width=191 bgcolor="#ffffff"><I>Acquirer-Gateway
+
+Requirements</I></TD><TD width=270 bgcolor="#ffffff">A1:
+
+Proof Customer has authorized transaction</TD><TD width=46 bgcolor="#ffffff"><DIV align = center>X</DIV></TD>
+
+<TD width=48 bgcolor="#ffffff"><DIV align = center>X</DIV></TD>
+
+<TD width=49 bgcolor="#ffffff"><DIV align = center>XX</DIV>&nbsp;</TD>
+
+</TR>
+
+<TR valign = top><TD width=191 bgcolor="#ffffff">&nbsp;</TD><TD width=270 bgcolor="#ffffff">A2:
+
+Proof Merchant has authorized transaction&nbsp;</TD><TD width=46 bgcolor="#ffffff">&nbsp;</TD>
+
+<TD width=48 bgcolor="#ffffff"><DIV align = center>XX</DIV></TD>
+
+<TD width=49 bgcolor="#ffffff"><DIV align = center>XX</DIV>&nbsp;</TD>
+
+</TR>
+
+<TR valign = top><TD width=191 bgcolor="#ffffff">&nbsp;</TD><TD width=270 bgcolor="#ffffff">&nbsp;</TD>
+
+<TD width=46 bgcolor="#ffffff">&nbsp;</TD><TD width=48 bgcolor="#ffffff">&nbsp;</TD>
+
+<TD width=49>&nbsp;</TD></TR>
+
+<TR valign = top><TD width=191 bgcolor="#ffffff"><I>Merchant
+
+Requirements</I></TD><TD width=270 bgcolor="#ffffff">M1:
+
+Proof Acquirer has authorized transaction </TD><TD width=46 bgcolor="#ffffff"><DIV align = center>XX</DIV></TD>
+
+<TD width=48 bgcolor="#ffffff"><DIV align = center>XX</DIV></TD>
+
+<TD width=49 bgcolor="#ffffff"><DIV align = center>XX</DIV>&nbsp;</TD>
+
+</TR>
+
+<TR valign = top><TD width=191 bgcolor="#ffffff">&nbsp;</TD><TD width=270 bgcolor="#ffffff">M2:
+
+Proof Customer has authorized transaction&nbsp;</TD><TD width=46 bgcolor="#ffffff">&nbsp;</TD>
+
+<TD width=48 bgcolor="#ffffff">&nbsp;</TD><TD width=49 bgcolor="#ffffff"><DIV align = center>XX</DIV>&nbsp;</TD>
+
+</TR>
+
+<TR valign = top><TD width=191 bgcolor="#ffffff">&nbsp;</TD><TD width=270 bgcolor="#ffffff">&nbsp;</TD>
+
+<TD width=46 bgcolor="#ffffff">&nbsp;</TD><TD width=48 bgcolor="#ffffff">&nbsp;</TD>
+
+<TD width=49>&nbsp;</TD></TR>
+
+<TR valign = top><TD width=191 bgcolor="#ffffff"><I>Customer
+
+Requirements</I></TD><TD width=270 bgcolor="#ffffff">C1:
+
+Impossibility of unauthorized payment </TD><TD width=46 bgcolor="#ffffff"><DIV align = center>X</DIV></TD>
+
+<TD width=48 bgcolor="#ffffff"><DIV align = center>X</DIV></TD>
+
+<TD width=49 bgcolor="#ffffff"><DIV align = center>XX</DIV>&nbsp;</TD>
+
+</TR>
+
+<TR valign = top><TD width=191 bgcolor="#ffffff">&nbsp;</TD><TD width=270 bgcolor="#ffffff">C2:
+
+Proof Acquirer has authorized transaction </TD><TD width=46 bgcolor="#ffffff"><DIV align = center>XX</DIV></TD>
+
+<TD width=48 bgcolor="#ffffff"><DIV align = center>XX</DIV></TD>
+
+<TD width=49 bgcolor="#ffffff"><DIV align = center>XX</DIV>&nbsp;</TD>
+
+</TR>
+
+<TR valign = top><TD width=191 bgcolor="#ffffff">&nbsp;</TD><TD width=270 bgcolor="#ffffff">C3:
+
+Proof of Merchant accreditation&nbsp;</TD><TD width=46 bgcolor="#ffffff">&nbsp;</TD>
+
+<TD width=48 bgcolor="#ffffff"><DIV align = center>XX</DIV></TD>
+
+<TD width=49 bgcolor="#ffffff"><DIV align = center>XX</DIV>&nbsp;</TD>
+
+</TR>
+
+<TR valign = top><TD width=191 bgcolor="#ffffff">&nbsp;</TD><TD width=270 bgcolor="#ffffff">C4:
+
+Receipt from Merchant for goods&nbsp;</TD><TD width=46 bgcolor="#ffffff">&nbsp;</TD>
+
+<TD width=48 bgcolor="#ffffff"><DIV align = center>XX</DIV></TD>
+
+<TD width=49 bgcolor="#ffffff"><DIV align = center>XX</DIV>&nbsp;</TD></TR>
+
+</TABLE><B>X</B>:
+
+Requirement is satisfied.  <B>XX</B>: Requirement is
+
+satisfied based on an undeniable proof.
+
+<P>
+
+	A <I>signature</I> on a message <B>M</B> in <I>i</I>KP
+
+does not include the message <B>M</B> itself.  That
+
+is, it is not a simple matter of encrypting the message
+
+with one's private key.  Instead, first a message digest
+
+(one-way hash) of <B>M</B> is produced using the hash
+
+function <B>H</B>, yielding <B>H(M)</B>.  This hash
+
+value can then be signed (encrypted) with the secret
+
+key <B><I>sx</I></B> of actor X, yielding <B>E<I><sub>sx</sub></I></B>[<B>H(M)</B>].
+
+ 
+
+<P>
+
+	There are basically five steps (&quot;flows&quot;) in <I>i</I>KP.
+
+ The exact content of each step depends on whether
+
+we are talking of 1KP, 2KP, or 3KP.  The essential
+
+difference in content between the three is the increasing
+
+use of signatures from 1KP to 3KP.   
+
+<P>
+
+	The protocol starts with the assumption that the Customer
+
+and Merchant have already agreed to the description
+
+(DESC) and price (PRICE) of the items being purchased.
+
+ Then events proceed as follows:
+
+<BR><blockquote>
+
+	
+
+<BR>
+
+		1.  The Customer <I>Initiates </I>the payment process.
+
+<BR>
+
+		2.  The Merchant responds by providing an <I>Invoice</I>.
+
+<BR>
+
+		3.  The Customer makes <I>Payment.</I>
+
+<BR>
+
+<I>		</I>4.  The Merchant sends an <I>Authorization Request</I>
+
+to the Acquirer-Gateway;
+
+<BR>
+
+		     the Acquirer-Gateway sends an <I>Authorization
+
+Response </I>to the Merchant.
+
+<BR>
+
+		5.  The Merchant provides the Customer a <I>Confirmation</I>.
+
+<BR></blockquote>
+
+	
+
+<BR>
+
+	For <B>1KP</B>, the details of these five steps are
+
+as follows:
+
+<P><blockquote>
+
+		<B>1.</B>  The Customer creates a pseudo-ID (CID) which
+
+will identify the Customer for the purposes of this
+
+transaction.  To do this he generates a random number
+
+(RC), concatenates this with his credit card or Customer
+
+Account Number (CAN), and computes a hash value:  CID
+
+= H(RC,CAN).  The customer creates a second random
+
+number (SALT), to be used in connection with the merchandise
+
+description (DESC).  The Customer sends CID and SALT
+
+to the Merchant as an <I>Initiate</I> message:
+
+<P>
+
+	<I>Initiate</I> = {SALT, CID}.	
+
+<P>
+
+		<B>2.</B>  The Merchants gets SALT and CID from the
+
+<I>Initiate</I> message.  The Merchant generates DATE,
+
+which is a time stamp to prevent replay of messages.
+
+In addition, the Merchant generates a random number
+
+(NONCE). The Merchant  next chooses a transaction identification
+
+(TID) which identifies the context of the current transaction.
+
+ Then the Merchant computes H(DESC, SALT). Next the
+
+Merchant adds its ID (which identifies itself to the
+
+Acquirer- Gateway) and the price (PRICE) of the merchandise
+
+to this list, forming the composite array COMMON:
+
+<P>
+
+	COMMON = {PRICE, ID, TID, DATE, NONCE, CID, H(DESC,
+
+SALT)}.
+
+<P>
+
+Finally, the Merchant computes a hash value for COMMON,
+
+H(COMMON), and sends an <I>Invoice</I> to the Customer.
+
+ The <I>Invoice</I> consists of these:
+
+<P>
+
+	<I>Invoice </I>= {ID, TID, DATE, NONCE, H(COMMON)}.
+
+<P>
+
+		<B>3.</B>  The Customer obtains ID, TID, DATE, and NONCE
+
+from the <I>Invoice</I>.  The Customer adds to these
+
+his already existing knowledge of PRICE and CID to
+
+recreate COMMON.  The customers computes the hash of
+
+COMMON, and verifies it matches the value H(COMMON)
+
+in the invoice.  The Customer then forms the composite
+
+SLIP:
+
+<P>
+
+	SLIP = {PRICE, H(COMMON), CAN, RC, PIN}.
+
+<P>
+
+Finally, the Customer encrypts SLIP with the public
+
+key of the Acquirer-Gateway, forming E<sub>A</sub>(SLIP).  This
+
+forms the <I>Payment</I> message returned to the Merchant:
+
+<P>
+
+        <I>Payment = </I>{E<sub>A</sub>(SLIP)}.
+
+<P>
+
+		<B>4.</B>  The Merchant sends an <I>Authorization-Request</I>
+
+to the Acquirer-Gateway, made up of three elements:
+
+<P>
+
+	<I>Authorization-Request</I> = {<I>Invoice, </I>H(DESC,
+
+SALT), <I>Payment</I>}. 
+
+<P>
+
+The Acquirer-Gateway (<B>A-G</B>) receives the <I>Authorization-Request</I>,
+
+and takes the following steps:
+
+<P><blockquote>
+
+		<B>a.</B>  The A-G extracts the <I>Invoice</I> and checks
+
+for replays.  There should be no previously processed
+
+request with the same ID, TID, DATE, and NONCE.  
+
+<P>
+
+		<B>b.</B>  The A-G decrypts <I>Payment</I> using its
+
+private key.  It checks that H(COMMON) in <I>Payment</I>
+
+(computed by the Customer) is the same as H(COMMON)
+
+in <I>Invoice </I>(computed by the Merchant).  This
+
+shows that the Customer and the Merchant agree on the
+
+order information.
+
+<P>
+
+		<B>c.</B>  Next the A-G recreates COMMON.  From the
+
+<I>Invoice</I> it has ID, TID, DATE, and NONCE.  From
+
+the <I>Payment </I>it has PRICE, CAN, and RC.  It computes
+
+CID = H(RC, CAN). It also has H(DESC, SALT) from the
+
+<I>Authorization-Request</I>.  The A-G puts these together
+
+to make COMMON, computes H(COMMON), and verifies the
+
+value corresponds to the value computed by the Customer
+
+and the Merchant.
+
+<P>
+
+		<B>d.  </B>The A-G uses the existing clearing and authorization
+
+system to authorize the payment on-line.  It gets a
+
+yes or no response (Y/N). The A-G computes a signature
+
+for Y/N and H(COMMON):  S<sub>A</sub>[H(Y/N,H(COMMON))].  Then
+
+it returns an <I>Authorization-Response </I>to the
+
+Merchant, consisting of Y/N and the signature:
+
+<P>
+
+        <I>Authorization-Response</I> = {Y/N, S<sub>A</sub>[H(Y/N,H(COMMON))]}.
+
+
+
+<P></blockquote>
+
+		<B>5.</B>  The Merchant receives the <I>Authorization-Response</I>.
+
+ Since the Merchant already has H(COMMON), he can verify
+
+that the signature on {Y/N,H(COMMON)} is valid.  The
+
+Merchant then sends a <I>Confirm</I> to the Customer,
+
+consisting of Y/N and the signature (so the Customer
+
+may check it also):
+
+<P>
+
+        <I>Confirm = </I> {Y/N, S<sub>A</sub>[H(Y/N,H(COMMON))]}.
+
+<P></blockquote>
+
+	The transaction is now complete.  Note that because
+
+SLIP is encrypted, the CAN (Customer Account Number)
+
+and PIN are concealed from potential eavesdroppers.
+
+ Dictionary attacks on the PIN are not possible (that
+
+is, one cannot encrypt SLIP for all values of PIN to
+
+see which one is correct), because of the unknown random
+
+factor RC.   
+
+<P>
+
+	There are some small aspects of privacy.  The Acquirer-Gateway
+
+is not given DESC, but rather H(DESC, SALT).  Thus
+
+there is no possibility that either the Acquirer-Gateway
+
+or an eavesdropper on the Merchant to Acquirer-Gateway
+
+link will  produce a Customer &quot;list of purchases&quot;.
+
+ (To do so would require that one obtain the value
+
+of SALT, which could only be obtained by monitoring
+
+both the communication between the Customer and the
+
+Merchant, and the Merchant and the Acquirer-Gateway,
+
+and correlating the two streams).   At best the Acquirer-Gateway
+
+could compile a list of Merchants the Customer has
+
+dealt with.  
+
+<P>
+
+	In addition, the protocols do not reveal the identity
+
+of the Customer to the Merchant, because the Merchant
+
+only has the CID, which is pseudo-ID created by the
+
+Customer for the transaction.  
+
+<P>
+
+	However, the Customer is not anonymous to the Acquirer-Gateway.
+
+ The Acquirer-gateway gets credit card numbers (or
+
+CANs) and PINs, and must be trusted to keep these confidential.
+
+ 
+
+<P>
+
+	In particular if the Merchants colluded with the Acquirer-Gateway
+
+(or better stated, if FinCEN put together information
+
+from Merchant files with information with the Acquirer-Gateway
+
+file), it would be possible to create a dossier containing
+
+both the Customer's true identity and a complete description
+
+of his purchases.  Thus <I>i</I>KP gives needed security
+
+from tranmission errors, misunderstandings, and frauds,
+
+but would require extentions to become a secure and
+
+anonymous system of digital cash.   It remains, however,
+
+as the mother of all secure credit card payment schemes.
+
+<P>
+
+<h3 align=center>SET (Visa and MasterCard)</h3>
+
+<p>
+
+	The SET (Secure Electronic Transaction) specification is a technical 
+
+standard for making credit card purchases over open networks announced by Visa 
+
+International and MasterCard on February 1, 1996.  SET incorporates public key 
+
+cryptography from RSA Data Security (whose upgraded BSAFE 3.0 encryption 
+
+engine contains all the cryptographic modules required to implement the SET 
+
+specifications).  This includes 56-bit DES, and RSA public/private key pairs using 
+
+a 1024-bit modulus.
+
+<p>
+
+        The overall framwork is similar to--indeed derived from--<i>i</i>KP: SET 
+
+requires software by the Customer and the Merchant, decryption technology in the 
+
+hands of the Acquirer-Gateway, and Certification Authorities to issue digital 
+
+certificates. SET can be implemented on many different platforms, including 
+
+PowerPC,  MS-DOS, Windows, Macintosh, OS/2, Intel, Sparc, and UNIX.
+
+<p>
+
+	The business requirements addressed by SET, according to its proponents 
+
+are these:
+
+<p><menu>
+
+<li>        provides "confidentiality" of payment, and enables confidentiality of 
+
+	order, information 
+
+<li>        ensures integrity for transmitted data
+
+<li>        authenticates the cardholder as a legitimate card account user
+
+<li>        authenticates the merchant as authorized to to accept bankcard payments
+
+<li>        gives security from eavesdroppers to all legitimate parties to a 
+
+	transaction
+
+<li>        creates a protocol not dependent on (but allowing for) transport security 
+
+	mechanisms
+
+<li>        facilitates interoperability across network and software providers.
+
+</menu><p>
+
+	As would be expected, the confidentiality of transmitted information in 
+
+SET is ensured by message encryption, and the integrity of payment information 
+
+is ensured by digital signatures. SET uses DES symmetric key encryption, along 
+
+with RSA digital signatures for authentication and key transfer. A cardholder 
+
+(customer) is authenticated through a digital signature along with a cardholder 
+
+certificate issued by the cardholder's bank. A merchant is authenticated through a 
+
+digital signature along with a merchant certificate issued by the acquiring bank. 
+
+Interoperability is enabled through the use of specific protocols and message 
+
+formats. SET messages are transferred as MIME messages, and SET 
+
+cryptographic encapsulation follows PKCS-7 (Public Key Cryptography Standard, 
+
+Number 7).
+
+<p>
+
+	SET uses 160-bit message digests produced by the SHA-1 hash algorithm, 
+
+and <i>two</i> public/private keys pairs.  One pair is used in symmetric key exchange.  A 
+
+message will be encrypted using a randomly-generated DES symmetric session 
+
+key, and the first public key pair is used to encrypt and decrypt the DES session 
+
+key.  The second key pair is used to create and verify digital signatures.  A 
+
+message will be hashed by SHA-1 and then signed with the private key of the 
+
+second key pair, and afterward verified with the corresponding public key.  
+
+<p>
+
+	Each public key needs a digital certificate.  A certification authority 
+
+creates and signs digital certificates that bind identifying information of the 
+
+customer to the customer's public keys. The CA certificates follow the X.509, 
+
+version 3 format.
+
+<p>
+
+        We will not go through the same level of detail for SET as we did for <i>i</i>KP.  
+
+But, as a simple summary, the steps in the SET commercial transaction protocol 
+
+are these:
+
+<p><blockquote>
+
+	1.  The customer requests a transaction from a merchant.
+
+<br>        2.  The merchant acknowledges the request.
+
+<br>        3.  The customer sends a purchase order to the merchant.
+
+<br>        4.  The merchant sends the customer a purchase order verification.
+
+<br>        5.  The merchant sends to the acquiring bank the customer payment data.
+
+<br>        6.  The acquiring bank verifies the customer data.
+
+<br>        7.  The customer, meanwhile, may send a status query to the merchant.
+
+<br>        8.  If so, the merchant responds with purchase status information.
+
+<br>        9.  The merchant requests payment from the acquiring bank.
+
+<br>          10.  The acquiring bank sends payment to the merchant.
+
+</blockquote><p>
+
+	In the first two steps, the customer and merchant agree to do business, 
+
+exchange certificates, and create a transaction ID number.  In step 3, the DES-
+
+encrypted customer purchase request contains a SHA-1 hash of the goods and 
+
+services order signed by the customer's private RSA key (which is done by 
+
+customer software outside the communication protocol). This purchase request 
+
+also contains the consumer's credit card information, which is first encrypted 
+
+using the RSA public key of the acquiring bank, so that only the acquiring bank 
+
+(and not the merchant) can read it.  At this point, the merchant can acknowledge 
+
+the order to the customer, and seek verification (steps 5 and 6) later; or the 
+
+merchant can perform steps 5 and 6 first, then confirm authorization to the 
+
+customer (step 4).  Steps 7 and 8 are optional:  they give the customer a query 
+
+capability.  The merchant uses steps 9 and 10 to submit authorizations in order to 
+
+receive payment.
+
+<p>
+
+	Notice, however, that "confidentiality" here means messages cannot be 
+
+read in transit, such as at Internet gateway routers or local access providers. The 
+
+customer's credit card number is likewise concealed from merchants (eliminating 
+
+a frequent source of fraud). But the SET acquiring bank is privy to all transaction 
+
+information.  It can both link together transactions made by a customer, and it can 
+
+link purchases to credit withdrawals on the credit card.  The credit-card issuing 
+
+banks can do this also.  Hence SET is designed to facilitate electronic commerce 
+
+over the Internet, but it does not provide any important aspects of  personal 
+
+privacy or anonymity.
+
+<p>
+
+	In the very similar CyberCash system, considered below, CyberCash is 
+
+assumed to know everyone's public key.  SET, however, uses certification 
+
+authorities, which bind identities to public keys.  This makes the SET application 
+
+potentially more secure, but puts a burden on credit-card issuing banks to have 
+
+certificates issued to their cardholders. (SET, however, makes this requirement 
+
+optional.) It also requires the acquiring bank to issue certificates to merchants.
+
+<p>
+
+<h3 align=center>EMV Global Chip Card Payment Infrastructure</h3>
+
+<p>
+
+	EMV has created a set of joint specifications for Integrated Circuit (IC) 
+
+cards for payment systems.  An updated version of the specifications for data 
+
+structure, security, and communication protocols was announced in July 1996.  
+
+EMV is Europay International (Waterloo, Belgium), MasterCard International 
+
+(New York), and Visa International (San Francisco).  Each organization 
+
+represented, respectively, about 114 million, 420 million, and 402 million 
+
+cardholders.
+
+<p>
+
+	The goal of the EMV joint venture was to 1) establish authentication 
+
+methods for off-line payments, and 2) to decide on global specifications for 
+
+electronic purses/wallets/stored-value cards.  The EMV infrastructure was based 
+
+on ISO specifications for microprocessor cards and card-reading terminals. 
+
+<p>
+
+	Some of the subjects addressed include these: 
+
+<p><menu>
+
+<li>  off-line card authentication using public key cryptography 
+
+(dynamic data authentication);
+
+<p>
+
+<li>  secure messaging between the card and the card-issuing financial 
+
+instution;
+
+<p>
+
+<li>  use of card commands that facilitate application management 
+
+(post-issuance commands);
+
+<p>
+
+<li>  allowable approaches in designing terminal (card-reading) 
+
+software (terminal software architecture).
+
+<p></menu>
+
+Notice the differences between EMV and SET.  SET is a standard for making 
+
+transactions over open networks.  The SET standards could conceivable be 
+
+enacted by any software program communicating over the Internet.  EMV is a 
+
+standard for chip cards--hardware.  Chip cards can be used for either off-line or 
+
+on-line payments.  If connected to an on-line system, chip cards could be designed 
+
+to interface with any open network standard, including SET.  So the two standards 
+
+are complementary, but overlap in certain cases.  
+
+<p>
+
+	In December 1996, the three EMV partners announced they would begin 
+
+work to link the EMV chip card standards to the Visa and MasterCard SET 
+
+specifications.  Chip card holders could in that event make Internet transactions 
+
+using a chip card reader attached to a PC.
+
+<p>
+
+	EMV will be covered in more detail in an article devoted to smart cards.
+
+<p>
+
+<h3 align=center>CyberCash</h3>
+
+<p>
+
+	CyberCash operates as a gateway between the Internet and traditional 
+
+credit card authorization networks.  It essentially provides a communication 
+
+interface. The CyberCash Wallet software may be freely downloaded from the 
+
+Internet at <i>http://www.cybercash.com/.</i>
+
+<p>
+
+	The customer software allows the customer to register several credit cards 
+
+which will be used to make payments over the Internet. A customer's software 
+
+generates an RSA public-private key pair for the customer, and also stores 
+
+CyberCash's public key.  Customers' public keys are sent to CyberCash and 
+
+stored in a database.  Internet payment messages are then encrypted using a 
+
+randomly generated 56-bit symmetric DES encryption key.  This symmetric key is 
+
+attached  to the message and is itself encrypted using the recipient's 768 or 1024-
+
+bit public key.
+
+<p>
+
+	Customers, merchants, and CyberCash all have public-private key pairs.  
+
+However, customers and merchants communicate order instructions to each other 
+
+in the clear. The customer (who must have a Web browser and a copy of the 
+
+CyberCash Wallet) selects an item from a WWW catalog page.  The merchant 
+
+responds with a payment request that describes the item being purchased, and a 
+
+list of credit card types the merchant accepts.  The customer selects one of his pre-
+
+registered credit cards and sends an <i>encrypted</i> message, which includes the 
+
+payment information and the item description, to the merchant.  The symmetric 
+
+key used in the message is encrypted with CyberCash's public key; hence the 
+
+merchant cannot read it.  The merchant forwards the customer's message to 
+
+CyberCash along with its own encrypted version of the transaction.  CyberCash 
+
+decrypts the two messages and compares them for compatibility.  It then submits 
+
+an authorization request to the credit card network.  Once the charge is authorized, 
+
+CyberCash sends a confirmation response to the merchant.  The merchant notifies 
+
+the customer that the purchase is approved.
+
+<p>
+
+	Note several things about this process. CyberCash operates as an agent of 
+
+the merchant's bank.  The customer's credit card number is encrypted, so it can't 
+
+be read en route.  Neither does the merchant see the credit card number, unless 
+
+CyberCash releases this information to the merchant at the request of the 
+
+merchant's bank. (Such a release is not unlikely given that many merchant records 
+
+are organized by credit card number.)   
+
+<p>
+
+        Moreover, there is no anonymity in this process.  CyberCash can both <i>link</i> 
+
+and <i>trace</i> customer transactions, since it sees and identifies each customer 
+
+transaction.  Moreover, because CyberCash uses the ordinary credit card 
+
+authorization network, the credit card company can also <i>link</i> and <i>trace</i> customer 
+
+transactions in the ordinary fashion--as seen in a customer's credit card statement.  
+
+<p>
+
+	Thus the service CyberCash provides is security in transmission of credit 
+
+card numbers, as well as verification that customer and merchant are looking at 
+
+the same transaction. CyberCash itself collects a fee from the processing bank for 
+
+each such payment made.  CyberCash has said it will make its system compliant 
+
+with Secure Transaction Technology (SET).  CyberCash security features are 
+
+incorporated into CheckFree's Wallet (discussed below).
+
+<p>
+
+	The CyberCash system uses strong encryption, but only for small sections 
+
+of a transaction message.  In particular CyberCash received permission from the 
+
+US government to use 768-bit RSA public keys in export products.  Export 
+
+approval for 768-bit keys is not surprising, given the fact there are no aspects of 
+
+ultimate secrecy with respect to the transactions themselves.
+
+<p>
+
+	In addition to its credit card interface, CyberCash also runs a digital cash 
+
+system called <b>CyberCoin</b>, which is discussed in Part II of this article.  
+
+<p>
+
+<h3 align=center>First Virtual</h3>
+
+<p>
+
+        First Virtual is <i>not</i> included here as an example of a secure messaging 
+
+implementation, but almost as a counterexample.  San Diego-based First Virtual 
+
+uses ordinary email and no encryption.  Security in the First Virtual system relies 
+
+firstly on the cost and effort required to monitor multiple communication 
+
+channels, and secondly on the buyer's right to revoke a payment within a certain 
+
+time.  
+
+<p>
+
+	The system was principally designed to handle the purchase and sale of 
+
+information over the Internet.  To open a server account, a customer contacts First 
+
+Virtual and establishes an account ID.  The customer then phones or faxes a list of 
+
+credit card numbers to First Virtual, which keeps them in a database.
+
+<p>
+
+	Transactions are then effected via email.  When a customer wishes to 
+
+purchase information over the Internet, the customer provides his customer ID (or 
+
+"vPIN") to the merchant.  The merchant checks with the First Virtual server to see 
+
+if this ID is valid.  If it is, the merchant sends the information to the customer over 
+
+the Internet.  In the meantime, First Virtual sends an email message to the 
+
+customer, asking if he is willing to pay for the information.  The customer 
+
+responds with "yes," "no," or "fraud".  
+
+<p>
+
+	If the answer is "yes", First Virtual submits the customer's credit card 
+
+number through the usual credit network, charging the card for the information.  
+
+First Virtual then holds the funds for 90 days.  This allows the customer time to 
+
+dispute his credit card bill, and allows First Virtual to earn interest on the funds.  
+
+If everything is okay, First Virtual then transfers the funds to the merchant's bank 
+
+account (which may be at another bank).
+
+<p>
+
+	There is no encryption.  Messages in these transactions are sent in the 
+
+clear, although First Virtual account IDs can function as pseudonyms.  
+
+(Eavesdroppers will, however, be thwarted if a secure messaging protocol such as 
+
+S/MIME is used.)  The essential security is provided by the customer, who is 
+
+required to monitor his own credit card payments for fraud. Merchants have to 
+
+rely on the assumption that most customers are honest, and will not deny 
+
+receiving information for which they are satisfied.  
+
+<p>
+
+	And just as in previous examples, there is no privacy or anonymity 
+
+provided to the customer.  All transactions can be linked through First Virtual, or 
+
+through the ordinary credit card channels.  In fact, merchants may be concerned 
+
+that a customer has a habit of frequently accepting information, then claiming it 
+
+was not what he wanted--simply to avoid paying for it.  This would require First 
+
+Virtual to maintain a log of information about the customer, in addition to the 
+
+transaction records already maintained by the credit card companies.
+
+<p>
+
+<h3 align=center>Security First</h3>
+
+<p>
+
+	Security First Network Bank (SFNB) opened its virtual doors on Oct. 18, 
+
+1995, and became the first financial institution to receive the approval of the 
+
+Office of Thrift Supervision (OTS) to offer banking services over the Internet. Its 
+
+Virtual Financial Manager software, provided by its subsidiary Security First 
+
+Technologies, allows customers to open accounts, check balances, and make 
+
+payments by computer through any Internet connection supporting World Wide 
+
+Web. 
+
+<p> 
+
+	SFNB began as a unit of Cardinal Bancshares of Lexington, Kentucky, and 
+
+was spun off to Cardinal's shareholders.  Additional investment in SFNB came 
+
+from Wachovia Corp. (Winston-Salem, NC), Huntington Bancshares (Columbus, 
+
+OH), and Area Bancshares Corp. (Owensboro, KY).
+
+<p>
+
+	As part of the Cardinal spin-off,  SFNB acquired the stock of WebTech, 
+
+Inc.,  which  developed the SFNB Internet banking software.  WebTech was in 
+
+turn created by senior executives from the Atlanta computer security firm 
+
+SecureWare, which supplied security software to the military and intelligence 
+
+establishments. WebTech and SecureWare have been folded into Security First 
+
+Technologies.  More recently, SFNB abandoned its on-line banking business to 
+
+devote itself exclusively to banking software.   
+
+<p>
+
+	The chief claim to fame of SFNB was in offering military-grade firewalls 
+
+to protect the bank from unauthorized Internet intruders. As initially reported in 
+
+one newspaper: "A small Kentucky bank, working with a high-tech company that 
+
+builds computer systems for the Defense Department, is poised to offer Internet 
+
+banking that it says will be safe from hackers" (<i>Minneapolis Star-Tribune</i>).  
+
+(Many bank customers, of course, are interested in security not only from hackers, 
+
+but also from the prying eyes of a virtual alphabet soup of  government agencies.)
+
+<p>
+
+	When an account is opened on-line with the SFNB software, the 
+
+information (name, address, social security number) is checked with a credit 
+
+service to see if it is consistent with information publicly on file.  A physical copy 
+
+of the application and a signature card must be mailed to the bank.  An account 
+
+creation package and an account password is then mailed to the customer to set up 
+
+the account.  Customers then communicate with the bank via World Wide Web, 
+
+using any browser that supports SSL.  (SSL uses encryption for the data passing 
+
+between the customer's browser and the bank server: it encrypts the entire 
+
+channel.)
+
+<p>
+
+	The bank operates on a trusted operating system owned by Hewlett-
+
+Packard called VirtualVault.  The trusted operating system replaces the Unix <b><i>root</b></i> 
+
+account (which grants access to all areas of the operating system) with a 
+
+mechanism of privileges which limit each user's actions to the commands they 
+
+have been authorized to use.  An additional system of firewalls and filtering 
+
+routers separate the bank's internal network environment from the Internet.
+
+<p>
+
+	In addition to the normal controls involving access controls and firewalls, 
+
+the system uses RSA public key encryption technology for data integrity, 
+
+identification, and authentication.  All of this ensures that SFNB software does 
+
+not deal with imposters.  But it gives no special transactional privacy to the 
+
+customer.  It is simply on-line banking with access and communication protection. 
+
+Accounts opened under the SFNB software are ordinary banking accounts and 
+
+insured by the FDIC.
+
+<p>
+
+<h3 align=center>First Bank of Internet</h3>
+
+<p>
+
+	The First Bank of Internet (FBOI) was an ad hoc proposal to operate an 
+
+Internet-secure messaging system to match buy and sell orders  between 
+
+customers and vendors (merchants), and to transfer payments.  As outlined in a 
+
+press release, a FBOI customer first sets aside dedicated funds to be used for 
+
+Internet purchases.  Afterward, the customer uses PGP-encrypted email to place 
+
+orders with merchants. FBOI (the proposal, anyway) compares the customer and 
+
+merchant versions of each order for compatibility, withdraws funds from the 
+
+customer's dedicated cash account, and credits the merchant's account (or sends a 
+
+payment check to the merchant).
+
+<p>
+
+	To open a FBOI account, a customer sends cash, check, or money order to 
+
+FBOI, which purchases a pre-paid, PIN-protected Visa ATM card on the 
+
+customer's behalf.  This card gives the customer access to an FBOI ATM 
+
+checking account of equal amount.  That is, the customer agreement allows FBOI 
+
+to possess a duplicate cash card, and FBOI withdraws cash from the customer's 
+
+Visa ATM account in increments of $10 as Internet purchases are made.  
+
+<p>
+
+	FBIO charges the customer a hefty 5 percent commission to buy the Visa 
+
+ATM card.   The cash in the Visa ATM account is then good either for Internet 
+
+purchases through FBOI, or alternatively it may be retrieved at one of the 
+
+thousands of ATM machines that are part of the Visa/PLUS system.  
+
+<p>
+
+	The difference between this and an ordinary checking or credit account is 
+
+that, because of the cash nature of the initial acquisition of the Visa ATM card, 
+
+the FBOI does not collect any financial or employment information from the 
+
+account holder.  The account is essentially anonymous with respect to solicited 
+
+credit and employment information.  However, FBOI knows the customer's 
+
+mailing address (in order to mail the ATM card to the customer) as well as the 
+
+customer's email address (associated with the customer's PGP public key).  In 
+
+addition, the customer's FBOI account number is the "fingerprint" of the 
+
+customer's PGP public key.  (A PGP "fingerprint" is the 32-hexadecimal-digit 
+
+MD5 hash value of the customer's public key.) 
+
+<p>
+
+	When a customer makes a purchase, the customer sends a PGP-encrypted 
+
+message (called an "email check") to the merchant.  The merchant sends a PGP-
+
+encrypted message (called an "email invoice") to FBOI.  FBOI verifies the 
+
+transaction, sends receipts to both customers and merchants, takes cash from the 
+
+customer's ATM account, and credits it to the merchant. The FBOI charges the 
+
+merchant 5 percent of each transaction for the service of  matching customer 
+
+checks with merchant invoices.  (The customer is not charged fees for orders--but 
+
+only for the initial purchase of the Visa ATM card.)  
+
+<p>
+
+	All purchases are traceable and linkable by FBOI via the customer's PGP 
+
+public key and email address.  Merchants have the ability to keep similar records 
+
+for sales with respect to the same customer. Hence there is no anonymity or 
+
+privacy in the system.  Essentially the FBOI service (or proposed service, at least) 
+
+allows a customer with nothing more than cash and an email account to make 
+
+Internet purchases.  ("Bad credit?  We don't care.")
+
+<p>
+
+<h3 align=center>BankNet</h3>  
+
+<p>
+
+	MarketNet, BankNet (a Hungarian satellite data communication 
+
+company), and Secure Trust Bank Plc (a British bank) have formed a joint venture 
+
+to operate banking services over the World Wide Web.  The accounts are ordinary 
+
+Sterling-denominated bank checking accounts ("current accounts"), which may be 
+
+opened at <i>http://mkn.co.uk/bank</i>.  Statements can be viewed on-line with a 
+
+Netscape web browser.  Foreign transactions available to Secure Trust customers 
+
+include international money orders in sterling or U.S. dollars, bankdrafts in any 
+
+currency, and telegraphic transfers to any bank account abroad.
+
+<p>
+
+	BankNet also offers an electronic payment system for Secure Trust 
+
+customers. WorkHorse, the check-writing program, runs under Windows or 
+
+Windows95. Aspects of the system include the following items.
+
+<p>
+
+        <i>Key Generation and Use</i>: The account holder on a Windows PC (which 
+
+may or may not be connected to the WWW) uses WorkHorse to generate an RSA 
+
+public/private key pair of 512 to 1024 bits. The account holder must also provide 
+
+an alphanumeric password. The private key is RC4 encrypted, base64 encoded, 
+
+and stored on a disk (preferably floppy, but it could be the hard disk.)  For the 
+
+account holder to use the key, he must possess both the key file and the password, 
+
+and must load the key file into the key-using program providing the password. 
+
+(Alternatively, the customer can use PGP, in which case the details are those 
+
+relavent for PGP, which is not covered here.)
+
+<p>
+
+        <i>Key authentication</i>: The account holder generates a certificate request, 
+
+base64 encodes it and sends it to the bank which generates a printed form for the 
+
+account holder to sign.  This will apply limits for payments and limits for 
+
+aggregation of payments.
+
+<p>
+
+        <i>Signed Instructions</i>:    The account holder using the keyfile and password 
+
+can then generate a number of instructions, for payment, buying securities, and 
+
+selling securities.  These instructions may not be repudiated, but each instruction 
+
+will only be processed once.
+
+<p>
+
+	The normal business advantages of the above scheme from the merchant's 
+
+point of view would be low merchant commissions and certainty of payments.  
+
+Purchasers of products, services and information would essentially bear 
+
+transactions costs and any charges for repudiation.
+
+<p>
+
+<h3 align=center>Open Financial Exchange (CheckFree, Intuit, Microsoft)</h3>
+
+<p>
+
+	On January 16, 1997, three companies--Microsoft, Intuit, and CheckFree--
+
+announced they were creating a single, unified technical framework, called Open 
+
+Financial Exchange (OFE).  OFE would enable financial institutions to exchange 
+
+financial data over the Internet with World Wide Web users, as well as users of 
+
+popular financial software like Quicken or Microsoft Money.  The Open Financial 
+
+Exchange specification represented a convergence between Microsoft's "Open 
+
+Financial Connectivity", Intuit's "OpenExchange", and CheckFree's electronic 
+
+banking and payment protocols.  First, some background on the companies 
+
+involved.
+
+<p> 
+
+        <b><i>CheckFree</i></b> is an Atlanta, Georgia, based corporation founded in 1981.  It 
+
+provides electronic home banking and bill payment processing services to more 
+
+than 200 financial institutions.  The bank controls the customer relationship, while 
+
+CheckFree provides back-office processing. 
+
+<p>
+
+	CheckFree Corporation also markets the CheckFree Wallet, which it 
+
+describes as a "secure, cheap, and easy to use Internet transaction product for 
+
+World Wide Web users." The security features of the Wallet were adopted from 
+
+CyberCash (discussed previously). The Wallet generates 768-bit RSA 
+
+public/private key pairs to enable secure Internet transmission of credit card 
+
+numbers.  An online shopper enters a password on her computer to open an on-
+
+screen wallet and selects a credit card payment option. After reviewing the order, 
+
+the customer clicks a "pay" button to complete the transaction.  The order, 
+
+including the customer's shipping address and other information in encrypted 
+
+form, is then transmitted to the merchant. Payment instructions are forwarded by 
+
+the merchant to CheckFree for decryption, authorization, and processing.  Once 
+
+authorized, the payment is debited from the customer's credit card and credited to 
+
+the merchant's account.
+
+<p>
+
+	The Wallet integrates into Netscape and Microsoft web browsers, and 
+
+existing retail order and fulfillment systems. The Wallet has been developed under 
+
+an open system to accommodate standards adopted by the World Wide Web 
+
+Consortium (W3C).
+
+<p>
+
+        <b><i>Intuit, Inc.</i></b>, of Menlo Park, California, is a financial software and Web-
+
+based services company.  It develops and markets well-known personal finance 
+
+products such as Quicken, the tax-preparation software TurboTax, and the small 
+
+business accounting software QuickBooks.  It also operates Quicken Financial 
+
+Network (<i>www.qfn.com</i>), a mutual fund Web site (<i>NETworth.galt.com</i>), and a 
+
+personal insurance site (<i>InsureMarket.com</i>).  In October 1995, Intuit announced 
+
+that the 1996 version of its Qucken software for Microsoft Windows would 
+
+contain several integrative features: Internet access through Concentric Network 
+
+Corp., a version of the Web browser Netscape Navigator, and free access to 
+
+Quicken Financial Network.
+
+<p>
+
+	This was followed by a joint agreement in November with Internet access 
+
+provider America Online, Inc., to provide electronic banking services to AOL 
+
+members. Under the agreement, AOL would sell Intuit's Quicken software to its 
+
+customers, while Intuit would include AOL links to the Quicken Financial 
+
+Network.  The latter in turn has links to financial institutions through the Intuit 
+
+Services Corporation (ISC)  ISC was subsequently sold to CheckFree  
+
+<p>
+
+	An individual bank would make its services available to AOL and 
+
+Quicken users through a single connection to ISC.  The services provided by Intuit 
+
+to AOL users would be included in their monthly subscription fee.  Security 
+
+procedures included a personal identification number and RSA Data Security 
+
+encryption combined with triple DES.
+
+<p>
+
+        <b><i>Microsoft</i></b> is a large personal computer software company founded by Bill 
+
+Gates in 1975. It publishes personal financial products like Microsoft Investor and 
+
+the Microsoft Money personal financial management program.
+
+<p>
+
+        With this as background, let's look at <b><i>Open Financial Exchange</i></b>.  OFE is 
+
+a unified framework for the electronic exchange of financial data between 
+
+financial institutions, businesses, and consumers.  OFE which will enable the 
+
+connectivity of many electronic banking products, and banks will find it a low-
+
+cost entree into on-line banking services.  Microsoft, Intuit, and CheckFree, 
+
+meanwhile, are implementing Open Financial Exchange across their entire lines of 
+
+financial software products--which are sufficiently extensive to make it an Internet 
+
+standard.
+
+<p>
+
+	OFE uses standard Internet transport protocols, and is designed to be 
+
+supported across Windows95, Windows 3.1, Macintosh, UNIX, and network 
+
+computing devices.  It uses HTTP for communications, and Secure Sockets Layer 
+
+(SSL), version 3.0, for channel security. SSL uses public-key encryption to 
+
+negotiate a session key between client and server, and this key is used to encrypt 
+
+the data passing over the channel.  However, many Web servers do not run behind 
+
+a firewall, so there is an opportunity for someone to observe data after it has been 
+
+decrypted, but before it has been passed to an internal secure network.  To deal 
+
+with this issue, OFE uses message-based security also:  RSA public keys, DES 
+
+symmetric encryption, and X.509 certificates for user authenication. (OFE also 
+
+allows for authentication via a user-entered identification code and password, in 
+
+place of a X.509 digital certificate signed by a CA.)
+
+<p><center>
+
+* * *
+
+</center>
+
+	The example protocols and implementations discussed here in Part I, while 
+
+not exhaustive, pretty much cover the major varieties of Internet credit-card 
+
+payment experience.  Part II of this article will look at bona fide digital cash 
+
+systems.
+
+<p>
+
+<center>
+
+This article appeared in <a href="http://zolatimes.com">Laissez Faire City Times</a>, February 1998.
+
+</center><p>
+
+Web Page: http://www.aci.net/kalliste/
+
+</BODY>
+
+</HTML>
+

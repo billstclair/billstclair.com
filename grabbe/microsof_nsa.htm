@@ -1,0 +1,183 @@
+<html>
+<head>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<title>The Myth of Microsoft Security</title>
+</head>
+<body bgcolor="white" link="#0000ff" vlink="#800080">
+<p>
+<h1 align=center>The Myth of Microsoft Security</h1>
+<hr>
+<p>
+<h4><u>Prologue</u></h4>
+<h2 align=center>Robert Novak Hypes "Microsoft's Powerful Codes"</h2>
+<h3 align=center><a href="novak.htm">Buzzwords</a>, by J. Orlin Grabbe</h3>
+</b>
+<hr>
+<h4><u>The News</u></h4>
+<h2 align=center>The "NSA Backdoor" in Microsoft Windows</h2>
+<h3 align=center><a href="http://www.cryptonym.com/hottopics/msft-nsa/msft-nsa.html">The Story Behind the Sound and Fury</a></h3>         
+</b>
+<hr>
+<h4><u>Analysis</u></h4>
+<h2 align=center>Analysis By People We Trust I: Markus Kuhn</h2>
+<b>
+<pre>
+Subject: Re: NSA key in MSFT Crypto API
+Date: Sat, 04 Sep 1999 11:41:02 +0100
+From: Markus Kuhn <Markus.Kuhn@cl.cam.ac.uk>
+To: "cypherpunks@Algebra. COM" <cypherpunks@Algebra.COM>,
+     "'Salz, Rich'" <SalzR@CertCo.com>,
+     "Cryptography@C2. Net" <cryptography@c2.net>,
+     bugtraq@securityfocus.com
+
+The actual funny story behind the presence of the NSA key has been
+seriously misunderstood here. CSP verification keys have only one *real*
+purpose: They are intended to enforce the US export restriction
+requirement that Microsoft is not allowed to ship software abroad that
+can easily be extended with strong cryptography. They are certainly not
+intended as any useful form of integrity protection for your system.
+
+The NSA got their own CSP verification key, because they want to be able
+to change their own secret US government CSPs required for the handling
+of classified documents, without having to go to Microsoft each time to
+get a signature for an NSA CSP update. Fair enough. So Microsoft built
+in a second verification key such that the NSA can produce and install
+on DoD PCs their own CSPs without requiring any Microsoft involvement.
+
+The real funny part is that Microsoft did not protect the NSA key
+particularly well, such that everyone can easily replace the NSA key
+easily with his own key. This was reported by Nicko van Someren at the
+Crypto'98 rump session. This means that everyone can now easily install
+his own CSPs with arbitrarily strong cryptography. This means that the
+NSA's demand to get quickly a second key added led in effect to the easy
+international availability of strong encryption CSPs. My guess is that
+this is Microsoft's sweet revenge against the NSA for creating all these
+Export hassles (e.g., the requirement that CSPs be signed) in the first
+place. It backfired nicely against the NSA. :)
+
+All this has nothing to do with an NSA backdoor, because the CSP keys
+are an export enforcement tool and not an integrity protection tool.
+They do not protect all parts of the system that could be compromised by
+someone who wants to install some eavesdropping malware. The CSP
+verification keys only authenticate that no cryptography that violates
+export laws has been installed. If you are worried about the NSA
+installing malicious software on your PC, you should not rely on the CSP
+verification keys (which were never designed for that purpose anyway),
+but on virus scanners with tripwire functionality that report any
+modifications to your DLLs. There is no digital signature functionality
+required to implement these, simple secure hash algorithms will
+perfectly do.
+
+Please apply a bit of simple critical thinking here:
+
+If the NSA wanted to have real backdoor functionality, they would much
+more likely simply steal Microsofts own keys instead of embedding
+additional keys with an obvious symbol name. Remember: The NSA is the
+world's largest key thief. They have stolen crypto variables from
+well-protected military and government agencies from all over the world
+using the usual repertoire of techniques (bribery, extortion,
+eavesdropping, hacking, infiltration, etc.). If they can do it with
+eastern military agencies, they can most certainly also do it easily
+with Microsoft, which is orders of magnitudes less well protected than
+the usual NSA target. If there is a real NSA backdoor key in Windows,
+that it would certainly be identical to Microsoft's own key.
+
+Markus
+
+--
+Markus G. Kuhn, Computer Laboratory, University of Cambridge, UK
+Email: mkuhn at acm.org,  WWW: <http://www.cl.cam.ac.uk/~mgk25/>
+</b>
+</pre>
+<hr>
+<h4><u>Analysis</u></h4>
+<h2 align=center>Analysis By People We Trust II: Bruce Schneier</h2>
+<b>
+<pre>
+from: sci.crypt
+subject: NSA and MS windows
+
+A few months ago in my newsletter Crypto-Gram, I talked about
+Microsoft's system for digitally signing cryptography suits that go
+into its operating system.  The point is that only approved crypto
+suites can be used, which makes thing like export control easier.
+Annoying as it is, this is the current marketplace.
+
+Microsoft has two keys, a primary and a spare.  The Crypto-Gram
+article talked about attacks based on the fact that a crypto suite
+is considered signed if it is signed by EITHER key, and that there
+is no mechanism for transitioning from the primary key to the
+backup.  It's stupid cryptography, but the sort of thing you'd
+expect out of Microsoft.
+
+Suddenly there's a flurry of press activity because someone notices
+that the second key is called "NSAKEY" in the code.  Ah ha!  The NSA
+can sign crypto suites.  They can use this ability to drop a
+Trojaned crypto suite into your computers.  Or so the conspiracy
+theory goes.
+
+I don't buy it.
+
+First, if the NSA wanted to compromise Microsoft's Crypto API, it
+would be much easier to either 1) convince MS to tell them the
+secret key for MS's signature key, 2) get MS to sign an
+NSA-compromised module, 3) install a module other than Crypto API to
+break the encryption (no other modules need signatures).  It's
+always easier to break good encryption.
+
+Second, NSA doesn't need a key to compromise security in Windows.
+Programs like Back Orifice can do it without any keys.  Attacking
+the Crypto API still requires that the victim run an executable
+(even a Word macro) on his computer.  If you can convince a victim
+to run an untrusted macro, there are a zillion smarter ways to
+compromise security.
+
+Third, why in the world would anyone call a secret NSA key "NSAKEY."
+Lots of people have access to source code within Microsoft; a
+conspiracy like this would only be known by a few people.  Anyone
+with a debugger could have found this "NSAKEY."  If this is a covert
+mechanism, it's not very covert.
+
+I see two possibilities.  One, that the backup key is just as
+Microsoft says, a backup key.  It's called "NSAKEY" for some dumb
+reason, and that's that.
+
+Two, that it is actually an NSA key.  If the NSA is going to use
+Microsoft products for classified traffic, they're going to install
+their own cryptography.  They're not going to want to show it to
+anyone, not even Microsoft.  They are going to want to sign their
+own modules.  So the backup key could also be an NSA internal key,
+so that they could install strong cryptography on Microsoft products
+for their own internal use.
+
+But it's not an NSA key so they can secretly install weak
+cryptography on the unsuspecting masses.  There are just too many
+smarter things they can do to the unsuspecting masses.
+
+My original article:
+<a href="http://www.counterpane.com/crypto-gram-9904.html#certificates">
+http://www.counterpane.com/crypto-gram-9904.html#certificates</a>
+
+Announcement:
+<a href="http://www.cryptonym.com/hottopics/msft-nsa.html">
+http://www.cryptonym.com/hottopics/msft-nsa.html</a>
+
+Nice analysis:
+<a href="http://ntbugtraq.ntadvice.com/default.asp?sid=1&pid=47&aid=52">
+http://ntbugtraq.ntadvice.com/default.asp?sid=1&pid=47&aid=52</a>
+
+Useful news article:
+<a href="http://www.wired.com/news/news/technology/story/21577.html">
+http://www.wired.com/news/news/technology/story/21577.html</a>
+********************************************************************
+** Bruce Schneier, President, Counterpane Systems    Phone:
+612-823-1098 101 E Minnehaha Parkway, Minneapolis, MN  55419
+Fax: 612-823-1590           Free crypto newsletter.  See:
+http://www.counterpane.com
+</b>
+</pre>
+<p>
+Posted Sept. 4, 1999<br>
+Web Page: http://www.aci.net/kalliste/homepage.html
+</body>
+</html>

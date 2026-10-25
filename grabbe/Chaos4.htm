@@ -1,0 +1,388 @@
+<html>
+<head>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<title>Chaos and Fractals in Financial Markets, Part 4, by J. Orlin Grabbe</title>
+</head>
+<body bgcolor="white" link="#0000ff" vlink="#800080">
+<p>
+<h1 align=center>Chaos and Fractals in Financial Markets</h1>
+<h2 align=center>Part 4</h2>
+<h3 align=center><i>by J. Orlin Grabbe</i></h3>
+<center><table border=0 width=55%><tr><td>
+<h3 align=center>Gamblers, Zero Sets, and Fractal Mountains</h3>
+<P ALIGN="JUSTIFY">Henry and Thomas are flipping a fair coin and betting $1 on the outcome.  If the coin comes up heads, Henry wins a dollar from Thomas.  If the coin comes up tails, Thomas wins a dollar from Henry.  Henry’s net winnings in dollars, then, are the total number of heads minus the total number of tails.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">But we saw all this before, in <A HREF="Chaos3.htm">Part 3</A>.  If we let x(n) denote Henry’s net winnings, then x(n) is determined by the dynamical system:</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">x(n) = x(n) + 1, with probability p = ½<br>
+x(n) = x(n) – 1, with probability q = ½.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">The graph of 10,000 coin tosses in Part 3 simply shows the fluctuations in Henry’s wealth (starting from 0) over the course of the 10,000 coin tosses.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">Let’s do this in real time, although we will restrict ourselves to 3200 coin tosses.  Let’s plot Henry’s winnings for a new game that lasts for 3200 flips of the coin. You can quickly see the results of many games with a few clicks of your mouse. Make sure Java is enabled on your web browser, and <A HREF="CoinToss.html">click here</A>.  </P>
+
+<P>There are three things to note about this demonstration:</P>
+
+<OL>
+
+<P ALIGN="JUSTIFY"><LI>Even though the odds are even for each coin clip, winnings or losses can at times add up significantly.  Even though a head or a tail is equally probable for each coin flip, there can be a series of &quot;runs&quot; that result in a large loss to either Henry or Thomas. This fact is important in understanding the &quot;gambler’s ruin&quot; problem discussed later. </LI></P>
+
+<P ALIGN="JUSTIFY"><LI>The set of points where x(n) comes back to x(n) = 0 (that is, the points where wins and losses are equalized), is called the <B>zero set</B> of the system.  Using <B>n</B> as our measure of time, the time intervals between each point of the zero set are independent, but form clusters, much like Cantor dust.  To see the zero set plotted for the coin tossing game, make sure Java is enabled on your web browser and <A HREF="ZeroSet.html">click here</A>.  The zero set represents those times at which Henry has broken even.  (Make sure to run the series of coin flips multiple times, to observe various patterns of the zero set.) </LI></P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY"><LI>The fluctuations in Henry’s winnings form an outline that is suggestive of mountains and valleys.  In fact, this is a type of &quot;Brownian landscapes&quot; that we see around us all the time.  To create different &quot;alien&quot; landscapes, for, say, set decorations in a science fiction movie, we can change the probabilities.  The effects in three dimensions, with a little color shading, can be stunning. </LI></P></OL>
+
+<B>
+</B><P ALIGN="JUSTIFY">Since we will later be discussing motions that are not Brownian, and distributions that are not normal (not Gaussian), it is important to first point out an aspect of all this that is somewhat independent of the probability distribution.  It’s called the Gambler’s Ruin Problem.  You don’t need nonnormal distributions to encounter gambler's ruin.  Normal ones will do just fine.</P>
+<B>
+<P ALIGN="CENTER">Futures Trading and the Gambler’s Ruin Problem</P>
+</B><FONT SIZE=2><P>&#9;</P>
+</FONT><P ALIGN="JUSTIFY">This section explains how casinos make most of their money, as well as why the traders at Goldman Sachs make more money speculating than you do.  It’s not necessarily because they are smarter than you.  It’s because they have more money. (However, we will show how the well-heeled can easily lose this advantage.)</P>
+<P ALIGN="JUSTIFY"> &#9;</P>
+<P ALIGN="JUSTIFY">Many people assume that the futures price of a stock index, bond, foreign currency, or commodity like gold represents a fair bet. That is, they assume that the probability of an upward movement in the futures price is equal to the probability of a downward movement, and hence the mathematical expectation of a gain or loss is zero. They use the analogy of flipping a fair coin. If you bet $1 on the outcome of the flip, the probability of your winning $1 is one-half, while the probability of losing $1 is also one-half. Your expected gain or loss is zero. For the same reason, they conclude, futures gains and futures losses will tend to offset each other in the long run.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">There is a hidden fallacy in such reasoning. Taking open positions in futures contracts is not analogous to a single flip of a coin. Rather, the correct analogy is that of a <B><I>repeated series of coin flips with a stochastic termination point</B></I>. Why? Because of limited capital. Suppose you are flipping a coin with a friend and betting $1 on the outcome of each flip. At some point either you or your friend will have a run of bad luck and will lose several dollars in succession. If one player has run out of money, the game will come to an end. The same is true in the futures market. If you have a string of losses on a futures position, you will have to post more margin. If at some point you cannot post the required margin, you will have to close out the contract. You are forced out of the game, and thus you cannot win back what you lost. In a similar way, in 1974, Franklin National and Bankhaus I. D. Herstatt had a string of losses on their interbank foreign exchange trading positions. They did not break even in the long run because there was no long run. They went broke in the intermediate run. This phenomenon is referred to in probability theory as the <B><I>gambler's ruin problem</B></I> [1].</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">What is a "fair" bet when viewed as a single flip of the coin, is, when viewed as a series of flips with a stochastic ending point, really a different game entirely whose odds are quite different. The probabilities of the game then depend on the relative amounts of capital held by the different players. </P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">Suppose we consider a betting process in which you will win $1 with probability <I>p</I> and lose $1 with probability <I>q</I> (where <I>q</I> = 1 - <I>p</I>). You start off with an amount of $<I>W</I>. If your money drops to zero, the game stops. Your betting partner—the person on the other side of your bet who wins when you lose and loses when you win—has an amount of money $<I>R</I>. What is the probability you will eventually lose all of your wealth <I>W</I>, given <I>p</I> and <I>R?</I> From probability theory [1] the answer is: </P>
+<P ALIGN="JUSTIFY"></P>
+<pre>
+                   (<I>q</I>/<I>p</I>)<sup><I>W</I> +<I> R</I></sup> - (<I>q</I>/<I>p</I>)<sup><I>W</I></sup>
+Ruin probability = ——————————————————,     for <I>p</I> <FONT FACE="Symbol">&#185;</FONT> <I>q</I>
+                   (<I>q</I>/<I>p</I>)<sup><I>W + R</I></sup> - 1
+<p>                   
+Ruin probability = 1 - [<I>W</I>/(<I>W</I> + <I>R</I>)],       for <I>p</I> = <I>q</I> = .5.
+</pre>
+<P ALIGN="JUSTIFY"></P>
+<hr>
+<B><P ALIGN="CENTER">An Example</P>
+</B><P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">You have $10 and your friend has $100. You flip a fair coin. If heads comes up, he pays you $1. If tails comes up, you pay him $1. The game ends when either player runs out of money. What is the probability your friend will end up with all of your money? From the second equation above, we have <I>p</I> = <I>q</I> = .5, <I>W</I> = $10, and <I>R</I> = $100. Thus the probability of your losing everything is: </P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">1 - (10/(10 + 100)) =.909.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">You will lose all of your money with 91 percent probability in this supposedly "fair" game. </P>
+<hr>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">Now you know how casinos make money.  Their bank account is bigger than yours.  Eventually you will have a losing streak, and then you will have to stop playing (since the casinos will not loan you infinite capital).  </P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">The gambler’s ruin odds are the important ones.  True, the odds are stacked against the player in each casino game:  heavily against the player for kino, moderately against the player for slots, marginally against the player for blackjack and craps.  (Rules such as &quot;you can only double down on 10s and 11s&quot; in blackjack are intended to turn the odds against the player, as are the use of multiple card decks, etc.)  But the chief source of casino winnings is that people have to stop playing once they’ve had a sufficiently large losing streak, which is inevitable.  (Lots of &quot;free&quot; drinks served to the players help out in this process.  From the casino’s point of view, the investment in free drinks plays off splendidly.)</P>
+<B>
+</B><P ALIGN="JUSTIFY">Note here that &quot;wealth&quot; (<B>W</B> or <B>R</B> in the equation) is defined as the number of betting units: $1 in the example.  The more betting units you have, the less probability there is you will be hit with the gambler’s ruin problem.  So you if you sit at the blackjack table at Harrah’s with a $1000 minimum bet, you will need to have 100 times the total betting capital of someone who sits at the $10 minimum tables, in order to have the same odds vis-&agrave;-vis the dealer.  </P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">A person who has $1000 in capital and bets $10 at a time has a total of W = 1000/10 = 100 betting units. That’s a fairly good ratio. </P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">While a person who has $10,000 in capital and bets $1000 at a time has W = 10000/1000 = 10 betting units.  That’s lousy odds, no matter the game.  It’s loser odds.  </P>
+<B>
+<P ALIGN="CENTER">Gauss vs. Cauchy</P>
+</B>
+<P ALIGN="JUSTIFY">We measure probability with our one-pound jar of jam.  We can distribute the jam in any way we wish.  If we put it all at the point x = 5, then we say &quot;x = 5 with certainty&quot; or &quot;x = 5 with probability 1.&quot;</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">Sometimes the way the jam is distributed is determined by a simple function.  The <I>normal</I> or <I>Gaussian</I> distribution distributes the jam (probability) across the real line (from minus infinity to plus infinity) using the <I>density </I>function:</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">f(x) = [1/(2<FONT FACE="Symbol">&#112;</FONT>
+)<SUP>0.5</SUP>] exp(-x<SUP>2</SUP>/2) ,  - <FONT FACE="Symbol">&#165;</FONT>
+ &lt; x &lt; <FONT FACE="Symbol">&#165;</FONT>
+</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">Here f(x) creates the nice bell-shaped curve we have seen before (<B>x</B> is on the horizontal line, and f(x) is the blue curve above it): </P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="CENTER"><IMG SRC="normal.gif" WIDTH=154 HEIGHT=95></P>
+<P ALIGN="CENTER"></P>
+<P ALIGN="JUSTIFY">The jam (probability) is smeared between the horizontal line and the curve, so the <I>height of the curve</I> at each point (given by f(x)) indicates that point’s  probability relative to some other point. The curve f(x) is called the <I>probability density</I>.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">So we can calculate the probability density for each value of x using the function f(x).  Here are some values:</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="CENTER"><CENTER><TABLE BORDER CELLSPACING=1 CELLPADDING=7 WIDTH=153>
+<TR><TD WIDTH="50%" VALIGN="TOP">
+<P ALIGN="CENTER">x</TD>
+<TD WIDTH="50%" VALIGN="TOP">
+<P ALIGN="CENTER">f(x)</TD>
+</TR>
+<TR><TD WIDTH="50%" VALIGN="TOP">
+<P ALIGN="CENTER">-3</TD>
+<TD WIDTH="50%" VALIGN="TOP">
+<P ALIGN="CENTER">.0044</TD>
+</TR>
+<TR><TD WIDTH="50%" VALIGN="TOP">
+<P ALIGN="CENTER">-2</TD>
+<TD WIDTH="50%" VALIGN="TOP">
+<P ALIGN="CENTER">.0540</TD>
+</TR>
+<TR><TD WIDTH="50%" VALIGN="TOP" HEIGHT=14>
+<P ALIGN="CENTER">-1</TD>
+<TD WIDTH="50%" VALIGN="TOP" HEIGHT=14>
+<P ALIGN="CENTER">.2420</TD>
+</TR>
+<TR><TD WIDTH="50%" VALIGN="TOP">
+<P ALIGN="CENTER">-.75</TD>
+<TD WIDTH="50%" VALIGN="TOP">
+<P ALIGN="CENTER">.3011</TD>
+</TR>
+<TR><TD WIDTH="50%" VALIGN="TOP">
+<P ALIGN="CENTER">-.50</TD>
+<TD WIDTH="50%" VALIGN="TOP">
+<P ALIGN="CENTER">.3521</TD>
+</TR>
+<TR><TD WIDTH="50%" VALIGN="TOP">
+<P ALIGN="CENTER">-.25</TD>
+<TD WIDTH="50%" VALIGN="TOP">
+<P ALIGN="CENTER">.3867</TD>
+</TR>
+<TR><TD WIDTH="50%" VALIGN="TOP">
+<P ALIGN="CENTER">0</TD>
+<TD WIDTH="50%" VALIGN="TOP">
+<P ALIGN="CENTER">.3989</TD>
+</TR>
+<TR><TD WIDTH="50%" VALIGN="TOP">
+<P ALIGN="CENTER">.25</TD>
+<TD WIDTH="50%" VALIGN="TOP">
+<P ALIGN="CENTER">.3867</TD>
+</TR>
+<TR><TD WIDTH="50%" VALIGN="TOP">
+<P ALIGN="CENTER">.50</TD>
+<TD WIDTH="50%" VALIGN="TOP">
+<P ALIGN="CENTER">.3521</TD>
+</TR>
+<TR><TD WIDTH="50%" VALIGN="TOP">
+<P ALIGN="CENTER">.75</TD>
+<TD WIDTH="50%" VALIGN="TOP">
+<P ALIGN="CENTER">.3011</TD>
+</TR>
+<TR><TD WIDTH="50%" VALIGN="TOP">
+<P ALIGN="CENTER">1</TD>
+<TD WIDTH="50%" VALIGN="TOP">
+<P ALIGN="CENTER">.2420</TD>
+</TR>
+<TR><TD WIDTH="50%" VALIGN="TOP">
+<P ALIGN="CENTER">2</TD>
+<TD WIDTH="50%" VALIGN="TOP">
+<P ALIGN="CENTER">.0540</TD>
+</TR>
+<TR><TD WIDTH="50%" VALIGN="TOP">
+<P ALIGN="CENTER">3</TD>
+<TD WIDTH="50%" VALIGN="TOP">
+<P ALIGN="CENTER">.0044</TD>
+</TR>
+</TABLE>
+</CENTER></P>
+
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">At the center value of x = 0, the probability density is highest, and has a value of  f(x) = .3989.  Around 0, the probability density is spread out symmetrically in each direction.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">The entire one-pound jar of jam is smeared underneath the curve between – <FONT FACE="Symbol">&#165;</FONT>
+ and + <FONT FACE="Symbol">&#165;</FONT>
+.  So the total probability, the <I>total area under the curve, is 1</I>.  In calculus the area under the curve is written as an integral, and since the total probability is one, the integral from - <FONT FACE="Symbol">&#165;</FONT>
+ to + <FONT FACE="Symbol">&#165;</FONT>
+ of the jam-spreading function f(x) is 1.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">The probability that <B>x</B> lies between <B>a</B> and <B>b</B>, a &lt; x &lt; b, is just the area under the curve (the amount of jam) measured from <B>a</B> to <B>b</B>, as indicated by the red portion in the graphic below, where <B>a</B> = -1 and <B>b</B> = +1:</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="CENTER"><IMG SRC="normarea.jpg" WIDTH=244 HEIGHT=149></P>
+<P ALIGN="JUSTIFY">Instead of writing this integral in the usual mathematical fashion, which requires using a graphic in the <I>html</I> world of your web browser, I will simply denote the integral from <B>a</B> to <B>b</B> of f(x) as:</P>
+<P ALIGN="JUSTIFY"></P>
+<B><P>I(a,b) f(x) dx.</P>
+</B><P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">I(a,b) f(x) dx, then, is the area under the f(x) curve from <B>a</B> to <B>b</B>.  In the graphic above, we see pictured I(-1,1).  And since the total probability (total area under the curve) across all values of <B>x </B>( from  - <FONT FACE="Symbol">&#165;</FONT>
+ to + <FONT FACE="Symbol">&#165;</FONT>
+)  is 1, we have</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">I(- <FONT FACE="Symbol">&#165;</FONT>
+,<FONT FACE="Symbol">&#165;</FONT>
+) f(x) dx = 1.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">A little more notation will be useful. We want a shorthand way of expressing the probability that x &lt; b.  But the probability that x &lt; b is the same as the probability that -<FONT FACE="Symbol">&#165;</FONT>
+ &lt; x &lt; b.  So this value is given by the area under the curve from -<FONT FACE="Symbol">&#165;</FONT>
+  to b.  We will write this as F(b):</P>
+<P ALIGN="JUSTIFY"></P>
+<B><P ALIGN="JUSTIFY">F(b) = I(-<FONT FACE="Symbol">&#165;</FONT>
+,b) f(x) dx = area under curve from minus infinity to b.  </P>
+</B><P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">Here is a picture of F(b) when b = 0:</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="CENTER"><IMG SRC="normcum.jpg" WIDTH=244 HEIGHT=149></P>
+<P ALIGN="JUSTIFY">For any value <B>x</B>, F(x) is the <I>cumulative </I>probability function.  It represents the total probability up to (and including) point <B>x</B>.  It represents the probability of all values smaller than (or equal to) <B>x</B>. </P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">(Note that since the <I>area</I> under the curve at a <I>single point</I> is zero, whether we include the point <B>x</B> itself in the cumulative probability function F(x), or whether we only include all points less than <B>x</B>, does not change the value of F(x). However, our understanding will be that the point <B>x</B> itself is included in the calculation of F(x).)  </P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">F(x) takes values between 0 and 1, corresponding to our one-pound jar of jam.  Hence</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">F(-<FONT FACE="Symbol">&#165;</FONT>
+) = 0, while</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">F(+<FONT FACE="Symbol">&#165;</FONT>
+) = 1.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">The probability between <B>a</B> and <B>b</B>, a &lt;x &lt; b, then, can be written simply as</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">F(b) – F(a).</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">The probability x &gt; <B>b</B> can be written as:</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">1 – F(b).</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">Now.  Here is a different function for spreading probability, called the <b><I>Cauchy density</I></b>: </P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">g(x) = 1/[<FONT FACE="Symbol">&#112;</FONT>
+(1 + x<SUP>2</SUP>)],  - <FONT FACE="Symbol">&#165;</FONT>
+ &lt; x &lt; <FONT FACE="Symbol">&#165;</FONT>
+</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">Here is a picture of the resulting Cauchy curve:</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="CENTER"><IMG SRC="http://www.aci.net/kalliste/lepdis.jpg" WIDTH=165 HEIGHT=99></P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">It it nice and symmetric like the normal distribution, but is relatively more concentrated around the center, and taller in the tails than the normal distribution.  We can see this more clearly by looking at the values for g(x):</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">&nbsp;</P>
+<P ALIGN="CENTER"><CENTER><TABLE BORDER CELLSPACING=1 CELLPADDING=7 WIDTH=153>
+<TR><TD WIDTH="50%" VALIGN="TOP">
+<P ALIGN="CENTER">x</TD>
+<TD WIDTH="50%" VALIGN="TOP">
+<P ALIGN="CENTER">g(x)</TD>
+</TR>
+<TR><TD WIDTH="50%" VALIGN="TOP">
+<P ALIGN="CENTER">-3</TD>
+<TD WIDTH="50%" VALIGN="TOP">
+<P ALIGN="CENTER">.0318</TD>
+</TR>
+<TR><TD WIDTH="50%" VALIGN="TOP">
+<P ALIGN="CENTER">-2</TD>
+<TD WIDTH="50%" VALIGN="TOP">
+<P ALIGN="CENTER">.0637</TD>
+</TR>
+<TR><TD WIDTH="50%" VALIGN="TOP" HEIGHT=14>
+<P ALIGN="CENTER">-1</TD>
+<TD WIDTH="50%" VALIGN="TOP" HEIGHT=14>
+<P ALIGN="CENTER">.1592</TD>
+</TR>
+<TR><TD WIDTH="50%" VALIGN="TOP">
+<P ALIGN="CENTER">-.75</TD>
+<TD WIDTH="50%" VALIGN="TOP">
+<P ALIGN="CENTER">.2037</TD>
+</TR>
+<TR><TD WIDTH="50%" VALIGN="TOP">
+<P ALIGN="CENTER">-.50</TD>
+<TD WIDTH="50%" VALIGN="TOP">
+<P ALIGN="CENTER">.2546</TD>
+</TR>
+<TR><TD WIDTH="50%" VALIGN="TOP">
+<P ALIGN="CENTER">-.25</TD>
+<TD WIDTH="50%" VALIGN="TOP">
+<P ALIGN="CENTER">.2996</TD>
+</TR>
+<TR><TD WIDTH="50%" VALIGN="TOP">
+<P ALIGN="CENTER">0</TD>
+<TD WIDTH="50%" VALIGN="TOP">
+<P ALIGN="CENTER">.3183</TD>
+</TR>
+<TR><TD WIDTH="50%" VALIGN="TOP">
+<P ALIGN="CENTER">.25</TD>
+<TD WIDTH="50%" VALIGN="TOP">
+<P ALIGN="CENTER">.2996</TD>
+</TR>
+<TR><TD WIDTH="50%" VALIGN="TOP">
+<P ALIGN="CENTER">.50</TD>
+<TD WIDTH="50%" VALIGN="TOP">
+<P ALIGN="CENTER">.2546</TD>
+</TR>
+<TR><TD WIDTH="50%" VALIGN="TOP">
+<P ALIGN="CENTER">.75</TD>
+<TD WIDTH="50%" VALIGN="TOP">
+<P ALIGN="CENTER">.2037</TD>
+</TR>
+<TR><TD WIDTH="50%" VALIGN="TOP">
+<P ALIGN="CENTER">1</TD>
+<TD WIDTH="50%" VALIGN="TOP">
+<P ALIGN="CENTER">.1592</TD>
+</TR>
+<TR><TD WIDTH="50%" VALIGN="TOP">
+<P ALIGN="CENTER">2</TD>
+<TD WIDTH="50%" VALIGN="TOP">
+<P ALIGN="CENTER">.0637</TD>
+</TR>
+<TR><TD WIDTH="50%" VALIGN="TOP">
+<P ALIGN="CENTER">3</TD>
+<TD WIDTH="50%" VALIGN="TOP">
+<P ALIGN="CENTER">.0318</TD>
+</TR>
+</TABLE>
+</CENTER></P>
+
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">At every value of <B>x</B>, the Cauchy density is lower than the normal density, until we get out into the extreme tails, such as 2 or 3 (+ or -).</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">Note that at –3, for example, the probability density of the Cauchy distribution is g(-3) = .0318, while for the normal distribution, the value is f(-3) = .0044.  There is more than 7 times as much probability for this extreme value with the Cauchy distribution than there is with the normal distribution!  (The calculation is .0318/.0044 = 7.2.)  Relative to the normal, the Cauchy distribution is <I>fat-tailed</I>.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">To see a more detailed plot of the normal density minus the Cauchy density, make sure Java is enabled on your web browser and <A HREF="Cauchy.html">click here</A>.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">As we will see later, there are other distributions that have more probability in the tails than the normal, and <I>also</I> more probability at the peak (in this case, around 0).  But since the total probability must add up to 1, there is, of course, less probability in the intermediate ranges.  Such distributions are called <I>leptokurtic</I>.  Leptokurtic distributions have more probability both in the tails and in the center than does the normal distribution, and are to be found in all asset markets—in foreign exchange, shares of stock, interest rates, and commodity prices. (People who pretend that the empirical distributions of changes in log prices in these markets are <I>normal</I>, rather than <I>leptokurtic</I>, are sadly deceiving themselves.)</P>
+<P ALIGN="JUSTIFY"></P>
+<B><P ALIGN="CENTER">Location and Scale</P>
+</B><P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">So far, as we have looked at the normal and the Cauchy densities, we have seen they are centered around zero.  However, since the density is defined for all values of <B>x</B>, - <FONT FACE="Symbol">&#165;</FONT>
+ &lt; x &lt; <FONT FACE="Symbol">&#165;</FONT>
+,  the center can be elsewhere.  To move the center from zero to a <B>location m</B>, we write the normal probability density as:</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">f(x) = [1/(2<FONT FACE="Symbol">&#112;</FONT>
+)<SUP>0.5</SUP>] exp(-(<B>x-m</B>)<SUP>2</SUP>/2) ,  - <FONT FACE="Symbol">&#165;</FONT>
+ &lt; x &lt; <FONT FACE="Symbol">&#165;</FONT>
+.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">Here is a picture of the normal distribution after the location has been moved from <B>m</B> = 0 (the blue curve) to <B>m</B> = 2 (the red curve):</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="CENTER"><IMG SRC="normlocation.gif" WIDTH=180 HEIGHT=111></P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">For the Cauchy density, the corresponding alteration to include a location parameter <B>m</B> is:</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">g(x) = 1/[<FONT FACE="Symbol">&#112;</FONT>
+(1 + (<B>x-m</B>)<SUP>2</SUP>)],  - <FONT FACE="Symbol">&#165;</FONT>
+ &lt; x &lt; <FONT FACE="Symbol">&#165;</FONT>
+</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">In each case, the distribution is now centered at <B>m</B>, instead of at 0.  Note that I say <B>&quot;location paramter m&quot;</B> and <B><I>not</B></I>  &quot;mean <B>m</B>&quot;.  The reason is simple.  For the Cauchy distribution, a mean doesn’t exist.  But a location parameter, which shows where the probability distribution is centered, does.  </P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">For the normal distribution, the location parameter <B>m</B> is the same as the mean of the distribution.  Thus a lot of people who are only familiar with the normal distribution confuse the two.  They are not the same.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">Similarly, for the Cauchy distribution the standard deviation (or the variance, which is the square of the standard deviation) doesn’t exist.  But there is a <B>scale parameter c </B>that <B><I>shows how far you have to move in each direction from the location parameter m, in order for the area under the curve to correspond to a given probability</B></I>.  For the normal distribution, the scale parameter <B>c </B>corresponds to the standard deviation.  But a scale parameter <B>c</B> is defined for the Cauchy and for other, leptokurtic distributions for which the variance and standard deviation don’t exist (&quot;are infinite&quot;).</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">Here is the normal density written with the addition of a scale parameter <B>c</B>:</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">f(x) = [1/(<B>c</B> (2<FONT FACE="Symbol">&#112;</FONT>
+)<SUP>0.5</SUP>)] exp(-((<B>x-m)/c</B>)<SUP>2</SUP>/2) ,  - <FONT FACE="Symbol">&#165;</FONT>
+ &lt; x &lt; <FONT FACE="Symbol">&#165;</FONT>
+.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">We divide (<B>x-m</B>) by <B>c</B>, and also multiply the entire density function by the reciprocal of <B>c</B>. </P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">Here is a picture of the normal distribution for difference values of <B>c</B>:</P>
+<P ALIGN="CENTER"><IMG SRC="normscale.gif" WIDTH=208 HEIGHT=128></P>
+<P ALIGN="CENTER"></P>
+<P>The blue curve represents <B>c</B> = 1, while the peaked red curves has <B>c</B> &lt; 1, and the flattened red curve has <B>c</B> &gt; 1.</P>
+
+<P>For the Cauchy density, the addition of a scale parameter gives us:</P>
+
+<P ALIGN="JUSTIFY">g(x) = 1/[<B>c<FONT FACE="Symbol">&#112;</FONT>
+</B>(1 + ((<B>x-m)/c</B>)<SUP>2</SUP>)],  - <FONT FACE="Symbol">&#165;</FONT>
+ &lt; x &lt; <FONT FACE="Symbol">&#165;</FONT>
+</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">Just as we did with the normal distribution, we divide (<B>x-m</B>) by <B>c</B>, and also multiply the entire density by the reciprocal of <B>c</B>.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">Operations with <I>location</I> and <I>scale</I> are well-defined, whether or not the <I>mean</I> or the <I>variance</I> exist.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">Most of the probability distributions we are interested in in finance lie somewhere between the normal and the Cauchy.  These two distributions form the &quot;boundaries&quot;, so to speak, of our main area of interest.  Just as the Sierpinski carpet has a Hausdorff dimension that is a fraction which is greater than its topological dimension of 1, but less than its Euclidean dimension of 2, so do the probability distributions in which we are chiefly interested have a dimension that is greater than the Cauchy dimension of 1, but less than the normal dimension of 2.  (What is meant here by the &quot;Cauchy dimension of 1&quot; and the &quot;normal dimension of 2&quot; will be clarified as we go along.)</P>
+<P ALIGN="JUSTIFY"></P>
+<B><P ALIGN="CENTER">Notes</P>
+</B><P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">[1] See Chapter 14 in William Feller, <I>An Introduction to Probability Theory and Its Applications</I>, Vol. I, 3rd ed., John Wiley &amp; Sons, New York, 1968.</P>
+<hr>
+<P ALIGN="JUSTIFY">J. Orlin Grabbe is the author of
+<a href="http://www.amazon.com/exec/obidos/ASIN/0132069881/qid=924154369/sr=1-1/002-9261014-2388004">
+International Financial Markets</A>, and is an internationally recognized derivatives expert.  He has recently branched out into cryptology, banking security, and digital cash.  His home page is located at <A HREF="homepage.html">http://www.aci.net/kalliste/homepage.html</A> .</P>
+<center><b>-30-</b></center>
+<p>
+<center><b>from <i>The Laissez Faire City Times</i>, Vol 3, No 27, July 5, 1999</b></center>
+</td></tr></table></center>
+</body>
+</html>

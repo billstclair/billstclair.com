@@ -1,0 +1,80 @@
+<html>
+<head>
+<title>Java Source Code for Coin Toss Zero Set</title>
+</head>
+<body bgcolor=white>
+<h2 align=center>Java Source Code for Coin Toss Zero Set</h2>
+<hr>
+<p>
+<pre>
+import java.math.*;
+import java.applet.*;
+import java.awt.*;
+import java.util.Random;
+
+class ZeroSetPlot extends Canvas {
+
+        private int max_iterations = 3200;
+
+        private void plot(Graphics g, int x, int y, int iter) {
+                
+                g.setColor(Color.blue);
+                if(iter<400) {if(y==0) g.drawLine(x, 50, x, 45);
+					else g.drawLine(x,50,x,50);}
+		    else if(iter<800) {if(y==0) g.drawLine(x, 100, x, 95);
+					else g.drawLine(x,100,x,100);}
+		    else if(iter<1200) {if(y==0) g.drawLine(x, 150, x, 145);
+					else g.drawLine(x,150,x,150);}
+		    else if(iter<1600) {if(y==0) g.drawLine(x, 200, x, 195);
+					else g.drawLine(x,200,x,200);}
+		    else if(iter<2000) {if(y==0) g.drawLine(x, 250, x, 245);
+					else g.drawLine(x,250,x,250);}
+		    else if(iter<2400) {if(y==0) g.drawLine(x, 300, x, 295);
+					else g.drawLine(x,300,x,300);}
+		    else if(iter<2800) {if(y==0) g.drawLine(x, 350, x, 345);
+					else g.drawLine(x,350,x,350);}
+		    else if(iter<3200) {if(y==0) g.drawLine(x, 400, x, 395);
+					else g.drawLine(x,400,x,400);}
+			}
+
+        public void paint(Graphics g) {
+
+            double xn=0., hazard;
+            int iter, xplot, yplot, plotColor=0;
+		Random ran = new Random();
+
+        
+            for (iter=0;iter<=max_iterations;iter++) {
+
+                    hazard = ran.nextDouble();
+                    if(hazard<0.5) xn = xn + 1.0;
+                    else xn = xn - 1.0;
+
+	            xplot = 10+iter%400;
+                    yplot = (int)xn;
+                    plot(g,xplot,yplot,iter);
+                }
+        }
+        } 
+
+        public class ZeroSet extends Applet {
+
+                private ZeroSetPlot canvas;
+
+                public boolean handleEvent(Event e) {
+                        if(e.id==Event.WINDOW_DESTROY) System.exit(0);
+                        return super.handleEvent(e);
+                }
+                
+                public void init() {
+
+                        setLayout(new BorderLayout());
+                        canvas = new ZeroSetPlot();
+                        add("Center", canvas);
+                        }
+
+        }               
+
+</prev>
+</body>
+</html>

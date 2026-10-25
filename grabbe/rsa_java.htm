@@ -1,0 +1,727 @@
+<html>
+<head>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<title>Java Program for RSA Encryption, by J. Orlin Grabbe</title>
+</head>
+<body bgcolor="white" link="#0000ff" vlink="#800080">
+<p>
+<h1 align=center>Java Program for RSA Encryption</h1>
+<h3 align=center><i>by J. Orlin Grabbe</i></h3>
+<hr>
+This program shows how to use the Cryptix RSA signature function, as well as alternative
+ways of calculating the same thing using the Java Big Integer function.  Background information
+on the RSA algorithm can be found in:
+<menu>
+<li><a href="cryptnum.htm">Cryptography and Number Theory for Digital Cash</a>
+<li><a href="digsig.htm">Digital Signatures Illustrated</a>
+</menu>
+<p>
+This program, <b>testRSA.java</b>:
+<p>
+<menu>
+<li>generates a <b>secure random number</b>,
+<p>
+<li>prints out 20 bytes of this random number to the output file <b>RSA.out</b>,
+<p>
+<li>generates an <b>RSA key pair</b>,
+<p>
+<li>prints out the <b>RSA modulus  n</b> and <b>private key d</b> [note that the <b>public
+key e</b> used here is always the same: <b>e = decimal 17</b>, which is binary <b>010001</b>],
+<p>
+<li>prints out the <b>prime factors</b> of the modulus n, namely <b>p</b> and <b>q</b> where <b>n=pq</b>,
+<p>
+<li>creates an RSA signature object for signing (using the SHA1 hash algorithm),
+<p>
+<li> reads in the input file <b>data</b> and creates a 160-bit <b>SHA1 message digest</b>,
+<p>
+<li>prints out the value of the message digest to RSA.out,
+<p>
+<li>signs the data and prints out the RSA <b>signature</b> [this involves padding the
+message digest, then encrypting it with the private key <b>d</b>; note that <b>Cryptix uses
+its own padding scheme</b>, which differs from the one used by RSA, Inc.],
+<p>
+<li>verifies the signature by decrypting it (via the public key e) to reveal the padding used in the Cryptix
+calculation, as well as the value of the SHA1 hash of the message,
+<p>
+<li>uses the <b>Chinese Remainder Theorem</b> to independently calculate the RSA signature
+from the padded message digest (this is done<b> three</b> different ways in order to 
+examine the consistency of the Java Big Integer function which does the modular exponentiations)
+[these are labeled <b>sig2, sig3, sig4</b> in the program printout statements],
+<p>
+<li>verifies sig2 by decryption (raising to the power of the public key e mod n),
+<p>
+<li> uses the <b>Cryptix Verification Function</b> to verify the original RSA signature (this involves 
+reading in the file and verifying the RSA signature in the process),
+<p>
+<li> calculates <b>Euler's totient function (t = n - p - q + 1)</b>,
+<p>
+<li> does some verifications using e, d, t, and n.
+<p>
+</menu>
+<p>
+</menu>
+<p>
+The sample plaintext file (<b>data</b>) is listed below.  The sample cipherfile (DES3CIPH.out)
+is <b>not</b> listed here, because the characters in the file create problems for text editors and html,
+and thus are not handled properly by web browsers.
+<hr>
+<h2 align=center>Java Source Code</h2>
+<h3 align=center>testRSA.java</h3>
+<hr>
+<pre>
+import java.io.*;
+import java.lang.*;
+import java.security.*;
+import java.security.interfaces.*;
+import java.math.*;
+import cryptix.util.core.BI;
+import cryptix.util.core.Hex;
+
+class testRSA {
+
+    public static void main(String[] args) {
+
+        //test the process of  generating and verifying a RSA signature
+        try {
+
+        FileOutputStream outFile = new FileOutputStream("RSA.out");
+        PrintStream output = new PrintStream(outFile);
+
+        //generate a secure random number and print out 20 random bytes (this is slow)
+        SecureRandom ran = new SecureRandom();
+        byte[] bb = new byte[20];
+        //use the line below instead to create "random" bytes from the given string
+        //bb =  Hex.fromString("BF3A4C6B2F135110DE01479EC02E32D35FEEED93");
+        ran.nextBytes(bb);
+        String w = cryptix.util.core.Hex.dumpString(bb);
+        output.println("20 random bytes: " + w);
+
+        //generate an RSA key pair
+        KeyPairGenerator keyGen = KeyPairGenerator.getInstance("RSA");
+        keyGen.initialize(1024, ran);
+        KeyPair pair = keyGen.generateKeyPair();
+ 
+        // cast as RSAPrivateKey in order to access parameters directly 
+        RSAPrivateKey priv = (RSAPrivateKey) pair.getPrivate();
+        BigInteger n, x, y, p, q, u, z, t, zz, sig1, sig2, sig3, sig4, qinverse, pinverse, c1, c2, c3, c4, sub1, sub2, phash;
+
+        //print out the RSA modulus (n=pq) and RSA private key d
+        n = (BigInteger) priv.getModulus();
+        x = (BigInteger) priv.getExponent();
+        w = cryptix.util.core.BI.dumpString(n);
+        output.println("RSA modulus (n=pq) = " + w);;
+        w = cryptix.util.core.BI.dumpString(x);
+        output.println("RSA private key d = " + w);
+
+        //print out the prime factors p, q, and inverse of q mod p 
+        RSAFactors factors = (RSAFactors) priv;
+        p = factors.getP();
+        q = factors.getQ();
+        u = factors.getInverseOfQModP();
+        w = cryptix.util.core.BI.dumpString(p);
+        output.println("RSA factor p = " + w);;
+        w = cryptix.util.core.BI.dumpString(q);
+        output.println("RSA factor q = " + w);;
+        w = cryptix.util.core.BI.dumpString(u);
+        output.println("inverse of q mod p = " + w);
+
+        //check these above values using modular exponentiation 
+        qinverse = q.modInverse(p);
+        w = cryptix.util.core.BI.dumpString(qinverse);
+        output.println("*inverse of q mod p = " + w);
+ 
+        pinverse = p.modInverse(q);
+        w = cryptix.util.core.BI.dumpString(pinverse);
+        output.println("*inverse of p mod q = " + w);
+
+        //create a Signature object to use for signing and verifying 
+        Signature sha = Signature.getInstance("SHA-1/RSA/PKCS#1"); 
+        w = sha.toString(); 
+        output.println("signature = " + w);
+        // initialize the Signature object for signing 
+        sha.initSign(priv);
+
+        //update and sign the data
+        //independently check the message digest
+        MessageDigest md = MessageDigest.getInstance("SHA-1");
+        FileInputStream fis = new FileInputStream(args[0]);
+        byte b;
+        while (fis.available() != 0) {
+        b = (byte) fis.read();
+        md.update(b);
+        sha.update(b);
+                };
+        fis.close();
+
+        byte[] hash = md.digest();
+        w = cryptix.util.core.Hex.dumpString(hash);
+        output.println("the SHA-1 hash of " + args[0] + " is " + w);
+
+        // now that all the data to be signed has been read in, sign it 
+        byte[] sig = sha.sign();
+        w = cryptix.util.core.Hex.dumpString(sig);
+        output.println("the RSA signature (byte array) is " + w);
+        sig1 = new BigInteger(sig);
+        w = cryptix.util.core.BI.dumpString(sig1);
+        output.println("the RSA signature (BigInteger) is " + w);
+		
+        //check the signature by direct decryption using the public key (e=010001)
+        z = new BigInteger("010001",16);
+        z = sig1.modPow(z,n);
+        w = cryptix.util.core.BI.dumpString(z);
+        output.println("RSA signature verified (by taking inverse) is " + w);
+     
+        // independently calculate the RSA signature (must include padding!) 
+        //first pad the hash value
+        z = new BigInteger("01FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF003021300906052B0E03021A050004140000000000000000000000000000000000000000",16);
+        zz = new BigInteger(hash);
+        phash = z.add(zz);
+        w = cryptix.util.core.BI.dumpString(phash);
+        output.println("padded hash is " + w);
+		
+        //next use the Chinese Remainder Theorem on the padded hash to calculate an RSA signature (sig2)
+        sub1 = phash.modPow(x,p);
+        sub2 = phash.modPow(x,q);
+        z = q.multiply(qinverse);
+        z = z.mod(n);
+        zz = p.multiply(pinverse);
+        zz = zz.mod(n);
+        z = sub1.multiply(z);
+        z = z.mod(n);
+        zz = sub2.multiply(zz);
+        zz = zz.mod(n);
+        z = z.add(zz);
+        z = z.mod(n);
+        sig2 = z;
+        w = cryptix.util.core.BI.dumpString(z);
+        output.println("Chinese remainder signature solution (sig2) is " + w);
+
+        //use the Chinese Remainder Theorem again (sig3)
+        z = new BigInteger("01FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF003021300906052B0E03021A050004140000000000000000000000000000000000000000",16);
+        zz = new BigInteger(hash);
+        phash = z.add(zz);
+        w = cryptix.util.core.BI.dumpString(phash);
+        output.println("padded hash is " + w);
+        sub1 = phash.modPow(x,p);
+        sub2 = phash.modPow(x,q);
+        z = sub1.subtract(sub2);
+        z = z.multiply(qinverse);
+        z = z.mod(p);
+        z = z.multiply(q);
+        z = z.add(sub2);
+        sig3 = z;
+        w = cryptix.util.core.BI.dumpString(z);
+        output.println("Different Chinese remainder signature solution (sig3) is " + w);
+
+        //use the Chinese Remainder Theorem yet again (sig4)
+        z = new BigInteger("01FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF003021300906052B0E03021A050004140000000000000000000000000000000000000000",16);
+        zz = new BigInteger(hash);
+        phash = z.add(zz);
+        w = cryptix.util.core.BI.dumpString(phash);
+        output.println("padded hash is " + w);
+        sub1 = phash.modPow(x,p);
+        sub2 = phash.modPow(x,q);
+        z = sub2.subtract(sub1);
+        z = z.multiply(pinverse);
+        z = z.mod(q);
+        z = z.multiply(p);
+        z = z.add(sub1);
+        sig4 = z;
+        w = cryptix.util.core.BI.dumpString(z);
+        output.println("Different Chinese remainder signature solution (sig4) is " + w);
+
+        // verify sig2 by decryption by the public key
+        sig2 = phash.modPow(x,n);
+        w = cryptix.util.core.BI.dumpString(sig2);
+        output.println("(paddded hash)^d mod n (sig2) " + w);
+        zz = new BigInteger("010001",16);
+        z = z.modPow(zz,n);
+        w = cryptix.util.core.BI.dumpString(z);
+        output.println("((padded hash)^d)^e mod n (sig2 verified) is " + w);
+
+        // let's have some more fun
+        c1 = sig1.mod(p);        
+        w = cryptix.util.core.BI.dumpString(c1);
+        output.println("sig1 mod p is " + w);
+
+        c2 = sig1.mod(q);
+        w = cryptix.util.core.BI.dumpString(c2);
+        output.println("sig1 mod q is " + w);
+
+        z = q.multiply(qinverse);
+        z = z.mod(n);
+        zz = p.multiply(pinverse);
+        zz = zz.mod(n);
+        z = c1.multiply(z);
+        z = z.mod(n);
+        zz = c2.multiply(zz);
+        zz = zz.mod(n);
+        z = z.add(zz);
+        z = z.mod(n);
+        w = cryptix.util.core.BI.dumpString(z);
+        output.println("Chinese remainder solution sig1 is " + w);
+
+        c3 = sig2.mod(p);
+        w = cryptix.util.core.BI.dumpString(c3);
+        output.println("sig2 mod p is " + w);
+
+        c4 = sig2.mod(q);
+        w = cryptix.util.core.BI.dumpString(c4);
+        output.println("sig2 mod q is " + w);
+
+        z = q.multiply(qinverse);
+        z = z.mod(n);
+        zz = p.multiply(pinverse);
+        zz = zz.mod(n);
+        z = c3.multiply(z);
+        z = z.mod(n);
+        zz = c4.multiply(zz);
+        zz = zz.mod(n);
+        z = z.add(zz);
+        z = z.mod(n);
+        w = cryptix.util.core.BI.dumpString(z);
+        output.println("Chinese remainder solution sig2 is " + w);
+
+        z = sig1.divide(sig2);   
+        w = cryptix.util.core.BI.dumpString(z);
+        output.println("sig1 divided by sig2 is " + w);
+
+        z = sig2.divide(sig1);
+        w = cryptix.util.core.BI.dumpString(z);
+        output.println("sig2 divided by sig1 is " + w);
+
+        RSAPublicKey pub = (RSAPublicKey) pair.getPublic();
+        output.println("pub = " + pub);
+
+        // print the value of the public key e (to verify the stored value)
+        n = (BigInteger) pub.getModulus();
+        y = (BigInteger) pub.getExponent();
+        w = cryptix.util.core.BI.dumpString(n);
+        output.println("RSA modulus n = " + w);
+        w = cryptix.util.core.BI.dumpString(y);
+        output.println("RSA public key e = " + w);
+
+        // Back out padding from signature 
+        z = new BigInteger(sig);
+        z = z.modPow(y,n);
+        w = cryptix.util.core.BI.dumpString(z);
+        output.println("sig^e mod n " + w);
+        w = cryptix.util.core.BI.dumpString(x);
+        output.println("RSA private key d = " + w);
+        z = z.modPow(x,n);
+        w = cryptix.util.core.BI.dumpString(z);
+        output.println("(sig^e)^d mod n " + w);
+        w = cryptix.util.core.Hex.dumpString(hash);
+        output.println("the SHA-1 hash of " + args[0] + " is " + w);
+    
+        // Verify the RSA signature using the Cryptix verification function
+        // initialize the signature object for verification 
+        sha.initVerify(pub);
+
+        // update and verify the data
+        fis = new FileInputStream(args[0]);
+        while (fis.available() != 0) {
+        b = (byte) fis.read();
+        sha.update(b);
+        };
+        fis.close();
+        boolean verifies = sha.verify(sig);
+        output.println("signature verifies: " + verifies);
+
+        // calculate the product of the primes p and q
+        z = p.multiply(q);
+        w = cryptix.util.core.BI.dumpString(z);
+        output.println("The product of the primes, pq = " + w);
+		
+        // calculate Euler''s totient function n = pq - p - q + 1
+        zz = new BigInteger("1");
+        z = z.subtract(p);
+        z = z.subtract(q);
+        t = z.add(zz);
+        w = cryptix.util.core.BI.dumpString(t);
+        output.println("Euler's totient function t = " + w);
+
+        z = x.multiply(y);
+        z = z.mod(t);
+        w = cryptix.util.core.BI.dumpString(z);
+        output.println("(ed) mod t = " + w);
+		
+        zz = new BigInteger("2");
+        z  = new BigInteger("11");
+        z = z.mod(zz);
+        w = cryptix.util.core.BI.dumpString(z);
+        output.println("11 mod 2 = " + w);
+		
+        z = phash.modPow(t,n);
+        w = cryptix.util.core.BI.dumpString(z);
+        output.println("(padded hash)^t mod n = " + w);
+
+        zz = new BigInteger("1");
+        BigInteger tplus1 = t.add(zz);  // tplus1 = t + 1
+        z = phash.modPow(tplus1,n);
+        w = cryptix.util.core.BI.dumpString(z);
+        output.println("(padded hash)^(t+1) mod n = " + w);
+
+       n = (BigInteger) pub.getModulus();
+       y = (BigInteger) pub.getExponent();
+       x = (BigInteger) priv.getExponent();
+       z = y.multiply(x);
+       w = cryptix.util.core.BI.dumpString(z);
+       output.println("e*d = " + w);
+
+       zz = new BigInteger("1");
+       z = z.subtract(zz);
+       w = cryptix.util.core.BI.dumpString(z);
+       output.println("e*d-1 = " + w);
+       zz = new BigInteger("17");
+       zz = zz.modPow(z,n);
+       w = cryptix.util.core.BI.dumpString(zz);
+       output.println(" 17^(e*d-1) mod n = " + w);
+
+       outFile.close();
+       System.out.println("File written");
+
+        } catch (Exception e) {
+            System.err.println("Caught exception " + e.toString());
+        }
+    }}
+
+</pre>
+<hr>
+<h2 align=center>Sample Text Program Input</h2>
+<h3 align=center>data</h3>
+<hr>
+<pre>
+Senator Hand N. Till
+Washington, DC
+
+Dear Senator:
+
+This letter is to inform you we have
+opened account no. 338907021 on your
+behalf, and deposted therein a
+legislative incentive payment of
+$1 million.  For withdrawl, you will
+need to use your password BJRGUD7693.
+
+Yours very truly,
+
+Arnold C. Creole
+Vice President
+Greater Caribbean Bank
+</pre>
+<hr>
+<h2 align=center>Sample Program Output</h2>
+<h3 align=center>RSA.out</h3>
+<hr>
+<pre>
+20 random bytes: E339C05A53F78508 21CCD34B9AF5FF85 24C40052
+
+RSA modulus (n=pq) = Multi-Precision Integer 1024 bits long...
+      sign: Positive
+ magnitude: Hexadecimal dump of 128 bytes...
+   0: 8B7F4D714F9D5A64 7B89E0ADF40AE455 5D521EEC8A924970 900FC81E1823A48F 
+  32: D87D7094F628DC68 96880F8D9403AE78 4965910EE17D8566 C6B477877947636E 
+  64: ED5A34727A11B46E DA1EBF136C586E79 EE39BFB115C2677B 4EBF0111912E54F6 
+  96: 4F57725F2811619D 6ED6FD2DE9BE5275 C1E1D1131E46F44D A298A56FFA7B3C55 
+
+RSA private key d = Multi-Precision Integer 1023 bits long...
+      sign: Positive
+ magnitude: Hexadecimal dump of 128 bytes...
+   0: 4192D2FD9BD63502 9D0C0020E5622559 7767BDFFA55804CB B3FCA72E765C72E3 
+  32: E77977ED9E15311E BCFC328B73F39315 1A33734FD271A5BE DD534208DDDAD003 
+  64: 48388620B125ACF2 492267E8BCB4D2F3 04E01F9F747FB2A0 DAF15348E39C3C0F 
+  96: FC5DB72D4B31AFAC 7F36BC1A3A9A5CFF 591459D0D9A78411 B783687DAFE1D935 
+
+RSA factor p = Multi-Precision Integer 512 bits long...
+      sign: Positive
+ magnitude: Hexadecimal dump of 64 bytes...
+   0: B834B8CBBCDE4B18 5B18DEBBC14B339E A6075127DDFE4667 232FCC13A5701CED 
+  32: 1B2C91C51A1E7A9D C2BD2DE2CAE5AA70 A6878FD4A94A3CD8 5A2BED9F21B5E81B 
+
+RSA factor q = Multi-Precision Integer 512 bits long...
+      sign: Positive
+ magnitude: Hexadecimal dump of 64 bytes...
+   0: C1DDBDDA8C62D16F 60036A91046D5E6C 7F4A2F73961F650A 407721B1DA95102C 
+  32: 08EF2018CCFFE663 FD35FA327E213EE9 649D3FD46304B243 3847175A500B944F 
+
+inverse of q mod p = Multi-Precision Integer 512 bits long...
+      sign: Positive
+ magnitude: Hexadecimal dump of 64 bytes...
+   0: B644B673C81B8731 16A03B3E7D0AD905 162FDC1C8795355C 2792046276F84598 
+  32: 2775AB5946EBF588 BC76732F3301A2A8 8BD203E1C445A1D9 83455BF788E09BB3 
+
+*inverse of q mod p = Multi-Precision Integer 512 bits long...
+      sign: Positive
+ magnitude: Hexadecimal dump of 64 bytes...
+   0: B644B673C81B8731 16A03B3E7D0AD905 162FDC1C8795355C 2792046276F84598 
+  32: 2775AB5946EBF588 BC76732F3301A2A8 8BD203E1C445A1D9 83455BF788E09BB3 
+
+*inverse of p mod q = Multi-Precision Integer 506 bits long...
+      sign: Positive
+ magnitude: Hexadecimal dump of 64 bytes...
+   0: 020A056A18AE6EC3 321F56E13FEC961F A36E8D9A7E910894 89E8BD49C2581384 
+  32: 85E65468863A12DE BA0B79E92768D6DF 1C1D2EA3C60014F9 05A62ED59FD7BFDB 
+
+signature = Signature object: SHA-1/RSA/PKCS#1<not initialized>
+the SHA-1 hash of data is 1A01B56EB33FA84A 39EEDDD927977726 38331E94
+
+the RSA signature (byte array) is Hexadecimal dump of 128 bytes...
+   0: 222A10D26938FD91 95FAEDB456C04B20 465D7EB7B2D6FC35 9ACB94FD8F754C77 
+  32: 0E00AD9CDD5AECC7 D0620B615499833D EE792F53D3D54CDA 194E4A75CB0EF86D 
+  64: 792B5C62571CEEFD C3B94CCE5E899A2F 07B1FA38875E3EC2 B1E77A9D398A3E9D 
+  96: 68B9469C5866BED3 68C38AE12BE74C05 C7DA48E81E779214 AA612C295A85F3A3 
+
+the RSA signature (BigInteger) is Multi-Precision Integer 1022 bits long...
+      sign: Positive
+ magnitude: Hexadecimal dump of 128 bytes...
+   0: 222A10D26938FD91 95FAEDB456C04B20 465D7EB7B2D6FC35 9ACB94FD8F754C77 
+  32: 0E00AD9CDD5AECC7 D0620B615499833D EE792F53D3D54CDA 194E4A75CB0EF86D 
+  64: 792B5C62571CEEFD C3B94CCE5E899A2F 07B1FA38875E3EC2 B1E77A9D398A3E9D 
+  96: 68B9469C5866BED3 68C38AE12BE74C05 C7DA48E81E779214 AA612C295A85F3A3 
+
+RSA signature verified (by taking inverse) is Multi-Precision Integer 1009 bits long...
+      sign: Positive
+ magnitude: Hexadecimal dump of 127 bytes...
+   0: 01FFFFFFFFFFFFFF FFFFFFFFFFFFFFFF FFFFFFFFFFFFFFFF FFFFFFFFFFFFFFFF 
+  32: FFFFFFFFFFFFFFFF FFFFFFFFFFFFFFFF FFFFFFFFFFFFFFFF FFFFFFFFFFFFFFFF 
+  64: FFFFFFFFFFFFFFFF FFFFFFFFFFFFFFFF FFFFFFFFFFFFFFFF FFFFFF0030213009 
+  96: 06052B0E03021A05 0004141A01B56EB3 3FA84A39EEDDD927 97772638331E94
+
+padded hash is Multi-Precision Integer 1009 bits long...
+      sign: Positive
+ magnitude: Hexadecimal dump of 127 bytes...
+   0: 01FFFFFFFFFFFFFF FFFFFFFFFFFFFFFF FFFFFFFFFFFFFFFF FFFFFFFFFFFFFFFF 
+  32: FFFFFFFFFFFFFFFF FFFFFFFFFFFFFFFF FFFFFFFFFFFFFFFF FFFFFFFFFFFFFFFF 
+  64: FFFFFFFFFFFFFFFF FFFFFFFFFFFFFFFF FFFFFFFFFFFFFFFF FFFFFF0030213009 
+  96: 06052B0E03021A05 0004141A01B56EB3 3FA84A39EEDDD927 97772638331E94
+
+Chinese remainder signature solution (sig2) is Multi-Precision Integer 1022 bits long...
+      sign: Positive
+ magnitude: Hexadecimal dump of 128 bytes...
+   0: 222A10D26938FD91 95FAEDB456C04B20 465D7EB7B2D6FC35 9ACB94FD8F754C77 
+  32: 0E00AD9CDD5AECC7 D0620B615499833D EE792F53D3D54CDA 194E4A75CB0EF86D 
+  64: 792B5C62571CEEFD C3B94CCE5E899A2F 07B1FA38875E3EC2 B1E77A9D398A3E9D 
+  96: 68B9469C5866BED3 68C38AE12BE74C05 C7DA48E81E779214 AA612C295A85F3A3 
+
+padded hash is Multi-Precision Integer 1009 bits long...
+      sign: Positive
+ magnitude: Hexadecimal dump of 127 bytes...
+   0: 01FFFFFFFFFFFFFF FFFFFFFFFFFFFFFF FFFFFFFFFFFFFFFF FFFFFFFFFFFFFFFF 
+  32: FFFFFFFFFFFFFFFF FFFFFFFFFFFFFFFF FFFFFFFFFFFFFFFF FFFFFFFFFFFFFFFF 
+  64: FFFFFFFFFFFFFFFF FFFFFFFFFFFFFFFF FFFFFFFFFFFFFFFF FFFFFF0030213009 
+  96: 06052B0E03021A05 0004141A01B56EB3 3FA84A39EEDDD927 97772638331E94
+
+Different Chinese remainder signature solution (sig3) is Multi-Precision Integer 1022 bits long...
+      sign: Positive
+ magnitude: Hexadecimal dump of 128 bytes...
+   0: 222A10D26938FD91 95FAEDB456C04B20 465D7EB7B2D6FC35 9ACB94FD8F754C77 
+  32: 0E00AD9CDD5AECC7 D0620B615499833D EE792F53D3D54CDA 194E4A75CB0EF86D 
+  64: 792B5C62571CEEFD C3B94CCE5E899A2F 07B1FA38875E3EC2 B1E77A9D398A3E9D 
+  96: 68B9469C5866BED3 68C38AE12BE74C05 C7DA48E81E779214 AA612C295A85F3A3 
+
+padded hash is Multi-Precision Integer 1009 bits long...
+      sign: Positive
+ magnitude: Hexadecimal dump of 127 bytes...
+   0: 01FFFFFFFFFFFFFF FFFFFFFFFFFFFFFF FFFFFFFFFFFFFFFF FFFFFFFFFFFFFFFF 
+  32: FFFFFFFFFFFFFFFF FFFFFFFFFFFFFFFF FFFFFFFFFFFFFFFF FFFFFFFFFFFFFFFF 
+  64: FFFFFFFFFFFFFFFF FFFFFFFFFFFFFFFF FFFFFFFFFFFFFFFF FFFFFF0030213009 
+  96: 06052B0E03021A05 0004141A01B56EB3 3FA84A39EEDDD927 97772638331E94
+
+Different Chinese remainder signature solution (sig4) is Multi-Precision Integer 1022 bits long...
+      sign: Positive
+ magnitude: Hexadecimal dump of 128 bytes...
+   0: 222A10D26938FD91 95FAEDB456C04B20 465D7EB7B2D6FC35 9ACB94FD8F754C77 
+  32: 0E00AD9CDD5AECC7 D0620B615499833D EE792F53D3D54CDA 194E4A75CB0EF86D 
+  64: 792B5C62571CEEFD C3B94CCE5E899A2F 07B1FA38875E3EC2 B1E77A9D398A3E9D 
+  96: 68B9469C5866BED3 68C38AE12BE74C05 C7DA48E81E779214 AA612C295A85F3A3 
+
+(paddded hash)^d mod n (sig2) Multi-Precision Integer 1022 bits long...
+      sign: Positive
+ magnitude: Hexadecimal dump of 128 bytes...
+   0: 222A10D26938FD91 95FAEDB456C04B20 465D7EB7B2D6FC35 9ACB94FD8F754C77 
+  32: 0E00AD9CDD5AECC7 D0620B615499833D EE792F53D3D54CDA 194E4A75CB0EF86D 
+  64: 792B5C62571CEEFD C3B94CCE5E899A2F 07B1FA38875E3EC2 B1E77A9D398A3E9D 
+  96: 68B9469C5866BED3 68C38AE12BE74C05 C7DA48E81E779214 AA612C295A85F3A3 
+
+((padded hash)^d)^e mod n (sig2 verified) is Multi-Precision Integer 1009 bits long...
+      sign: Positive
+ magnitude: Hexadecimal dump of 127 bytes...
+   0: 01FFFFFFFFFFFFFF FFFFFFFFFFFFFFFF FFFFFFFFFFFFFFFF FFFFFFFFFFFFFFFF 
+  32: FFFFFFFFFFFFFFFF FFFFFFFFFFFFFFFF FFFFFFFFFFFFFFFF FFFFFFFFFFFFFFFF 
+  64: FFFFFFFFFFFFFFFF FFFFFFFFFFFFFFFF FFFFFFFFFFFFFFFF FFFFFF0030213009 
+  96: 06052B0E03021A05 0004141A01B56EB3 3FA84A39EEDDD927 97772638331E94
+
+sig1 mod p is Multi-Precision Integer 511 bits long...
+      sign: Positive
+ magnitude: Hexadecimal dump of 64 bytes...
+   0: 783ACDCA8A8EBFD7 A94F9C7CA96BB41D 7A76692EA73EC14B FDCA00155549AD7B 
+  32: 35DD4D42113C5DB4 BB23542A0B89A1CC E5862A146D28BF7F 0906E7A47BB6A553 
+
+sig1 mod q is Multi-Precision Integer 509 bits long...
+      sign: Positive
+ magnitude: Hexadecimal dump of 64 bytes...
+   0: 1C610E1E12E9908C 04D6CE070AB02DC2 276F76B6AFC94ABF D10D9E5A11A5A35C 
+  32: 85E1774572F634B2 F4A7349F3496CD25 1030376BDBE5E4D4 20745922BA703F9D 
+
+Chinese remainder solution sig1 is Multi-Precision Integer 1022 bits long...
+      sign: Positive
+ magnitude: Hexadecimal dump of 128 bytes...
+   0: 222A10D26938FD91 95FAEDB456C04B20 465D7EB7B2D6FC35 9ACB94FD8F754C77 
+  32: 0E00AD9CDD5AECC7 D0620B615499833D EE792F53D3D54CDA 194E4A75CB0EF86D 
+  64: 792B5C62571CEEFD C3B94CCE5E899A2F 07B1FA38875E3EC2 B1E77A9D398A3E9D 
+  96: 68B9469C5866BED3 68C38AE12BE74C05 C7DA48E81E779214 AA612C295A85F3A3 
+
+
+sig2 mod p is Multi-Precision Integer 511 bits long...
+      sign: Positive
+ magnitude: Hexadecimal dump of 64 bytes...
+   0: 783ACDCA8A8EBFD7 A94F9C7CA96BB41D 7A76692EA73EC14B FDCA00155549AD7B 
+  32: 35DD4D42113C5DB4 BB23542A0B89A1CC E5862A146D28BF7F 0906E7A47BB6A553 
+
+sig2 mod q is Multi-Precision Integer 509 bits long...
+      sign: Positive
+ magnitude: Hexadecimal dump of 64 bytes...
+   0: 1C610E1E12E9908C 04D6CE070AB02DC2 276F76B6AFC94ABF D10D9E5A11A5A35C 
+  32: 85E1774572F634B2 F4A7349F3496CD25 1030376BDBE5E4D4 20745922BA703F9D 
+
+Chinese remainder solution sig2 is Multi-Precision Integer 1022 bits long...
+      sign: Positive
+ magnitude: Hexadecimal dump of 128 bytes...
+   0: 222A10D26938FD91 95FAEDB456C04B20 465D7EB7B2D6FC35 9ACB94FD8F754C77 
+  32: 0E00AD9CDD5AECC7 D0620B615499833D EE792F53D3D54CDA 194E4A75CB0EF86D 
+  64: 792B5C62571CEEFD C3B94CCE5E899A2F 07B1FA38875E3EC2 B1E77A9D398A3E9D 
+  96: 68B9469C5866BED3 68C38AE12BE74C05 C7DA48E81E779214 AA612C295A85F3A3 
+
+sig1 divided by sig2 is Multi-Precision Integer 1 bits long...
+      sign: Positive
+ magnitude: 01
+
+sig2 divided by sig1 is Multi-Precision Integer 1 bits long...
+      sign: Positive
+ magnitude: 01
+
+pub = ----- RSAPublicKey:
+
+         n: Multi-Precision Integer 1024 bits long...
+      sign: Positive
+ magnitude: Hexadecimal dump of 128 bytes...
+   0: 8B7F4D714F9D5A64 7B89E0ADF40AE455 5D521EEC8A924970 900FC81E1823A48F 
+  32: D87D7094F628DC68 96880F8D9403AE78 4965910EE17D8566 C6B477877947636E 
+  64: ED5A34727A11B46E DA1EBF136C586E79 EE39BFB115C2677B 4EBF0111912E54F6 
+  96: 4F57725F2811619D 6ED6FD2DE9BE5275 C1E1D1131E46F44D A298A56FFA7B3C55 
+
+         e: Multi-Precision Integer 17 bits long...
+      sign: Positive
+ magnitude: 010001
+
+-----
+
+RSA modulus n = Multi-Precision Integer 1024 bits long...
+      sign: Positive
+ magnitude: Hexadecimal dump of 128 bytes...
+   0: 8B7F4D714F9D5A64 7B89E0ADF40AE455 5D521EEC8A924970 900FC81E1823A48F 
+  32: D87D7094F628DC68 96880F8D9403AE78 4965910EE17D8566 C6B477877947636E 
+  64: ED5A34727A11B46E DA1EBF136C586E79 EE39BFB115C2677B 4EBF0111912E54F6 
+  96: 4F57725F2811619D 6ED6FD2DE9BE5275 C1E1D1131E46F44D A298A56FFA7B3C55 
+
+RSA public key e = Multi-Precision Integer 17 bits long...
+      sign: Positive
+ magnitude: 010001
+
+sig^e mod n Multi-Precision Integer 1009 bits long...
+      sign: Positive
+ magnitude: Hexadecimal dump of 127 bytes...
+   0: 01FFFFFFFFFFFFFF FFFFFFFFFFFFFFFF FFFFFFFFFFFFFFFF FFFFFFFFFFFFFFFF 
+  32: FFFFFFFFFFFFFFFF FFFFFFFFFFFFFFFF FFFFFFFFFFFFFFFF FFFFFFFFFFFFFFFF 
+  64: FFFFFFFFFFFFFFFF FFFFFFFFFFFFFFFF FFFFFFFFFFFFFFFF FFFFFF0030213009 
+  96: 06052B0E03021A05 0004141A01B56EB3 3FA84A39EEDDD927 97772638331E94
+
+RSA private key d = Multi-Precision Integer 1023 bits long...
+      sign: Positive
+ magnitude: Hexadecimal dump of 128 bytes...
+   0: 4192D2FD9BD63502 9D0C0020E5622559 7767BDFFA55804CB B3FCA72E765C72E3 
+  32: E77977ED9E15311E BCFC328B73F39315 1A33734FD271A5BE DD534208DDDAD003 
+  64: 48388620B125ACF2 492267E8BCB4D2F3 04E01F9F747FB2A0 DAF15348E39C3C0F 
+  96: FC5DB72D4B31AFAC 7F36BC1A3A9A5CFF 591459D0D9A78411 B783687DAFE1D935 
+
+(sig^e)^d mod n Multi-Precision Integer 1022 bits long...
+      sign: Positive
+ magnitude: Hexadecimal dump of 128 bytes...
+   0: 222A10D26938FD91 95FAEDB456C04B20 465D7EB7B2D6FC35 9ACB94FD8F754C77 
+  32: 0E00AD9CDD5AECC7 D0620B615499833D EE792F53D3D54CDA 194E4A75CB0EF86D 
+  64: 792B5C62571CEEFD C3B94CCE5E899A2F 07B1FA38875E3EC2 B1E77A9D398A3E9D 
+  96: 68B9469C5866BED3 68C38AE12BE74C05 C7DA48E81E779214 AA612C295A85F3A3 
+
+the SHA-1 hash of data is 1A01B56EB33FA84A 39EEDDD927977726 38331E94
+
+signature verifies: true
+
+The product of the primes, pq = Multi-Precision Integer 1024 bits long...
+      sign: Positive
+ magnitude: Hexadecimal dump of 128 bytes...
+   0: 8B7F4D714F9D5A64 7B89E0ADF40AE455 5D521EEC8A924970 900FC81E1823A48F 
+  32: D87D7094F628DC68 96880F8D9403AE78 4965910EE17D8566 C6B477877947636E 
+  64: ED5A34727A11B46E DA1EBF136C586E79 EE39BFB115C2677B 4EBF0111912E54F6 
+  96: 4F57725F2811619D 6ED6FD2DE9BE5275 C1E1D1131E46F44D A298A56FFA7B3C55 
+
+Euler's totient function t = Multi-Precision Integer 1024 bits long...
+      sign: Positive
+ magnitude: Hexadecimal dump of 128 bytes...
+   0: 8B7F4D714F9D5A64 7B89E0ADF40AE455 5D521EEC8A924970 900FC81E1823A48F 
+  32: D87D7094F628DC68 96880F8D9403AE78 4965910EE17D8566 C6B477877947636D 
+  64: 7347BDCC30D097E7 1F0275C6A69FDC6E C8E83F15A1A4BC09 EB18134C112927DD 
+  96: 2B3BC08140F3009B AEE3D518A0B7691B B6BD016A11F80532 1025A07688B9BFEC 
+
+(ed) mod t = Multi-Precision Integer 1 bits long...
+      sign: Positive
+ magnitude: 01
+
+11 mod 2 = Multi-Precision Integer 1 bits long...
+      sign: Positive
+ magnitude: 01
+
+(padded hash)^t mod n = Multi-Precision Integer 1 bits long...
+      sign: Positive
+ magnitude: 01
+
+(padded hash)^(t+1) mod n = Multi-Precision Integer 1009 bits long...
+      sign: Positive
+ magnitude: Hexadecimal dump of 127 bytes...
+   0: 01FFFFFFFFFFFFFF FFFFFFFFFFFFFFFF FFFFFFFFFFFFFFFF FFFFFFFFFFFFFFFF 
+  32: FFFFFFFFFFFFFFFF FFFFFFFFFFFFFFFF FFFFFFFFFFFFFFFF FFFFFFFFFFFFFFFF 
+  64: FFFFFFFFFFFFFFFF FFFFFFFFFFFFFFFF FFFFFFFFFFFFFFFF FFFFFF0030213009 
+  96: 06052B0E03021A05 0004141A01B56EB3 3FA84A39EEDDD927 97772638331E94
+
+e*d = Multi-Precision Integer 1039 bits long...
+      sign: Positive
+ magnitude: Hexadecimal dump of 130 bytes...
+   0: 419314906ED3D0D8 D20E9D2CE5830ABB 9CC135676357AA23 B8C85B2B1D8AE940 
+  32: 5A5D5F671602CF33 EE1AEF87A67F0708 AD488D8345C17830 83121F5C1FE3ADDE 
+  64: 183BCE5937465E17 F614B10B249D8FA7 D7D3247F941F2720 8D922E3A36E51FAC 
+  96: 386DB38B025EFADE 2EE33B50F6B49799 B613B2E533785DB9 3B952001185F8916 
+ 128: D935
+
+e*d-1 = Multi-Precision Integer 1039 bits long...
+      sign: Positive
+ magnitude: Hexadecimal dump of 130 bytes...
+   0: 419314906ED3D0D8 D20E9D2CE5830ABB 9CC135676357AA23 B8C85B2B1D8AE940 
+  32: 5A5D5F671602CF33 EE1AEF87A67F0708 AD488D8345C17830 83121F5C1FE3ADDE 
+  64: 183BCE5937465E17 F614B10B249D8FA7 D7D3247F941F2720 8D922E3A36E51FAC 
+  96: 386DB38B025EFADE 2EE33B50F6B49799 B613B2E533785DB9 3B952001185F8916 
+ 128: D934
+
+ 17^(e*d-1) mod n = Multi-Precision Integer 1 bits long...
+      sign: Positive
+ magnitude: 01
+
+</pre>
+<p>
+<hr>
+<P ALIGN="JUSTIFY">J. Orlin Grabbe is the author of
+<a href="http://www.amazon.com/exec/obidos/ASIN/0132069881/qid=924154369/sr=1-1/002-9261014-2388004">International Financial Markets</A>, and is an internationally recognized derivatives expert who has recently branched out into cryptology, banking security, and digital cash.  His home page is located at <A HREF="homepage.html">http://www.aci.net/kalliste/homepage.html</A>.
+He currently resides in Costa Rica. </P>
+<center><b><a href="javacrypt_index.htm">Click here to return to Encryption Menu</a></center>
+
+</body>
+</html>

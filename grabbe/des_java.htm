@@ -1,0 +1,131 @@
+<html>
+<head>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<title>Java Program for DES Encryption, by J. Orlin Grabbe</title>
+</head>
+<body bgcolor="white" link="#0000ff" vlink="#800080">
+<p>
+<h1 align=center>Java Program for DES Encryption</h1>
+<h3 align=center><i>by J. Orlin Grabbe</i></h3>
+<hr>
+This program shows how to use Cryptix to encrypt a string with DES.  Background information
+on DES can be found in:
+<p>
+<center><a href="des.htm">The DES Algorithm Illustrated</a></center>
+<p>
+The program listed below, <b>testDES.java</b>:
+<p>
+<menu>
+<li> takes the DES key input and a text string (to be encrypted) from the program itself (not from a file),
+<p>
+<li> encrypts the string (to produce the ciphertext), 
+<p>
+<li> writes the key and the ciphertext to a file <b>DES.out</b>,
+<p>
+<li>decrypts the ciphertext (still in computer memory), and writes the
+resulting plaintext string to the file.
+</menu>
+<p>
+In this example, we see see the following three numbers:
+<menu>
+<p>
+<li> <b>DES key:</b> 3812A419C63BE771
+<p>
+<li> <b>Plaintext:</b> 0101010101010101 0102030405060708 090A0B0C0D0E0F10 1112131415161718 
+<p>
+<li><b>Ciphertext:</b> 3A2EAD12F475D82C 1FC97BB9A6D955E1 EA5541946BB4F2E6 F29555A6E8F1FB3C
+</menu>
+<p>
+<hr>
+<h2 align=center>Java Source Code</h2>
+<h3 align=center>testDES.java</h3>
+<hr>
+<pre>
+import java.io.*;
+import java.security.*;
+import java.math.*;
+import cryptix.util.core.BI;
+import cryptix.util.core.ArrayUtil;
+import cryptix.util.core.Hex;
+import cryptix.provider.key.*;
+
+
+class testDES {
+
+public static void main (String[] args) {
+
+	try {
+	FileOutputStream outFile1 = new FileOutputStream("DES.out");
+	// Note: PrintStream is deprecated, but still works fine in jdk1.1.7b
+	PrintStream output1 = new PrintStream(outFile1);
+
+	// convert a string to a DES key and print out the result
+	RawSecretKey key2 = new RawSecretKey("DES",Hex.fromString("3812A419C63BE771"));
+	RawKey rkey = (RawKey) key2;
+	byte[] yval = rkey.getEncoded();
+	BigInteger Bkey = new BigInteger(yval);
+	String w = cryptix.util.core.BI.dumpString(Bkey);
+	output1.println("The Encryption Key = " + w);
+	
+	// use the DES key to encrypt a string
+	Cipher des=Cipher.getInstance("DES/ECB/NONE","Cryptix");
+	des.initEncrypt(key2);	
+	byte[] ciphertext = des.crypt(Hex.fromString("01010101010101010102030405060708090A0B0C0D0E0F101112131415161718"));
+
+	// print out length and representation of ciphertext 
+	output1.print("\n");
+	output1.println("ciphertext.length = " + ciphertext.length);
+
+	BigInteger Bciph = new BigInteger(ciphertext);
+	w = cryptix.util.core.BI.dumpString(Bciph);
+	output1.println("Ciphertext for DES encryption = " + w);
+	
+	// decrypt ciphertext 
+	des.initDecrypt(key2);
+	ciphertext = des.crypt(ciphertext);
+	output1.print("\n");
+	output1.println("plaintext.length = " + ciphertext.length);
+
+	// print out representation of decrypted ciphertext 
+	Bciph = new BigInteger(ciphertext);
+	w = cryptix.util.core.BI.dumpString(Bciph);
+	output1.println("Plaintext for DES encryption = " + w);
+
+	output1.println(" ");
+	output1.close();		
+
+      } catch (Exception e) {
+            System.err.println("Caught exception " + e.toString());
+      }
+
+	}}
+
+</pre>
+<hr>
+<h2 align=center>Sample Program Output</h2>
+<h3 align=center>DES.out</h3>
+<hr>
+<pre>
+The Encryption Key = Multi-Precision Integer 62 bits long...
+      sign: Positive
+ magnitude: 3812A419C63BE771 
+
+ciphertext.length = 32
+Ciphertext for DES encryption = Multi-Precision Integer 254 bits long...
+      sign: Positive
+ magnitude: 3A2EAD12F475D82C 1FC97BB9A6D955E1 EA5541946BB4F2E6 F29555A6E8F1FB3C 
+
+plaintext.length = 32
+Plaintext for DES encryption = Multi-Precision Integer 249 bits long...
+      sign: Positive
+ magnitude: 0101010101010101 0102030405060708 090A0B0C0D0E0F10 1112131415161718 
+</pre>
+<p>
+<hr>
+<P ALIGN="JUSTIFY">J. Orlin Grabbe is the author of
+<a href="http://www.amazon.com/exec/obidos/ASIN/0132069881/qid=924154369/sr=1-1/002-9261014-2388004">International Financial Markets</A>, and is an internationally recognized derivatives expert who has recently branched out into cryptology, banking security, and digital cash.  His home page is located at <A HREF="homepage.html">http://www.aci.net/kalliste/homepage.html</A>.
+He currently resides in Costa Rica. </P>
+<center><b><a href="javacrypt_index.htm">Click here to return to Encryption Menu</a></center>
+
+</body>
+</html>

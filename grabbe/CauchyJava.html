@@ -1,0 +1,78 @@
+<html>
+<head>
+<title>Java Source Code for Normal Minus Cauchy Probability Density</title>
+</head>
+<body bgcolor=white>
+<h2 align=center>Java Source Code for Normal Minus Cauchy Probability Density</h2>
+<hr>
+<p>
+<pre>
+import java.applet.*;
+import java.awt.*;
+import java.util.Random;
+
+class CauchyPlot extends Canvas {
+
+        private int max_iterations = 400;
+
+        private void plot(Graphics g, int x, int y, int y0, int plotColor) {
+                
+                if (y0>y) g.setColor(Color.blue);
+                     else g.setColor(Color.red);
+                g.drawLine(x, y, x, y0);
+        }
+
+        public void paint(Graphics g) {
+
+            double xbegin=-10., xend=10., xincr, x1, y1, y2;
+            int iter, xplot, yplot, yplot2, plotColor=0;
+
+            xincr = (xend-xbegin)/max_iterations;
+            x1 = xbegin;
+        
+            for (iter=0;iter<=max_iterations;iter++) {
+
+			//cauchy density
+                        y1 = x1*x1;
+			y1 = y1+1.0;
+			y1 = 3.1415926535897932*y1;
+			y1 = 1.0/y1;
+
+			//normal density
+			y2 = -x1*x1/2.0;
+			y2 = java.lang.Math.exp(y2);
+			y2 = y2*.39894228;
+
+              xplot = 210+(int)(20*x1);
+      	      yplot = 410-(int)(1000*y1);
+              yplot2 = 410-(int)(1000*y2);
+              plot(g,xplot,yplot2,yplot,plotColor);
+              x1 = x1+xincr;
+              }
+        }
+        } 
+
+        public class Cauchy extends Applet {
+
+                private CauchyPlot canvas;
+
+                public boolean handleEvent(Event e) {
+                        if(e.id==Event.WINDOW_DESTROY) System.exit(0);
+                        return super.handleEvent(e);
+                }
+                
+                public void init() {
+
+                        setLayout(new BorderLayout());
+                        canvas = new CauchyPlot();
+                        add("Center", canvas);
+                        }
+
+        }               
+
+
+</pre>
+</body>
+</html>
+
+

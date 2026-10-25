@@ -1,0 +1,95 @@
+<html>
+<body bgcolor="white">
+<h2 align=center>Java Source Code for Sierpinski Carpet Fractal</h2>
+<hr>
+<pre>
+import java.applet.*;
+import java.awt.*;
+import java.util.Random;
+
+class SierpPlot extends Canvas {
+
+	private int max_iterations = 250000;
+
+	private void plot(Graphics g, int x, int y, int plotColor) {
+		
+		g.setColor(Color.blue);
+		g.drawLine(x, y, x, y);
+	}
+
+	public void paint(Graphics g) {
+
+		double X=1.0, Y=1.0, Xnew=1.0, Ynew=1.0, hazard;
+		Random ran = new Random();
+		int iter, xplot, yplot, plotColor=0;
+	
+		for (iter=0;iter<=max_iterations;iter++) {
+                        hazard = 8*ran.nextDouble();
+			if(hazard<1.0) {
+				Xnew =  X/3;
+				Ynew =  Y/3;
+			}
+			else if (hazard<2.0){
+				Xnew = X/3 + .6666666666666666;
+				Ynew = Y/3 + .6666666666666666;
+			}
+			else if (hazard<3.0) {
+			   	Xnew = X/3 + .6666666666666666;
+				Ynew = Y/3 + .3333333333333333;
+			}
+			else if (hazard<4.0){
+				Xnew = X/3 + .3333333333333333;
+				Ynew = Y/3 + .6666666666666666;
+			}
+			else if (hazard<5.0) {
+			   	Xnew = X/3 + .3333333333333333;
+				Ynew = Y/3;
+			}
+			else if (hazard<6.0){
+				Xnew = X/3;
+				Ynew = Y/3 + .3333333333333333;
+			}
+			else if (hazard<7.0) {
+			   	Xnew = X/3 + .6666666666666666;
+				Ynew = Y/3;
+			}
+                        else {
+				Xnew = X/3;
+				Ynew = Y/3 + .6666666666666666;
+			}
+
+		xplot = 10+(int)(400*Xnew);
+		yplot = 10+(int)(400*Ynew);
+		plot(g,xplot,yplot,plotColor);
+		X = Xnew;
+		Y = Ynew;
+		}
+	}
+	} 
+
+	public class Sierp extends Applet {
+
+		private SierpPlot canvas;
+
+		public boolean handleEvent(Event e) {
+			if(e.id==Event.WINDOW_DESTROY) System.exit(0);
+			return super.handleEvent(e);
+		}
+		
+		public void init() {
+
+			setLayout(new BorderLayout());
+			canvas = new SierpPlot();
+			add("Center", canvas);
+			}
+
+	}		
+
+</pre>
+<hr>
+</body>
+</html>
+						
+
+
+	

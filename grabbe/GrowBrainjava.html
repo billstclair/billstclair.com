@@ -1,0 +1,86 @@
+<html>
+<title>Java Source Code for Iterative Plot of Grow Brain Equations</title>
+<body>
+<h2 align=center>Java Source Code for Iterative Plot of Grow Brain Equations</h2>
+<hr>
+<p>
+<pre>
+import java.applet.*;
+import java.awt.*;
+import java.lang.Math.*;
+
+class GrowBrainPlot extends Canvas {
+
+        private int maxcol = 75, maxrow = 10000, max_colors = 16;
+                
+        private Color cmap[];
+
+        private void plot(Graphics g, int x, int y, int color_index) {
+                
+                g.setColor(cmap[color_index]);
+                g.drawLine(x,y, x,y);
+        }
+
+        public GrowBrainPlot() {
+
+            cmap = new Color[max_colors];
+            cmap[0] = Color.black;
+            cmap[1] = new Color(0, 0, 168);
+            cmap[2] = new Color(100, 50, 0);
+            cmap[3] = new Color(0, 168, 168);
+            cmap[4] = new Color(168, 0, 0);
+            cmap[5] = new Color(168, 0, 168);
+            cmap[6] = new Color(168, 84, 0);
+            cmap[7] = new Color(168, 168, 168);
+            cmap[8] = new Color(84, 84, 84);
+            cmap[9] = new Color(84, 84, 255);
+            cmap[10] = new Color(84, 255, 84);
+            cmap[11] = new Color(84, 255, 255);
+            cmap[12] = new Color(255, 84, 84);
+            cmap[13] = new Color(255, 84, 255);
+            cmap[14] = new Color(255, 255, 84);
+            cmap[15] = Color.white;
+        }
+
+        public void paint(Graphics g) {
+
+                double X, Y, Xfactor, Yfactor;
+                int color, row, col;
+
+                color = 4;
+                for (col=0;col&lt;=maxcol;col++) {
+				color++;
+			      if(color==15) color=0;
+				X= .9; Y = .047*col;
+                        for(row=1;row&lt;=maxrow;row++){
+                                Xfactor = X;
+                                X = Y - (X/Math.abs(X))*Math.sqrt(Math.abs(1.53*X));
+                                Y = 3.5-Xfactor;
+                                plot(g,(int)(150+50*X), (int)(290-40*Y),(int)(color%max_colors));
+                        }
+                 }
+        }
+        }          
+
+        public class GrowBrain extends Applet {
+
+                private GrowBrainPlot canvas;
+                
+                public void init() {
+
+                        setLayout(new BorderLayout());
+                        canvas = new GrowBrainPlot();
+                        add("Center", canvas);
+                        }
+
+        }               
+</pre>
+<hr>
+<br>
+<br>
+</body>
+</html>
+						
+
+
+	

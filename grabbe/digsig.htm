@@ -1,0 +1,665 @@
+<html> 
+<head> 
+<title>Digital Signatures Illustrated</title> 
+</head> 
+<A HREF="mailto:orlingrabbe@orlingrabbe.com"> [Email Reply] </A>
+<body>
+<h2 align=center>Digital Signatures Illustrated</h2> 
+<h3 align=center><i>by J. Orlin Grabbe</i></h3> 
+<center><table border=0 width=75%><tr><td> 
+<p align=justify> 
+      I  read over the affidavit in the law office.  It
+involved a options-trading dispute between a trader and
+a  bank, and I was an expert witness on behalf  of  the
+trader's law firm.  As I finished reading each page,  I
+initialed that page.
+<p align=justify> 
+     "What are you doing?" one of the lawyers asked.
+<p align=justify> 
+     "I'm initialing each page."
+<p align=justify> 
+     "We usually just sign the last page," he said.
+<p align=justify> 
+      I  shook  my head at his naivete, and went  ahead
+initialing each page.  One New York investment  bank  I
+was well acquainted with had--on more than one occasion-
+-altered  the  internal language of an  already  signed
+contract,  by substituting a new page for  an  existing
+page.   When  a dispute over the contract  had  arisen,
+there  had,  of  course, been no  explanation  for  the
+differing   language  between  the  investment   bank's
+version of the contract and the customer's version.
+<p align=justify> 
+     When such discrepancies arose, it would inevitably
+be  suggested that "the girl collating the copies"  had
+mixed up pages in an older version of the contract with
+the pages in the final version.  Each party, of course,
+would claim to have the final version.
+<p align=justify> 
+     As for myself, I simply chose to initial each page
+to avoid collation accidents on anything I signed, even
+if  such accidents could have served no purpose  except
+to waste time.
+<p align=justify> 
+      Which  brings us  to <b><i>digital signatures</i></b>.  Digital
+signatures  have the nice feature that they verify  the
+textual  authenticity of a signed contract or statement
+("message"), in addition to the identity of the signer.
+Change  one  letter in the original  message,  and  the
+digital signature will no longer verify.
+<p align=justify> 
+<h3 align=center>
+             What Are Digital Signatures?</h3>
+<p align=justify> 
+      Digital  signatures are an analog of  handwritten
+signatures.   Handwritten signatures are based  on  the
+physically  idiosyncratic way of  signing  one's  name.
+But they can be easily forged.
+<p align=justify> 
+      A  digital signature is a mathematically  precise
+way  of attaching one's identity to a message.   It  is
+much harder to forge than a handwritten signature,  and
+the  signed  message  cannot be  altered  without  also
+invalidating the signature.
+<p align=justify> 
+        Digital   signatures   rely   on   public   key
+cryptography. Public key cryptography uses two  "keys".
+Take  an ordinary plain-text message and apply  one  of
+the keys to it in an encryption process, and you end up
+with  a  scrambled or "encrypted" (or, in  the  current
+context, "signed") message.  Apply the other key to the
+scrambled message in a decryption process, and you  end
+up with the original plain-text message.
+<p align=justify> 
+     One of these two keys is "<b><i>public</i></b>."  Everyone knows
+what  this  key  is--or can look it  up,  much  like  a
+telephone  number.  The other key is  "<b><i>private</i></b>."   Only
+you   know   your  private  key.  Signing  (encrypting)
+something  with  your private key  puts  your  personal
+stamp  on it.  No one else can do this, because they don't
+know your private key.
+<p align=justify> 
+<h3 align=center>
+                   Message Crunching</h3>
+<p align=justify> 
+     For practical reasons, when digital signatures are
+used, people don't actually sign (encrypt) the original
+message  itself with their private key.  Instead,  they
+first produce a condensed version of the message.  This
+condensed  version is often called a "message  digest".
+Other   equivalent   terms   are   "hash   value"    or
+"fingerprint".  The message is sent through  a  grinder
+and its quintessence extracted.
+<p align=justify> 
+      What  gets  signed, then, is the  message  digest
+(hash value, fingerprint, quintessence, whatever).  The
+Signer  signs the message digest with his private  key.
+Anyone can decrypt the signed message digest, by  using
+the Signer's known public key.
+<p align=justify> 
+      To produce a message digest, you need a crunching
+mechanism.   There  are different algorithmic  machines
+for  crunching messages.  We will see examples of  four
+of them later:  MD5, RIPEM128, SHA-1, and RIPEM160.
+<p align=justify> 
+      So  here  is  how  the digital signature  process
+works.   Consider a Sender and a Receiver of a message.
+The  Receiver wants to verify that the message has  not
+been  altered, as well as the Sender's identity.   Here
+is the process.
+<p align=justify> 
+<blockquote>
+<h3 align=center>
+                        Sender</h3>
+<p align=justify> 
+     S1.  The Sender sends a message.
+<p align=justify> 
+     S2.   The Sender calculates a message  digest
+     (hash value) of the original message.
+<p align=justify> 
+     S3.   The  Sender  signs this message  digest
+     (hash  value) with the Sender's private  key,
+     and  sends the signed digest along  with  the
+     original message.
+<p align=justify> 
+<h3 align=center>
+                       Receiver</h3>
+<p align=justify> 
+     R1.   The  Receiver receives the message,  as
+     well as the signed message digest.
+<p align=justify> 
+     R2.   The Receiver also separately calculates
+     a   message  digest  (hash  value)  for   the
+     received message.
+<p align=justify> 
+     R3.   The  Receiver uses the Sender's  public
+     key to decrypt the signed message digest that
+     was   received,  and  compares  this  to  the
+     independently  calculated message  digest  in
+     step  R2.   If the message digest  calculated
+     for  the received message is the same as  the
+     decrypted value of the signed message digest,
+     then  the  Receiver  has  verified  that  the
+     message  has not been altered.  In  addition,
+     since  the Sender's public key was  used  for
+     the decryption, the Receiver is also sure  of
+     the Sender's identity.
+</blockquote>
+<p align=justify> 
+That's  all  there  is  to it.  Well,  except  for  the
+numbers.   Encrypting  a message  involves  numerically
+processing it in some way.
+<p align=justify> 
+<h3 align=center>
+                    Numbering Down</h3>
+<p align=justify> 
+      To  perform a digital signature, you  must  first
+turn  the message into a <b>Number</b>.  This <b>Number</b>  is  then
+delivered  to the message cruncher, which spits  out  a
+message  digest.   The  message cruncher  turns  a  <b>big
+Number</b> into a <b>small number</b>.
+<p align=justify> 
+      For  this to work, it should not be practical  to
+find  two  different <b>big Number</b> messages  which  crunch
+down to the same <b>small number</b>.  For if you could do so,
+then  you  could  switch messages  corresponding  to  a
+signature, much like that investment bank switched  the
+internal pages of a contract document.
+<p align=justify> 
+      The  <b>small  number</b>  message digests  are  usually
+either 128 bits long (MD5, RIPEM128), or 160 bits  long
+(SHA-1, RIPEM160).  Each bit can be either a "0"  or  a
+"1".   So  there  are  2  to the 128th  power  possible
+digests that are 128 bits long, or 2 to the 160th power
+possible digests that are 160 bits long.
+<p align=justify> 
+      Now, the process of getting from a message to one
+of  the message digests has to be deterministic.  It has
+to  be repeatable.  The same message always has to give
+the   same   message   digest.    For   otherwise   the
+verification procedure wouldn't work.
+<p align=justify> 
+      But,  at the same time, the output of the message
+cruncher  has to look random.  It should be  impossible
+to  work  back  from a message digest  to  an  original
+message.   For otherwise, someone might work their  way
+back  to  several  original message possibilities  that
+yielded the same message digest.
+<p align=justify> 
+      So  you want a good message cruncher, a good hash
+function,  to  be  one-way.  It must  go  forward,  not
+backwards.   And it must be hard to find two  different
+messages that yield the same message digest.
+<p align=justify> 
+      Once  you  have  the message  digest,  the  <b>small
+number</b>, you must sign it (encrypt it).  This also  will
+involve a mathematical transformation.  One common  way
+of  encrypting a number (e.g. the RSA algorithm) is  to
+raise  it  to a power, then take the result  modulo  <b>n</b>,
+where <b>n</b> is some big integer.  (Modulo <b>n</b> means divide by
+<b>n</b>,  and  throw  away everything except  the  remainder.
+For example, 11 mod 5 equals 1, because 5 goes into  11
+two times, with a remainder of 1.)
+<p align=justify> 
+     Okay.  Enough of this.  Let's see an example.
+<p align=justify> 
+<h3 align=center>
+                  A Message Example</h3>
+<p align=justify> 
+Suppose  the  message  to be signed  is  the  following
+letter  from Greater Caribbean Bank to Senator Hand  N.
+Till:
+<pre>
+                      **********
+
+Senator Hand N. Till
+Washington, DC
+
+Dear Senator:
+
+This letter is to inform you we have
+opened account no. 338907021 on your
+behalf, and deposted therein a
+legislative incentive payment of
+$1 million.  For withdrawl, you will
+need to use your password BJRGUD7693.
+
+Yours very truly,
+
+Arnold C. Creole
+Vice President
+Greater Caribbean Bank
+
+                      **********
+</pre>
+<p align=justify> 
+      The message begins with the "S" in "Senator"  and
+ends  with the "k" in "Bank".  Each line prior  to  the
+last one also contains a final carriage return (CR) and
+a  line  feed  (LF), which ends the  current  line  and
+begins a new one.
+<p align=justify> 
+      There  is  also  a  misspelling  in  the  letter:
+"withdrawl" for "withdrawal".  But the message has been
+signed as written, so if the spelling is corrected, the
+signature will not match the letter.
+<p align=justify> 
+      Let's go through the steps in signing this letter
+("message").  First, we want to turn the message into a
+number.   There  are many ways to  do  this.   But  one
+simple  way  is  to  use  the  ASCII  encoding  of  the
+individual  characters that make up the message.   Each
+ASCII  code is a binary number.  After this conversion,
+we  can  string  all  the binary  numbers  back-to-back
+("concatenate them") to get a final big number.
+<p align=justify> 
+     Let's start with the first sentence.  The
+translation goes as follows:
+<pre>
+ Character    Binary    Hex Value   Decimal
+              Value                  Value
+     S       1010011       53          83
+     e       1100101       65         101
+     n       1101110       6E         110
+     a       1100001       61          97
+     t       1110100       74         116
+     o       1101111       6F         111
+     r       1110010       72         114
+             0100000       20          32
+     H       1001000       48          72
+     a       1100001       61          97
+     n       1101110       6E         110
+     d       1100100       64         100
+             0100000       20          32
+     N       1001110       4E          78
+     .       0101110       2E          46
+             0100000       20          32
+     T       1010100       54          84
+     i       1101001       69         105
+     l       1101100       6C         108
+     l       1101100       6C         108
+    CR       0001101       0D          13
+    LF       0001010       0A          10
+</pre>                                        
+<p align=justify> 
+So the binary representation of the complete message to
+Senator Till is:
+<pre>
+1010011  1100101  1101110  1100001  1110100  1101111 1110010
+0100000  1001000  1100001  1101110  1100100  0100000 1001110
+0101110  0100000  1010100  1101001  1101100  1101100 0001101
+0001010  1010111  1100001  1110011  1101000  1101001 1101110
+1100111  1110100  1101111  1101110  0101100  0100000 1000100
+1000011  0001101  0001010  0001101  0001010  1000100 1100101
+1100001  1110010  0100000  1010011  1100101  1101110 1100001
+1110100  1101111  1110010  0111010  0001101  0001010 0001101
+0001010  1010100  1101000  1101001  1110011  0100000 1101100
+1100101  1110100  1110100  1100101  1110010  0100000 1101001
+1110011  0100000  1110100  1101111  0100000  1101001 1101110
+1100110  1101111  1110010  1101101  0100000  1111001 1101111
+1110101  0100000  1110111  1100101  0100000  1101000 1100001
+1110110  1100101  0001101  0001010  1101111  1110000 1100101
+1101110  1100101  1100100  0100000  1100001  1100011 1100011
+1101111  1110101  1101110  1110100  0100000  1101110 1101111
+0101110  0100000  0110011  0110011  0111000  0111001 0110000
+0110111  0110000  0110010  0110001  0100000  1101111 1101110
+0100000  1111001  1101111  1110101  1110010  0001101 0001010
+1100010  1100101  1101000  1100001  1101100  1100110 0101100
+0100000  1100001  1101110  1100100  0100000  1100100 1100101
+1110000  1101111  1110011  1110100  1100101  1100100 0100000
+1110100  1101000  1100101  1110010  1100101  1101001 1101110
+0100000  1100001  0001101  0001010  1101100  1100101 1100111
+1101001  1110011  1101100  1100001  1110100  1101001 1110110
+1100101  0100000  1101001  1101110  1100011  1100101 1101110
+1110100  1101001  1110110  1100101  0100000  1110000 1100001
+1111001  1101101  1100101  1101110  1110100  0100000 1101111
+1100110  0001101  0001010  0100100  0110001  0100000 1101101
+1101001  1101100  1101100  1101001  1101111  1101110 0101110
+0100000  0100000  1000110  1101111  1110010  0100000 1110111
+1101001  1110100  1101000  1100100  1110010  1100001 1110111
+1101100  0101100  0100000  1111001  1101111  1110101 0100000
+1110111  1101001  1101100  1101100  0001101  0001010 1101110
+1100101  1100101  1100100  0100000  1110100  1101111 0100000
+1110101  1110011  1100101  0100000  1111001  1101111 1110101
+1110010  0100000  1110000  1100001  1110011  1110011 1110111
+1101111  1110010  1100100  0100000  1000010  1001010 1010010
+1000111  1010101  1000100  0110111  0110110  0111001 0110011
+0101110  0001101  0001010  0001101  0001010  1011001 1101111
+1110101  1110010  1110011  0100000  1110110  1100101 1110010
+1111001  0100000  1110100  1110010  1110101  1101100 1111001
+0101100  0001101  0001010  0001101  0001010  1000001 1110010
+1101110  1101111  1101100  1100100  0100000  1000011 0101110
+0100000  1000011  1110010  1100101  1101111  1101100 1100101
+0001101  0001010  1010110  1101001  1100011  1100101 0100000
+1010000  1110010  1100101  1110011  1101001  1100100 1100101
+1101110  1110100  0001101  0001010  1000111  1110010 1100101
+1100001  1110100  1100101  1110010  0100000  1000011 1100001
+1110010  1101001  1100010  1100010  1100101  1100001 1101110
+0100000  1000010  1100001  1101110  1101011
+</pre>
+<p align=justify> 
+     Note that the spaces I've put in the binary number
+above  don't have any meaning.  They are just there  to
+make  the  number  easier to look at.   The  number  is
+actually just one long string of zeros and ones, all on
+one line, with no spaces.
+<p align=justify> 
+      Strings of zeros and ones take up a lot of  room,
+so  ordinary  people ordinarily don't  look  at  binary
+representations.   Hexadecimal (base 16)  numbers  only
+take up about one-fourth as many characters, so usually
+we  would write the message-turned-into-a-number in hex
+instead  of  binary.  Recall that hexadecimal  notation
+uses  the  decimal  numerals 0 to 9, and  letters  a-f,
+where "a" is equivalent to decimal "10", "b" to decimal
+"11",  and so on to "f", which is equivalent to decimal
+15.   (Hex numbers are also commonly written with upper
+case letters A to F.  This has the same meaning as  the
+lower  case  letters: i.e., the decimal numbers  10  to
+15.)
+<p align=justify> 
+      So  the same message to Senator Till, written  in
+hexadecimal notation, is:
+<pre>
+53 65 6e 61 74 6f 72 20 48 61 6e 64 20 4e 2e 20 54 69 6c 6c 0d 0a
+57 61 73 68 69 6e 67 74 6f 6e 2c 20 44 43 0d 0a 0d 0a 44 65 61 72
+20 53 65 6e 61 74 6f 72 3a 0d 0a 0d 0a 54 68 69 73 20 6c 65 74 74
+65 72 20 69 73 20 74 6f 20 69 6e 66 6f 72 6d 20 79 6f 75 20 77 65
+20 68 61 76 65 0d 0a 6f 70 65 6e 65 64 20 61 63 63 6f 75 6e 74 20
+6e 6f 2e 20 33 33 38 39 30 37 30 32 31 20 6f 6e 20 79 6f 75 72 0d
+0a 62 65 68 61 6c 66 2c 20 61 6e 64 20 64 65 70 6f 73 74 65 64 20
+74 68 65 72 65 69 6e 20 61 0d 0a 6c 65 67 69 73 6c 61 74 69 76 65
+20 69 6e 63 65 6e 74 69 76 65 20 70 61 79 6d 65 6e 74 20 6f 66 0d
+0a 24 31 20 6d 69 6c 6c 69 6f 6e 2e 20 20 46 6f 72 20 77 69 74 68
+64 72 61 77 6c 2c 20 79 6f 75 20 77 69 6c 6c 0d 0a 6e 65 65 64 20
+74 6f 20 75 73 65 20 79 6f 75 72 20 70 61 73 73 77 6f 72 64 20 42
+4a 52 47 55 44 37 36 39 33 2e 0d 0a 0d 0a 59 6f 75 72 73 20 76 65
+72 79 20 74 72 75 6c 79 2c 0d 0a 0d 0a 41 72 6e 6f 6c 64 20 43 2e
+20 43 72 65 6f 6c 65 0d 0a 56 69 63 65 20 50 72 65 73 69 64 65 6e
+74 0d 0a 47 72 65 61 74 65 72 20 43 61 72 69 62 62 65 61 6e 20 42
+61 6e 6b
+</pre>
+See how much clearer this is?
+<p align=justify> 
+      The  next step is to sign this message,  so  that
+Senator  Till will know it came from Greater  Caribbean
+Bank, and not from, say, Louis Freeh's Henchcreatures. 
+That means using a message cruncher.
+<p align=justify> 
+<h3 align=center>                           
+                 The Message Crunched </h3>
+<p align=justify> 
+      Here are four different message digests from four
+different message crunching machines.
+<pre>
+  Hash           Hash Value or Message Digest
+Function
+
+MD5          5670E64BF6CEBB46   31A25CF6990F82C0
+RIPEM128     B4BB17FD0E09091A   2DF095F0B9647B41
+SHA-1        1A01B56EB33FA84A   39EEDDD927977726 38331E94
+RIPEM160     ABA54F46348F56D1   E492AE09A472D143 9D64E0F1
+</pre>
+<p align=justify> 
+      Just  for  fun,  let's see what  happens  to  the
+message  digest  if we make slight alterations  in  the
+original message.  First, let's correct the spelling of
+"withdrawal".   With this correction, the  message  now
+reads:
+<pre>
+                      **********
+
+Senator Hand N. Till
+Washington, DC
+
+Dear Senator:
+
+This letter is to inform you we have
+opened account no. 338907021 on your
+behalf, and deposted therein a
+legislative incentive payment of
+$1 million.  For withdrawal, you will
+need to use your password BJRGUD7693.
+
+Yours very truly,
+
+Arnold C. Creole
+Vice President
+Greater Caribbean Bank
+
+                      **********
+</pre>                           
+<p align=justify> 
+With  this  change,  the message  digests  are  totally
+different, as see in the following table:
+<pre>
+  Hash                 Hash Value or Message Digest
+Function
+
+MD5                 8BDF43C9BC320AE8 874E9EED73DDCF55
+RIPEM128            5BF83DAE28ACBF49 BD9EDB6D26DE1EE9
+SHA-1               22257C5870B7CB00 E6B5AABA45913C24 DEAB6F7D
+RIPEM160            713FE23D55F95ACD B5D744C0B616774B 1DDAA4E7
+</pre>
+<p align=justify> 
+As  a second illustration, let's restore "withdrawl" to
+its original spelling, but alter the account number, so
+that  the  final  digit is "2"  instead  of  "1".   The
+message now reads:
+<pre>
+                      **********
+
+Senator Hand N. Till
+Washington, DC
+
+Dear Senator:
+
+This letter is to inform you we have
+opened account no. 338907022 on your
+behalf, and deposted therein a
+legislative incentive payment of
+$1 million.  For withdrawl, you will
+need to use your password BJRGUD7693.
+
+Yours very truly,
+
+Arnold C. Creole
+Vice President
+Greater Caribbean Bank
+
+                      **********
+</pre>
+<p align=justify> 
+Here are the hash values for this new message, with the
+altered digit:
+<pre>
+  Hash                   Hash Value or Message Digest
+Function
+
+MD5                 0742CD5D4EA8B857 E57352C6B21CE7FB
+RIPEM128            9BE546E061E64BD3 3659E49569774A25
+SHA-1               B55F080E45CF15D9 3542A9F4C7CED8B3 48EF1E17
+RIPEM160            C97428911B8C925E 990839FE2BB5B9E9 BD0EC4EF
+</pre>
+<p align=justify> 
+      What  these  examples illustrate is that  if  you
+alter  the original message in any way, the hash  value
+will  be  altered.  The hash value, or  message  digest,
+thus can be used to check the integrity of the original
+message.
+<h3 align=center>
+                  The Message Signed </h3>
+<p align=justify> 
+     For our digital signature, we will use the SHA-1
+hash:
+<p align=center>
+   <b>hash =</b> 1A01B56EB33FA84A 39EEDDD927977726 38331E94
+<p align=justify>
+The  next  step is to encrypt this hash value  (message
+digest)  with the signer's secret key.  That  means  we
+need  some encryption method, with a public key/private
+key  pair.   The private key will be used for  signing,
+while the public key will be used for verification.
+<p align=justify> 
+      Let's use the RSA system.  The RSA systems  signs
+values by raising them to the power of a private key <b>d</b>,
+and  taking the result modulo <b>n</b>.  Let <b>n</b> and <b>d</b> have  the
+following values:
+<pre>
+<b>n =</b>
+
+AF8207E25BF6A83E 17F5980E23AB498F 5B77E84821905716
+EEDBD4F621EDE141 D38117147AD98E8B 549BC35B0C689475
+D710013D83AE1945 FF405E2D4EC54A56 CB88BBB220C31F12
+63978A307A36F0C2 316CA3CB921271B3 7B550728D560A884
+4E1740C31DFCA3BC 0FB80D34AAF986D7 02FD633BD26F16AA
+8A3C329E2D1E970D
+
+<b>d =</b>
+
+0F2591B89F67322D E9B3706408000861 2EEBB248475D45A6
+DD066BE2B21AED8D D8CB134AD92F5D75 F8DF5884CB155B7A
+B00CD98E8D86C0F7 A187D498E46B7276 D6881D1502BA90C5
+5EE073BB1565A969 681C3CE6660A8744 B6D54C6659299E1A
+B8424F41DE1B277C D22DC1D81DEA69B2 8F99A4C9C852A82C
+6123EDAAB94D0CA1
+</pre>
+<p align=justify> 
+      Here  <b>n</b> is a number 1024 bits long, which is  the
+same   as   128  bytes,  or  256  hexadecimal  numbers.
+Similarly for <b>d</b>, except that <b>d</b> has four leading  zeros,
+so it is really only 1020 bits long.
+<p align=justify>
+        So what we are planning to do is to raise the <b>hash</b> to
+the power <b>d</b>, then take the result modulo <b>n</b>.
+<p align=justify> 
+     That's the idea, anyway.  However, RSA's signature
+procedure    specifies    that    the    hash     value
+1A01B56EB33FA84A 39EEDDD927977726 38331E94  must  first
+be  "padded" to make it as long as <b>n</b>.  Now,  since  the
+hash  is 160-bits long,  what the padding does  is  add
+some bits in front--864 bits, specifically--to make  it
+1024 bits long.
+<p align=justify> 
+       This  is  all  laid  out  in  RSA's  Public  Key
+Cryptography Standard  No. 1 (PKCS#1).  Explaining  the
+reasons  for  this  will lead us  astray.   But  adding
+padding  in  front does no harm in principal (depending
+on  how we do it).  We can always encrypt the hash with
+padding, then later throw the padding away once we have
+decrypted the combination.
+<p align=justify> 
+      PKCS#1  says to add 00 to the front of the  hash,
+making it
+<p align=center>
+     00 1A01B56EB33FA84A 39EEDDD927977726 38331E94
+<p align=justify>
+This  is  the  tail  end  of the  padded  number.   The
+beginning  of the padded number is 00 02, then  add  as
+many random hex numbers as needed to get a total of 256
+hexadecimal digits.
+<p align=justify> 
+     So the padded number to be signed should look
+something like this:
+<p>
+00 02 . . . random numbers . . 00 1A01B56EB33FA84A
+39EEDDD927977726 38331E94
+<p align=justify>
+      This is one set of rules.  Of course, not everyone
+follows the same rules.  I  am doing  calculations in the
+programming  language  Java, using  the Cryptix class
+library.  Cryptix creates  the following padded integer,
+using a PKCS#1 variant:
+<p><pre>
+<b>padded integer =</b>
+
+01FFFFFFFFFFFFFF FFFFFFFFFFFFFFFF FFFFFFFFFFFFFFFF
+FFFFFFFFFFFFFFFF FFFFFFFFFFFFFFFF FFFFFFFFFFFFFFFF
+FFFFFFFFFFFFFFFF FFFFFFFFFFFFFFFF FFFFFFFFFFFFFFFF
+FFFFFFFFFFFFFFFF FFFFFFFFFFFFFFFF FFFFFF0030213009
+06052B0E03021A05 0004141A01B56EB3 3FA84A39EEDDD927
+97772638331E94
+</pre><p align=justify>
+Notice that the padding starts with 01, then there  are
+a  lot  of  FFFFFF's, then 00, then  a  mystery  number
+"30213009  06052B0E03021A05  000414", and  finally  the
+SHA-1   hash  value  1A01B56EB33FA84A  39EEDDD927977726
+38331E94.
+<p align=justify> 
+      Okay, let's do it.  Let's take the <b>padded integer</b>,
+raise  it to the power <b>d</b>, and reduce the result  modulo
+<b>n</b>.   That gives us the digital signature <b>sig</b>.  If we do
+this calculation, we get
+<pre>
+<b>sig =</b>
+
+149522ECA960A6B4 A46F1546B6D5F74B C3570CD7DD981EA1
+0B506B346FB159BE 7F7BAA26F6A8A143 090B4D0A944AE4D7
+96C17A4587267B05 A991D76EDE989583 9E47C19054CDB818
+5BD21EE36BAC9803 CE005383A1083AB5 79411AB26BE28631
+1BF17D021002B6D5 2EE82CEB2FC554A8 BDE5874D82B20B9F
+21EBD65F5FD93102
+</pre>
+This  is the digital signature that is sent along  with
+the  letter to Senator Till to verify its authenticity,
+as well as the identity of the signer.
+<p align=justify> 
+<h3 align=center>
+                Verifying the Signature</h3>
+<p align=justify> 
+      When  Senator Till gets the message, he  computes
+his  own  hash value (call this <b>hash*</b>) for the received
+message.  This should result in the hash value
+<pre>
+  <b>hash* =</b> 1A01B56EB33FA84A 39EEDDD927977726 38331E94
+</pre>
+if nothing in the message was altered.    Next he
+compares <b>hash*</b> to the decrypted value of <b>sig</b> to see if
+they are the same.
+<p align=justify> 
+      To  decrypt  <b>sig</b>,  he looks up Greater  Caribbean
+Bank's  public key (<b>e,n</b>), and finds that <b>e</b> has a  value
+(in hex):
+<pre>
+<b>e =</b> 010001
+</pre>
+Short and sweet.  But not very clever, because a lot of
+organizations besides Greater Caribbean Bank  might  be
+using  this  same value for <b>e</b>.  (What makes it  unique,
+however,  is the combination of <b>e</b> with the  modulus  <b>n</b>.
+As  long  as <b>n</b> is unique, we don't need to worry  about
+<b>e</b>.)
+<p align=justify> 
+      So Senator Till takes the value <b>sig</b>, raises it to
+the power <b>e</b>, and reduces the result modulo <b>n</b>.  This  in
+fact   yields  the  number  (trust  me,   I   did   the
+calculation):
+<pre>
+01FFFFFFFFFFFFFF FFFFFFFFFFFFFFFF FFFFFFFFFFFFFFFF
+FFFFFFFFFFFFFFFF FFFFFFFFFFFFFFFF FFFFFFFFFFFFFFFF
+FFFFFFFFFFFFFFFF FFFFFFFFFFFFFFFF FFFFFFFFFFFFFFFF
+FFFFFFFFFFFFFFFF FFFFFFFFFFFFFFFF FFFFFF0030213009
+06052B0E03021A05 0004141A01B56EB3 3FA84A39EEDDD927
+97772638331E94
+</pre>
+Once  Senator  Till throws away the  padding,  he  (or,
+rather,  his software) sees that the tail  end  is  the
+same as the value <b>hash*</b>, which verifies the signature.
+<p align=justify>
+And that's how digital signatures work.
+<p align=justify> 
+<center> 
+<b>-30-</b> 
+<p>
+This article appeared in <a href="http://zolatimes2.com/">
+<i>Laissez Faire City Times</i></a>, Vol 2, No 21, July 12, 1998 <br>
+Author's Web Page: <a href="homepage.html">http://www.aci.net/kalliste/homepage.html</a>
+</td></tr></table></center> 
+</body>
+</html>
+
+
+
+
+
+

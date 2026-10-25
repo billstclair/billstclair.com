@@ -1,0 +1,34 @@
+<html>
+<title>Sierpinski Fractal Plot</title>
+<html>
+<head>
+<title>Sierpinski Fractal</title>
+</head>
+<body bgcolor="white">
+<h1 align=center>Sierpinski Carpet Fractal</h1>
+<hr>
+<applet code="Sierp.class" width=425 height=425>
+If you can read this, then your browser is not set up for Java. . .
+</applet>
+<hr>
+<p>
+This applet generates a Sierpinski carpet.  If you look at the Java source code
+you will see that it generates a random number, and then with probability 1/8 does
+the following:
+<ul>
+<li>divides the current (x,y) value by 3,
+<li>and may also add either 1/3 or 2/3 to x, or to y, or to both.
+</ul>
+<p>
+The key omission, in order to create the Sierpinski carpet holes, is that zero
+probability is assigned to the possibility
+<blockquote>
+Xnew = X/3 + .3333333333333333;<br>
+Ynew = Y/3 + .3333333333333333;
+</blockquote>
+This omission creates a hole at each smaller level of the carpet.
+<hr>
+<p>
+<a href="SierpJava.html">Here is the java source code.</a>
+</body>
+</html>

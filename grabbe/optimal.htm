@@ -1,0 +1,160 @@
+<html>
+<head>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<title>The Optimal Number of Criminals, by J. Orlin Grabbe</title>
+</head>
+<body bgcolor="white" link="#0000ff" vlink="#800080">
+<p align="justify">
+<h2 align="center">The Optimal Number of Criminals</h2>
+<h3 align="center"><i>by J. Orlin Grabbe</i></h3>
+<center><table border=0 width=55%><tr><td>
+<p align="justify">
+	Johnny Latham was the sheriff of Mad Dog, Texas.  Johnny had a problem.  The 
+boys over at the mayor's office provided him with an allowance according to the number of 
+bona fide criminals he arrested.  With this allowance he paid his expenses and kept 
+whatever was left as salary.  The way the mayor saw it, if there weren't any criminals, there 
+was no sense in wasting money on law enforcement.
+<p align="justify">
+	 Johnny was sitting on the courthouse steps sunning himself.  He rubbed the stubble 
+on his chin, pushed back his hat, and reflected.  If you just leave it be, the criminal element 
+breeds like flies.  Pretty soon there would be thieves, vagabonds, no-goods, and 
+hell-raisers all over Mad Dog.  Why then he could just mosey down the street and pluck 'em off 
+the corners for a fast buck, just like taking whiskey from a Baptist. 
+<p align="justify">
+     	No.  The mayor wouldn't like it.  Johnny knew that a crime wave would induce the 
+mayor to cut back on the bounty per criminal.  First because the budget couldn't take it, and 
+second because he would become increasingly reluctant to shell out good money to a 
+no-good sheriff.
+<p align="justify">
+	Then there was the matter of deputies.  Hiring deputies was one way to keep the 
+jails full.  But more deputies meant more ways to split the profits.  Also, as crime dried up, 
+criminals would be more costly to apprehend.
+<p align="justify">
+	In the course of Johnny's meditations a wandering minstrel-economist, possessed 
+of a guitar and a merry countenance, came up the street.
+<p align="justify">
+	"Hey there, feller, what brings you to Mad Dog?" Johnny demanded.  
+	<p align="justify">
+	"I'm a wandering minstrel-economist," said the wandering minstrel-economist.
+<p align="justify">
+	Whereupon Johnny explained his difficult problem.
+	<p align="justify">
+	"I'll solve your problem for you," the minstrel-economist said, "but first I'll sing 
+you a little song."
+<p align="justify">
+	"Never mind," said Johnny.
+	<p align="justify">
+	"What you've got is a capital resource management problem," the minstrel-economist 
+said.  He began to scribble with a pencil on the concrete steps.  Johnny got m(k) 
+dollars per criminal.  This amount increased with the number of criminals, k, but at a 
+decreasing rate, because of the mayor's reaction to the growth of crime.  From m(k) he had 
+to subtract costs per criminal, c(k).  Costs increased as the number of criminals dropped, 
+because it became increasingly hard to find and catch them.  The number of criminals 
+caught was a function, f(L), of the number of lawmen, L.  Thus Johnny would maximize 
+the discounted present value of the future profits per lawman:
+<p align="justify">
+<img src="optimal.jpg" width="400" height="79" alt="Objective Functional" align="center">
+<p align="justify">
+	Johnny looked at the equation in admiration. 
+	<p align="justify">
+     	"Now, for the next part, think of a fishery," the minstrel-economist said.
+		<p align="justify">
+	"A fishery?"
+	<p align="justify">
+	"Sure. Just think of Mad Dog as a holding tank for potential criminals."  
+	<p align="justify">
+	"Now in a fishery," the minstrel-economist continued, "if the number of fish gets 
+too large for the environment, the fish eat all the food and die out.  On the other hand, if the 
+number gets too small, well, your cost of catching them goes up.  So we have to figure out 
+just the right fishing rate to keep things as lucrative as possible."
+<p align="justify">
+     	Ain't that the truth, Johnny thought to himself.  He had always figgered that 
+organized crime and organized crime-fighting were two parts of the same dynamic 
+feedback process, but he had never seen it spelled out quite so clearly before.
+<p align="justify">
+	Since crime breeds crime, the growth of criminals, g(k), was a function of the 
+number of criminals.  They figured that the environmental carrying-capacity for criminals 
+in Mad Dog was N, since that was the population.  As the number of criminals k 
+approached N, the growth in crime would slow, since no-goods would squabble among 
+themselves and thieves would find fewer things to rip-off.   So Johnny's state equation 
+looked like this:
+<p align="justify">
+<img src="optimal2.jpg" width="400" height="80" alt="State Equation" align="center">   
+<p align="justify">
+      	The minstrel-economist scribbled some more, eventually writing down optimal 
+control and response equations.(*)  
+<p align="justify">
+"Note," the minstrel-economist said, "that in equilibrium the discount rate r equals the marginal 
+productivity of criminals, adjusted by a second term.  The second term represents the marginal 
+change in profit from an additional criminal, expressed as a percentage of the current-value 
+shadow price of criminals."
+<p align="justify">
+	"You've got me there," Johnny said.
+	<p align="justify">
+	The minstrel-economist then proceeded to integrate the equations to obtain the 
+optimal number of lawmen and the optimal number of criminals as a function of time, 
+which, Johnny explained, only flowed six days a week in Mad Dog, because everyone 
+liked to take Sundays off.
+<p align="justify">
+            "I'll be darned," Johnny said with a sense of satisfaction.  He was still looking at the 
+figures when the wandering minstrel-economist disappeared into the sunset.  The latter 
+was no small feat, as it was only two o'clock in the afternoon.
+<p align="justify">
+	Back in the office Johnny unlocked the cash box, took out a roll of bills, and stuffed 
+them in his pocket.  He went out and climbed into his Ranchero pickup.  He headed down 
+Main Street toward the local cafe.
+<p align="justify">
+	He was ready to hire hisself some deputies.
+<hr>
+<p align="justify">
+This story first appeared in <i>Liberty</i> in  May 1992.  
+<hr>
+<p>
+(*)  Maximizing the Hamiltonian and solving for dL/dt, we obtain
+<p>
+dL/dt = [A+B+C+D]/E, where
+<p>
+A = -(1/L)[m'(k)-c'(k)] f(L)
+<p>
+B = -[1/L-f(L)/(f '(L)*L<sup>2</sup>)] [m(k)-c(k)] [g'(k)(1-k/N)-g(k)/N]
+<p>
+C = r [1/L-f(L)/(f '(L)*L<sup>2</sup>)] [m(k)-c(k)]
+<p>
+D = (dk/dt) [1/L-f(L)/(f '(L)*L<sup>2</sup>)] [m'(k)-c'(k)]
+<p>
+E = [m(k)-c(k)]{ [f(L)/(f '(L)*L<sup>2</sup>] [f ''(L)*L<sup>2</sup>+2 L f '(L)] - 2/L<sup>2</sup>}.
+<p>
+In equilibrium, with dL/dt = dk/dt = 0, we have for the discount rate <b>r</b>,
+<p>
+r = [g'(k)(1-k/N)-g(k)/N] + F/G, where
+<p>
+F = (1/L) [m'(k)-c'(k)] f(L)
+<p>
+G = [1/L-f(L)/(f '(L)*L<sup>2</sup>)] [m(k)-c(k)] .
+<p>
+Here the expression for G is the current-value shadow price of criminals.
+<p>
+For the mathematics involved, see the following works:
+<p>
+Richard Bellman, <i>Adaptive Control Proccesses,</i> Princeton University Press, 1961.
+<p>
+Arthur E. Bryson, Jr., & Yu-Chi Ho, <i>Applied Optimal Control,</i> Hemisphere Publishing
+Company, Washington D.C., 1975.
+<p>
+Colin W. Clark, <i>Mathematical Bioeconomics:  The Optimal Management of Renewable
+Resources,</i> John Wiley & Sons, New York, 1976.
+<hr>
+J. Orlin Grabbe's web page is located 
+at <a href="homepage.html">http://www.aci.net/kalliste/homepage.html</a>. 
+<hr>
+<center><b>-30-</b></center>
+<p align="justify">
+<center><b>from <i>The Laissez Faire City Times</i>, 
+Vol 5, No 36, September 3, 2001</b></center>
+</td></tr></table></center>
+<center>
+<br><br>
+<a href="http://www.newworldvisitormap.com/myspace_map.aspx?id=58621"><img src="http://www.newworldvisitormap.com/maps/1/58621.png" alt="" border="0" /></a>
+</center>
+</body>
+</html>

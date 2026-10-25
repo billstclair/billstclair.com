@@ -1,0 +1,24 @@
+<html>
+<title>Alternative Julia Plot of the Complex Logistic Equation</title>
+<body>
+<h2 align=center>Alternative Julia Plot of the Complex Logistic Equation</h2>
+<hr>
+<applet code="log2_julia.class" width=425 height=425>
+If you can read this, then your browser is not set up for Java. . .
+</applet>
+<hr>
+This applet plots the Julia set for the complex logistic equation:
+z(n+1) = k z(n)[1-z(n)], for k = 1.678 + .95 <b>i</b>.  The equation is
+iterated 256 times for different starting values of z(n).  If the equation
+is not diverging to infinity at the end of the 256 iterations, then the
+terminal value z(n+1) = z(256) is assigned a color based on the value of the
+square of its modulus (i.e., on the value of x<sup>2</sup>+y<sup>2</sup>).
+Hence, <b>the brightly colored area of the plot consists of the Julia set</b>.  If, however,
+the equation begins diverging (defined as occurring when the modulus of
+z(n+1) > 2), the iterations are terminated, and the point z(0) is painted black.
+Hence <b>the black area of the plot represents points that diverge and which are
+therefore not in the Julia set.</b>
+<hr>
+<a href="log2_juliajava.html">The Java source code.</a>
+</body>
+</html>

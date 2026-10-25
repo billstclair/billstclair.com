@@ -1,0 +1,368 @@
+<HTML>
+<HEAD>
+<TITLE>The Mathematical Ideas Behind Digital Cash</TITLE>
+</HEAD>
+<A HREF="mailto:orlingrabbe@orlingrabbe.com"> [Email Reply] </A>
+<HR>
+<H2 align = center>
+The Mathematical Ideas Behind Digital Cash
+</H2>
+<H3 align = center>
+          by J. Orlin Grabbe
+</H3>
+<HR>
+<BODY>
+<p>
+<h3 align = center>
+  Talk  given to the Libertarian Party of Colorado, 
+              Estes Park, April 20, 1997
+</h3><p>
+       <strong><i> Digital cash</strong></i> (or, equivalently,
+<strong><i>electronic cash</strong></i>)
+refers to electronic records or messages which serve as 
+money, cannot be easily counterfeited, can be verified as 
+authentic by the institution granting the digital cash, and 
+can be securely transferred to others.  Essentially, <strong>digital 
+cash is a payment message bearing a digital signature 
+which functions as a medium of exchange or store of 
+value</strong>.
+<p>
+	What is a digital signature?  Any computer 
+message <b>M</b> is a string of 1s and 0s (on or off switches), 
+and thus can be considered a binary number. In the Digital 
+Signature Algorithm (DSA)--adopted by the U.S. 
+government-- and in the RSA system widely used in 
+banking, <b>messages are signed by raising the message
+itself (or an associated number in the case of DSA) to a
+power</b>, say <b>x</b>, and taking the result modulo some large 
+number <b>p</b>.  (That is, we only keep the remainder after 
+division by <b>p</b>.  For example 3^4 mod 7 = 81 mod 7 = 4, 
+because 7 goes into 81 eleven times with 4 left over.)  The 
+signed message <b>M</b> is <b>M^x</b> mod <b>p</b> in RSA.  In DSA an
+associated number <b>g</b> is similarly raised to a power:
+<b>g^x</b> mod <b>p</b>.  In DSA the number <b>p</b> is prime,
+while in RSA, <b>p</b> is the product of two large primes.   The 
+power <b>x</b> plays the role of a secret or private signing or 
+encryption key.
+<p>
+	Why does taking powers work as a system of 
+digital signatures?  Because taking powers (repeated 
+multiplications) is easy in modular arithmetic, but <strong>finding 
+logarithms is hard</strong>. Given M and x, it is easy to find 
+M^x mod p.  But given M^x and M, it is virtually 
+impossible to find x.  Here x is the logarithm of (M^x 
+mod p) to the base M.  Finding x is the "discrete 
+logarithm problem", which is impossible given any 
+reasonable constraints on time and money (computing 
+power).  So discovering the secret signing key is hard.  If 
+p is a prime about 1000 bits in length (about 300 decimal 
+digits), only about 2000 multiplications of 1000-bit 
+numbers are required to compute the exponentiation of M. 
+By contrast, the fastest techniques for taking logarithms in 
+arithmetic modulo p currently demand around 2^100 (or 
+approximately 10^30) operations. Using the best 
+supercomputer would take millions of years to compute 
+the logarithm of M^x mod p.
+<p>
+	Signing, or encryption, is raising a message to a 
+power. Verification, or decryption, is an inverse procedure 
+that restores the original message.  In DSA, and in the 
+digital cash system of Stefan Brands, we work in groups 
+of prime order q.  That means that the q members of the 
+group are formed by the q powers of some number g:  {g, 
+g^2, g^3, . . ., g^(q-1), g^q = 1}, with all calculations 
+done modulo p.  The number g is called the "generator" of 
+the group.  That fact that g^q = 1 mod p, and that no 
+lower positive power than the qth power of g equals 1, is 
+what we mean by the "order" of the group being q.  The 
+power q plays the role of zero: g^0 = g^q = 1 mod p.
+<p>
+	For example, the number g = 70322 is a generator 
+of a group of order q = 1031 when arithmetic is done 
+modulo p = 88667.  That is, 70322^1031 = 1 mod 88667, 
+but no positive power (no power greater than zero) of g 
+smaller than 1031 equals 1.   In practice, we want q to be 
+in the neighborhood of 2^160 (about 48 decimal digits), 
+and p to be in the range of 2^512 to 2^1024 (154 to 308 
+decimal digits).  It's a fact from number theory that q will 
+evenly divide into p-1 (i.e., with no remainder).
+<p>
+        So, for our <strong>signature system</strong> that we will need to 
+create a system of digital cash, we pick primes p, q, and a 
+generator g.  Next, a user will need two keys.  The first 
+one will be a number x, randomly chosen from 1 to q, 1<=
+x <=q.  This power x will be the secret or private key.  The 
+second key h is obtained by raising the generator to the 
+power of the first key:  h = g^x mod p.  The number h, 1<=
+h <=p-1, will be a public key.  Everything except x is 
+public information: p, q, g, and h are known to both 
+parties in any transaction.
+<p>
+	Next, we consider the problem of how to identify 
+people at the other end of the telecommunication line.  
+How do we know that someone is who she says she is?  
+One way is to have them prove that they know a secret 
+key x. Since only Alice knows Alice's own secret key x, 
+such a demonstration of knowledge will suffice to identify 
+Alice.  But Alice doesn't want to foolishly tell us her own 
+secret key (which would allow us to sign messages as 
+Alice).  What we want is a "zero-knowledge proof". <strong>A 
+zero-knowledge proof is one whereby someone shows 
+she knows something, without her having to reveal to 
+others anything about what she knows</strong>.
+
+<p>
+	Consider a bank vault with a single door, with a 
+combination that can be entered on a keypad from either 
+side without observation from the other side of the door.  
+Alice says she knows the combination.  So to see if this is 
+true, I lock her inside the vault and wait outside.  She 
+opens the door and walks out.  She has demonstrated to 
+me she knows the vault combination, without revealing to 
+me even a single digit in the combination.
+<p>
+	The example of a zero-knowledge proof that we 
+will concentrate on is one used in the <strong>Schnorr 
+identification scheme</strong>, which forms a significant part of 
+Stefan Brands' scheme of digital cash (and Brands' 
+scheme is the only one worth talking about).  The way 
+Schnorr identification works is Alice treats her secret key 
+x like the slope of a line. Alice chooses a random intercept 
+w, 1<=w<=q.  Bob sends Alice a challenge c.  Alice 
+responds with a point y on the line that has intercept w 
+and slope x:  y = w + c*x  mod q.  Bob will be able to 
+establish that y is indeed on the line with the proper slope 
+and intercept, and will hence be satisfied that Alice is who 
+she says she is (namely, the person with key x).  But Bob 
+will not be able to, at the same time, learn Alice's key.  
+<p>
+	Now, Bob will know his challenge c, and Alice's 
+response y.  If he knew w also, Bob would learn Alice's 
+secret key.  So Alice doesn't send Bob w.  Instead she 
+sends Bob g^w mod p.  Bob can't solve for w, because w 
+is a discrete logarithm, and that's too hard.
+<p>
+	Here how the process goes:  1) Alice sends g^w 
+mod p to Bob, stating she is Alice.  2) Bob sends back a 
+challenge c, saying prove it. 3) Alice responds with y = 
+w+c*x mod q.  4) Bob checks that g^y = g^w*h^c mod 
+p.   [Note that g^w*h^c = g^w*g^(x*c) = g^(w+c*x) = 
+g^y.]
+<p>
+	Bob (Bob's computer software) can do this check 
+easily enough, because all he has to do is take powers.  In 
+doing the check, Bob uses Alice's public key h.  If Alice 
+doesn't know the secret key x corresponding to h, then the 
+verification will fail.
+<p>
+	We note, parenthetically, that Bob can send secret 
+messages to Alice using her public key h.  Suppose Bob 
+has a message M.  First, Bob chooses a random number k, 
+1<=k<=q, and sends Alice the message M which has been 
+hidden or "blinded" (encrypted) by multiplying it by h^k, 
+namely M*h^k mod p.  Bob also sends Alice g^k mod p.  
+When Alice receives these two pieces of information, she 
+decrypts the message as follows.  She raises the second 
+number g^k to the power of her secret key x:  (g^k)^x = 
+(g^x)^k = h^k.  She then divides M*h^k by h^k, and 
+obtains the original message M.  (This is in fact a well-
+known cryptosystem called the <strong>ElGamal Cryptosystem</strong>.)    
+<p>
+	We are ready to do digital cash.  Digital cash is a 
+signed payment message.  It could be, for example, a bank 
+coin serial number raised to a power x.  This fact tells us 
+right away two problems with digital cash.  The first is 
+that, signed or not, the cash is a computer string, a series 
+of 0s and 1s.  It's easy to make a copy of it.  It's easy to 
+make a million copies of it.  Spending more than one 
+copy--attempting to spend the same coin twice--is called 
+"<strong>double-spending</strong>".  It's analogous to counterfeiting.  
+Unlike cloning, it's a form of theft.  The digital cash 
+issuer has to protect itself against double-spending.
+<p>
+	One way to prevent double-spending is for the 
+bank to keep a record of all signed serial numbers.  When 
+a coin is presented for payment, the bank checks its 
+signature, and then checks to see if the coin was spent 
+previously.  If not, it honors the presentation of the coin. 
+This, however, raises two further issues.  Payments have 
+to be made <strong>on-line</strong> (there has to be a connection to a 
+central computer), which may not be convenient.  The 
+bank also has a <strong>complete computer record</strong> of to whom it 
+issued each coin and where that coin was spent. We are 
+dealing with Big Brother Bank and potentially all other 
+forms of the Surveillance State.  At this point digital 
+signatures have gotten us digital cash, but not  privacy or 
+anonymity.  
+<p>
+	Digital cash systems that don't pay attention to 
+privacy are "privacy-invading systems".  Virtually all 
+commercial systems being proposed are privacy-invading.  
+They worry about the bank's security, but don't pay any 
+attention to the security of the customer (in terms of  
+protection from financial surveillance).
+<p>
+<strong>        For a good privacy-protecting, anonymous 
+digital cash system, we need to add two elements to 
+digital signatures:  the notion of a "restrictive blind" 
+signature, and the Schnorr identification scheme 
+(which we have already seen).</strong>    
+<p>
+        The notion of "<strong>blinding</strong>" is simply one of 
+disguising it by multiplying it by a number.  We just saw 
+one example of this:  the ElGamal Cryptosystem, where a 
+message is blinded by multiplying it by the recipient's 
+public key raised to a random, unknown power.  In our 
+digital cash system, we want the money or coins the bank 
+signs to be blinded in such a way that the bank can't trace 
+the coin.  When the coin is turned in, the bank won't be 
+able to identify who withdrew it.  This maintains the 
+customer's privacy.  But blinding causes another problem.  
+How does the bank identify double-spenders, if the coin-
+holder can't be identified?
+<p>
+        The notion of <strong>"restrictive" blinding</strong> is to make 
+the blinding conditional, so that if a person double-
+spends, the blinding is stripped away, and the spender's 
+identity is revealed.  To see how this is done, think of 
+points on a line.  Two points in a plane determine a 
+straight line.  <strong>From two points, we can solve for the 
+slope of the line.  But the slope of the line is, in the 
+Schnorr identification protocol, the coin-holder's 
+secret key.</strong>  When Bob sent the challenge c,  Alice 
+responded with y.  The pair (c, y) is a point in the plane.  
+If Alice tries to spend the coin again, she will have to 
+respond to another challenge and thus reveal another 
+point, say (c1, y1).  From these two points both Alice and 
+her secret key will be unmasked.  
+<p>
+	In Stefan Brands' system of digital cash, the 
+Schnorr identification protocol is used twice.  When an 
+customer withdraws a coin from the bank, the bank binds 
+the user's identity to the coin, but sends along some 
+additional information that allows the customer to blind 
+the signed coin as seen by the bank.  The customer then 
+challenges the bank to prove knowledge of its secret key.  
+This challenge-and-response verifies that the bank has 
+provided a valid signature on the coin and that the 
+additional information needed for the blinding is valid.  
+Hence there will be a valid bank signature on the blinded 
+coin.  Then when the customer spends the blinded coin, 
+the merchant challenges the customer to provide 
+knowledge of his secret key.  The merchant records the 
+challenge and response, and turns this in to the bank as 
+part of the coin deposit protocol.  If the bank receives the 
+same coin twice, the challenge and response will reveal 
+the customer's identity if the customer was responsible 
+for double-spending.  If the merchant tries to deposit the 
+same coin twice, time-stamping will reveal the merchant's 
+responsibility.
+<p>
+        Brands' system also allows for an <strong><i>observer</strong></i>.
+An observer is a tamper-resistant computer chip provided by 
+the bank to the customer's smartcard or the customer's PC 
+card (formerly called PCMCIA card).  The observer 
+represents the bank, and is <strong>used to prevent double-
+spending before it occurs</strong>. This is a quite useful feature 
+in the digital cash world.  The way  it works is the bank 
+embeds a secret key in the observer's fixed memory 
+(ROM), which forms part of the challenge-and-response 
+protocol.  The protocol won't work without this secret 
+key.  Then, in addition, when a coin is withdrawn from 
+the bank, the observer generates a second random number 
+and stores it in non-volatile memory (EEPROM).  This 
+second number is erased when the coin is spent.  If there 
+is an attempt to spend the coin a second time, this second 
+number is absent, and the observer locks up.  In effect, 
+there is a third Schnorr identification protocol that takes 
+place between the customer and the observer.
+<p>
+	What happens if some clever thief cracks the 
+observer in his laboratory?  The answer is the thief can 
+then double-spend, but doing so will reveal his identity, 
+just as before.  Remove the numbers kept by the observer, 
+or set them equal to zero, and the system operates exactly 
+as before, without the observer.
+<p>
+	Are there currently any commercial providers of 
+anonymous digital cash?  Essentially not.  DigiCash, the 
+company of so-called privacy advocate David Chaum, has 
+a system which it calls "ecash".  DigiCash press releases 
+boast that while "paper notes, briefcases full of which can 
+be passed from hand to hand without leaving any record, 
+allow money laundering and tax evasion today", "with 
+ecash, however, all the amounts each person receives are 
+known to their bank."  There is no anonymity for the 
+ecash recipient, only for the ecash payer. According to 
+DigiCash, "criminals are typically busy collecting money, 
+and are therefore hindered by the non-anonymity of 
+ecash".  This sounds like a suck-up to FinCEN, or an 
+excuse for a flaw in the basic system.
+<p>
+	As the DigiCash ecash system exists, transactions 
+are untraceable, because coin deposits cannot be 
+associated with previous withdrawals. But flows into an 
+account (coin deposits), and flows out of an account (coin 
+withdrawals) can be observed separately.  This is not 
+necessary for the secure operation of the system.  All 
+DigiCash needs to do to also provide payee anonymity is 
+to issue new ecash coins for spent coins, rather than 
+requiring that spent coins be deposited in a non-
+anonymous account.  <strong><i>A transfer of old coins for new 
+should not require any customer identification, but only 
+verification that the old coins were not spent more than 
+once.</strong></i>  There is no necessary reason for the bank to know 
+the identity of the person turning in the spent coins, 
+although the bank might rightly charge a small fee for the 
+exchange service. 
+<p>
+        Thus, in addition to the normal <strong>withdrawal 
+protocol</strong>, where the customer withdraws blinded coins 
+from a non-anonymous account, there should be a <strong>coin-
+exchange protocol</strong>, allowing for the direct anonymous 
+exchange of old coins for new.   If anonymous exchanges 
+of old coins for new could be made also, then only the <strong>net</strong> 
+change for any bank customer  would be observable by 
+the bank.  If a bank customer spent about as much ecash 
+as he received, there would be no bank record of the flow.  
+It would be hard for the bank to distinguish between an 
+ecash "launderer" and a merchant who simply had a lot of 
+sales-related receipts and expenses.  There would indeed 
+be privacy.
+<p>
+Web Page: http://www.aci.net/kalliste/
+<p>
+<h3 align = center>
+               References
+</h3><p>
+American National Standards Institute, <i>American 
+National Standard X9.31-1992:  Public Key 
+Cryptography Using Reversible Algorithms for the 
+Financial Services Industry: Part 1: The RSA Algorithm</i>, 
+March 1993.
+<p>
+Brands, Stefan, "Untraceable Off-line Cash in Wallets 
+with Observers," <i>Advances in Cryptology--Crypto`93</i>, 
+Santa Barbara, August 1993 (1993b).
+<p>
+DigiCash, "DigiCash's Ecash to be Issued by Deutsche 
+Bank," press release, May 7, 1996.
+<p>
+ElGammal, T., "A Public Key Cryptosystem and a 
+Signature Scheme Based on Discrete Logarithms," <i>IEEE 
+Transactions on Information Theory</i>, 31, 1985.
+<p>
+Federal Information Processing Standards Publication 
+(FIPS PUB) 186, <i>Digital Signature Standard</i>, May 1994.
+<p>
+Grabbe, J. Orlin, <i>Anonymous Digital Cash in Theory and 
+Practice</i>,  1997.
+<p>
+LaMacchia, B.A and A. M. Odlyzko, "Computation of 
+Discrete Logarithms in Prime Fields," <i>Designs, Codes, 
+and Cryptography</i>, vol. 1, 1991.
+<p>
+Schnorr, C.P., "Efficient Signature Generation for Smart 
+Cards", <i>Journal of Cryptology</i>, vol. 4 no. 3, 1991.
+</body>
+</html>

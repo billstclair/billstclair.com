@@ -1,0 +1,127 @@
+<html>
+<head>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<title>Java Program 1 for Triple DES Encryption, by J. Orlin Grabbe</title>
+</head>
+<body bgcolor="white" link="#0000ff" vlink="#800080">
+<p>
+<h1 align=center>Java Program 1 for Triple-DES Encryption</h1>
+<h3 align=center><i>by J. Orlin Grabbe</i></h3>
+<hr>
+This program, <b>test3des1.java</b> is only a minor variation on the <b>testDES.java</b> program.
+The <b>test3des1.java</b> program:
+<p>
+<menu>
+<li> takes the 3DES key input and a text string (to be encrypted) from the program itself (not from a file),
+<p>
+<li> encrypts the string in <b>electronic code book (ECB) mode</b> (to produce the ciphertext), 
+<p>
+<li> writes the key and the ciphertext to a file <b>DES-EDE3.out</b>,
+<p>
+<li>decrypts the ciphertext (still in computer memory), and writes the
+resulting plaintext string to the file.
+</menu>
+<p>
+In this example, we see see the following three numbers:
+<menu>
+<p>
+<li> <b>3DES key:</b> 3812A419C63BE771 AD9F61FEFA20CE63 3812A419C63BE771
+<p>
+<li> <b>Plaintext:</b> 0101010101010101 0102030405060708 090A0B0C0D0E0F10 1112131415161718 
+<p>
+<li><b>Ciphertext:</b>  741038365B8C4BC2 01B45F3A1C9C703E 5DE9007B2288BDBD 5203FEB4F80C5BD0
+</menu>
+<p>
+<hr>
+<h2 align=center>Java Source Code</h2>
+<h3 align=center>test3des1.java</h3>
+<hr>
+<pre>
+import java.io.*;
+import java.security.*;
+import java.math.*;
+import cryptix.util.core.BI;
+import cryptix.util.core.ArrayUtil;
+import cryptix.util.core.Hex;
+import cryptix.provider.key.*;
+
+
+class test3des1 {
+
+public static void main (String[] args) {
+
+	try {
+	FileOutputStream outFile1 = new FileOutputStream("DES-EDE3.out");
+	// Note: PrintStream is deprecated, but still works fine in jdk1.1.7b
+	PrintStream output1 = new PrintStream(outFile1);
+
+	// convert a string to a 3DES key and print out the result
+	RawSecretKey key2 = new RawSecretKey("DES-EDE3",Hex.fromString("3812A419C63BE771AD9F61FEFA20CE633812A419C63BE771"));
+	RawKey rkey = (RawKey) key2;
+	byte[] yval = rkey.getEncoded();
+	BigInteger Bkey = new BigInteger(yval);
+	String w = cryptix.util.core.BI.dumpString(Bkey);
+	output1.println("The Encryption Key = " + w);
+	
+	// use the 3DES key to encrypt a string in electronic code book (ECB) mode
+	Cipher des=Cipher.getInstance("DES-EDE3/ECB/NONE","Cryptix");
+	des.initEncrypt(key2);	
+	byte[] ciphertext = des.crypt(Hex.fromString("01010101010101010102030405060708090A0B0C0D0E0F101112131415161718"));
+
+	// print out length and representation of ciphertext 
+	output1.print("\n");
+	output1.println("ciphertext.length = " + ciphertext.length);
+
+	BigInteger Bciph = new BigInteger(ciphertext);
+	w = cryptix.util.core.BI.dumpString(Bciph);
+	output1.println("Ciphertext for 3DES encryption = " + w);
+	
+	// decrypt ciphertext 
+	des.initDecrypt(key2);
+	ciphertext = des.crypt(ciphertext);
+	output1.print("\n");
+	output1.println("plaintext.length = " + ciphertext.length);
+
+	// print out representation of decrypted ciphertext 
+	Bciph = new BigInteger(ciphertext);
+	w = cryptix.util.core.BI.dumpString(Bciph);
+	output1.println("Plaintext for 3DES encryption = " + w);
+
+	output1.println(" ");
+	output1.close();		
+
+      } catch (Exception e) {
+            System.err.println("Caught exception " + e.toString());
+      }
+
+	}}
+
+</pre>
+<hr>
+<h2 align=center>Sample Program Output</h2>
+<h3 align=center>DES-EDE3.out</h3>
+<hr>
+<pre>
+The Encryption Key = Multi-Precision Integer 190 bits long...
+      sign: Positive
+ magnitude: 3812A419C63BE771 AD9F61FEFA20CE63 3812A419C63BE771 
+
+ciphertext.length = 32
+Ciphertext for 3DES encryption = Multi-Precision Integer 255 bits long...
+      sign: Positive
+ magnitude: 741038365B8C4BC2 01B45F3A1C9C703E 5DE9007B2288BDBD 5203FEB4F80C5BD0 
+
+plaintext.length = 32
+Plaintext for 3DES encryption = Multi-Precision Integer 249 bits long...
+      sign: Positive
+ magnitude: 0101010101010101 0102030405060708 090A0B0C0D0E0F10 1112131415161718 
+</pre>
+<p>
+<hr>
+<P ALIGN="JUSTIFY">J. Orlin Grabbe is the author of
+<a href="http://www.amazon.com/exec/obidos/ASIN/0132069881/qid=924154369/sr=1-1/002-9261014-2388004">International Financial Markets</A>, and is an internationally recognized derivatives expert who has recently branched out into cryptology, banking security, and digital cash.  His home page is located at <A HREF="homepage.html">http://www.aci.net/kalliste/homepage.html</A>.
+He currently resides in Costa Rica. </P>
+<center><b><a href="javacrypt_index.htm">Click here to return to Encryption Menu</a></center>
+
+</body>
+</html>

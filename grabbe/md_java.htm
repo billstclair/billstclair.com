@@ -1,0 +1,166 @@
+<html>
+<head>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<title>Java Program for Creating Message Digests, by J. Orlin Grabbe</title>
+</head>
+<body bgcolor="white" link="#0000ff" vlink="#800080">
+<p>
+<h1 align=center>Java Program for Creating Message Digests</h1>
+<h3 align=center><i>by J. Orlin Grabbe</i></h3>
+<hr>
+This program shows how to use Cryptix to create a <b>message digest</b> (also called a <b>hash value</b>): in particular
+SHA-1, MD5, RIPEM-128, and RIPEM-160.  Some further information on the use of
+message digests in digital signatures may be found in:
+<p>
+<menu>
+<li><a href="digsig.htm">Digital Signatures Illustrated</a>
+<li><a href="cryptnum.htm">Cryptography and Number Theory for Digital Cash</a>
+</menu>
+<p>
+The program listed below, <b>testMD.java</b>:
+<p>
+<menu>
+<li> reads in the textfile <b>data</b> and calculates an SHA-1 hash value (message digest) [the
+name of the textfile is specified at the time the program is run; see the example on the Main Menu],
+<p>
+<li> reads in the same textfile and calculates an MD5 hash value (message digest),
+<p>
+<li> reads in the same textfile and calculates an RIPEM-128 hash value (message digest),
+<p>
+<li> reads in the same textfile and calculates an RIPEM-160 hash value (message digest).
+<p>
+</menu>
+<p>
+<hr>
+<h2 align=center>Java Source Code</h2>
+<h3 align=center>testMD.java</h3>
+<hr>
+<pre>
+import java.io.*;
+import java.security.*;
+import cryptix.util.core.Hex;
+import cryptix.provider.md.*;
+
+class testMD {
+
+public static void main(String[] args) {
+
+try {
+     FileOutputStream outFile = new FileOutputStream("MD.out");
+     PrintStream output = new PrintStream(outFile);
+
+     byte b;
+     String w;
+
+     //SHA-1 Hash value of data 
+     MessageDigest sha = MessageDigest.getInstance("SHA-1");
+
+     FileInputStream fis = new FileInputStream(args[0]);
+     while (fis.available() != 0) {
+         b = (byte) fis.read();
+         sha.update(b);
+         };
+
+     fis.close();
+
+     byte[] hash = sha.digest();
+     w = cryptix.util.core.Hex.dumpString(hash);
+     output.println("the SHA-1 hash of " + args[0] + " is " + w);
+
+     // MD5 Hash value of data 
+     MessageDigest md5 = MessageDigest.getInstance("MD5");
+
+     fis = new FileInputStream(args[0]);
+     while (fis.available() != 0) {
+        b = (byte) fis.read();
+        md5.update(b);
+        };
+
+     fis.close();
+
+     hash = md5.digest();
+     w = cryptix.util.core.Hex.dumpString(hash);
+     output.println("the MD5 hash of " + args[0] + " is " + w);
+
+     // RIPEM128 Hash value of data 
+     MessageDigest rpm128 = MessageDigest.getInstance("RIPEMD128");
+
+     fis = new FileInputStream(args[0]);
+     while (fis.available() != 0) {
+        b = (byte) fis.read();
+        rpm128.update(b);
+        };
+
+     fis.close();
+
+     hash = rpm128.digest();
+     w = cryptix.util.core.Hex.dumpString(hash);
+     output.println("the RIPEM128 hash of " + args[0] + " is " + w);
+
+     // RIPEM160 Hash value of data 
+     MessageDigest rpm160 = MessageDigest.getInstance("RIPEMD160");
+
+     fis = new FileInputStream(args[0]);
+     while (fis.available() != 0) {
+        b = (byte) fis.read();
+        rpm160.update(b);
+        };
+
+     fis.close();
+
+     hash = rpm160.digest();
+     w = cryptix.util.core.Hex.dumpString(hash);
+     output.println("the RIPEM160 hash of " + args[0] + " is " + w);
+
+        } catch (Exception e) {
+            System.err.println("Caught exception " + e.toString());
+        }
+
+     }}
+
+</pre>
+<hr>
+<h2 align=center>Sample Text Program Input</h2>
+<h3 align=center>data</h3>
+<hr>
+<pre>
+Senator Hand N. Till
+Washington, DC
+
+Dear Senator:
+
+This letter is to inform you we have
+opened account no. 338907021 on your
+behalf, and deposted therein a
+legislative incentive payment of
+$1 million.  For withdrawl, you will
+need to use your password BJRGUD7693.
+
+Yours very truly,
+
+Arnold C. Creole
+Vice President
+Greater Caribbean Bank
+</pre>
+<hr>
+<h2 align=center>Sample Program Output</h2>
+<h3 align=center>MD.out</h3>
+<hr>
+<pre>
+the SHA-1 hash of data is 1A01B56EB33FA84A 39EEDDD927977726 38331E94
+
+the MD5 hash of data is 5670E64BF6CEBB46 31A25CF6990F82C0 
+
+the RIPEM128 hash of data is B4BB17FD0E09091A 2DF095F0B9647B41 
+
+the RIPEM160 hash of data is ABA54F46348F56D1 E492AE09A472D143 9D64E0F1
+</pre>
+<p>
+<P ALIGN="JUSTIFY">J. Orlin Grabbe is the author of
+<a href="http://www.amazon.com/exec/obidos/ASIN/0132069881/qid=924154369/sr=1-1/002-9261014-2388004">International Financial Markets</A>, and is an internationally recognized derivatives expert who has recently branched out into cryptology, banking security, and digital cash.  His home page is located at <A HREF="homepage.html">http://www.aci.net/kalliste/homepage.html</A>.
+He currently resides in Costa Rica. </P>
+<center><b><a href="javacrypt_index.htm">Click here to return to Encryption Menu</a></center>
+
+</body>
+</html>
+

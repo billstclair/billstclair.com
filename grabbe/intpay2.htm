@@ -1,0 +1,684 @@
+<html>
+
+<head>
+
+<title>Internet Payment Systems: Part 2</title>
+
+<head>
+
+<body>
+
+<A HREF="mailto:orlingrabbe@orlingrabbe.com"> [Email Reply] </A>
+
+<hr>
+
+<BR>
+
+<h2 align=center>Internet Payment Systems:  Part 2</h2>
+
+<h3 align=center><i>by J. Orlin Grabbe<i></h3>
+
+<center><table border=0 width=70%>
+
+<tr><td> 
+
+<b>	What is a bank?
+
+<p>
+
+	In small-town America people used to think of the bank as the most 
+
+impressive and fortified-appearing building in town, leaving aside the local 
+
+courthouse.  The bank building was supposed to ooze confidence.  This was 
+
+very important given that the monetary system is in essence a confidence 
+
+game.  In more recent years, as bank ATMs have become ubiquitous, the 
+
+average quality of banking facilities has deteriorated sharply.  But banks still 
+
+like to maintain the facade they are doing you a favor in accepting your 
+
+money.  However, the image has gotten a little scrambled.
+
+<p>
+
+	When I opened a bank account in Prague, Czechoslovakia (it hadn't 
+
+yet split into two countries) in 1992, I encountered a problem.  Czech banks 
+
+still did all their transactions processing by hand--with pen and paper.  And 
+
+in the previous two years, the number of "current accounts" (checking 
+
+accounts) had skyrocketed from 10,000 to 2 million.  So checks took six 
+
+weeks to clear.  And the banks with the impressive buildings around 
+
+Wenceslas Square were not accepting new accounts below three million 
+
+koruna or so.  Finding a bank which would accept a new account of 
+
+reasonable size turned into an all day search by myself and two other 
+
+people:  a local lawyer and a local accountant.
+
+<p>
+
+	You might think you could just call around on the phone.  But that 
+
+assumes that someone answers the phone.  And if someone answers the 
+
+phone, that they know or can find the answer.  And that if they give an 
+
+answer, the answer is correct.  All these assumptions turned out to be 
+
+terribly naive.  But eventually we got word of a new branch which had just 
+
+opened on the other side of town, which had no money, and which was 
+
+therefore accepting deposits of any size.  With elan we raced across Prague 
+
+before miracle melted into mirage.  Eventually we located an ugly gray 
+
+building, designed in late socialist style, and to all appearances since 
+
+gnawed upon by giant concrete-eating rats.  The first floor was in fact under 
+
+construction or renovation--there were no doors, windows, or walls.  We 
+
+wound our way through the machinery and piles of sand and gravel until we 
+
+arrived at the center of the building.
+
+<p>
+
+	There was an elevator.  The elevator ran continuously.  It was a set 
+
+of open boxes.  When the floor of a box rose approximately to ground level, 
+
+you leaped on board, congratulating yourself on not getting wedged.  And 
+
+only belatedly realized you should have been counting floors, because there 
+
+were no number designations.  Two of us leaped out at the fifth floor, and 
+
+we waited for the boxes to come around again, and our colleague managed 
+
+to join us on his way down.
+
+<p>
+
+	The was an 8 1/2 by 11 sheet of typing paper attached to the wall 
+
+with masking tape in front of the elevator, with the ball-point notation 
+
+"bank" and an arrow pointing off to the right.  We wandered in the direction 
+
+of the arrow until we eventually came to an office in the corner of the 
+
+building.  The man in the office looked up at us in puzzlement.  "We are 
+
+looking for the bank," my lawyer says in Czech.  The man points catty-
+
+corner across the building.  The bank is in the exact opposite corner.  We 
+
+went there and opened an unmarked door with frosted glass.
+
+<p>
+
+	And there was the bank:  three guys behind an uncovered picnic-type 
+
+table, waiting on two customers.  Great luck!  The third bank officer was 
+
+free!  But even in this context the confidence factor was at work.  There was 
+
+one more bank employee:  a young woman behind a bullet-proof glass with 
+
+a PC!  High tech had come to Prague.  The man behind the picnic table gave 
+
+me large laminated tokens that showed my account number and my initial 
+
+deposit.  But for the latter token, I first had to get in line and wait my turn to 
+
+give koruna to the girl with the computer behind the bullet-proof glass.  
+
+While standing in line, I commented to someone that it reminded me of a 
+
+scene in Philadelphia, where a bank had opened up a branch in a house 
+
+trailer in a vacant lot near the stock exchange.  
+
+<p>
+
+	"Philadelphia?  I'm from Philadelphia."  This from a stranger in line 
+
+behind me.  It turned out that he had sold the bank their software system--
+
+the PC banking system being used by the girl behind the bullet-proof glass.  
+
+<p>
+
+	What was the bank?  Certainly not the building.  Not the giant 
+
+concrete-eating rats.  Not even the people--like the three guys behind the 
+
+picnic table.  No, as a first approximation, the bank was the set of accounts 
+
+recorded on the PC hard drive.  The one manipulated by the girl behind the 
+
+bullet-proof glass.  The bullet-proof glass wasn't the bank either.
+
+<p>
+
+	In essence, a bank is simply a balance sheet.  On the liabilities side 
+
+of the balance sheet are the deposits the bank owes to its customers.  On the 
+
+asset side of the balance sheet are the bank's securities and loans--the things 
+
+it owns. When a customer writes a check to another customer, the numbers 
+
+change.  One liability account is debited, and another is credited.  
+
+<p>
+
+        That's the way digital cash <i>credit-debit systems</i> work.  In Part 1, we 
+
+looked at Internet Payment systems which were credit-card like, with some 
+
+security features added.  Here in Part 2, we looked at Internet Payment 
+
+systems that are a set of accounting books, which are altered by a series of 
+
+debits and credits.
+
+<p>
+
+<h3 align=center>Digital Cash Debit-Credit Systems</h3>
+
+
+
+	In these systems, customers open an account in one of a specialized 
+
+network of payment servers.  They then authorize charges against their 
+
+account.  For example, in NetCheque, customers can digitally sign a 
+
+payment check against their account.  It is digitally countersigned by another 
+
+account holder receiving the check.  By definition, this represents a digital 
+
+payment message bearing a digital signature which functions as a medium 
+
+of exchange or store of value, so these checks are bona fide digital cash.  
+
+The accounting servers handle the formalized payment protocols which 
+
+allow for Internet payments in a simple and efficient manner.  The payment 
+
+server itself maintains a line to the ordinary banking system.  
+
+<p>
+
+	There is no reason the payment server cannot handle anonymous 
+
+accounts--in which case the payment server becomes the interface between 
+
+the anonymous and non-anonymous banking system.  If a customer must 
+
+always maintain a net positive balance with the payment server, it is called a 
+
+"debit" system, while if a customer is allowed net negative balances which 
+
+are billed later, it is called a "credit" system.  
+
+<p>
+
+	Calling the examples covered here in Part 2 "credit-debit" systems 
+
+does not mean they are not digital cash systems. By our definition, any 
+
+payment system using digitally signed instruments as a medium of exchange 
+
+or store of value qualifies as digital cash. Encrypted credit card numbers are 
+
+not digital cash, but the NetCheque, NetBill, and CyberCoin systems 
+
+covered here in Part 2 are.
+
+<p>
+
+        What these systems have in common is a <i>centralized accounting 
+
+server which transfers balances between two accounts</i>.  There are no 
+
+separate, identifiable digital tokens that can be stored on a hard drive or in 
+
+the memory of a smart card, and subsequently transferred to others in 
+
+payment without going through the centralized server.  That is, one can send 
+
+a digitally signed payment message to the  accounting server which results 
+
+in a balance transfer, but one doesn't receive from the server a digital token 
+
+or piece of digital cash--which is a generalized liability carrying the server's 
+
+signature, and promising to pay to the bearer on demand. Digital cash 
+
+systems with transferable bearer tokens are deferred to Part 3 for discussion.
+
+<p>
+
+<h3 align=center>NetCheque (USC)</h3>
+
+
+
+	NetCheque is a product of the Information Sciences Institute (ISI) of 
+
+the University of Southern California (USC), under a team lead by Clifford 
+
+Neuman.  A NetCheque customer must establish an account on one of a 
+
+system of "accounting servers".  Generally, this involves transferring a 
+
+monetary balance from an ordinary banking account to the specialized 
+
+server.  Once such an account is established, a customer may make low-
+
+valued payments to other accounting server customers using the NetCheque 
+
+protocol.
+
+<p>
+
+	Payments in the system take the form of "electronic checks".  To 
+
+make a payment, a customer fills out a check identifying the payer, the 
+
+payer's financial institution, the payer's account identifier, the name of the 
+
+payee, and the amount of the check.  The check is digitally signed by the 
+
+payer and sent to the payee.  The payee must digitally endorse (i.e., also 
+
+digitally sign) the check, and the server then removes the amount of the 
+
+check from the payer and credits it to the account of the payee.
+
+<p>
+
+	All customers maintain accounts with an accounting server, while 
+
+the accounting server maintains its own account with an outside bank.  The 
+
+arrangement of the NetCheque system is based on the Kerberos client-server 
+
+authentication framework that was created by MIT as a method of 
+
+controlling computer access in distributed networks.
+
+<p>
+
+        In the <b><i>Kerberos system</i></b>, a client registers with a centralized key 
+
+server called Kerberos.  Then, in order to get access to computer servers 
+
+generally, the client must first request a Kerberos ticket-granting ticket 
+
+(TGTicket), which allows it to use a ticket-granting server (TGServer).  The 
+
+TGTicket is good for a limited time.  Then whenever the client wants to use 
+
+a particular server, it first utilizes its TGTicket in a request to the 
+
+TGServer.  The TGServer checks the authenticity of the TGTicket.  If the 
+
+latter is valid, the TGServer then issues the client a server ticket (STicket).  
+
+Afterward, the client sends the STicket to the server in which it is interested 
+
+in using.  If everything is in order, the server then allows the client to use its 
+
+services.
+
+<p>
+
+	In short, Kerberos gives the client a license to use the TGServer, and 
+
+then the TGServer gives the client a license to use a particular server 
+
+computer.  The notable feature of Kerberos is its exclusive use of 
+
+conventional symmetric key cryptography (DES).  NetCheque claims this is 
+
+an advantage in that the "requirement for handling micropayments requires 
+
+high performance which is obtained through the use of conventional, instead 
+
+of public-key cryptography."  
+
+<p>
+
+        <b><i>Writing a check</i></b>:  NetCheque's electronic checks are a type of 
+
+Kerberos ticket. When a check is written, the payer's software identifies the 
+
+account on which the check is drawn, and the rest of the check information 
+
+(listed above) is filled in.  As part of this procedure, the check-writer also 
+
+obtains a Kerberos ticket which will be used to authenticate the check-writer 
+
+to the accounting server.  (The accounting server plays somewhat the same 
+
+role as the TGServer in the Kerberos system.)  The check is base 64 
+
+encoded and sent to the payee via email or through an on-line service. 
+
+<p>
+
+        <b><i>Depositing a check</i></b>:  The payee's software reads the information on 
+
+the check, and obtains its own Kerberos ticket identifying the payee to the 
+
+payer's accounting server.  The payee adds an endorsement to the check for 
+
+deposit to the payee's account.  The payee's accounting server then credits 
+
+the payee's account with the amount of the check.  If both payer and payee 
+
+use the same accounting server, the check is immediately cleared by 
+
+reducing the payer's balance.  If the payer and payee use different 
+
+accounting servers, there is a hold placed on the deposited funds in the 
+
+payee's account until the payer's account has been correspondingly reduced.
+
+<p>
+
+	Many of the details of NetCheque are incorporated into the 
+
+associated ISI system NetCash, which we will discuss in more detail in the 
+
+next section.
+
+<p>
+
+	The NetCheque software has been integrated with an existing 
+
+software system called Prospero, also created by Neuman, which provides 
+
+for searching and retrieval of information on the Internet.  Prospero, first 
+
+released in 1990, is presently used by America Online as part of their 
+
+gateway for access to Internet information services. Prospero has been 
+
+licensed by a company called CyberSAFE, which has worked with the 
+
+Kerberos system for some time.
+
+<p>
+
+	Work on the NetCheque and NetCash systems was funded by the 
+
+U.S. Defense Department's Advanced Research Projects Agency through its 
+
+computer systems technology office.
+
+<p>
+
+<h3 align=center>NetBill (Carnegie-Mellon and Mellon Bank)</h3>
+
+
+
+        NetBill is designed for small payments ("<i>micropayments</i>"), 
+
+especially for information delivered over the Internet, such as payment of a 
+
+few cents for access to a Web page or an electronically archived research 
+
+journal.  The system is being developed by Carnegie Mellon University and 
+
+Mellon Bank Corp. in Pittsburgh, PA.
+
+<p>
+
+	Such a system requires low service costs, a guarantee that customers 
+
+receive the information they request, and that merchants receive payment 
+
+for goods delivered. (NetBill itself expects to charge from 7 to 25 percent of 
+
+the price of the purchased information for use of its payment mechanism.) 
+
+<p>
+
+	NetBill uses an account server, which maintains accounts for both 
+
+customers and merchants, linked to conventional financial institutions.  The 
+
+NetBill server acts as an aggregator to combine many small transactions into 
+
+larger conventional-sized transactions.  
+
+<p>
+
+	The payment structure is designed for the easy construction of 
+
+pseudonyms to allow buyers of information to protect their identities.
+
+<p>
+
+	The basic steps in the protocol are the following.
+
+<p>
+
+<blockquote>
+
+<list>
+
+<li>        1.  Customer requests a price quote from the merchant.
+
+<li>        2.  The merchant responds with a quote to the customer.
+
+<li>        3.  The customer accepts or rejects the price quote.
+
+<li>        4.  If  the quote is accepted, the merchant delivers the information in 
+
+	encrypted form.
+
+<li>        5.  The customer sends an electronic payment order to the merchant.
+
+<li>        6.  The merchant sends the electronic payment order and key to the 
+
+	NetBill server.
+
+<li>        7.  The NetBill server sends a receipt to the merchant.
+
+<li>        8.  The merchant sends a receipt to the customer, allowing the 
+
+	customer to decrypt the information.
+
+</list></blockquote><p>
+
+	In step 1, the customer and merchant authenticate each other using 
+
+public-key certificates.  They establish a symmetric session key to encrypt 
+
+subsequent messages.  The merchant's price quote (step 2) will be based on 
+
+the customer's identity (to allow for price discrimination).  If the customer 
+
+accepts the quote (step 3), the merchant sends the information to the 
+
+customer in an <i>encrypted form while withholding the encryption key</i> (step 
+
+4).  The customer makes up an electronic payment order which describes the 
+
+transaction and includes a cryptographic checksum of the information 
+
+received.  The payment order is encrypted with the private key of the 
+
+customer and sent to the merchant (step 5).  The merchant verifies the 
+
+message contents (using the customer's public key), appends the key needed 
+
+to decrypt the information, endorses the order with the merchant's digital 
+
+signature, and sends it to the NetBill server.  The NetBill server checks the 
+
+customer's account balance, debits this balance and credits the merchant's 
+
+balance, and sends a digitally signed receipt--which includes the key needed 
+
+to decrypt the information--back to the merchant (step 7).  The merchant 
+
+forwards the receipt to the customer (step 8), who now decrypts the 
+
+purchased information.
+
+<p>
+
+        There is little <i>personal</i> anonymity in this process.  True, the NetBill 
+
+server does not know anything about the information the customer 
+
+purchased from the merchant.  It might be pages from the Bible written in 
+
+Urdu, or a cryptography program from a U.S. citizen.  This info is kept 
+
+confidential. However, the NetBill server keeps a transaction record of 
+
+purchases made from different merchants, and this potentially allows all 
+
+information requests to be linked. Neither is there any financial anonymity 
+
+involved when the customer's NetBill account is first funded.  But the latter 
+
+is true of almost all digital cash systems.
+
+<p>
+
+<h3 align=center>CyberCoin</h3>
+
+	
+
+	As we saw in Part 1, CyberCash is itself not a digital cash system, 
+
+but rather a method for making secured credit card payments over the 
+
+Internet.  Then in October 1996 CyberCash introduced <i>CyberCoin</i>, which is 
+
+a digital cash book entry system using an accounting server and RSA 
+
+encryption.  Encryption includes 56-bit DES keys, and 768 to 1024 
+
+public/private key pairs.
+
+<p>
+
+	In the CyberCoin system, CyberCash itself acts as the accounting 
+
+server using an escrow account at its bank in Virginia.  Within the escrow 
+
+account, CyberCash maintains proxy (CyberCoin) accounts for customers 
+
+and merchants. CyberCoin is conceived of as a micropayment system, with 
+
+purchases in the range of 25 cents to $100.
+
+<p>
+
+	Customers have "Wallets" and merchants have "Cash Registers".  
+
+CyberCash itself processes payments between the CyberCoin proxy 
+
+accounts of customers and merchants.  Customers are not charged fees for 
+
+this service.  But as with any traveler's check system, CyberCash's bank 
+
+earns interest on dollar amounts deposited in Wallets and not yet used.    
+
+<p>
+
+	Merchants are charged fees for services.  The bank charges a 
+
+merchant a per-transaction fee to use CyberCoin (just as CyberCash charges 
+
+the bank a fee for providing technology and processing services.)  A 
+
+merchant also pays to transfer funds out of its CyberCoin proxy account to a 
+
+regular bank account. (The merchant does this by requesting an Automated 
+
+Clearing House transfer.) This gives merchants an economic incentive to 
+
+accumulate funds in their Cash Register before such transfers are made.
+
+<p><center>
+
+* * * * *
+
+</center><p>
+
+	Debit-credit systems represent the essence of what digital banking is 
+
+all about.  In principle, one doesn't have to go any further than debit-credit 
+
+systems in order to have complete privacy and anonymity (although the 
+
+systems here don't provide that).  However, it will also be interesting to 
+
+look at systems that are a little more cash-like.  One can stuff cash in ones 
+
+pocket, and later hand some of it to another person.  Digital token systems 
+
+are similar:  one can stuff digital cash into ones pocket computer, and later 
+
+hand some of it to someone else's computer or storage device.
+
+<p>
+
+	We will look at digital token systems in Part 3.
+
+<p><center>
+
+* * * * *
+
+</center><p>
+
+	Heading back to the office with the lawyer and the accountant, 
+
+having successfully deposited koruna in a Prague banking account, the 
+
+lawyer said to me:  "I've worked in Austria and I've worked in Germany, 
+
+and I know there is a better way.  Sometimes I think to myself, `I would like 
+
+to start some business here in Czechosolvakia.'  But then I think of the 
+
+banks.  The banking system here is impossible."
+
+<p>
+
+	If I had known then what I know now, I would have answered:  "Let 
+
+me tell you about the Internet."
+
+<p><center>
+
+-30-
+
+</center>
+
+</td></tr></table></center></b>
+
+</body>
+
+</html>
+

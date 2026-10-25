@@ -1,0 +1,113 @@
+<html>
+<title>Java Source Code for Alternative Julia Set Plot of the Complex Logistic Equation</title>
+<body>
+<h2 align=center>Java Source Code for Alternative Julia Set Plot of the Complex Logistic Equation</h2>
+<hr>
+<p>
+<pre>
+import java.applet.*;
+import java.awt.*;
+
+class log2_juliaPlot extends Canvas {
+
+	private int maxcol = 399, maxrow = 399, max_colors = 16,
+		max_iterations = 256, max_size = 4;
+	private Color cmap[];
+
+	private void plot(Graphics g, int x, int y, int color_index) {
+		
+		g.setColor(cmap[color_index]);
+		g.drawLine(x,y, x, y);
+	}
+
+	public log2_juliaPlot() {
+
+            cmap = new Color[max_colors];
+            cmap[0] = Color.black;
+            cmap[1] = new Color(0, 0, 168);
+            cmap[2] = new Color(100, 50, 0);
+            cmap[3] = new Color(0, 168, 168);
+            cmap[4] = new Color(168, 0, 0);
+            cmap[5] = new Color(168, 0, 168);
+            cmap[6] = new Color(168, 84, 0);
+            cmap[7] = new Color(168, 168, 168);
+            cmap[8] = new Color(84, 84, 84);
+            cmap[9] = new Color(84, 84, 255);
+            cmap[10] = new Color(84, 255, 84);
+            cmap[11] = new Color(84, 255, 255);
+            cmap[12] = new Color(255, 84, 84);
+            cmap[13] = new Color(255, 84, 255);
+            cmap[14] = new Color(255, 255, 84);
+            cmap[15] = Color.white;
+	}
+
+	public void paint(Graphics g) {
+
+		float Q[] = new float[400];
+		double Pmax = 1.5, Pmin = -.5, Qmax = .7, Qmin = -.7, A = 1.678, B = .95,
+			P, deltaP, deltaQ, X, Y, Xfactor,Yfactor, Xsquare, Ysquare;
+		int color, row, col;//(1.68,.95)
+
+		deltaP = (Pmax-Pmin)/(double)(maxcol-1);
+		deltaQ = (Qmax-Qmin)/(double)(maxrow-1);
+		for (row=0;row<=maxrow;row++) {
+			Q[row] = (float)(Qmin+row*deltaQ);
+		}
+		for (col=0;col<=maxcol;col++) {
+			P = Pmin+col*deltaP;
+			for(row=0;row<=maxrow;row++){
+				X = P; Y = Q[row];
+				color = 0;
+                                for(color=0; color<=max_iterations-1; color++) {
+					Xfactor = X-X*X+Y*Y;
+					Yfactor = 2*X*Y-Y;
+					X = A*Xfactor+B*Yfactor;
+					Y = B*Xfactor-A*Yfactor;
+					Xsquare = X*X;
+					Ysquare = Y*Y;
+					if((Xsquare+Ysquare)>max_size){
+						plot(g,col,row,(int)(0));
+						break;}
+					if(color==(max_iterations-1)) {
+					        if(Xsquare+Ysquare> 1 ) plot(g,col,row,(int)1);
+					   else if(Xsquare+Ysquare>.9) plot(g,col,row,(int)2);
+					   else if(Xsquare+Ysquare>.8) plot(g,col,row,(int)3);
+					   else if(Xsquare+Ysquare>.7) plot(g,col,row,(int)4);
+					   else if(Xsquare+Ysquare>.6) plot(g,col,row,(int)5);
+					   else if(Xsquare+Ysquare>.5) plot(g,col,row,(int)6);
+					   else if(Xsquare+Ysquare>.45) plot(g,col,row,(int)7);
+					   else if(Xsquare+Ysquare>.40) plot(g,col,row,(int)8);
+					   else if(Xsquare+Ysquare>.35) plot(g,col,row,(int)9);
+					   else if(Xsquare+Ysquare>.30) plot(g,col,row,(int)10);
+					   else if(Xsquare+Ysquare>.25) plot(g,col,row,(int)11);
+					   else if(Xsquare+Ysquare>.20) plot(g,col,row,(int)12);
+					   else if(Xsquare+Ysquare>.15) plot(g,col,row,(int)13);
+					   else if(Xsquare+Ysquare>.10) plot(g,col,row,(int)14);
+					   else if(Xsquare+Ysquare>.05) plot(g,col,row,(int)15);
+                                           }
+				}
+			}
+		}
+	}
+	} 
+
+	public class log2_julia extends Applet {
+
+		private log2_juliaPlot canvas;
+		
+		public void init() {
+
+			setLayout(new BorderLayout());
+			canvas = new log2_juliaPlot();
+			add("Center", canvas);
+			}
+
+	}		
+</prev>
+</body>
+</html>
+
+						
+
+
+	

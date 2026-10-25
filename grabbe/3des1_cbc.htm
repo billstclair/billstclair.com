@@ -1,0 +1,177 @@
+<html>
+<head>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<title>Java Program 1 for Triple DES Encryption with Cipher Block Chaining, by J. Orlin Grabbe</title>
+</head>
+<body bgcolor="white" link="#0000ff" vlink="#800080">
+<p>
+<h2 align=center>Java Program 1 for Triple-DES Encryption with Cipher Block Chaining</h2>
+<h3 align=center><i>by J. Orlin Grabbe</i></h3>
+<hr>
+This program, <b>test3des1_CBC.java</b> is a variation on the <b>test3des1.java</b> program.  
+<p>
+The program here uses CBC mode (Cipher Block Chaining mode) to encrypt the data.  First a random 8-byte
+(64-bit) <b>Initialization Vector</b> is appended to the beginning of the data.  This block is encrypted
+first; then the encrypted block is XOR'd with the next plain text block (the first 8 bytes of the target
+file to be encrypted) before it is encrypted.  The result of that encryption is then X0R'd with the next
+plain text block (the second 8 bytes of the target file) before that block is encrypted.  And so on.
+<p>
+<b>Note:</b> If you do not append the Initialization Vector to the beginning of the string to be encrypted,
+the encrypted text will not decrypt properly; rather, the first 8 bytes will be garbled.  But with the Initialization
+Vector appended to the beginning of the string to be encrypted, the subsequent decryption will yield an
+extraneous  garbage vector as the first 8 bytes of the decrypted text.  At that point the first 8 bytes 
+can be disgarded, leaving the original plaintext file.
+<p>
+The <b>test3des1_CBC.java</b> program:
+<p>
+<menu>
+<li> takes the 3DES key input from the program itself (not from a file),
+<p>
+<li> prints out an 8-byte <b>Initialization Vector</b> from a string in the program,
+<p>
+<li> uses as the string to be encrypted one with this Intialization Vector as the first 8 bytes;
+<p>
+<li> encrypts the string in <b>cipher block chaining (CBC) mode</b> (to produce the ciphertext), 
+<p>
+<li> writes the key and the ciphertext to a file <b>DES-EDE3.out</b>,
+<p>
+<li>decrypts the ciphertext (still in computer memory), and writes the
+resulting plaintext string to the file.
+</menu>
+<p>
+In this example, we see see the following five numbers:
+<menu>
+<p>
+<li> <b>3DES key:</b> 3812A419C63BE771 AD9F61FEFA20CE63 3812A419C63BE771
+<p>
+<li> <b>Initilization Vector:</b> CCF3454D1E9CCDE0
+<p>
+<li> <b>Plaintext with Initialization Vector :</b> CCF3454D1E9CCDE0 0101010101010101 0102030405060708 090A0B0C0D0E0F10 1112131415161718 
+<p>
+<li><b>Ciphertext:</b>  5D505DD99BC8AC65 B25D48D2A6755630 D987EEEDD7E10F63 0EAE5063EC17B0C6 
+  8E37124A8E4C6B13
+<p>
+<li> <b>Decrypted Ciphertext (disgard first 8 bytes) :</b> 42C4570790D0A6F3 0101010101010101 0102030405060708 090A0B0C0D0E0F10 1112131415161718 
+<p>
+</menu>
+<p>
+<hr>
+<h2 align=center>Java Source Code</h2>
+<h3 align=center>test3des1_CBC.java</h3>
+<hr>
+<pre>
+mport java.io.*;
+import java.security.*;
+import java.math.*;
+import cryptix.util.core.BI;
+import cryptix.util.core.ArrayUtil;
+import cryptix.util.core.Hex;
+import cryptix.provider.key.*;
+
+class test3des1_CBC {
+
+public static void main (String[] args) {
+
+        try {
+        FileOutputStream outFile1 = new FileOutputStream("DES-EDE3.out");
+        // Note: PrintStream is deprecated, but still works fine in jdk1.1.7b
+        PrintStream output1 = new PrintStream(outFile1); 
+
+      // convert a string to a 3DES key and print out the result
+    RawSecretKey key2 = new RawSecretKey(" DES-EDE3",Hex.fromString("3812A419C63BE771AD9F61FEFA20CE633812A419C63BE771"));
+    RawKey rkey = (RawKey) key2;
+        byte[] yval = rkey.getEncoded();
+        BigInteger Bkey = new BigInteger(yval);
+        String w = cryptix.util.core.BI.dumpString(Bkey);
+        output1.println("The Encryption Key = " + w);
+        
+        // convert a string to an initialization vector and print out the result
+	byte[] iv = new byte[8];
+	iv = Hex.fromString("CCF3454D1E9CCDE0");
+        Bkey = new BigInteger(iv);
+        w = cryptix.util.core.BI.dumpString(Bkey);
+        output1.println("The Initialization Vector = " + w);
+
+        // use the 3DES key and initialization vector to encrypt a string in cipher block chaining (CBC) mode
+        Cipher des=Cipher.getInstance("DES-EDE3/CBC/NONE","Cryptix");
+        des.initEncrypt(key2);  
+        byte[] ciphertext = des.crypt(Hex.fromString("CCF3454D1E9CCDE001010101010101010102030405060708090A0B0C0D0E0F101112131415161718"));
+
+        // print out length and representation of ciphertext 
+        output1.print("\n");
+        output1.println("ciphertext.length = " + ciphertext.length);
+
+        BigInteger Bciph = new BigInteger(ciphertext);
+        w = cryptix.util.core.BI.dumpString(Bciph);
+        output1.println("Ciphertext resulting from 3DES encryption = " + w);
+        
+        // decrypt ciphertext 
+        des.initDecrypt(key2);
+        ciphertext = des.crypt(ciphertext);
+        output1.print("\n");
+        output1.println("plaintext.length = " + (ciphertext.length-8));
+
+        // print out representation of decrypted ciphertext (start with byte 9)
+	  byte[] bt = new byte[ciphertext.length-8];
+	  int i;
+	  for(i=8;i&lt;ciphertext.length;i++) bt[i-8] = ciphertext[i];
+        Bciph = new BigInteger(bt);
+        w = cryptix.util.core.BI.dumpString(Bciph);
+        output1.println("Plaintext for 3DES encryption = " + w);
+        output1.println(" ");
+		
+          // print out representation of decrypted ciphertext (start with byte 0)
+        Bciph = new BigInteger(ciphertext);
+        w = cryptix.util.core.BI.dumpString(Bciph);
+        output1.println("Plaintext with Garbage Vector = " + w);
+
+        output1.println(" ");
+        output1.close();                
+
+      } catch (Exception e) {
+            System.err.println("Caught exception " + e.toString());
+      }
+
+        }}
+		
+</pre>
+<hr>
+<h2 align=center>Sample Program Output</h2>
+<h3 align=center>DES-EDE3.out</h3>
+<hr>
+<pre>
+The Encryption Key = Multi-Precision Integer 190 bits long...
+      sign: Positive
+ magnitude: 3812A419C63BE771 AD9F61FEFA20CE63 3812A419C63BE771 
+
+The Initialization Vector = Multi-Precision Integer 62 bits long...
+      sign: Negative
+ magnitude: CCF3454D1E9CCDE0 
+
+ciphertext.length = 40
+Ciphertext resulting from 3DES encryption = Multi-Precision Integer 319 bits long...
+      sign: Positive
+ magnitude: Hexadecimal dump of 40 bytes...
+   0: 5D505DD99BC8AC65 B25D48D2A6755630 D987EEEDD7E10F63 0EAE5063EC17B0C6 
+  32: 8E37124A8E4C6B13 
+
+plaintext.length = 32
+Plaintext for 3DES encryption = Multi-Precision Integer 249 bits long...
+      sign: Positive
+ magnitude: 0101010101010101 0102030405060708 090A0B0C0D0E0F10 1112131415161718 
+ 
+Plaintext with Garbage Vector = Multi-Precision Integer 319 bits long...
+      sign: Positive
+ magnitude: Hexadecimal dump of 40 bytes...
+   0: 42C4570790D0A6F3 0101010101010101 0102030405060708 090A0B0C0D0E0F10 
+  32: 1112131415161718 
+</pre>
+<p>
+<hr>
+<P ALIGN="JUSTIFY">J. Orlin Grabbe is the author of
+<a href="http://www.amazon.com/exec/obidos/ASIN/0132069881/qid=924154369/sr=1-1/002-9261014-2388004">International Financial Markets</A>, and is an internationally recognized derivatives expert who has recently branched out into cryptology, banking security, and digital cash.  His home page is located at <A HREF="homepage.html">http://www.aci.net/kalliste/homepage.html</A>.
+He currently resides in Costa Rica. </P>
+<center><b><a href="javacrypt_index.htm">Click here to return to Encryption Menu</a></center>
+
+</body>
+</html>

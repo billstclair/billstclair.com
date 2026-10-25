@@ -1,0 +1,364 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content=
+"text/html; charset=windows-1252">
+<title>Chaos and Fractals in Financial Markets, Part 7, by J.
+Orlin Grabbe</title>
+</head>
+<body bgcolor="white" link="#0000ff" vlink="#800080">
+<h1 align="center">Chaos and Fractals in Financial Markets</h1>
+
+<h3 align="center">Part 7: Grow Brain and the Flooding of the Nile</h3>
+
+<h3 align="center"><i>by J. Orlin Grabbe</i></h3>
+
+<center>
+<table border="0" width="55%">
+<tr>
+<td>
+<p align="CENTER"><b>Grow Brain</b></p>
+
+<p align="justify">Many dynamical systems create solution paths,
+or trajectories, that look strange and complex. These solution
+plots are called "strange attractors".</p>
+
+<p align="justify">Some strange attractors have a fractal
+structure. For example, we saw in <a href= 
+"http://64.33.76.120/Chaos3.htm">Part 3</a> that it was easy
+to create a fractal called a Sierpinski Carpet by using a <i>
+stochastic</i> dynamical system (one in which the outcome at each
+step is partially determined by a random component that either
+selects among equations or forms part of at least one of the
+equations, or both).</p>
+
+<p align="justify">Here is a dynamical system that I ran across
+while doing computer art. I labeled it "Grow Brain" because of
+its structure. To see Grow Brain in action, make sure Java is
+enabled on your browser (you can turn it off afterward) and <a
+href="GrowBrain.html">click here</a>. (The truly paranoid can, of
+course, compile their own applet, since I provide the source
+code, as usual.)</p>
+
+<p align="justify">The trajectory of Grow Brain is amazingly
+complex. But is it a fractal? That is, at some larger or smaller
+scale, will similar structures repeat themselves? Unlike the case
+of the Sierpinski Carpet, the answer to this question is not
+obvious for Grow Brain.</p>
+
+<p align="justify">Some dynamical systems create fractal
+structures in <i>time</i> (as Brownian motion does, in <a href= 
+"http://64.33.76.120/chaos2.htm">Part 2</a>, or the
+Fibonacci-type systems of <a href= 
+"http://64.33.76.120/chaos6.htm">Part 6</a> do), while others
+create fractal structures in <i>space</i> (as in the
+aforementioned Sierpinski carpet).</p>
+
+<p align="justify">And some systems are all wet. Or maybe not, as
+the case may be.</p>
+
+<p align="CENTER"><b>Hurst, Hydrology, and the Annual Flooding of
+the Nile</b></p>
+
+<p align="justify">For centuries, perhaps millennia, the yearly
+flooding of the Nile was the basis of agriculture which supported
+much of known civilization. The annual overflowing of the river
+deposited rich top soil from the Ethiopian Highland along the
+river banks. The water and silt were distributed by irrigation,
+and the staple crops of wheat, barley, and flax were planted. The
+grain was harvested and stored in silos and granaries, where it
+was protected from rodents by guard cats, whom the Egyptians
+worshipped and turned into a cult (of the goddess Bast) because
+of their importance for survival of the grain, and hence for
+human survival.</p>
+
+<p align="justify">The amount of Nile flooding was critical. A
+good flood meant a good harvest, while a low-water flood meant a
+poor harvest and possible food shortage. The flooding came (and
+still comes) from tropical rains in the Upper Nile Basin in
+Ethiopia (the Blue Nile) and in the East African Plateau (the
+White Nile). The river flooding would begin in the Sudan in
+April, and reach Aswan in Egypt by July. (This would occur about
+the time of the heliacal rising of the Dog-Star Sirus, or Sothis,
+around July 19 in the Julian calendar.) The waters would then
+continue to rise, peaking in mid-September in Aswan. Further down
+the river at Cairo, the peak wouldn't occur until October.
+The waters would then fall rapidly in November and December, and
+continue to fall afterward, reaching their low point in the March
+to May period. Ancient Egypt had three seasons, all determined in
+reference to the river: <i>akhet</i>, the "inundation"; <i>
+peret</i>, the season when land emerged from the flood; and <i>
+shomu</i>, the time when water was low.</p>
+
+<p align="justify">A British government bureaucrat named Hurst
+made a study of records of the Nile's flooding and noticed
+something interesting. Harold Edwin Hurst was a poor Leicester
+boy who made good, eventually working his way into Oxford, and
+later became a British "civil servant" in Cairo in 1906. He got
+interested in the Nile. He looked at 800 years of records and
+noticed that there was a tendency for a good flood year to be
+followed by another good flood year, and for a bad (low) flood
+year to be followed by another bad flood year.</p>
+
+<p align="justify">That is, there appeared to be non-random runs
+of good or bad years. Later Mandelbrot and Wallis [1] used the
+term <i>Joseph effect</i> to refer to any persistent phenomenon
+like this (alluding to the seven years of Egyptian plenty
+followed by the seven years of Egyptian famine in the biblical
+story of Joseph).</p>
+
+<p align="justify">Of course, even if the yearly flows were
+independent, there still could be runs of good or bad years. So
+to pin this down, Hurst calculated a variable which is now called
+a <i>Hurst exponent</i> <b>H</b>. The expectation was that <b>
+H</b> =  1/2  if the yearly flood levels were independent of
+each other.</p>
+
+<p align="CENTER"><b>Calculating the Hurst Exponent</b></p>
+
+<p align="justify">Let me give a specific example of Hurst
+exponent calculation which will illustrate the general rule.
+Suppose there are 99 yearly observations of the height <b>h</b>
+of the mid-September Nile water level at Aswan: <b>h</b>(1), <b>
+h</b>(2), . . ., <b>h</b>(99).</p>
+
+<p align="justify">Calculate a location <b>m</b> and a scale <b>
+c</b> for <b>h</b>. If we assume in general that <b>h</b> has a
+finite variance, then <b>m</b> is simply the sample mean of the
+99 observations, while <b>c</b> is the standard deviation.</p>
+
+<p align="justify">The first thing is to remove any trend, any
+tendency over the century for <b>h</b> to rise or fall as a
+long-run phenomena. So we subtract <b>m</b> from each of the
+observations <b>h</b>, getting a new series <b>x</b> that has
+mean zero:</p>
+
+<p align="justify"><b>x</b>(1) = <b>h</b>(1) - <b>m</b>,<br>
+<b>x</b>(2) = <b>h</b>(2) - <b>m</b>,<br>
+ . . . <br>
+<b>x</b>(99) = <b>h</b>(99) - <b>m</b> .</p>
+
+<p align="justify">The set of <b>x</b>'s are a set of
+variables with mean zero. Positive <b>x</b>'s represent
+those years when the river level is above average, while negative
+<b>x</b>'s represent those years when the river level is
+below average.</p>
+
+<p align="justify">Next we form partial sums of these random
+variables, each partial sum <b>Y</b>(n) being the sum of all the
+years prior to year <b>n</b>:</p>
+
+<p align="justify"><b>Y</b>(1) = x(1),<br>
+<b>Y</b>(2) = x(1) + x(2),<br>
+. . .<br>
+<b>Y</b>(n) = x(1) + x(2) + . . . + x(n),<br>
+. . .<br>
+<b>Y</b>(99) = x(1) + x(2) + x(3) + . . . + x(99).</p>
+
+<p align="justify">Since the <b>Y</b>'s are a sum of
+mean-zero random variables <b>x</b>, they will be positive if
+they have a preponderance of positive <b>x</b>'s and
+negative if they have a preponderance of negative <b>
+x</b>'s. In general, the set of <b>Y</b>'s</p>
+
+<p align="justify">{<b>Y</b>(1), <b>Y</b>(2),  . . . , <b>
+Y</b>(99)}</p>
+
+<p align="justify">will have a maximum and a minimum: <b>max
+Y</b> and <b>min Y</b>, respectively. The difference between
+these two is called the <i>range</i> <b>R</b>:</p>
+
+<p align="justify"><b>R = max Y - min Y</b></p>
+
+<p align="justify">If we adjust <b>R</b> by the scale parameter
+<b>c</b>, we get the <i>rescaled range</i>:</p>
+
+<p align="justify">rescaled range = <b>R/c</b> .</p>
+
+<p align="justify">Now, the probability theorist William Feller
+[2] had proven that if a series of random variables like the <b>
+x</b>'s 1) had finite variance, and 2) were independent,
+then the rescaled range formed over <b>n</b> observations would
+be equal to:</p>
+
+<p align="justify"><b>R/c</b> = k <b>n</b><sup> 1/2</sup></p>
+
+<p align="justify">where k is a constant (in particular, k =
+(<font face="Symbol">p</font> /2)<sup>1/2</sup> ) . That is, the
+rescaled range would increase much like the partial sums of
+independent variables (with finite variance) we looked at in <a
+href="http://64.33.76.120/Chaos5.htm">Part 5</a> &#151;
+namely, the partial sums would increase
+by a factor of <b>n</b><sup>1/2</sup>.</p>
+
+<p align="justify">In particular, for <b>n</b> = 99 in our
+hypothetical data, the result would be:</p>
+
+<p align="justify"><b>R/c</b> = k 99<sup>1/2</sup> .</p>
+
+<p align="justify">Now, the latter equation implies log(R/c) =
+log k +  1/2  log 99. So if you ran a regression of log(R/c)
+against log(n) [for a number of rescaled ranges (R/c) and their
+associated number of years n] so as to estimate an intercept <b>
+a</b> and a slope <b>b</b>,</p>
+
+<p align="justify">log(R/c) = <b>a</b> + <b>b</b> log(n),</p>
+
+<p align="justify">you should find that <b>b</b> is statistically
+indistinguishable from  1/2 .</p>
+
+<p align="justify">But that wasn't what Hurst found.
+Instead, he found that in general the rescaled range was governed
+by a power law</p>
+
+<p align="justify"><b>R/c</b> = k <b>n<sup>H</sup></b></p>
+
+<p align="justify">where the Hurst exponent <b>H</b> was <i>
+greater than</i>  1/2  (Hurst found H = .7, more or less). </p>
+
+<p align="justify">This implied that succeeding <b>x</b>'s
+were not independent of each other: <b>x</b>(t) had some sticky,
+persistent effect on <b>x</b>(t+1). This was what Hurst had
+observed in the data, and his calculation showed H to be a good
+bit above  1/2  [3].</p>
+
+<p align="justify">That this would be true in general for H &gt;
+ 1/2, of course, needs to be proven. Nevertheless, to
+summarize, for reference, for the Hurst exponent H:</p>
+<blockquote>
+<p align="justify"><b>H = 1/2:</b> the flood level deviations from
+the mean are independent, random; the <b>x</b>'s are
+independent and correspond to a random walk;</p>
+
+<p align="justify"> <b>1/2 &lt;H&lt;=1:</b> the flood level
+deviations are <i>persistent</i> &#151; high flood levels tend to be
+followed by high flood levels, and low flood levels by low flood
+levels; x(t+1) tends to deviate from the mean the same way x(t)
+did; the probability that x(t+1) deviates from the mean in the
+same direction as x(t) increases as H approaches 1;</p>
+
+<p align="justify"><b>0&lt;=H&lt;1/2:</b> the flood level deviations
+are <i>anti-persistent</i>  &#151; the
+<b>x</b>'s are mean-reverting; high flood levels have a
+tendency to be followed by low flood levels, and vice-versa; the
+probability that x(t+1) deviates from the mean in the opposite
+direction from x(t) increases as H approaches 0.</p>
+</blockquote>
+<p align="CENTER"><b>A Misunderstanding to Avoid</b></p>
+
+<p align="justify">Recall that Bachelier had noted that the
+probability range of the log of a stock price would increase with
+the square root of time T. The probability range, starting at log
+S, would grow with T according to:</p>
+
+<p align="justify">(log S  -  k T<sup>1/2</sup> , log S + k
+T<sup>1/2</sup>),</p>
+
+<p align="justify">where <b>k</b> is the scale (in his case, the
+standard deviation) <b>c</b>, <b>k</b> = <b>c</b>. But, more
+generally, the symmetric stable distributions of <a href= 
+"http://64.33.76.120/Chaos5.htm">Part 5</a>, increase with T
+raised to the reciprocal power of the Hausdorff dimension <font
+face="Symbol">&#97;</font> (<font face="Symbol">a</font> &lt;=2):</p>
+
+<p align="justify">(log S  -  k T<sup>1/<font face=
+"Symbol">&#97;</font></sup> , log S + k T<sup>1/<font face=
+"Symbol">&#97;</font></sup> ).</p>
+
+<p align="justify">Hurst similarly said the rescaled range of the
+flood level varied according to (setting n = T):</p>
+
+<p align="justify">R/c = k T<b><sup>H</sup></b> .</p>
+
+<p align="justify">So it is tempting to equate the Hurst exponent
+H with the reciprocal of the Hausdorff dimension D, to equate H
+with 1/D = 1/<font face="Symbol">&#97;</font> . But we must be
+careful.</p>
+
+<p align="justify">Recall that symmetric stable distributions,
+with <font face="Symbol">&#97;</font> &lt; 2, have infinite variance
+(for them, variance is a blob measure that is not meaningful).
+However, here in discussing the Hurst exponent we are assuming
+that the variance, and standard deviation (the scale <b>c</b>),
+are finite, and hence <font face="Symbol">&#97;</font> =2. The role
+of the Hurst exponent is to inform us whether the yearly flood
+deviations are <i>independent</i> or <i>persistent</i>. H is <i>
+not</i> related to the need for a different scale measure. The
+variance and the standard deviation are well defined for these
+latter processes.</p>
+
+<p align="justify">Nevertheless, the formal equation H = 1/D or D
+= 1/H yields the correct exponent for T in the case  1/2 &lt;=
+H &lt;=1. Even though <font face="Symbol">&#97;</font> =2, the
+calculation of the Hausdorf dimension D yields D&lt;2 if the
+increments are not independent. Hence D can take a minimum value
+of 1, D = 1/H = 1/1 = 1 when H=1, so that the process accumulates
+variation (rescaled range) much like a Cauchy sequence
+(T<b><sup>H</sup></b> = T); or a maximum of 2, D = 1/H =
+1/ 1/2  = 2 when H= 1/2 , so that the process accumulates
+variation (rescaled range) like a Gaussian sequence
+(T<b><sup>H</sup></b> = T<sup>1/2</sup>), or ordinary Brownian
+motion. [4]</p>
+
+<p align="justify">Mandelbrot called these types of processes
+where <font face="Symbol">&#97;</font> =2, but where H is not equal to 1/2, 
+<i>fractional Brownian motion</i>. (I will not here elaborate the case H &lt;
+ 1/2 .)</p>
+
+<p align="CENTER"><b>Bull and Bear Markets</b></p>
+
+<p align="justify">We are, of course, used to the idea of
+persistent phenomena in the stock market and foreign exchange
+markets. The NASD rises relentlessly for a period of time. Then
+it falls just as persistently. There are bull and bear markets,
+implying the price rise or decline is a <i>persistent</i>
+phenomena, and not just an accidental accumulation of random
+variables in one direction.</p>
+
+<p align="justify">The US dollar rises relentless for a period of
+years, then (as it is doing now) begins a relentless decline for
+another period of years. In the case of the Nile, the patterns of
+rising and falling are partly governed by the weather patterns in
+the green rain forest of the Ethiopian highlands. In the case of
+the US dollar, the patterns of rising and falling are partly
+governed by the span of Green in the Washington D.C.
+lowlands.</p>
+
+<p align="CENTER"><b>Notes</b></p>
+
+<p align="justify">[1] B.B. Mandelbrot &amp; J. R. Wallis, "Noah,
+Joseph, and Operational Hydrology." <i>Water Resources
+Research</i> <b>4</b>, 909-918, (1968).</p>
+
+<p align="justify">[2] W. Feller, "The asymptotic distribution of
+the range of sums of independent random variables." <i>Annals of
+Mathematical Statistics</i> <b>22</b>, 427 (1951).</p>
+
+<p align="justify">[3] H. E. Hurst, "Long-term storage capacity
+of reservoirs." <i>Tr. of the American Society of Civil
+Engineers</i> <b>116</b>, 770-808 (1951).</p>
+
+<p align="justify">[4] See also the discussion on pages 251-2 in
+Benoit B. Mandelbrot, <i>The Fractal Geometry of Nature</i>. W.H.
+Freeman and Company, New York, 1983.</p>
+
+<hr>
+<p align="justify">J. Orlin Grabbe is the author of <a href= 
+"http://www.amazon.com/exec/obidos/ASIN/0132069881/qid=924154369/sr=1-1/002-9261014-2388004">
+International Financial Markets</a>, and is an internationally
+recognized derivatives expert. He has recently branched out into
+cryptology, banking security, and digital cash. His home page is
+located at <a href="homepage.html">
+http://www.aci.net/kalliste/homepage.html</a> .</p>
+
+<center><b>-30-</b></center>
+<br>
+<center><b>from <i>The Laissez
+Faire City Times</i>, Vol 5, No 3, January 15,
+2001</b></center>
+</td>
+</tr>
+</table>
+</center>
+</body>
+</html>
+

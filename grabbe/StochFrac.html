@@ -1,0 +1,29 @@
+<html>
+<title>Stochastic Fractal Plot</title>
+<html>
+<head>
+<title>A Simple Stochastic Fractal</title>
+</head>
+<body bgcolor="white">
+<h1 align=center>A Simple Stochastic Fractal</h1>
+<hr>
+<applet code="StochFrac.class" width=425 height=425>
+If you can read this, then your browser is not set up for Java. . .
+</applet>
+<hr>
+<p>
+This applet generates a simple stochastic fractal. It maps points (x,y)
+on a plane. You can think of the center of the applet screen as being (0,0).
+It plots 150,000 points in an area that covers 400 pixels x 400 pixels on
+your computer screen (i.e. a total of 160,000 pixels).  
+<p>
+First a random number ("<b>ran</b>") between 0 and 1 is selected. If <b>ran</b> is greater
+than or equal to 1/2, then we rotate the current (x,y) point 90 degress to
+the left, and plot a new point.  If <b>ran</b> is less than 1/2, then, depending on
+the distance of (x,y) from (1,0), we expand or contract the values of x and
+y with respect to (1,0).
+<hr>
+<p>
+<a href="SFJava.html">Here is the java source code.</a>
+</body>
+</html>

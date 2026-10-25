@@ -1,0 +1,1406 @@
+<html>
+
+<head>
+
+<title>Internet Payment Systems: Part 2</title>
+
+<head>
+
+<body>
+
+<A HREF="mailto:orlingrabbe@orlingrabbe.com"> [Email Reply] </A>
+
+<hr>
+
+<BR>
+
+<h2 align=center>Internet Payment Schemes: Part 3</h2>
+
+<h3 align=center><i>by J. Orlin Grabbe</i></h3>
+
+<center><table border=0 width=60%><tr><td>
+
+<p>
+
+      We now come to digital cash systems with bearer
+
+tokens.
+
+<p>
+
+      In ordinary parlance, cash is something you can
+
+put in your pocket, or under the mattress for a rainy
+
+day.   It's  a bearer instrument, something  you  can
+
+carry around with you.  It may also act as a store of
+
+value,  good or bad.  (Deflations increase the  value
+
+of  currency, inflations decrease it.  Repudiation by
+
+the currency issuer can reduce the value to zero,  as
+
+Russia  demonstrated by refusing to  honor  any  100-
+
+ruble notes printed prior to 1994.)
+
+<p>
+
+      The  representative  digital  cash  systems  we
+
+discuss  here  all  involve mobile digital  tokens--a
+
+generalized liability of a currency server  (bank  or
+
+company),   bearing  the  issuer's   signature,   and
+
+promising  to  pay  to the bearer on  demand.   These
+
+tokens  may  be  transferred to  others  in  payment,
+
+thereby becoming a medium of exchange,  or may sit in
+
+the  non-volatile memory of a computer or smart card,
+
+thereby acting as a store of value.
+
+<p>
+
+     What makes a token-issuing system different from
+
+the  debit-credit systems of the previous section  is
+
+absolution  from  immediacy of  payment.   In  debit-
+
+credit systems one account is increased while another
+
+is  simultaneously  reduced.  The  currency  server's
+
+liability  is always specific to accounts, and  there
+
+is   a  zero  change  in  server  liability  when   a
+
+transaction  takes  place between any  two  accounts.
+
+But  digital  cash that is signed by the  issuer  and
+
+which  floats "out there" somewhere is a  generalized
+
+liability  of  the issuer.  This liability  does  not
+
+immediately  accrue to the credit  of  some  customer
+
+account.
+
+<p>
+
+<h3 align=center>NetCash (USC)</h3>
+
+<p>
+
+     <b><i>NetCash</b></i>  is a partially anonymous digital  cash
+
+system  focusing  on acceptability  and  scalability.
+
+Like  NetCheque,  it  is a product  of   ISI  at  the
+
+University of Southern California, and like NetCheque
+
+and  Netbill,  it was designed with micropayments  in
+
+mind.  The NetCash creators were concerned that  cash
+
+minted  by  one  bank be acceptable  to  others.  The
+
+system they came up with required some compromises in
+
+anonymity.   "NetCash   provides   scalability    and
+
+acceptability  with  weaker  anonymity  and  only   a
+
+limited   form   of   off-line  operation"   (Gennady
+
+Medvinsky and B. Clifford Neuman "NetCash:  A  Design
+
+for  Practical Electronic Currency on the  Internet,"
+
+<i>Proceedings  of the First ACM Conference on  Computer
+
+and Communications Security</i>," November 1993).
+
+<p>
+
+      Namely  if  the  right parties in  the  NetCash
+
+system   collude,  including  the  currency   servers
+
+involved   in  a  transaction,  it  is  possible   to
+
+determine who spent a particular payment certificate.
+
+The  creators believe that competition among currency
+
+servers  will result in users choosing one that  does
+
+not  collect the required information.  Perhaps  more
+
+convincingly,  they seem to believe it  will  be  too
+
+costly to collect such information.  (And it is  true
+
+in  general  that  privacy depends  on  the  cost  of
+
+information.  The use of cryptography in  email,  for
+
+example,  is simply a way of driving up the  cost  of
+
+reading   the   messages  for  someone  without   the
+
+appropriate key.)
+
+<p>
+
+      <i>Currency  servers</i> in the system  represent  the
+
+points of interface between (partially) anonymous and
+
+non-anonymous  money.  The currency in  the  currency
+
+servers  is  backed  by balances  held  in  the  non-
+
+anonymous  banking sector (the <i>accounting servers</i>  of
+
+the  NetCheque system).  The accounting servers  will
+
+record balances cleared between currency servers, but
+
+the transactions of end users of the currency servers
+
+will not show up.  While the system is only partially
+
+anonymous,  there is symmetry with  respect  to  both
+
+payer  and  payee.  (This contrasts with the  curious
+
+asymmetry  in  the  DigiCash <b>ecash</b>  system  of  David
+
+Chaum,  which gives complete anonymity to the  payer,
+
+but none to the payee.)
+
+<p>
+
+      A  feature  of  the system is  the  use  of  an
+
+<b>insuring  agent  (IA)</b> to insure the account  balances
+
+held  by  the  currency servers in the  non-anonymous
+
+accounting  sector.  Like the NetCheque  system,  the
+
+non-anonymous sector uses the Kerberos authentication
+
+system to provide authorization services.  But unlike
+
+the   NetCheque  system,  NetCash  uses  public   key
+
+cryptography.   In  particular,  a  currency   server
+
+creates a public/private key pair, and transfers  its
+
+public  key  to  the  IA.   The  IA  then  issues   a
+
+<b>certificate of insurance</b>, which is the IA's signature
+
+(the  IA's  private key is written as k<sub>IA</sub><sup>-1</sup>)  on
+
+the following information:
+
+<p><blockquote>
+
+ <b>k<sub>IA</sub><sup>-1</sup>{Cert-ID, CS-name, k<sub>CS</sub>, issue-date, exp-date}</b>.
+
+<p></blockquote>
+
+Here <i>Cert-ID</i> is the certificate identifier,  <i>CS-name</i>
+
+is  the currency server's name, k<sub>CS</sub> is the public key
+
+of  the  currency server, and the two dates give  the
+
+time  period during which the certificate  is  valid.
+
+<b>In  essence, this puts the controlling authority  for
+
+permission to mint currency in the hands of the IA.</b>
+
+<p>
+
+      Currency servers issue and verify coins.   They
+
+exchange   coins  for  checks,  and   detect   double
+
+spending.    They  also  provide  <b>coin-exchange   for
+
+untraceability</b>.   A <b>coin</b> in the system  is  has  two
+
+parts--the signature of the currency server on a  set
+
+of  information,  along  with  the  identifier  of  a
+
+certificate of insurance:
+
+<p><blockquote>                          
+
+<b>k<sub>CS</sub><sup>-1</sup>{CS-name, I-address, exp-date, serial-number, coin-value}, Cert-ID</b>
+
+<p></blockquote>
+
+Here  k<sub>CS</sub><sup>-1</sup>  is the signature  of  the  currency
+
+server  on the coin (using its private key, which  is
+
+an  inverse  of  its public key),  <i>I-address</i>  is  the
+
+currency server's Internet address, <i>exp-date</i>  is  the
+
+coin's  expiration date, <i>coin-value</i> is  the  monetary
+
+amount  of  the coin, and <i>serial-number</i> is  the  coin
+
+serial number.  The <i>Cert-ID</i> is the one issued by  the
+
+IA  to the currency server, which can be used to find
+
+the currency server's public key.
+
+<p>
+
+      The currency server keeps a list of coin serial
+
+numbers of coins that it has issued.  When a coin  is
+
+returned, the server checks it against the list.   If
+
+the  coin is valid, the serial number is erased  from
+
+the list.  If a coin then comes in that is not on the
+
+list  (and has a valid signature), the coin has  been
+
+double-spent, and it is rejected.  Thus there  is  no
+
+database of spent coins, only existing coins.
+
+<p>
+
+      Anyone  can check on the validity of a coin  by
+
+using  the  Cert-ID  to get a copy  of  the  currency
+
+server's   public  key,  and  decrypting   the   coin
+
+information.  A successful decryption shows the  coin
+
+is  valid,  provided  it has not  been  double-spent.
+
+Each  currency  server has its own  public  key,  and
+
+hence  mints  its  own coins by signing  the  set  of
+
+information given above.  Each currency server has  a
+
+bank  balance  in  the non-anonymous banking  system,
+
+which back the coins.  But the coins are issued as  a
+
+direct liability of the currency server.
+
+<p>
+
+       There   are  three  mechanisms  that   protect
+
+anonymity (none of which is cryptologically sound):
+
+<p><blocquote>
+
+<menu>
+
+<li>       The currency server does not keep records
+
+     pairing  coins accepted with the new  coins
+
+     issued  in exchange.  That is, old and  new
+
+     coins are not linked. (The currency server,
+
+     after  all,  only needs to  know  that  the
+
+     coins are valid in order to exchange them.)
+
+     So there is no history of intermediate coin
+
+     transactions.
+
+<p>     
+
+<li>      The currency server does not link customer
+
+     identities to coins newly purchased by,  or
+
+     redeemed   for,   customer   checks.    The
+
+     purchase   or   redemption   takes    place
+
+     anonymously.  (But there is nothing in  the
+
+     protocol  itself--even  if  there   is   an
+
+     agreement  with  the  customer--that  would
+
+     prevent  the  recording of such identifying
+
+     information.)
+
+<p>     
+
+<li>       The  client  can select his own  currency
+
+     server,  and  will  likely  choose  one  it
+
+     trusts.
+
+</menu></blockquote>
+
+<p>
+
+     <b><i>Exchange with the currency server:</i></b>  To make  an
+
+exchange  with  the currency server,  Alice  sends  a
+
+message  to  the currency server (CS) encrypted  with
+
+the server's public key:
+
+<p><pre>
+
+             <b>k<sub>CS</sub>{instrument, k<sub>X</sub>, transaction}</b>
+
+   Alice ------------------------------------------> CS
+
+</pre><p>
+
+The   <i>instrument</i>  is  a  coin  or  cheque,  and   the
+
+<i>transaction</i>  is an indication of the transactions  to
+
+be performed:  to exchange coins for coins, check for
+
+coins, coins for check, and (if a check) the party to
+
+whom  the check is payable.  The key <b>k<sub>X</sub></b>  is  the
+
+symmetric  encryption key to be  used  in  subsequent
+
+exchanges.   The  currency server  then  proceeds  to
+
+examine any old coins for double-spending, to deposit
+
+checks  to  itself  in return for new  coins,  or  to
+
+return  a  check payable to the named  individual  in
+
+return for old coins.  If a coin or check is returned
+
+from the currency server to Alice, the instrument  is
+
+encrypted with the symmetric encryption key <b>k<sub>X</sub></b>:
+
+<p><pre>
+
+              <b>k<sub>X</sub>{instrument}</b>
+
+     Alice <-------------------- CS
+
+</pre><p>
+
+The  use of the key <b>k<sub>X</sub></b> verifies the identity  of
+
+the  currency  server,  as  well  an  encrypting  the
+
+contents.
+
+<p>
+
+      <b><i>Payer-payee exchange:</i></b>   If Alice wants to  make
+
+an  exchange  with  Bob,   she  sends  coins  and   a
+
+description  of  the  desired  service  (<i>service-ID</i>),
+
+along  with two symmetric keys--all of this encrypted
+
+with Bob's public key <b>k<sub>bob</sub></b>:
+
+<p><pre>
+
+              <b>k<sub>bob</sub>{coins, service-ID, k<sub>session</sub>, k<sub>alice-reply</sub>}</b>
+
+     Alice -----------------------------------------------> Bob
+
+</pre><p>
+
+Bob  verifies Alice's coins (using the public key  of
+
+the  currency  server that issued  the  coins).   The
+
+session  key <b>k<sub>session</sub></b> is used to pair the  coins
+
+with  the  associated service.  Bob stores  this  key
+
+until  the  time the serivce is provided.   Bob  then
+
+returns a <b><i>receipt</i></b> to Alice, signed with Bob's private
+
+<b>key<sub>bob</sub><sup>-1</sup></b>, and encrypted with <b>k<sub>alice-reply</sub></b>,
+
+the second symmetric key Alice provided:
+
+<p><pre>
+
+              <b>k<sub>alice-reply</sub>{k<sub>bob</sub><sup>-1</sup>{amount, trans-ID, date}}</b>
+
+     Alice <-------------------------------------------- Bob
+
+</pre><p>
+
+The  <i>amount</i> is the amount Alice paid, <i>trans-ID</i>  is  a
+
+unique  identifier  that  Alice  will  use  with  the
+
+session key <b>k<sub>session</sub></b> to obtain the service,  and
+
+<i>date</i> identifies the date.
+
+<p>
+
+     <b><i>Exchange  with protection from double-spending:</i></b>
+
+We  now let Alice be an anonymous payer.  How is  Bob
+
+protected  from  double-spending?   Alice  sends  the
+
+coins   to  Bob  with  the  requested  service,   and
+
+encrypted with Bob's public key, just as before:
+
+<p><pre>
+
+              <b>k<sub>bob</sub>{coins, service-ID, k<sub>session</sub>, k<sub>alice-reply</sub>}</b>
+
+     Alice -------------------------------------------> Bob
+
+</pre><p>
+
+Bob first checks the coins with the currency server:
+
+<p><pre>
+
+              <b>k<sub>CS</sub>{coins, k<sub>bob-reply</sub>, transaction}</b>
+
+     Bob -----------------------------------------> CS
+
+</pre><p>
+
+If  the coins haven't been spent, the currency server
+
+(CS) will return new coins to Bob:
+
+<p><pre>
+
+              <b>k<sub>bob-reply</sub>{new-coins}</b>
+
+     Bob <--------------------------- CS
+
+</pre><p>
+
+Bob  then  issues Alice a receipt for  the  requested
+
+service:
+
+<p><pre>
+
+              <b>k<sub>alice-reply</sub>{k<sub>bob</sub><sup>-1</sup>{amount, trans-ID, date}}</b>
+
+     Alice <--------------------------------------------- Bob
+
+</pre><p>
+
+      This  transaction  protocol protects  Bob  from
+
+double-spending, but it does not guarantee that Alice
+
+gets  back  a receipt for the requested service.   It
+
+doesn't protect Alice from possible rip-offs by  Bob.
+
+NetCash  has  an  extension of the  previous  protcol
+
+which   can   handle  this  problem.    It   involves
+
+<i>customizing</i> the coin so that it can only be used by a
+
+particular  principal for a certain period  of  time.
+
+The  protocol  is somewhat clumsy, and  will  not  be
+
+covered here.
+
+<p>
+
+<h3 align=center>Mondex</h3>
+
+<p>
+
+      Mondex began as a smart-card based system,  but
+
+will in the future become an Internet system as well.
+
+<p>
+
+      The  Mondex  card is an electronic wallet  that
+
+holds  totals  in five currencies.  It began  as  the
+
+creation  of  the UK's National Westminster  Bank  in
+
+connection with Midland Bank (absorbed by HongKong  &
+
+Shanghai  Banking Corporation). Tests of  the  system
+
+began  in Swindon, England in July 1995, and involved
+
+700  merchants and about 50,000 card holders.  In May
+
+1995  the  Royal  Bank  of Canada  and  the  Canadian
+
+Imperial  Bank of Commerce said they would work  with
+
+National Westminster Bank P.L.C. to set up a  similar
+
+Mondex-based  payment system in Canada.
+
+<p>
+
+      In late 1996 Mastercard International bought 51
+
+percent  of  the  international arm of  Mondex,  with
+
+plans  to sell franchises in various regions.   Seven
+
+U.S. companies subsequently announced plans to form a
+
+company  to offer Mondex in the U.S.  These  included
+
+Wells  Fargo  &  Co., which would own 30  percent  of
+
+Mondex  USA;  Chase, which would own 20 percent;  and
+
+Dean  Witter, AT&T, First Chicago, Michigan  National
+
+Bank, and Mastercard, which would each own 10 percent
+
+shares.   In buying into Mondex, Mastercard abandoned
+
+development of its own smart-card system,  which  was
+
+to  have been called Mastercard Cash.  (The structure
+
+of     Mondex    USA    was    discussed    in     <a
+
+href="dcreg.htm">"Digital Cash and the Regulators"</a>).
+
+<p>
+
+      Mondex  intends for its card to substitute  for
+
+cash  transactions by making transactions  using  the
+
+card   more  convenient  than  physical  cash,  while
+
+simultaneously  reducing banking costs.   The  Mondex
+
+card  is  an electronic wallet that holds  totals  in
+
+five  currencies.  Cash can be stored on the card  by
+
+using   specially-equipped  telephones  to   transfer
+
+amounts  to the card from a bank account.   That  is,
+
+most  phones  and computers can be outfitted  with  a
+
+device  which  effectively turns them  into  an  ATM.
+
+British Telecommunications Plc has been replacing  UK
+
+pay phones to make them Mondex-compatible.
+
+<p>
+
+      When a card holder wants to make a purchase,  a
+
+store clerk will use a Mondex reader to withdraw  the
+
+purchase amount from the card and transfer  it  to  a
+
+terminal  in the store. The store can then  send  its
+
+receipts directly to its bank account by telephone.
+
+<p>
+
+      If  Mondex is to replace cash, it must  possess
+
+some  of  the attractive features of cash, so  Mondex
+
+was  designed to allow off-line transferability.  Two
+
+Mondex   card  holders  can  transfer  cash   between
+
+themselves.   This  has  been called  a  "politically
+
+unpopular   feature",   but  the  reference   is   to
+
+government authorities and not to the voting public.
+
+<p>
+
+      Transactions  are  authenticated  with  digital
+
+signature  technology.  "Each time a Mondex  card  is
+
+used  the chip generates a unique `digital signature'
+
+which  can  be  recognised by the other  Mondex  card
+
+involved in the transaction. This unique signature is
+
+the  guarantee  that the cards involved  are  genuine
+
+Mondex  cards  and  that  the  transaction  data   is
+
+unmodified,"  according to  the  Mondex  FAQ  (at  <a
+
+href="http://www.mondex.com/mondex/">
+
+http://www.mondex.com/mondex/</a>).
+
+<p>
+
+      In  one  of its many statements (its  web  page
+
+descriptions have changed over time), Mondex  appears
+
+to  promote  the  cryptologically unsound  notion  of
+
+security  through obscurity:  "The security  will  be
+
+frequently  changed  so  that fraudsters  or  hackers
+
+intending  to  target Mondex will find a  fast-moving
+
+zig-zagging  target that will make their  efforts  to
+
+break  it  unrewarding. By continually  changing  and
+
+increasing the complexity of the development  program
+
+Mondex  is  designed  to stay ahead  of  increasingly
+
+sophisticated  criminals.  The  complexity  of   this
+
+security is so great that we believe it will  not  be
+
+economically  viable for even highly organised  crime
+
+to  break  it."   Who  knows what this  statement  is
+
+supposed to mean?
+
+<p>
+
+       Mondex  has  advertised  its  transactions  as
+
+anonymous:  "In everyday use Mondex transactions  are
+
+anonymous,  just like cash." But what  they  mean  by
+
+this  is  the merchant will not know the identity  of
+
+the  card's  owner.  However, the fact is  that  when
+
+Mondex  money  is  paid to a merchant,  the  merchant
+
+pulls off a 16-digit identifying number and transmits
+
+it to the bank.  Hence the use of the Mondex cash can
+
+be  traced  to  the  card  owner  by  the  bank,  and
+
+transactions  can  be  linked.   Mondex  acknowledges
+
+this, noting that "if the card is lost, a unique  16-
+
+digit identity number stored on the chip, which  will
+
+have been registered by a card-providing bank against
+
+the personal details of the customer, may be used  in
+
+order to return the card to its rightful owner."
+
+<p>
+
+      The  card also contains a transaction trail,  a
+
+"purse  narrative": "The customer's  narrative  would
+
+contain the names of the retailers--letting customers
+
+know where they have used their card."  Mondex claims
+
+that  only   "a  cardholder will have access  to  the
+
+statement   entries  on  their  card   which   detail
+
+transactions. A cardholder will be able to lock their
+
+card  and prevent unauthorised access."  That  is,  a
+
+stolen  card  cannot  be  used,  as  it  is  password
+
+protected, and the purse narrative could not be  read
+
+by  nosey  third parties. Nevertheless,  the  issuing
+
+bank  will  have  a  series  of  linked  transactions
+
+(linked  by the 16-digit identity number),  and  will
+
+also know the identity of the card owner.
+
+<p>
+
+      Mondex has given up the claim transactions with
+
+its   card  are  anonymous,  and  also  concedes  <b><i>the
+
+transactions  will  be available to  law  enforcement
+
+authorities</i></b>:
+
+<p><blockquote>
+
+     For  security and practical reasons  Mondex
+
+     is  designed  with <b>a 'rolling' audit  trail</b>
+
+     (of  sixteen-digit card reference  numbers,
+
+     retailer  names,  dates of transaction  and
+
+     amount) held on each individual card.  This
+
+     trail,  held  on each card,  allows  secure
+
+     transactions between cards and allows third
+
+     parties  to  resolve disputed  or  'failed'
+
+     transactions.  Currently the consumer  card
+
+     keeps details of its last ten transactions.
+
+     The  retailer terminal holds details of the
+
+     last    three   hundred   transactions    -
+
+     sufficient  to  hold a day's  business  for
+
+     most  cash  registers. With  more  powerful
+
+     chips  this  trail capacity  is  likely  to
+
+     increase.  . . . The privacy of  Mondex  is
+
+     provided by the fact that the retailer does
+
+     not  have  access  to the bank  information
+
+     which  links an individual's name to  their
+
+     Mondex  card reference number - unless  the
+
+     cardholder chooses to allow it (for example
+
+     by  being part of a 'loyalty card'  scheme)
+
+     <b>or if this information is obtained from the
+
+     bank  by  warrant or other legal procedure</b>.
+
+     (Source: Mondex web page.)
+
+<p></blockquote>                          
+
+<h3 align=center>DigiCash ecash</h3>
+
+<p>
+
+      The  digital cash system <b>ecash</b> is a product  of
+
+DigiCash   Corp.'s  wholly-owned  Dutch   subsidiary,
+
+DigiCash  BV.   The company is not modest  in  claims
+
+about  its innovative abilities:  "Payment  from  any
+
+personal  computer  to  any other  workstation,  over
+
+email  or  Internet,  has been demonstrated  for  the
+
+first  time, using electronic cash technology," began
+
+its  May 27, 1994, press release.  Although the claim
+
+was dubious, one could be sure that DigiCash Managing
+
+Director  David Chaum (now Chief Technology  Officer)
+
+knew something about digital cash.  For years he  had
+
+been one of the leading researchers into the subject.
+
+<p>
+
+       DigiCash  <b>ecash</b>  is  a  partially   anonymous
+
+electronic cash system using numbered bank  accounts,
+
+and  based  on  <i>blind signatures</i>.  The  <b>ecash</b>  system
+
+utilizes  RSA public key cryptography, with  each  of
+
+the  three  types  of  participant--banks,  customers
+
+(payers),  and merchants (payees)--all  having  their
+
+own public/private key pairs.
+
+<p>
+
+      The  system  includes blocks  of  data,  called
+
+"coins",   which  are  encrypted  for  security   and
+
+digitally  signed for authenticity.  A bank digitally
+
+signs  a  coin using its private key, which customers
+
+and merchants can verify using the bank's public key.
+
+A  customer signs bank withdrawals and deposits  with
+
+his  private key, which the bank verifies  using  the
+
+customer's public key.
+
+<p>
+
+      The  bank  itself is the interface between  the
+
+anonymous and non-anonymous monetary systems.  When a
+
+bank   customer  requests  <b>"ecash"</b>  (which  is   what
+
+DigiCash calls its partially anonymous digital cash),
+
+the amount is taken out of the customer's account  in
+
+the  form of digital coins of a pre-set denomination.
+
+The  customer's software generates a 100-digit random
+
+serial  number  for  each coin.  The  length  of  the
+
+serial  number,  if  used with a good  random  number
+
+generator, guarantees with high probability that  two
+
+coins  will  not  have the same serial  number.   The
+
+coins  are  then "blinded" by multiplying them  by  a
+
+random  factor.   The blinded coins are  then  signed
+
+with  the customer's private key, and encrypted  with
+
+the bank's public key, and sent to the bank.
+
+<p>
+
+       The  bank  receives  the  coins,  checks   the
+
+signature,  withdraws  the  amount  total  from   the
+
+customer's account, and signs the coins with its  own
+
+private  key.   It then encrypts the coins  with  the
+
+customer's  public  key  and  returns  them  to   the
+
+customer.  The customer decrypts the coins  with  its
+
+private key, and "unblinds" them by dividing out  the
+
+random   factor.   The  blinding/unblinding   process
+
+prevents the bank from associating subsequently spent
+
+coins   with  withdrawals  from  a  particular   bank
+
+account.   There is anonymity in the sense  that  the
+
+customer's <b>ecash</b> withdrawals cannot be linked to  his
+
+subsequent spending.
+
+<p>
+
+       DigiCash   offers  software  compatible   with
+
+Microsoft Windows, Macintosh, and Unix platforms,  as
+
+well as web browsers such as Netscape and Mosaic.  In
+
+the  World-Wide Web version, a "merchant" is an  HTML
+
+document with URLs that represent the items for sale.
+
+An  Internet  purchase would involve the sequence  of
+
+events contained in the following <b>Table</b>.
+
+<p>                          
+
+<h3 align=center>Table: DigiCash Purchases on the World-Wide Web</h3>
+
+<center><table border=5 width=45%><tr><td>
+
+             <b>1.</b>  The customers' web client sends
+
+             an HTTP message to the merchant's
+
+             web server, requesting the product
+
+             URL.  This request invokes a Common
+
+             Gateway Interface (CGI) program.</td></tr>
+
+             <tr><td><b>2.</b>  The CGI program invoked is the
+
+             ecash software, which will get
+
+             details of the product for sale
+
+             encoded in the URL, as well as the
+
+             location of the buyer's host
+
+             machine.</td></tr>
+
+             <tr><td><b>3.</b>  The merchant software contacts
+
+             the buyer's software ("cyberwallet")
+
+             using a TCP/IP connection, asking
+
+             for payment.</td></tr>
+
+             <tr><td><b>4.</b>  If the customer approves the
+
+             purchase, the cyberwallet generates
+
+             the required coins for the purchase,
+
+             encrypts them with the merchants
+
+             public key, and sends the coins to
+
+             the merchant. </td></tr>
+
+             <tr><td><b>5.</b>  The merchant receives the coins,
+
+             signs them with the merchant's
+
+             private key, and sends a message to
+
+             the bank encrypted with the bank's
+
+             public key.  </td></tr>
+
+             <tr><td><b>6.</b>  The bank compares the serial
+
+             numbers on the coins with its
+
+             database of spent coins.  If the
+
+             coins bear the bank's signature, and
+
+             haven't been spent previously, they
+
+             are valid.  </td></tr>
+
+             <tr><td><b>7.</b>  If the coins are valid, they are
+
+             credited to the merchant's account. </td></tr>
+
+             <tr><td><b>8.</b>  When the merchant is paid, a
+
+             signed receipt is returned to the
+
+             customer's cyberwallet.</td></tr>
+
+             <tr><td><b>9.</b>  A token of the sucessful
+
+             purchase of goods (or perhaps the
+
+             good itself, if it consists of
+
+             digital information) is send from
+
+             the merchant to the web server.</td></tr>
+
+             <tr><td><b>10.</b>  The web server forwards the
+
+             same information to the customer's
+
+             web client. </td></tr></table></center>
+
+<p>
+
+     Note that the system is on-line.  When the coins
+
+are  spent,  the  bank  checks the  coins  against  a
+
+database  containing  the  serial  numbers  of  spent
+
+coins.   As time passes, this database grows,  making
+
+it ever more costly to detect double-spending.
+
+<p>
+
+      A  "coin", or piece of ecash, consists  of  two
+
+parts:  <b>w</b> and <b>H(w)^(1/e)</b>, where <b>w</b> is a <i>random number</i>,
+
+<b>H()</b> is a <i>one-way hash function</i> such as SHS-1 or RSA's
+
+MD5,  and <b>e</b> is an public exponent (<i>public key</i>)  which
+
+could  be taken to represent the denomination of  the
+
+coin. That is, different coin denominations will  use
+
+different  exponents.  (Note that in the RSA  system,
+
+<b>1/e</b> is the bank's <i>private key</i>.)
+
+<p>
+
+      The  process  by  which the bank  issues  blind
+
+signatures  is  as follows.  The customer's  software
+
+chooses  a  serial  number <b>w</b> for each  of  the  <b>ecash</b>
+
+coins.  Next, the program calculates the one-way hash
+
+value <b>H(w)</b>.  Finally, the customer's software chooses
+
+a  blinding random factor <b>r</b>, which is raised  to  the
+
+power  <b>e</b>  and  multiplied  by  value <b>H(w)</b>,  yielding
+
+<b>r^e*H(w)</b>.
+
+<p>
+
+      The  bank signs the coin by raising this number
+
+to  the  <b>1/e</b>  power,  modulo its  public  modulus  <b>n</b>,
+
+yielding  <b>r*H(w)^(1/e)</b> mod <b>n</b>.  The  bank  sends  the
+
+coin  back to the customer.  The customer's  software
+
+divides  the  number by <b>r</b>, which  only  the  customer
+
+knows.   This gives <b>H(w)^(1/e)</b> mod <b>n</b>, which  together
+
+with <b>w</b>  comprises  the  <b><i>unit of  digital  cash</i>:  (w,
+
+H(w)^(1/e))</b>.  The customer has a coin signed  by  the
+
+bank,  but  the bank will not associate it with  this
+
+same  customer when it is deposited, because the bank
+
+has previously seen only the product with <b>r</b>.  Just as
+
+with  a  deposit of "real" cash, such as $100  bills,
+
+the  bank  will not be able to associate  some  other
+
+customer's  withdrawal  with the  current  customer's
+
+deposit.
+
+<p>
+
+      There is one important difference between <b>ecash</b>
+
+and  ordinary cash.  Traditional currency has no need
+
+of  a third party in the process of an exchange.  But
+
+in  <b>ecash</b>  transactions,  the  bank  must  perform  a
+
+validation  step before the eash is deposited.   Thus
+
+<b>ecash</b> is more analogous to an electronic check, where
+
+the  bank  validates  the check  before  transferring
+
+money between accounts.
+
+<p>
+
+       Also,   unlike   ordinary  cash,   <b>ecash</b>   has
+
+conditional  anonymity.  Identifying  information  is
+
+encrypted with <b>ecash</b> in such a way that if the  <b>ecash</b>
+
+is  spent more than once, anonymity is lost  and  the
+
+identity  of  the double-spender is  revealed.   This
+
+important difference is necessary to prevent  digital
+
+cash counterfeiting.
+
+<p>
+
+      In addition, there is no anonymity for the cash
+
+recipient.  DigiCash press releases boast that  while
+
+"paper  notes, briefcases full of which can be passed
+
+from  hand to hand without leaving any record,  allow
+
+money laundering and tax evasion today", "with <b>ecash</b>,
+
+however,  all  the amounts each person  receives  are
+
+known  to  their  bank."  Only the  <b>ecash</b>  payer  has
+
+anonymity.  According  to  DigiCash,  "criminals  are
+
+typically  busy collecting money, and  are  therefore
+
+hindered  by  the  non-anonymity  of  <b>ecash</b>".   This,
+
+however,  sounds like an excuse for  a  flaw  in  the
+
+basic system.
+
+<p>
+
+       As   the   DigiCash   ecash   system   exists,
+
+transactions  are untraceable, because coin  deposits
+
+cannot  be associated with previous withdrawals.  But
+
+flows into an account (coin deposits), and flows  out
+
+of  an  account  (coin withdrawals) can  be  observed
+
+separately.   This is not necessary  for  the  secure
+
+operation of the system. All DigiCash needs to do  to
+
+also  provide payee anonymity is to issue  new  ecash
+
+coins  for  spent coins, rather than  requiring  that
+
+spent  coins be deposited in a non-anonymous account.
+
+<b><i>A  transfer  of old coins for new should not  require
+
+any  customer  identification, but only  verification
+
+that  the  old coins were not spent more  than  once.</i></b>
+
+There is no necessary reason for the bank to know the
+
+identity  of  the person turning in the spent  coins,
+
+although  the bank might rightly charge a  small  fee
+
+for the exchange service.
+
+<p>
+
+      Thus,  in  addition  to the  normal  <i>withdrawal
+
+protocol</i>, where the customer withdraws blinded  coins
+
+from a non-anonymous account, there should be a <i>coin-
+
+exchange  protocol</i>, allowing for the direct anonymous
+
+exchange   of  old  coins  for  new.    If  anonymous
+
+exchanges  of old coins for new could be  made  also,
+
+then only the net change for any bank customer  would
+
+be  observable by the bank.  If a bank customer spent
+
+about as much <b>ecash</b> as he received, there would be no
+
+bank  record  of the flow. It would be hard  for  the
+
+bank to distinguish between an <b>ecash</b> "launderer"  and
+
+a  merchant  who  simply had a lot  of  sales-related
+
+receipts   and  expenses.   There  would  indeed   be
+
+privacy.
+
+<p>
+
+      The two major practical problems with <b>ecash</b> are
+
+scalability  and  (possibly)  its  exclusive  on-line
+
+functioning.   Both a customer and  a  merchant  must
+
+have  accounts at an <b>ecash</b> bank.  However, some major
+
+banks, such as Deutsche--Germany's leading bank--have
+
+become  <b>ecash</b> sponsors, so scalability should  become
+
+less of an issue over time.
+
+<p>
+
+     The on-line nature of the system also represents
+
+a  scalability  problem.  Telecommunication  circuits
+
+may  be  overloaded at certain times.   There  is  no
+
+mechanism   for  off-line  processing   at   a   more
+
+convenient time of the day.  This is primarily due to
+
+the  need to prevent double-spending.  This contrasts
+
+with  the more elegant system of Stefan Brands, which
+
+can  prevent double-spending at its source, using  an
+
+observer,  or trace double-spenders after the  fact--
+
+which would allow on-line systems to be run in an off-
+
+line mode if need be.
+
+<p>
+
+      Brands'  system  will be covered  in  a  future
+
+article.   In  1997, Brands joined  DigiCash  as  its
+
+chief  scientist,  and DigiCash  announced  that  his
+
+technology  is being incorporated into  the  DigiCash
+
+system.   This  implied  that  in  the  future,   the
+
+DigiCash system will look more like Brands system.
+
+<p><center>* * *</center>
+
+<p>
+
+	Each of these three products delivers something, but leaves room for a lot more.  NetCash
+
+is intended to reduce transactions costs to a minimum to enable micropayments, and the fact that 
+
+its privacy is not at all secure may not prevent its usefulness in that context.  Mondex attempts to 
+
+substitute for cash, but does so by delivering to the bank a complete transactions history.  
+
+DigiCash's ecash gives payer anonymity, but not payee anonymity.  Being half private is 
+
+somewhat like being half pregnant.  
+
+<p>
+
+	There is plenty of room for a system that would provide two-sided anonymity.  The chief 
+
+focus would be privacy.  Leaving aside micropayments, there is no need to substitute for small 
+
+cash payments--cash works just fine for most of these, and cash is already private.  (If it tastes 
+
+just like chicken, why not just order chicken?)  The market gap is a system that provides financial 
+
+privacy, substitutes for ordinary bank deposits and asset accounts, and allows transactions--but 
+
+does not focus on nickle and dime type payments, which are already well served by ordinary 
+
+coins and bills.  
+
+<p>
+
+	This is the point where digital cash becomes interesting.
+
+<p><center>-30-</center>
+
+<p>
+
+</td></tr></table></center>
+
+</body>
+
+</html>
+
+                          
+
+                          
+
+
+
+
+

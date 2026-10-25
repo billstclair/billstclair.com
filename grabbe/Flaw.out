@@ -1,0 +1,268 @@
+g = Multi-Precision Integer 1024 bits long...
+      sign: Positive
+ magnitude: Hexadecimal dump of 128 bytes...
+   0: F7E1A085D69B3DDE CBBCAB5C36B857B9 7994AFBBFA3AEA82 F9574C0B3D078267 
+  32: 5159578EBAD4594F E67107108180B449 167123E84C281613 B7CF09328CC8A6E1 
+  64: 3C167A8B547C8D28 E0A3AE1E2BB3A675 916EA37F0BFA2135 62F1FB627A01243B 
+  96: CCA4F1BEA8519089 A883DFE15AE59F06 928B665E807B5525 64014C3BFECF492A 
+
+
+q = Multi-Precision Integer 160 bits long...
+      sign: Positive
+ magnitude: 9760508F15230BCC B292B982A2EB840B F0581CF5
+
+
+p = Multi-Precision Integer 1024 bits long...
+      sign: Positive
+ magnitude: Hexadecimal dump of 128 bytes...
+   0: FD7F53811D751229 52DF4A9C2EECE4E7 F611B7523CEF4400 C31E3F80B6512669 
+  32: 455D402251FB593D 8D58FABFC5F5BA30 F6CB9B556CD7813B 801D346FF26660B7 
+  64: 6B9950A5A49F9FE8 047B1022C24FBBA9 D7FEB7C61BF83B57 E7C6A8A6150F04FB 
+  96: 83F6D3C51EC30235 54135A169132F675 F3AE2B61D72AEFF2 2203199DD14801C7 
+
+
+pprime = Multi-Precision Integer 159 bits long...
+      sign: Positive
+ magnitude: 5380000000000000 0000000000000000 00000001
+
+
+gprime = Multi-Precision Integer 158 bits long...
+      sign: Positive
+ magnitude: 31AC85291FF814E6 25E4B88C8C5047A7 DB2F0E45
+
+
+20 random bytes: 3D31A3E3FE8722EC C997BDF6286F3E90 09392CE4
+
+
+
+the SHA-1 hash of data is 1A01B56EB33FA84A 39EEDDD927977726 38331E94
+
+generator g = Multi-Precision Integer 1024 bits long...
+      sign: Positive
+ magnitude: Hexadecimal dump of 128 bytes...
+   0: F7E1A085D69B3DDE CBBCAB5C36B857B9 7994AFBBFA3AEA82 F9574C0B3D078267 
+  32: 5159578EBAD4594F E67107108180B449 167123E84C281613 B7CF09328CC8A6E1 
+  64: 3C167A8B547C8D28 E0A3AE1E2BB3A675 916EA37F0BFA2135 62F1FB627A01243B 
+  96: CCA4F1BEA8519089 A883DFE15AE59F06 928B665E807B5525 64014C3BFECF492A 
+
+
+prime p = Multi-Precision Integer 1024 bits long...
+      sign: Positive
+ magnitude: Hexadecimal dump of 128 bytes...
+   0: FD7F53811D751229 52DF4A9C2EECE4E7 F611B7523CEF4400 C31E3F80B6512669 
+  32: 455D402251FB593D 8D58FABFC5F5BA30 F6CB9B556CD7813B 801D346FF26660B7 
+  64: 6B9950A5A49F9FE8 047B1022C24FBBA9 D7FEB7C61BF83B57 E7C6A8A6150F04FB 
+  96: 83F6D3C51EC30235 54135A169132F675 F3AE2B61D72AEFF2 2203199DD14801C7 
+
+
+order q of group G(q) = Multi-Precision Integer 160 bits long...
+      sign: Positive
+ magnitude: 9760508F15230BCC B292B982A2EB840B F0581CF5
+
+
+p mod q = Multi-Precision Integer 1 bits long...
+      sign: Positive
+ magnitude: 01
+
+
+g^q mod p = Multi-Precision Integer 1 bits long...
+      sign: Positive
+ magnitude: 01
+
+
+ 
+private key x = Multi-Precision Integer 160 bits long...
+      sign: Positive
+ magnitude: 805C2D4BF743063C ABF060AD48E04BD6 813DA8B6
+
+
+ 
+public key y = Multi-Precision Integer 1022 bits long...
+      sign: Positive
+ magnitude: Hexadecimal dump of 128 bytes...
+   0: 238165021ED0CC41 CE03A6DC15AE7FCE 33EA11AD53EF486A 25BB367BEC661019 
+  32: 21DF966D13129929 DDE3C3842B96869F DC3A2A8FBDBB7AD5 2910CA10A5C257FC 
+  64: 11D9F40606093C40 AA37BFE19A8D5AFF 878B2CE5215A6D7D A47E717BA7BBC380 
+  96: 57CD70EDA92B4AAD 47317AB16E6E7485 89E6F5B6030BC5A9 DCC569C5923C88EF 
+
+
+ 
+Note here that the value of 
+g^x mod p = Multi-Precision Integer 1022 bits long...
+      sign: Positive
+ magnitude: Hexadecimal dump of 128 bytes...
+   0: 238165021ED0CC41 CE03A6DC15AE7FCE 33EA11AD53EF486A 25BB367BEC661019 
+  32: 21DF966D13129929 DDE3C3842B96869F DC3A2A8FBDBB7AD5 2910CA10A5C257FC 
+  64: 11D9F40606093C40 AA37BFE19A8D5AFF 878B2CE5215A6D7D A47E717BA7BBC380 
+  96: 57CD70EDA92B4AAD 47317AB16E6E7485 89E6F5B6030BC5A9 DCC569C5923C88EF 
+
+
+which verifies the public key y.
+the SHA-1 hash of data is 1A01B56EB33FA84A 39EEDDD927977726 38331E94
+
+the DSA signature (byte array) is Hexadecimal dump of 46 bytes...
+   0: 302C021409116D17 82C71F51A5EDB9F5 B3C798F943B9E4EB 021473BEA15C1A8D 
+  32: 10B0BAFE58314C62 EB149A565506
+
+the DSA signature (BigInteger) is Multi-Precision Integer 366 bits long...
+      sign: Positive
+ magnitude: Hexadecimal dump of 46 bytes...
+   0: 302C021409116D17 82C71F51A5EDB9F5 B3C798F943B9E4EB 021473BEA15C1A8D 
+  32: 10B0BAFE58314C62 EB149A565506
+
+
+ j = 0 k = 0
+ sig[3] = 20 sig[25] = 20 sig[26] = 115
+The first number in signature = Multi-Precision Integer 156 bits long...
+      sign: Positive
+ magnitude: 09116D1782C71F51 A5EDB9F5B3C798F9 43B9E4EB
+
+
+ 
+The second number in signature = Multi-Precision Integer 159 bits long...
+      sign: Positive
+ magnitude: 73BEA15C1A8D10B0 BAFE58314C62EB14 9A565506
+
+
+ 
+verify (independent calculation) = true
+verfication number is = Multi-Precision Integer 156 bits long...
+      sign: Positive
+ magnitude: 09116D1782C71F51 A5EDB9F5B3C798F9 43B9E4EB
+
+
+ 
+signature verifies (verification function): true
+ 
+20 random bytes: 61550831C9706488 CD629EA27210913A 57CC706F
+
+random bytes mod q: Multi-Precision Integer 159 bits long...
+      sign: Positive
+ magnitude: 61550831C9706488 CD629EA27210913A 57CC706F
+
+
+The first number in (possibly faux) signature = Multi-Precision Integer 159 bits long...
+      sign: Positive
+ magnitude: 493EAAD329C3C11B D47F33176AFFB7C5 1FDE5E43
+
+
+ 
+The second number in (possibly faux) signature = Multi-Precision Integer 157 bits long...
+      sign: Positive
+ magnitude: 14DE116BA852E884 0C61594DF1BC9370 B36D8E88
+
+
+ 
+verify (independent calculation) = true
+verfication number is = Multi-Precision Integer 159 bits long...
+      sign: Positive
+ magnitude: 493EAAD329C3C11B D47F33176AFFB7C5 1FDE5E43
+
+
+ 
+The first number in (possibly faux) signature = Multi-Precision Integer 157 bits long...
+      sign: Positive
+ magnitude: 11C87AC06A1652B3 CAFA55483B555EAD C3CD9FCE
+
+
+ 
+The second number in (possibly faux) signature = Multi-Precision Integer 158 bits long...
+      sign: Positive
+ magnitude: 2D937BE8CD9589FE 7EC021A4A1C67604 DA453263
+
+
+ 
+verify (ind calculation) = false
+verfication number is = Multi-Precision Integer 158 bits long...
+      sign: Positive
+ magnitude: 3FBE37FB180D06E7 40BA916E4683014A 9F4D2DA2
+
+
+ 
+pprime (calculated) is = Multi-Precision Integer 159 bits long...
+      sign: Positive
+ magnitude: 5380000000000000 0000000000000000 00000001
+
+
+1010101000010000011000111001001011100000110010010001000110011010110001010011110101000100111001000010000100100010011101001010111110011000111000001101111 
+***** w mod 2^s is = Multi-Precision Integer 151 bits long...
+      sign: Positive
+ magnitude: 550831C9706488CD 629EA27210913A57 CC706F
+
+
+r^((p-1)/t) is = Multi-Precision Integer 158 bits long...
+      sign: Positive
+ magnitude: 3128B1FBDE970C45 5CE866745A4E7352 86E28BD4
+
+
+g^((p-1)/t) is = Multi-Precision Integer 158 bits long...
+      sign: Positive
+ magnitude: 27663E4E278ACAE6 75B78DD4474AB491 74B5B540
+
+
+***** w mod t = 62
+r^((p-1)/t) is = Multi-Precision Integer 158 bits long...
+      sign: Positive
+ magnitude: 3128B1FBDE970C45 5CE866745A4E7352 86E28BD4
+
+
+g^((p-1)/t)*j) is = Multi-Precision Integer 158 bits long...
+      sign: Positive
+ magnitude: 3128B1FBDE970C45 5CE866745A4E7352 86E28BD4
+
+
+j as BigInteger Multi-Precision Integer 6 bits long...
+      sign: Positive
+ magnitude: 3E
+
+
+value of w from CRT is: Multi-Precision Integer 156 bits long...
+      sign: Positive
+ magnitude: 0DD50831C9706488 CD629EA27210913A 57CC706F
+
+
+possible value of k is = Multi-Precision Integer 156 bits long...
+      sign: Positive
+ magnitude: 0DD50831C9706488 CD629EA27210913A 57CC706F
+
+
+possible private key (calculated) x is = Multi-Precision Integer 159 bits long...
+      sign: Positive
+ magnitude: 58106551A192AB4B 09659D32BFF1EA0F 84CF9F68
+
+
+calculated public key y from possible private key is = Multi-Precision Integer 1024 bits long...
+      sign: Positive
+ magnitude: Hexadecimal dump of 128 bytes...
+   0: BD2F43CA5CDA71AA 6C688315396D0BC9 40D5356ABA5F2F53 91620B56420E8BBB 
+  32: 656C430D27CBC638 DAA1F7A9C25C3AB4 855EAF236FE0FE15 7BD7F3011B411BA9 
+  64: E4855A28524746FD B8EF8CFEF070DC64 FD16D9B82056BCDB 7A851B0E4FB6F8BE 
+  96: 07D9D51671F6A213 8719040D1C24C960 C4B6190BBD3E4BE6 0A10495C4C063107 
+
+
+possible value of k is = Multi-Precision Integer 159 bits long...
+      sign: Positive
+ magnitude: 61550831C9706488 CD629EA27210913A 57CC706F
+
+
+possible private key (calculated) x is = Multi-Precision Integer 160 bits long...
+      sign: Positive
+ magnitude: 805C2D4BF743063C ABF060AD48E04BD6 813DA8B6
+
+
+calculated public key y from possible private key is = Multi-Precision Integer 1022 bits long...
+      sign: Positive
+ magnitude: Hexadecimal dump of 128 bytes...
+   0: 238165021ED0CC41 CE03A6DC15AE7FCE 33EA11AD53EF486A 25BB367BEC661019 
+  32: 21DF966D13129929 DDE3C3842B96869F DC3A2A8FBDBB7AD5 2910CA10A5C257FC 
+  64: 11D9F40606093C40 AA37BFE19A8D5AFF 878B2CE5215A6D7D A47E717BA7BBC380 
+  96: 57CD70EDA92B4AAD 47317AB16E6E7485 89E6F5B6030BC5A9 DCC569C5923C88EF 
+
+
+Private key found! This is it!**********************
+ 
+ (real) private key x actually is = Multi-Precision Integer 160 bits long...
+      sign: Positive
+ magnitude: 805C2D4BF743063C ABF060AD48E04BD6 813DA8B6
+
+

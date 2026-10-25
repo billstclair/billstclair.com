@@ -1,0 +1,267 @@
+<html>
+<head>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<title>Chaos and Fractals in Financial Markets, Part 3, by J. Orlin Grabbe</title>
+</head>
+<body bgcolor="white" link="#0000ff" vlink="#800080">
+<p>
+<h1 align=center>Chaos and Fractals in Financial Markets</h1>
+<h2 align=center>Part 3</h2>
+<h3 align=center><i>by J. Orlin Grabbe</i></h3>
+<center><table border=0 width=55%><tr><td>
+<h3 align=center>Hazardous World</h3>
+<P ALIGN="JUSTIFY">Many things in life are random.  They are governed by probability, by chance, by hazard, by accident, by the god Hermes, by fortune.  So we measure them by probability—by our one-pound jar of jam.  </P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">Places where there is more jam are more likely to happen, but the next outcome is uncertain.  The next outcome might be a low probability event.  Or it might be a high probability event, but there may be more than one of these.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">Radioactive decay is measured by probability.  The timing of the spontaneous transformation of a nucleus (in which it emits radiation, loses electrons, or undergoes fission) cannot be predicted with any certainty.  </P>
+
+<P ALIGN="JUSTIFY">Some people don’t like this aspect of the world.  They prefer to believe there are &quot;hidden variables&quot; which really determine radioactive decay, and if we only understood what these hidden variables were, it would all be precisely predictable, and we could return to the paradise of a Laplacian universe.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">Well, if there are hidden variables, I sure wish someone would identify them. If wishes were horses, David Bohm would ride.[1] Albert Einstein liked to say, &quot;God doesn’t play dice.&quot;  But if God wanted to play dice, he didn’t need Albert Einstein’s permission.  It sounds to me like &quot;hidden&quot; is just another name for probability.  &quot;Was it an accident?&quot;  &quot;No, it was caused by hidden forces.&quot;  Hidden variable theorists all believe in conspiracy.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">But, guess what?  People who believe God doesn’t play dice use probability theory just as much as everyone else.  So, without further ado, let’s return to our discussion of probability. </P>
+
+<B><P ALIGN="CENTER">Coin Flips and Brownian Motion</P>
+<P ALIGN="CENTER"></P>
+</B><P ALIGN="JUSTIFY">We can create a kind of Brownian motion (or Bachelier process) by flipping coins.  We start with a variable x = 0.  We flip a coin.  If the coin comes up heads, we add 1 to x.  If the coin comes up tails, we subtract 1 from x.  If we denote the input x as x(n) and the output x as x(n+1), we get a dynamical system:</P>
+<P ALIGN="JUSTIFY"></P>
+<P>x(n+1) = x(n) + 1, with probability p = ½<br>
+x(n+1) = x(n) – 1, with probability q = ½ .</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">Here <B>n</B> represents the current number of the coin flip, and is our measure of time.  So to create a graph of this system, we put <B>n</B> (time) on the horizontal axis, and the variable x(n) on the vertical axis.  This gives a graph of a very simple type of Brownian motion (a <I>random walk</I>), as seen in the graphic below.  At any point in time (at any value of <B>n</B>), the variable x(n) represents the total number of heads minus the total number of tails.  Here is one picture of 10,000 coin flips:</P>
+<P ALIGN="JUSTIFY"></P>
+</td></tr></table></center>
+<center><table><tr><td>
+<P><IMG SRC="coin_flips.jpg" WIDTH=600 HEIGHT=320></P>
+</td></tr></table></center>
+<center><table border=0 width=55%><tr><td>
+<P ALIGN="JUSTIFY">Much of finance is based on a simple probability model like this one.  Later we will change this model by changing the way we measure probability,</P>
+
+<B><P ALIGN="CENTER">A Simple Stochastic Fractal</P>
+</B>
+<P ALIGN="JUSTIFY">Using probability, it is easy to create fractals. For example, here is a dynamical system which creates a Simple Stochastic Fractal.  The system has two variables, x and y, as inputs and outputs: </P>
+<P ALIGN="JUSTIFY"></P>
+<P>x(n+1) = - y(n)<br>
+y(n+1) = x(n)</P>
+
+<P>with probability p = ½ , but</P>
+
+<P>x(n+1) = 1 + 2.8*(x(n)-1)/(x(n)*x(n)-2*x(n)+2+y(n)*y(n))<br>
+y(n+1) = 2.8*y(n)/(x(n)*x(n)-2*x(n)+2+y(n)*y(n))</P>
+
+<P>with probability q = ½.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">We map x and y on a graph of two dimensions.  If the coin flip comes up heads, we iterate the system by the first two equations.  This iteration represents a simple 90-degree rotation about the origin (0,0).  If the coin flip comes up tails, we iterate the system by the second two equations.  This second type of iteration contracts or expands the current point with respect to (1,0).</P>
+
+<P ALIGN="JUSTIFY">To see this Simple Stochastic Fractal system works in real time, be sure Java is enabled on your web browser, and <A HREF="StochFrac.html">click here</A>. [2]</P>
+
+<P ALIGN="JUSTIFY">Simple stochastic dynamical systems create simple fractals, like those we see in nature and in financial markets.  But in order to get from Bachelier to Mandelbrot, which requires a change in the <I>way we measure probability</I>, it will be useful for us to first think about something simpler, such as the <I>way we measure length</I>.</P>
+
+<P>One we’ve learned to measure length, we’ll find that probability is jam on toast.</P>
+
+<B><P ALIGN="CENTER">Sierpinski and Cantor Revisited</P>
+</B><P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">&#9;In Part 2, when we looked at Sierpinski carpet, we noted that a Sierpinski carpet has a Hausdorff dimension D = log 8/log 3 = 1.8927…  So if we have a Sierpinski carpet with length 10 on each side, we get</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">N = r<SUP>D</SUP> = 10<SUP>D</SUP> = 10<SUP>1.8927</SUP> = 78.12 </P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">smaller copies of the original. (For a nice round number, we can take 9 feet on a side, and get N = 9<SUP>1.8927</SUP> = 64 smaller copies.) Since each of these smaller copies has a length of one foot on each side, we can call these "square feet&quot;.  But really they are &quot;square Sierpinskis&quot;, because Sierpinski carpet is not like ordinary carpet. </P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">So let’s ask the question: How much space (area) does Sierpinski carpet take up relative to ordinary carpet?  We have 78.12 smaller copies of the original.  So if we know how much area (in terms of ordinary carpet) each of these smaller copies takes up, we can multiply that number by 78.12 and get the answer.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">Hmmm.  To calculate an answer this question, let’s take the same approach we did with Cantor dust.  In the case of Cantor dust, we took a line of length one and began cutting holes in it.  We divided it into three parts and cut out the middle third, like this:</P>
+<P ALIGN="JUSTIFY"></P>
+<pre>
+<P>0__________________________________________________1</P>
+
+<P>0________________1/3             2/3_______________1</P>
+</pre>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">That left 2/3 of the original length.  Then we cut out the middle thirds of each of the two remaining lines, which left 2/3 of what was there before; that is, it left (2/3)(2/3), or (2/3)<SUP>2</SUP>.  And so on.  After the <B>n</B>-th step of cutting out middle thirds, the length of the remaining line is (2/3)<SUP>n</SUP>. </P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">If we take the limit as <B>n</B> <FONT FACE="Symbol">&#174;</FONT>
+ <FONT FACE="Symbol">&#165;</FONT>
+ (as <B>n</B> goes to infinity), we have (2/3)<SUP>n</SUP>  <FONT FACE="Symbol">&#174;</FONT>
+  0 (that is, we keep multiplying the remaining length by 2/3, and by so doing, we eventually reduce the remaining length to zero). [3]  So Cantor dust has a length of zero.  What is left is an infinite number of disconnected points, each with zero dimension.  So we said Cantor dust had a topological dimension of zero.  Even though we started out with a line segment of length one (with a dimension of one), before we began cutting holes in it.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">Well.  Now let’s do the same thing with Sierpinski carpet.  We have an ordinary square and divide the sides into three parts (divide by a scale factor of 3), making 9 smaller squares.  Then we throw out the middle square, leaving 8 smaller squares, as in the figure below:</P>
+</td></tr></table></center>
+<center><table><tr><td>
+<P ALIGN="JUSTIFY"><IMG SRC="sierp_constr.jpg" WIDTH=462 HEIGHT=176></P>
+</td></tr></table></center>
+<center><table border=0 width=55%><tr><td>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">So we have left 8/9 of the original area.  Next, we divide up each of the smaller squares and throw out the centers.  Each of them now has 8/9 of its original area, so the area of the big square has been reduced to (8/9)(8/9) of its original size, or to (8/9)<SUP>2</SUP>.  At the <B>n</B>-th step of this process, we have left (8/9)<SUP>n</SUP> of the original area. Taking the limit as <B>n</B> <FONT FACE="Symbol">&#174;</FONT>
+ <FONT FACE="Symbol">&#165;</FONT>
+ (as <B>n</B> goes to infinity), we have (8/9)<SUP>n</SUP>  <FONT FACE="Symbol">&#174;</FONT>
+  0 .  So the Sierpinski carpet has an area of zero.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">What?  This seems properly outrageous.  The 78.12 smaller copies of the original Sierpinski carpet that measured 10 x 10 (or 64 smaller copies of an original Sierpinski carpet that measured 9 x 9), actually take up zero area.  By this argument, at least.  By this way of measuring things.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">We can see what is happening, if we look at the Sierpinski carpet construction again.  Note in the graphic above that the <I>outside</I> perimeter of the original big square never acquires any holes as we create the Sierpinski carpet.  So the outside perimeter forms a loop: a closed line in the shape of a square.  A loop of one dimension.  </P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">Next note that the border of the first <I>center</I> square we remove also remains intact.  This leaves a second smaller (square) loop: a second closed line of one dimension, inside the original loop.  Next, the centers of the 8 smaller squares also form even smaller (square) loops.  If we continue this process forever, then in the limit we are left with an infinite number of disconnected loops, each of which is a line of one dimension.  This is the Sierpinski carpet.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">Now, with respect to Cantor dust, we said we had an infinite number of disconnected points, each with <I>zero</I> dimension, and then chose to say that Cantor dust itself had a <I>topological dimension of zero</I>.  To be consistent, then, we must say with respect to the Sierpinski carpet, which is made up of an infinite number of disconnected loops, each of <I>one</I> dimension, that it has a <I>topological dimension of one</I>. </P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">Hmm.  Your eyebrows raise.  Previously, in Part 2, I said Sierpinski carpet had an ordinary (or topological) dimension of 2 .  That was because we started with a 10 by 10 square room we wanted to cover with carpet.  So, intuitively, the dimension we were working in was 2.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">The confusion lies in the phrase &quot;topological or ordinary&quot; dimension.  These are not the same.  Or, better, we need more precision.  In the case of Sierpinski carpet, we started in a context of two-dimensional floor space.  Let’s call this a <I>Euclidean dimension of 2</I>. It corresponds to our intuitive notion that by covering a floor space with carpet, we are doing things in a plane of 2 dimensions.  But, once we measure all the holes in the carpet, we discovered that what we are left with is carpet that has been entirely consumed by holes.  It has zero area.  What is left over is an infinite number of disconnected closed loops, each of which has a  dimension of one.  So, in this respect, let’s say that Sierpinski carpet has a topological dimension of  one.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">Thus we now have three different dimensions for Sierpinski carpet: a Euclidean dimension (E) of 2, a topological dimension (T) of 1, and a Hausdorff dimension (D) of 1.8927…</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">Similarly, to create Cantor dust, we start with a line of one dimension. Our <I>working space</I> is one dimension. So let’s say Cantor dust has a Euclidean dimension (E) of 1, a topological dimension (T) of 0, and a Hausdorff dimension (D) of log 2/log 3 = .6309…</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">So here are three different ways [4] of looking at the same thing: the Euclidean dimension (E), the topological dimension (T), and the Hausdorff dimension (D).  Which way is best?  </P>
+<P ALIGN="JUSTIFY"></P>
+<B><P ALIGN="CENTER">Blob Measures Are No Good</P>
+<P ALIGN="CENTER"></P>
+</B><P ALIGN="JUSTIFY">Somewhere (I can’t find the reference) I read about a primitive tribe that had a counting system that went: 1, 2, 3, many.  There were no names for numbers beyond 3.  Anything numbered beyond three was referred to as &quot;many&quot;.  </P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">&quot;We’re being invaded by foreigners!&quot;  &quot;How many of them are there?&quot;  &quot;Many!&quot; </P>
+<P ALIGN="JUSTIFY">It’s not a very good number system, since it can’t distinguish between an invading force of five and an invading force of fifty.  </P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">(Of course, if the enemy were in sight, one could get around the lack of numbers.  Each individual from the local tribe could pair himself with a invader, until there were no unpaired invaders left, and the result would be an opposing force that matched in number the invading force. George Cantor, the troublemaker who invented set theory, would call this a <I>one-to-one correspondence</I>.)</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">&quot;Many.&quot;  A blob.  Two other blob measures are: <I>zero</I> and <I>infinity</I>.  For example,  Sierpinski carpet has zero area and so does Cantor dust.  But they are not the same thing.  </P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">We get a little more information if we know that Cantor dust has a topological dimension of zero, while a Sierpinski carpet has a topological dimension of one.  But topology often conceals more than it reveals.  The topological dimension of <I>zero</I> doesn’t tell us how Cantor dust differs from a single point.  The topological dimension of <I>one</I> doesn’t tell us how a Sierpinski carpet differs from a circle.  </P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">If we have a circle, for example, it is fairly easy to measure its length.  In fact, we can just measure the radius <B>r</B> and use the formula that the length L (or &quot;circumference&quot; C) is</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">L = C = 2 <FONT FACE="Symbol">&#112;</FONT>
+ r</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">where <FONT FACE="Symbol">&#112;</FONT>
+ = 3.141592653… is known accurately to millions of decimal places.  But suppose we attempt to measure the length of a Sierpinski carpet?  After all, we just said a Sierpinski carpet has topological dimension of one, like a <I>line</I>, so how long is it?   What is the length of this here Sierpinski carpet compared to the length of that there circle?  </P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">To measure the Sierpinski carpet we begin measuring smaller and smaller squares, so we keep having to make our measuring rod smaller and smaller.  But as the squares get smaller, there are more and more of them.  If we actually try to do the measurement, we discover the length goes to infinity.  (I’ve measured my Sierpinski carpet; haven’t you measured yours yet?)  </P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">Infinity.  A blob.  &quot;How long is it?&quot;  &quot;Many!&quot;</P>
+<P ALIGN="JUSTIFY"></P>
+<B><P ALIGN="CENTER">Coastlines and Koch Curves</P>
+</B><P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">If you look in the official surveys of the length of borders between countries, such as that between Spain and Portugal, or between Belgium and The Netherlands, you will find they can differ by as much as 20 percent. [5]</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">Why is this?  Because they used measuring rods that were of different lengths.  Consider:  one way to measure the length of something is to take a measuring rod of length <B>m, </B>lay it alongside what you are measuring, mark the end point of the measuring rod, and repeat the process until you have the number N of measuring rod lengths.  Then for the total length L of the object, you have</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">L = m N </P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">(where &quot;m N&quot; means &quot;m times N&quot;).  </P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">For example, suppose we are measuring things in feet, and we have a yardstick (<B>m</B> = 3).  We lay the yardstick down the side of a football field, and come up with N = 100 yardstick lengths. So the total length is</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">L = 3 (100) = 300 feet.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">And, if instead of using a yardstick, we used a smaller measuring rod—say a ruler that is one foot long, we would still get the same answer.  Using the ruler, <B>m</B> = 1 and N = 300, so L = 1 (300) = 300 feet.  This may work for the side of a football field, but does it work for the coastline of Britain?  Does it work for the border length between Spain and Portugal?</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">Portugal is a smaller country than Spain, so naturally it used a measuring rod of shorter length.  And it came up with an estimate of the length of the mutual border that was longer than Spain’s estimate.  </P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">We can see why if we imagine measuring, say, the coastline of Britain.  If we take out a map, lay a string around the west coast of Britain, and then multiply it by the map scale, we’ll get an estimate of the &quot;length&quot; of the western coastline.  But if we come down from our satellite view and actually visit the coast in person, then we will see that there are a lot of ins and outs and crooked jags in the area where the ocean meets the land.  The smaller the measuring rod we use, the longer will our measure become, because we capture more of the length of the irregularities. The difference between a coastline and the side of a football field is that the coastline is fractal and the side of the football field isn’t.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">To see the principles involved, let’s play with something called a Koch curve.  First we will construct it.  Then we will measure its length.  You can think of a Koch curve as being as being a section of coastline.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">We take a line segment.  For future reference, let’s say its length L is L = 1.  Now we divide it into three parts (each of length 1/3), and remove the middle third.  But we replace the middle third with <I>two</I> line segments (each of length 1/3), which can be thought of as the other two sides of an equilateral triangle.  This is stage two (b) of the construction in the graphic below:</P>
+</td></tr></table></center>
+<center><table><tr><td>
+<P ALIGN="JUSTIFY"><IMG SRC="Koch.jpg" WIDTH=300 HEIGHT=216></P>
+</td></tr></table></center>
+<center><table border=0 width=55%><tr><td>
+<P ALIGN="JUSTIFY">At this point we have 4 smaller segments, each of length 1/3, so the total length is 4(1/3) = 4/3.  Next we repeat this process for each of the 4 smaller line segments.  This is stage three (c) in the graphic above.  This gives us 16 <I>even smaller</I> line segments, each of length 1/9.  So the total length is now 16/9 or (4/3)<SUP>2</SUP>.  </P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">At the <B>n</B>-th stage the length is (4/3)<SUP>n</SUP>, so as <B>n</B> goes to infinity, so does the length L of the curve.  The final result &quot;at infinity&quot; is called a Koch curve.  At each of its points it has a sharp angle.  Just like, say, Brownian motion seen at smaller and smaller intervals of time.  (If we were doing calculus, we would note there is no tangent at any point, so the Koch curve has no derivative.  The same applies to the path of Brownian motion.)</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">However, the Koch curve is continuous, because we can imagine taking a pencil and tracing its (infinite) length from one end to the other.  So, from the topological point of view, the Koch curve has a dimension of one, just like the original line.  Or, as a topologist would put it, we can deform (stretch) the original line segment into a Koch curve without tearing or breaking the original line at any point, so the result is still a &quot;line&quot;, and has a topological dimension T = 1.  </P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">To calculate a Hausdorff dimension, we note that at each stage of the construction, we replace each line segment with N = 4 segments, after dividing the original line segment by a scale factor r = 3.  So its Hausdorff dimension D = log 4/log 3 = 1.2618…  </P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">Finally, when we constructed the Koch curve, we did so by viewing it in a Euclidean plane of two dimensions.  (We imagined replacing each middle line segment with the other two sides of an equilateral triangle—which is a figure of 2 dimensions.)  So our working space is the Euclidean dimension E = 2.  </P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">But here is the key point: as our measuring rod got smaller and smaller (through repeated divisions by 3), the measured length of the line got larger and larger.  Just like a coastline.  (And just like the path of Brownian motion.)  The total length (4/3)<SUP>n</SUP> went to infinity as <B>n</B> went to infinity.  At the <B>n</B>-th stage of construction we had N = 4<SUP>n</SUP> line segments, each of length  <B>m</B> = (1/3)<SUP>n</SUP>, so the total length L was:</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">L = m N = (1/3)<SUP>n</SUP> 4<SUP>n</SUP> = (4/3)<SUP>n</SUP>.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">Well, there’s something wrong with measuring length this way.  Because it gives us a blob measure.  Infinity.  &quot;Many.&quot; </P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">Which is longer, the coast of Britain or the coast of France?  Can’t say.  They are both infinity.  Or maybe they have the same length: namely, infinity.  They are both &quot;many&quot; long.  Well, how long is the coastline of Maui?  Exactly the same.  Infinity.  Maui is many long too.  (Do you feel like a primitive tribe trying to count yet?)</P>
+<P ALIGN="JUSTIFY"></P>
+<B><P ALIGN="CENTER">Using a Hausdorff Measure</P>
+</B><P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">The problem lies in our measuring rod <B>m</B>.  We need to do something to fix the problem that as <B>m</B> gets smaller, the length L gets longer.  Let’s try something.  Instead of</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">L = m N ,</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">let’s adjust <B>m</B> by raising it to some power <B>d</B>.  That is, replace <B>m</B> by <B>m<SUP>d</B></SUP>: </P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">L = m<SUP>d</SUP> N .</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">This changes our way of measuring length L, because only when <B>d</B> = 1 do we get the same measure of length as previously.  </P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">If we do this, replace <B>m</B> by <B>m<SUP>d</B></SUP>, we discover that for values of <B>d</B> that are too small, <B>L</B> still goes to infinity.  For values of <B>d</B> that are too large, <B>L</B> goes to zero.  Blob measures.  There is only one value of <B>d</B> that is just right:  namely, the Hausdorff dimension <B>d</B> = D.  So our measure of length becomes:</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">L = m<SUP>D</SUP> N</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">How does this work for the Koch curve?  We saw that for a Koch curve the number of line segments at stage <B>n</B> was N = 4<SUP>n</SUP>, while the length of a line segment <B>m</B> = (1/3)<SUP>n</SUP>.  So we get as our new measure of the length L of a Koch curve (where D = log 4/log 3):</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">L = m<SUP>D</SUP> N = ((1/3)<SUP>n</SUP>)<SUP>D</SUP> (4<SUP>n</SUP>) = ((1/3)<SUP>n</SUP>)<SUP>log 4/log 3</SUP> (4<SUP>n</SUP>) = 4<SUP>-n</SUP> (4<SUP>n</SUP>) = 1.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">Success.  <B>We’ve gotten rid of the blob</B>.  The length L of the Koch curve under this measure turns out to be the length of the original line segment.  Namely, L = 1.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">The Hausdorff dimension D is a natural measure associated with our measuring rod <B>m</B>.  If we are measuring a football field, then letting D = 1 works just fine to measure out 100 yards.  But if we are dealing with Koch curves or coastlines, then some other value of D avoids the futile exercise of having the measured length fully dependent on the length of the measuring rod.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">To make sure we understand how this works, let’s calculate the length of a Sierpinski carpet constructed from a square with a starting length of 1 on each side.  For the Sierpinski carpet, N gets multiplied by 8 at each stage, while the measure rod gets divided by 3.  So the length at stage <B>n</B> is:</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">L = m<SUP>D</SUP> N = ((1/3)<SUP>n</SUP>)<SUP>D</SUP> (8<SUP>n</SUP>) = ((1/3)<SUP>n</SUP>)<SUP>log 8/log 3</SUP> (8<SUP>n</SUP>) = 8<SUP>-n</SUP> (8<SUP>n</SUP>) = 1.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">Hey!  We’ve just destroyed the blob again!  We have a finite length.  It’s not zero and it’s not infinity.  Under this measure, as we go from the original square to the ultimate Sierpinski carpet, the length stays the same.  The <I>Hausdorff length (area)</I> of a Sierpinski carpet is 1, assuming that we started with a square that was 1 on each side.  (We can informally choose to say that the &quot;area&quot; covered by the Sierpinski carpet is &quot;one square Sierpinski&quot;, because we need a Euclidean square, the length of each side of which is 1, in order to do the construction.) [6]</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">[Note that if we use a <B>d</B> &gt; D, such as <B>d</B> = 2, then the length L of the Sierpinski carpet goes to zero, as <B>n </B>goes to infinity.  And if we use a <B>d</B> &lt; D, such as <B>d</B> = 1, then the length goes to infinity, as <B>n</B> goes to infinity.  So, doing calculations using the Euclidean dimension E =2 leads to an &quot;area&quot; of zero, while calculations using the topological dimension T=1 leads to a &quot;length&quot; of infinity.  Blob measures.]</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">If instead we have a Sierpinski carpet that is 9 on each side, then to calculate the &quot;area&quot;, we note that the number of Sierpinski copies of the initial square which has a side of length 1 is (dividing each side into r = 9 parts) N = r<SUP>D</SUP> = 9<SUP>D</SUP> = 64.  Thus, <B><I>using the number of Sierpinski squares with a side of length 1, then, as the basis for our measuresment</B></I>, the Sierpinski carpet with 9 on each side has an &quot;area&quot; of  N = 9<SUP>D</SUP>  =  9<SUP>1.8927…</SUP>  = 64.  A Sierpinski carpet with 10 on each side has an &quot;area&quot; of N =  10<SUP>1.8927…</SUP>  = 78.12.  And so on.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">The Hausdorff dimension, D = 1.8927…, is closer to 2 than to 1, so having an &quot;area&quot; of 78.12 (which is in the region of 10<SUP>2</SUP> = 100) for a side length of 10 is more esthetically pleasing than saying the &quot;area&quot; is zero.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">This way of looking at things lets us avoid having to say of two Sierpinski carpets (one of side 9 and the other of side 1):  &quot;Oh, they’re exactly the same.  They both have <I>zero</I> area.  They both have <I>infinite</I> length!&quot;  Blah, blah, <B>blob, blob</B>. </P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">Indeed do &quot;many&quot; things come to pass.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">To see a Sierpinski Carpet Fractal created in real time, using probability, be sure Java is enabled on your web browser, and <A HREF="Sierp.html">click here</A>. </P>
+<P ALIGN="JUSTIFY"></P>
+<B><P ALIGN="CENTER">Jam Session</P>
+</B><P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">One of the important points of the discussion above is that the <I>power</I> (referring specifically to the Hausdorff D) to which we raise things is crucial to the resulting measurement.  If we &quot;square&quot; things (raise them to the power 2) at times when 2 is not appropriate, we get blob measures equivalent to, say, &quot;this regression coefficient is ‘many’ &quot;.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">Unfortunately, people who measure things using the wrong dimension often think they are saying something other than &quot;many.&quot;  They think their measurements mean something.  They are self-deluded.  Many empirical and other results in finance are an exercise in self-delusion, because the wrong dimension has been used in the calculations.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">When Louis Bachelier gave the first mathematical description of Brownian motion in 1900, he said the probability of the price distribution changes with the square root of time.  We modified this to say that the probability of the <I>log of the price</I> destribution changes with the square root of time—and <B>from now on, without further discussion, we will pretend that that’s what Bachelier said also</B>.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">The issue we want to consider is whether the appropriate dimension for time is D = ½.  In order to calculate probability should we use T<SUP>1/2</SUP>, or T<SUP>D</SUP>, where D may take values different from ½?</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">This was what Mandelbrot was talking about when he said the empirical distribution of price changes was "too peaked" to come from a normal distribution.  Because the dimension D = ½ is only appropriate in the context of a normal distribution, which arises from simple Brownian motion.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">We will explore this issue in Part 4.</P>
+<P ALIGN="JUSTIFY"></P>
+<B><P ALIGN="CENTER">Notes</P>
+<P ALIGN="CENTER"></P>
+</B><P ALIGN="JUSTIFY">[1] David Bohm’s hidden-variable interpretation of the quantum pilot wave (which obeys the rules of quantum probability) is discussed in John Gribbin, <I>Schrodinger’s Kittens and the Search for Reality</I>, Little, Brown and Company, New York, 1995.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">[2] If your computer monitor has much greater precision than assumed here, you can see much more of the fractal detail by using a larger area than 400 pixels by 400 pixels.  Just replace &quot;200&quot; in the Java program by one-half of your larger pixel width, and recompile the applet.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">[3] Note that in Part 2, we measured the length of the line segments that we <I>cut out</I>.  Here, however, we are measuring the length of the line segment that is <I>left behind</I>.  Both arguments, of course, lead to the same conclusion.  We cut out a total of length one from the original line of length one, leaving behind a segment of length zero.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">[4] This three-fold classification corresponds to that in Benoit B. Mandelbrot, <I>The Fractal Geometry of Nature</I>, W.H. Freeman and Company, New York, 1983.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">[5]  L. F. Richardson, &quot;The problem of contiguity: an appendix of statistics of deadly quarrels,&quot; <I>General Systems Yearbook</I>, 6, 139-187, 1961.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">[6] Whether one refers to the resulting carpet as &quot;1 square Sierpinski&quot; or just &quot;1 Sierpinski&quot; or just &quot;a carpet with a side length of 1&quot; is basically a matter of taste and semantic convenience.  </P>
+<hr>
+<P ALIGN="JUSTIFY">J. Orlin Grabbe is the author of
+<a href="http://www.amazon.com/exec/obidos/ASIN/0132069881/qid=924154369/sr=1-1/002-9261014-2388004">
+International Financial Markets</A>, and is an internationally recognized derivatives expert.  He has recently branched out into cryptology, banking security, and digital cash.  His home page is located at <A HREF="homepage.html">http://www.aci.net/kalliste/homepage.html</A> .</P>
+<center><b>-30-</b></center>
+<p>
+<center><b>from <i>The Laissez Faire City Times</i>, Vol 3, No 26, June 28, 1999</b></center>
+</td></tr></table></center>
+</body>
+</html>

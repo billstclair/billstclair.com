@@ -1,0 +1,70 @@
+<html>
+<body bgcolor="white">
+<h2 align=center>Java Source Code for Simple Stochastic Fractal</h2>
+<hr>
+<pre>
+import java.applet.*;
+import java.awt.*;
+import java.util.Random;
+
+class StochFracPlot extends Canvas {
+
+	private int max_iterations = 150000;
+
+	private void plot(Graphics g, int x, int y, int plotColor) {
+		
+		g.setColor(Color.red);
+		g.drawLine(x, y, x, y);
+	}
+
+	public void paint(Graphics g) {
+
+		double X=1.0, Y=0.0, Xnew=1.0, Ynew=0.0, hazard;
+		Random ran = new Random();
+		int iter, xplot, yplot, plotColor=0;
+	
+		for (iter=0;iter<=max_iterations;iter++) {
+			hazard = ran.nextDouble();
+			if(hazard<0.5) {
+				Xnew = 1 + 2.8*(X-1)/(X*X-2*X+2+Y*Y);
+				Ynew = 2.8*Y/(X*X-2*X+2+Y*Y);
+			}
+			else {
+				Xnew = -Y;
+				Ynew = X;
+			}
+		xplot = 200+(int)(200*Xnew);
+		yplot = 200+(int)(200*Ynew);
+		plot(g,xplot,yplot,plotColor);
+		X = Xnew;
+		Y = Ynew;
+		}
+	}
+	} 
+
+	public class StochFrac extends Applet {
+
+		private StochFracPlot canvas;
+
+		public boolean handleEvent(Event e) {
+			if(e.id==Event.WINDOW_DESTROY) System.exit(0);
+			return super.handleEvent(e);
+		}
+		
+		public void init() {
+
+			setLayout(new BorderLayout());
+			canvas = new StochFracPlot();
+			add("Center", canvas);
+			}
+
+	}		
+
+</pre>
+<hr>
+</body>
+</html>
+						
+
+
+	

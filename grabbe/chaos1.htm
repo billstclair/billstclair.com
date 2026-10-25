@@ -1,0 +1,1399 @@
+<html>
+<head>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<title>Chaos and Fractals in Financial Markets, Part 1, by J. Orlin Grabbe</title>
+</head>
+<body bgcolor="white" link="#0000ff" vlink="#800080">
+<p>
+<h1 align=center>Chaos and Fractals in Financial Markets</h1>
+<h2 align=center>Part 1</h2>
+<h3 align=center><i>by J. Orlin Grabbe</i></h3>
+<center><table border=0 width=55%><tr><td>
+<B><P ALIGN="CENTER">Prologue: The Rolling of the Golden Apple</P>
+</B><P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">In 1776, a year in which political rebels in Philadelphia were proclaiming their independence and freedom, a physicist in Europe was proclaiming total dependence and determinism.  According to Pierre-Simon <B>Laplace</B>, if you knew the initial conditions of any situation, you could determine the future far in advance:  &quot;The present state of the system of nature is evidently a consequence of what it was in the preceding moment, and if we conceive of an intelligence which at a given instant comprehends all the relations of the entities of this universe, it could state the respective positions, motions, and general effects of all these entities at any time in the past or future.&quot;</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">The Laplacian universe is just a giant pool table.  If you know where the balls were, and you hit and bank them correctly, the right ball will always go into the intended pocket.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">Laplace's hubris in his ability (or that of his &quot;intelligence&quot;) to forecast the future was completely consistent with the equations and point of view of classical mechanics.  Laplace had not encountered nonequilibrium thermodynamics, quantum physics, or chaos. Today some people are frightened by the very notion of  chaos. (I have explored this at length in an essay devoted to <A HREF="chaos.htm">chaos from a philosophical perspective</A>.  But the same is also true with respect to the somewhat related mathematical notion of chaos.)  Today there is no justification for a Laplacian point of view.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">At the beginning of this century, the mathematician Henri Poincar&eacute;, who was studying planetary motion, began to get an inkling of the basic problem:</P>
+<blockquote>
+<P ALIGN="JUSTIFY">&quot;It may happen that small differences in the initial conditions produce very great ones in the final phenomena.  A small error in the former will produce an enormous error in the latter.  Prediction becomes impossible&quot; (1903).</P>
+</blockquote>
+<P ALIGN="JUSTIFY">In other words, he began to realize &quot;deterministic&quot; isn’t  what it’s often cracked up to be, even leaving aside the possibility of other, nondeterministic systems.  An engineer might say to himself:  &quot;I know where a system is now.  I know the location of this (planet, spaceship, automobile, fulcrum, molecule) almost precisely.  Therefore I can predict its position X days in the future with a margin of error precisely related to the error in my initial observations.&quot;</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">Yeah.  Well, that’s not saying much.  The prediction error may explode off to infinity at an exponential rate (read the discussion of <I>Lyapunov exponents</I> later).  Even God couldn’t deal with the margin of error, if the system is chaotic. (There is no omniscience.  Sorry.) And it gets even worse, if the system is nondeterministic.</P>
+<P ALIGN="JUSTIFY"> </P>
+<P ALIGN="JUSTIFY">The distant future?  You’ll know it when you see it, and that’s the first time you’ll have a clue.  (This statement will be slightly modified when we discuss a system’s <I>global </I>properties.)  </P>
+<P ALIGN="CENTER"></P>
+<B><P ALIGN="CENTER">I Meet Chaos</P>
+</B><P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">I first came across something called "dynamical systems" while I was at the University of California at Berkeley.  But I hadn't paid much attention to them.  I went through Berkeley very fast, and didn't have time to screw around.  But when I got to Harvard for grad school, I bought Ren&eacute; Thom's book <I>Structural Stability and Morphogenesis</I>, which had just come out in English.  The best part of the book was the photos.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">Consider a <B>crown</B> worn by a king or a princess, in fairy tales or sometimes in real life.  Why does a crown look the way it does?  Well, a crown is kind of round, so it will fit on the head, and it has spires on the rim, like little triangular hats—but who knows why—and sometimes on the end of the spires are little round balls, jewels or globs of gold.  Other than the requirement that it fit on the head, the form of a crown seems kind of arbitrary.  </P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">But right there in Thom's book was a photo of a steel ball that had been dropped into molten lead, along with the reactive splash of the molten liquid.  The lead splash was a <I>perfect crown</I>--a round vertical column rising upward, then branching into triangular spires that get thinner and thinner (and spread out away from the center of the crown) as you approached the tips, but instead of ending in a point, each spire was capped with a spherical blob of lead.  In other words, the shape of a crown isn't arbitrary at all:  under certain conditions its form occurs spontaneously whenever a sphere is dropped into liquid. So the king’s crown wasn’t created to &quot;symbolize&quot; this or that.  The form came first, a natural occurrence, and the interpretation came later. </P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">The word "morphogenesis" refers to the forms things take when they grow:  bugs grow into a particular shape, as do human organs.  I had read a number of books on general systems theory by Ervin Laszlo and Ludwig von Bertalanffy, which discuss the concepts of morphogenesis, so I was familiar with the basic ideas.  Frequent references were made to biologist D’Arcy Thompson’s book <I>On Growth and Form</I>.  But it was only much later, when I began doing computer art,  and chaotically created a more or less perfectly formed <I>ant</I> by iterating a fifth-degree complex equation (that is, an equation containing a variable <I>z</I> raised to the fifth power, <I>z</I><SUP>5</SUP>, where <I>z</I> is a complex number, such as <I>z</I> = .5 + 1.2 sqrt(-1) ), that I really understood the power of the idea. If the shape of ants is arbitrary, then why in the hell do they look like fifth-degree complex equations?</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">Anyway, moving along, in grad school I was looking at the forms taken by asset prices, foreign exchange rates in particular.  A foreign exchange rate is the price that one fiat currency trades for another.  But I could have been looking at stock prices, interest rates, or commodity prices—the principles are the same.  Here the assumption is that the systems generating the prices are nondeterministic (stochastic, random)—but that doesn’t prevent there being hidden form, hidden order, in the shape of <I>probability distributions</I>.  </P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">Reading up on price distributions, I came across some references to Benoit Mandelbrot.  Mandelbrot, an applied mathematician, had made a splash in economics in the early-1960s with some heretical notions of the probabilities involved in price distributions, and had acquired as a disciple Eugene Fama [1] at the University of Chicago.  But then Fama abandoned this heresy (for alleged empirical reasons that I find manifestly absurd), and everyone breathed a sigh of relief and returned to the familiar world of least squares, and price distributions that were <I>normal</I> (as they believed) in the <I>social</I> sense as well as the <I>probability</I> sense of a &quot;normal&quot; or Gaussian distribution.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">In economics, when you deal with prices, you first take logs, and then look at the changes between the logs of prices [2].  The changes between these log prices are what are often referred to as the <I>price distribution</I>.  They may, for example, form a Bell-shaped curve around a mean of zero. In that case, the changes between logs would have a normal (Gaussian) distribution, with a mean of zero, and a standard deviation of whatever. (The actual prices themselves would have a <I>lognormal</I> distribution.  But that’s not what is meant by &quot;non-normal&quot; in most economic contexts, because the usual reference is to <I>changes in the</I> <I>logs </I>of prices, and not to the actual prices themselves.)  </P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">At the time I first looked at <I>non</I>-normal distributions, they were very much out of vogue in economics.  There was even active hostility to the idea there could be such things in real markets.  Many people had their nice set of tools and results that would be threatened (or at least they thought would be threatened) if you changed their probability assumptions.  Most people had heard of Mandelbrot, but curiously no one seemed to have the slightest clue as to what the actual details of the issue were.  It was like option pricing theory in many ways: it wasn’t taught in economic departments at the time, because none of the professors understood it.  </P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">I went over to the Harvard Business School library to read Mandelbrot’s early articles.  The business school library was better organized than the library at the Economics Department, and it had a better collection of books and journals, and it was extremely close to where I lived on the Charles River in Cambridge.  In one of the articles, Mandelbrot said that the ideas therein were first presented to an economic audience in Hendrik Houthakker’s international economics seminar at Harvard.  Bingo.  I had taken international finance from Houthakker and went to talk to him about Mandelbrot.  Houthakker had been a member  of Richard Nixon’s Council of Economic Advisors, and was famous for the remark: &quot;[Nixon] had no strong interest in international economic affairs, as shown by an incident recorded on the Watergate tapes where Haldeman comes in and wants to talk about the Italian lira.  His response was  ‘[expletive deleted] the Italian lira!’&quot;</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">Houthakker told me he had studied the distribution of cotton futures prices and didn’t believe they had a normal distribution.  He had given the same data to Mandelbrot.  He told me Mandelbrot was back in the U.S. from a sojourn in France, and that he had seen him a few weeks previously, and Mandelbrot had a new book he was showing around.  I went over to the Harvard Coop (that’s pronounced &quot;coupe&quot; as in &quot;a two-door coupe&quot;, no French accent) and found a copy of Mandelbrot’s book.  Great photos!  That’s when I learned what a fractal was, and ended up writing two of the three essays in my PhD thesis on fractal price distributions [3].</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">Fractals led me back into chaos, because maps (graphics) of chaos equations create fractal patterns.</P>
+<P ALIGN="JUSTIFY"></P>
+</td></tr></table></center>
+<center><table border=0 width=55%><tr><td>
+<B><P ALIGN="CENTER">Preliminary Pictures and Poems</P>
+</B><P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">The easiest way to begin to explain an elephant is to first show someone a picture.  You point and say, &quot;Look.  Elephant.&quot;  So here’s a picture of a <B>fractal</B>, something called a Sierpenski carpet [4]:</P>
+<p>
+<img src="carpet.gif" width=640 height=480>
+<p>
+<P ALIGN="JUSTIFY">Notice that it has a solid blue square in the center, with 8 additional smaller squares around the center one.</P>
+<P ALIGN="JUSTIFY"></P>
+<TABLE BORDER CELLSPACING=1 WIDTH=288>
+<TR><TD WIDTH="33%" VALIGN="TOP" HEIGHT=96>
+<P ALIGN="CENTER"></P>
+<P ALIGN="CENTER">&nbsp;</P>
+<P ALIGN="CENTER">1</TD>
+<TD WIDTH="33%" VALIGN="TOP" HEIGHT=96>
+<P ALIGN="CENTER"></P>
+<P ALIGN="CENTER">&nbsp;</P>
+<P ALIGN="CENTER">2</TD>
+<TD WIDTH="33%" VALIGN="TOP" HEIGHT=96>
+<P ALIGN="CENTER"></P>
+<P ALIGN="CENTER">&nbsp;</P>
+<P ALIGN="CENTER">3</TD>
+</TR>
+<TR><TD WIDTH="33%" VALIGN="TOP" HEIGHT=96>
+<P ALIGN="CENTER"></P>
+<P ALIGN="CENTER">&nbsp;</P>
+<P ALIGN="CENTER">8</TD>
+<TD WIDTH="33%" VALIGN="TOP" HEIGHT=96>
+<P ALIGN="CENTER"></P>
+<P ALIGN="CENTER">&nbsp;</P>
+<P ALIGN="CENTER">center square</TD>
+<TD WIDTH="33%" VALIGN="TOP" HEIGHT=96>
+<P ALIGN="CENTER"></P>
+<P ALIGN="CENTER">&nbsp;</P>
+<P ALIGN="CENTER">4</TD>
+</TR>
+<TR><TD WIDTH="33%" VALIGN="TOP" HEIGHT=96>
+<P ALIGN="CENTER"></P>
+<P ALIGN="CENTER">&nbsp;</P>
+<P ALIGN="CENTER">7</TD>
+<TD WIDTH="33%" VALIGN="TOP" HEIGHT=96>
+<P ALIGN="CENTER"></P>
+<P ALIGN="CENTER">&nbsp;</P>
+<P ALIGN="CENTER">6</TD>
+<TD WIDTH="33%" VALIGN="TOP" HEIGHT=96>
+<P ALIGN="CENTER"></P>
+<P ALIGN="CENTER">&nbsp;</P>
+<P ALIGN="CENTER">5</TD>
+</TR>
+</TABLE>
+
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">Each of the 8 smaller squares looks just like the original square.  Multiply each side of a smaller square by 3 (increasing the area by 3 x 3 = 9), and you get the original square.  Or, doing the reverse, divide each side of the original large square by 3, and you end up with one of the 8 smaller squares.  At a scale factor of 3, all the squares look the same (leaving aside the disgarded center square).</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">You get 8 copies of the original square at a scale factor of 3.  Later we will see that this defines a fractal dimension of  log 8 / log 3 = 1.8927.  (I said <I>later</I>.  Don’t worry about it now. Just notice that the dimension is not a nice round number like 2 or 3.)</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">Each of the smaller squares can also be divided up the same way:  a center blue square surrounded by 8 <I>even smaller</I> squares.  So the original 8 small squares can be divided into a total of 64 <I>even smaller</I> squares—each of which will look like the original big square if you multiply its sides by  9.  So the fractal dimension is log 64 / log 9 = 1.8927.  (You didn’t expect the dimension to change, did you?)   In a factal, this process goes on forever.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">Meanwhile, without realizing it, we have just defined a <i>fractal</i> (or <I>Hausdorff</I> ) <i>dimension</i>.  If the number of small squares is <B>N</B> at a scale factor of <B>r</B>, then these two numbers are related by the fractal dimension <B>D</B>:</P>
+<P ALIGN="JUSTIFY"></P>
+<B><P ALIGN="JUSTIFY">N = r<SUP>D</SUP> </B> .</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">Or, taking logs, we have D = log N / log r.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">The same things keep appearing when we scale by r, because the object we are dealing with has a fractal dimension of D.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">Here is a poem about <B>fractal fleas</B>:</P>
+<blockquote><b>
+<P>Great fleas have little fleas, upon their backs to bite 'em
+<br>And little fleas have lesser fleas, and so <I>ad infinitum</I>,
+<br>And the great fleas themselves, in turn, have greater fleas to go on,
+<br>While these again have greater still, and greater still, and so on.
+</blockquote></b>
+<P ALIGN="JUSTIFY">Okay.  So much for a preliminary look at fractals.  Let’s take a preliminary look at chaos, by asking what a dynamical system is.</P>
+<P ALIGN="JUSTIFY"></P>
+<B><P ALIGN="CENTER">Dynamical Systems</P>
+</B><P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">What is a <I>dynamical system</I>?  Here’s one:  <B>Johnny grows 2 inches a year.</B>  This system explains how Johnny’s height changes over time.  Let x(n) be Johnny’s height this year.  Let his height next year be written as x(n+1).  Then we can write the dynamical system in the form of an equation as:</P>
+<P ALIGN="JUSTIFY"></P>
+<B><P ALIGN="JUSTIFY">x(n+1) = x(n) + 2.</P>
+</B><P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">See?  Isn’t math simple?  If we plug Johnny’s current height of x(n) = 38 inches in the right side of the equation, we get Johnny’s height next year, x(n+1) = 40 inches:  </P>
+<P ALIGN="JUSTIFY"></P>
+<B><P ALIGN="JUSTIFY">x(n+1) = x(n) + 2 = 38 + 2 = 40.</P>
+</B><P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">Going from the right side of the equation to the left is called an <I>iteration</I>.  We can iterate the equation again by plugging Johnny’s new height of 40 inches into the right side of the equation (that is, let x(n)=40), and we get x(n+1) = 42.  If we iterate the equation 3 times, we get Johnny’s height in 3 years, namely 44 inches, starting from a height of 38 inches).</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">This is a <I>deterministic</I> dynamical system.  If we wanted to make it <I>nondeterministic</I> (<I>stochastic</I>), we could let the model be:  <B>Johnny grows 2 inches a year, more or less</B>, and write the equation as:</P>
+<P ALIGN="JUSTIFY"></P>
+<B><P ALIGN="JUSTIFY">x(n+1) = x(n) + 2 + <I>e</P>
+</B></I><P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">where <I>e</I> is a small error term (small relative to 2), and represents a drawing from some probability distribution.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">Let's return to the original deterministic equation.  The original equation, x(n+1) = x(n) + 2, is <b><I>linear</I></b>.  Linear means you either add variables or constants or multiply variables by constants.  The equation</P>
+<P ALIGN="JUSTIFY"></P>
+<B><P ALIGN="JUSTIFY">z(n+1) = z(n) + 5 y(n) –2 x(n) </P>
+</B><P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">is linear, for example.  But if you <I>multiply variables</I> together, or <I>raise them to a power</I> other than one, the equation (system) is <I>nonlinear.</I>  For example, the equation</P>
+<P ALIGN="JUSTIFY"></P>
+<B><P ALIGN="JUSTIFY">x(n+1) = x(n)<SUP>2</P>
+</SUP><P ALIGN="CENTER"></P>
+</B><P ALIGN="JUSTIFY">is nonlinear because x(n) is squared.  The equation</P>
+<P ALIGN="JUSTIFY"></P>
+<B><P ALIGN="JUSTIFY">z = xy</P>
+</B><P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">is nonlinear because two variables, <B>x</B> and <B>y</B>, are multiplied together.  </P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">Okay.  Enough of this.  What is chaos?  Here is a picture of chaos.  The lines show how a dynamical system (in particular, a <I>Lorenz system</I>) changes over time in three-dimensional space.  Notice how the line (path, trajectory) loops around and around, never intersecting itself.</P>
+<p>
+<img src="Lorenzd3.gif" width=640 height=480>
+<p>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">Notice also that the system keeps looping around two general areas, as though it were drawn to them.  The points from where a system feels compelled to go in a certain direction are called the <I>basin of attraction</I>. The place it
+goes to is called the <i>attractor</i>.
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">Here’s an equation whose attractor is a single point, zero:</P>
+<P ALIGN="JUSTIFY"></P>
+<B><P ALIGN="JUSTIFY">x(n+1) = .9 x(n) .</P>
+</B><P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">No matter what value you start with for x(n), the next value, x(n+1), is only 90 percent of that.  If you keep iterating the equation, the value of x(n+1) approaches zero.  Since the attractor in this case is only a single point, it is called a <I>one-point attractor</I>.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">Some attractors are simple circles or odd-shaped closed loops—like a piece of string with the ends connected.  These are called <I>limit cycles</I>.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">Other attractors, like the Lorenz attractor above, are really weird.  Strange.  They are called <I>strange attractors.</P>
+</I><P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">Okay.  Now let’s define chaos.</P>
+<P ALIGN="JUSTIFY"></P>
+<B><P ALIGN="CENTER">What is Chaos?</P>
+</B><P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">What are the characteristics of chaos? First, chaotic systems are <I>nonlinear</I> and follow trajectories (paths, highways) that end up on non-intersecting loops called <I>strange attractors</I>.  Let's begin by understanding what these two terms mean.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">I am going to repeat some things I said in the previous section.  D&eacute;j&agrave; vu.  But, as in the movie <I>The Matrix</I>, d&eacute;j&agrave; vu can communicate useful information.  All over again.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">Classical systems of equations from physics were <I>linear</I>.  Linear simply means that outputs are <I>proportional</I> to inputs. Proportional means you either multiply the inputs by constants to get the output, or add a constant to the inputs to get the output, or both.  For example, here is a simple linear equation from the capital-asset pricing model used in corporate finance:</P>
+<P ALIGN="JUSTIFY"></P>
+<B><P ALIGN="JUSTIFY">E(R) = <FONT FACE="Symbol">&#97;</FONT>
+ +  <FONT FACE="Symbol">&#98;</FONT>
+ E(Rm).</P>
+</B><P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">It says the expected return on a stock, <B>E(R)</B>, is proportional to the return on the market,          <B>E(Rm)</B>.  The input is <B>E(Rm)</B>. You multiply it by <FONT FACE="Symbol">&#98;</FONT>
+ (&quot;beta&quot;), then add  <FONT FACE="Symbol">&#97;</FONT>
+ (&quot;alpha&quot;)  to the result—to get the output <B>E(R)</B>.  This defines a linear equation.  </P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">Equations which <I>cannot</I> be obtained by multiplying isolated variables (not raised to any power except the first) by constants, and adding them together, are nonlinear. The equation y = x<SUP>2</SUP> is nonlinear because it uses a power of two: namely, x squared.  The equation z = 4xy-10 is nonlinear because a variable x is multipled by a variable y.  </P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">The equation z = 5+ 3x-4y-10z is linear, because each variable is multiplied only by a constant, and the terms are added together.  If we multiply this last equation by 7, it is still linear: 7z = 35 + 21x – 28y – 70z.  If we multiply it by the variable <B>y</B>, however, it becomes nonlinear: zy = 5y + 3xy-4y<SUP>2</SUP>-10zy.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">The science of chaos looks for characteristic patterns that appear in complex systems.  Unless these patterns were exceedingly simple, like a single equilibrium point ("the equilibrium price of gold is $300"), or a simple closed or oscillatory curve (a circle or a sine wave, for example), the patterns are referred to as <I>strange attractors</I>.  </P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">Such patterns are traced out by self-organizing systems.  Names other than strange attractor may be used in different areas of science.  In biology (or sociobiology) one refers to <I>collective patterns</I> of animal (or social) behavior.  In Jungian psychology, such patterns may be called <I>archetypes</I> [5].    </P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">The main feature of chaos is that simple deterministic systems can generate what appears to be random behavior.  Think of what this means.  On the good side, if we observe what appears to be complicated, random behavior, perhaps it is being generated by a few deterministic rules.  And maybe we can discover what these are.  Maybe life isn't so complicated after all.  On the bad side, suppose we have a simple deterministic system.  We may think we understand it<FONT FACE="Symbol">&#190;</FONT>
+it looks so simple.  But it may turn out to have exceedingly complex properties.  In any case, chaos tells us that whether a given random-appearing behavior is at basis random or deterministic may be undecidable.  Most of us already know this.  We may have used random number generators (really <I>pseudo</I>-random number generators) on the computer. The "random" numbers in this case were produced by simple deterministic equations.  </P>
+<P ALIGN="JUSTIFY"></P>
+<B><P ALIGN="CENTER">I’m Sensitive—Don’t Perturb Me</P>
+</B><P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">Chaotic systems are <I>very sensitive to initial conditions</I>.  Suppose we have the following simple system (called a <I>logistic equation</I>) with a single variable, appearing as input, x(n), and output, x(n+1):</P>
+<P ALIGN="JUSTIFY"></P>
+<B><P ALIGN="JUSTIFY">x(n+1) = 4 x(n) [1-x(n)].&#9;&#9;&#9;&#9;&#9;&#9;</P>
+</B><P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">The input is x(n).  The output is x(n+1).  The system is nonlinear, because if you multiply out the right hand side of the equation, there is an x(n)<sup>2</sup> term.  So the output is not proportional to the input.  Let's play with this system.  Let x(n) = .75.  The output is</P>
+<P ALIGN="JUSTIFY"></P>
+<B><P ALIGN="JUSTIFY">4 (.75) [1- .75] = .75.</P>
+</B><P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">That is, x(n+1) = .75.  If this were an equation describing the price behavior of a market, the market would be in equilibrium, because today’s price (.75) would generate the same price tomorrow.  If x(n) and x(n+1) were expectations, they would be self-fulfilling.  Given today's price of x(n) = .75, tomorrow's price will be x(n+1) = .75.  The value .75 is called a <b><I>fixed point</I></b> of the equation, because using it as an input returns it as an output.  It stays fixed, and doesn't get transformed into a new number. </P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">But, suppose the market starts out at x(0) = .7499.  The output is</P>
+<P ALIGN="JUSTIFY"></P>
+<B><P ALIGN="JUSTIFY">4 (.7499) [1-.7499] = .7502 = x(1).</P>
+</B><P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">Now using the previous day's output x(1) = .7502 as the next input, we get as the new output:</P>
+<P ALIGN="JUSTIFY"></P>
+<B><P ALIGN="JUSTIFY">4 (.7502) [1-.7502] = .7496 = x(2).</P>
+</B><P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">And so on.   Going from one set of inputs to an output is called an <b><I>iteration</I></b>.  Then, in the next iteration, the new output value is used as the input value, to get another output value. The first 100 iterations of the logistic equation, starting with x(0) = .7499, are shown in Table 1.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">Finally, we repeat the entire process, using as our first input x(0) = .74999.  These results are also shown in <B>Table 1</B>.  Each set of solution paths—x(n), x(n+1), x(n+2), etc.—are called <I>trajectories</I>.  Table 1 shows three different trajectories for three different starting values of x(0).</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">Look at iteration number 20.  If you started with x(0) = .75, you have x(20) = .75.  But if you started with<br> x(0) = .7499, you get x(20) = .359844.  Finally, if you started with x(0) = .74999, you get x(20) = .995773.  Clearly a small change in the intitial starting value causes a large change in the outcome after a few steps.  The equation is very sensitive to initial conditions.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">A meteorologist name Lorenz discovered this phenomena in 1963 at MIT [6].  He was rounding off his weather prediction equations at certain intervals from six to three decimals, because his printed output only had three decimals.  Suddenly he realized that the entire sequence of later numbers he was getting were different.  Starting from two nearby points, the trajectories diverged from each other rapidly.  This implied that long-term weather prediction was impossible.  He was dealing with chaotic equations.</P>
+<P ALIGN="JUSTIFY"></P>
+<hr>
+<B><P>Table 1:   First One Hundred Iterations of the Equation
+<br>x(n+1) = 4 x(n) [1- x(n)] with Different Values of  x(0).</P>
+</B><FONT SIZE=2><P ALIGN="JUSTIFY"></P></FONT>
+<TABLE BORDER CELLSPACING=2 BORDERCOLOR="#008000" CELLPADDING=7 WIDTH=284>
+<TR><TD WIDTH="24%" VALIGN="TOP" HEIGHT=13>
+<B><FONT SIZE=2><P ALIGN="CENTER"> x(0):</B></FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<B><FONT SIZE=2><P ALIGN="CENTER">.75000</B></FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<B><FONT SIZE=2><P ALIGN="CENTER">.74990</B></FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<B><FONT SIZE=2><P ALIGN="CENTER">.74999</B></FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP" HEIGHT=13>
+<B><FONT SIZE=2><P ALIGN="RIGHT">Iteration</B></FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13><P></P></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13><P></P></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13><P></P></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">1</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.7500000</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.750200</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.750020</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">2</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.7500000</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.749600</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.749960</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">3</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.7500000</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.750800</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.750080</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">4</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.7500000</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.748398</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.749840</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">5</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.7500000</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.753193</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.750320</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">6</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.7500000</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.743573</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.749360</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">7</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.7500000</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.762688</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.751279</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">8</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.7500000</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.723980</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.747436</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">9</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.7500000</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.799332</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.755102</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">10</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.7500000</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.641601</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.739691</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">11</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.7500000</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.919796</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.770193</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">12</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.7500000</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.295084</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.707984</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">13</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.7500000</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.832038</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.826971</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">14</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.7500000</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.559002</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.572360</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">15</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.7500000</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.986075</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.979056</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">16</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.7500000</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.054924</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.082020</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">17</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.7500000</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.207628</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.301170</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">18</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.7500000</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.658075</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.841867</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">19</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.7500000</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.900049</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.532507</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">20</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.7500000</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.359844</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.995773</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">21</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.7500000</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.921426</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.016836</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">22</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.7500000</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.289602</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.066210</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">23</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.7500000</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.822930</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.247305</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">24</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.7500000</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.582864</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.744581</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">25</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.7500000</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.972534</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.760720</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">26</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.7500000</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.106845</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.728099</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">27</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.7500000</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.381716</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.791883</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">28</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.7500000</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.944036</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.659218</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">29</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.7500000</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.211328</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.898598</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">30</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.7500000</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.666675</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.364478</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">31</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.7500000</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.888878</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.926535</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">32</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.7500000</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.395096</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.272271</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">33</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.7500000</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.955981</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.792558</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">34</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.7500000</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.168326</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.657640</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">35</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.7500000</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.559969</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.900599</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">36</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.7500000</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.985615</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.358082</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">37</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.7500000</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.056712</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.919437</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">38</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.7500000</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.213985</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.296289</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">39</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.7500000</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.672781</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.834008</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">40</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.7500000</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.880587</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.553754</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">41</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.7500000</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.420613</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.988442</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">42</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.7500000</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.974791</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.045698</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">43</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.7500000</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.098295</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.174440</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">44</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.7500000</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.354534</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.576042</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">45</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.7500000</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.915358</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.976870</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">46</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.7500000</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.309910</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.090379</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">47</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.7500000</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.855464</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.328843</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">48</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.7500000</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.494582</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.882822</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">49</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.7500000</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.999883</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.413790</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">50</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.7500000</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.000470</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.970272</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">51</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.7500000</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.001877</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.115378</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">52</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.7500000</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.007495</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.408264</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">53</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.7500000</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.029756</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.966338</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">54</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.7500000</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.115484</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.130115</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">55</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.7500000</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.408589</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.452740</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">56</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.7500000</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.966576</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.991066</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">57</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.7500000</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.129226</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.035417</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">58</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.7500000</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.450106</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.136649</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">59</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.7500000</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.990042</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.471905</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">60</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.7500000</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.039434</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.996843</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">61</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.7500000</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.151515</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.012589</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">62</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.7500000</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.514232</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.049723</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">63</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.7500000</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.999190</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.189001</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">64</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.7500000</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.003238</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.613120</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">65</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.7500000</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.012911</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.948816</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">66</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.7500000</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.050976</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.194258</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">67</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.7500000</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.193508</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.626087</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">68</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.7500000</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.624252</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.936409</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">69</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.7500000</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.938246</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.238190</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">70</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.7500000</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.231761</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.725821</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">71</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.7500000</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.712191</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.796019</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">72</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.7500000</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.819899</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.649491</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">73</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.7500000</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.590658</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.910609</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">74</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.7500000</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.967125</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.325600</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">75</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.7500000</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.127178</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.878338</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">76</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.7500000</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.444014</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.427440</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">77</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.7500000</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.987462</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.978940</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">78</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.7500000</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.049522</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.082465</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">79</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.7500000</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.188278</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.302657</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">80</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.7500000</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.611319</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.844223</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">81</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.7500000</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.950432</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.526042</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">82</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.7500000</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.188442</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.997287</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">83</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.7500000</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.611727</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.010822</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">84</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.7500000</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.950068</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.042818</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">85</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.7500000</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.189755</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.163938</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">86</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.7500000</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.614991</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.548250</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">87</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.7500000</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.947108</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.990688</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">88</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.7500000</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.200378</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.036901</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">89</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.7500000</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.640906</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.142159</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">90</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.7500000</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.920582</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.487798</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">91</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.7500000</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.292444</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.999404</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">92</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.7500000</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.827682</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.002381</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">93</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.7500000</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.570498</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.009500</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">94</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.7500000</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.980120</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.037638</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">95</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.7500000</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.077939</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.144886</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">96</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.7500000</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.287457</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.495576</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">97</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.7500000</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.819301</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.999922</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">98</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.7500000</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.592186</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.000313</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">99</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.7500000</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.966007</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.001252</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">100</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.7500000</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.131350</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.005003</FONT></TD>
+</TR>
+</TABLE>
+<hr>
+<FONT SIZE=2><P ALIGN="JUSTIFY"></P>
+</FONT><P ALIGN="JUSTIFY">The different solution trajectories of chaotic equations form patterns called <I>strange attractors</I>.  If similar patterns appear in the strange attractor at different scales (larger or smaller, governed by some multiplier or scale factor <B>r, </B>as we saw previously), they are said to be <I>fractal. </I>They have a fractal dimension D, governed by the relationship N = r<SUP>D</SUP>. Chaos equations like the one here (namely, the logistic equation) generate fractal patterns.  <I> </P>
+</I><P ALIGN="JUSTIFY"></P>
+<B><P ALIGN="CENTER">Why Chaos?</P>
+</B><P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">Why chaos? Does it have a physical or biological function?  The answer is yes.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">One role of chaos is the prevention of <I>entrainment</I>.  In the old days, marching soldiers used to break step when marching over bridges, because the natural vibratory rate of the bridge might become entrained with the soldiers' steps, and the bridge would become increasingly unstable and collapse.  (That is, the bridge would be destroyed due to bad vibes.)  Chaos, by contrast, allows individual components to function somewhat independently.  </P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">A chaotic world economic system is desirable in itself. It prevents the development of an international business cycle, whereby many national economies enter downturns simultaneously.  Otherwise national business cycles may become harmonized so that many economies go into recession at the same time.  Macroeconomic policy co-ordination through G7 (G8, whatever) meetings, for example,  risks the creation of economic entrainment, thereby making the world economy less robust to the absorption of shocks.  </P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">"A chaotic system with a strange attractor can actually dissipate disturbance much more rapidly.  Such systems are highly initial-condition sensitive, so it might seem that they cannot dissipate disturbance at all.  But if the system possesses a strange attractor which makes all the trajectories acceptable from the functional point of view, the initial-condition sensitivity provides the most effective mechanism for dissipating disturbance" [7]. </P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">In other words, because the system is so sensitive to initial conditions, the initial conditions quickly become unimportant, provided it is the strange attractor itself that delivers the benefits.  Ary Goldberger of the Harvard Medical School has argued that a healthy heart is chaotic [8]. This comes from comparing electrocardiograms of normal individuals with heart-attack patients. The ECG’s of healthy patients have complex irregularities, while those about to have a heart attack show much simpler rhythms.</P>
+<P ALIGN="JUSTIFY"></P>
+<B><P ALIGN="CENTER">How Fast Do Forecasts Go Wrong?—The Lyapunov Exponent</P>
+</B><P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">The <I>Lyapunov exponent</I> <FONT FACE="Symbol">&#108;</FONT>
+ is a measure of the exponential rate of divergence of neighboring trajectories.  </P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">We saw that a small change in the initial conditions of the logistic equation (Table 1) resulted in widely divergent trajectories after a few iterations.  How fast these trajectories diverge is a measure of our ability to forecast.  </P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">For a few iterations, the three trajectories of Table 1 look pretty much the same.  This suggests that short-term prediction may be possible. A prediction of &quot;x(n+1) = .75&quot;, based solely on the first trajectory, starting at x(0) = .75, will serve reasonably well for the other two trajectories also, at least for the first few iterations.  But, by iteration 20, the values of x(n+1) are quite different among the three trajectories. This suggests that long-term prediction is impossible.  </P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">So let's think about the short term.  How short is it?  How fast do trajectories diverge due to small observational errors, small shocks, or other small differences?  That’s what the Lyapunov exponent tells us.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">Let <FONT FACE="Symbol">&#101;</FONT>
+ denote the error in our initial observation, or the difference in two initial conditions. In Table 1, it could represent the difference between .75 and .7499, or between .75 and .74999.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY"> Let R be a distance (plus or minus) around a reference trajectory, and suppose we ask the question:  how quickly does a second trajectory<FONT FACE="Symbol">&#190;</FONT>
+which includes the error <FONT FACE="Symbol">&#101;</FONT>
+<FONT FACE="Symbol">&#190;</FONT>
+get outside the range R?  The answer is a function of the number of steps <B>n</B>, and the Lyapunov exponent <FONT FACE="Symbol">&#108;</FONT>
+, according to the following equation (where &quot;exp&quot; means the exponential <B>e</B> = 2.7182818…, the basis of the natural logarithms):</P>
+<P ALIGN="JUSTIFY"></P>
+<B><P ALIGN="JUSTIFY">R = <FONT FACE="Symbol">&#101;</FONT>
+ <FONT FACE="Symbol">&#183;</FONT>
+<FONT SIZE=2> </FONT>exp(<FONT FACE="Symbol">&#108;</FONT>
+ n).&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;</P>
+</B><P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">For example, it can be shown that the Lyapunov exponent of the logistic equation is  <FONT FACE="Symbol">&#108;</FONT>
+ = log 2 = .693147 [9].  So in this instance, we have <b>R</b> =<B> <FONT FACE="Symbol">&#101;</FONT>
+</B> <FONT FACE="Symbol">&#183;</FONT>
+<FONT SIZE=2> </FONT>exp(.693147 <b>n</b> ).</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">So, let’s do a sample calculation, and compare with the results we got in Table 1.</P>
+<P ALIGN="JUSTIFY"></P>
+<B><P ALIGN="CENTER">Sample Calculation Using a Lyapunov Exponent</P>
+</B><P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">In Table 1 we used starting values of .75, .7499, and .74999.  Suppose we ask the question, how long (at what value of <b>n</b>) does it take us to get out of the range of  +.01 or -.01 from our first (constant) trajectory of x(n) = .75?
+That is, with a slightly different starting value, how many steps does it take before the system departs from the interval (.74, .76)?</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">In this case the distance R = .01.  For the second trajectory, with a starting value of .7499, the change in the initial condition is <FONT FACE="Symbol">&#101;</FONT>
+<B> = </B>.0001 (that is, <B> <FONT FACE="Symbol">&#101;</FONT>
+</B> = 75-.7499).  Hence, applying the equation R =<B> <FONT FACE="Symbol">&#101;</FONT>
+</B> <FONT FACE="Symbol">&#183;</FONT>
+<FONT SIZE=2> </FONT>exp(<FONT FACE="Symbol">&#108;</FONT>
+ n), we have</P>
+<P ALIGN="JUSTIFY"></P>
+<B><P ALIGN="JUSTIFY">.01 = .0001 exp (.693147 n). </P>
+</B><P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">Solving for n, we get n = 6.64.  Looking at Table 1, we see that that for n = 7 (the 7th iteration), the value is x(7) = .762688, and that this is the first value that has gone outside the interval (.74, .76).</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">Similarly, for the third trajectory, with a starting value of .74999, the change in the initial condition is  <FONT FACE="Symbol">&#101;</FONT>
+<B> = </B>.00001 (i.e., .<B> <FONT FACE="Symbol">&#101;</FONT>
+ = </B>75-.74999).  Applying the equation R =<B> <FONT FACE="Symbol">&#101;</FONT>
+</B> <FONT FACE="Symbol">&#183;</FONT>
+<FONT SIZE=2> </FONT>exp(<FONT FACE="Symbol">&#108;</FONT>
+ n) yields</P>
+<P ALIGN="JUSTIFY"></P>
+<B><P ALIGN="JUSTIFY">.01 = .00001 exp (.693147 n).</P>
+</B><P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">Which solves to n = 9.96.  Looking at Table 1, we see that for n = 10 (the 10th iteration), we have x(10) = .739691, and this is the first value outside the interval (.74, .76) for this trajectory.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">In this sample calculation, the system diverges because the Lyapunov exponent is positive.  If it were the case the Lyapunov exponent were negative, <FONT FACE="Symbol">&#108;</FONT>
+ &lt; 0, then exp(<FONT FACE="Symbol">&#108;</FONT>
+ n) would get smaller with each step.  So it must be the case that <FONT FACE="Symbol">&#108;</FONT>
+ &gt; 0 for the system to be chaotic.  </P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">Note also that the particular logistic equation, x(n+1) = 4 x(n) [1-x(n)], which we used in Table 1, is a simple equation with only one variable, namely x(n).  So it has only one Lyapunov exponent.  In general, a system with <B>M</B> variables may have as many as <B>M</B>  Lyapunov exponents. In that case<I>, an attractor is chaotic if at least one of its Lyapunov exponents is positive.</P>
+</I><P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">&#9;The Lyapunov exponent for an equation<I> f </I>(x(n)) is the average absolute value of the natural logarithm (log) of its derivative:</P>
+<p>
+<pre>
+<P><FONT FACE="Symbol">&#108;</FONT><B> = <FONT SIZE=5><FONT FACE="Symbol">&#83;</FONT></FONT> (1/n) log <FONT FACE="Symbol">&#124;</FONT>d<I>f </I>/dx(n)<FONT FACE="Symbol">&#124;</FONT>
+<FONT SIZE=3>      n <FONT FACE="Symbol">&#174;</FONT><FONT FACE="Symbol">&#165;</FONT>
+</B></FONT>
+</pre>
+<P ALIGN="JUSTIFY">For example, the derivative of the right-hand side of the logistic equation</P>
+<P ALIGN="JUSTIFY"></P>
+<B><P ALIGN="JUSTIFY">x(n+1) = 4 x(n)[1-x(n)]  = 4 x(n) – 4 x(n)<SUP>2</P>
+</B></SUP><P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">is</P>
+<P ALIGN="JUSTIFY"></P>
+<B><P ALIGN="JUSTIFY">4 - 8 x(n) .</P>
+</B><P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">Thus for the first iteration of the second  trajectory in Table 1,  where x(n) = .7502,  we have  <FONT FACE="Symbol">&#124;</FONT>
+d<I>f </I>/dx(n)<FONT FACE="Symbol">&#124;</FONT> = <br>
+ <FONT FACE="Symbol">&#124;</FONT>
+ 4[1-2 (.7502)] <FONT FACE="Symbol">&#124;</FONT>
+ = 2.0016, and log (2.0016) = .6939.  If we sum over this and subsequent values, and take the average, we have the Lyapunov exponent.  In this case the first term is already close to the true value.  But it doesn't matter.  We can start with x(0) = .1, and obtain the Lyapunov exponent.  This is done in Table 2, below, where after only ten iterations the empirically calculated Lyapunov exponent is .697226, near its true value of  .693147.</P>
+<P ALIGN="JUSTIFY"></P>
+<hr>
+<B><P>Table 2: Empirical Calculation of Lyapunov Exponent from
+<br> the Logistic Equation  with x(0) = .1</P>
+</B><P ALIGN="JUSTIFY"></P>
+<TABLE CELLSPACING=0 BORDER=0 CELLPADDING=7 WIDTH=295>
+<TR><TD WIDTH="34%" VALIGN="TOP">&nbsp;</TD>
+<TD WIDTH="33%" VALIGN="TOP">
+<B><P ALIGN="CENTER">x(n)</B></TD>
+<TD WIDTH="34%" VALIGN="TOP"><B><P ALIGN="CENTER">log<FONT FACE="Symbol">&#124;</FONT>d<I>f</I>/dx(n)<FONT FACE="Symbol">&#124;</FONT></B></TD>
+</TR>
+<TR><TD WIDTH="34%" VALIGN="TOP" HEIGHT=13>
+<B><FONT SIZE=2><P>Iteration:</B></FONT></TD>
+<TD WIDTH="33%" VALIGN="TOP" HEIGHT=13><P></P></TD>
+<TD WIDTH="34%" VALIGN="TOP" HEIGHT=13><P></P></TD>
+</TR>
+<TR><TD WIDTH="34%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">1</FONT></TD>
+<TD WIDTH="33%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.360000</FONT></TD>
+<TD WIDTH="34%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.113329</FONT></TD>
+</TR>
+<TR><TD WIDTH="34%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">2</FONT></TD>
+<TD WIDTH="33%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.921600</FONT></TD>
+<TD WIDTH="34%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">1.215743</FONT></TD>
+</TR>
+<TR><TD WIDTH="34%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">3</FONT></TD>
+<TD WIDTH="33%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.289014</FONT></TD>
+<TD WIDTH="34%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.523479</FONT></TD>
+</TR>
+<TR><TD WIDTH="34%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">4</FONT></TD>
+<TD WIDTH="33%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.821939</FONT></TD>
+<TD WIDTH="34%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.946049</FONT></TD>
+</TR>
+<TR><TD WIDTH="34%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">5</FONT></TD>
+<TD WIDTH="33%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.585421</FONT></TD>
+<TD WIDTH="34%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">-.380727</FONT></TD>
+</TR>
+<TR><TD WIDTH="34%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">6</FONT></TD>
+<TD WIDTH="33%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.970813</FONT></TD>
+<TD WIDTH="34%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">1.326148</FONT></TD>
+</TR>
+<TR><TD WIDTH="34%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">7</FONT></TD>
+<TD WIDTH="33%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.113339</FONT></TD>
+<TD WIDTH="34%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">1.129234</FONT></TD>
+</TR>
+<TR><TD WIDTH="34%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">8</FONT></TD>
+<TD WIDTH="33%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.401974</FONT></TD>
+<TD WIDTH="34%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">-.243079</FONT></TD>
+</TR>
+<TR><TD WIDTH="34%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">9</FONT></TD>
+<TD WIDTH="33%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.961563</FONT></TD>
+<TD WIDTH="34%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">1.306306</FONT></TD>
+</TR>
+<TR><TD WIDTH="34%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">10</FONT></TD>
+<TD WIDTH="33%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">.147837</FONT></TD>
+<TD WIDTH="34%" VALIGN="TOP" HEIGHT=13>
+<FONT SIZE=2><P ALIGN="RIGHT">1.035782</FONT></TD>
+</TR>
+<TR><TD WIDTH="34%" VALIGN="TOP" HEIGHT=13><P></P></TD>
+<TD WIDTH="33%" VALIGN="TOP" HEIGHT=13><P></P></TD>
+<TD WIDTH="34%" VALIGN="TOP" HEIGHT=13><P></P></TD>
+</TR>
+<TR><TD WIDTH="34%" VALIGN="TOP" HEIGHT=13>
+<B><FONT SIZE=2><P>Average</B></FONT></TD>
+<TD WIDTH="33%" VALIGN="TOP" HEIGHT=13><P></P></TD>
+<TD WIDTH="34%" VALIGN="TOP" HEIGHT=13>
+<B><FONT SIZE=2><P ALIGN="RIGHT">.697226</B></FONT></TD>
+</TR>
+</TABLE>
+<hr>
+<B><P ALIGN="CENTER">Enough for Now</P>
+<P ALIGN="JUSTIFY"></P>
+</B><P ALIGN="JUSTIFY">In the next part of this series, we will discuss fractals some more, which will lead directly into economics and finance.  In the meantime, here are some exercises for eager students.</P>
+<B><P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">Exercise 1:</B>  Iterate the following system:  x(n+1) = 2 x(n) mod 1.  [By "mod 1" is meant that only the fractional part of the result is kept.  For example, 3.1416 mod 1 = .1416.]  Is this system chaotic?  </P>
+<P ALIGN="JUSTIFY"></P>
+<B><P ALIGN="JUSTIFY">Exercise 2:</B>  Calculate the Lyapunov exponent for the system in Exercise 1.  Suppose you change the initial starting point x(0) by .0001.  Calculate, using the Lyapunov exponent, how many steps it takes for the new trajectory to diverge from the previous trajectory by an amount greater than .002.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">Finally, here is a nice fractal graphic for you to enjoy:</P>
+<p>
+<img src="fractal1.jpg" width=500 height=300>
+<p>
+<hr>
+<B><P ALIGN="CENTER">Notes</P>
+</B><P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">[1] Eugene F. Fama, &quot;Mandelbrot and the Stable Paretian Hypothesis,&quot; <I>Journal of Business</I>, 36, 420-429, 1963.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">[2]  If you really want to know why, read J. Aitchison and J.A.C. Brown, <I>The Lognormal Distribution</I>, Cambridge University Press, Cambridge, 1957.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">[3] J. Orlin Grabbe, <I>Three Essays in International Finance</I>, Department of Economics, Harvard University, 1981.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">[4] The Sierpinski Carpet graphic and the following one, the Lorentz attractor graphic, were taken from the web site of  Clint Sprott: <A HREF="http://sprott.physics.wisc.edu/">http://sprott.physics.wisc.edu/</A> .</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">[5] Ernest Lawrence Rossi, &quot;Archetypes as Strange Attractors,&quot; <I>Psychological Perspectives</I>, 20(1), The C.G. Jung Institute of Los Angeles, Spring-Summer 1989.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">[6]  E. N. Lorenz, &quot;Deterministic Non-periodic Flow,&quot; <I>J. Atmos. Sci.</I>, 20, 130-141, 1963.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">[7] M. Conrad, &quot;What is the Use of Chaos?&quot;, in Arun V. Holden, ed., <I>Chaos</I>, Princeton University Press, Princeton, NJ, 1986.  </P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">[8] Ary L. Goldberger, &quot;Fractal Variability Versus Pathologic Periodicity: Complexity Loss and Stereotypy In Disease,&quot; <I>Perspectives in Biology and Medicine</I>, 40,  543-561, Summer 1997.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">[9] Hans A. Lauwerier, &quot;One-dimensional Iterative Maps,&quot; in Arun V. Holden, ed., <I>Chaos</I>, Princeton University Press, Princeton, NJ, 1986.  </P>
+<hr>
+<P ALIGN="JUSTIFY">J. Orlin Grabbe is the author of
+<a href="http://www.amazon.com/exec/obidos/ASIN/0132069881/qid=924154369/sr=1-1/002-9261014-2388004">
+International Financial Markets</A>, and is an internationally recognized derivatives expert.  He has recently branched out into cryptology, banking security, and digital cash.  His home page is located at <A HREF="homepage.html">http://www.aci.net/kalliste/homepage.html</A> .</P>
+<center><b>-30-</b></center>
+<p>
+<center><b>from <i>The Laissez Faire City Times</i>, Vol 3, No 22, May 31, 1999</b></center>
+</td></tr></table></center>
+</body>
+</html>

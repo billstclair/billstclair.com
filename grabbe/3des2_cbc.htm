@@ -1,0 +1,345 @@
+<html>
+<head>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<title>Java Program 2 for Triple DES Encryption with Cipher Block Chaining, by J. Orlin Grabbe</title>
+</head>
+<body bgcolor="white" link="#0000ff" vlink="#800080">
+<p>
+<h2 align=center>Java Program 2 for Triple-DES Encryption with Cipher Block Chaining</h2>
+<h3 align=center><i>by J. Orlin Grabbe</i></h3>
+<hr>
+This program, <b>test3des2_CBC.java</b>:
+<p>
+<menu>
+<li>generates its own triple-DES (3DES) key,
+<p>
+<li>generates its own <b>random 8-byte Initialization Vector</b>,
+<p>
+<li>reads in a plaintext file, <b>data</b> [the name of this file is specified at the time the Java
+program is run:  see example on the Main Menu],
+<p>
+<li><b>appends the Initialization Vector</b> to the plaintext file,
+<p>
+<li>encrypts the plaintext file <b>in cipher block chaining (CBC) mode</b>,
+<p>
+<li>writes the encrypted bytes out to a cipherfile, <b>DES3CIPH.out</b>; then
+<p>
+<li> decrypts the cipher bytes which are still in memory,
+<p>
+<li>writes this decryption to the output file <b>DES-EDE3.out</b>; next, it
+<p>
+<li>reads in the ciphertext file (DES3CIPH.out),
+<p>
+<li>decrypts the file,
+<p>
+<li>writes the decryption to the output file (DES-EDE3.out) for comparison.
+</menu>
+<p>
+</menu>
+<p>
+The sample plaintext file (<b>data</b>) is listed below.  The sample cipherfile (DES3CIPH.out)
+is <b>not</b> listed here, because the characters in the file create problems for text editors and html,
+and thus are not handled properly by web browsers.
+<hr>
+<h2 align=center>Java Source Code</h2>
+<h3 align=center>test3des2_CBC.java</h3>
+<hr>
+<pre>
+import java.io.*;
+import java.security.*;
+import java.math.*;
+import cryptix.util.core.BI;
+import cryptix.util.core.ArrayUtil;
+import cryptix.util.core.Hex;
+import cryptix.provider.key.*;
+
+class test3des2_CBC {
+
+public static void main (String[] args) {
+
+        try {
+        FileOutputStream outFile1 = new FileOutputStream("DES-EDE3.out");
+        FileOutputStream outFile2 = new FileOutputStream("DES3CIPH.out");
+        //PrintStream is deprecated, but works fine in jdk1.1.7b
+        PrintStream output1 = new PrintStream(outFile1);
+        PrintStream output2 = new PrintStream(outFile2);
+
+        //generate key for file encryption
+        SecureRandom random = new SecureRandom();
+        KeyGenerator keygen = KeyGenerator.getInstance("DES-EDE3");
+        keygen.initialize(random);
+        Key key = keygen.generateKey();
+        RawKey rkey = (RawKey) key;
+        byte[] yval = rkey.getEncoded();
+        BigInteger Bkey = new BigInteger(yval);
+        String w = cryptix.util.core.BI.dumpString(Bkey);
+        output1.println("The Encryption Key = " + w);
+
+	  // create an Initialization Vector
+        byte[] iv = new byte[8];
+	  random.nextBytes(iv);
+        Bkey = new BigInteger(iv);
+        w = cryptix.util.core.BI.dumpString(Bkey);
+        output1.println("The Initialization Vector = " + w);
+
+        // define the encryption mode and initialize it
+        Cipher des=Cipher.getInstance("DES-EDE3/CBC/PKCS#5","Cryptix");
+        des.initEncrypt(key);   
+
+        // read in the input file preceded by the Initialization Vector
+        FileInputStream fis = new FileInputStream(args[0]);
+        byte b;
+        int bi;
+        char bc;
+        byte bb[] = new byte[1024];
+        int i;
+	  for(i=0;i&lt;8;i++) {bb[i]=iv[i];
+                          bc = (char) iv[i];}
+        int count=8;
+        output1.println(" ");
+        output1.println("This is a copy of the input file: ");
+        output1.println(" ");
+
+        while (fis.available() != 0) {
+        b = (byte)  fis.read();
+        bi = (int) b;
+        bc = (char) b;
+        output1.print(bc);
+        bb[count] = b;
+        count++;
+                                     };
+        output1.print("\n");
+        output1.print("\n");
+        output1.println("The number of bytes in the plaintext input file (plus IV) is = " + count);
+        fis.close();
+
+        // do the encryption 
+        int pcount = count;
+        byte[] bt = new byte[pcount];
+        for(i=0;i&lt;pcount;i++) bt[i] = bb[i];
+        byte[] ciphertext = des.crypt(bt);
+        output1.print("  ");
+        output1.println("ciphertext.length = " + ciphertext.length);
+
+        // print out representation of ciphertext to general output file 
+        BigInteger Bciph = new BigInteger(ciphertext);
+        w = cryptix.util.core.BI.dumpString(Bciph);
+        output1.println("Ciphertext = " + w);
+
+        // print ciphertext to ciphertext specific file 
+        output2.write(ciphertext,0,ciphertext.length);
+        output2.close();
+
+        // decrypt ciphertext from memeory 
+        des.initDecrypt(key);
+        byte[] decrypted = des.crypt(ciphertext);
+        BigInteger Bplain = new BigInteger(decrypted);
+        w = cryptix.util.core.BI.dumpString(Bplain);
+        output1.println("Plaintext (decrypted from memory) = " + w);
+        
+        // write the decrypted bytes (minus initialization vector) to general outputfile  
+        char c;
+        output1.println("Following is a copy of the decrypted (from memory) bytes: ");
+        output1.print("\n");
+        for(i=8;i&lt;decrypted.length;i++) {
+        c = (char) decrypted[i];
+        output1.print(c);
+        }
+        output1.println(" ");
+ 
+        // read in ciphertext from file 
+        fis = new FileInputStream("DES3CIPH.out");
+        bb = new byte[1024];
+        pcount=0;
+        while (fis.available() != 0) {
+        b = (byte) fis.read();
+        bb[pcount] = b;
+        pcount++;
+                                     };
+                
+        output1.print("\n");
+        output1.println("The number of bytes in the ciphertext input file is " + pcount);
+        fis.close();
+
+        des.initDecrypt(key);
+        bt = new byte[pcount];
+        for(i=0;i&lt;pcount;i++) bt[i] = bb[i];
+        decrypted = des.crypt(bt);
+        Bplain = new BigInteger(decrypted);
+        w = cryptix.util.core.BI.dumpString(Bplain);
+        output1.println("Plaintext (decrypted from cipher file) = " + w);
+
+        // write the decrypted bytes to the general output file 
+        output1.println("Following is a copy of the decrypted (from cipher file) bytes: ");
+        output1.print("\n");
+        for(i=8;i&lt;decrypted.length;i++) {
+        c = (char) decrypted[i];
+        output1.print(c);
+        }
+        output1.println(" ");
+
+        output1.close();                
+
+    } catch (Exception e) {
+            System.err.println("Caught exception " + e.toString());
+    }
+
+        }}
+
+</pre>
+<hr>
+<h2 align=center>Sample Text Program Input</h2>
+<h3 align=center>data</h3>
+<hr>
+<pre>
+Senator Hand N. Till
+Washington, DC
+
+Dear Senator:
+
+This letter is to inform you we have
+opened account no. 338907021 on your
+behalf, and deposted therein a
+legislative incentive payment of
+$1 million.  For withdrawl, you will
+need to use your password BJRGUD7693.
+
+Yours very truly,
+
+Arnold C. Creole
+Vice President
+Greater Caribbean Bank
+</pre>
+<hr>
+<h2 align=center>Sample Program Output</h2>
+<h3 align=center>DES-EDE3.out</h3>
+<hr>
+<pre>
+The Encryption Key = Multi-Precision Integer 189 bits long...
+      sign: Positive
+ magnitude: 147D21953A21ED5A 3F1D0C6C4EC6F596 FA35DE14C6CFF3E1 
+
+The Initialization Vector = Multi-Precision Integer 63 bits long...
+      sign: Positive
+ magnitude: 42B13548A4EA8D1C 
+ 
+This is a copy of the input file: 
+ 
+Senator Hand N. Till
+Washington, DC
+
+Dear Senator:
+
+This letter is to inform you we have
+opened account no. 338907021 on your
+behalf, and deposted therein a
+legislative incentive payment of
+$1 million.  For withdrawl, you will
+need to use your password BJRGUD7693.
+
+Yours very truly,
+
+Arnold C. Creole
+Vice President
+Greater Caribbean Bank
+
+The number of bytes in the plaintext input file (plus IV) is = 363
+  ciphertext.length = 368
+Ciphertext = Multi-Precision Integer 2941 bits long...
+      sign: Positive
+ magnitude: Hexadecimal dump of 368 bytes...
+   0: 148F9BD92BBB6759 7CAD333C206CC4E3 9D88BB8E790098F4 B86A9CD4AF43E9C6 
+  32: 837930F91238072D C1D46F40A3083170 7ECA606B777EC2B5 1C402091A90C746B 
+  64: EC2FD222E200C835 E5FF147B9022163B 6CCF34C2371030B3 EF323CD4EB791ACB 
+  96: F318537EE8ED7A72 A2436F34866CC0ED 0827B7D13C01148A 5C2ED413992FF7DE 
+ 128: AAF2CC490B015645 4DD96B4B6C478292 2642A27F70AB5B1E 48513B52DABAD49E 
+ 160: 8E21301431CA33B6 87DA5E65E63F7A48 F9F3E0C5DB190A21 738C675E4C771468 
+ 192: 163079E4EC00ABFE 86110118B0A5105E 7C1E075D86D9535C F133AD31404C0D35 
+ 224: 1842CE70482A520D 5EE16E77070B3C65 3AEBC271D97F2C7D 8BDF7131FECE2108 
+ 256: A4A4D8BAD5EED12E 097165FE0BF4A543 2354EFF05AECE2E5 22ADEB32CFACB092 
+ 288: 1878DCBCDEEE4CA0 DAD00F1336A34504 6D2B4C352F08BD18 8059E91E5DABDE99 
+ 320: 3D45F66FD6322406 0C2F33BF3F4CD9D1 6E2EFDCF73E925FC FC9488BF0D150365 
+ 352: 3A025106D30E0E38 E275F3FBB1D56D17 
+
+Plaintext (decrypted from memory) = Multi-Precision Integer 2903 bits long...
+      sign: Negative
+ magnitude: Hexadecimal dump of 363 bytes...
+   0: A0C4C6B3153FE00B 53656E61746F7220 48616E64204E2E20 54696C6C0D0A5761 
+  32: 7368696E67746F6E 2C2044430D0A0D0A 446561722053656E 61746F723A0D0A0D 
+  64: 0A54686973206C65 7474657220697320 746F20696E666F72 6D20796F75207765 
+  96: 20686176650D0A6F 70656E6564206163 636F756E74206E6F 2E20333338393037 
+ 128: 303231206F6E2079 6F75720D0A626568 616C662C20616E64 206465706F737465 
+ 160: 6420746865726569 6E20610D0A6C6567 69736C6174697665 20696E63656E7469 
+ 192: 7665207061796D65 6E74206F660D0A24 31206D696C6C696F 6E2E2020466F7220 
+ 224: 7769746864726177 6C2C20796F752077 696C6C0D0A6E6565 6420746F20757365 
+ 256: 20796F7572207061 7373776F72642042 4A52475544373639 332E0D0A0D0A596F 
+ 288: 7572732076657279 207472756C792C0D 0A0D0A41726E6F6C 6420432E20437265 
+ 320: 6F6C650D0A566963 6520507265736964 656E740D0A477265 6174657220436172 
+ 352: 69626265616E2042 616E6B
+
+Following is a copy of the decrypted (from memory) bytes: 
+
+Senator Hand N. Till
+Washington, DC
+
+Dear Senator:
+
+This letter is to inform you we have
+opened account no. 338907021 on your
+behalf, and deposted therein a
+legislative incentive payment of
+$1 million.  For withdrawl, you will
+need to use your password BJRGUD7693.
+
+Yours very truly,
+
+Arnold C. Creole
+Vice President
+Greater Caribbean Bank 
+
+The number of bytes in the ciphertext input file is 368
+Plaintext (decrypted from cipher file) = Multi-Precision Integer 2903 bits long...
+      sign: Negative
+ magnitude: Hexadecimal dump of 363 bytes...
+   0: A0C4C6B3153FE00B 53656E61746F7220 48616E64204E2E20 54696C6C0D0A5761 
+  32: 7368696E67746F6E 2C2044430D0A0D0A 446561722053656E 61746F723A0D0A0D 
+  64: 0A54686973206C65 7474657220697320 746F20696E666F72 6D20796F75207765 
+  96: 20686176650D0A6F 70656E6564206163 636F756E74206E6F 2E20333338393037 
+ 128: 303231206F6E2079 6F75720D0A626568 616C662C20616E64 206465706F737465 
+ 160: 6420746865726569 6E20610D0A6C6567 69736C6174697665 20696E63656E7469 
+ 192: 7665207061796D65 6E74206F660D0A24 31206D696C6C696F 6E2E2020466F7220 
+ 224: 7769746864726177 6C2C20796F752077 696C6C0D0A6E6565 6420746F20757365 
+ 256: 20796F7572207061 7373776F72642042 4A52475544373639 332E0D0A0D0A596F 
+ 288: 7572732076657279 207472756C792C0D 0A0D0A41726E6F6C 6420432E20437265 
+ 320: 6F6C650D0A566963 6520507265736964 656E740D0A477265 6174657220436172 
+ 352: 69626265616E2042 616E6B
+
+Following is a copy of the decrypted (from cipher file) bytes: 
+
+Senator Hand N. Till
+Washington, DC
+
+Dear Senator:
+
+This letter is to inform you we have
+opened account no. 338907021 on your
+behalf, and deposted therein a
+legislative incentive payment of
+$1 million.  For withdrawl, you will
+need to use your password BJRGUD7693.
+
+Yours very truly,
+
+Arnold C. Creole
+Vice President
+Greater Caribbean Bank 
+</pre>
+<br>
+<hr>
+<P ALIGN="JUSTIFY">J. Orlin Grabbe is the author of
+<a href="http://www.amazon.com/exec/obidos/ASIN/0132069881/qid=924154369/sr=1-1/002-9261014-2388004">International Financial Markets</A>, and is an internationally recognized derivatives expert who has recently branched out into cryptology, banking security, and digital cash.  His home page is located at <A HREF="homepage.html">http://www.aci.net/kalliste/homepage.html</A>.
+He currently resides in Costa Rica. </P>
+<center><b><a href="javacrypt_index.htm">Click here to return to Encryption Menu</a></center>
+
+</body>
+</html>

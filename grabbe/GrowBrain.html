@@ -1,0 +1,46 @@
+<html>
+<head>
+<title>Iterative Plot of Grow Brain</title>
+</head>
+<body>
+<h2 align="center">Iterative Plot of Grow Brain</h2>
+
+<hr>
+<applet code="GrowBrain.class" width="400" height="400">If you
+can read this, then your browser is not set up for Java. .
+.</applet> 
+
+<hr>
+Wait a minute for the applet to run. This amazingly complex
+structure is created by the simple iteration of the two
+equations: 
+
+<blockquote>
+<p>X = Y - (X/|X|)*sqrt(|aX|)<br>
+Y = b - X</p>
+</blockquote>
+
+(Here "sqrt" means to take the square root.) 
+
+<p>The first series of iterations here starts with the initial
+values X = .9 and Y = 0. The two equations are then iterated
+10,000 times, plotting each (X,Y) point of the iteration. Then
+the starting value for Y is increased slightly, and another
+10,000 plots are plotted (see the Java source code for
+details).</p>
+
+<p>By varying the parameter <b>a</b> in the first equation above
+(<b>a</b>X is set at 1.53 X for the applet supplied here), and
+also the rate at which the starting value for Y is increased (set
+Y = .025*col, say, instead of Y = .047*col), different structures
+can be obtained.</p>
+
+<hr>
+<a href="GrowBrainjava.html">The Java source code.</a> 
+
+<hr>
+<br>
+<br>
+</body>
+</html>
+

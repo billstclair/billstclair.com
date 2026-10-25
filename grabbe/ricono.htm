@@ -1,0 +1,480 @@
+<HTML>
+<HEAD>
+<TITLE>Michael Riconosciuto on Encryption</TITLE>
+</HEAD>
+<HR>
+<H2 align ="center">
+Michael Riconosciuto on Encryption
+</H2>
+<H3 align ="center">
+          by J. Orlin Grabbe
+</H3>
+<HR>
+<BODY>
+<p>
+	Michael Riconosciuto is one of the original  
+architects of the PROMIS backdoor.  PROMIS was a  
+people-tracking software system sold to intelligence  
+organizations and government drug agencies worldwide.   
+The global dispersion of PROMIS was part of a U.S. plot  
+to spy on other spy agencies.</p> 
+<p> 
+	Riconosciuto, who was Director of Research for a  
+Wackenhut-Cabazon Indian joint venture, oversaw a  
+group of several dozen people who worked out of  
+business offices in nearby Indio, California.  According to  
+the testimony of Robert Booth Nichols, a CIA agent  
+associated with Meridian International Logistics and  
+connected to Music Corporation of America (MCA),  
+Riconosciuto was in frequent contact with Bobby Inman,  
+Director of the National Security Agency (NSA) and then  
+Deputy Director of the Central Intelligence Agency (CIA),  
+during this time. </p>
+<p> 
+	Since intelligence computers are, for security  
+reasons, usually not connected to external networks, the  
+original backdoor was a broadcast signal.  The PROMIS  
+software was often sold in connection with computer  
+hardware (such as a Prime computer) using a specialized  
+chip.  The chip would broadcast the contents of the  
+existing database to monitoring vans or collection  
+satellites using digital spread spectrum techniques  
+whenever the software was run.</p> 
+<p> 
+	Spread spectrum techniques offer a way to mask,  
+or disguise, a signal by making it appear as "noise" with  
+respect to another signal.  For example, one may  
+communicate covertly on the same spectrum as a local TV  
+broadcast signal.  From the point of view of a TV  
+receiver, the covert communication appears as noise, and  
+is filtered out.  From the point of view of the covert  
+channel, the TV signal appears as noise.  In the case of the  
+PROMIS broadcast channel, the signal was disguised as  
+ordinary computer noise--the type of stuff that must be  
+reduced for TEMPEST certification in the U.S.</p> 
+<p> 
+	In spread spectrum frequency communication,  the  
+transmitted spectrum is much wider than what is really  
+necessary.  In digital communication, the transmission  
+widths of digital signals are expanded so that many "bit  
+periods" are needed to represent one bit at  baseband.   
+This results in an improvement in the signal-to-noise- 
+ratio.  Spread spectrum techniques are used extensively in  
+covert military communications and secure satellite  
+systems.</p>
+<p> 
+	The covert communication channel operates off a  
+pseudo-random binary sequence, such as a stream cipher.  
+Stream ciphers differ from block ciphers such as DES (the  
+Data Encryption Standard) widely used in banking. </p>  
+<p> 
+	A block cipher applies a static transformation to a  
+fixed block of data.  The DES algorithm, for example,  
+encrypts a 64-bit block of data using 64-bit keys.  (The  
+effective key size is actually 56 bits, since every eighth bit  
+is considered a parity bit and is disgarded.)  In DES  
+electronic code book (ECB) mode, each 64-bit block of  
+data is encrypted separately from every other block.  In  
+cipher block chaining (CBC) and cipher feedback (CFB)  
+mode, the encryption of the current data block is  
+dependent on previous data blocks.  But under any one of  
+these three DES modes, the transformation of a given data  
+sequence with a given DES key will nevertheless result in  
+the same ciphertext, regardless of the time the encryption  
+takes place. </p>
+<p>         
+	A stream cipher, by contrast, applies a time- 
+varying transformation to individual digits or bits of data.  
+"Time-varying" means the same sequence of plaintext  
+data bits seen at two different points in time will be  
+encrypted to a different sequence of ciphertext data bits.</p>   
+<p> 
+	To illustrate this for a simple case, suppose we are  
+doing encryption using simple XOR rules of addition,  
+adding keybits k to plaintext bits x on a bit by bit basis to  
+obtain cipher bits y:  y = x + k.  XOR addition follows the  
+rules 
+<br>
+<pre>
+0+0 = 0 
+0+1 = 1 
+1+0 = 1 
+1+1 = 0. 
+</pre>
+<br>
+Suppose the plaintext data is "1011".  The current key  
+might be "1010".  Then the ciphertext data is 
+<br><br> 
+1011+1010 = 0001. 
+<br><br> 
+The ciphertext "0001" gives no information about the  
+original plaintext.  The plaintext could have been any one  
+of 2^4 = 16 possible sequences of 0s and 1s.  To restore  
+the original plaintext, we XOR the ciphertext "0001"  
+again with the key "1010" to obtain 
+<br> <br>
+0001+1010 = 1011. 
+<br> <br>
+In a stream cipher, the keystream will typically be  
+different at different points of time.  This the encryption  
+of a repeated plaintext "1011" might take the form 
+<br>
+<pre> 
+time 1:  1011 + 1010 = 0001 
+time 2:  1011 + 1111 = 0100 
+time 3:  1011 + 0011 = 1000 
+</pre>
+<br> 
+and so on for other times.  In this example, the "time- 
+varying transformation" takes the simple form of a time- 
+varying keybit stream. </p> 	 
+ 
+ <p>
+	The most famous stream cipher is the Verdam  
+cipher, or "one-time pad", which follows the encryption  
+scheme just described.  If the current time is i, the current  
+plaintext bit is x(i), and the current key bit is k(i), then the  
+ciphertext bit  is y(i) =  x(i) + k(i).  The number of key  
+bits, N, must exceed the number of plaintext bits M:  
+N>M.  The bits in the keystream sequence k(1), k(2), . . . ,  
+k(N) must be independently and uniformly distributed,  
+and are used only once and then disgarded (hence "one- 
+time pad").  Of course, this scheme--while not breakable  
+by cryptanalysis--has other security problems.   It requires  
+both parties to have a copy of the current key, and the key  
+to be kept secret from all hostile parties. This in turn  
+requires that the keys be generated, stored, and  
+communicated in a totally secure manner--a massive  
+problem in itself.  So one-time pads are typically only  
+used in "hot lines", such as the old Red Telephone  
+between Moscow and Washington, D.C. that was installed  
+with the hope that a little jawboning could help avert  
+nuclear war. ("Can we talk?") </p>
+<p> 
+	Practical cryptography for digital and analog  
+communication thus uses "keystream generators" which  
+typically determine the keystream as some function f of an  
+underlying key K, and the current state of the system s(i): 
+<br> <br>
+k(i) =  f(K, s(i)). 
+<br> <br>
+This key stream k(i) can be added to the original bit  
+stream to produce a new (encrypted) stream (as is done in  
+"direct sequence" spread spectrum systems).  Or the key  
+stream can be used to make the carrier frequency hop  
+around within the spread sprectrum bandwidth (as is done  
+in "frequency hopping" systems).  Many variations and  
+combinations are possible. </br>
+<p> 
+	Like many people associated with PROMIS  
+(including Earl Brian, the man who sold it around the  
+world), Michael Riconosciuto is in jail.  Riconosciuto was  
+convicted on charges relating to the construction of a  
+methamphetamine lab. </p>
+<p> 
+	Michael Riconosciuto appears in a recent  
+manuscript <i>The Last Circle</i> by "Carol Marshall" (whose  
+real name is Seymour).   Much of the book is based on  
+interviews with, and files purloined from, Riconosciuto.  
+Part of the subject matter of <i>The Last Circle</i> involves  
+the West Coast activities of "The Company", a  
+paramilitary drug dealing operation using ex-law  
+enforcement and ex-intelligence personel that was based  
+in Lexington, KY, in the late 70s and early 80s.  However,  
+because <i>The Last Circle</i> makes extensive use of  
+Riconosciuto's files, it is also concerned with many other  
+activities, including in particular a biowarfare project  
+undertaken by the Wackenhut-Cabazon Indian joint  
+venture.  ("The Company" itself is the subject of another  
+book entitled <i>The Bluegrass Conspiracy</i> by Sally  
+Denton.) </p>
+<p> 
+	Riconosciuto wrote me in regard to a speech I  
+gave to the Libertarian Party of Colorado on digital cash  
+on April 20, 1997.  I have added some comments with  
+respect to the issues mentioned. 
+<br><br>
+<strong>
+May 8, 1997 
+<br> 
+M. Riconosciuto     <br>
+21309-086 Med. A-1  <br>
+Box 819             <br>
+Coleman, FL 33521 
+</p> 
+"Orlin, 
+<p> 
+        "[Name omitted] has been sending me some of  
+your published material for some time.  I have some  
+questions concerning your talk on digital cash. :</p>
+<p> 
+	"First a little of my background.  I started with  
+computers when a "laptop" was an IBM porta-punch.  My  
+first serious computing experience was on an IBM system  
+1620.  I went from there to the IBM 7090/7094 systems  
+and from there to the then "new" IBM 360 family.  I  
+missed the 370 generations, because during that time my  
+responsibilities had me in a position where comp center  
+staff handled all my data processing.  I have been on the  
+DEC/PDP systems since they first came out (PDP 8, PDP  
+10, PDP 11) and stayed with them as they matured into  
+the VAX system.  My programming experience runs the  
+gamut from absolute coding sheets in unit record type  
+systems, to top down/structured programming.  I have  
+been at this for awhile.  I am not impressed by the  
+Intel/MS standard that has taken over the computing  
+world.  Although I might note that Windows NT has  
+suspicious similarity to the VAX/VMS operating system. </p>
+<p> 
+	"Up until six months ago I had access to a  
+computer and the latest literature because of my inmate  
+job assignments in facilities management and prison  
+industries.  We had a high end Pentium CAD set up in  
+facilities and a network connection on a Data General  
+Avion system in Unicor prison industries.  I also had the  
+responsibility of maintenance on a Honeywell building  
+automation control DDC-HVAC system. </p>
+<p> 
+	"As a direct result of the TV interview with the  
+Germans I was pulled off my premium inmate job and re- 
+assigned to the duty of picking up cigarette butts in the  
+recreation yard for $5 per month.  This was inspite of  
+exemplary job assignment reports and no disruptive  
+behavior incidents." </p>
+<br>
+</strong>
+<blockquote><blockquote><blockquote>
+        [Comment:  Riconosciuto is referring here  
+        to an interview he gave on the PROMIS  
+        backdoor to German television.] 
+<br>
+<strong>
+</blockquote></blockquote></blockquote>
+	"[paragraph omitted] 
+<p>         
+	"The point of all this is to make it clear that I am  
+not that far out of touch with the current state of the art. </p>
+<p> 
+	"This brings me to the first question that I want to  
+ask about your digital cash speech. </p>
+<p> 
+	"1)  In your reference to the "discrete logarithm  
+problem" are you taking into consideration the Donald  
+Coppersmith work?  Coppersmith developed a  
+computationally feasible way to take discrete logarithms  
+back in the 80s.  Needless to say, this work has been  
+played down, but it has been in the open literature."</p> 
+<br>
+</strong>
+<blockquote><blockquote><blockquote>
+        [Comment:  The discrete log problem is  
+        the problem of finding x such that g^x =y  
+        mod n, for a given y, g, and n.  Here x is  
+        the discrete logarithm of y to the base g.   
+        Since this is hard to do, one can form a  
+        public/private key system with x as the  
+        private (secret) key and y = g^x mod n as  
+        the public key.  
+<br> <br>
+        [Of course, the hard-to-do job of taking  
+        discrete logarithms may not be the only  
+        way to approach a given problem.  The  
+        security of  Diffie-Hellman, to which I  
+        referred in my speech, is apparently based  
+        on discrete logarithms, but is susceptable  
+        to a simple attack by a person in the middle  
+        of the communication process.  In Diffie- 
+        Hellman,  Alice generates x and send Bob  
+        g^x mod n.  Bob generates y and sends  
+        Alice g^y mod n.  They both then calculate  
+        g^(xy) mod n as the session key. (The best  
+        an observer can do is calculate g^(x+y),  
+        without taking discrete logarithms.)   
+        However, if Eve controls all  
+        communication between the two, she can  
+        substitute her own parameters, and decrypt  
+        both sides of the conversation before  
+        forwarding the messages.  Be this as it  
+        may, Diffie introduced a simple variant of  
+        this process--called Station to Station  
+        (STS) protocol--which completely  
+        eliminates the man-in-the-middle attack. 
+<br> <br>
+        [Riconosciuto refers to the work of  
+        Coppersmith [1], [2] in finding discrete  
+        logarithms.  Coppersmith greatly increased  
+        the efficiency of finding discrete logs in  
+        fields of characteristic 2 (which use digits  
+        0 and 1, and thus are efficient in  
+        programming), so that the modulus has to  
+        be of the order of n = 2^1000 to be secure.] 
+<br><br>
+<strong>
+</blockquote></blockquote></blockquote>
+	"2)  You of course are aware that RSA type  
+algorithms are no more secure that the modulus is difficult  
+to factor.  Are you aware of the latest  advances in  . . .  
+differential cryptanalysis and meet in the middle  
+techniques?  Are you aware of the work by Lenstra . . . et  
+al with their methods of quadratic sieves etc?" 
+<br><br>
+</strong>
+<blockquote><blockquote><blockquote>
+        [Comment:  Riconosciuto is refering here  
+        are to several types of cryptanalytic attacks.   
+        Differential cryptanalysis and meet-in-the- 
+        middle generally refer to attacks on DES,  
+        while the work of Lenstra is directly  
+        relevant to RSA.   
+<br> <br>
+        [The methods of Lenstra [3], Cohen and  
+        Lenstra [4], and Pomerance, Rumely, and  
+        Adleman [5], use Fermat's Little Theorem  
+        (or its analog in extension fields of rational  
+        numbers) and Gauss and Jacobi sums to  
+        test for primality.   
+<br> <br>
+        [The quadratic sieve for factoring n has  
+        running time of the order of exp((ln n ln ln  
+        n)^.5).  A slightly faster method is [6] the  
+        number field sieve, which has running time  
+        of the order of exp((ln n)^(1/3) (ln ln  
+        n)^(2/3)).] 
+<br><br>
+<strong>
+</blockquote></blockquote></blockquote>
+	"3) Have you ever heard of the Hilbert spectral  
+processing technique and its application to high speed  
+factoring systems? 
+<br><br>
+</strong>
+<blockquote><blockquote><blockquote>
+        [Comment:  I'm not sure exactly what  
+        Riconosciuto has in mind here.  But  
+        communication signals can be decomposed  
+        into addable parts using systems of  
+        orthogonal functions such as Fourier series  
+        or Walsh functions. 
+<br> <br>
+        [Riconosciuto may be referring to the  
+        results of Xiao and Massey [9], who  
+        characterize correlation-immune functions  
+        in terms of their Walsh transforms.] 
+<br><br>
+<strong>
+</blockquote></blockquote></blockquote>
+	"4) Are you familiar with fast elliptical encryption  
+methods?" 
+<br><br>
+</strong>
+<blockquote><blockquote><blockquote>
+        [Comment:  I did not refer to these in my  
+        speech as they are fairly complex.  Elliptic  
+        curve cryptosystems stem from the work of  
+        Neal Koblitz [7] and others.
+<br> <br>
+        [The analog of taking a power in modular  
+        arithmetic is multiplication on elliptic  
+        curves.  So the analog of the Diffie- 
+        Hellman problem in the elliptic curve  
+        world is to find the integer n such that nB  
+        = P, where B and P are points on an elliptic  
+        curve.  Here n can be thought of as the  
+        "discrete logarithm" of P to the base B.   
+        Elliptic curve cryptosystems are believed  
+        to offer equal security at shorter key  
+        lengths.] 
+<br><br>
+<strong>
+</blockquote></blockquote></blockquote>
+	"5) Do you remember the hard knapsack problems  
+of Merkle and Hellman and how they fell?" 
+<br><br>
+</strong>
+<blockquote><blockquote><blockquote>
+        [Comment:  Knapsack problems were so- 
+        named because they resemble the problem  
+        of fitting a number of items k into a total  
+        volume V--like packing a knapsack..  They  
+        have the characteristic that they are NP- 
+        complete, so that theoretically an  
+        encryption scheme could be constructed  
+        from them that is not solvable in  
+        polynomial time (with respect to k).   
+        However, the original Merkle-Hellman  
+        knapsack was broken by Shamir. So  
+        Riconosciuto is suggesting that  
+        implemented discrete log systems may  
+        have hidden weaknesses much like the  
+        original knapsack encryption systems.   
+        There is a knapsack system due to Chor  
+        and Rivest that hasn't been broken yet, to  
+        my knowledge.] 
+<br><br>
+<strong>
+</blockquote></blockquote></blockquote>
+	"This should be a good place to start.  Let me  
+know if you receive my letter.  [sentence omitted.] 
+<br> <br>
+"Michael Riconosciuto <br>
+"21309-086" 
+<br><br>
+</strong>
+<blockquote><blockquote><blockquote>
+        [Comment:  Encryption issues are  
+        important.  However, I doubt they will be  
+        the deciding security issue in most systems  
+        of digital cash.  Ross Anderson [8] has  
+        accumulated a lot of evidence from the  
+        financial services industry that  
+        demonstrates that most security failures  
+        involve errors in protocol or in  
+        implementation.  Equally important, most  
+        current systems that have been called  
+        "digital cash" have been designed with  
+        deliberate security holes to allow  
+        monitoring of transactions at critical  
+        points.] 
+</p><br>
+</blockquote></blockquote></blockquote>
+<h3 align="center">
+                        References 
+</h3> 
+[1] D. Coppersmith, "Fash Evaluation of logarithms in  
+fields of characteristic two," IEEE Transactions on  
+Information Theory, 30, 1984, 587-594. 
+<br> <br>
+[2] D. Coppersmith, A. Odlyzko, and R. Schroeppel,  
+"Discrete Logarithms in GF(p)," Algorithmica 1, 1986, 1- 
+15. 
+<br> <br>
+[3] A. Lenstra, "Primality testing," Cryptology and  
+Computational Number Theory, Proc. Symp. Appl. Math,  
+42, 1990, 13-25. 
+<br> <br>
+[4] H. Cohen and H. W. Lenstra, Jr., "Primality testing  
+and Jacobi sums," Math. Comp. 42, 1984, 297-330. 
+<br> <br>
+[5] L.M. Adleman, C. Pomerance, and R.S. Rumely, "On  
+Distinguishing prime numbers from composite numbers,"  
+Annals of Math. 177, 1983, 173-206. 
+<br> <br>
+[6] A. Lenstra and H. W. Lenstra, Jr., eds. The  
+Development of the Number Field Sieve, Springer-Verlag,  
+1993. 
+<br> <br>
+[7] Neal Koblitz, A Course in Number Theory and  
+Cryptography, Springer-Verlag, 1994. 
+<br> <br>
+[8] Anderson, Ross, "Why Cryptosystems Fail,"  
+Association for Computing Machinery, 1st Conf.- 
+Computer and Comm. Security `93, November 1993. 
+<br> <br>
+[9] G. Z. Xiao and J. L. Massey, "A spectral  
+characterization of correlation-immune functions," IEEE  
+Transactions on Information Theory, 34, 1988, 569-571. 
+<br> <br>
+Posted September 2, 1997   <br><br>
+Web Page: <a href="homepage.html">http://www.aci.net/kalliste/homepage.html</a> 
+</body>
+</html>

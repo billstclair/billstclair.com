@@ -1,0 +1,228 @@
+<html>
+<head>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<title>Chaos and Fractals in Financial Markets, Part 1, by J. Orlin Grabbe</title>
+</head>
+<body bgcolor="white" link="#0000ff" vlink="#800080">
+<p>
+<h1 align=center>Chaos and Fractals in Financial Markets</h1>
+<h3 align=center><i>by J. Orlin Grabbe</i></h3>
+<center><table border=0 width=55%><tr><td>
+<h3 align=center>Answer to Exercise 1</h3>
+<hr>
+<B><P>Exercise 1:</B>  Iterate the following system:  x(n+1) = 2x(n) mod 1.  [By "mod 1" is meant that only the fractional part of the result is kept.  For example, 3.1416 mod 1 = .1416.]  Is this system chaotic?  </P>
+<P ALIGN="JUSTIFY"></P>
+<hr>
+<P ALIGN="JUSTIFY">To get a feel for how the system behaves, let’s first iterate a few values.  Start with <B>x(0) = .1</B>.  We get x(1) = 2(.1) mod 1 = .2 mod 1 = .2 .  This is the first iteration.  This and the following iterations are listed in the table:</P>
+
+<TABLE BORDER=2 CELLSPACING=1 CELLPADDING=7 WIDTH=192>
+<TR><TD WIDTH="50%" VALIGN="TOP">
+<P ALIGN="CENTER">Iteration</TD>
+<TD WIDTH="50%" VALIGN="TOP">
+<P ALIGN="CENTER">Value of x</TD>
+</TR>
+<TR><TD WIDTH="50%" VALIGN="TOP">
+<P ALIGN="CENTER">1</TD>
+<TD WIDTH="50%" VALIGN="TOP">
+<P ALIGN="CENTER">.2</TD>
+</TR>
+<TR><TD WIDTH="50%" VALIGN="TOP">
+<P ALIGN="CENTER">2</TD>
+<TD WIDTH="50%" VALIGN="TOP">
+<P ALIGN="CENTER">.4</TD>
+</TR>
+<TR><TD WIDTH="50%" VALIGN="TOP">
+<P ALIGN="CENTER">3</TD>
+<TD WIDTH="50%" VALIGN="TOP">
+<P ALIGN="CENTER">.8</TD>
+</TR>
+<TR><TD WIDTH="50%" VALIGN="TOP">
+<P ALIGN="CENTER">4</TD>
+<TD WIDTH="50%" VALIGN="TOP">
+<P ALIGN="CENTER">.6</TD>
+</TR>
+<TR><TD WIDTH="50%" VALIGN="TOP">
+<P ALIGN="CENTER">5</TD>
+<TD WIDTH="50%" VALIGN="TOP">
+<P ALIGN="CENTER">.2</TD>
+</TR>
+<TR><TD WIDTH="50%" VALIGN="TOP">
+<P ALIGN="CENTER">6</TD>
+<TD WIDTH="50%" VALIGN="TOP">
+<P ALIGN="CENTER">.4</TD>
+</TR>
+<TR><TD WIDTH="50%" VALIGN="TOP">
+<P ALIGN="CENTER">7</TD>
+<TD WIDTH="50%" VALIGN="TOP">
+<P ALIGN="CENTER">.8</TD>
+</TR>
+<TR><TD WIDTH="50%" VALIGN="TOP">
+<P ALIGN="CENTER">8</TD>
+<TD WIDTH="50%" VALIGN="TOP">
+<P ALIGN="CENTER">.6</TD>
+</TR>
+<TR><TD WIDTH="50%" VALIGN="TOP">
+<P ALIGN="CENTER">9</TD>
+<TD WIDTH="50%" VALIGN="TOP">
+<P ALIGN="CENTER">.2</TD>
+</TR>
+<TR><TD WIDTH="50%" VALIGN="TOP">
+<P ALIGN="CENTER">10</TD>
+<TD WIDTH="50%" VALIGN="TOP">
+<P ALIGN="CENTER">.4</TD>
+</TR>
+<TR><TD WIDTH="50%" VALIGN="TOP">
+<P ALIGN="CENTER">11</TD>
+<TD WIDTH="50%" VALIGN="TOP">
+<P ALIGN="CENTER">.8</TD>
+</TR>
+</TABLE>
+
+
+<P>And so on.  The values of <B>x</B> cycle through .6, .2, .4, .8, over and over.  </P>
+
+<P ALIGN="JUSTIFY">Now let <B>x(0) = 1.25</B>.  What values to we get?  The first iteration is x(1) = 2(1.25) mod 1 = 2.50 mod 1 = .50.  The second iteration is x(2) = 2(.5) mod 1 = 1 mod 1 = 0.  The third iteration is x(3) = 2(0) mod 1 = 0 mod 1 = 0.  Once at zero, the system stays there.</P>
+
+<TABLE BORDER=2 CELLSPACING=1 CELLPADDING=7 WIDTH=192>
+<TR><TD WIDTH="50%" VALIGN="TOP">
+<P ALIGN="CENTER">Iteration</TD>
+<TD WIDTH="50%" VALIGN="TOP">
+<P ALIGN="CENTER">Value of x</TD>
+</TR>
+<TR><TD WIDTH="50%" VALIGN="TOP">
+<P ALIGN="CENTER">1</TD>
+<TD WIDTH="50%" VALIGN="TOP">
+<P ALIGN="CENTER">.50</TD>
+</TR>
+<TR><TD WIDTH="50%" VALIGN="TOP">
+<P ALIGN="CENTER">2</TD>
+<TD WIDTH="50%" VALIGN="TOP">
+<P ALIGN="CENTER">0</TD>
+</TR>
+<TR><TD WIDTH="50%" VALIGN="TOP">
+<P ALIGN="CENTER">3</TD>
+<TD WIDTH="50%" VALIGN="TOP">
+<P ALIGN="CENTER">0</TD>
+</TR>
+<TR><TD WIDTH="50%" VALIGN="TOP">
+<P ALIGN="CENTER">4</TD>
+<TD WIDTH="50%" VALIGN="TOP">
+<P ALIGN="CENTER">0</TD>
+</TR>
+<TR><TD WIDTH="50%" VALIGN="TOP">
+<P ALIGN="CENTER">5</TD>
+<TD WIDTH="50%" VALIGN="TOP">
+<P ALIGN="CENTER">0</TD>
+</TR>
+<TR><TD WIDTH="50%" VALIGN="TOP">
+<P ALIGN="CENTER">6</TD>
+<TD WIDTH="50%" VALIGN="TOP">
+<P ALIGN="CENTER">0</TD>
+</TR>
+<TR><TD WIDTH="50%" VALIGN="TOP">
+<P ALIGN="CENTER">7</TD>
+<TD WIDTH="50%" VALIGN="TOP">
+<P ALIGN="CENTER">0</TD>
+</TR>
+<TR><TD WIDTH="50%" VALIGN="TOP">
+<P ALIGN="CENTER">8</TD>
+<TD WIDTH="50%" VALIGN="TOP">
+<P ALIGN="CENTER">0</TD>
+</TR>
+<TR><TD WIDTH="50%" VALIGN="TOP">
+<P ALIGN="CENTER">9</TD>
+<TD WIDTH="50%" VALIGN="TOP">
+<P ALIGN="CENTER">0</TD>
+</TR>
+<TR><TD WIDTH="50%" VALIGN="TOP">
+<P ALIGN="CENTER">10</TD>
+<TD WIDTH="50%" VALIGN="TOP">
+<P ALIGN="CENTER">0</TD>
+</TR>
+<TR><TD WIDTH="50%" VALIGN="TOP">
+<P ALIGN="CENTER">11</TD>
+<TD WIDTH="50%" VALIGN="TOP">
+<P ALIGN="CENTER">0</TD>
+</TR>
+</TABLE>
+
+
+<P>Because all values are taken mod 1, we drop (chop off) anything to the left of the decimal point.  <B>So we are really only concerned with numbers between 0 and 1</B>.</P>
+
+<P>Suppose we write each of the numbers between 0 and 1, not in the decimal system, but in the binary system.  The binary system uses only 0s and 1s, which represent powers of 2.</P>
+
+<P>Consider, for example, the binary number</P>
+
+<P>.1101   .</P>
+
+<P>The first place to the right of the &quot;decimal point&quot; represents ½.  The next place represents ¼ .  The third place represents 1/8 .  And so on.  The n-th  place represents 1/2<SUP>n</SUP> .</P>
+
+<P>So</P>
+
+<P>.1101 = 1 x ½  + 1 x ¼  + 0 x 1/8 + 1 x 1/16</P>
+<P>          = ½ + ¼ + 1/16 = 13/16.</P>
+
+<P>The binary </P>
+
+<P>.0011 = 0 x ½ + 0 x ¼ + 1 x 1/8 + 1 x 1/16 = 3/16.</P>
+
+<P>Now, this may look like we’ve made things more complicated, but actually we’ve made them extremely simple.  What happens when we multiply by 2?  Well, since the n-th decimal place represents 1/2<SUP>n</SUP> , if we multiply it by 2, we have</P>
+
+<P>2 x 1/2<SUP>n</SUP> = 1/2<SUP>n-1</SUP> .    </P>
+
+<P>This is the (n-1)-th place to the right of the decimal point, or one place closer.</P>
+
+<P>So take .1101.  To multiply it by 2, we move the decimal point one place to the right and get</P>
+
+<P>1.101   .</P>
+
+<P>We then apply mod 1, which chops off everything to the left of the decimal point and get</P>
+
+<P>.101  .</P>
+
+<P>Multiply by 2 again, we get</P>
+
+<P>.01.</P>
+
+<P>Then multiply by 2 again, we get</P>
+
+<P>.1</P>
+
+<P>Finally, one more multiplication, and we get</P>
+
+<p>0.               </P>
+
+
+<P ALIGN="JUSTIFY">So the first observation we can make about the system x(n+1) = 2 x(n) mod 1, is <B>that if the binary expansion of x(0) is finite, the system converges to 0</B>.  This is obvious, because if we chop off one binary digit with each iteration, we eventually run out of binary digits, if the number of binary digits is finite.  </P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">Any fractional power of 2 will have a finite decimal expansion, and hence these values will converge to zero.  (A fractional power of 2 is a fraction p/q where q = 2<SUP>n</SUP> for some n.  For example, 3/256, which in binary is .00000011.)</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">In our first example, we started with x = .1 (where here .1 was a decimal value, or 1/10).  Let’s expand 1/10 into binary:</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">.00011001100110011001…</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">After the first 4 iterations, which chops off the leading 0001, we are left with a repeating 1001, 1001, 1001, etc.  This is an infinite binary number, so it doesn’t get any shorter as we chop off places.  So we cycle through the same four numbers over and over.  Namely, the four numbers corresponding to:</P>
+<P ALIGN="JUSTIFY"></P>
+<P>.10011001100110011001… 
+<br>.00110011001100110011…
+<br>.01100110011001100110…
+<br>.11001100110011001100…
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">These correspond to the decimal numbers .6, .2, .4, .8, as we saw previously in the table.</P>
+<P ALIGN="JUSTIFY"></P>
+<B><P ALIGN="JUSTIFY">All rational numbers  (p/q, where q is not zero) that are not fractional powers of 2 (i.e., q is not a power of 2) will eventually cycle.</P>
+<P ALIGN="JUSTIFY"></P>
+</B><P ALIGN="JUSTIFY">For example, the starting decimal x(0) = .71 begins to cycle after 21 iterations.  We have x(22) = x(2) = .84, x(23) = x(3) = .68, and so on.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">The starting decimal x(0) = .7182 begins to cycle after 502 iterations.  We have x(503) = x(3) = .7456.</P>
+<P ALIGN="JUSTIFY"></P>
+<P ALIGN="JUSTIFY">What if we start with an an irrational number, such as the square root of two, or <FONT FACE="Symbol">&#112;</FONT>?  Clearly these have non-repeating binary expansions, <B>so the system is chaotic if x(0) is irrational.</P>
+<P>
+<p align=center><a href="chaos2.htm">Return to Part 2</a>
+<p>
+<center><b>-30-</b></center>
+<p>
+<center><b>from <i>The Laissez Faire City Times</i>, Vol 3, No 24, June 14, 1999</b></center>
+</td></tr></table></center>
+</body>
+</html>

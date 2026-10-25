@@ -1,0 +1,450 @@
+<html>
+<head>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<title>Java Program for DSA Signature, by J. Orlin Grabbe</title>
+</head>
+<body bgcolor="white" link="#0000ff" vlink="#800080">
+<p>
+<h2 align=center>Java Program for DSA Signature</h2>
+<h3 align=center><i>by J. Orlin Grabbe</i></h3>
+<hr>
+This program shows how to use the Java DSA signature function, as well as alternative
+ways of calculating the same thing using the Java Big Integer function. The essential mechanism
+involves some random number <b>x</b> (a <i>private</i> key), a generator <b>g</b>, and a <i>public</i> key
+<b>y</b> = <b>g</b><sup><b>x</b></sup> mod <b>p</b>,
+for some prime number <b>p</b>.  The generator <b>g</b> has order <b>q</b>, where <b>q</b> is the smallest positive integer such that <b>g</b><sup><b>q</b></sup> = <b>1</b> mod <b>p</b>.   Background information on the DSA, Diffie-Hellman, and ElGammal-type algorithms can be found in:
+<menu>
+<li><a href="dcintro.htm">The Mathematical Ideas Behind Digital Cash</a>
+<li><a href="cryptnum.htm">Cryptography and Number Theory for Digital Cash</a>
+</menu>
+<p>
+Note that if <b>g</b> and <b>p</b> are not set by the user, the DSA functions in the Java Security
+module use the default generator <b>g</b> and prime <b>p</b> as follows:
+<p>
+generator <b>g</b> = <p>
+F7E1A085D69B3DDE CBBCAB5C36B857B9 7994AFBBFA3AEA82 F9574C0B3D078267 <br>
+5159578EBAD4594F E67107108180B449 167123E84C281613 B7CF09328CC8A6E1 <br>
+3C167A8B547C8D28 E0A3AE1E2BB3A675 916EA37F0BFA2135 62F1FB627A01243B <br>
+CCA4F1BEA8519089 A883DFE15AE59F06 928B665E807B5525 64014C3BFECF492A 
+<p>
+prime <b>p</b> = <p>
+FD7F53811D751229 52DF4A9C2EECE4E7 F611B7523CEF4400 C31E3F80B6512669 
+455D402251FB593D 8D58FABFC5F5BA30 F6CB9B556CD7813B 801D346FF26660B7 
+6B9950A5A49F9FE8 047B1022C24FBBA9 D7FEB7C61BF83B57 E7C6A8A6150F04FB 
+83F6D3C51EC30235 54135A169132F675 F3AE2B61D72AEFF2 2203199DD14801C7 
+<p>
+This generator <b>g</b> in the prime field <b>p</b> has an order <b>q</b> of:
+<p>
+order <b>q</b> = <p>
+9760508F15230BCC B292B982A2EB840B F0581CF5,
+<p>
+which is 160 bits longs (40 hex digits). 
+<p>
+The security of the algorithm rests on the SHA-1 hash algorithm, and on the <b>discrete
+logarithm problem</b>.
+<p>
+Notice that given <b>h</b>, where <b>h</b> = <b>g</b><sup><b>w</b></sup> mod <b>p</b> 
+for some unknown <b>w</b>, the <b>discrete
+logarithm problem</b> is that of finding <b>w</b> given <b>h</b>, <b>g</b> and <b>p</b>. Here
+<b>w</b> is the discrete log of <b>h</b>. A basic paper on the discrete logarithm problem is:
+<p>
+LaMacchia, B.A and A. M. Odlyzko, "Computation of 
+Discrete Logarithms in Prime Fields," <i>Designs, Codes, 
+and Cryptography</i>, vol. 1, 1991.
+<p>
+An <b>example of a DSA signature</b>, as shown below, is the following:
+<p>
+DSA signature = <p>
+302D02150090D0D8 03442052C0FA6516 4E8FEC2133FEAC70 BA02146BE328F9B9 <br>
+62ED41C612F75CDC 55A7DE48D43A3D
+<p>
+The signature is normally a byte array of 46 bytes.  The first four bytes are (normally):
+<p>
+302D0214
+<p>
+This is following by 20 bytes which are the first part of the signature, <b>r</b>:
+<p>
+<b>r</b> = 90D0D803442052C0FA65164E8FEC2133FEAC70BA
+<p>
+Next comes a 2 byte separator:
+<p>
+0214
+<p>
+followed by the 20 bytes second part of the signature, <b>s</b>:
+<p>
+<b>s</b> = 6BE328F9B962ED41C612F75CDC55A7DE48D43A3D
+<p>
+In the event the byte array would convert to a <b>negative BigInteger</b>,
+the indicator byte 0214 will, in either case, flip to 0215.  In that case a byte
+with a value of 0 needs to be appended as the first byte, so that the bytes
+convert to a positive BigInteger.
+<p>
+In the example below, <b>302D0214</b> becomes <b>302D0215</b> in
+the signature, and <b>r</b> is re-specified as:
+<p>
+r = 0090D0D803442052C0FA65164E8FEC2133FEAC70BA
+<p>
+in the signature, and before the conversion into a BigInteger.
+<hr>
+<p>
+This program, <b>testDSA.java</b>:
+<p>
+<menu>
+<li>generates a <b>DSA key pair</b>,
+<p>
+<li>prints out the parameters <b>generator  g</b>, <b>prime p</b>, and the <b>order q</b>,
+<p>
+<li>verifies that g mod p = 1 and also that g<sup>q</sup> =1 mod p,
+<p>
+<li>prints out the <b>public key y</b> and the <b>private key x</b>,
+<p>
+<li>verifies that g<sup>x</sup> = y mod p,
+<p>
+<li>does an SHA-1 hash of y (which corresponds to an identifier in the DMT system),
+<p>
+<li>next reads in the sample text file <b>data</b> and calculates a <b>DSA signature</b>,
+<p>
+<li>divides up the DSA signature into its two parts <b>r</b> and <b>s</b>, and by direct
+calculation <b>verifies the accuracy of the signature</b> using the Java BigInteger functions;
+the previously calculated SHA-1 hash value; and g, p, and y.  This calculation begins with <b>s</b>,
+and the end result of the calculation should be <b>r</b>.
+<p>
+<li>finally reads in the file again and <b>verifies the DSA signature</b> using the Cryptix
+<b>verification function</b>.
+</menu>
+<p>
+<hr>
+<h2 align=center>Java Source Code</h2>
+<h3 align=center>testDSA.java</h3>
+<hr>
+<pre>
+import java.io.*;
+import java.lang.*;
+import java.security.*;
+import java.security.interfaces.*;
+import java.math.*;
+import cryptix.util.core.BI;
+import cryptix.util.core.Hex;
+import cryptix.provider.key.*;
+import cryptix.provider.md.*;
+
+class testDSA {
+
+    public static void main(String[] args) {
+
+        try {
+
+		FileOutputStream outFile = new FileOutputStream("DSA.out");
+		PrintStream output = new PrintStream(outFile);
+
+            // generate a DSA key pair
+            KeyPairGenerator keyGen = KeyPairGenerator.getInstance("DSA");
+		SecureRandom ran = new SecureRandom();
+		byte[] bb = new byte[20];
+		ran.nextBytes(bb);
+
+		String w = cryptix.util.core.Hex.dumpString(bb);
+		output.println("20 random bytes: " + w);
+
+ 		keyGen.initialize(1024, ran);
+            KeyPair pair = keyGen.generateKeyPair();
+	
+            // create a DSA Signature object
+            Signature dsa = Signature.getInstance("SHA/DSA"); 
+
+		// cast as DSAKey in order to access G, P, Q directly
+		BigInteger x, y, g, p, q, z, zz, phash, sig1;
+		DSAKey priv2 = (DSAKey) pair.getPrivate();
+		DSAParams params = priv2.getParams();
+		g = (BigInteger) params.getG();
+		w = cryptix.util.core.BI.dumpString(g);
+		output.println("generator g = " + w);
+		p = (BigInteger) params.getP();
+		w = cryptix.util.core.BI.dumpString(p);
+		output.println("prime p = " + w);
+		q = (BigInteger) params.getQ();
+		w = cryptix.util.core.BI.dumpString(q);
+		output.println("order q of group G(q) = " + w);
+		
+		// check that the parameters are valid: does p mod q = 1?
+		z = p.mod(q);
+		w = cryptix.util.core.BI.dumpString(z);
+ 		output.println("p mod q = " + w);
+		
+		// check that the parameters are valid: does g^q mod p = 1?
+		z = g.modPow(q,p);
+		w = cryptix.util.core.BI.dumpString(z);
+ 		output.println("g^q mod p = " + w);
+
+		// cast as DSAPrivateKey in order to access the private key (discrete log) X directly
+            DSAPrivateKey priv = (DSAPrivateKey) pair.getPrivate();
+		x = (BigInteger) priv.getX();
+		String sx = cryptix.util.core.BI.dumpString(x);
+		output.println(" ");
+		output.println("private key x = " + sx);
+
+            // cast as DSAPublicKey in order to access  the public key Y directly 
+            DSAPublicKey pub = (DSAPublicKey) pair.getPublic();
+		y = (BigInteger) pub.getY();
+		String sy = cryptix.util.core.BI.dumpString(y);
+		output.println(" ");
+		output.println("public key y = " + sy);
+
+		// check the validity of the public-private key relationship
+		z = g.modPow(x,p);
+		w = cryptix.util.core.BI.dumpString(z);
+		output.println(" ");
+		output.println("Note here that the value of ");
+ 		output.println("g^x mod p = " + w);
+		output.println("which verifies the public key y.");		
+
+		// create SHA-1 hash of y for fun (note that this is a DMT identifier) 
+		output.println(" ");
+		MessageDigest sha = MessageDigest.getInstance("SHA-1");
+		byte[] yval = y.toByteArray();		
+		byte[] ident = sha.digest(yval);
+		String sident = cryptix.util.core.Hex.dumpString(ident);
+		output.println("SHA-1 hash of y = " + sident);
+
+         	// initialize the Signature object for signing 
+         	dsa.initSign(priv);
+
+         	//update and sign the data
+		//independently check the message digest
+	  	MessageDigest md = MessageDigest.getInstance("SHA-1");
+        	FileInputStream fis = new FileInputStream(args[0]);
+		byte b;
+        	while (fis.available() != 0) {
+        		b = (byte) fis.read();
+        		md.update(b);
+        		dsa.update(b);
+               		};
+        	fis.close();
+
+		byte[] hash = md.digest();
+		w = cryptix.util.core.Hex.dumpString(hash);
+		output.println("the SHA-1 hash of " + args[0] + " is " + w);
+
+        	// now that all the data to be signed has been read in, sign it 
+        	byte[] sig = dsa.sign();
+		w = cryptix.util.core.Hex.dumpString(sig);
+		output.println("the DSA signature (byte array) is " + w);
+		sig1 = new BigInteger(sig);
+		w = cryptix.util.core.BI.dumpString(sig1);
+		output.println("the DSA signature (BigInteger) is " + w);
+
+        	// extract the first part of signature 
+		BigInteger Bfirst, Bsecond;
+	  	byte[] bf = new byte[20];
+	  	int i=0, j=0, k=0;
+
+		// check if bytes are 0214h or 0215h and adjust accordingly
+		// note that BigInteger from bytes must have positive sign
+		if(sig[3]==21) j=1;
+		if((j==0)&&(sig[25]==21)) k=1;
+		else if((j==1)&&(sig[26]==21)) k=1;
+		output.println(" j = " + j + " k = " + k);
+		output.println(" sig[3] = " + sig[3] + " sig[25] = " + sig[25] + " sig[26] = " + sig[26]);
+	  	for(i=4+j;i<24+j;i++) bf[i-4-j] = sig[i];
+        	Bfirst = new BigInteger(bf);
+		if(j==1) {byte[] bg = new byte[21];
+				    bg[0] = 0;
+				    for(i=1;i<21;i++) bg[i]=bf[i-1];
+				    Bfirst = new BigInteger(bg);
+					}
+
+		w = cryptix.util.core.BI.dumpString(Bfirst);
+        	output.println("The first number in signature = " + w);
+        	output.println(" ");
+
+        	// extract the second part of signature 
+	  	byte[] bs = new byte[20];
+	  	for(i=26+j+k;i<46+j+k;i++) bs[i-26-j-k] = sig[i];
+        	Bsecond = new BigInteger(bs);
+		if(k==1) {byte[] bt = new byte[21];
+				    bt[0] = 0;
+				    for(i=1;i<21;i++) bt[i]=bs[i-1];
+				    Bsecond = new BigInteger(bt);
+					}
+       	w = cryptix.util.core.BI.dumpString(Bsecond);
+        	output.println("The second number in signature = " + w);
+        	output.println(" ");
+
+		// verify signature by direct calculation
+		// needed are the hash of the message, first and second
+		//   parts of signature, public key Y, group generator G
+		BigInteger Zero, Bhash, Bfirinv, Bsecinv, Bu1, Bu2, Ba, Bb, Bt, Bv;
+		Zero = new BigInteger("0");
+		Bhash = new BigInteger(hash);
+		if(Bfirst.compareTo(Zero)==-1) output.println("verify = false");
+		else if (Bsecond.compareTo(Zero)==-1) output.println("verify = false");
+		else {
+			Bsecinv = Bsecond.modInverse(q);   
+			Bu1 = Bhash.multiply(Bsecinv);
+			Bu1 = Bu1.mod(q);
+			Bu2 = Bfirst.multiply(Bsecinv);
+			Bu2 = Bu2.mod(q);
+			Ba = g.modPow(Bu1,p);
+			Bb = y.modPow(Bu2,p);
+			Bt = Ba.multiply(Bb);
+			Bt = Bt.mod(p);
+			Bv = Bt.mod(q);
+			if (Bv.compareTo(Bfirst)==0) output.println("verify (ind calculation) = true");
+				else output.println("verify (ind calculation) = false");
+        		w = cryptix.util.core.BI.dumpString(Bv);
+        		output.println("verfication number is = " + w);
+        		output.println(" ");
+			}
+			
+		// verify the signature using the verify function
+		// initialize the Signature object for verification 
+
+            dsa.initVerify(pub);
+
+            // update and verify the data
+
+            fis = new FileInputStream(args[0]);
+            while (fis.available() != 0) {
+                b = (byte) fis.read();
+                dsa.update(b);
+                };
+
+            fis.close();
+
+            boolean verifies = dsa.verify(sig);
+            output.println("signature verifies (verification function): " + verifies);
+		output.println(" ");
+
+		outFile.close();
+		System.out.println("File written");
+
+        } catch (Exception e) {
+            System.err.println("Caught exception " + e.toString());
+        }
+
+    }
+
+}
+</pre>
+<hr>
+<h2 align=center>Sample Text Program Input</h2>
+<h3 align=center>data</h3>
+<hr>
+<pre>
+Senator Hand N. Till
+Washington, DC
+
+Dear Senator:
+
+This letter is to inform you we have
+opened account no. 338907021 on your
+behalf, and deposted therein a
+legislative incentive payment of
+$1 million.  For withdrawl, you will
+need to use your password BJRGUD7693.
+
+Yours very truly,
+
+Arnold C. Creole
+Vice President
+Greater Caribbean Bank
+</pre>
+<hr>
+<h2 align=center>Sample Program Output</h2>
+<h3 align=center>DSA.out</h3>
+<hr>
+<pre>
+20 random bytes: F1DB560EDE1AFB3B 2C741BAC73EF4F84 B6EB342D
+
+generator g = Multi-Precision Integer 1024 bits long...
+      sign: Positive
+ magnitude: Hexadecimal dump of 128 bytes...
+   0: F7E1A085D69B3DDE CBBCAB5C36B857B9 7994AFBBFA3AEA82 F9574C0B3D078267 
+  32: 5159578EBAD4594F E67107108180B449 167123E84C281613 B7CF09328CC8A6E1 
+  64: 3C167A8B547C8D28 E0A3AE1E2BB3A675 916EA37F0BFA2135 62F1FB627A01243B 
+  96: CCA4F1BEA8519089 A883DFE15AE59F06 928B665E807B5525 64014C3BFECF492A 
+
+prime p = Multi-Precision Integer 1024 bits long...
+      sign: Positive
+ magnitude: Hexadecimal dump of 128 bytes...
+   0: FD7F53811D751229 52DF4A9C2EECE4E7 F611B7523CEF4400 C31E3F80B6512669 
+  32: 455D402251FB593D 8D58FABFC5F5BA30 F6CB9B556CD7813B 801D346FF26660B7 
+  64: 6B9950A5A49F9FE8 047B1022C24FBBA9 D7FEB7C61BF83B57 E7C6A8A6150F04FB 
+  96: 83F6D3C51EC30235 54135A169132F675 F3AE2B61D72AEFF2 2203199DD14801C7 
+
+order q of group G(q) = Multi-Precision Integer 160 bits long...
+      sign: Positive
+ magnitude: 9760508F15230BCC B292B982A2EB840B F0581CF5
+
+p mod q = Multi-Precision Integer 1 bits long...
+      sign: Positive
+ magnitude: 01
+
+g^q mod p = Multi-Precision Integer 1 bits long...
+      sign: Positive
+ magnitude: 01
+ 
+private key x = Multi-Precision Integer 158 bits long...
+      sign: Positive
+ magnitude: 32A9DB623A60393F 59C2ADF354C9D620 92E992DB
+ 
+public key y = Multi-Precision Integer 1023 bits long...
+      sign: Positive
+ magnitude: Hexadecimal dump of 128 bytes...
+   0: 6F6E937B2BCCE0CD 3E0776BDAF43D5AB 7B1E309E6430B906 7EFB3E65F36A4AB3 
+  32: E4E41271068DCBB0 3DAE3136BECE51C0 03C1C0FC8B05BE81 80CB7799CD735A3D 
+  64: 30288D1A56BB1A46 0C0C6EC51FA0B02D 6F221D1683CE0C62 0C0C5DF6C26917E0 
+  96: 155EBF0FBCE55B0C 96DC261A19615E21 AD1680F1F6EB65E0 EFB6CD6097020850 
+ 
+Note here that the value of 
+g^x mod p = Multi-Precision Integer 1023 bits long...
+      sign: Positive
+ magnitude: Hexadecimal dump of 128 bytes...
+   0: 6F6E937B2BCCE0CD 3E0776BDAF43D5AB 7B1E309E6430B906 7EFB3E65F36A4AB3 
+  32: E4E41271068DCBB0 3DAE3136BECE51C0 03C1C0FC8B05BE81 80CB7799CD735A3D 
+  64: 30288D1A56BB1A46 0C0C6EC51FA0B02D 6F221D1683CE0C62 0C0C5DF6C26917E0 
+  96: 155EBF0FBCE55B0C 96DC261A19615E21 AD1680F1F6EB65E0 EFB6CD6097020850 
+
+which verifies the public key y.
+ 
+SHA-1 hash of y = A015516286CCA394 F7CF309507F51734 C49FF136
+
+the SHA-1 hash of data is 1A01B56EB33FA84A 39EEDDD927977726 38331E94
+
+the DSA signature (byte array) is Hexadecimal dump of 47 bytes...
+   0: 302D02150090D0D8 03442052C0FA6516 4E8FEC2133FEAC70 BA02146BE328F9B9 
+  32: 62ED41C612F75CDC 55A7DE48D43A3D
+
+the DSA signature (BigInteger) is Multi-Precision Integer 374 bits long...
+      sign: Positive
+ magnitude: Hexadecimal dump of 47 bytes...
+   0: 302D02150090D0D8 03442052C0FA6516 4E8FEC2133FEAC70 BA02146BE328F9B9 
+  32: 62ED41C612F75CDC 55A7DE48D43A3D
+
+ j = 1 k = 0
+ sig[3] = 21 sig[25] = 2 sig[26] = 20
+The first number in signature = Multi-Precision Integer 160 bits long...
+      sign: Positive
+ magnitude: 90D0D803442052C0 FA65164E8FEC2133 FEAC70BA
+ 
+The second number in signature = Multi-Precision Integer 159 bits long...
+      sign: Positive
+ magnitude: 6BE328F9B962ED41 C612F75CDC55A7DE 48D43A3D
+ 
+verify (ind calculation) = true
+verfication number is = Multi-Precision Integer 160 bits long...
+      sign: Positive
+ magnitude: 90D0D803442052C0 FA65164E8FEC2133 FEAC70BA
+ 
+signature verifies (verification function): true
+ 
+</pre>
+<p>
+<hr>
+<P ALIGN="JUSTIFY">J. Orlin Grabbe is the author of
+<a href="http://www.amazon.com/exec/obidos/ASIN/0132069881/qid=924154369/sr=1-1/002-9261014-2388004">International Financial Markets</A>, and is an internationally recognized derivatives expert who has recently branched out into cryptology, banking security, and digital cash.  His home page is located at <A HREF="homepage.html">http://www.aci.net/kalliste/homepage.html</A>.
+He currently resides in Costa Rica. </P>
+<center><b><a href="javacrypt_index.htm">Click here to return to Encryption Menu</a></center>
+
+</body>
+</html>

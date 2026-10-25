@@ -1,0 +1,604 @@
+<html> 
+<head> 
+<title>The Gold Market, Part 6</title> 
+</head> 
+<body>
+<h1 align=center>The Gold Market</h1> 
+<h3 align=center>Part 6</h3> 
+<h3 align=center><i>by J. Orlin Grabbe</i></h3> 
+<center><table border=0 width=60%><tr><td> 
+<p align=justify> 
+      Hedging  is the process of substituting a certain,  or
+known,  outcome for an uncertain one.  A gold producer,  for
+example, does not know what the spot price of gold will be a
+year  from  now.   But  he can hedge future  gold  sales  by
+selling  gold  forward at the known one-year forward  price.
+This will enable him to determine his cash flow in advance--
+at  least  that  part of it that depends on the  fluctuating
+price of spot gold.  It will simplify financial planning.
+<p align=justify> 
+
+      The  actual spot price of gold a year from now may  be
+higher  than the preagreed forward rate, or it may be lower.
+Thus,  by  hedging  and substituting a known  price  for  an
+unknown  one, the gold producer could just as easily  suffer
+an opportunity loss as an opportunity gain.
+<p align=justify> 
+
+      Many  in the gold market are looking not for  a  fixed
+forward  price,  but  rather for a  boundary  guarantee.   A
+future seller of gold might want a guarantee that the  sales
+price  will not fall beyond a minimum level below  which  he
+could  not  tolerably live, but otherwise prefer  to  remain
+unhedged in hopes the market price will rise.  Similarly,  a
+future  gold  buyer  might look for  a  guarantee  that  the
+purchase  price  will  not rise above  a  tolerable  maximum
+level, but otherwise prefer to remain unhedged in hopes  the
+market price will fall.
+<p align=justify> 
+
+      What can be said of the gold price can be said of gold
+interest  rates.  A future borrower of gold might  look  for
+insurance  that  the borrowing rate will not  be  too  high,
+while a future lender of gold might look for insurance  that
+the  lending  rate will not fall below a level  yielding  an
+acceptable return.
+<p align=justify> 
+
+      The  gold  market creates and sells such <b><i>guarantee</i></b>  or
+<b><i>insurance</i></b>  contracts.  In the financial literature  (and  in
+the  market), these same contracts are also called  <b><i>options</i></b>.
+Naturally   the  market  does  not  provide  such  insurance
+contracts  for free.  Like anything else, they are available
+for  a  price.  The price or amount paid for an  option  (or
+guarantee or insurance) is called the <b><i>premium</i></b>. Options trade
+over-the-counter  and  at organized securities  and  futures
+exchanges.
+<p align=justify> 
+
+      Just as there are natural buyers of insurance, such as
+gold   mining  companies,  there  are  natural  writers   of
+insurance.  Central banks with large holdings of  gold  have
+written  thousands of options over the past  decade.   Along
+with gold lending, this activity provides an income  to
+the banks even when the gold price does not move much.
+<p align=justify> 
+
+      Options  have  the  mystique of being  a  very  arcane
+subject.   But  there  is nothing terribly  difficult  about
+them,  really.  All that you need to know about options  can
+be  gotten by thinking through the consequences of the terms
+of  the  options contracts themselves.  The option  mystique
+comes  from the use of a not-commonly-understood  branch  of
+mathematics  called stochastic calculus in  order  to  price
+them  mathematically,  and  to  produce  numerical  computer
+programs  to  generate prices and associated statistics  for
+trading  and  risk-management  purposes.   But  those   same
+traders and risk-managers who use the output of the programs
+rarely know anything about stochastic calculus.  It's simply
+not necessary for understanding options.
+<p align=justify> 
+
+<h3 align=center>Option Terminology</h3>
+<p align=justify> 
+
+     Options  are  usually classified according  to  whether
+they  are options to buy (<b><i>calls</i></b>) or options to sell  (<b><i>puts</i></b>),
+and according to whether they can be used only on a specific
+date  (<b><i>European</i></b>)  or at any time prior to  a  specific  date
+(<b><i>American</i></b>).  The  terms "European" and "American"  refer  to
+<i>types</i>   of   options  and  have  nothing  to  do  with   the
+geographical  location of trading or  the  manner  in  which
+prices  are  quoted. We will divide gold  options  into  two
+further  categories: options on spot gold,  and  options  on
+gold futures.
+<p align=justify> 
+
+<h3 align=center>Options on Spot Gold</h3>
+<p align=justify> 
+
+     An <i>American gold call</i> is a contract between a buyer and
+a writer whereby the call buyer pays a price (the "premium")
+to  the  writer in order to acquire the right, but  not  the
+obligation, to purchase a given amount ("size") of gold from
+the  writer at a purchase price (the "exercise" or  "strike"
+price) stated in terms of a (usually) fiat currency,  on  or
+before  a stated date (the "expiration" or "maturity" date).
+For  example, a call option on gold might give one the right
+to purchase two tons of gold of .995 fineness at $310/oz. on
+or at any time before the third Wednesday in December 1999.
+<p align=justify> 
+
+     An  <i>American gold put</i> is similar, except that it  gives
+the  right to sell a given amount of gold. For example, such
+a put option might give one the right to sell 40,000 ozs. of
+gold  of  .9999 fineness for $285/oz. on or before June  13,
+2000.
+<p align=justify> 
+ 
+     A  <i>European</i> option differs from an American  option  in
+that it may be exercised (used) only on the expiration date.
+If  the  call  option  in  the  penultimate  paragraph  were
+European, then it could be exercised only on, but not  prior
+to,  the third Wednesday in December 1999. If the put option
+in  the  preceding  paragraph were  European,  it  could  be
+exercised only on June 13, 2000.
+<p align=justify> 
+ 
+     There are two sides to every option contract. There  is
+the  <i>buyer</i> of the option, who <i>purchases the right</i> either  to
+buy  (call) or sell (put) the asset contained in the  option
+contract,  and there is the <i>writer</i> of the option, who  <i>sells
+the  right</i> either to buy or sell the asset contained in  the
+option  contract. The buyer of an option on  spot  pays  the
+price  (or <i>premium</i>) of the option up front, and subsequently
+has  the  right  to exercise or not to exercise  the  option
+contract.  For  example,  the buyer  might  pay  $20,000  to
+purchase a put that allows the buyer to sell 25,000 ozs.  of
+gold at a strike price of $280/oz. The other side of the put
+contract  is  the  writer who sells this right.  The  writer
+receives  the $20,000 premium the buyer pays.  Then  if  the
+buyer  decides to exercise the right to sell 25,000 ozs.  of
+gold,  the writer has to purchase the gold at $280/oz.  from
+the  buyer  of  the  put option. The  buyer  might  be,  for
+example, a Nevada gold-mining company and the writer a  U.S.
+bank.  If  the bank writes the put to the company, and  then
+the  company exercises its right to sell gold at the  strike
+price of $280/oz., the bank has to accept the 25,000 ozs. of
+gold and pay the company $7,000,000 in return.
+<p align=justify> 
+
+<h3 align=center>Options on Gold Futures</h3>
+<p align=justify> 
+
+     Options on gold futures contracts, such as those traded
+at  the  COMEX Division of the New York Mercantile Exchange,
+are somewhat different from options on spot gold. A <i>call  on
+gold  futures</i>  is a contract between a buyer  and  a  writer
+whereby  the  call buyer pays a price (the premium)  to  the
+writer   in  order  to  acquire  the  right,  but  not   the
+obligation,  to  go  <i>long</i>  an exchange-traded  gold  futures
+contract  at an opening price (the strike price)  stated  in
+terms  of a fiat currency. If the buyer of a call on futures
+exercises  his  or her right to go long a futures  contract,
+the writer of the option must go short the futures contract.
+A <i>put on gold futures</i> similarly gives the right to establish
+a  <i>short</i>  position in an gold futures contract  at  a  price
+given by the exercise price of the option. If the buyer of a
+put  on  futures exercises his or her right to  go  short  a
+futures contract, the writer of the option must go long  the
+futures contract.
+<p align=justify> 
+
+     (For credit purposes, the futures clearinghouse becomes
+the  effective  counterparty in all futures  option  trades.
+The  clearhouse in effect becomes the writer to every option
+buyer, and the buyer to every option writer.  But this  does
+not  change  any  of the contractual obligations  associated
+with  an option.  In particular, the clearinghouse does  not
+itself  exercise long option positions. If the holder  of  a
+long  option  (put  or  call)  exercises  the  option,   the
+clearinghouse  picks someone who is short  the  same  option
+contract to meet the contractual obligation.)
+<p align=justify> 
+
+      All currently traded options on gold futures contracts
+are  American in type, and can be exercised on any  business
+day  prior  to  expiration. For  example,  if  you  have  an
+American  call on December gold futures with a strike  price
+of  $280/oz.  and the current futures price is  $283.50/oz.,
+exercising the option will give you a long position  of  one
+December  gold futures contract at an opening futures  price
+of  $280/oz. Since the current futures price is $283.50/oz.,
+the value of this futures position is
+<p> 
+
+ $283.50/oz. - $280/oz. = $3.50/oz.
+<p align=justify> 
+
+This  profit can be realized immediately by closing out  the
+futures  position (going short to offset), or by withdrawing
+the  cash  from the account (if futures margin  requirements
+are otherwise already met).
+
+<h3 align=center>Definition Summary</h3>
+<p align=justify> 
+
+ At   this  point  a  short  summary  of  the  basic  option
+ definitions might be useful:
+<blockquote>
+<p align=justify>
+
+1. There  are two sides to each option contract--the
+   buyer  who  obtains the option right to exercise,
+   and the writer who issues this right.
+<p align=justify> 
+
+2. From the buyer's perspective, a call is an option
+   to  buy  or go long, while a put is an option  to
+   sell or go short.
+<p align=justify> 
+
+3. From  the  writer's perspective,  a  call  is  an
+   obligation to sell or go short (if the call buyer
+   exercises), while a put is an obligation  to  buy
+   or go long (if the put buyer exercises).
+<p align=justify> 
+
+4. An  option on spot gold involves an up-front cash
+   payment  of  the premium from the  buyer  to  the
+   writer, and in addition a subsequent exchange  of
+   gold  for  a fiat currency if the buyer exercises
+   the option.
+<p align=justify> 
+
+5. An option on futures involves an up-front cash
+   payment of the premium from the buyer to the
+   writer, and in addition a subsequent futures
+   position in which the buyer and writer are on
+   opposite sides if the buyer exercises the option.
+<p align=justify> 
+
+6. Any of these options can be American or European.
+   The  option  is  European  if  it  can  only   be
+   exercised  on the final day, the expiration  day.
+   An  American option can also be exercised on  any
+   business day prior to expiration.
+</blockquote>
+<p align=justify>
+
+
+<h3 align=center>Gold Options as Insurance</h3>
+<p align=justify> 
+
+      Let's look at the use of gold options for hedging from
+the  point  of view of an option buyer. For the  moment,  we
+will simply treat options as contracts that are available to
+the  buyer  or  the  writer  at a  market-determined  price,
+without  concerning ourselves with the separate question  of
+what the fair value (fair to both the buyer and writer) of a
+gold option is.
+<p align=justify> 
+
+     For  the purpose of hedging, gold options can be viewed
+as price insurance. Consider how insurance works in general.
+Suppose  you  buy  fire insurance on a $100,000  house.  You
+insure  the  house for its full value of $100,000,  and  the
+insurance is good for one year. If, by the end of the  year,
+your  house has not been damaged by fire, the insurance will
+have  proved worthless. You throw away the unused  insurance
+policy.  Your total cost has been the cost of the  insurance
+premium.  On the other hand, suppose that fire does  $40,000
+worth  of  damage to your house. In this case,  you  have  a
+$40,000  loss.  But  the  insurance  policy  pays  off   the
+difference  between  the amount of the insurance  ($100,000)
+and the current value of the insured asset ($60,000), making
+up  exactly  the  amount of your loss ($40,000).  Thus  your
+total  loss is zero, except again for the insurance premium,
+which you pay in any case.
+<p align=justify> 
+ 
+     An  option works in the same way. Suppose you buy a put
+option  on the value of a house. In particular, suppose  the
+strike  price of the put is $100,000. That is, it gives  you
+the  right  to  sell  the house for  $100,000.  You  buy  an
+American  put (so that it can be used at any time),  and  it
+expires in one year. If the market value of the house  stays
+at  $100,000  or  greater for the year, there  would  be  no
+advantage  in exercising the put. Thus the put would  expire
+worthless.  You would throw it away rather than  use  it  to
+your disadvantage.
+<p align=justify> 
+
+      But if, because of fire or for some other reason,  the
+value  of  the house dropped to $60,000, you could  exercise
+the  put  and sell the house for $100,000. The put has  then
+served as insurance. It paid off the difference between  the
+strike  price ($100,000) and the current value of the  house
+($60,000),  thus  making  up  the  entire  loss   in   value
+($40,000). In any case, whether or not the house lost value,
+you pay the cost of the put. The price paid for an option is
+(conveniently)  referred to in the  options  market  as  the
+premium  and is analogous to an insurance premium.  Overall,
+then,  the put serves as an insurance policy. (Or,  as  some
+prefer to say, insurance itself is just a put option.)
+<p align=justify> 
+
+     Let's  extend  the  analogy  to  deductible  insurance.
+Suppose  that, instead of insuring your house for  $100,000,
+you  insured it for $80,000. In this case if your  house  is
+damaged by fire, you will have to bear the loss of the first
+$20,000. On the other hand, the insurance premium on $80,000
+will  be less than the premium on $100,000, so that you  may
+be willing to trade off the greater risk of loss in the case
+of  fire with the lower fixed cost of the insurance premium.
+In  the same way, if you purchased a put option on the house
+with a strike price of $80,000 instead of a strike price  of
+$100,000, the premium (purchase price) of the put  would  be
+lower.  But  the insurance level of the put will  be  lower,
+because it will only pay to exercise the put if the value of
+the  house  falls below $80,000. Thus, buying a  put  option
+with  a  strike price that is lower than the current  market
+value  of  the  asset  involved is  like  buying  deductible
+insurance. Whether you like deductible insurance depends  on
+your  attitude to trading off lower insurance premiums  with
+the risk of greater loss in the event disaster strikes.
+<p align=justify> 
+ 
+     Both  options on spot gold and options on gold  futures
+can  be  considered types of insurance against adverse  gold
+price  movements.  Options on spot gold represent  insurance
+bought  or written on the spot price, while options on  gold
+futures represent insurance bought or written on the futures
+price (which, as we saw in earlier parts of this series,  is
+equivalent to the forward price).
+<p align=justify> 
+ 
+<h3 align=center>Floors and Ceilings</h3>
+<p align=justify> 
+ 
+     An individual with gold to sell can use put options  on
+spot  gold  to establish a floor price on the fiat  currency
+value  of gold. For example, a put option on 1 oz.  of  gold
+with an exercise price of $300/oz. will ensure that, in  the
+event  the value of gold falls below $300/oz., the 1 oz.  of
+gold  can  be  sold for $300/oz. anyway. If the  put  option
+costs  $3/oz., this floor price can be roughly  approximated
+as
+<p>
+ $300/oz. - $3/oz. = $297/oz.,
+<p align=justify> 
+
+or  the  strike  price minus the premium. That  is,  if  the
+option  is used, you will be able to sell the 1 oz. of  gold
+for  the $300/oz. strike price, but in the meantime you have
+paid  a premium of $3/oz.. Deducting the cost of the premium
+leaves  $297/oz.  as  the  floor price  established  by  the
+purchase  of  the put. (This ignores fees and interest  rate
+adjustments.)
+<p align=justify> 
+
+     Similarly,  an individual who has to buy gold  at  some
+point  in  the future can use call options on spot  gold  to
+establish  a ceiling price on the fiat currency amount  that
+will  have  to be paid to purchase the gold. For example,  a
+call option on 1 oz. with an exercise price of $305/oz. will
+ensure  that,  in  the event the value of gold  rises  above
+$305/oz.,  the 1 oz. can be bought for $305/oz.  anyway.  If
+the  call  option costs $1/oz., this ceiling  price  can  be
+approximated as
+<p> 
+
+ $305/oz. + $1/oz. = $306/oz.,
+<p align=justify> 
+
+or the strike price plus the premium. To summarize these two
+important points involving gold puts and calls:
+<p align=justify> 
+
+1.  Gold <i>put</i> options can be used as insurance to establish a
+ <i>floor on the fiat currency value</i> of gold. This floor
+ price is approximately
+<p> 
+
+<b>  Floor price = Exercise price of put - Put premium.</b>
+<p align=justify> 
+
+2. Gold <i>call</i> options can be used as insurance to establish a
+ <i>ceiling  on  the fiat currency cost</i>  of  gold.  This
+ ceiling price is approximately
+<p>
+
+<b>   Ceiling price = Exercise price of call + Call premium.</b>
+<p align=justify> 
+
+These calculations are only approximate for essentially  two
+reasons.  First, the exercise price and the premium  of  the
+option  on  spot  gold cannot be added directly  without  an
+interest rate adjustment. The premium will be paid  now,  up
+front,  but  the exercise price (if the option is eventually
+exercised) will be paid later. The time difference  involved
+in  the  two  payment amounts implies that one  of  the  two
+should  be  adjusted  by an interest  rate  factor.  Second,
+especially in the case of exchange-traded options, there may
+be  brokerage or other expenses associated with the purchase
+of  an  option, and there may be an additional  fee  if  the
+option is exercised.
+<p align=justify> 
+
+<h3 align=center>Over-the-Counter Options</h3>
+<p align=justify> 
+
+      Gold options are dealt over-the-counter in the form of
+a  two-way  price: a bid price at which the option  will  be
+purchased,  and an asked price at which the option  will  be
+sold.  At the time an option is dealt, the following must be
+specified in addition to the premium or cost of the option:
+<p>
+<menu>
+<li>whether the option is a put or call
+<li>the strike (exercise) price of the option
+<li>the date the option expires
+<li>the principal amount of the option (number of oz. of gold)
+<li>whether the option is American or European.
+</menu>
+<p align=justify>
+
+There are four dates associated with each option.  The first
+of  these is the <i>contract</i> date, which is the date the option
+is  traded  or dealt.  Since the option premium  and  strike
+price  are  agreed at this time, the option is  actually  in
+existence  as  of  this  date.   The  next  is  the  <i>premium
+settlement</i>  date,  which is the date the option  premium  is
+actually paid.  This is typically two working days after the
+contract  date--following the two-day settlement  convention
+in  the  foreign exchange market.   The next date is  <i>option
+expiration</i>, which is the final date on which the option  may
+be  exercised--the day the insurance runs out.   The  fourth
+date is the <i>option settlement</i> date, which again is typically
+two  working days after the option expiration date.   If  an
+option  is exercised on the expiration date, then  gold  and
+cash  will  exchange hands two working  days  later  on  the
+option  settlement  date.   In  the  event  the  option   is
+American,  and thus can be exercised prior to the expiration
+date, option settlement will be two business days after  the
+option is exercised.
+<p align=justify> 
+
+      Options  are  typically traded over-the-counter  on  a
+month  basis.  Thus, an "April" option will mean  an  option
+whose settlement date is the last trading day in April.  The
+expiration day of the option will be two business days prior
+to  the last trading day.  Such options are traded for every
+calendar  month.  (Frequently a company will  want  a  price
+quotation on a strip of options; for example, a strip of  24
+puts, one put for each month in the next two years.)
+<p align=justify> 
+
+     Let's look at a simple example.
+<p>
+<h3 align=center>Example 6.1</h3>
+<p align=justify> 
+
+      A  gold refiner wants a 290 November European  put  on
+24,000 ozs. of gold.  The marketmaker gives a quote of 2.20-
+2.60.   This  quotation is in U.S. dollars per  ounce.   The
+first price, $2.20/oz., is the premium that the refiner will
+receive if he sells the put, while $2.60/oz. is the price he
+will  pay if he purchases the put.  The strike price of  the
+option is $290/oz.  The refiner buys the put for $2.60.
+<p align=justify> 
+
+      In  two  business  days,  the  refiner  will  pay  the
+marketmaker the option premium.  The premium amount is
+<p>
+     24,000 oz. x $2.60/oz. = $62,400.
+<p align=justify> 
+
+Since the option is European, nothing more will happen until
+option  expiration in November, which is two  business  days
+prior to the last trading day.
+<p align=justify> 
+
+     Note,  however, that the refiner has assured  that  the
+selling price for gold will not be less than
+<p>
+ $290/oz. - $2.60/oz. = $287.40/oz.
+<p align=justify> 
+ 
+The  number  $287.40/oz. is the refiner's floor  price.  The
+refiner  is assured he will not receive less than this,  but
+he  could  receive more. The price the refiner will actually
+receive  will depend on the spot gold price on the  November
+expiration  date.  To illustrate this, we can  consider  two
+scenarios for the spot price of gold.
+<p align=justify> 
+
+<b>Case A</b>
+<p align=justify> 
+
+      Spot  gold on the November expiration date is $296/oz.
+The  refiner would not use the put option (which has a  $290
+strike  price) but would sell gold spot at the higher market
+rate  of  $296/oz.   (Settlement will take  place  two  days
+later.)
+<p align=justify> 
+
+The total amount received per oz. of gold, once we subtract
+the cost of insurance, is
+<p>
+ $296 - $2.60 = $293.40.
+<p align=justify> 
+
+The  $2.60/oz. that was the original cost of the put  turned
+out in this case to be an unnecessary expense.
+<p align=justify> 
+ 
+Now,  to  be strictly correct, a further adjustment  to  the
+calculation  should  be made. Namely,  the  $296  and  $2.60
+represent cash flows at two different times. Thus, if  x  is
+the  amount of interest paid per dollar over the time period
+to end November, the proper calculation is
+<p>
+ $296 - $2.60(1 + x).
+<p align=justify> 
+
+<b>Case B</b>
+<p align=justify> 
+             
+      The spot rate on the November payment date is $284/oz.
+The  refiner can either exercise his option or sell it  back
+to  the  marketmaker for its market value of $6/oz. Assuming
+the  refiner  exercises the option, he sells 24,000  oz.  of
+gold for
+<p>
+ ($290/oz.)(24,000 oz.) = $6,960,000.
+<p align=justify> 
+ 
+Subtracting the premium paid earlier, the net amount is
+<p> 
+ $6,960,000 - $62,400 = $6,897,600 .
+<p align=justify> 
+
+ This, of course, works out to be $287.40/oz., the floor
+ price established by the option.  (Here we have ignored
+ the interest opportunity cost on the $62,400 premium.)
+<p align=justify> 
+                              
+<h3 align=center>Writing Gold Options</h3>
+<p align=justify> 
+
+      The writer of a gold option on spot or futures is in a
+different  position from the buyer of one of these  options.
+The buyer pays the premium up front and afterward can choose
+to  exercise the option or not. The buyer is not a source of
+credit risk once the premium has been paid. The writer <i>is</i>  a
+source  of  credit  risk, however, because  the  writer  has
+promised  either  to  sell  or to  buy  gold  if  the  buyer
+exercises  his  option.  The writer  could  default  on  the
+promise  to  sell gold if the writer did not have sufficient
+gold  available, or could default on the promise to buy gold
+if the writer did not have sufficient cash available.
+<p align=justify> 
+
+      If  the  option  is written by a bank,  this  risk  of
+default  may  be  small, depending on which  bank  in  which
+country. But if the option is written by a company, the bank
+may require the company to post margin or other security  as
+a  hedge  against default risk. For exchange-traded options,
+as  noted  previously, the relevant clearinghouse guarantees
+fulfillment  of  both  sides of  the  option  contract.  The
+clearinghouse covers its own risk, however, by requiring the
+writer  of  an  option to post margin.  At  the  COMEX,  for
+example,  the  clearinghouse will allow  a  writer  to  meet
+margin  requirements  by  having the  actual  gold  or  U.S.
+dollars  on deposit, by obtaining an irrevocable  letter  of
+credit  from  a suitable bank, or by posting margin  in  the
+form of Treasury securities.
+<p align=justify> 
+
+     From  the  point  of view of a company  or  individual,
+writing  options  is a form of risk-exposure  management  of
+importance  equal  to that of buying options.  It  may  make
+perfectly good sense for a company to <i>sell</i> gold insurance in
+the form of writing gold calls or puts. The choice of strike
+price  on a written option reflects a straightforward trade-
+off.  Gold  call options with a lower strike price  will  be
+more  valuable than those with a higher strike price.  Hence
+the   premiums   the   option  writer   will   receive   are
+correspondingly  larger. However, the probability  that  the
+written calls will be exercised by the buyer is also  higher
+for  calls with a lower strike price than for those  with  a
+higher  strike.  Hence the larger premiums received  reflect
+greater risk taking on the part of the insurance seller (the
+option writer).</p>
+<br><center>
+<b><i>(to be continued)</i></b></center>
+</td></tr></table></center> 
+<br><b><center>
+This article appeared in the <i>Laissez Faire City Times</i></a>, Vol 2, No 26. </center>
+<h4 align="center"><a href="gold_index.htm">Return to Gold Index</h4>
+<h4 align="center"><a href="homepage.html">Return to Home Page</h4>
+</b>
+</body>
+</html>

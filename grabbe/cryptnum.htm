@@ -1,0 +1,1752 @@
+<HTML><BODY><BASEFONT SIZE=3><FONT SIZE=+0></FONT>         
+<FONT NAME="Times New Roman" SIZE=+3>         
+<b><center>Cryptography and Number Theory for Digital Cash</center></b><p>           
+<p>        
+<FONT NAME="Times New Roman" SIZE=+2>         
+<b><center><i> by J. Orlin Grabbe</i></center></b>        
+<p>        
+<FONT NAME="Times New Roman" SIZE=+1>         
+<hr>       
+<blockquote><i>Note:  In order to read the following text properly, your web browser      
+must be able to handle subscripts and superscripts; i.e. the html commands “sub” and      
+“sup”. These commands are used sparingly, but they are used. </i></blockquote>      
+<hr>       
+<p>       
+The ability to attack or misuse a digital cash system depends a lot on the cryptography  
+and  cryptographic protocols involved.  A good cash system uses good cryptography.   
+Good cryptography requires strong algorithms, keys of  adequate length, and secure key         
+management.  Without these, there can be little  privacy.        
+<p>           
+A good cash system uses good protocols.  The digital cash system of Stefan Brands, for  
+example, is largely based on digital signatures--the Schnorr  signature scheme, in  
+particular. The system, properly  implemented, is thus only as secure as the underlying  
+signature system. If there are flaws in the latter, the attractive features of anonymous  
+digital cash disappear also--features like untraceability, unlinkability, and security for all  
+parties.         
+<p>           
+If we are looking  for privacy and security in banking, we can't ignore cryptography and  
+we can't ignore mathematics.  The ability of digital cash systems to give some measure of  
+security and privacy has more to do with number theory than banking regulations.         
+<p>          
+</FONT><FONT NAME="Times New Roman" SIZE=+2>           
+<b>A.  Some  Preliminary Definitions</b><p>           
+</FONT><FONT NAME="Times New Roman" SIZE=+1>        
+	<b><i>Encryption</b></i> is the process of transforming data or a message into         
+some  unintelligible form, but in such a way that the transformation is reversible, so that it         
+is  possible to restore the original data or message.  The process of encryption involves         
+some  recipe, or set of instructions, which gives the step-by-step procedure for         
+transforming the  data.  This recipe is called an <b><i>algorithm</b></i>.  An encryption         
+algorithm must  be associated with a reverse procedure that restores the original message.          
+The reverse  process is called <b><i>decryption</b></i>.  Taken together, the techniques         
+of  encryption and decryption are called <b><i>cryptography</i>.</b>        
+<p>           
+Algorithms--such as  DES or RSA--are, in general, publicly known.  This has the         
+advantage that any  weaknesses in an algorithm can be found by researchers. Any attempt         
+at "security through obscurity", by keeping an algorithm secret, is usually self-defeating,         
+because it will most likely simply mask weaknesses in the algorithm itself which could be         
+exploited by anyone who has figured out what the algorithm is. But when a good         
+publicly-known algorithm is  used, security depends on the length of the         
+<b><i>key</b></i>, which may be thought of  as a string of 0s and 1s used in the         
+algorithm to transform the data.          
+<p>           
+One example of a key  transformation is in connection with the <b>XOR function</b>         
+used in binary arithmetic.  The XOR function follows these rules of binary addition:        
+<p><center>           
+0 + 0 = 0  <br>         
+0 + 1 = 1  <br>         
+1 + 0 = 1  <br>         
+1 + 1 = 0          
+<p></center>           
+Because these  addition rules are different than those in ordinary arithmetic (in particular         
+the rule that  says 1+1 = 0), we will use <b> “+” to denote XOR addition</b>.  Using         
+XOR addition,  any string of zeros and ones can be used as a key to encrypt and decrypt         
+data.  Suppose  we have a "message" which is a string of four binary digits, <b>M</b> =         
+1011.  Suppose we also have a four digit key <b>k</b> = 1010.  We can now encrypt the         
+message  <b>M,</b> using the key <b>k</b>, by adding the two of them to get <b>C =         
+M “+” k</b>:        
+<p><center>           
+<table border><tr  valign=top><td>M:</td><td>1011</td></tr>        
+<tr valign=top>  <td>k:</td><td>1010</td></tr>        
+<tr valign=top>  <td>C:</td><td>0001</td></tr></table>        
+<p></center>           
+The encrypted  message <b>C</b> is 0001.  Anyone looking at this value will not know         
+the original  message <b>M</b>, because it could have been any one of sixteen possible         
+combinations  of four zeros or ones.         
+<p>           
+But, knowing  the key, it is easy to restore the original message.  All we have to do is add         
+the key  <b>k</b> to the encrypted message <b>C</b>, following the XOR rules of         
+addition, and  we are left with the original message <b>M</b>:        
+<p><center>           
+<table border><tr  valign=top><td>C:</td><td>0001</td></tr>        
+<tr valign=top>  <td>k:</td><td>1010</td></tr>        
+<tr valign=top>  <td>M:</td><td>1011</td></tr></table>        
+<p> </center>          
+In general, <b>M  = (M “+” k) “+” k.  </b>Performing an XOR addition with the         
+same key (or similar block of  data) twice restores the original message.          
+<p>           
+Security depends on  the length of the key <b>k</b>.  Here there are sixteen possible         
+keys of length four.  The  first binary digit can be either zero or one, so there are 2         
+possibilities.  The second digit  can also be either of two values, so there are 2x2 = 4         
+possible keys of length two.  There  are 2x2x2 = 8 possibilities for a key of length three.          
+A key of length four has sixteen  possibilities.  Sixteen is 2 to the 4th power.  In general,         
+for a key of length <b>N</b>,  there are 2 to the <b>N</b>th power (2^<b>N</b>)         
+possible keys.  	         
+<p>           
+Commercial DES  uses keys of length 56, so the key space has 2^56 (2 to the 56th power)         
+possibilities.  As  large as this key space is, it is no longer large enough for security, given         
+current  techniques of cryptanalysis.  It is even possible to mount a <b><i>"brute         
+force"</b></i>  attack on a message.  A brute force attack is one that simply tries out         
+every possible key.   On the other hand, a key space of 2^128 is quit secure--at least with         
+respect to a brute  force attack.  A key space of 2^128 is 2^72 times as large as the         
+common DES key space  of 2^56.        
+<p>           
+XOR addition is  used in two DES encryption modes.  <b><i>Electronic code-book        
+</b></i> (ECB) mode encrypts each 64-bit text block individually.  Two other, more        
+secure, modes,  however, make each encryption block dependent on each of the preceding        
+text blocks.  <b><i>Cipher Block Chaining</b></i> (CBC) is a mode of DES encryption         
+in which the current 64-bit plaintext block is XORed with the previous cipherblock         
+<i>before</i>  encryption with the 56-bit DES key <b><i>k</b></i>.  If C(t) is the         
+<b><i>t</b></i>-th  64-bit cipher block, and M(t) is the current 64-bit message block,         
+then in CBC,         
+<p>           
+<b>C(t) =  E<i><sub>k</sub></i>(M(t) “+” C(t-1))</b>.  		<b>(CBC)</b>        
+<p>           
+<b><i>Cipher  Feedback</b></i> (CFB) is a mode of DES encryption in which each        
+plaintext block is   XORed with the previous cipherblock text <i>after</i> the latter is        
+encrypted with the 56-bit DES key. In CFB,         
+<p>           
+<b>C(t) =   M(t) “+” E<i><sub>k</sub></i>(C(t-1))</b>.                   <b>(CFB)</b>       
+<p>           
+(The block sizes can  be smaller than 64-bits in CFB.)        
+<p>           
+The key   <b>k</b> used in the previous XOR example was <b><i>symmetric</b></i>.         
+The same key was used to encrypt and decrypt.  DES and IDEA are two well-known        
+symmetric key   algorithms.  Symmetric key algorithms tend to be somewhat ad hoc--       
+clever cookbook recipes that work.  <a name="publickey"><b><i>Public key</b></i></a>, or        
+<b><i>asymmetric</b></i>, systems,           
+by contrast, use two different keys for encryption and decryption.  RSA is a well-known           
+asymmetric system.  Public key systems are typically based on relationships from number           
+theory, and the process of encryption works by raising the message <b>M</b> to some           
+power <b>a</b>:  <b>C = M^a</b>.  Decryption works by raising the encrypted message           
+<b>C</b> to another power <b>b</b>:  <b>M = C^b</b>.  The first key, or power,           
+<b>a</b> will be known to everyone--hence it is called a <b><i>"public" key</b></i>--          
+while the key <b>b</b> will be kept secret by the user--hence it is called a           
+<b><i>"secret" or "private" key</b></i>        
+<p>           
+</FONT><FONT NAME="Times New Roman" SIZE=+2>        
+<b>B.  Some Preliminary  Mathmatical Notation</b><p>           
+</FONT><FONT NAME="Times New Roman" SIZE=+1>         
+A message to be  encrypted or sent will be generally denoted as <b>M</b>.  Remember         
+that, to the  computer, the string of 1s and 0s that make up <b>M</b> can be treated as a         
+binary  number, whether <b>M</b> is “I love you” or “You owe me $500” or “Bank         
+number  437695B.”  Encryption may involve raising this number to a power. The notation           
+<b>E(x)</b> will denoted an <i>encryption</i> algorithm or function,        
+while  <b>D(x) </b>will denote a <i>decryption</i> algorithm or        
+function.  An   encrypted message would thus be designated as <b>E(M), </b>while a        
+decryption of this  encrypted message would be shown as <b>D(E(M)).  </b>Of course        
+this latter term is   just the original message, so <b>D(E(M)) = M.  </b> If a message is        
+encrypted or  decrypted using the symmetric key <b><i>k</b></i>, then the notation           
+<b>E<i><sub>k</i></sub>(x) </b>or <b>D<i><sub>k</i></sub>(x)</b> will be used.        
+If  a public-key system is involved, then the public key will be denoted       
+<b><i>pk</b></i>, while the private (secret) key will be  denoted <b><i>sk.</b></i>            
+<p>           
+In a symmetric   encryption system,        
+<b>D<i><sub>k</i></sub>(E<i><sub>k</i></sub>(M)) = M</b>, because the same key        
+is used to decrypt the message  that was used to encrypt it.  In a public-key system, one        
+key must be used to encrypt and the other to decrypt.  Hence        
+<b>D<i><sub>sk</i></sub>(E<i><sub>pk</i></sub>(M)) = M</b> and also           
+<b>D<i><sub>pk</i></sub>(E<i><sub>sk</i></sub>(M)) = M.</b> In the first case, the        
+message is encrypted with Alice's public key, then decrypted  by Alice using her secret        
+key.  In the second case, common in digital signatures, Alice  encrypts the message with        
+her secret key, and then it is decrypted by someone else using Alice's public key.       
+<p>           
+The sign   “<b>^</b>” will be used to mean “raised to the power of”; for example,       
+<b>2^3 = 8</b>, since 2 raised to the power of 3 equals 8.  (Note that in the computer       
+language Fortran,  <b>b^y</b> would be written <b>b**y</b>.)  A single  <b>*</b>, by       
+contrast,<b> </b>denotes   multiplication:  “three times <b>b</b> equals 12” would be       
+written   “<b>3*b = 12</b>”, or perhaps simply as “<b>3b = 12”</b>.  The notation         
+<b>log_b (y)</b> will denote the logarithm of <b>y</b> with respect to base <b>b.</b>           
+For example, <b>log_2 (8) = 3</b>, since the logarithm of 8 (to the base 2) is 3.        
+<p>           
+Finally, <b>mod p</b> will denote “arithmetic done modulo <b>p</b>”.  <b>By this we       
+will  mean "divide by p, and keep the remainder r, 0&lt;= r &lt; p."  </b>      
+<p>           
+Modulo 3, for    example, will divide any positive whole number by 3, and take the       
+remainder (which will    be either 0, 1, or 2).  For example, <b>7 mod 3 = 1</b>, since 3       
+goes into 7 twice, with 1 left over.  The number we divide by (3, in this example) is called       
+the "modulus".     Similarly, <b>62 mod 25 = 12</b>.  That is, when 25 is the modulus,       
+62 = 25*2 + 12 = 12.  But if 3 were the modulus, 62 = 3*20 + 2 = 2.        
+<p>           
+In general, we will write   <b>a = b  mod n</b>, meaning that <b>a mod n = b mod      
+n</b>.        
+<p>           
+For example, 67 = 11  mod 7, because 67 mod 7 = 4 and also 11 mod 7 = 4.  Hence       
+<p>           
+<b>a</b>= <b>b</b> mod <b>n</b> <p>           
+<p>           
+means for some integers           
+<b>k1</b> and <b>k2</b>,<p>           
+<p>           
+<b>a</b> = <b>k1</b>*<b>n</b> + <b>r</b>  (0&lt;= <b>r</b> &lt; <b>n</b>)<br>           
+<b>b</b> = <b>k2</b>*<b>n</b> + <b>r</b> .       
+<p>           
+Hence also<p>           
+<b>a - b</b> = (<b>k1-k2</b>)<b>*n</b>,          
+<p>           
+so that <b>n</b> divides into           
+<b>a-b</b> a whole number of  times (namely, <b>k1-k2</b> times).  Restated,           
+“<b>n</b> divides <b>a-b</b>”, which may also be written <br>
+“<b>n</b>|<b>(a-b</b>)” .<p>           
+<p>           
+Thus, in the previous  example,<p>           
+<p>           
+67 = 11 mod 7<p>           
+<p>           
+means for integers           
+<b>k1</b> = 9 and <b>k2</b> = 1,       
+<p>           
+67 =  9*7 + 4  (0&lt;= 4 &lt; 7)<br>           
+11 =  1*7 + 4 .<p>           
+<p>           
+Hence also <p>           
+67-11  = (<b>k1-k2</b>)*7 = (9-1)*7 = 8*7,       
+<p>           
+so that 7 divides into 67<b>- </b>11 a whole number of times (8 times).  We could also       
+write 7|(67-11) or 7|56.<p>           
+<p>           
+If we do calculations           
+this way, using whole numbers, dividing by the modulus, and throwing away everything           
+except the remainder, we are doing <b><i>modular arithmetic</i>.  </b>Most computers           
+are not constructed to do modular arithmetic very well, because they aren't set up to keep           
+track of whole numbers beyond a certain length:  they would much rather stick in a           
+decimal point somewhere, and keep track of only a few numbers (floating point           
+arithmetic).  Consider, for example, 3.7B3579D4F6821 x 16^73.   This is a very           
+large number, but the computer essentially just keeps track of 16 hexadecimal numbers           
+(64 bits): namely 3,7,B,3,5,7,9,D,4,F,6,8,2,1 and the digits in the power: 7 &amp; 3.  But           
+public key cryptography may use &quot;keys&quot; whose length is 2048 bits or more.            
+Therefore most computer implementations of public key cryptography involve computer           
+software which works around the hardware limitations, or else use specially constructed           
+cryptographic chips.<p>           
+<p>           
+Remember also that   by convention exponentiations take place before multiplications.        
+Hence 3*5^2 = 3*25 =  75.  But (3*5)^2 = 15^2 = 225.  Note also that (3*5)^2 = 3^2*5^2       
+= 9*25 = 225.  That is,  in general, <b>(x*y)^z = x^z*y^z</b>.      
+<p>           
+<FONT NAME="Times New Roman" SIZE=+2>      
+<b>C.  Modular Arithmetic and the Groups Z(p)* and G(q).</b><p>       
+<FONT NAME="Times New Roman" SIZE=+1>           
+In most of the  calculations involving public key cryptography and digital cash, we will be       
+dealing with the <i>set of integers</i> from 0 to <b>p</b>-1, where <b>p</b> is some       
+large <b>prime</b>.  This follows from the fact that we will be doing multiplication       
+<b>mod  p</b>.  We will also be using a <i>set of integer powers</i> from 1 to       
+<b>q</b>, where  <b>q</b> is some large prime number that divides <b>p</b>-1.       
+That is,  multiplication and exponentiation (taking powers) will take place within the      
+groups <b>Z(p)*</b> and <b>G(q)</b>, which we will define and explain in this section.        
+<p>           
+The two groups Z(p)*  and G(q) are very important for public key cryptography and       
+digital cash.  They play roles  in Diffie-Hellman key exchange, in the Schnorr signature       
+scheme, in the Digital Signature  Algorithm, and in the digital cash system of Stefan       
+Brands.  That is, the arithmetic is done  in Z(p)* or in a group G(q) of powers of prime       
+order <b>q</b>, where <b>q</b> divides  <b>p</b>-1. So it is important to understand       
+what these groups are.      
+<p>           
+The set  Z(p)* =  {1, 2, 3, 4, ..., <b>p</b>-2, <b>p</b>-1}.   If we multiply any two       
+numbers in this set  together, and reduce the product mod <b>p</b>, the result is a       
+number in the set.  So the  set is <b><i>closed</b></i> under multiplication.  In addition,       
+we if take any number  <b>k </b>from the set, there exists another number <b>k^-1</b>,       
+such that <b>k*k^-1 </b>= 1 mod <b>p</b>.  That is, any number in the set has       
+a <b><i>multiplicative  inverse</b></i>.  These two characteristics mean that Z(p)* is a       
+<b><i>group</b></i>  under multiplication mod <b>p</b>.  Sometimes the term       
+"multiplicative group" is used.   Since Z(p)* is a group under multiplication, it is also a       
+group under exponentiation (taking powers), since the <i>n-th<b> </b></i>power of a       
+number is simply the  multiplication of a number by itself <i>n</i> times.  (Note that 0 is       
+omitted from Z(p)*    because it doesn't have a multiplicative inverse.  If we add 0 to the       
+set Z(p)*, we get the set Z(p), which consists of all remainders mod <b>p</b>, including       
+0.)             
+<p>           
+For example, Z(11)*           
+= {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}.  If we multiply 5 and 8 from the set, we have 5*8 = 40 = 7           
+mod 11, and 7 is an element in the set.  Also we have 5*9 = 45 = 1 mod 11, so that 9 is           
+the multiplicative inverse of 5.  Similarly, 5 is the multiplicative inverse of 9.  If           
+<b>k</b>=5, then <b>k</b>^-1 = 9.   Similarly, 2 and 6 are multiplicative inverses, as           
+are 3 and 4.  What is the multiplicative inverse of 10?  (Answer: 10 is its own           
+multiplicative inverse, since 10*10 = 100 = 1 mod 11.)   Also, if we exponentiate a           
+number from the set, say 6 to the third power, we have 6^3 = 6*6*6 = 216 = 7 mod 11,           
+we are again left with an element in the set.  The set is closed under multiplication and           
+exponentiation mod 11, and each element has an inverse, so Z(11)* is a group.<p>           
+<p>           
+	Each element has a           
+multiplicative inverse in Z(p)* because <b>p</b> is a prime number.  And since           
+<b>p</b> is prime, the only common divisor of <b>p</b> and each of the numbers in the           
+set Z(p)* = {1, 2, 3, ..., p-1} is 1.  Restated, the <b><i>greatest common divisor           
+(gcd)</b></i> of <b>p</b> and any number in the set is 1.  That is, gcd(1,<b>p) </b>=1,           
+gcd(2,<b>p</b>) = 1, gcd(3,<b>p</b>) = 1, . . . , gcd(<b>p</b>-1,<b>p</b>) = 1.<p>           
+<p>           
+	The same is not true if           
+we do modular multiplication with a <i>composite</i> number (i.e. a number which is           
+the product of at least two numbers, each greater than 1). For example, the number 15 =           
+3*5, so it is composite.  Suppose we do mutiplication <b>mod 15</b>, using numbers           
+from the set {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14}.  What is the inverse of the           
+number 6 from this set?  Answer:  there is no inverse for 6, as we can see by multiplying           
+6 by all numbers less than 15:           
+<p>      
+6*0 = 6*5 = 6*10 =  0  mod 15 <br>      
+6*1 = 6*6 = 6*11 =  6  mod 15 <br>        
+6*2 = 6*7 = 6*12 = 12 mod 15 <br>        
+6*3 = 6*8 = 6*13 =   3 mod 15 <br>         
+6*4 = 6*9 = 6*14 =   9 mod 15.          
+<p>       
+There is no number which           
+multiplied by 6 equals 1 mod 15.  In addition, we obtain 0 as the result of some           
+multiplications, so the set is not closed.  (6 and 5 are in the set, but 6*5 mod 15 = 0,           
+which is not in the set.)  Hence, this set (the set of whole numbers from 1 to 14) is not a           
+multiplicative group mod 15.	<p>           
+<p>           
+	Returning to the set           
+Z(p)*, we can define some other operations, in addition to multiplication and           
+exponentiation.  We can define <b><i>division</b></i> by <b>k</b> as multiplication           
+by the inverse of <b>k</b>, namely <b>k</b>^-1.  Thus 8/<b>k</b> = 8*<b>k</b>^-1,           
+by definition.  If <b>k</b> = 9 in Z(11)*, then 8/9 = 8*9^-1 = 8*5 = 40 = 7 mod 11.            
+Similarly, 3/10 = 3*10^-1 = 3*10 = 30 = 8 mod 11.<p>           
+<p>           
+	Let <b>g</b> be a           
+member of Z(p)*.  Then <b>g</b> is said to be a <b><i>generator</b></i>  mod           
+<b>p</b> if the set of powers of <b>g</b>, namely the set  {<b>g</b>^1 mod           
+<b>p</b>,  <b>g</b>^2 mod <b>p</b>, . . .,  <b>g</b>^(<b>p</b>-1) mod <b>p},</b>           
+contains, in some order, all the members of Z(p)*:<p>           
+<p>           
+{<b>g, g^</b>2<b>, g^</b>3, ... ,<b> g^</b>(<b>p</b>-2),<b> g^</b>(<b>p</b>-1)}       
+mod <b>p </b>     
+<p>           
+= {1, 2, 3,  ... ,<b> p</b>-2,<b> p</b>-1},   in some order.           
+<p>           
+That is, the set Z(p)* = {1, 2, ... , p-1} represents a rearrangement of {<b>g</b>,<b>      
+g</b>^2,<b> g</b>^3, ... ,<b> g^(</b>p-1<b>)</b>}, when all calculations are done mod      
+<b>p</b>.  (For convenience we write mod <b>p</b> outside the brackets when it      
+applies to each element in the set, or  omit it altogether, if it is understood.)      
+<p>           
+	For example, 3 is a  generator of Z(7)*, since         
+<p>           
+		3^1 = 3 mod  7<br>           
+		3^2 = 2 mod  7<br>           
+		3^3 = 6 mod  7<br>           
+		3^4 = 4 mod  7<br>           
+		3^5 = 5 mod  7<br>           
+		3^6 = 1 mod           
+7.<p>           
+Or, restated,          
+<p>           
+{3, 3^2, 3^3, 3^4,  3^5, 3^6} =  {1, 2, 3, 4, 5, 6}      
+<p>           
+when calculations are done  mod <b>7</b>.  The two sets have the same elements,      
+although not necessarily in the  same order.  A rearrangement of the order of the elements      
+of a set is called a <b><i>permutation</b></i>.  The powers of the generator 3 give a      
+permutation of  Z(7)*.           
+<p>           
+A <b><i>generator-tuple</b> </i> mod <b>p</b> is a set of <b>k</b> generators, which      
+are all different. That is,  {<b>g<sub>1</sub></b>, ... ,<b> g<sub>k</sub></b>} is a     
+generator-tuple if each      
+<b>g<sub>i</sub></b> is an generator mod <b>p</b>, and also <b>g<sub>i</sub></b>      
+is not equal to <b>g<sub>j</sub></b> , if <b>i</b> is not equal to <b>j</b>.       
+<p>           
+For example, {3, 5} is           
+a generator-tuple of Z(7)*,  because both 3 and 5 are generators of Z(7)*.  Each element           
+in Z(7)* can be represented both as a power of  3 and a power of 5:      
+<p>           
+		1 = 3^6 mod 7  = 5^6 mod 7  <br>           
+		2 = 3^2 mod 7  = 5^4 mod 7  <br>           
+		3 = 3^1 mod 7  = 5^5 mod 7  <br>           
+		4 = 3^4 mod 7  = 5^2 mod 7  <br>           
+		5 = 3^5 mod 7  = 5^1 mod 7  <br>           
+		6 = 3^3 mod 7  = 5^3 mod 7.            
+<p>           
+The number 2 is <i>not<b>           
+</b></i>a generator mod 7, because the powers of 2 only yield 1, 2, or 4, mod 7:<p>           
+<p>           
+		{2, 2^2, 2^3}           
+= {1, 2, 4}.<p>           
+<p>           
+Note, however, that the           
+powers of 2 mod 7 yield a subset of Z(7)*.  The set {1, 2, 4} is a subset of {1, 2, 3, 4, 5,           
+6} = Z(7)*. The number 2 is thus said to <b>"generate the subgroup G(3)" mod 7</b>.            
+The designation "G(3)" means there are 3 elements in the group.  Alternatively stated, 3           
+is the lowest power of 2 that yields 1 mod 7.  G(3) is a group, because it is closed under           
+multiplication mod 7:<p>           
+<p><pre>           
+	1*1 = 1 mod 7        2*1 = 2 mod 7          4*1 = 4 mod 7      
+	1*2 = 2 mod 7        2*2 = 4 mod 7          4*2 = 1 mod 7           
+	1*4 = 4 mod 7        2*4 = 1 mod 7          4*4 = 2 mod 7           
+<p> </pre>          
+and because each element in G(3) also has an inverse.      
+<p>           
+Note that the number 4 is also a generator of G(3) = {1, 2, 4} mod 7, since     
+<p>           
+{4, 4^2, 4^3} = {4, 2, 1} mod 7 = {1, 2, 4}.      
+<p>           
+A group generated by an element <b>g</b> is said to have <b><i>order</i> q</b> mod      
+<b>p </b> provided          
+<b>q </b>is the lowest power such that <b>g^q </b>= 1 mod <b>p</b>.     
+<p>           
+The two           
+generators of Z(7)* that we saw previously, namely 3 and 5, are said to have <i>order           
+</i>6<b> </b>mod 7, because 6 is the smallest power of 3 or 5 that gives 1 mod 7.  That           
+is, 1=3^6=5^6 mod 7, and no smaller power has this property.  By contrast, the           
+generators of G(3), namely 2 and 4, have <i>order </i>3, because 2^3 = 4^3 = 1 mod 7,           
+and no lower power of 2 or 4 equals 1.  <p>           
+<p>           
+In general, for           
+<b>q</b> prime, 1&lt; <b>q</b> &lt; <b>p</b>, we define <b>G(q)</b> as the group           
+(or subgroup) of prime order <b>q</b>, mod <b>p</b>, if for some generator <b>g</b>,           
+1 &lt; <b>g </b>&lt; <b>p</b>, we have that {<b>g</b>, <b>g</b>^2, <b>g</b>^3, ...,           
+<b>g</b>^<b>q</b>} is a subset of Z(p)*.  That is, the powers of <b>g</b> yield each of           
+the elements in the subgroup.  Note, by definition, <b>q</b> is the lowest power of <b>g           
+</b>that gives 1; hence, <b>g^q </b>= 1 mod <b>p</b>.  Thus powers larger than           
+<b>q</b> simply start over and run through the same set of numbers.  If <b>g^q</b> =1           
+mod <b>p</b>, then <b>g^(q+1)</b> = <b>g</b> mod <b>p</b>, <b>g^(q+2)</b> =           
+<b>g^2</b> mod <b>p</b>, and so on.<p>           
+<p>           
+	For example, 2^3 = 1           
+mod 7.  So higher powers of 2 yield the same numbers over and over:        
+<p>           
+	2^4 = 2^1 = 2  mod 7<br>           
+	2^5 = 2^2 = 4  mod 7<br>           
+	2^6 = 2^3 = 1  mod 7<br>           
+	etc.      
+<p>           
+Note that if <b>g           
+</b>is an element of the group Z(p)*, then <b>g</b> is a <b>generator </b>of Z(p)* if           
+<b>g</b> is an element of <b><i>order p-1</b></i>.  That is, if <b>g^(p</b>-1) = 1, and           
+no lower power equals 1.  For then, it would necessarily follow that the powers of <b>g           
+</b>mod <b>p</b>--namely <b>g^1, g^2, ..., g^(p</b>-1)--run through all the numbers           
+1, 2, ..., <b>p</b>-1.        
+<p>          
+<hr>    
+<b><i>Fermat's  theorem </b></i>says that for any prime <b>p</b>, and number      
+<b>k</b> not divisible  by <b>p,</b> we have<p>           
+<p> <center>          
+<b>k^(p</b>-1) = 1 mod <b>p</b>                         
+<hr></center>     
+<p>           
+Of course, the integers 1, 2, 3, . . ., <b>p</b>-1 are not divisible by <b>p</b>, so any of      
+these integers raised to the power <b>p</b>-1 equals 1 mod <b>p</b>, by Fermat’s  
+theorem.       
+<p>           
+Hence for <b>k</b> an element of Z(p)*, we have <b>k</b>^(<b>p</b>-1) = 1 mod      
+<b>p</b>.      
+<p>           
+For example, for  Z(11)*, we have <b>p</b>-1 = 10, and a check shows that, mod 11,      
+<p>           
+1^10 = 2^10 = 3^10 =  4^10 = 5^10 = 6^10 = 7^10 = 8^10 = 9^10 = 10^10 = 1.      
+<p>           
+Note that we are <i>not</i> saying that any number <b>k&lt;p </b>has <i>order</i>      
+<b>p</b>-1 mod <b>p</b>.  The order of <b>k</b> may be smaller than this.  For      
+example, 2 has the order 3 mod 7, as 2^3 =1 mod 7.  But it is also true that 2^(7-1) = 2^6      
+= 1 mod 7, as required by Fermat's theorem.  And obviously 2^6 = (2^3)^2 = (1)^2 = 1      
+mod 7.      
+<p>          
+<hr>      
+It is easy to see that,  as a consequence of Fermat's theorem, the order <b>q </b>of any      
+element  of a multiplicative group mod <b>p</b> must divide <b>p</b>-1. This is      
+known as <b><i>Lagrange's theorem</b></i>.      
+<hr>     
+<p>           
+For example, in the           
+case <b>p </b>= 7, we have <b>p</b>-1 = 7-1 = 6, so the order of any element must           
+divide into 6 a whole number of times.  We saw previously that 3 and 5 have order 6 in           
+Z(7)*, and 6|(7-1).  Similarly, we saw that 2 and 4 have order 3 mod 7, and 3|(7-1).       
+<p>           
+The reason it works           
+this way is because if an element <b>g</b> is of order <b>q</b> mod <b>p</b>, then           
+<b>g^q</b> =1 mod <b>p</b>.  But it's also true by Fermat's theorem that           
+<b>g^</b>(<b>p</b>-1) = 1 mod <b>p</b>.  So if <b>q</b> didn't divide <b>p</b>-1 a           
+whole number of times, then for some number <b>k</b>,  <b>p</b>-1 = <b>k*q</b> +           
+<b>r</b>, where<b> 0 &lt;r &lt;q</b>.  Thus we would have that 1 =           
+<b>g^</b>(<b>p</b>-1) = <b>g^</b>(<b>k*q</b>+<b>r</b>) =           
+(<b>g^q</b>)^<b>k</b>*<b>g^r</b> = 1*<b>g^r</b>, which implies <b>g^r</b> = 1.            
+Which in turn implies <b>g</b> has order <b>r</b> less than <b>q</b>, a           
+contradiction.<p>           
+<p>      
+<hr>         
+<b><i>Euler's totient           
+function </i>t(n)</b> for a positive integer <b>n</b> is the set of numbers less than           
+<b>n</b> that are relatively prime to <b>n</b>.  That is, the number of positive integers           
+<b>k</b>, 0&lt;<b>k</b>&lt;<b>n</b>, with gcd(<b>k</b>,<b>n</b>) =1.      
+<hr>    
+<p>           
+If <b>n = p</b> is           
+prime, then all positive numbers less than <b>p</b> are relatively prime to <b>p</b>, so           
+<b>t(p)</b> = <b>p</b>-1. <p>           
+<p>           
+For example, for           
+<b>n = p = 7</b>, the numbers 1, 2, 3, 4, 5, and 6 are all relatively prime to 7, so <b>t(7)           
+</b>= 6.  For <b>n </b>= 4, the numbers 1, 3 are relatively prime to 4, so           
+<b>t</b>(4)<b> = </b>2.  For <b>n </b>= 15, the numbers 1, 2, 4, 7, 8, 11, 13, 14 are           
+relatively prime to 15, so <b>t</b>(15) = 8.  (The other numbers, namely 3, 5, 6, 9, 10,           
+12, have divisors in common with 15.)      
+<p>          
+<hr>      
+<b><i>Euler's           
+theorem</b> </i>states that for any number <b>n</b> and any number <b>k</b>           
+relatively prime to <b>n</b>, we have<p><center>           
+		<b>k^t(n)</b> = 1 mod <b>n</b>      
+<hr></center>     
+<p>           
+Note that Euler's theorem applies to composite numbers <b>n</b>, as well as prime      
+numbers.  For example let <b>n </b>= 15.  The number 2 is relatively prime to 15, so by      
+Euler's  theorem we have      
+<p>           
+2^<b>t</b>(15) = 2^8 = 1 mod 15.<p>           
+<p>           
+We will use Euler's theorem later when we look at the RSA crypto-system.  RSA uses      
+large numbers <b>n</b> which  are composite (namely the product of two primes), and      
+hence Fermat's theorem does not     apply:  it is <i>not</i> true, in general, that      
+<b>k</b>^(<b>n</b>-1) = 1 mod <b>n</b>,     for <b>n</b> composite, even if      
+<b>k</b> is relatively prime to <b>n</b>.  For  example, 2^(15-1) = 2^14 = 4 mod 15.       
+<i>That is, the order of <b>k</b> does not     necessarily divide <b>n</b>-1, for      
+<b>n</b> composite.</i>  The number 2 is relatively  prime to 15, but it has order 4, as      
+2^4 = 1 mod 15.  And 4 does not divide 15-1 = 14.  However, the order 4 does divide      
+<b>t</b>(15) = 8.      
+<p>          
+<hr>     
+Another result from           
+number theory (the proof of which will not be explored here) is that, for <b>p</b> prime,           
+the <i>number of generators</i> mod <b>p </b> is <b>t</b>(<b>p</b>-1).       
+<hr>    
+<p>           
+For example, the           
+number of generators mod 7 is <b>t</b>(7-1) = <b>t</b>(6).  Now <b>t</b>(6) is by           
+definition the number of positive integers less than 6 that are relatively prime to 6.  There           
+are <i>two</i> such numbers; namely, 1 and 5.  So there are a total of <i>two           
+generators</i> mod 7.  Both of these generators (namely, 3 and 5) were shown           
+previously.  (The significance of the numbers 1 and 5 here is that if we have a generator           
+<b>g</b>, then both <b>g</b>^1 and <b>g</b>^5 will be generators. Thus 3 and 3^5 =           
+5 mod 7 are generators.  Alternatively, since 5 is a generator, both 5 and 5^5 = 3 mod 7           
+are generators.)<p>           
+<p>           
+Consider now the           
+group G(q) of prime order <b>q</b> mod <b>p (</b>i.e., both <b>p</b> and <b>q</b>           
+are prime).  Since the order of any element mod <b>p</b> must divide <b>p</b>-1, it           
+follows that <b>q </b>must divide <b>p</b>-1.  How many generators of the subgroup           
+G(q) are there?  The answer is that for each <b>m</b> that divides <b>p</b>-1, there are           
+<b>t(m) </b>generators of order <b>m</b>, where <b>t</b> is Euler's totient function.           
+In the case <b>m=q</b> is prime, there are thus <b>t(q) </b>= <b>q</b>-1 generators.            
+<u>That is, there are <b>q</b>-1 generators of the subgroup <b>G(q) </b>of prime order           
+<b>q</b> mod <b>p</u></b>.  This fact assures us that for large <b>q</b> we have           
+plenty of generators to choose from.<p>           
+<p>           
+For example, since 3           
+divides 7-1 = 6, there are <b>t</b>(3) = 2 generators of order 3 mod 7.  That is, there are           
+two generators of the subgroup <b>G</b>(3) = {1, 2, 4}.  (Note that both 2 and 4 are           
+generators of <b>G</b>(3).)  Similarly, since 2 divides 7-1 = 6, there are <b>t(</b>2) = 1           
+generator of order 2 mod 7.  (Check that 6 is a generator of order 2 mod 7, yielding the           
+subgroup <b>G</b>(2) = {1, 6}.)      
+<p>           
+Notice that since 2, 3, and 6 all divide <b>p</b>-1 = 7-1, the possible subgroups mod 7      
+are these:      
+<p><center>           
+<table border><tr           
+valign=top><td><CENTER>Subgroups of Z(7)*</td>     
+<td>Generators <b>g</b><sub>i</sub> mod 7</CENTER></td></tr>     
+<tr valign=top>           
+<td><b>G</b>(2) = {1,           
+6}</td><td>6</td></tr><tr           
+valign=top>           
+<td><b>G</b>(3) = {1, 2,           
+4}</td><td>2, 4</td></tr><tr           
+valign=top>           
+<td><b>G</b>(6) = {1, 2, 3,           
+4, 5, 6}</td><td>3,           
+5</td></tr></table>	     
+<p> </center>          
+We see that <b>G</b>(6)=Z(7)* has only two generators (and not 6-1 = 5), because 6 is      
+not a prime factor of <b>p</b>-1.  Rather, <b>t</b>(6) = 2.      
+<p>           
+For <b>p </b>= 23,           
+and <b>q</b> = 11, there are <b>t(</b>11<b>)</b> = 10 generators of G(11) = {2, 4, 8,           
+16, 9, 18, 13, 3, 6, 12, 1}.  The number 2 is one such generator mod 23.  Any member of           
+G(11), except the integer 1, is a generator of the group.        
+<p>           
+Note in this last           
+example that 2 and 22 also divide <b>p</b>-1 = 23-1.  There are thus <b>t(2) </b>= 1           
+generator of G(2), and <b>t(</b>22) = 10 generators of G(22)=Z(23)*.  Thus, of the 22           
+elements in Z(23)*, 10 are of order 22, 10 of order 11, and 1 is of order 2.  (Check that           
+G(2) = {1, 22}.)       
+<p><center>           
+<table border><tr           
+valign=top><td><CENTER>Subgroups of Z(23)*</td><td>Generators      
+<b>g</b><sub>i</sub> mod           
+23</CENTER></td></tr>     
+<tr valign=top>           
+<td><b>G</b>(2) = {1,           
+22}</td><td>22</td></tr>     
+<tr valign=top>           
+<td><b>G</b>(11) = {1, 2,           
+3, 4, 6, 8, 9, 12, 13, 16, 18}</td><td>2, 3, 4, 6, 8, 9, 12, 13, 16, 18</td></tr>     
+<tr valign=top>           
+<td><b>G</b>(22) = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,   14, 15, 16, 17, 18, 19, 20,     
+21, 22}</td>    
+<td>5, 7, 10, 11, 14, 15, 17, 19, 20, 21</td></tr></table>      
+<p></center>           
+We can define           
+<i>discrete logarithms </i>in either Z(p)* or G(q) by the following mechanism.  Let            
+<b>g </b>be a generator of  one of these two groups, and let <b>y </b>be the     
+<b>x-</b>th power of <b>g</b>, modulo <b>p</b>:      
+<p><center>           
+<b>	y = g ^ x  mod p,  </b><i>or</i><b>     y = g<sup>x</sup>   mod p   </b>     
+<p></center>           
+Then <b><i>x is the           
+(discrete)  logarithm of  y</b></i> to the base <b>g</b>, modulo <b>p</b>:       
+<p><center>           
+<b>  x = log_g (y)  mod p,  </b><i>or</i><b>   x = log<sub>g</sub> (y)  mod p </b>     
+<p> </center>      
+For  example, 2^5 = 9 mod 23,  so 5 = log<sub>2</sub>(9) mod 23.  The integer 5 is the     
+log of 9 <b>(</b>to the base 2) mod 23.  Similarly, 3^6 = 1 mod 7, so 6 = log_3 (1) mod     
+7.  The integer 6 is the log of 1 (to the base 3) mod 7.      
+<p>    
+Note for a generator <b>g</b> of G(q) mod <b>p</b>, that since <b>g^q </b>=1,  we     
+always have <b>q</b> = log(1) mod           
+<b>p</b>, for any base (generator) <b>g</b>.  Hence, for a group of order <b>q</b>,           
+<b>q</b> plays the role of zero, as <b>g</b>^<b>q</b> = <b>g</b>^0 = 1 mod           
+<b>p</b>, and hence <b>q</b> = log(1) = 0 mod <b>q</b>.             
+<p>          
+So for any power <b>x</b> of <b>g </b>in G(q),  <b>g^x</b> mod <b>p</b> may be      
+reduced mod <b>q</b>:            
+<p><center>           
+<b>g^x</b> mod <b>p</b> = <b>g</b>^(<b>x</b> mod <b>q</b>) mod <b>p</b>.       
+<p></center>           
+For example, we saw 2 had  order <b>q</b> = 3 mod 7, since 2^3 mod 7 = 1.  Hence for      
+a power larger than 3, say 8:            
+2^8 mod 7 = 2^(8 mod 3) mod 7 = 2^2 mod 7 = 4.    Once we get to the <b>q</b>-th           
+power of <b>g</b>, <b>g^q</b> = 1, so for <b>x</b> = <b>k*q</b>+<b>r</b>, we           
+have <b>g</b>^(<b>k*q+r</b>) = <b>g</b>^(<b>k*q</b>)*<b>g^r</b> =           
+(<b>g^q</b>)^<b>k*g^r</b> = 1^<b>k</b>*<b>g^r</b> = <b>g^r</b>.  So we can           
+reduce <b>x</b> by dividing by <b>q</b>, and keeping only the remainder <b>r</b>.              
+<p>           
+<i>For future reference</i>, note the following fact about powers of <b>g</b>.  If we     
+have two numbers           
+<b>X</b> = <b>g^x</b> mod <b>p</b> and <b>Y</b> = <b>g^y</b> mod <b>p</b>,           
+then      
+<p>          
+<b>X*Y =  g^x*g^y = g^(x+y) </b>mod<b> p.</b>      
+<p>           
+By contrast to this, we have      
+<p>           
+<b>X^y</b> =  (<b>g^x</b>)^<b>y</b> = <b>g</b>^(<b>x*y</b>) mod <b>p</b>,      
+<p>           
+while      
+<p>           
+<b>Y^x</b> = (<b>g^y</b>)^<b>x</b> = <b>g</b>^(<b>x*y</b>) mod <b>p</b>.     
+<p>           
+Knowledge of the first result, <b>g</b>^(<b>x+y</b>) mod <b>p,</b> doesn't tell us      
+anything about the latter result, <b>g</b>^(<b>x*y</b>) mod <b>p</b>.  Only if we first      
+took logs to the base <b>g</b>, and calculated <b>x</b> = log <b>X</b> mod      
+<b>p</b> or <b>y</b> = log <b>Y</b> mod <b>p</b>, could we calculate      
+<b>g</b>^(<b>x*y</b>).           
+<p>          
+<blockquote>      
+For a simple example using small numbers, suppose <b>g</b> = 2 and <b>p</b> =       
+25307.  Suppose also you observe <b>X</b> = 6113 and <b>Y</b> = 7984.  Thus you      
+know that       
+<p>           
+<b>X*Y</b> = 6113*7984 = 2^(<b>x+y</b>) mod 25307.  <p>           
+<p>           
+That is,  <p>           
+			                 
+14296 = 2^(<b>x+y</b>) mod 25307.<p>           
+<p>           
+But what is           
+<b>g</b>^(<b>x*y</b>) = 2^(<b>x*y</b>) mod 25307?  <p>           
+<p>           
+To answer this           
+question, you need to know <b>x = </b>log<sub>2</sub> 6113 mod 25307 or y =      
+log<sub>2</sub> 7984 mod 25307.  The difference between <b>g^(x+y)</b> and      
+<b>g^(x*y)</b> brings us to Diffie-Hellman key agreement.     
+</blockquote>           
+<p>           
+<FONT NAME="Times New Roman" SIZE=+2>       
+<b>D.  Diffie-Hellman &amp; Discrete Logarithms</b><p>           
+<FONT NAME="Times New Roman" SIZE=+1>     
+Diffie-Hellman key agreement</b></i> is a key negotiation technique created by      
+Whitfield  Diffie and Martin Hellman in 1976.  It provides a secure way for two parties to      
+agree on  (negotiate) a shared symmetric key by which to encrypt their current exchange      
+of   messages.  Diffie-Hellman key exchange has as its practical basis the fact that it is           
+<i>easy to calculate powers</i> in modular arithmetic, but <i>hard to extract           
+logarithms</i>.  That is, it takes considerable computer time and money to calculate           
+discrete logarithms relative to the calculation of  powers.      
+<p>           
+Discrete logarithms           
+are believed to be examples of <b><i>one-way functions</b></i>.  A one-way function           
+is one which can be calculated or computed relatively efficiently in one direction, as           
+compared to the reverse direction.  That is, a function <b>f(</b>x<b>)</b> is a one-way           
+function if it is easy to calculate <b>y = f(x)</b>, given <b>x</b>, but it is hard to           
+calculate or find <b>x</b> given <b>y</b>.     
+<p>           
+For a generator <b>g           
+</b>of Z(p)*<b>, </b>calculation of <b> = g^x </b>mod<b> p </b> from <b>x</b> is           
+easy, but computing <b>x</b> from <b>y</b> is difficult--at least as long as the prime           
+<b>p</b> is sufficiently large.  "Sufficiently large" in 1997 meant at least 768 bits, but           
+preferably 1024 bits (which would allows for prime numbers less than 2^1024).    There           
+are about 10^305 primes less than 2^1024, so there are plenty to choose from.  (The           
+number of primes less than or equal to <b>n</b> is asymptotic to           
+<b>n/</b>ln(<b>n</b>).  So a good approximation to the number of primes less than           
+<b>n</b> is simply <b>n/</b>ln(<b>n</b>), as long as <b>n</b> is large.  Here and           
+elsewhere "ln" is the <i>natural logarithm</i>, the logarithm to the base <b>e</b> =           
+2.718281828....)  <p>           
+<p>           
+	Now suppose two           
+people want to exchange infomation, but they want to do so in private.  The first thing           
+they have to do is agree on a cryptographic key to encrypt their messages.  Diffie-Hellman           
+key agreement is a way for two parties to decide on a cryptographic key for their use in           
+the current message-exchange session, without fear that a third party will be able to           
+intercept this key, and consequently decrypt their traffic.  It relies on the fact that the two           
+parties who are exchanging messages only have to compute powers in modular arithmetic           
+in order to know what the key they are agreeing on is, but the eavesdropper will have to           
+compute discrete logarithms to obtain the same key from their initial message           
+exchange.  (A different attack, called “man in the middle,” will not be discussed at this     
+point.)          
+<p>           
+An example of a           
+Diffie-Hellman calculation is given in <b>Table 1</b>.  It might be useful to read           
+through the steps in the Table, prior to reading the following explanation of this           
+technique.<p>           
+<p>           
+Suppose Alice and I decide to use Diffie-Hellman key agreement to establish a session     
+key.  This key will be used to encrypt the messages we send each other, for this occasion     
+only.  Each of us has previously agreed on a generator <b>g</b> of Z(p)* and a prime     
+number <b>p</b>.  As noted in the previous section, the generator <b>g</b>           
+(1&lt;<b>g&lt;p</b>) has the property that <b>g</b>, <b>g</b>^2, <b>g</b>^3, ... ,           
+<b>g^</b>(<b>p</b>-1), yield--in some order--all the numbers 1, 2, 3, ..., <b>p</b>-1,            
+when calculations are done mod <b>p</b>.<p>           
+<p>           
+</FONT><FONT  NAME="Times New Roman" SIZE=+2>    
+<b>Table 1:  Steps in Negotiating Diffie-Hellman Key Agreement</b><p>       
+<FONT NAME="Times New Roman" SIZE=+1>    
+<table border><tr valign=top><td><b><i><center>Diffie-   
+Hellman</center></i></b></td>   
+<td><b><i><center>Example</center></i></b></td></tr>    
+<tr valign=top>  <td>A and B agree on two numbers, a generator <b>g</b> of Z(p)* and     
+a prime <b>p</b>.</td><td>Alice and I agree <b>g</b> = 7, while <b>p</b> =     
+23.</td></tr>    
+<tr valign=top>   <td><b>A</b> chooses a           
+secret random integer <b>x</b>.</td><td>Alice chooses <b>x</b> = 5.</td></tr>    
+<tr valign=top>  <td><b>B</b> chooses a           
+secret random integer <b>y</b>.</td><td>I choose <b>y</b> = 8.</td></tr>    
+<tr valign=top>   <td><b>A</b> computes           
+<b>X</b> = <b>g ^ x</b>  mod <b>p</b>.</td><td>Alice computes <b>X</b> = 7 ^ 5     
+mod 23 = 17.</td></tr>    
+<tr  valign=top>  <td><b>B</b> computes           
+<b>Y</b> = <b>g</b> ^ <b>y</b> mod <b>p</b>.</td><td>I compute <b>Y</b> =     
+7 ^ 8 mod 23 = 12.           
+</td></tr>    
+<tr valign=top>   <td><b>A</b> sends           
+<b>X</b> to <b>B</b>, and <b>B</b> sends <b>Y</b> to           
+<b>A</b>.</td><td>Alice sends 17 to me;  I send 12 to Alice.</td></tr>    
+<tr valign=top>  <td><b>A</b> computes           
+<b>K</b> = <b>Y</b> ^ <b>x</b> mod <b>p</b></td><td>Alice computes <b>K</b>     
+= 12 ^ 5 mod 23 = 18.</td></tr>    
+<tr valign=top>  <td><b>B</b> computes           
+<b>K</b> =<b> X</b> ^ <b>y</b> mod <b>p</b></td><td>    
+I compute <b>K</b> = 17 ^ 8 mod 23 = 18.</td></tr>    
+<tr valign=top>  <td><b>K</b> is the           
+encryption key for this communication session.</td><td><b>K</b> = 18 is the     
+encryption key for this communication session.</td></tr></table>    
+<p>           
+For example, Alice           
+can simply choose <b>g</b> and <b>p</b> herself, and send them to me.  It doesn't           
+matter if anyone else knows what these are. Alice now decides to send me a message.            
+She needs an encryption key to encrypt  this message.  So to start the process, Alice first           
+chooses a random number <b>x</b>, where 1&lt; <b>x </b>&lt; <b>p</b>-1.  Alice           
+keeps <b>x</b> secret and sends me <b>X</b> instead:    
+<p><center>         
+<b>X</b> =  <b>g^x</b>  mod <b>p</b>.                                                                                                        
+<p></center>    
+I,  in turn, choose a random           
+number <b>y</b> (where 1 &lt; <b>y</b> &lt; <b>p</b>-1)  and send <b>Y</b>,<p>           
+<p><center>           
+		<b>Y</b> =           
+<b>g^y  </b>mod<b> p</b>,                                                                                                        
+<p></center>           
+back to Alice.  Now Alice           
+computes           
+<p><center>           
+<b>K</b> =  <b>Y^x  </b>mod<b> p</b> = <b>g^(y*x)</b>  mod<b> p</b>                                                                            
+<p></center>           
+by raising the number she got from me to the power <b>x</b>, and taking the result mod     
+<b>p</b>.  Meanwhile, I  compute           
+<p> <center>          
+<b>K</b> =  <b>X^y </b>mod<b> p</b> = <b>g^(x*y) </b>mod <b> p</b>                                                                              
+<p> </center>    
+by raising the number I got from her to the power  <b>y</b>, and taking the result mod     
+<b>p</b>.  Since the numbers we each calculate are equal, we both possess the same     
+<i>session key</i>:<p>           
+<p> <center>          
+<b>K  =  session key  =   g^(x*y)  </b>mod<b> p =  g^(y*x)  </b>mod<b> p </b>.                                                    
+<p> </center>     
+<b></b>For a sufficiently large <b>g</b> and <b>p</b>, there is no known     
+computationally feasible way for anyone who does not know either <b>x</b> or     
+<b>y</b> to compute <b>g^(x*y) </b>mod<b> p</b>, unless they first tackle the      
+difficult problem of taking the logarithm of  <b>g^x  </b>mod<b> p</b> or  that of      
+<b>g^y  </b>mod<b> p</b>.           
+<p>           
+If <b>p</b> is a  prime about 1000 bits in length (about 300 decimal digits), only about     
+2000 multiplications of 1000-bit numbers are required to compute the exponentiation of           
+<b>g</b>. By contrast, the fastest techniques for taking logarithms in arithmetic modulo           
+<b>p</b> currently demand more than 2^100 (or approximately 10^30) operations. Using           
+the best supercomputer would take many millions of years to compute the logarithm of           
+<b>g^x </b>mod<b> p</b>.     
+<p>           
+The length of the Diffie-Hellman key K itself is typically about 128 bytes (1024 bits).      
+This is often further processed (via a <i>hash function</i>, explained later) down to 8     
+bytes (64 bits) to obtain a DES encryption key.        
+<p>           
+<FONT NAME="Times New Roman" SIZE=+2>       
+<b>E. RSA Public-Key  System</b><p>          
+<FONT NAME="Times New Roman" SIZE=+1>       
+RSA Data  Security, headquartered in Redwood City, CA,  is a company founded in 1982      
+by the  inventors of the RSA system (Ron Rivest, Adi Shamir, and Leonard Adleman).       
+The RSA  encryption technology is found in Microsoft Windows, Netscape Navigator,      
+Intuit's Quicken, and Lotus Notes.  It is also found in Apple, Sun, and Novell operating      
+systems,  and on Ethernet network cards.  RSA is part of the SWIFT (Society for      
+Worldwide Interbank Financial Telecommunications) standard for international financial      
+transfers, as well as the ANSI X9.31 draft standard for the US banking industry.<p>           
+<p>           
+In the <b><i>RSA public-key cryptosystem</b></i> used for electronic cash, both     
+encryption and decryption are done by raising the message <b>M</b> (and recall that any     
+computer message can be viewed simply as a binary number) to a power that is the     
+appropriate key. As noted previously, these exponentiations are done in modular     
+arithmetic, which saves only the result of division by a fixed number called the modulus.     
+This modulus needs to be quite large, usually at least 230 decimal digits (768 binary     
+digits). The example in           
+<b>Table 2</b> uses small numbers for illustration.<p>           
+<p>           
+When the system is set up, the key-making entity (bank, customer, merchant) generates     
+two large  primes  <b>p</b> and <b>q</b>. Their product <b>n = p*q </b>will be the     
+modulus of the exponentiations.  Euler's totient function for <b>n</b> is <b>t(n) = t(p*q)     
+=   </b>(<b>p</b>-1)<b>*</b>(<b>q</b>-1).  The basis of the RSA system is Euler's           
+Theorem (covered previously), which says that for any number <b>x</b> relatively prime     
+to  <b>n</b>, we have     
+<p> <center>     
+<b> x</b>^<b>t(n) =  x^[</b>(<b>p</b>-1)<b>*</b>(<b>q</b>-1)] = 1 mod <b>n</b>.                                                                                        
+<p> </center>     
+Or, setting <b>t</b> =  (<b>p</b>-1)<b>*</b>(<b>q</b>-1),<p>           
+<p> <center>          
+<b>x</b>^<b>t</b> = 1 mod <b>n</b>,                                                                                                                          
+<p> </center>     
+provided <b>x</b> is divisible neither by <b>p</b> nor by <b>q</b>.  Recall that the     
+quantity <b>t</b> corresponds to the number of positive integers less than, and relatively     
+prime to,  <b>n = p*q</b>.      
+<p>           
+Next, the keymaker chooses an <b>e</b> and <b>d</b> with     
+<p><center>           
+           <b>e*d</b> = 1  mod  <b>t</b>,        
+[that is, <b>e*d</b> = <b>k*t</b> + 1, for some positve integer <b>k</b>],        
+<p> </center>          
+where (<b>e, n</b>) will be its public key and (<b>d, n</b>) its private key.  <p>           
+<p>           
+Consequently, any  admissible <b>x</b> encrypted with <b>e</b> can be decrypted with     
+<b>d</b>,  since,  calculated mod <b>n</b>,      
+<p><center>        
+(<b>x</b>^<b>e</b>)^<b>d</b>  =  <b>x</b>^(<b>e*d</b>)  =            
+<b>x^</b>(<b>k*t</b> + 1) =  <b>x*x</b>^(<b>k*t)</b> =            
+<b>x*</b>(<b>x</b>^<b>t</b>)^<b>k</b> =  <b>x*</b>(1<b>^k</b>) = <b>x</b>.                      
+<p></center>           
+The keymaker disseminates           
+the public key <b>e</b> to all users, together with the modulus <b>n = p*q</b>, but           
+never reveals <b>p</b>, <b>q</b>, or  the private key <b>d</b>.<p>           
+<p>           
+In general, then, in the RSA system, for plaintext message <b>M </b>and its associated    
+ciphertext message <b>C:</b>   
+<blockquote><blockquote>   
+<p>           
+<b>M^</b>(<b>e*d</b>) = (<b>M^e)^d = (M^d)^e = M</b>  mod <b>n </b>    
+<p>           
+<b>Encryption:  E<sub>e</sub>(M) = C = M^e </b>mod <b>n </b>                            
+<p>           
+<b>Decryption:  D<sub>d</sub>(C) = C^d  </b>mod <b>n</b> = <b>(M^e)^d            
+</b>mod <b>n</b> = <b>M</b>  mod <b>n</b>.   
+</blockquote></blockquote>   
+<p>           
+Notice how, in principle, <b><i>RSA signatures</b></i> work.  (We will simplify by    
+deferring  discussion of <i>hash functions</i> until later.)  A bank whose  secret key is    
+<b>d</b> will sign a message <b>M </b>by encrypting it with the secret key <b>d,    
+</b>which simply means raising <b>M</b> to the power <b>d</b>:    
+<p><blockquote><blockquote>    
+<b>Signature:</b>            
+<b>E<sub>d</sub>(M) = M^d </b>mod <b>n</b>.                                                                                          
+<p></blockquote></blockquote>    
+This message can be verified, and decrypted, by anyone by raising it to the power    
+<b>e</b>, which is the bank's public key:   
+<p><center>           
+<b>D<sub>e</sub>(E<sub>d</sub>(M)) = (M^d)^e </b>mod <b>n</b> = <b>M</b>    
+mod <b>n</b>.                                                    
+<p></center>           
+</FONT><FONT  NAME="Times New Roman" SIZE=+2>   
+<b>Table 2:  RSA Public Key System</b><p>           
+<FONT NAME="Times New Roman" SIZE=+1><p>     
+<table border><tr valign=top><td><b><i><center>RSA Public Key           
+System</center></i></b></td><td><b><i><center>Example</center></i></b></td>   
+</tr></center>   
+<tr valign=top>  <td>Choose  <b>p</b> and <b>q</b>, where both <b>p</b> and    
+<b>q</b> are prime.</td>   
+<td>Choose 11 and 13, which are prime numbers.</td></tr>   
+<tr valign=top>  <td>Find their product           
+<b>n</b> = <b>pq</b>.</td><td>Calculate <b>n</b> = 11*13 = 143.</td></tr>   
+<tr valign=top> <td>Calculate Euler's totient           
+function <b>t</b> =  (<b>p</b>-1)(<b>q</b>-1).            
+</td><td>Calculate            
+<b>t</b> = (11-1)*(13-1) = 120.</td></tr><tr valign=top>           
+<td>Select an integer           
+<b>e</b>, where <b>e&lt;t</b>, and the greatest common divisor of <b>e</b> and           
+<b>t</b> is 1.</td><td>Let           
+<b>e</b> = 7.  This will work because 7&lt;120, and their greatest common           
+divisor is 1.</td></tr><tr valign=top>           
+<td>Calculate <b>d</b>           
+such that <b>e*d</b> = 1 mod <b>t</b>.</td><td>We want 7*<b>d</b> = 1 mod 120.     
+<p>           
+Thus <b>d</b> = 103, as           
+7*103 = 721 = 1 mod 120.</td></tr>   
+<tr valign=top>           
+<td>The public key is           
+(<b>e</b>,<b> n</b>).</td><td>The public key is (7, 143).</td></tr>   
+<tr valign=top> <td>The private key is           
+(<b>d</b>, <b>n</b>).</td><td>The private key is (103, 143).</td></tr>   
+<tr valign=top> <td>Plaintext can be any           
+number <b>M</b>, where <b>M</b> &lt; <b>n</b>,           
+and neither <b>p</b> nor <b>q</b> divides <b>M</b>  </td><td>Let the numerical    
+representation of <b>M</b>           
+be <b>M</b> = 5, for example.           
+</td></tr><tr valign=top>           
+<td>The ciphertext is           
+<b>C</b> = <b>M</b>^<b>e</b> mod <b>n</b>.</td><td>The ciphertext is <b>C</b>    
+= 5^7 mod 143 =  47.</td></tr>   
+<tr valign=top>  <td>The plaintext is <b>C</b>^<b>d</b>  mod <b>n</b>            
+= (<b>M^e</b>)^<b>d</b> mod <b>n</b> =  <b>M</b>.</td>   
+<td>The plaintext is 47^103 mod 143 = 5.<p>           
+<p>           
+<i>To see this last step, note           
+the following, <b></i>mod 143</b></i>:   
+<p>   
+47^103 = (5^7)^103  = 5^721 <br>           
+= 5*[5^720] =5*[(5^120)^6]<br>           
+= 5*[ 1^6] = 5.      
+<p>           
+Here we have used the result that<p>           
+5^120 = 5^t = 1  mod 143 by Euler's theorem.     
+<p>           
+Or, more simply,          
+<b>x^(e*d) = x</b>; hence,           
+5^721 = 5.</td></tr></table>		   
+<p>   
+The RSA system is patented (US Patient 4,405,829).  The patent expires Sept. 29, 2000.    
+<p>           
+The security of RSA depends on the <b><i>difficulty of factoring large    
+numbers</b></i>.  For, given  <b>n</b>, it is not easy to find the prime factors    
+<b>p</b> and <b>q</b> such that  <b>n</b> = <b>p*q</b>.  This difficulty is crucial,    
+for if <b>p </b>and <b>q</b> were known, then given the public key <b>e</b> also,    
+finding <b>d--</b>the private key--such that <b>e*d </b>=1 mod (<b>p</b>-   
+1)(<b>q</b>-1) would not be difficult.    
+<p>           
+For public key cryptography, it was (in 1997) believed that a modulus of 768 bits (made    
+up of two prime  factors each of around 384 bits) was sufficient for security until the year    
+2004.  That is, a "large enough" modulus was <b>n </b>= 2^768 approximately, with    
+<b>p, q</b> primes  each in the neighborhood of 2^384. The fastest known factoring    
+algorithm was the  <b><i>number field sieve</b></i>, which had running time, for    
+factoring a large number of size <b>n</b>, of order <p>           
+<p><center>           
+O(exp[1.9223<b>*</b>(ln <b>n</b>)^(1/3)<b>*</b>(ln ln <b>n</b>)^(2/3)]).            
+<p></center>           
+To factor <b>n</b> in the neighborhood of <b>n</b> = 2^1024 would require about    
+2^87 steps. (Substitute <b>n</b> = 2^1024 in the expression.) If a computer does 1    
+million instructions per second, it would do 31,536,000 x 1,000,000 instructions in a year    
+(a  "<b><i>mips-year</b></i>").  Since this equals about 2^45 steps in a year, it would    
+take about 2^(87-45) = 2^42 years to factor the number <b>n</b>, or 4*10^12 years.    
+That's for a machine that does 1 million instructions per second.  A 100-megahertz    
+Pentium does about 50 million instructions per second, so the number could be factored    
+on this machine in about 8*10^10 years.<p>           
+<p>           
+RSA uses public keys to encrypt symmetric session keys. The latter are often insecure.  A    
+message encrypted with a 40-bit symmetric session key, using RSA's RC4 stream    
+encryption  algorithm, takes an average of 64 mips-years to break. That is, a computer    
+operating at 64 million instructions per second would take a year to break the message's    
+encryption. This size (40-bits) was until recently the maximum symmetric-key size    
+allowed for U.S. export software (under the International Traffic in Arms Regulations),    
+although 128-bit keys could be used in domestic software.  As of 1997, symmetric keys    
+less than 90-bits in length were not considered secure.     
+<p>           
+<FONT NAME="Times New Roman" SIZE=+2>     
+<b>F.  Hash Functions  &amp; Digital Signatures</b><p>           
+<FONT NAME="Times New Roman" SIZE=+1>     
+Often when one wants           
+to sign something, such as a long message or document, it is inconvenient to sign the           
+entire message.  One reason is public key cryptography is slow.  So the solution is to           
+create a <b><i>message digest</b></i>, which is a number or string of fixed length           
+which represents the message.  The message may be, for example, as long as 50,000 bits,           
+but the message digest may be only 128 bits.  The idea is to <b><i>sign the message           
+digest, instead of the message</b></i>.  <p>           
+<p>           
+For example, the           
+sender of the message can also create and sign a message digest, encrypting the latter with           
+her private key.  The encrypted digest is sent along with the message.  Then the receiver           
+of the combined message and encrypted message digest can 1) recompute the message           
+digest from the message received, 2) decrypt the encrypted message digest using the           
+sender's public key, and 3) compare that the two are the same.  If they are, then in all           
+probability the message received was the same as the message sent, and moreover one can           
+be confident that it was sent by the owner of the public key used to decrypt the message           
+digest.  This process of recreating a message digest from the received message, and           
+comparing it to the decrypted version of the received message digest, is sometimes           
+referred to as a <b><i>message authenticity check</b></i>.<p>           
+<p>           
+Hash functions are           
+used to create message digests.  A <b><i>hash function </i>H(</b>x<b>)</b> is a           
+mapping from any variable-length string or message <b>x = M</b> to a string (binary           
+number) of fixed length <b><i>h</b></i>:<p>           
+<p><center>           
+<b><i>h</i> = H(M)</b>.                                                                                             
+<p></center>           
+The fixed string           
+<b><i>h</b></i> is called the <b><i>hash value</b></i>. A "message digest" is simply           
+a hash value for a given message.  Different hash functions <b>H(</b>x<b>)</b> will           
+yield different hash values. A typical hash string length is 128-bits, such as found in           
+RSA's MD5 (Message Digest 5).  This means that any message is mapped to one of           
+2^128 outcomes.  So the probability that two messages will map to the same number is           
+very low.  Essentially, we want hash outcomes to be uniformly distributed over the space           
+of 2^128 outcomes, because if a subset of the outcomes were favored, there would be           
+greater likelihood of two different messages having the same hash value.     
+<p>           
+If two different           
+messages <i>do</i> map to the same hash value, this is referred to as a           
+<b><i>collision</b></i>.  So if the hash function uniformly distributes outcomes over           
+the outcome space, it is relatively "collision-<b>free</b>".  Of course, no function which           
+maps a larger space into a smaller space can avoid all collisions, so a better term is           
+"collision-<b>resistant</b>".  Using collision-resistant hash functions helps prevent           
+message <b><i>repudiation</i>.  </b>No one will be able to deny having signed a given           
+message (repudiate the message) by producing a different message that hashes to the           
+same value, and claiming that this different message was the one intended.  For if you           
+could find a second (pseudo) message that hashes to the same value as a signed message           
+(a collision), then you could remove the signature from the signed message, attach it to           
+the pseudo-message, and claim the person had signed the pseudo-message.  <p>           
+<p>           
+In addition to being           
+collision-resistant, a good hash function must also be <b><i>one-way</b></i>:  one           
+should not be able to feasibly compute the original message given its hash value (message           
+digest).  So if you can't compute the original message from its message digest, and you           
+can't find another message that gives the same hash value, then you won't be able to           
+falsify a signed message in transit or in storage.  
+<p>           
+Hash functions           
+and secret keys are combined to produce <b><i>digital signatures</i>.  </b>First a hash           
+<b><i>h</i> </b>of the message <b>M</b>  is produced.  Then this value is encrypted           
+with the sender's secret key, to form <b>E<sub><i>sk</i></sub>(<i>h</i>).  </b>This   
+encrypted hash value is sent along with the message itself. The message recipient uses the   
+public key of the sender to decrypt the encrypted           
+hash value: <b>D<sub><i>pk</i></sub>(E<sub><i>sk</i></sub>(<i>h</i>)) =   
+<i>h</i>.</b>  The message recipient then also recomputes <b><i>h</b></i> directly   
+from the message <b>M</b> to obtain <b><i>h</i> = H(M)</b>.  If the two   
+computations yield the same value for  <b><i>h</b></i>, then the message must have   
+come from the owner of the public key  <b>pk</b>, and moreover the message could not   
+have been altered.     
+<p>          
+Why?  Because if           
+the message has been altered to, say, <b>M+</b>, then the hash value <b><i>h</i>+ =           
+H(M+)</b> will not be correct (except with a vanishing probability of about 1/(2^128),           
+for a 128-bit hash).  Also, if the encrypted hash value was not signed with the supposed           
+sender's secret key <b>sk</b>, but rather with some other secret key <b>sk+</b>, then           
+the decryption will not yield a correct value:  
+<b>D<sub><i>pk</i></sub>(E<sub><i>sk+</i></sub>(<i>h</i>))</b> is not equal to  
+<b><i>h</i></b>.  Thus a digital signature is superior to a handwritten signature, because  
+it verifies both the identity of the signer of the message and the message contents.  The  
+slightest change in the message <b>M</b> will cause the signature process to fail. 
+<p>           
+Two well-known hash functions are RSA's MD5 (Message Digest 5) and NIST's SHA-1  
+(Secure Hash Algorithm).   The hash values for MD5 are 128-bits long, while those of  
+SHA-1  are 160-bits. Two other hash functions are RIPEMD-128 and RIPEMD-160,  
+which yield respectively 128- and 160-bit hashes.  <p>           
+<p>           
+Are these hash functions <i>collision-resistant</i>?  In 1994 P. van Oorschot and M.  
+Wiener estimated that for $10 million one could build a special purpose computer to look  
+for MD5 collisions, and these could be found in 24 days on average.  MD5 was based on  
+an earlier MD4, which can be considered broken. Neither does RSA recommend use of  
+MD2, an earlier hash function designed for 8-bit machines.  As for MD5, RSA recently  
+stated:  "Existing signatures formed using MD5 are not at risk and while MD5 is still  
+suitable for a variety of applications (namely those which rely on the one-way property of   
+MD5 and on the random appearance of the output) as a precaution it should not be used  
+for future applications that require the hash function to be collision-resistant".  For the  
+present, SHA-1, RIPEMD-128,  RIPEMD-160 can all be considered secure.           
+<p>          
+<FONT NAME="Times New Roman" SIZE=+2>       
+<b>G.  Blind  Signatures</b><p>           
+<FONT NAME="Times New Roman" SIZE=+1>     
+Suppose a  customer wants a bank to sign a piece of digital cash with the serial number      
+<b>x</b>, but does not want the bank to know which piece of cash it is signing. This can      
+be achieved with a <b><i>blind signature protocol</b></i>.  A simple example, using the           
+RSA public key system, is as follows (see also <b>Table 3</b>):      
+<p>           
+1. The customer chooses a <i>blinding factor</i> <b>r, </b>chosen randomly and  
+independently of  <b>x</b>, and  presents the bank with   
+<p><center>           
+ <b>x</b>*<b>r</b>^<b>e</b>  mod <b>n</b>,                                                                                                                           
+<p></center> 
+where (<b>e, n</b>) is the bank's public RSA key.  That is, the customer raises the  
+blinding factor <b>r</b> to the  power <b>e</b>, multiplies this by the serial number  
+<b>x</b>, and sends the bank the result mod <b>n</b>.<p>           
+ <p>           
+2. The bank signs the  digital cash (the blinded number) with its private RSA key  
+<b>d</b>:   
+<p><center>           
+<b>(x</b>*<b>r</b>^<b>e</b>)^<b>d</b> =           
+(<b>x^d</b>)<b>*</b>(<b>r^</b>(<b>e*d</b>)) = <b>r</b>*<b>x</b>^<b>d</b>  
+mod <b>n</b>.     
+<p></center> 
+Recall here that <b>r^(ed) = r</b>, by a previous result.  The bank signs the piece of  
+digital cash by raising it to a power,  namely to the power of its private key <b>d</b>,  
+and takes the result mod <b>n.</b>The bank returns the coin to the customer.<p>           
+<p>           
+3. The customer divides out the blinding factor:                                              
+<p> <center>          
+(<b>r</b>*<b>x</b>^<b>d</b>)/<b>r</b>= <b>x</b>^<b>d</b>  mod           
+<b>n</b>.                                                                                                
+<p></center> 
+The customer keeps the <i>signed digital cash</i>, <b>x</b>^<b>d</b>,  for later use.  
+<p>           
+Since <b>r</b> is           
+random, the bank cannot determine <b>x </b>separately from the product originally           
+presented to it, and thus cannot connect the signing for a particular customer with the           
+serial number of the digital cash when it is subsequently spent.  The spending of the coin           
+is  <i>untraceable.</i>  When presented with the coin, the bank can verify that it is valid,           
+but it cannot say to whom the coin was issued. <p>           
+<p>           
+</FONT><FONT NAME="Times New Roman" SIZE=+2> 
+<b>Table 3:  Blind Signature Protocol</b><p>           
+</FONT><FONT NAME="Times New Roman" SIZE=+1> 
+<p>           
+<table border><tr valign=top><td><b><i><center>Blind Signature           
+Protocol</center></i></b></td><td><b><i><center>Example</CENTER></i></b> 
+</td></tr><tr valign=top> <td>A piece of  digital cash has the serial number  
+<b>x</b>.</td><td>A piece of digital cash has the serial number <b>x</b> =   
+8.</td></tr> 
+<tr valign=top> <td>The customer chooses a           
+blinding factor <b>r</b>.</td><td>The customer chooses <b>r</b> = 5.</td></tr> 
+<tr valign=top> <td>The customer calculates <b>x*r^e</b> mod <b>n</b>, where  
+(<b>e, n</b>) is the bank's RSA public key.  </td><td>The customer           
+calculates 8*5^7 mod 143, using the bank's public key (7, 143).  This gives 90 as the  
+result.</td></tr> 
+<tr valign=top> <td>The bank signs the           
+customer-submitted number with its private key <b>d</b>, giving, mod <b>n</b>,   
+<b>r*x^d </b>.</td> 
+<td>The bank signs 90 with its private key 103,           
+which gives, mod 143,           
+90^103 = (8*5^7)^103 = 8^103*5^721 = 5*8^103.</td></tr> 
+<tr valign=top> <td>The customer divides           
+out the blinding factor <b>r</b>, giving (<b>r*x^d</b>)/<b>r</b> =           
+<b>x</b>^<b>d</b> mod <b>n</b>.</td><td>The customer divides out the blinding  
+factor 5, giving (8^103*5)/5 = 8^103 mod 143. <br>  That is, the digital cash bearing the  
+serial number 8 has now been signed with the bank's private key of 103.  Anyone can  
+verify that the serial number is 8 by using the bank's public key of  (7, 143) to calculate  
+(8^103)^7 mod 143 = 8^721 mod 143 = 8*(8^120)^6 = 8*(1)^6 = 8. </td></tr></table> 
+<p> 
+To summarize the blind signature protocol, for any message <b>M</b>, the customer  
+presents the bank with   
+<p> <center>         
+<b>r^e * M  </b> mod <b>n. </b> 
+<p>  </center>  
+The bank returns 
+<p> <center>  
+<b>r * M^d</b>   mod <b>n. </b> 
+<p></center>           
+The customer divides out the random factor <b>r</b>, which leaves<p>           
+<p> <center>          
+<b>M^d</b>   mod <b>n </b> 
+<p></center>           
+as the signed message.    
+<p>           
+The blind signature protocol was announced by David Chaum in 1982.  There are other  
+examples of  signature protocols that are conditionally blind--<b>"restrictive blind  
+signatures"--</b>  which reveal the identity of the digital cash owner if he spends it more  
+than once.  Restrictive blind signatures will be discussed in connection with  Stefan  
+Brands' system of digital cash, as well as next, on double-spending identification.            
+<p>           
+<FONT NAME="Times New Roman" SIZE=+2>     
+<b>H.  Double-spending  Identification</b><p>          
+<FONT NAME="Times New Roman" SIZE=+1>       
+An off-line system of digital cash that           
+allows for buyer anonymity has the problem that if a buyer is committing a fraudulent           
+transaction by multiple-spending (trying to spend the same piece of digital cash more than           
+once), the bank and the seller have no ordinary recourse to take action against the buyer,           
+since they don't know who he is.  (In an on-line system, by contrast, the coin is typically           
+checked against a spent-coin data base before the good or service is released to the           
+buyer.)   One way the double-spending problem can be handled in off-line systems is to           
+require the buyer to reveal some information about himself when the cash is withdrawn.           
+This information will be segmented in such a way that <b>no one piece of the           
+information will reveal the buyer's identity, but two pieces will</b>.  So if the buyer           
+double-spends, the bank will acquire two pieces of information, the buyer's identity will           
+be revealed, and the bank can initiate legal action against the buyer.<p>           
+<p>           
+<b>1.  Cut and Choose</b> 
+<p>           
+In the <b><i>cut-and-choose</b></i> method, the buyer creates <b>N</b> pairs of  
+numbers that are associated with a digitally signed coin at the time it is withdrawn.  Any  
+pair can identify the buyer.  The bank is able to check that the <b>N</b> pairs are  
+present.           
+<p>           
+When the buyer offers           
+the coin to the seller, the seller sends a "challenge", which is a sequence of <b>N</b>           
+random bits:  10001011 . . .   If a "0" is present the first number of the corresponding           
+number pair is sent, while if a "1" is present, the second number of the pair is sent. Note           
+what this means.  If the buyer later offers the same coin to this or another seller, and the           
+seller challenges the buyer with another sequence of <b>N</b> random bits, it is almost           
+certain some of the bits in the two sequences will correspond.  Hence the buyer will be           
+identified.  In the example in <b>Table 4 </b>we see that three bits differ between           
+10001011 and 11011010, hence any one of these three pairs may be used to determined           
+the buyer's identity.          
+<p>           
+The problem with this cut-and-choose method is its slowness, and relative inefficiency in           
+implementation, because of the large amount of information that is involved in the           
+sequence of number pairs. The prevention of double-spending in the Chaum-Fiat-Naor           
+(1990) scheme is by cut and choose and is inefficient for this reason.  Greater efficiency           
+can be achieved by means of the Schnorr Protocols, covered next. 
+<p>           
+</FONT><FONT  NAME="Times New Roman" SIZE=+2> 
+<b>Table 4:  Cut and Choose Matching</b><p>           
+</FONT><FONT NAME="Times New Roman" SIZE=+1> 
+<table border><tr valign=top><td><b><i><center>Number  
+Pairs</center></i></b></td><td><b><center>10001011</center></b></td> 
+<td><b><center>11011010</center></b></td> 
+<td><b><center>Pair Revealed?</center></b></td></tr> 
+<tr valign=top> <td></td><td></td><td></td><td></td></tr> 
+<tr valign=top> <td>(328,           
+956)</td><td>956</td><td>956</td><td>No</td></tr> 
+<tr valign=top>  <td>(1124,           
+333)</td><td>1124</td><td>333</td><td>Yes</td></tr> 
+<tr valign=top>  <td>(516,           
+2251)</td><td>516</td><td>516</td><td>No</td></tr> 
+<tr valign=top> <td>(7,           
+895)</td><td>7</td><td>895</td><td>Yes</td></tr> 
+<tr valign=top>  <td>(486,           
+585)</td><td>585</td><td>585</td><td>No</td></tr> 
+<tr valign=top>   <td>(228,           
+61)</td><td>228</td><td>228</td><td>No</td></tr> 
+<tr valign=top>  <td>(1591,           
+1592)</td><td>1592</td><td>1592</td><td>No</td></tr> 
+<tr valign=top>  <td>(825,           
+667)</td><td>667</td><td>825</td><td>Yes</td></tr></table> 
+<p> 
+<b>2.  Zero-knowledge Proofs &amp; Schnorr Protocols</b> 
+<p>           
+A <b><i>zero-knowledge proof</i>  </b>is one whereby, through some protocol or  
+procedure, you are           
+able to show knowledge of something (usually a number or set of numbers) without           
+having to actually make that something known to the other party.  <p>           
+<p>           
+For example, consider a bank vault with a single door, and with a numeric combination  
+which can be entered from either side of the door.  Alice does not know the combination.   
+To prove to Alice  that you<i> do</i> know it, you allow Alice to lock you in the vault.   
+You then enter the combination from your side, open the door, and exit the vault.  Your  
+reappearance from within the vault proves you know the combination, without your  
+having to reveal anything about the combination to Alice.  You have enacted a zero- 
+knowledge proof.<p>           
+<p>           
+	One example of a           
+zero-knowledge proof is found in the <b><i>Schnorr authentication (identification)           
+protocol</b></i>. Schnorr authentication is another example of a system based on           
+discrete logarithms. Suppose a customer is proving to a merchant that she--the customer--          
+knows her own <i>secret key</i> <b>x</b>.  That is, prove that she is who she claims to           
+be, as no one else knows this secret key.  <p>           
+<p>           
+	First, the customer           
+sends the merchant a random number <b>w</b>.  The merchant responds with a           
+<i>challenge</i>:  namely, a number <b>c.</b>   Then, to prove her identity, the           
+customer responds with a point <b>y</b> on the line           
+<p><center>           
+<b>y = w + x*c  </b>mod <b>q,     </b>for some mutally agreed prime <b>q</b>.	 
+<p></center>  
+That is, when the merchant sends the challenge <b>c</b>, the customer rapidly fires back  
+<b>y</b>, which  she can do because she knows her secret key <b>x</b>.    
+<p>           
+Of course, the  procedure can't be done exactly like this, because the merchant--now  
+knowing <b>c, w, </b>and <b>y</b> would also be able to determine <b>x</b>. We  
+want to disguise things a little so the merchant can determine that <b>y</b> is the proper  
+response to the  challenge <b>c</b>, without the merchant being able to determine  
+<b>x</b> itself.           
+<p>           
+To do this, we exponentiate the equation <b>y = w + x*c </b> by some generator <b>g  
+</b>in G(q), and take the result modulo some prime <b>p</b> (where <b>q </b>divides           
+<b>p</b>-1):           
+<p> <center>          
+<b>g^y </b>= <b>g^w*g^(x*c)   </b>mod <b>p. </b> 
+<p></center>           
+Now <b>g^w = a </b>will be a random number the customer sends the merchant.  Let  
+<b>h</b> =  <b>g^x</b> mod <b>p</b>.  Call <b>h</b> the <i>public key</i> of the  
+customer.  This will also be known to the merchant.  So the last equation reads 
+<p>  <center>  
+<b>        g^y = a*h^c     </b>mod <b>p</b>. 	    			 
+<p></center>	               
+To recap, the customer sends the value <b>a</b> = <b>g^w </b>to the merchant.  The  
+merchant accepts <b>a</b>,  sends the challenge <b>c</b>, and receives back <b>y</b>.   
+The merchant, knowing  <b>p</b>, <b>q</b>, the public key <b>h, </b> and the base or  
+generator <b>g, </b>can now check the identity<p>           
+<p>  <center>         
+<b>g^y</b>=?  <b>a*h^c     </b>mod <b>p.</b> 
+<p></center>           
+The step-by-step details of this procedure are illustrated in <b>Table 5</b>.           
+<p>           
+</FONT><FONT  NAME="Times New Roman" SIZE=+2> 
+<b>Table 5:  Schnorr Authentication   Protocol</b><p>           
+</FONT><FONT NAME="Times New Roman" SIZE=+1> 
+<table border><tr valign=top><td><b><i><center>Schnorr Authentication  
+Protocol</center></i></b></td> 
+<td><b><i><center>Example</center></i></b></td></tr> 
+<tr valign=top><td><b><i><center>Preliminary</center></i></b></td><td>  </td></tr> 
+<tr valign=top><td><b><i></b></i>Choose two primes <b>p, q, </b>where           
+<b>q</b> is a prime factor of <b>p</b>-1.</td><td>Choose <b>p </b>= 23, <b>q</b> =  
+11, where 11 is a prime factor of  22 = 23-1.</td></tr> 
+<tr valign=top>   <td>Choose <b>g</b> (not equal to 1)            
+such that <b>g^q </b>= 1 mod <b>p</b>.</td><td>Choose <b>g </b>such that  
+<b>g</b>^11 = 1 mod 23.            
+Let <b>g = </b>2, since 2^11 = 2048 = 1 mod 23.</td></tr><tr valign=top>           
+<td>Generate a secret key by choosing <b>x</b> &lt; <b>q</b>.</td><td>Generate a  
+secret key, say <b>x</b> = 9, since 9&lt;11.</td></tr> 
+<tr valign=top>           
+<td>Generate a public key by  calculating <b>h, </b>where           
+<b>h = g^x </b>mod  <b>p</b>. </td><td>Generate a public key by calculating  
+<b>h</b>, where <b>h</b> = 2^9 mod 23 =  6.</td></tr> 
+<tr valign=top>  <td>Note that <b>p</b>,           
+<b>q</b>, <b>g</b>, and <b>h </b>are all public.  Only <b>x </b>is   
+secret.</td><td>Note that           
+<b>p </b>= 23, <b>q </b>=11, <b>g</b> = 2, and <b>h</b> = 6 are           
+all public.  Only <b>x </b>=  9 is secret.</td></tr> 
+<tr valign=top><td><b><i><center>Authentication</center></i></b></td><td>  </td> 
+</tr><tr           
+valign=top><td><b><i></b></i>Customer picks a random number <b>w</b> &lt;           
+<b>q</b>, and computes <b>a = g^w </b>mod <b>p</b>.</td><td>Customer picks  
+<b>w</b> = 3 &lt; 11, and computes          
+<b>a = g^w</b> = 2^3 mod 23 = 8 mod 23 = 8.  </td></tr> 
+<tr valign=top>  <td>Customer sends           
+<b>a</b> to merchant.</td><td>Customer sends <b>a = </b>8 to merchant.</td></tr> 
+<tr valign=top>  <td>Merchant sends           
+customer a random number <b>c</b>, where <b>c </b>is between 0 and 2^<b>t</b> - 1,           
+where t is about <b>t = </b>72.</td><td>Merchant sends customer  
+<b>c=</b>5.</td></tr> 
+<tr valign=top>  <td>Customer calculates           
+<b>y = w + x*c</b>  mod <b>q</b>, and returns <b>y </b>to           
+merchant.</td><td>Customer           
+calculates <b>y = </b>3+9*5 mod 11 =  48 mod 11 = 4, and returns           
+<b>y</b> = 4 to the merchant.</td></tr> 
+<tr valign=top> <td>Merchant verifies           
+<b>g^y = a*h^c  </b>mod <b>p</b></td><td>Merchant calculates <b>a*h^c </b>mod  
+<b>p = 8*6^5</b> mod 23 = 62208 mod 23 = 16.  Merchant also calculates <b>g^y  
+</b>mod<b> p = </b>2^4 = 16.  These are the same so the merchant accepts that the  
+customer knows <b>x</b>.  </td></tr></table> 
+<p>           
+Why does this           
+procedure work?  Because in order find <b>y</b> without knowledge of the secret key,           
+the customer would have to take discrete logarithms: 
+<p> <center>          
+<b>y </b>= log_<b>g </b> [<b>(g^w)*(g^x)^c]</b>   mod <b>p</b>   = <b> w  + x*c   
+</b>mod <b>q</b>. 	                            
+<p></center>           
+This cannot be done under any feasible constraints on budget and time, as long as  
+<b>p</b> is about 768 bits, <b>q</b> is about 140 bits, and the random number  
+<b>w</b> is chosen over a range between zero and 2^72.  Hence the customer has  
+demonstrated knowledge of the customer's own secret key, but has not revealed that  
+secret key to the merchant.  The customer has enacted a zero-knowledge proof.  
+<p>           
+The <b><i>Schnorr signature protocol</b></i> adds a hash function to this process.   
+Instead of the merchant sending a challenge <b>c</b>, the customer <b>calculates c via  
+the hash function</b>.           
+Suppose the customer wants to send a message <b>M</b> to the merchant.  First, she           
+chooses a random number <b>w</b>, and computes <b>a = g^w</b> mod <b>p,</b> as           
+before.  She then concatenates <b>M </b>and <b>a</b>, and calculates a hash value           
+<b>c</b>:           
+<p> <center> 
+<b>c = H(M,a) </b> 
+<p>  </center>  
+using a hash function  <b>H(</b> <b>)</b>.  She then calculates  <b>y =  w  + x*c   
+</b>mod <b>q</b>, and sends the <b><i>signature </i>(c, y)</b> along with <b>a</b>  
+and the message <b>M  </b>to the merchant.  The signature tuple (<b>c, y</b>) is  
+equivalent to  the challenge  and response we saw previously.<p>           
+<p>           
+The merchant calculates,  
+<p> <center>          
+<b>g^y  = a*h^c  </b>mod <b>p</b> 
+<p> </center>          
+then also calculates the hash value <b>H(M,a)</b>, and verifies that  
+<p>  <center>         
+<b>c = H(M,a)</b>.	 
+<p>  </center>         
+If they are the same, the signature is valid.   
+<p>           
+In this case, both  parties are using the same hash function <b>H.  </b>The customer has  
+an incentive <b>to randomize  w</b>, because otherwise the paired values of <b>y  
+</b>and <b>c</b> she sends to the merchant from time to time would reveal her secret  
+key           
+<b>x</b>.  For two different paired values (<b>c1,y1)</b> and (<b>c2,y2)</b>, but with           
+the same <b>w</b>, the merchant can calculate <b>x</b> = (<b>y1</b>-          
+<b>y2</b>)/(<b>c1</b>-<b>c2</b>).    
+<p>           
+On the other hand, the           
+hash function <b>H</b> must be collision-resistant, because otherwise the customer           
+might be able to manipulate the value of <b>c</b>. <p>           
+<p>           
+This signature           
+protocol is illustrated in <b>Table 6.</b> 
+<p>           
+We will see later how the Schnorr signature protocol forms a significant part of Stefan           
+Brands' system of anonymous digital cash. 
+<p>           
+</FONT><FONT NAME="Times New Roman" SIZE=+2> 
+<b>Table 6:  Schnorr Signature Protocol</b> 
+<p>           
+<table border><tr valign=top><td><b><i><center>Schnorr Signature  
+Protocol</center></i></b></td><td><b><b><i><center>Example</center></i></b> 
+</td></tr> 
+<tr valign=top><td><b><i></b></i>Customer wants to send a message           
+<b>M.</b></td><td>Customer wants to send a message <b>M </b>= 5.</td></tr><tr  
+valign=top>           
+<td>Customer picks a           
+random number <b>w</b> &lt; <b>q</b>, and computes <b>a = g^w </b>mod           
+<b>p</b>.</td><td>Customer picks <b>w</b> = 3 &lt; 11, and computes<p>           
+<b>a = g^w = </b>2^3 mod           
+23 = 8 mod 23 = 8.	</td></tr><tr valign=top>           
+<td>Customer has a hash           
+function <b>H(</b> <b>).</b></td><td>For simplicity, let <b>H(k, j) </b>= <b>(k*j)^7  
+</b>mod <b>17</b>. (This is           
+not a good hash function.)</td></tr><tr valign=top>           
+<td>Customer concatenates           
+<b>M </b>and <b>a</b>, and calculates a hash value <b>c =           
+H(M,a)</b>.</td><td>Customer concatenates <b>M</b> = 5 and <b>a</b> =8, and  
+calculates <b>c           
+</b>= <b>H(</b>5,8<b>) = </b>(5*8)^7 mod 17 = 14. </td></tr><tr valign=top>           
+<td>Customer calculates           
+<b>y = w + x*c</b>  mod <b>q</b>, and sends <b>(c, y)</b>, the signature, along with            
+<b>a</b> and the message <b>M</b> to merchant.</td><td>Customer calculates  
+<b>y</b> = 3 + 9*14 mod 11 =           
+8, and sends <b>(c, y) </b>=           
+(14,8) to the merchant, along with <b>M</b> = 5 and <b>a</b> = 8.</td></tr><tr           
+valign=top>           
+<td>Merchant checks if           
+<b>g^y = a*h^c</b> mod <b>p</b>.</td><td>Merchant computes <b> g^y</b> mod 23  
+= 2^8 mod 23 = 3. Merchant computes <b>a*h^c</b> mod 23 = 8*6^14 mod 23 = 3.   
+The two sides are  equal.</td></tr><tr valign=top>           
+<td>Merchant computes           
+<b>H(M,a).</b></td><td>Merchant computes <b>H(</b>5,8<b>)</b> = (5*8)^7 mod  
+17 =  14.</td></tr><tr valign=top>           
+<td>Merchant accepts the signature if <b>c = H(M,a).</b></td><td>Merchant accepts  
+the signature because <b>c</b> = 14 =  <b>H(</b>5,8<b>)</b>.  </td></tr></table>     
+<p>          
+<FONT NAME="Times New Roman" SIZE=+2>       
+<b>I.  The  Representation Problem</b><p>           
+<FONT NAME="Times New Roman" SIZE=+1>            
+As we saw above,           
+Diffie-Hellman key agreement and Schnorr signatures all hinge on the practical difficulty           
+of calculating discrete logarithms.  So also does the U.S. government's Digital Signature           
+Standard. The <b><i>representation problem</b></i> extends this           
+computational difficulty to the calculation of a set of numbers related to discrete           
+logarithms.  The ability to draw on a whole set of hard-to-calculate numbers, instead of a           
+single logarithm, gives us an important degree of flexibility in creating anonymous digital           
+cash systems.      
+<p>           
+Let <b>g</b> be an           
+generator of the subgroup G(q)<b> </b>in Z(p)* (<b>g</b> can be any element from           
+G(q) other than 1).<b>  </b>Recall that the <i>discrete logarithm problem</i> involves           
+finding some power <b>a</b> such that, for a given <b>h</b> in G(q),   
+<p> <center>          
+<b>g</b>^<b>a</b> = <b>h</b> mod <b>p</b> . 
+<p> </center>           
+Otherwise stated, <b>a</b> = log <b>h</b> mod <b>p</b>, to the base <b>g</b>.  The  
+exponent <b>a</b> is the discrete logarithm of <b>h</b>. The representation problem is  
+a generalization of  the concept of finding a discrete logarithm <b>a</b>.  It involves  
+finding a <i>set</i> of  numbers, called an &quot;index-tuple,&quot;  instead of a single  
+number.  
+<p>           
+Let <b>k</b>>= 2, and 1&lt;=<b>a<sub>i</sub></b>&lt;= q, for <b>i</b> = 1 to 
+<b>k</b>.   
+The <b><i>representation           
+problem</b></i> for a given <b>h </b>in G(q) is to find an <b><i>index-tuple</b></i>           
+{<b>a<sub>1</sub></b>, ... , <b>a<sub>k</sub></b>}, for a generator-tuple  
+{<b>g<sub>1</sub>, ... , g<sub>k</sub></b>} from G(q) such           
+that     
+<p><center>           
+<b>g<sub>1</sub></b>^<b>a<sub>1</sub></b>*<b>g<sub>2</sub></b>^<b>a<sub>2 
+</sub></b>*...*<b>g<sub>k</sub></b>^<b>a<sub>k</sub></b> =  <b>h</b> mod  
+<b>p</b>.                                                                    
+<p> </center>          
+The index-tuple {<b>a<sub>1</sub></b>, ... , <b>a<sub>k</sub></b>} is called a  
+<b><i>representation.  </b></i>Note that we exclude the case <b>a<sub>i</sub></b> =  
+0, because letting <b>a<sub>i</sub></b> = <b>q</b>, whereby  
+<b>g<sub>i</sub></b>^<b>q</b> = 1 mod <b>p</b>, serves the same purpose as letting  
+<b>a<sub>i</sub></b> = 0 and having  <b>g<sub>i</sub></b>^0 = 1.  
+<p>           
+For example, we saw  previously that {2, 3} are two of the numbers that generate G(11)  
+in Z(23)*.  So one  example of a representation problem is to find  
+<b>a<sub>1</sub></b> and <b>a<sub>2</sub></b> such that for <b>h</b> = 13,  
+<p><center>           
+ 2^<b>a<sub>1</sub></b>*3^<b>a<sub>2</sub></b> = 13 mod 23.<p>           
+<p></center>           
+This is equivalent to finding a   <b>weighted average</b> of discrete logarithms which  
+equals another discrete logarithm:<p>           
+<p><center>           
+<b>a<sub>1</sub></b>*log (2) + <b>a<sub>2</sub></b>*log (3) = log (13)  mod 23.  
+<p></center>           
+One solution is  <b>a<sub>1</sub></b> =           
+2 and <b>a<sub>2</sub></b> = 2, since 2^2*3^2 = 4*9 = 36 = 13 mod 23.  Another  
+solution is           
+<b>a<sub>1</sub></b> = 7 and <b>a<sub>2</sub></b> = 11, since 2^7*3^11 = 128*1  
+= 13 mod 23.  Yet another           
+solution is <b>a<sub>1</sub></b> = 3 and <b>a<sub>2</sub></b> = 6, as 2^3*3^6 =  
+8*729 = 13 mod 23.    
+<p>           
+Notice that if there are <b>k</b> elements in the representation,  
+{<b>a<sub>1</sub></b>, ... , <b>a<sub>k</sub></b>}, then there are            
+<p> <center>           
+<b>q^(k-1)</b> representations of <b>h</b>.                                                                                      
+<p></center>  
+This follows from the simple observation that <b>a<sub>1</sub> </b>can be chosen  
+from any of the <b>q </b>powers {1, 2, 3, ...,           
+<b>q}</b>, <b>a<sub>2</sub></b> from any of these <b>q </b>powers, etc., up to  
+<b>a<sub>k-1</sub></b>, for           
+a total of <b>q^(k-1)</b> .  The last element, <b>a<sub>k</sub></b>, however, must be  
+chosen so           
+that  
+<b>g<sub>1</sub></b>^<b>a<sub>1</sub></b>*<b>g<sub>2</sub></b>^<b>a<sub>2 
+</sub></b>*...*<b>g<sub>k</sub></b>^<b>a<sub>k</sub></b> =           
+<b>h</b> mod <b>p</b>. 
+<p>           
+Thus for <b>k=2</b> in G(11), there are 11^(2-1) = 11 representations of each number  
+<b>h</b> in G(11). For <b>k=3</b>, there           
+are 11^(3-1) = 121 representations of, say,  4<b> =</b>           
+2^<b>a<sub>1</sub></b>*3^<b>a<sub>2</sub></b>*13^<b>a<sub>3</sub></b> mod  
+23, because 2, 3, 4, 13 are all elements           
+of G(11) in Z(23)*.           
+<p>           
+<FONT  NAME="Times New Roman" SIZE=+2>     
+<b>J. Proving Knowledge of a Representation</b><p>           
+<FONT  NAME="Times New Roman" SIZE=+1>     
+Since knowledge of a           
+representation cannot be gained without taking discrete logarithms (which is not           
+practically possible for numbers of sufficient size), one can thus use one's knowledge of a           
+representation to verify one's identity.  The following protocol is designed to  
+<b><i>prove knowledge of a representation</i>.</b> 
+<p>           
+Suppose you, the <b><i>prover</b></i> <b>P</b>, know the representation of <b>h =           
+g<sub>1</sub></b>^<b>a<sub>1</sub></b>*<b>g<sub>2</sub></b>^<b>a<sub>2 
+</sub></b>*...*<b>g<sub>k</sub></b>^<b>a<sub>k</sub>  </b>mod <b>p</b>,           
+where <b>h </b>is an element of G(q). That is, given {<b>g<sub>1</sub>, ... ,  
+g<sub>k</sub></b>}, you know           
+{<b>a<sub>1</sub></b>, ... , <b>a<sub>k</sub></b>}, and you want to prove that fact,  
+without at the same time           
+revealing what {<b>a<sub>1</sub></b>, ... , <b>a<sub>k</sub></b>} are.  How do you  
+do this?  You want a zero-knowledge proof whereby you do not give away what you  
+know, but the other party can           
+be nevertheless assured that you do know {<b>a<sub>1</sub></b>, ... ,  
+<b>a<sub>k</sub></b>}.           
+<p>           
+Let's call the other           
+party <b>V</b>, for <b><i>verifier</b></i>, and assume that <b>V</b>, who also           
+knows <b>h</b> and {<b>g<sub>1</sub></b>, ... , <b>g<sub>k</sub></b>}, is seeking  
+assurance that you know           
+{<b>a<sub>1</sub></b>, ... , <b>a<sub>k</sub></b>}.  <p>           
+<p>           
+<b>Step 1:</b>  You,           
+the prover <b>P</b>, generate <b>k</b> random numbers {<b>w<sub>1</sub></b> 
+, ... ,  <b>w<sub>k</sub></b>} chosen from G(q). You send to <b>V</b> the number  
+<b>z =           
+g<sub>1</sub></b>^<b>w<sub>1</sub></b>*<b>g<sub>2</sub></b>^<b>w<sub>2 
+</sub></b>*...*<b>g<sub>k</sub></b>^<b>w<sub>k</sub> </b>mod           
+<b>p</b>.  <p>           
+<p>           
+<b>Step 2:</b>            
+<b>V </b>receives <b>z</b> and generates a random number, called a "challenge",           
+<b>c</b>, and sends it back to you.<p>           
+<p>           
+<b>Step 3:</b>  You           
+compute, for <b>i</b> = 1 to <b>k</b>,  <b>r<sub>i</sub> = a<sub>i</sub> +  
+c*w<sub>i</sub> </b>mod <b>q</b>, and send           
+these <b>k</b> numbers back to <b>V.  </b>(Note that the numbers are reduced mod           
+<b>q</b>, because <b>g<sub>i</sub></b> ^<b>q</b> = 1 mod <b>p</b>.) 
+<p>           
+<b>Step 4:  V</b>           
+calculates <b>z*h^c </b>and compares this to            
+<b>g<sub>1</sub></b>^<b>r<sub>1</sub></b>*<b>g<sub>2</sub></b>^<b>r<sub>2 
+</sub></b>*...*<b>g<sub>k</sub></b>^<b>r<sub>k</sub> </b>mod           
+<b>p</b>, performed as a separate calculation.  (Note that <b>V</b> is only calculating           
+exponentials, which is not hard to do.)  If the two numbers are the same, <b>V           
+</b>accepts that you know the representation.<p>           
+<p>           
+The two numbers will  be the same if you know <b>a<sub>i</sub></b>, and will  
+otherwise be different, because <p>           
+<p>     
+<b>z*h^c =  
+(g<sub>1</sub></b>^<b>w<sub>1</sub></b>*<b>g<sub>2</sub></b>^<b>w<sub>2 
+</sub></b>*...*<b>g<sub>k</sub></b>^<b>w<sub>k</sub>) </b>* <b>(</b>           
+<b>g<sub>1</sub></b>^<b>a<sub>1</sub></b>*<b>g<sub>2</sub></b>^<b>a<sub>2 
+</sub></b>*...*<b>g<sub>k</sub></b>^<b>a<sub>k</sub></b>)^<b>c</b> 
+<p>           
+<b>  =            
+(g<sub>1</sub></b>^[<b>w<sub>1</sub>+  
+c*a<sub>1</sub></b>]*<b>g<sub>2</sub></b>^[<b>w<sub>2</sub>+  
+c*a<sub>2</sub></b>]*...*<b>g<sub>k</sub></b>^[<b>w<sub>k</sub>+           
+c*a<sub>k</sub></b>])           
+<p>           
+=    
+<b>g<sub>1</sub></b>^<b>r<sub>1</sub></b>*<b>g<sub>2</sub></b>^<b>r<sub>2 
+</sub></b>*...*<b>g<sub>k</sub></b>^<b>r<sub>k</sub>     </b>mod           
+<b>p</b> . 
+<p>           
+This process using just two generators is shown again for illustration in <b>Table 7</b>.   
+<p>           
+</FONT><FONT NAME="Times New Roman" SIZE=+2> 
+<b>Table 7:  Proving Knowledge of a Representation </b><p>           
+</FONT><FONT NAME="Times New Roman" SIZE=+1> 
+<table border><tr valign=top><td><b><i><center>Prover P</center></i></b></td> 
+<td><b><i><center>Verifier V</center></i></b></td></tr> 
+<tr valign=top><td>Knows representation of<b> h =           
+g<sub>1</sub></b>^<b>a<sub>1</sub></b>*<b>g<sub>2</sub></b>^<b>a<sub>2 
+</sub></b>; namely, knows <b>a<sub>1</sub>,           
+a<sub>2</sub></b>.</td><td>Only knows <b>h </b>and <b>g<sub>1</sub></b>,  
+<b>g<sub>2</sub></b>; doesn't know  <b>a<sub>1</sub></b>,   
+<b>a<sub>2</sub></b>.</td></tr> 
+<tr valign=top> <td>Generates two random numbers <b>w<sub>1</sub></b>,  
+<b>w<sub>2</sub> .</b></td><td><b></td></tr> 
+<tr valign=top><td>Computes<b> z =  
+g<sub>1</sub></b>^<b>w<sub>1</sub></b>*<b>g<sub>2</sub></b>^<b>w<sub>2 
+</sub>.            
+</b>Sends<b> z </b>to<b> V.</td><td>Receives<b> z </b>from<b> P.  </b>Generates  
+challenge           
+<b>c</b>.<b></td></tr> 
+<tr valign=top> <td> </td><td>Sends challenge<b> c </b>to<b> P.</td></tr> 
+<tr valign=top>  <td>Receives           
+<b>c</b>.  Computes  <b>r<sub>i</sub> = a<sub>i</sub> + c*w<sub>i</sub>   
+</b>mod <b>q</b>, for <b>i</b> = 1 to 2.            
+Sends these to <b>V</b>.<b></td><td>Receives <b>r<sub>i</sub></b>.  Checks that  
+<b>z*h^c =  
+g<sub>1</sub></b>^<b>r<sub>1</sub></b>*<b>g<sub>2</sub></b>^<b>r<sub>2 
+</sub>  </b>mod <b>p</b>.  If the equality holds,  the Verifier accepts that the Prover  
+knows the representation (still unknown           
+to the Verifier) of <b>h</b>--namely, <b>a<sub>1</sub>,  
+a<sub>2</sub>.</td></tr></table>     
+<p>
+<a name="CA">
+<FONT NAME="Times New Roman" SIZE=+2>     
+<b>K.  Certification Authorities and Digital Certificates       </b></a><p>           
+<FONT NAME="Times New Roman" SIZE=+1>     
+The Department  of Motor Vehicles is an example of a <i>certification authority</i>.  It      
+issues a  <i>certificate</i>, called a driver's license, which certifies the connection      
+between a  person's photograph and the personal information on the license.        
+<p>           
+Similarly, a           
+<b><i>digital certificate</b></i> verifies the connection between someone's public key           
+and that person's personal identification (however the latter is defined). A digital           
+certificate is typically issued by a trusted third party, who is thus called a           
+<b><i>certification authority (CA)</b></i>.  One  example of a private CA is VeriSign           
+Inc., which runs a CA service for commercial World-Wide Web browsers.  Companies           
+have to give VeriSign certain notarized business documents before obtaining a VeriSign           
+digital certificate.  Other commercial CA services include GTE's CyberTrust and IBM's           
+Net.Registry.  Software packages for CA management include Nortel's WebCA and           
+BBN's SafeKeyper Certificate Management System.  <p>           
+<p>           
+A digital certificate is           
+used with a digital <i>signature</i> in the following way.  When Bob signs a message           
+with his private key and sends it to another party, Bob sends a certificate along with the           
+signature.  The message recipient can then verify the message signature using Bob's           
+public key, but also looks at the certificate for additional security that the public key in           
+fact belongs to Bob.   That is, "Bob" has signed his message with his secret key, which           
+can be verified with "Bob's" public key.  The certificate is intended to show that "Bob" is           
+really Bob.           
+<p>           
+The certification           
+authority, in turn, does its job by binding Bob's identity with Bob's public key, and           
+signing the joint information with the CA's own private key. This signed message (digital           
+certificate) from the CA can be read using the CA's public key.  Everyone is assumed to           
+have a tamper-resistant copy of the CA's public key so they can verify signatures on           
+digital certificates.   
+<p>           
+If the CA's secret key           
+is <b><i>sk-ca</i></b>, while Bob's public key is <b><i>pk-bob</i></b>, then the CA  
+creates a  certificate for Bob of the form:           
+<p> <center>          
+CA  certificate =  
+<b>E<sub><i>sk-ca</i></sub>{</b>Bob's identity, <b><i>pk-bob</i></b>}. 
+<p> </center>          
+The certification can then be checked using the CA's public key <b><i>pk-ca</i></b>:  
+<p> <center>          
+verification =  
+<b>D<sub><i>pk-ca</i></sub></b>(<b>E<sub><i>sk-ca</i></sub></b>{Bob's identity,   
+<b><i>pk-bob</i></b>})   =  {Bob's identity, <b><i>pk-bob</i></b>}.    
+<p></center>           
+This mechanism, of           
+course, simply passes the buck to a higher level authority. The CA may have certified the           
+association between Bob's identity and Bob's public key, but how does one know that the           
+association between the CA and the CA's public key is valid? Can you trust the CA?  So           
+the use of certification authorities results in a <b><i>chain of trust</b></i>.  At the top is           
+a certification authority which everyone knows and trusts (that's the idea, anyway), and           
+this certification authority certifies the public keys of other certification authorities.  And           
+so on down the line until some CA verifies that Bob's key belongs to Bob.  The public           
+and private keys of top-level CAs are called <b><i>root keys</b></i>. A top-level CA's           
+public root key will be widely distributed and might also be published regularly in a           
+major newspaper.  
+<p>           
+Meanwhile, the value           
+of credentials signed with the CA's private key is only as good as the security of the CA's           
+private key itself. A private (secret) root key of a CA may be split into several parts for           
+security.  It might, for example, be split into five parts, any two of which are sufficient to           
+determine the key.  (This is similar to a requirement that two people sign a check over a           
+certain amount.)    
+<p>           
+To understand the           
+splitting of a key, think of a line in a two-dimensional plane.  Any two points on the line           
+determine its slope.  Suppose the slope represents the secret key.  One point on the line           
+will not reveal the secret key (the slope), but any two points will.  So, to split up the key,           
+one simply chooses five different, but otherwise arbitrary, points on the line, and gives           
+the location of each point to a different person.  Any two of them can determined the           
+secret key needed for signing.  Such a process is referred to as <b><i>secret           
+sharing</b></i>.<p>           
+<p>           
+Digital certificates           
+(and CAs) may be used for other things than proofs of identity.  A certificate may, for           
+example, verify Bob's spending limit on a particular credit card.  So, in the general sense,           
+<b>a digital certificate is a contract between two or more parties that verifies or specifies           
+certain information</b>.  <p>           
+<p>           
+One format for a           
+digital certificate is laid out in ITU-T  X.509.  An X.509 certification message includes           
+the following fields:   
+<p>           
+<i>Version</i>:            
+Version number of the X.509 certificate specifications. Version 1 was published in 1988,           
+version 2 in 1993, and version 3 proposed in 1994.<p>           
+<p>           
+<i>Serial Number</i>:  The certificate serial number.  
+<p>           
+<i>Signature  Algorithm ID</i>:  The algorithm that will be used to sign the certificate.  
+For example,  the Digital Signature Algorithm (DSA).  The DSA           
+uses the group of prime order G(q) in Z(p)*, so the prime <b>p</b>, the prime <b>q</b>,           
+and a generator <b>g</b> must all be specified in this part of the certificate.  
+<p>           
+<i>Issuer Name</i>: The name of the CA body issuing the certificate.  
+<p>           
+<i>Validity Period</i>:  How long the current certificate is good for.  
+<p>           
+<i>Subject or User Name</i>:  The person or entity on whose behalf the present  
+certificate is being issued.           
+<p>           
+<i>Subject Public Key Information</i>:  The public key of the person or entity.  
+<p>           
+<i>Subject Unique Identifier</i>:  Information about the person or entity that is being  
+bound to the person or entity's public key.  For example:  account XYZ123 at UBS,  
+Berne.  
+<p>           
+<i>Signature on the Above Fields</i>:  The CA's signature.  
+<p>           
+The X.509 certificate standard is supported by many security protocols, such as S-HTTP,  
+SSL, PEM,  and PKCS-7.  Version 3 certificates are also used in SET.     
+<p>           
+Posted here October 10, 1997 <br>     
+<hr>
+<p align="justify">J. Orlin Grabbe is the author of
+<a href="http://www.amazon.com/exec/obidos/ASIN/0132069881/qid=924154369/sr=1-1/002-9261014-2388004">
+International Financial Markets</A>, and is an internationally recognized derivatives expert.  He has recently branched out into cryptology, banking security, and digital cash.  His home page is located at <a href="homepage.html">http://www.aci.net/kalliste/homepage.html</a>. 
+<p>
+<center><b>-30-</b></center>
+<p>
+</body>
+</html>
