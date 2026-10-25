@@ -1,0 +1,124 @@
+<html>
+<head>
+  <title>Geolocation</title>
+  <script src='js/jquery.min.js'></script>
+  <meta name="viewport" content="width=320">
+  <style>
+    th { text-align: right }
+  </style>
+<script>
+var showOrientation = false;
+var showMotion = false;
+
+function getlocation() {
+  if (!showOrientation) showOrientation = true;
+  if (!showMotion) showMotion = true;
+  if(navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(onGeoSuccess,onGeoError);
+  } else {
+    $('#error').text("Your browser or device doesn't support Geolocation");
+  }
+}
+
+function init() {
+  try {
+    window.addEventListener('deviceorientation', onOrientation);
+  } catch (err) {
+    $('#alpha').text('Unsupported');
+  }
+  try {
+    window.addEventListener('devicemotion', onMotion);
+  } catch (err) {
+    $('#accx').text('Unsupported');
+  }
+  getlocation();
+}
+
+var timeout = 1000;
+
+function onGeoSuccess(event) {
+  var d = new Date();
+  $('#error').text(d.toLocaleString());
+  $('#latitude').text(event.coords.latitude);
+  $('#longitude').text(event.coords.longitude);
+  $('#accuracy').text(event.coords.accuracy);
+  $('#altitude').text(event.coords.altitude);
+  $('#altitudeAccuracy').text(event.coords.altitudeAccuracy);
+  $('#heading').text(event.coords.heading);
+  $('#speed').text(event.coords.speed);
+  window.setTimeout(getlocation, timeout);
+}
+
+function onGeoError(event) {
+  $('#error').text(event.code + ": " + event.message);
+  window.setTimeout(getlocation, timeout);
+}
+
+function onOrientation(event) {
+  if (!showOrientation) return;
+  showOrientation = false;
+  var alpha = event.alpha;
+  var beta = event.beta;
+  var gamma = event.gamma;
+  var compassAccuracy = event.webkitCompassAccuracy;
+  var compassHeading = event.webkitCompassHeading;
+  $('#alpha').text(alpha);
+  $('#beta').text(beta);
+  $('#gamma').text(gamma);
+  $('#compassAccuracy').text(compassAccuracy);
+  $('#compassHeading').text(compassHeading);
+}
+
+function onMotion(event) {
+  if (!showMotion) return;
+  showMotion = false;
+  var acc = event.acceleration;
+  var accg = event.accelerationIncludingGravity;
+  var interval = event.interval;
+  var rot = event.rotationRate;
+  $('#accx').text(acc.x);
+  $('#accy').text(acc.y);
+  $('#accz').text(acc.z);
+  $('#accgx').text(accg.x);
+  $('#accgy').text(accg.y);
+  $('#accgz').text(accg.z);
+  $('#interval').text(interval);
+  $('#rotalpha').text(rot.alpha);
+  $('#rotbeta').text(rot.beta);
+  $('#rotgamma').text(rot.gamma);
+}
+</script>
+</head>
+<body onload='init()'>
+  <table>
+    <tr><td></td><td style='text-align: center;'><b>GPS Information</b></td></tr>
+    <tr><th>Error:</th><td id='error'></td></tr>
+    <tr><th>Latitude:</th><td id='latitude'></td></tr>
+    <tr><th>Longitude:</th><td id='longitude'></td></tr>
+    <tr><th>Accuracy:</th><td id='accuracy'></td></tr>
+    <tr><th>Altitude:</th><td id='altitude'></td></tr>
+    <tr><th>Accuracy:</th><td id='altitudeAccuracy'></td></tr>
+    <tr><th>Heading:</th><td id='heading'></td></tr>
+    <tr><th>Speed:</th><td id='speed'></td></tr>
+
+    <tr><td></td><td style='text-align: center;'><br/><b>Orientation Information</b></td></tr>
+    <tr><th>Alpha:</th><td id='alpha'></td></tr>
+    <tr><th>Beta:</th><td id='beta'></td></tr>
+    <tr><th>Gamma:</th><td id='gamma'></td></tr>
+    <tr><th>Heading:</th><td id='compassHeading'></td></tr>
+    <tr><th>Accuracy:</th><td id='compassAccuracy'></td></tr>
+
+    <tr><td></td><td style='text-align: center;'><br/><b>Motion Information</b></td></tr>
+    <tr><th>Acc X:</th><td id='accx'></td></tr>
+    <tr><th>Acc Y:</th><td id='accy'></td></tr>
+    <tr><th>Acc Z:</th><td id='accz'></td></tr>
+    <tr><th>Accg X:</th><td id='accgx'></td></tr>
+    <tr><th>Accg Y:</th><td id='accgy'></td></tr>
+    <tr><th>Accg Z:</th><td id='accgz'></td></tr>
+    <tr><th>Interval:</th><td id='interval'></td></tr>
+    <tr><th>Rot Alpha:</th><td id='rotalpha'></td></tr>
+    <tr><th>Rot Beta:</th><td id='rotbeta'></td></tr>
+    <tr><th>Rot Gamma:</th><td id='rotgamma'></td></tr>
+</body>
+</html>
+
