@@ -1,0 +1,83 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="Steve Bush">
+   <meta name="GENERATOR" content="Mozilla/4.73C-CCK-MCD NSCPCD47 (Macintosh; U; PPC) [Netscape]">
+   <title>The RAMADR and RAMDATA registers</title>
+</head>
+<body>
+&nbsp;
+<br><b><u><font size=+1>The RAMADR and RAMDATA registers</font></u></b>
+<br><b><u><font size=+1>(also RAMADR /READ, RAMADR /ADDER, and RAMDATA
+/INCADR):</font></u></b>
+<p>These registers are the interface to the RAM memory logic. RAMADR holds
+the 32 bit address being referenced in the memory, and RAMDATA the 32 bit
+data word being transferred to or from the memory.
+<p>It takes two WIZ processor cycles to read or write to memory, one to
+setup the address and one to store or load the data. If several sequential
+locations are being read or written, only the first takes two cycles, and
+the rest take a single cycle.
+<p>To write data to memory, you must first write the address to RAMADR,
+then write the data to RAMDATA. Writes to RAMDATA cause a memory write
+cycle to occur. The WIZ cycle does not wait for the memory write - once
+the data is latched into the RAMDATA register the WIZ cycle continues and
+the memory write occurs asynchronously as a backend function.
+<p>To read data from memory, you first write an address to RAMADR or to
+RAMADR /READ, which is the same as RAMADR, but also initiates a memory
+read cycle immediately. Then, you read the RAMDATA register in a subsequent
+instruction.
+<p>Note that memory timing cannot be guaranteed. As explained in a later
+section, portions of the memory may have various speeds. The fastest, on-chip
+memory, should be able to do a read or write cycle within the same time
+period as the WIZ instruction cycle. In this case, a read from RAMDATA
+just after writing to RAMADR /READ should produce no wait time.
+<p>In the case that the memory is slower, a read from RAMDATA will have
+to wait until the data is fully valid. Remember that the WIZ cycle is not
+clocked - it finishes when it finishes. So a wait for RAMDATA simply delays
+the current cycle -- it doesn't go into the next cycle. Likewise, a write
+to RAMDATA will not produce any wait unless there has just been a previous
+write to RAMDATA and due to a slow memory that write has not completed
+yet. In this case, the current data cannot be latched into the RAMDATA
+register until the memory cycle is complete.
+<p>To read or write several sequential memory locations, RAMADR need only
+be set up once, as it can be auto incremented by using the RAMDATA /INCADR
+register. This is the same register as RAMDATA, but also causes a backside
+increment of RAMADR. For instance, to write general purpose registers 20
+thru 22 to memory locations &lt;scratch address> and following, we would
+have:
+<blockquote><tt>&lt;scratch address> => RAMADR</tt>
+<br><tt>GPREG #20 => RAMDATA /INCADR</tt>
+<br><tt>GPREG #21 => RAMDATA /INCADR</tt>
+<br><tt>GPREG #22 => RAMDATA</tt></blockquote>
+To read back the same registers, we would have:
+<blockquote><tt>&lt;scratch address> => RAMADR /READ</tt>
+<br><tt>RAMDATA /INCADR => GPREG #20</tt>
+<br><tt>RAMDATA /INCADR => GPREG #21</tt>
+<br><tt>RAMDATA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; => GPREG
+#22</tt></blockquote>
+Note that the memory addresses are byte addresses, yet we always load four
+byte words. Words need not be aligned to multiple-of-four addresses. The
+/INCADR actually increments the RAMADR by 4.
+<p>More examples: To store general purpose reg #43 to memory location &lt;loc>,
+we have:
+<blockquote><tt>&lt;loc> => RAMADR</tt>
+<br><tt>GPREG #43 => RAMDATA</tt></blockquote>
+To retrieve location &lt;loc> and push it onto the stack, we would have:
+<blockquote><tt>&lt;loc> => RAMADR /READ</tt>
+<br><tt>RAMDATA => STACK</tt></blockquote>
+
+<p><br><b><u><font size=+1>The RAMADR /ADDER register:</font></u></b>
+<p>RAMADR /ADDER adds the value stored into it to the value in the RAMADR,
+and that sum is used to address the memory. Immediately after use, RAMADR
+/ADDER returns to zero, thus affecting only a single memory cycle. Thus,
+to address A[i], where i = GPREG 16, we have:
+<blockquote><tt>&lt;address of array A> => RAMADR</tt>
+<br><tt>GPREG # 16 => RAMADR /ADDER</tt></blockquote>
+
+<center>&copy; 1999-2001 by <a href="http://www.steve.bush.org">Steve Bush</a></center>
+
+<p><br>
+<br>
+</body>
+</html>

@@ -1,0 +1,280 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="Steve Bush">
+   <meta name="GENERATOR" content="Mozilla/4.73C-CCK-MCD NSCPCD47 (Macintosh; U; PPC) [Netscape]">
+   <title>WIZ Processor Register Definitions</title>
+</head>
+<body>
+&nbsp;
+<br><b><font size=+2>Complete WIZ Processor Register Definitions</font></b>
+<p>The following table gives the definitions for <u>all</u> the WIZ processor
+registers.
+<br>&nbsp;
+<table BORDER=3 >
+<caption><b><font size=-1>WIZ REGISTER DEFINITIONS</font></b></caption>
+
+<tr>
+<td>
+<center><font size=-1>Reg #</font></center>
+</td>
+
+<td><font size=-1>Name</font></td>
+
+<td><font size=-1>Description</font></td>
+</tr>
+
+<tr>
+<td>
+<center><font size=-1>0</font></center>
+</td>
+
+<td><font size=-1>RAMDATA</font></td>
+
+<td><font size=-1>Memory data. When written to, initiates a backend memory
+write cycle (@RAMADR). When read, initiates a backend memory read cycle
+(@RAMADR).</font></td>
+</tr>
+
+<tr>
+<td>
+<center><font size=-1>1</font></center>
+</td>
+
+<td><font size=-1>RAMDATA /INCADR</font></td>
+
+<td><font size=-1>Same as RAMDATA, but causes RAMADR to increment after
+use.</font></td>
+</tr>
+
+<tr>
+<td>
+<center><font size=-1>2</font></center>
+</td>
+
+<td><font size=-1>STACK</font></td>
+
+<td><font size=-1>The top word of the stack; store initiates backend PUSH,
+read initiates POP.</font></td>
+</tr>
+
+<tr>
+<td>
+<center><font size=-1>3</font></center>
+</td>
+
+<td><font size=-1>FBREG</font></td>
+
+<td><font size=-1>One of the 256 registers in one of the 256 function blocks.
+Two bytes follow specifying which block and which register of the block.</font></td>
+</tr>
+
+<tr>
+<td>
+<center><font size=-1>4</font></center>
+</td>
+
+<td><font size=-1>FBREG /SAME</font></td>
+
+<td><font size=-1>One of the 256 registers in the same function block as
+read or written by the most recent FBREG register access. One byte follows
+specifying which register. Previous FB memory is seperate for load and
+store.</font></td>
+</tr>
+
+<tr>
+<td>
+<center><font size=-1>5</font></center>
+</td>
+
+<td><font size=-1>FBREG /0&nbsp;</font></td>
+
+<td><font size=-1>One of the 256 registers in function block #0. Aka GPREG.
+One byte follows.</font></td>
+</tr>
+
+<tr>
+<td>
+<center><font size=-1>6</font></center>
+</td>
+
+<td><font size=-1>FBREG /1</font></td>
+
+<td><font size=-1>One of the 256 registers in function block #1. Aka FB1REG.
+One byte follows.</font></td>
+</tr>
+
+<tr>
+<td>
+<center><font size=-1>7-8</font></center>
+</td>
+
+<td><font size=-1>RESERVED</font></td>
+
+<td><font size=-1>Reserved for future definition.</font></td>
+</tr>
+
+<tr>
+<td>&nbsp;</td>
+
+<td><font size=-1>NOTE:</font></td>
+
+<td><font size=-1>Registers 9-15 are all registers that can ONLY be used
+as either source or destination but not both. That is, they are either
+read-only or write-only registers. Therefore, the same register number
+can address one register as a source and a different register as a destination.
+EG, CONST /0B => RAMADR is reg 11 to reg 11.</font></td>
+</tr>
+
+<tr>
+<td>
+<center><font size=-1>&nbsp;9 SOURCE</font></center>
+</td>
+
+<td><font size=-1>RESERVED</font></td>
+
+<td><font size=-1>Reserved for future definition.</font></td>
+</tr>
+
+<tr>
+<td>
+<center><font size=-1>10 SOURCE</font></center>
+</td>
+
+<td><font size=-1>RESERVED</font></td>
+
+<td><font size=-1>Reserved for future definition.</font></td>
+</tr>
+
+<tr>
+<td>
+<center><font size=-1>11 SOURCE</font></center>
+</td>
+
+<td><font size=-1>CONST /0B</font></td>
+
+<td><font size=-1>The constant zero. Aka ZERO.</font></td>
+</tr>
+
+<tr>
+<td>
+<center><font size=-1>12 SOURCE</font></center>
+</td>
+
+<td><font size=-1>CONST /1B</font></td>
+
+<td><font size=-1>24 zero bits + 1 byte&nbsp; following the current instruction.</font></td>
+</tr>
+
+<tr>
+<td>
+<center><font size=-1>13 SOURCE</font></center>
+</td>
+
+<td><font size=-1>CONST /2B</font></td>
+
+<td><font size=-1>16 zero bits + 2 bytes following the current instruction.</font></td>
+</tr>
+
+<tr>
+<td>
+<center><font size=-1>14 SOURCE</font></center>
+</td>
+
+<td><font size=-1>CONST /3B</font></td>
+
+<td><font size=-1>&nbsp; 8 zero bits + 3 bytes following the current instruction.</font></td>
+</tr>
+
+<tr>
+<td>
+<center><font size=-1>15 SOURCE</font></center>
+</td>
+
+<td><font size=-1>CONST /4B</font></td>
+
+<td><font size=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+4 bytes following the current instruction.</font></td>
+</tr>
+
+<tr>
+<td>
+<center><font size=-1>&nbsp; 9 DEST</font></center>
+</td>
+
+<td><font size=-1>SKIPIF /NONZERO</font></td>
+
+<td><font size=-1>Skip the next instruction if source data is non-zero.</font></td>
+</tr>
+
+<tr>
+<td>
+<center><font size=-1>10 DEST</font></center>
+</td>
+
+<td><font size=-1>SKIPIF /ZERO</font></td>
+
+<td><font size=-1>Skip the next instruction if source data is zero.</font></td>
+</tr>
+
+<tr>
+<td>
+<center><font size=-1>11 DEST</font></center>
+</td>
+
+<td><font size=-1>RAMADR</font></td>
+
+<td><font size=-1>Memory address to memory control logic.</font></td>
+</tr>
+
+<tr>
+<td>
+<center><font size=-1>12 DEST</font></center>
+</td>
+
+<td><font size=-1>RAMADR /READ</font></td>
+
+<td><font size=-1>Same as RAMADR, but then start a read operation right
+away.</font></td>
+</tr>
+
+<tr>
+<td>
+<center><font size=-1>13 DEST</font></center>
+</td>
+
+<td><font size=-1>RAMADR /ADDER</font></td>
+
+<td><font size=-1>The value stored here is added to RAMADR for the next
+memory operation.</font></td>
+</tr>
+
+<tr>
+<td>
+<center><font size=-1>14 DEST</font></center>
+</td>
+
+<td><font size=-1>RAMXADR</font></td>
+
+<td><font size=-1>Address of next instruction to execute. Storing here
+causes a jump in program execution.</font></td>
+</tr>
+
+<tr>
+<td>
+<center><font size=-1>15 DEST</font></center>
+</td>
+
+<td><font size=-1>RAMXADR /STACK</font></td>
+
+<td><font size=-1>Same as RAMXADR but first push previous contents to stack.
+Ie, CALL to address with return on stack.</font></td>
+</tr>
+</table>
+
+<center>
+<p>&copy; 1999-2001 by <a href="http://www.steve.bush.org">Steve Bush</a></center>
+
+</body>
+</html>

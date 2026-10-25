@@ -1,0 +1,56 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="Steve Bush">
+   <meta name="GENERATOR" content="Mozilla/4.73C-CCK-MCD NSCPCD47 (Macintosh; U; PPC) [Netscape]">
+   <title>The Network Cache</title>
+</head>
+<body>
+&nbsp;
+<br><b><font size=+2>The Network Cache</font></b>
+<p>Suppose WIZ A is connected to the central memory through WIZ B. Suppose
+WIZ A requests memory &lt;&lt;M>> from the central memory. This request
+will go to WIZ B first. WIZ B either already has &lt;&lt;M>> in its own
+cache, or it will go out to its central memory connection and get it. When
+it gets it, it puts it into its own cache. It then transmits its copy of
+&lt;&lt;M>> back to WIZ A to complete the cycle. At this point, both WIZ
+A and WIZ B have a copy of the memory &lt;&lt;M>> in their caches.
+<p>In general, every WIZ between the central memory and WIZ A will have
+a copy of &lt;&lt;M>> in its cache, at least at the time of the initial
+transfer.
+<p><b>THUS, AT EVERY POINT ON THE&nbsp; WIZ CENTRAL MEMORY BANK "NETWORK",
+DATA IS BEING LOCALLY CACHED.</b> This is very different from today's Internet,
+on which data hops from point to point and is not saved anywhere along
+the way.
+<p>If WIZ A has a very much smaller cache than WIZ B, it may occur that
+memory &lt;&lt;M>> gets deleted from WIZ A's cache before it is deleted
+from WIZ B's cache. Should WIZ A need memory &lt;&lt;M>> again, its memory
+handler will send a request to WIZ B again. WIZ B, still having memory
+&lt;&lt;M>> in its cache, can then send a copy to WIZ A again, this time
+<b>WITHOUT
+HAVING TO GO TO THE CENTRAL MEMORY BANK</b>.
+<p>And if another WIZ, WIZ C, were also connected to WIZ B, and WIZ C also
+needed the same memory &lt;&lt;M>>, and also requested it from WIZ B, then
+again, WIZ C's request would be satisfied by WIZ B <b>WITHOUT HAVING TO
+GO TO THE CENTRAL MEMORY BANK</b>.
+<p>Suppose we take dozens of little WIZes with tiny caches and connect
+them with WIZ-to-WIZ comm lines to a single large WIZ with a large cache
+(eg, disk). Whenever one of the little WIZes needs a memory it will go
+to the large WIZ with a request for it. And if each of these small WIZes
+uses the same program or database, at least some of the time, then the
+first time one of them accesses it the large WIZ would get it from the
+central memory, but from there on out it would supply the program or data
+to all of the little WIZes over and over again without generating any traffic
+to the central memory.
+<p>This large-cached WIZ is then something of a "local server" supporting
+a bunch of&nbsp; small WIZes. Yet there is no special "server software"
+or "network software" or "operating system" supporting this, no special
+"configuration" required for it. There is just the memory handler software
+as we have already discussed.
+<p>As always, simplicity is our keynote!
+<center>
+<p>&copy; 1999-2000 by <a href="http://www.steve.bush.org">Steve Bush</a></center>
+
+</body>
+</html>

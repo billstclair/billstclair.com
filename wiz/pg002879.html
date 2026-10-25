@@ -1,0 +1,202 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="Steve Bush">
+   <meta name="GENERATOR" content="Mozilla/4.73 [en] (Win98; U) [Netscape]">
+   <title>pg002879.html</title>
+<!-- saved from url=(0040)http://steve.bush.org/pf28/pg002879.html -->
+</head>
+<body>
+You said:
+<p>About the WIZ economics. I know from past experiences how complex (and
+expensive) it is to build and keep an accounting system especially for
+small amount transactions.
+<p>Wouldn't you see as more practical something like the reverse of what
+is happening today with cell phones? Instead of the networks subsidising
+the terminals it could be that the WIZ manufacturers may add an extra charge
+when they sell it and subsidise the infrastracture. You could use the memory
+and the network for as long as your battery lasts then you would have to
+buy a new WIZ.
+<p>
+<hr SIZE=5 NOSHADE WIDTH="80%">
+<p>Please excuse the length of this answer... It is a quickly written stream
+of consciousness type document... But it is something I need to do (for
+myself as well as you)...
+<p>
+<hr SIZE=5 NOSHADE WIDTH="80%">
+<p>The accounting on transmissions is actually very simple. Remember that
+it is a recursive, cellular network. A WIZ only deals with those WIZes
+it is connected to, a number on the order of a few dozen in my examples.
+Thus, if A asks B for data, and B asks C, and C asks D, and D asks E, then
+E charges D for the transmission, D charges C, C charges B, and B charges
+A. Each knows about only one hop of the transmission. Each does not know
+about any final destination (ie, A) other than the direct peer it is transmitting
+to. Each may pass along their cost to the next. Thus, E charges D a penny,
+D charges C two pennies, C charges B three pennies, and B charges A four
+pennies. All A is aware of is that it asked B for data and got it from
+B at a cost of four pennies.
+<p>Remember, the network IS the infrastructure. That is, in the above jump
+from A to E, B, C, and D are not necessilary part of the infrastructure,
+they are just other nodes in a large self-configuring peer-to-peer network,
+to use now terminology.
+<p>In the above example, A would only have accounts with B and a few dozen
+other B-primes not mentioned, ie, the WIZes it was connected to. It never
+deals with C, D, or E, or even knows of their existence. Thus, A deals
+only with a few dozen accounts.
+<p>And note that a WIZ can keep adding up the fees all day long and not
+actually "submit" a banking transaction until some dollar or time limit
+is reached.
+<p>Also, note that the WIZ memory scheme makes the accounting system trivial.
+If B is serial number 123456 and has a memory named WIZ-account-123456-balance,
+then it is simple to add or subtract a penny from that memory. The program
+is not much more complex than the single statement:
+<p>&nbsp;&nbsp;&nbsp;&nbsp; let &lt;&lt;WIZ-account-123456-balance>> =
+&lt;&lt;WIZ-account-123456-balance>> + 0.01
+<p>Actually, to give more detail to this, the memory "WIZ-account-123456-balance"
+is actually owned by a third entity, ie, a "bank". It issues "vouchers"
+in the form of digitally encrypted keys to the account. Thus, the real
+call is something more like
+<p>&nbsp;&nbsp;&nbsp; call bank ( &lt;&lt;my-account-voucher>> , &lt;&lt;his-account-voucher>>
+, 0.01)
+<p>which subtracts 0.01 from my-account and pays it to his-account, given
+all the vouchers decrypt properly. And keep in mind that "bank" is a memory
+too, and can execute on any WIZ. The executing WIZ finds the subroutine
+(memory) "bank" in its own memory, the central memory. In the WIZ memory
+net, any memory can execute on any processor, there is no "home" or "domain"
+for a memory.
+<p>Thus, the software is not "complex (and expensive) .. to build and keep
+an accounting system especially for small amount transactions."
+<p>Another note: if WIZ A is connected to B, and both are owned by the
+same financial entity, they don't have to charge each other. There is no
+problem with a free transmission. Thus, within any corporate structure,
+all WIZ transmissions would be free as you suggest.
+<p>And any WIZ can set its own rates, therefore any WIZ <i>CAN</i> set
+a rate of zero. The memory handler algorithm is constantly searching to
+optimize the route it takes, and depending on the parameter of whether
+you want to optimize speed or optimize cost, can take different routes.
+Thus, a free infrastructure could be set up and coexist with a private
+infrastructure, you take your choice. The free nodes may be slow and few
+and far between, whereas private WIZes with big disks and fast comm lines
+may spring up wherever people are willing to pay more.
+<p>It may become true that at some point in history communications will
+become so cheap as to be subsidizable out of some sort of overhead fund
+(taxes?). That is the same as saying that the free WIZes may handle traffic
+so well there would be no market for private nodes.
+<p>However, we are not there yes, and I am a big believer in making every
+part of this system equitable and self-sustaining in a democratic capitalist
+sort of way. And since the mechanism just described is relatively simple,
+I would implement it. If prices should go down to zero, then the system
+will phase itself out.
+<p>
+<hr SIZE=5 NOSHADE WIDTH="80%">
+<p>There are two kinds of charges I discussed, a transmission charge and
+a memory usage fee. I am rewriting that page now ("The WIZ financial model")
+to stress the memory
+<u>usage</u> fee, and discuss the <u>transmission</u>
+fee as an afterthought. Really, although all the above discussion is still
+relevant, it's not important in the big picture. It may turn out you are
+right anyway, and there will be no need for it. I will describe it, but
+not stress it, at there is no point getting into arguments about it (as
+I just did!!). But the memory usage fee, now that IS important...
+<p>I have also removed that page from the chapter it was in, "The Central
+Memory", as it is not really a part of the memory, it belongs in a chapter
+(not yet started) on other things, software related, per the following...
+<p>
+<hr SIZE=5 NOSHADE WIDTH="80%">
+<p>The memory <u>usage</u> fee:
+<p>Here we have a horse of a very different color. A memory, when executed,
+can charge the user a fee which is set by and goes directly to the CREATOR
+of the memory. This is an intellectual property charge. I am not prepared
+to describe the software of the WIZ (not yet, not here), but let us say
+that it will be way beyond an "open source" system. I will describe a new
+type of programming language where something like a hyperjump (ie, &lt;A
+HREF>) is the only verb in the language, and acts like an inline subroutine
+call to the linked page. This will work all the way down to machine language
+level (if interested, see chapter 2 - the WIZ Memory Handler, page "More
+on the Fixup", section "Way Out"! But you'll need the rest of the chapter
+to make sense of it...).
+<p>These details are not relevant here, but the result is that all source
+of the system will be within the system, down to the microcode of the processor,
+and open to collaborative enhancement. (Note: if YOU change something,
+it is changed for YOU - not for ME! Unless I <u>adopt</u> it.).
+<p>Thus, say a word processor doesn't have a certain kind of justify paragraph
+routine. The person who writes one stands to make alot of money if he but
+charges a hundreths of a penny per use. How many people have hit the justify
+paragraph routine in MS WORD? A lot! Never mind here how he gets his new
+routine into common use (gets it <u>adopted</u>). Let's just say that the
+final product is a collaborative effort and each command may be the intellectual
+property of various programmers.
+<p>Or say you buy a Sears Garage Door Opening WIZ, model 123-B. Let's say
+the algorithm in it sucks. Someone notices that his door will open faster
+if he accellerates more at the start but decellerates near the end, instead
+of using the constant speed algorithm it came with. The person who writes
+a better piece of software for this particular model can charge a tiny
+fraction of a penny per use, and still make a forture off it.
+<p>I feel it is CRITICAL for this kind of accounting system to be in place.
+And again, it is trivial to implement. If you want to give me a penny,
+all you have to do is:
+<br>&nbsp;&nbsp; call bank (&lt;&lt;steve bush's account #>> , &lt;&lt;your
+account #>> , 0.01)
+<p>
+<hr SIZE=5 NOSHADE WIDTH="80%">
+<p>Q: How many Microsoft lawyers does it take to change a light bulb?
+<br>A: Seven. One to change it, and six more to make sure Microsoft gets
+fifty cents every time anyone anywhere changes a light bulb.
+<p>
+<hr SIZE=5 NOSHADE WIDTH="80%">
+<p>Regarding the battery running out. WIZes run forever! Seriously! I will
+have a chapter on this soon. There are two pieces to this: low power requirements
+in the first place, and new kinds of power sources in the second. A WIZ
+processor can slow down to zero Hz, and wake on interrupt. Power usage
+is exactly linear to speed. At absolute zero Hz, it will use absolutely
+no power. It can sweep its cache RAM out to the Central Memory, and then
+doesn't even have to keep a D-RAM powered. Many WIZ applications can sleep
+most of the time. If I had a WIZ in my shoe. for instance, and it had a
+MEMS accellerometer to sense footsteps, it could wake just for a few nanoseconds
+at the peak of each footstep to record the data, then sleep until the next
+footstep. (Actually, it would be more interesting than that - it could
+change its speed in something like an adaptive sine wave, relating speed
+on a moment-by-moment basis to what its doing). A WIZ-light switch would
+only execute when the switch handle was jarred. (It might run at 100 Hz
+while waiting, just so it could keep monitoring everything). All WIZs slow
+down the CPU while waiting for an external event to wake it. In fact, whenever
+the processor goes into a "wait state" for I/O, it can cycle down speed
+and wake on interrupt from the device in question. Thus, power used will
+be often miniscule. (Its in a different chapter - "The WIZ-object", but
+most WIZes will be inside shoes, switches, staplers, whatever. Not "windows"
+machines running screens with multiple processes all going like crazy).
+Obviously, on a cpu bound application, this is not true, but that kind
+of application will be plugged in!
+<p>Secondly, I will be investigating a number of new kinds of power supplies.
+Since all isolated WIZes will have a radio link, they can pick up power
+over that link by using the radio signal itself as power (as Tesla always
+planned, also ala these toy "perputual motion" machines which have a little
+coil and absorb power inductively from the 60 Hz AC fields that exist all
+around us). It may be possible to keep powered by this alone. It may be
+possible to "recharge" it occasionally with a higher than normal burst
+of radio power (at night or when no humans are around!).
+<p>Beyond that, new power sources have yet to be discoverred. I believe
+cold fusion is a real phenomonon, and will be perfected. It could be applied
+on a MEMS nano-scale to make a cold fusion reactor a few nanometers big.
+I have also read the very theoretical idea of creating a "bowling alley"
+sort of MEMS structure a few nanometers wide, and accellerating single
+particles down the alley to a target, thus creating a very tiny but super-high
+energy particle accellerator, which would create hot (thermo-nuclear) fusion,
+but in non-dangerous quantities of a single atom at a time. And room-temperature
+superconducting nanotubes are right around the corner already.
+<p>The WIZ is a device for the future, and I am certain that the future
+holds plenty of possibilities for self-powered machines.... But that is
+another chapter.
+<p>
+<hr SIZE=5 NOSHADE WIDTH="80%">
+<p>Well, I've had "writer's block" for a few weeks now, so thank you for
+inspiring me to write all the above. It has got me going again.... Now
+I need to cut and paste the above into a few different pages and start
+a few new chapters...
+<p>Hope you found it all interesting enough to stay with me...
+<p>Thanks,
+<p>Steve Bush.
+<br>&nbsp;
+</body>
+</html>

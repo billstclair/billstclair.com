@@ -1,0 +1,72 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="Steve Bush">
+   <meta name="GENERATOR" content="Mozilla/4.73C-CCK-MCD NSCPCD47 (Macintosh; U; PPC) [Netscape]">
+   <title>The CONST registers</title>
+</head>
+<body>
+&nbsp;
+<br><b><u><font size=+1>The CONST registers: CONST /0B, /1B, /2B, /3B,
+and /4B:</font></u></b>
+<p>These 5 registers are read only - they can only be the source register
+of an instruction. They provide data that is in the immediate instruction
+flow rather than in a register or memory location.
+<p>CONST /0B is simply the constant zero. The remaining 4 registers hold
+1 to 4 of the bytes following the currently executing instruction byte.
+For example, if the 5 bytes at RAMXADR are:
+<blockquote><tt>&lt;CONST /xB => XXX>, &lt;aa>, &lt;bb>, &lt;cc>, &lt;dd></tt></blockquote>
+where XXX is any processor register, then the instruction byte to be executed
+will be:
+<blockquote><tt>&lt;CONST /xB => XXX></tt></blockquote>
+and as that instruction byte executes, the 5 CONST registers will contain:
+<blockquote><tt>CONST /0B: &lt;00,00,00,00></tt>
+<br><tt>CONST /1B: &lt;00,00,00,aa></tt>
+<br><tt>CONST /2B: &lt;00,00,aa,bb></tt>
+<br><tt>CONST /3B: &lt;00,aa,bb,cc></tt>
+<br><tt>CONST /4B: &lt;aa,bb,cc,dd></tt></blockquote>
+Thus, if the original instruction was &lt;CONST /3B => XXX>, then the word
+&lt;00,aa,bb,cc> is transferred to register # XXX, and the next instruction
+to be executed will be &lt;dd>.
+<p>Nomenclature note: I will generally write the instruction
+<blockquote><tt>CONST /xB => XXX , &lt;constant></tt></blockquote>
+in this way:
+<blockquote><tt>&lt;constant> => XXX</tt></blockquote>
+In other words, I will generally leave out the "CONST /xB" altogether and
+let it be implied. The number of bytes should be implicit from the &lt;constant>
+itself.
+<p>Examples: To put the constant 53H into register 98:
+<blockquote><tt>&lt;53H> => GPREG # 98</tt></blockquote>
+which actually is the three byte sequence: &lt;CONST /1B => GPREG> , &lt;53H>,
+&lt;98>
+<p>To put the constant 234567H into register 89:
+<blockquote><tt>&lt;234567H> => GPREG #89</tt></blockquote>
+which actually is the five byte sequence: &lt;CONST /3B => GPREG>, &lt;23H,45H,67H>
+, &lt;89>
+<p>To read memory location 34 to reg # 55:
+<blockquote><tt>&lt;34> => RAMADR /READ</tt>
+<br><tt>RAMDATA => GPREG #55</tt></blockquote>
+The first instruction here is the 2 byte sequence: &lt;CONST /1B => RAMADR
+/READ> , &lt;34>.
+<p>To push the constant 17 onto the stack:
+<blockquote><tt>&lt;17> => STACK</tt></blockquote>
+which is two bytes: &lt;CONST /1B => STACK>, &lt;17>.
+<p>To store 532H into memory location 12345678H:
+<blockquote><tt>&lt;12345678H> => RAMADR</tt>
+<br><tt>&lt;0532H> => RAMDATA</tt></blockquote>
+that is, &lt;CONST /4B => RAMADR>, &lt;12345678H>, &lt;CONST /2B => RAMDATA>,
+&lt;0532H>.
+<p>And finally, note that CONST /0B does not require any data following
+the instruction, and is simply the constant zero. I will use the mnemonic
+ZERO often instead of CONST /0B. Thus, to zero register 55:
+<blockquote><tt>ZERO => GPREG #55</tt></blockquote>
+which is the two byte sequence: &lt;CONST /0B => GPREG> , &lt;55>.
+<p>In short, CONST provides for 5 different immediate instructions that
+use just enough bytes to get the job done. And that's the long and short
+of it.
+<center>
+<p>&copy; 1999-2001 by <a href="http://www.steve.bush.org">Steve Bush</a></center>
+
+</body>
+</html>

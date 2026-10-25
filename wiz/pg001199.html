@@ -1,0 +1,276 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="Steve Bush">
+   <meta name="GENERATOR" content="Mozilla/4.73C-CCK-MCD NSCPCD47 (Macintosh; U; PPC) [Netscape]">
+   <title>The Standard General Purpose WIZ Function Block #0</title>
+</head>
+<body>
+&nbsp;
+<br><b><font size=+2>The Standard General Purpose WIZ Function Block #1</font></b>
+<p>Function block #1 is standard on all WIZes. There will be no variations,
+so that any program running on a WIZ can count on these functions. The
+front-end of the function block, as with all functions blocks, is merely
+256 read/write registers. On the back-end, they are defined something like
+this:
+<br>&nbsp;
+<table BORDER BGCOLOR="#FF68E1" >
+<caption><b>Function block #1 Registers</b></caption>
+
+<tr>
+<td><b>Register</b>
+<br><b>number(s)</b></td>
+
+<td><b>Device</b>
+<br><b>Name</b></td>
+
+<td><b>Description</b></td>
+</tr>
+
+<tr>
+<td>000-009</td>
+
+<td>Flags</td>
+
+<td>zero, non-zero, greater than zero, less than zero, overflow, underflow,
+out of bounds, etc. One word for each flag, using only the lower bit.</td>
+</tr>
+
+<tr>
+<td>010-013</td>
+
+<td>Adder</td>
+
+<td>input A, input B, input minus B, output = A+B or A-B.</td>
+</tr>
+
+<tr>
+<td>014-017</td>
+
+<td>Multiplier</td>
+
+<td>input&nbsp; A, input B, output =A x B hi, A x B lo.</td>
+</tr>
+
+<tr>
+<td>018-021</td>
+
+<td>Divider</td>
+
+<td>dividend input, divisor input, quotient output, remainder output.</td>
+</tr>
+
+<tr>
+<td>022-027</td>
+
+<td>Shifter</td>
+
+<td>data input A, shift count input B, outputs: A shl B, A shr B, A shl
+B sign extended, A shr B sign extended.</td>
+</tr>
+
+<tr>
+<td>028-034</td>
+
+<td>Boolean functions</td>
+
+<td>input A, input not A, input B, input not B, outputs: A or B, A and
+B, A xor B.</td>
+</tr>
+
+<tr>
+<td>035</td>
+
+<td>Negator</td>
+
+<td>one register, store A into it, load zero minus A back out.</td>
+</tr>
+
+<tr>
+<td>036</td>
+
+<td>Inverter</td>
+
+<td>one register, store A into it, load not A back out.</td>
+</tr>
+
+<tr>
+<td>037</td>
+
+<td>Counter</td>
+
+<td>one register, store A, load back A+1, A+2, etc on subsequent loads.</td>
+</tr>
+
+<tr>
+<td>038</td>
+
+<td>No-op</td>
+
+<td>one register, has no effect except to set the various flags according
+to its value.</td>
+</tr>
+
+<tr>
+<td>039-043</td>
+
+<td>Loop counter</td>
+
+<td>current value, lower bound, upper bound, increment, exit address.</td>
+</tr>
+
+<tr>
+<td>044</td>
+
+<td>Tally adder</td>
+
+<td>each number stored into it is added to its previous contents.</td>
+</tr>
+
+<tr>
+<td>045-048</td>
+
+<td>Stack setup</td>
+
+<td>current pointer, lower bound, upper bound, under/over-flow address</td>
+</tr>
+
+<tr>
+<td>049-051</td>
+
+<td>Nanosecond
+<br>timer</td>
+
+<td>three registers: nanosecond rate counter, target count, and interrupt
+address.</td>
+</tr>
+
+<tr>
+<td>052-255</td>
+
+<td>Etc</td>
+
+<td>More to be defined....</td>
+</tr>
+</table>
+
+<p>Each logical device, such as an adder, multiplier, divider, etc, is
+a set of registers, and operates independently from all other devices in
+the function block. For instance, an adder is three registers - two inputs
+and one output. The output register always contains the sum of the two
+input registers.
+<p>The adder also has a "minus B" input. If you store into it, it will
+be subtracted instead of added. Only one of either B or minus B must be
+stored into. The output reflects whichever was most recently stored into.
+<p>The Boolean function device has four input registers, A, not A, B, and
+not B. Only one of each pair is actually used, whichever is the last stored.
+The device then has three outputs, A or B, A and B, and A xor B, all three
+of which are always computed. There are 16 possible boolean functions of
+two variables. As both inputs have a not input, the "A or B" output can
+generate 4 functions: A or B,&nbsp; -A or B, A or -B,&nbsp; -A or -B. Thus
+each of the three outputs has four different functions, giving a total
+of 12 functions: A or B, -A or B, A or -B, -A or -B, A and B, -A and B,
+A and -B, -A and -B, A xor B, -A xor B, A xor -B, and -A xor -B. The last
+two are duplicates, as A xor -B = -A xor B, and -A xor -B = A xor B. Thus,
+you have 10 functions of two boolean values. The remaining 6 possible boolean
+functions are : 0, 1, A, B, -A, -B. The first 4 of these are too trivial
+to need computation, and the last two are covered by the Inverter device.
+<p>When loading the output of any device, the status registers are also
+updated. These are all 1 bit registers, right justified in a 32 bit word.
+These flags make for easy testing using the SKIPIF processor register.
+The FB1 "no-op" register is provided for simply testing a data value. After
+storing into it the arithmetic flags are set accordingly. All other registers
+set flags as a result of their output being read.
+<p>The above table is just an example, not the final specification. There
+will probably be many more devices included. There will probably be several
+adders and multipliers, etc. How many will be determined by simulations.
+<p>The main WIZ cycle is always simply the copying of one register onto
+the processors inter-register buss and another register off the buss. This
+cycle is not clocked. Instead, all registers must provide a "READY" pulse
+when they are read from, and this pulse ends the WIZ main cycle. Most registers
+generate it almost instantly.
+<p>But some registers may introduce a delay on the WIZ cycle while that
+output is made valid, that is, while the device cycles through its computation.
+For instance, reading a multiplier output register may have to wait for
+the multiply to finish. In order to provide a way to start the ball rolling
+sooner, we define that some inputs, generally the last input of each device,
+will also initiate the device cycle. For instance, as soon as you store
+into the B input of the multiplier, the device begins the computation (B
+times A). By starting computations as early as possible and doing other
+instructions in between the start and the finish, a program can optimize
+computation speed. As we shall soon see, it is possible to "load up" several
+or all of the various devices with computations simultaneously.
+<p>Once a device starts its computation, storing into any triggering input
+again before the completion of the computation restarts the computation
+over again. And storing into any other (non-triggering) input resets the
+device and terminates any computation in progress. And in any case, loading
+an output register is always valid, since if nothing else has triggered
+the computation, the load of the output itself triggers the computation.
+<p>For example, the adder A input is non-triggering, and the B and minus-B
+inputs are triggering. Thus:
+<blockquote><tt>XXX => FB1REG #adder-A&nbsp;&nbsp;&nbsp; / store A, nothing
+happens.</tt>
+<br><tt>YYY => FB1REG #adder-B&nbsp;&nbsp;&nbsp; / store B, adder starts</tt>
+<br><tt>ZZZ &lt;= FB1REG #adder-SUM&nbsp; / may wait for adder to finish</tt></blockquote>
+Storing B before A creates an extra cycle and is slower than the above
+code (although produces the same result):
+<blockquote><tt>XXX => FB1REG #adder-B&nbsp;&nbsp;&nbsp; / store B, adder
+starts</tt>
+<br><tt>YYY => FB1REG #adder-A&nbsp;&nbsp;&nbsp; / store A, adder aborts
+cycle in progress</tt>
+<br><tt>ZZZ &lt;= FB1REG #adder-SUM&nbsp; / adder starts again and definitely
+waits for completion</tt></blockquote>
+I will describe each FB1 device briefly. This is not meant to be a full
+or final specification.
+<p>The loop counter device has five registers, a value, an increment, a
+lower and upper bounds, and an exit address. It also has an "out of bounds"
+bit which is one if the value is not equal to or within the lower and upper
+bounds. Whenever you load the value register, you get the current value
+instantly, and the out of bounds bit is also copied instantly to the out-of-bounds
+register. No wait will occur. And if the out of bounds bit is one and the
+exit address register is non-zero, then a &lt;exit address> => RAMXADR
+is done, that is, the instruction causes a jump to the exit address. Thus,
+you can load a value, bounds check it, and jump to an exit address, all
+in one WIZ cycle with no wait for the computation!
+<p>AFTER returning the current value, the loop counter initiates its backend
+cycle. Asynchronously to the WIZ, which may continue along doing other
+things now, it then adds the increment to the value, and then compares
+it to the lower and upper bounds registers, setting its internal out of
+bounds bit accordingly. And anytime the value or either bounds register
+is stored into, the backend logic recomputes the out of bounds bit (but
+doesn't increment the value). This allows reads of the loop counter value
+to always operate instantly, as the computation is always done as a backend
+operation between reads (during the execution of the code being looped
+on!).
+<p>The loop counter can also be used nicely for subscript calculations
+with bounds checking.
+<p>There will be several loop counters. Simulations will determine how
+many. Here it is a question not just of speed but of programming convenience.
+It would be nice to have several loops going at once without having to
+load and unload a set of parameters.
+<p>The Negator, Inverter, and Counter are very simple registers. Load a
+value into them, load its negative or inverse or successor right back out.
+<p>The tally adder is a single register which merely adds all numbers (integers)
+stored into it. The way to zero it is to load it, negate that value, and
+add that back to it. A MAC (multiply and accumulate) device could be included
+also, but may make more sense in a floating point function block.
+<p>The nanosecond counter it is merely a counter run at a nanosecond clock
+rate. It counts to exactly 999,999,999 and then rolls over to zero, exactly
+once per second. A second register, the counter target, implements an interrupt
+(to the address in the third register) whenever the nanosecond counter
+hits that target value.
+<p>Cool, huh?
+<p>There is more to document, but the above suggests the general plan...
+Lots of other devices can be thought of. Simulations will determine the
+most useful before we etch them in stone. Floating point operations may
+be restricted to a separate function block, or included in FB1 if we want
+to make them standard. Remember that whatever we put in FB1 becomes standard
+forever and minimally required in ALL WIZes, so I want to keep it simple.
+Yet silicon real estate is getting cheaper all the time. Simulations will
+tell....
+<center>
+<p>&copy; 1999-2001 by <a href="http://www.steve.bush.org">Steve Bush</a></center>
+
+</body>
+</html>

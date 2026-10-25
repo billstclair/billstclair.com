@@ -1,0 +1,39 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="Steve Bush">
+   <meta name="GENERATOR" content="Mozilla/4.73C-CCK-MCD NSCPCD47 (Macintosh; U; PPC) [Netscape]">
+   <title>STACK register</title>
+</head>
+<body>
+&nbsp;
+<br><b><u><font size=+1>The STACK register:</font></u></b>
+<p>The stack register is like a "bottomless pit" in which anything you
+write will be remembered forever, and if you read from it, you recover
+the last thing written, then the second-to-last, etc.
+<p>The STACK logic has an independent path to the main memory to extend
+the stack indefinitely, and can cause an interrupt to handle over- and
+under-flow. Its logic is hidden from the WIZ main processor and occurs
+without impinging on its timing. The WIZ merely stores data into the STACK
+register. That data is then routed by the STACK logic appropriately, while
+the WIZ continues on independently to its next instruction. The actually
+memory addresses used by the stack are setup with internal registers in
+function block #1.
+<p>Thus, to store a few registers onto the stack:
+<blockquote><tt>GPREG #43 => STACK</tt>
+<br><tt>GPREG #52 => STACK</tt></blockquote>
+To retrieve them, you do:
+<blockquote><tt>STACK => GPREG #52</tt>
+<br><tt>STACK => GPREG #43</tt></blockquote>
+To push the contents of memory location &lt;alpha> onto the stack:
+<blockquote><tt>&lt;alpha> => RAMADR /READ</tt>
+<br><tt>RAMDATA => STACK</tt></blockquote>
+And to restore it:
+<blockquote><tt>&lt;alpha> => RAMADR</tt>
+<br><tt>STACK => RAMDATA</tt></blockquote>
+
+<center>&copy; 1999-2001 by <a href="http://www.steve.bush.org">Steve Bush</a></center>
+
+</body>
+</html>

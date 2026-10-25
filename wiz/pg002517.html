@@ -1,0 +1,114 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="Steve Bush">
+   <meta name="GENERATOR" content="Mozilla/4.73C-CCK-MCD NSCPCD47 (Macintosh; U; PPC) [Netscape]">
+   <title>The Memory Handler and Faster Memory</title>
+</head>
+<body>
+&nbsp;
+<br><b><font size=+2>The Memory Handler and Faster Memory</font></b>
+<p>Today's processors generally have a small amount of very fast RAM, closer
+to the processor than the main RAM, and usually managed as a virtual LRU
+cache. This is often on-chip and known as L1 or level one cache, or on
+the same circuit board close to the processor chip, known usually as L2
+or level two cache.
+<p>Now there is no reason why a WIZ wouldn't have various speeds of RAM
+memory too. But <b>NO SPECIAL HARDWARE IS NEEDED</b>, as the memory handler
+can once again do in software what level one or level two caches do in
+hardware.
+<p>The WIZ hardware architecture simply requires that all of the local
+RAM have a single address space, from 000 to 2<sup>32</sup> max. There
+may several physical "pieces" of that memory, some on chip, some off chip,
+but all arranged into a single contiguous memory address space, and with
+the faster memory having the lowest addresses.
+<p>In other words, if we had say 10 megabytes of on-chip RAM (like L1 memory),
+it would be addressed as 000 through 10,000,000. If another hundred megabytes
+of RAM were off-chip but very near (like L2 memory), they would be addressed
+10,000,000 through 110,000,000 (I am using approximate numbers here to
+avoid power of two calculations, thank you). And finally, a gigabyte of
+RAM further away would be addressed 110,000,000 though 1,110,000,000.
+<p>That's all there is to it, hardware-wise. It's very simple.
+<p>The memory handler collects data on which memories are more active than
+others. It can continuously (and in the background) unfixup any memory
+reference and re-fix it up with an execution counter or other data collection
+code, and then at any time remove that code.
+<p>For example, the memory handler can reserve a few bytes of RAM just
+before each memory as it loads them into RAM. It can then put code into
+that area such as:
+<blockquote><tt># preamble memory begins here:</tt>
+<br><tt>THIS_COUNTER: &lt;00000000H></tt>
+<p><tt># preamble counter code:</tt>
+<br><tt># this code increments the above counter each time it is run through</tt>
+<br><tt>&lt;absolute address of THIS_COUNTER> => RAMADR /READ</tt>
+<br><tt>RAMDATA => FB1REG #counter</tt>
+<br><tt>RAMDATA &lt;= FB1REG #counter</tt>
+<p><tt># first byte (#0) of memory begins here:</tt></blockquote>
+The memory handler can then change all fixed-up references to this memory
+to call the preamble counter code instead, which increments a counter and
+then falls into the regular memory entry point. The nanosecond counter
+could also be used by a preamble section, and other methods of keeping
+track of memory usage are possible.
+<p>And once a memory is known to be frequently used, the memory handler
+can remove the preamble code to restore full efficiency. It can always
+"check back later", ie, re-install the code at a later time to see if it
+is still active.
+<p>The memory handler then has a new duty: It constantly monitors the usage
+of all memories in the RAM, and can at any time choose to rearrange them
+such that the more frequently used memories are moved to lower addresses.
+Because the hardware is arranged so that the lower addresses are also the
+faster addresses, this causes a net speedup in program execution, the exact
+equivalent of an on-chip cache (because the lower addresses ARE on-chip),
+but without requiring any special hardware support.
+<p><b>In other words, instead of moving the cache to where the frequently
+used data is (via hardware page mapping, etc), we move the frequently used
+data to where the cache is (via software) !</b>
+<p>No hardware cache management, no associative page table in CAM, no cache
+valid bits, no cache write-through cycles, no nothing! The WIZ is a simple
+processor!
+<p>The reason that we can do this is because we have complete software
+control over the translation of relative addresses to absolute addresses.
+Traditional machines dare not move something in memory as it will invalidate
+all references to it, so they are stuck having to do complex cache schemes
+where cache pages "shadow" RAM pages through a page map. Because a WIZ
+memory can be moved at any time, we can simplify this process.
+<p>In comparing overhead, note that on machines with cache hardware, the
+data still has to be copied into the cache initially, which means read/write
+cycling over the entire data. The WIZ does just exactly that in the first
+place by copying the data initially from one place in RAM to another. And
+with data that is modified, machines with cache hardware have to worry
+about cache write-through, whereas the WIZ doesn't. The WIZ wins!
+<p>Also note that most cache hardware caches not only frequently used data,
+but THE ENTIRE PAGE IN WHICH THAT DATA RESIDES. This is a waste. The WIZ
+loads just the data into the faster RAM. Thus, for the same sized cache,
+the WIZ can effectively have quite a bit more data in the faster RAM than
+machines with cache hardware. The WIZ wins again!
+<p>Also note this simplification: on a branch instruction, current processors
+often have branch look-ahead logic which prefetches the instructions at
+possible branch points. This logic would have to run faster then the processor's
+main cycle so that it could stay ahead of the processor, and have a small
+amount of its own cache to contain the bytes that are pre-fetched. But
+on a WIZ, if the address branched to is in the lowest memory, then it already
+works faster then the processor cycle, and it already is as fast as any
+cache can be. On a branch instruction to an address in low memory then,
+there will be no wait for the next cycle (at the new address) to begin,
+and <b>NO EXTRA HARDWARE IS REQUIRED</b>.
+<p>The same is true of the STACK. As stack under- and over-flow causes
+an interrupt, software can manage the stack by allocating more memory as
+it is needed, say a block of 1000 bytes at a time. Each time, that block
+will be created in the lowest memory, so that the tail end of the stack
+(which is very active) operates as fast as the WIZ instruction cycle. And
+the older portions of the stack may swap out to slower memory if they are
+not accessed for a while. Thus, the STACK register also needs no special
+hardware or custom cache to keep it operating without any delays. This
+keeps the WIZ incredibly simple once again!
+<p>So the WIZ doesn't actually have any "cache". It just has <u>faster
+RAM</u>. And the WIZ doesn't actually "cache" data, it just <u>moves</u>
+data so that commonly accessed data resides in the faster portions of RAM.
+Thus, a complexity -- hardware caching -- is transformed into a simplicity!
+<center>
+<p>&copy; 1999-2000 by <a href="http://www.steve.bush.org">Steve Bush</a></center>
+
+</body>
+</html>

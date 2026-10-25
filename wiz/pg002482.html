@@ -1,0 +1,85 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="Steve Bush">
+   <meta name="GENERATOR" content="Mozilla/4.73C-CCK-MCD NSCPCD47 (Macintosh; U; PPC) [Netscape]">
+   <title>The Memory Handler software and the RAM cache</title>
+</head>
+<body>
+&nbsp;
+<br><b><font size=+2>The Memory Handler software and the RAM cache</font></b>
+<p>Now the WIZ will still have a RAM memory and RAM registers as originally
+defined. A system subroutine known as "The Memory Handler" will always
+reside at location zero in the RAM. This software has complete and absolute
+knowledge, responsibility and control over the RAM memory.
+<p>The Memory Handler, and code created by the Memory Handler, is the only
+code on the WIZ that is allowed to run directly in the RAM, or access the
+RAM memory in any way. All other programs reside in the Central Memory
+device and access data in the Central Memory device only.
+<p>Now here's the trick that makes it work: the MEM registers in FB1 are
+not implemented in hardware. They are implemented in software! From a hardware
+point of view, they are "missing", that is, they literally do not exist.
+<p>Any function block may have "missing" registers, that is, not use all
+256 possible register addresses. The WIZ hardware has a single trap instruction,
+which is executed on any illegal instruction, un-decoded function block
+or function block register, or interrupt, namely: "ZERO => RAMXADR /STACK".
+That is, the hardware traps to RAM location zero - wherein is located our
+Memory Handler software. Thus, we have a software solution for what might
+otherwise be very complex hardware.
+<p>The memory handler, executing in RAM, picks up the bytes at the call
+(the stack gives it the address to look at) and analyzes them. It sees
+what the attempted instruction was, which FB # and REG # was being accessed
+(if any), etc.
+<p>In the case of a store to the MEMXID/STACK register, if this is the
+first access to the referenced &lt;&lt;memory>>, the Memory Handler software
+then interfaces with the Central Memory Bank, gets a copy of the requested
+memory, and then stores it into the local RAM.&nbsp; Or, it may be that
+the accessed &lt;&lt;memory>> has been already copied into RAM. In either
+case, the Memory Handler can now directly CALL the copy, by executing:
+<blockquote><tt>&lt;absolute RAM address where copy has been stored> =>
+RAMXADR /STACK</tt></blockquote>
+As that RAM copy executes, whenever it gets to an instruction which references
+any &lt;offset> within itself or calls any &lt;&lt;memory>> outside itself,
+that is, whenever it gets to an instruction using a MEM register in FB1,
+the Memory Handler will be again be called to handle the instruction.
+<p>Note that there are no instructions which use RAM addresses or Memory
+offsets which don't go through the FB1 MEM registers!
+<p>Thus, a memory, while <b>STORED</b> in the Central Memory device, is
+<b>EXECUTED</b>
+in the RAM. Only the Memory Handler software can use the RAMDATA, RAMADR,
+and RAMXADR registers, and the only thing the Memory Handler ever does
+with the Central Memory Bank device is send or receive a copy of a memory
+to or from the RAM. The only items in the RAM are the Memory Handler software
+and copies of Central Memory Bank memories that it put there. Thus, <b><u>THE
+RAM IS SIMPLY A CACHE OF MEMORIES FROM THE CENTRAL MEMORY BANK,</u></b>
+controlled exclusively by the Memory Handler software.
+<p>In summary:
+<ul>
+<li>
+The nature of the Central Memory Bank device itself and the hardware connection
+to it are known only by the Memory Handler software. It's exact interface
+specification is not relevant to us here (yet).</li>
+
+<li>
+When first called, the Memory Handler interfaces with the Central Memory
+Bank device, loads a copy of the requested memory into the RAM and then
+executes it in the RAM.</li>
+
+<li>
+And as it executes, all instructions which are dependent on actual addresses
+reference FB1 MEM registers which trap through the Memory Handler.</li>
+
+<li>
+Since the Memory Handler knows the base address of each memory, it can
+add this to any offset and handle the instruction by loading, storing,
+jumping to, or calling the actual byte in RAM at its true (absolute) address.</li>
+</ul>
+
+<center>&copy; 1999-2000 by <a href="http://www.steve.bush.org">Steve Bush</a></center>
+
+<p><br>
+<br>
+<br>
+</body>
+</html>

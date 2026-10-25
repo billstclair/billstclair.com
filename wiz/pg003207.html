@@ -1,0 +1,96 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="Steve Bush">
+   <meta name="GENERATOR" content="Mozilla/4.73C-CCK-MCD NSCPCD47 (Macintosh; U; PPC) [Netscape]">
+   <title>Seven basic registers</title>
+</head>
+<body>
+&nbsp;
+<br><b><font size=+2>Seven basic registers</font></b>
+<p>The WIZ processor basically has just seven internal registers, plus
+a few variants, totalling less than sixteen total. Each instruction copies
+one register to another. Only 4 bits is required to specify a register,
+so an instruction is a single 8 bit byte specifying the two registers to
+be involved. A very quick description of the registers follows.
+<blockquote>&nbsp;
+<table BORDER=3 >
+<tr>
+<td><b>Register</b>
+<br><b>Name</b></td>
+
+<td><b>Variants</b></td>
+
+<td><b>Description</b></td>
+</tr>
+
+<tr>
+<td><b><tt>RAMDATA</tt></b></td>
+
+<td><tt>/INCADR</tt></td>
+
+<td>Data to be written to the RAM is placed here, and data read from the
+RAM is found here.</td>
+</tr>
+
+<tr>
+<td><b><tt>RAMADR</tt></b></td>
+
+<td><tt>/READ, /ADDER</tt></td>
+
+<td>The address in the RAM where data is to be read from or written to.</td>
+</tr>
+
+<tr>
+<td><b><tt>RAMXADR</tt></b></td>
+
+<td><tt>/STACK</tt></td>
+
+<td>The address in the RAM where the next instruction byte is to come from.</td>
+</tr>
+
+<tr>
+<td><b><tt>STACK</tt></b></td>
+
+<td><tt>(none)</tt></td>
+
+<td>The top word of a pushdown stack. Store into this register over and
+over again, it "remembers" the history of all data stored and feeds is
+back to you when you load from it.</td>
+</tr>
+
+<tr>
+<td><b><tt>FBREG</tt></b></td>
+
+<td><tt>/0, /1, /SAME</tt></td>
+
+<td>A register in one of the function blocks. The two bytes after the instruction
+byte specify which function block and which register. Thus the FBREG expands
+the 16 addressable registers to and additional 265 sets of 256 registers
+each.</td>
+</tr>
+
+<tr>
+<td><b><tt>CONST</tt></b></td>
+
+<td><tt>/0B, /1B, /2B, /3B, /4B</tt></td>
+
+<td>A constant of 0 to 4 bytes, which follows the instruction byte.</td>
+</tr>
+
+<tr>
+<td><b><tt>SKIPIF</tt></b></td>
+
+<td><tt>/NONZERO, /ZERO</tt></td>
+
+<td>Causes the next instruction to be skipped or not, depending on whether
+the data written to it is zero or not.</td>
+</tr>
+</table>
+</blockquote>
+
+<center>&copy; 1999-2001 by <a href="http://www.steve.bush.org">Steve Bush</a></center>
+
+</body>
+</html>

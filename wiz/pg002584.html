@@ -1,0 +1,73 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="Steve Bush">
+   <meta name="GENERATOR" content="Mozilla/4.73C-CCK-MCD NSCPCD47 (Macintosh; U; PPC) [Netscape]">
+   <title>In summation</title>
+</head>
+<body>
+&nbsp;
+<br><b><font size=+2>In summation:</font></b>
+<p>We have defined a simple memory architecture:
+<ul>
+<li>
+Software deals only with a single simple memory architecture:</li>
+
+<ul>
+<li>
+the CENTRAL MEMORY BANK</li>
+
+<li>
+which contains MEMORIES</li>
+
+<li>
+accessed by MEMORY ID</li>
+
+<li>
+and having internal 32 bit addressing by OFFSETS.</li>
+</ul>
+
+<li>
+Software knows nothing of DISK, RAM, CACHE, VIRTUAL MEMORY, etc.</li>
+
+<li>
+We define a set of registers, MEMDATA, MEMADR, MEMXADR, MEMXID, etc, which
+parallel all the RAM registers but cause software interrupts to a handler
+instead.</li>
+
+<li>
+We use the technique of the fixup to accomplish something like run-time-binding,
+to translate the software memory references into actual RAM memory references,
+which then execute at the maximum speed the hardware can muster (ie, truely
+zero overhead).</li>
+
+<li>
+We manage the memory with software algorithms to move common code to faster
+hardware and uncommon code to slower hardware, thus increasing efficiency
+still further.</li>
+
+<li>
+We thus <b><i>TAKE COMPLETE SOFTWARE CONTROL OF THE MEMORY SUBSYSTEM.</i></b></li>
+</ul>
+
+<p><br>We have completely isolated the actual memory hardware, the Central
+Memory -- <b>which has YET to be described!</b> -- from the software. With
+no extra hardware, the WIZ gains a sophisticated memory subsystem while
+remaining an incredibly simple ISC computer! We have defined a machine
+having all the efficiencies associated with level one cache, level two
+cache, content addressable page maps, virtual memory hardware, and various
+hardware addressing modes, etc, yet with absolutely none of the hardware
+complexity.
+<p>We can thus focus all hardware development efforts on speeding up a
+simple set of things, rather than constantly trying to add complexities
+to it.
+<p>And by <b><i>TAKING COMPLETE SOFTWARE CONTROL OF THE MEMORY SUBSYSTEM
+</i></b>we
+create a situation where many new things are possible. Advanced uses of
+the fixup have yet to be explored.
+<center>
+<p>&copy; 1999-2000 by <a href="http://www.steve.bush.org">Steve Bush</a></center>
+
+</body>
+</html>

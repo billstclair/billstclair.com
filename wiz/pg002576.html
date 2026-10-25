@@ -1,0 +1,48 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="Steve Bush">
+   <meta name="GENERATOR" content="Mozilla/4.73C-CCK-MCD NSCPCD47 (Macintosh; U; PPC) [Netscape]">
+   <title>Nomenclature</title>
+</head>
+<body>
+<b><u><font size=+1>Nomenclature:</font></u></b>
+<p>I will use the notation &lt;xx> to represent any 8 bit byte, &lt;xx,xx>
+to represent two bytes, and &lt;xx,xx,xx> and &lt;xx,xx,xx,xx> to represent
+any three or four bytes.
+<p>Numbers ending in "H" will indicate hexadecimal numbers. Eg, &lt;61H>.
+<br>Numbers ending in "B" will indicate binary numbers. Eg, &lt;01100001B>
+= &lt;61H>.
+<p>I will use the symbol "&lt;... any phrase ...>" to mean any number up
+to 2<sup>32</sup>-1, described by the contained phrase and its context.
+The symbol therefore refers to 1, 2, 3, or 4 bytes - the exact number is
+implied by the value described. Eg, &lt;123456H> = &lt;12H,34H,56H>.
+<p>I will use the symbols RAMDATA, RAMDATA /INCADR, STACK, FBREG, FBREG
+/SAME, FBREG /0, FBREG /1, CONST /0B, CONST /1B, CONST /2B, CONST /3B,
+CONST /4B, SKIPIF /NONZERO, SKIPIF /ZERO, RAMADR, RAMADR /READ, RAMADR
+/ADDER, RAMXADR, and RAMXADR /STACK to represent the numbers 0 through
+15 as given in the WIZ Register Definitions table.
+<p>The above defines the entire mnemonic set for all internal WIZ registers.
+All instructions are merely a pair of these registers. I will write instructions
+as a pair of registers, source first, destination second, separated by
+the symbol "=>", like this:
+<blockquote><tt>STACK => RAMDATA</tt></blockquote>
+which means copy the STACK register to the RAMDATA register.
+<p>I may also sometimes use the symbol "&lt;=" and write the destination
+first and source second. Thus:
+<blockquote><tt>RAMDATA &lt;= STACK</tt></blockquote>
+is identical to <tt>STACK => RAMDATA</tt>.
+<p>Also, when copying a constant with the CONST registers, I will generally
+leave out the CONST register itself and just write the constant (the chapter
+following on CONST will give more detail on this). For example, the instruction
+which writes the three byte constant &lt;123456H> to the stack is:
+<blockquote><tt>CONST /3B => STACK , &lt;123456H></tt></blockquote>
+But I will usually write this instead:
+<blockquote><tt>&lt;123456H> => STACK</tt></blockquote>
+Capish?
+<center>
+<p>&copy; 1999-2001 by <a href="http://www.steve.bush.org">Steve Bush</a></center>
+
+</body>
+</html>

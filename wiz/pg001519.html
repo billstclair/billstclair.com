@@ -1,0 +1,97 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="Steve Bush">
+   <meta name="GENERATOR" content="Mozilla/4.73C-CCK-MCD NSCPCD47 (Macintosh; U; PPC) [Netscape]">
+   <title>The car: an example of how the WIZ changes the way we will design mechanical 
+objects</title>
+</head>
+<body>
+&nbsp;
+<br><b><font size=+2>The car: an example of how the WIZ changes the way
+we will design mechanical objects.</font></b>
+<p>In addition to eliminating inter-object wires, the WIZ Central Memory
+also eliminates many types of mechanical connections. Often several things
+are connected to each other by levers, so that when one moves so will the
+other. These interconnecting levers, and also camshafts, belts, pulleys,
+etc, are often replaced by software concepts of self-synchronization. The
+automobile engine is an excellent example of this kind of mechanical linkage.
+<p>Let's look at how a car could be designed differently, still keeping
+the gasoline engine (which I would never want to do - but this is a demonstration).
+<p>Start with the gas pedal. It is a pedal-WIZ! It has no mechanical or
+electrical connections to any other part of the car. It's just a piece
+of plastic with a spring mount which knows how hard it is being stomped
+on. It is self powered and radio connected. It has no wires. Its software
+is very very simple. It continuously stores how hard it is being stomped
+on (as a number from zero to 100) into a Central Memory location named
+"gas pedal #938475 stomp factor".
+<p>Elswhere in the same car (I hope its in the same car - could get some
+funny results if it was in a different car) is a WIZ-valve on a gasoline
+line. Its software is very very simple too. It just continuously reads
+the number in "gas pedal #938475 stomp factor" and adjusts its own self
+to open exactly the same percentage.
+<p>The steering wheel is just a cheap plastic wheel-WIZ that can sense
+and communicate its rotations. No wires, no connections. Like the slapstick
+in a Laurel and Hardy movie, you could pull it off and rotate it in free
+space and it would still work. It just stores it's angle of rotation (zero
+to 360) in a memory named "steering wheel # 3748596 rotation angle".
+<p>On each wheel is a WIZ-motor which steers the wheel. This is a heavy
+duty stepper motor which can change the forward angle of each wheel independantly.
+All four wheels read the value of "steering wheel # 3748596 rotation angle"
+and determine what to do accordingly. This software is quite a bit more
+complex than the previous example, because the wheels must also look at
+other memory variables, like the "road wetness #234876 guage", and must
+coordinate between them so that both front wheels don't start going in
+different directions.
+<p>Today's steering wheel is a very heavy-duty object. It has sophisticated
+mounting to the car body, can raise and lower its position to suit driver
+comfort, and is connected to numerous electrical, mechanical, and hydraulic
+systems. It costs hundreds of dollars to repair or replace. A WIZ steering
+wheel could be a cheap plastic toy mounted on a bolt!
+<p>The radiator fan of course is a WIZ which turns itself on or off when
+it decides it should. It works in conjunction with a WIZ-temperature sensor
+placed nearby. Keep in mind that there are no wires between these various
+WIZ-objects. Their coordination depends on software, which is terribly
+simple, because each WIZ-object need only calculate its piece of the puzzle.
+For example, the radiator fan WIZ need only look at the temperature as
+stored by the nearby temperature sensor and turn on if it crosses some
+threshold. The software is hardly more complex then that. Thus, by seperating
+the hardware into seperate WIZ processors, the individual processor's algorithms
+become very simple, and a cellular operation takes effect, the whole (car)
+being greater than the sum of its parts!
+<p>Now let's look at the engine itself. Take a piston, put it into a cylinder.
+Build in several WIZ-valves to allow gasoline and air to enter, and exhaust
+products to exit. Add a WIZ-spark plug. Connect the gas and air and exhaust
+hoses, and the spark plug power wire. And that's it! Put one on each wheel!
+<p>What is missing from this picture? There are no camshafts overhead.
+There are no throttle control cables. There is no timing chain. There are
+no control rods. There is no distributor. These are the <u>physical linkages</u>
+between things: wires, levers, pulleys, rods, cams - that cause coordination
+of the movement of the various parts. Like the wiring between switch and
+light, they are gone!
+<p>In short, about 90% of the mass of a car engine is missing. And 99%
+of the complexity. A piston is a very simple device. Its just a rod inside
+a tube. You let some gas in, spark it, it pushes out, and that's it! But
+look at all the "stuff" that gets added to it to make it "work"!
+<p>In short, the total number of parts to a car will go down by 90% or
+more. A car becomes simple. A couple of wheels mounted on a couple of axles
+with a motor. It is simple, like the first Model-A Fords used to be.
+<p>And what advantage is there now to putting a bunch of pistons together
+in a single block anyway? Why not put one simple piston on each wheel?
+No more crankshaft! No more transmission!! Another few hundred pounds of
+dead weight gone!
+<p>The point here is to look at just how much of a complex device like
+a car engine is really LINKAGE and CONTROL MECHANISMS, as opposed to the
+simple mechanism of the engine itself.
+<p>With WIZes, mechanical objects become just their "essences", with no
+added "stuff". No linkage, no control mechanisms, no wires. Nice and simple.
+Their software remains simple because each WIZ-object only needs to coordinate
+those things that directly involve itself. And the WIZ Central Memory system
+handles all the details of communication between objects.
+<p>Simplicity = magic!
+<center>
+<p>&copy; 1999-2001 by <a href="http://www.steve.bush.org">Steve Bush</a></center>
+
+</body>
+</html>

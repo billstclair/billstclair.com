@@ -1,0 +1,44 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="Steve Bush">
+   <meta name="GENERATOR" content="Mozilla/4.73C-CCK-MCD NSCPCD47 (Macintosh; U; PPC) [Netscape]">
+   <title>The WIZ Central Memory Bank</title>
+</head>
+<body>
+&nbsp;
+<br><b><font size=+2>The WIZ Central Memory Bank</font></b>
+<p>The Central Memory Bank is a large random access storage device especially
+designed to support the WIZ system. Conceptually, it replaces the standard
+RAM memory device. Of particular interest, it supports multiple ports to
+enable multiple WIZs to share a single (central) memory bank. I will have
+more to say about its physical details in future chapters. For the current
+purposes, we will just look at its logical properties and usage from the
+point of view of a single WIZ processor.
+<p>The unit of memory in the Central Memory Bank is called a "Memory".
+A Memory is a string of from zero to a maximum of 2<sup>32</sup>&nbsp;
+bytes.&nbsp; All memories are identified or addressed by a unique numeric
+identifier known as a "memory id". The number of memories in the Central
+Memory Bank is not limited to 2<sup>32</sup>, and a memory id is generally
+much longer than 32 bits. Thus memory ids are themselves a string of bytes
+of some length. (If you want to think of a memory id as something like
+an Internet URL, you wouldn't be far off). I shall refer to a memory id
+with the symbol "&lt;&lt;memory id>>", the double brackets emphasizing
+that the symbol represents more than 32 bits.
+<p>The bytes within a single memory are addressed by an "offset", which
+is a relative byte number within the memory, starting from zero, and limited
+to 2<sup>32</sup>-1. Offsets are stored in 32 bits (or less).
+<p>A WIZ memory may contain WIZ machine code and may be executed. The concept
+of&nbsp; a WIZ memory embraces the concepts of&nbsp; a "variable", "data
+item", "string", "array", "record", "subroutine" and "program".
+<p>A new set of registers -- MEMADR, MEMDATA&nbsp; and MEMXADR -- are added.
+They are essentially identical to the RAMADR, RAMDATA and RAMXADR registers
+already defined, but interface to the Central Memory Bank rather than the
+RAM. The RAM memory device will be off-limits to all WIZ programs, which
+will use now use the Central Memory Bank exclusively.
+<center>
+<p>&copy; 1999-2000 by <a href="http://www.steve.bush.org">Steve Bush</a></center>
+
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="Steve Bush">
+   <meta name="GENERATOR" content="Mozilla/4.73C-CCK-MCD NSCPCD47 (Macintosh; U; PPC) [Netscape]">
+   <title>FBREG, FBREG /SAME, FBREG /0 (aka GPREG), and FBREG /1 (aka FB1REG)</title>
+</head>
+<body>
+&nbsp;
+<br><b><u><font size=+1>FBREG, FBREG /SAME, FBREG /0 (aka GPREG), and FBREG
+/1 (aka FB1REG)</font></u></b>
+<p>The FBREG register or Function Block Register is a gateway to as many
+as 65,536 additional registers, organized as up to 256 blocks of up to
+256 registers each. An additional two bytes, following the instruction
+byte, are required to specify which function block and which register of
+that function block is to be selected. The selected register is then mapped
+into the FBREG processor register. Thus the processor is not really limited
+to 16 registers -- many more can be "gotten to" via the FBREG register.
+<p>Now these mapped registers act simply as 32 bit registers which can
+be loaded from and stored into. When a function block register is stored
+into, some backend action is triggered, depending on the nature of the
+function. For instance, storing a character code into a specific register
+may cause the corresponding byte code to be sent to a communications line
+or disk drive. This will happen asynchronously to the WIZ main cycle. I
+will discuss more on the nature of the backend function of function blocks
+in a later section. In this section, I will focus only on their front end
+function, which is simply to load and store 32 bit data.
+<p>Thus,
+<blockquote><tt>&lt;RAMDATA => FBREG> , &lt;34,45></tt></blockquote>
+causes the contents of the RAMDATA register to be written to register #45
+of function block #34.
+<p>Nomenclature note: I will generally write the above instruction like
+this:
+<blockquote><tt>RAMDATA => FB #34 REG #45</tt></blockquote>
+Function blocks #0 and #1 are standard on all WIZes and likely to be accessed
+quite often. To make it simpler to use them, two special variants of the
+FBREG are defined, FBREG /0 and FBREG /1. These work identically to FBREG,
+but always access function blocks #0 and #1 respectively; therefore they
+require only one byte following the instruction byte to identify the register
+number.
+<p>Function block #0, or FB0, is a block of 256 general purpose registers,
+providing for a fast temporary memory. They actually have no backend function
+and are provided merely for general purpose storage. FBREG /0 is also known
+as FB0REG or GPREG (ie, "general purpose registers").
+<p>Function block #1, or FB1, contains a basic set of arithmetic and logic
+functions. FBREG /1 is also known as FB1REG. For instance, FB1 registers
+number 11, 12, and 13 form an adder. Anytime you load FB1 register #13,
+you will find it to contain the sum of FB1 registers #11 and 12. You cannot
+store into FB1 register #13 itself -- but anything you store into FB1 registers
+#11 and 12 is instantly added with the results available in register #13.
+FB1 also contains several multipliers, adders, shifters, and other neat
+things. I will say alot more on this later.
+<p>Additionaly, the FBREG /SAME refers to the same FB most recently used
+by the FBREG. There are two internal 8 bit memories for this, one for the
+most recent FB stored into by FBREG, and one for the most recent FB loaded
+from. Accesses to FB0REG or FB1REG do not affect these memories. Thus,
+to move a series of words from FB #34 to FB #55, we have:
+<blockquote><tt>FB #34 REG #10&nbsp; =>&nbsp; FB #55 REG #20&nbsp;&nbsp;&nbsp;&nbsp;
+! 5 bytes:&lt;FBREG=>FBREG>,&lt;34,10,55,20></tt>
+<br><tt>FB #SAME REG #11&nbsp; =>&nbsp; FB #SAME REG #21 ! 3 bytes:&lt;FBREG/SAME=>FBREG/SAME>,&lt;11,21></tt>
+<br><tt>FB #SAME REG #12&nbsp; =>&nbsp; FB #SAME REG #22 ! 3 bytes:&lt;FBREG/SAME=>FBREG/SAME>,&lt;12,22></tt></blockquote>
+Or to store a series of GPREGs into a series of FB regs, all in the same
+FB:
+<blockquote><tt>GPREG #aa => FB #ww REG #xx&nbsp;&nbsp; ! 4 bytes: &lt;GPREG=>FBREG>,&lt;aa,ww,xx></tt>
+<br><tt>GPREG #bb => FB #same REG #yy ! 3 bytes: &lt;GPREG=>FBREG/SAME>,&lt;bb,yy></tt>
+<br><tt>GPREG #cc => FB #same REG #zz ! 3 bytes: &lt;GPREG=>FBREG/SAME>,&lt;cc,zz></tt></blockquote>
+Make sense? Good!
+<center>
+<p>&copy; 1999-2001 by <a href="http://www.steve.bush.org">Steve Bush</a></center>
+
+</body>
+</html>

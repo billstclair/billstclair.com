@@ -1,0 +1,159 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="Steve Bush">
+   <meta name="GENERATOR" content="Mozilla/4.73C-CCK-MCD NSCPCD47 (Macintosh; U; PPC) [Netscape]">
+   <title>The WIZ instruction byte format</title>
+</head>
+<body>
+&nbsp;
+<br><b><font size=+2>The WIZ instruction byte format</font></b>
+<p>All the WIZ registers appear to the WIZ as simple 32 bit registers which
+can be loaded from and stored into across the WIZ inter-register bus. This
+is referred to as their frontside operation.
+<p>As there are just under 16 WIZ processor registers, all WIZ registers
+may be specified with a 4 bit code. A WIZ program is simply a stream of
+8 bit "instruction bytes". Each byte specifies a pair of registers, the
+high order four bits specifying a source register, and the low order four
+bits specifying a destination register. The execution of each WIZ instruction
+byte causes a transfer of data from the source register to the destination
+register.
+<p>For example, to copy a 32 bit word from the RAMDATA register (processor
+register #0) to the STACK register (processor register #2), we have the
+single instruction byte &lt;02H>, that is, copy register 0 to register
+2. And to copy a word from the STACK to the RAMDATA register, we have the
+instruction byte &lt;20H>, that is, copy register 2 to register 0.
+<p>Thus, all WIZ instructions are simply an 8 bit byte specifying a source
+and a destination register. The extension to this rule is the FBREGs and
+the CONST regs, both of which require more data, which is found immediately
+following the instruction byte.
+<p>The FBREG register or Function Block Register is a gateway to as many
+as 65,536 additional registers, organized as up to 256 blocks of up to
+256 registers each. An additional two bytes, following the instruction
+byte, are required to specify which function block and which register of
+that function block is to be selected. The selected register is then mapped
+into the FBREG (processor register #3).
+<p>Thus, to copy one of the function block registers to the stack, we have
+the single byte instruction &lt;32H>, that is, copy the FBREG to the STACK
+register. But this instruction is not complete, and the two bytes following
+select which function block register is to actually be copied via FBREG
+and into the STACK register. For instance, the three byte sequence &lt;32H>,&lt;72>,&lt;35>
+copies register #35 from function block #72 to the STACK.
+<p>Both the source and destination registers of an instruction may be FBREG,
+in which case an extra four bytes will follow -- the first two specifying
+which block and which register of that block is to be mapped into the source
+FBREG, and the second two specifying which block and register of that block
+is to be mapped into the destination FBREG.
+<p>Thus, to copy register 12 in function block 54 to register 99 in function
+block 24, we would have the five byte instruction: &lt;33H,54,12,24,99>.
+Here, the &lt;33H> indicates we are copying register 3 to register 3, that
+is, FBREG to FBREG. The following four bytes specify which ones, for source
+and destination. Hence, &lt;33H,54,12,24,99> means copy function block
+#54 register #12 to function block #24 register #99.
+<p>Finally, the CONST registers, CONST /0B, /1B, /2B, /3B, or /4B, represent
+the next 0, 1, 2, 3 or 4 bytes following the instruction instead of the
+contents of any register. For example, to store the number 2345H onto the
+STACK, we have the three byte instruction: &lt;D2H,23H,45H>. Here &lt;D2H>
+copies processor register D (CONST /2B) to processor register 2 (the STACK).
+The two bytes following the instruction byte, &lt;23H,45H>, are the two
+bytes referred to by the CONST /2B register, and they are copied directly
+into the STACK. CONST /0B is always the constant zero.
+<p>Here is a table spelling out a few more examples:
+<br>&nbsp;
+<table BORDER >
+<tr>
+<td>
+<center>Instruction as generally&nbsp; written</center>
+</td>
+
+<td>
+<center>Instruction byte
+<br>(pair of WIZ registers)</center>
+</td>
+
+<td>
+<center>Additional bytes for specific register
+<br>in set or for immediate data</center>
+</td>
+</tr>
+
+<tr>
+<td><tt>RAMDATA&nbsp;&nbsp; => STACK</tt></td>
+
+<td><tt>&lt;RAMDATA => STACK></tt></td>
+
+<td><tt>none</tt></td>
+</tr>
+
+<tr>
+<td><tt>RAMDATA&nbsp;&nbsp; => FB0REG #45</tt></td>
+
+<td><tt>&lt;RAMDATA => FB0REG></tt></td>
+
+<td><tt>&lt;45></tt></td>
+</tr>
+
+<tr>
+<td><tt>RAMDATA&nbsp;&nbsp; => FB #16 REG #45</tt></td>
+
+<td><tt>&lt;RAMDATA => FBREG></tt></td>
+
+<td><tt>&lt;16,45></tt></td>
+</tr>
+
+<tr>
+<td><tt>FB #05 REG #23 => FB #16 REG #55</tt></td>
+
+<td><tt>&lt;FBREG&nbsp;&nbsp; => FBREG></tt></td>
+
+<td><tt>&lt;05,23,16,55></tt></td>
+</tr>
+
+<tr>
+<td><tt>&lt;00>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; => STACK</tt></td>
+
+<td><tt>&lt;CONST /0B&nbsp; => STACK></tt></td>
+
+<td>none</td>
+</tr>
+
+<tr>
+<td><tt>&lt;01>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; => STACK</tt></td>
+
+<td><tt>&lt;CONST /1B&nbsp; => STACK></tt></td>
+
+<td><tt>&lt;01></tt></td>
+</tr>
+
+<tr>
+<td><tt>&lt;99>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; => FB #10 REG #16</tt></td>
+
+<td><tt>&lt;CONST /1B&nbsp; => FBREG></tt></td>
+
+<td><tt>&lt;99,10,16></tt></td>
+</tr>
+
+<tr>
+<td><tt>&lt;123456H>&nbsp;&nbsp;&nbsp; => RAMADR</tt></td>
+
+<td><tt>&lt;CONST /3B&nbsp; => RAMADR></tt></td>
+
+<td><tt>&lt;12H,34H,56H>&nbsp;</tt></td>
+</tr>
+
+<tr>
+<td><tt>&lt;12345678H>&nbsp; => FB #33 REG #90</tt></td>
+
+<td><tt>&lt;CONST /4B&nbsp; => FBREG></tt></td>
+
+<td><tt>&lt;12H,34H,56H,78H,33,90></tt></td>
+</tr>
+</table>
+
+<p>Get it? Got it? Good!
+<center>
+<p>&copy; 1999-2001 by <a href="http://www.steve.bush.org">Steve Bush</a></center>
+
+</body>
+</html>

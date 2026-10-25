@@ -1,0 +1,257 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="Steve Bush">
+   <meta name="GENERATOR" content="Mozilla/4.73C-CCK-MCD NSCPCD47 (Macintosh; U; PPC) [Netscape]">
+   <title>Parallelism in the WIZ Architecture</title>
+</head>
+<body>
+&nbsp;
+<br><b><font size=+2>Parallelism in the WIZ Architecture</font></b>
+<p>Most current processors must wait for the completion of all instructions
+before going on to the next. A great deal of complexity is spent on optimizing
+the instruction flow to allow for parallel execution of several instructions,
+pipeline execution of instructions, and optimal ordering or reordering
+of instructions in the pipeline. The WIZ handles and solves this complexity
+with a simplicity.
+<p>The WIZ function block architecture allows a WIZ instruction to start
+an operation and not wait for its completion. And every function block
+device, that is, adders, multipliers, logical functions, etc, operates
+independently and can operate simultaneously. Thus, a WIZ program can easily
+take advantage of a great deal of parallelism.
+<p>The WIZ main cycle is very fast. It is just the time it takes to transfer
+a 32 bit value across a bus. And as the RAMXADR prefetches the next instruction
+byte in parallel to the WIZ executing the current transfer, and the RAMADR
+can increment and prefetch the next word of memory in parallel to the WIZ
+executing the current transfer, no time is lost between cycles preparing
+for the next one.
+<p>Suppose we have three multipliers, and the six words to load into them
+are in successive memory addresses. Compare the following two examples,
+both of which produce identical results:
+<blockquote>&nbsp;
+<table BORDER >
+<tr ALIGN=LEFT VALIGN=TOP>
+<td><tt><font size=-1>/&nbsp; EXAMPLE CASE ONE:</font></tt>
+<p><tt><font size=-1>&nbsp;&nbsp; &lt;initial adr of data> => RAMADR</font></tt>
+<p><tt><font size=-1>/&nbsp; load multiplierOne with two data items:</font></tt>
+<br><tt><font size=-1>&nbsp;&nbsp; RAMDATA /INCADR => FB1REG # multiplierOne_A</font></tt>
+<br><tt><font size=-1>&nbsp;&nbsp; RAMDATA /INCADR => FB1REG # multiplierOne_B</font></tt>
+<br><tt><font size=-1>/&nbsp; and get the first product to reg #0:</font></tt>
+<br><tt><font size=-1>&nbsp;&nbsp; GPREG # 0 &lt;= FB1REG # multiplierOne_product</font></tt>
+<p><tt><font size=-1>/&nbsp; load multiplierTwo with two data items:</font></tt>
+<br><tt><font size=-1>&nbsp;&nbsp; RAMDATA /INCADR => FB1REG # multiplierTwo_A</font></tt>
+<br><tt><font size=-1>&nbsp;&nbsp; RAMDATA /INCADR => FB1REG # multiplierTwo_B</font></tt>
+<br><tt><font size=-1>/&nbsp; and get the second product to reg #1:</font></tt>
+<br><tt><font size=-1>&nbsp;&nbsp; GPREG # 1 &lt;= FB1REG # multiplierTwo_product</font></tt>
+<p><tt><font size=-1>/&nbsp; load multiplierThree with two data items:</font></tt>
+<br><tt><font size=-1>&nbsp;&nbsp; RAMDATA /INCADR => FB1REG # multiplierThree_A</font></tt>
+<br><tt><font size=-1>&nbsp;&nbsp; RAMDATA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+=> FB1REG # multiplierThree_B</font></tt>
+<br><tt><font size=-1>/&nbsp; and get the third product to reg #2:</font></tt>
+<br><tt><font size=-1>&nbsp;&nbsp; GPREG # 2 &lt;= FB1REG # multiplierThree_product</font></tt></td>
+
+<td ALIGN=LEFT VALIGN=TOP><tt><font size=-1>/&nbsp; EXAMPLE CASE TWO:</font></tt>
+<p><tt><font size=-1>&nbsp;&nbsp; &lt;initial adr of data> => RAMADR</font></tt>
+<p><tt><font size=-1>/&nbsp; load multiplierOne with two data items:</font></tt>
+<br><tt><font size=-1>&nbsp;&nbsp; RAMDATA /INCADR => FB1REG # multiplierOne_A</font></tt>
+<br><tt><font size=-1>&nbsp;&nbsp; RAMDATA /INCADR => FB1REG # multiplierOne_B</font></tt>
+<p><tt><font size=-1>/&nbsp; load multiplierTwo with two data items:</font></tt>
+<br><tt><font size=-1>&nbsp;&nbsp; RAMDATA /INCADR => FB1REG # multiplierTwo_A</font></tt>
+<br><tt><font size=-1>&nbsp;&nbsp; RAMDATA /INCADR => FB1REG # multiplierTwo_B</font></tt>
+<p><tt><font size=-1>/&nbsp; load multiplierThree with two data items:</font></tt>
+<br><tt><font size=-1>&nbsp;&nbsp; RAMDATA /INCADR => FB1REG # multiplierThree_A</font></tt>
+<br><tt><font size=-1>&nbsp;&nbsp; RAMDATA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+=> FB1REG # multiplierThree_B</font></tt>
+<p><tt><font size=-1>/&nbsp; and get the first product to reg #0:</font></tt>
+<br><tt><font size=-1>&nbsp;&nbsp; GPREG # 0 &lt;= FB1REG # multiplierOne_product</font></tt>
+<br><tt><font size=-1>/&nbsp; and get the second product to reg #1:</font></tt>
+<br><tt><font size=-1>&nbsp;&nbsp; GPREG # 1 &lt;= FB1REG # multiplierTwo_product</font></tt>
+<br><tt><font size=-1>/&nbsp; and get the third product to reg #2:</font></tt>
+<br><tt><font size=-1>&nbsp;&nbsp; GPREG # 2 &lt;= FB1REG # multiplierThree_product</font></tt></td>
+</tr>
+</table>
+</blockquote>
+Note that both these cases have the exact same instructions, but in a different
+order! In both cases, the third instruction, which loads multiplierOne_B,
+starts the multiplierOne device computation. And in both cases, when we
+get to "GPREG # 0 &lt;= FB1REG # multiplierOne_product", the WIZ will stop
+and wait for the multiply to finish. However, in the second case, we have
+already loaded the other two multipliers and started them rolling. All
+of these loads in the second case are "free" (use no time) as they overlap
+the first multiply. In both cases, the time when the "GPREG #0 &lt;= FB1REG
+# multiplierOne_product" instruction cycle ends is the same.
+<p>But now, if we assume that all three multiplies take the same length
+of time, then in the second case, after waiting for the first multiplier
+to finish, the second will also be ready, as it was started just two short
+WIZ cycles after the first. Thus, in the second case, the instruction "GPREG
+#1 &lt;= FB1REG # multiplierTwo_product" will NOT WAIT AT ALL as it will
+already be done. The same is true of the third multiplier product. This
+is because we had all the multipliers running at once.
+<p>Thus, the first case example will take THREE TIMES LONGER to execute
+than the second case. This is an example of the parallelism possible on
+the WIZ processor.
+<p>Now, let's look at an example comparing a custom hardware datapath combining
+several functions with the software combination of the same functions on
+the WIZ. Suppose we want to compute (A+B) x C. Suppose we construct a hardware
+custom datapath just to do it. This device would have an adder and a multiplier
+and look like this:
+<br>&nbsp;
+<table BORDER >
+<tr>
+<td><tt>A --->|</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |ADDER --->|</tt>
+<br><tt>B --->|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|MULTIPLIER&nbsp; ---> ANSWER (A+B) x C</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|</tt>
+<br><tt>C -------------->|</tt></td>
+</tr>
+</table>
+
+<p>This device would have to be clocked so that the multiplier was started
+after the adder was finished. And there would probably be a set of latches
+on the multiplier input to latch the adder output, as a multiplier must
+have a stable input before it can start.
+<p>Now, suppose we didn't build this device but used the existing devices,
+namely an adder and a multiplier, and combined them with software. The
+WIZ code would look like this:
+<blockquote><tt>FB1REG # adder1_A&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;=
+A</tt>
+<br><tt>FB1REG # adder1_B&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;= B</tt>
+<br><tt>FB1REG # multiplier1_A&nbsp; &lt;= C</tt>
+<br><tt>FB1REG # multiplier1_B&nbsp; &lt;= FB1REG # adder1_sum</tt>
+<br><tt>ANSWER&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;= FB1REG # multiplier1_product</tt></blockquote>
+Let's examine the timing here. The moment we do "FB1REG # adder1_B &lt;=
+B", the adder begins computing. The next instruction, "FB1REG # multiplier1_A
+&lt;= C" is free as it occurs while the adder is adding. The next instruction,
+"FB1REG # multiplier1_B &lt;= FB1REG # adder1_sum " is the critical one.
+The WIZ front-end cycle will go into a wait state here. As soon as the
+adder finishes, it generates a "ready" pulse, and the WIZ inter-register
+bus, driven by the adder sum, is then latched into the multiplier1_B input
+and simultaneously triggers the multiplier to start.
+<p>How could the hardware custom datapath above be any faster? It also
+must wait for the adder to generate a ready pulse (or worse yet, be clocked
+at a fixed time calibrated to the worst case add), and then latch the adder
+data and start the multiply. While the WIZ front-end cycle is waiting,
+it is holding the bus ready and gating the adder output register to the
+multiplier input register, until the ready pulse clocks the multiplier
+latches and starts the multiply. There is just one level of logic here,
+which can't be any slower than the hardware datapath.
+<p>I have shown the equivalency of the WIZ function block parallelism and
+a hardware datapath. For the next example, I will show how the WIZ architecture
+can keep a software pipeline completely full and run as fast as a hardware
+pipeline.
+<p>Suppose we want to compute the sum of the products of A[i] x B[i] over
+i = 1 to 1000. And suppose we have four multipliers and three adders and
+a tallyAdder. If we could make a custom pipelined datapath in hardware,
+it would look like this:
+<br>&nbsp;
+<table BORDER >
+<tr>
+<td><tt>A[i] ---->|</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |Multiplier1
+---->|</tt>
+<br><tt>B[i] ---->|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|Adder1 --->|</tt>
+<br><tt>A[i+1] -->|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |Multiplier2
+---->|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |</tt>
+<br><tt>B[i+1] -->|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|Adder3 ---> TallyAdder1</tt>
+<br><tt>A[i+2] -->|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |Multiplier3
+---->|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |</tt>
+<br><tt>B[i+2] -->|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|Adder2 --->|</tt>
+<br><tt>A[i+3] -->|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |Multiplier4
+---->|</tt>
+<br><tt>B[i+3] -->|</tt></td>
+</tr>
+</table>
+
+<p>This is to be run as a true pipeline, which is different from the above
+datapath examples in that we do not have to wait for the data to run all
+the way from the left to the right (from array data to the TallyAdder)
+on each cycle. We can cycle new array data in continuously, such that all
+devices are constantly running -- each stage, from left to right, processing
+the data output of the previous stage.
+<p>The WIZ can accomplish the same pipeline in software, AND AT THE SAME
+SPEED! By loading the outputs of each stage from the inputs of the previous
+stage in reverse order (right to left), we gain the same effect as a continuously
+running pipeline. Observe:
+<blockquote>&nbsp;
+<table CELLSPACING=0 CELLPADDING=0 >
+<tr>
+<td><tt>/ init loop counter to loop 252 times</tt>
+<br><tt>/&nbsp; (2 extra to flush the pipeline)</tt>
+<p><tt>&lt;0> => loopCounter1_value</tt>
+<br><tt>&lt;1> => loopCounter1_increment</tt>
+<br><tt>&lt;0> => loopCounter1_lowerBound</tt>
+<br><tt>&lt;252> => loopCounter_upperBound</tt>
+<br><tt>&lt;0> => loopCounter_exitAddress</tt>
+<p><tt>/ zero all 4 multipliers and 3 adders</tt>
+<p><tt>&lt;0> => multiplier1_B</tt>
+<br><tt>&lt;0> => multiplier2_B</tt>
+<br><tt>&lt;0> => multiplier3_B</tt>
+<br><tt>&lt;0> => multiplier4_B</tt>
+<br><tt>&lt;0> => adder1_A</tt>
+<br><tt>&lt;0> => adder1_B</tt>
+<br><tt>&lt;0> => adder2_A</tt>
+<br><tt>&lt;0> => adder2_B</tt>
+<br><tt>&lt;0> => adder3_A</tt>
+<br><tt>&lt;0> => adder3_B</tt>
+<p><tt>/ zero the tally</tt>
+<p><tt>tallyAdder1 => negator</tt>
+<br><tt>negator => tallyAdder1</tt>
+<p><tt>/ init the array pointers</tt>
+<p><tt>loopCounter2_value &lt;= &lt;address of array A></tt>
+<br><tt>loopCounter2_increment &lt;= 16</tt>
+<p><tt>loopCounter3_value &lt;= &lt;address of array B></tt>
+<br><tt>loopCounter3_increment &lt;= 16</tt></td>
+</tr>
+</table>
+
+<table CELLSPACING=0 CELLPADDING=0 >
+<tr>
+<td><tt>/ enter main loop</tt>
+<p><tt>loop:</tt>
+<p><tt>/ move adder3 sum to tallyAdder</tt>
+<br><tt>adder3_sum => tallyAdder1</tt>
+<p><tt>/&nbsp; move adder1 and 2 outputs to adder3</tt>
+<br><tt>adder1_sum => adder3_A</tt>
+<br><tt>adder2_sum => adder3_B</tt>
+<p><tt>/ move multiplier outputs to adders 1 and 2</tt>
+<br><tt>multiplier1_product => adder1_A</tt>
+<br><tt>multiplier2_product => adder1_B</tt>
+<br><tt>multiplier3_product => adder2_A</tt>
+<br><tt>multiplier4_product => adder2_B</tt>
+<p><tt>/ move next 4 words from A and B to the 4 multipliers</tt>
+<br><tt>loopCounter2_value => RAMADR/READ</tt>
+<br><tt>RAMDATA /INCADR => multiplier1_A</tt>
+<br><tt>RAMDATA /INCADR => multiplier2_A</tt>
+<br><tt>RAMDATA /INCADR => multiplier3_A</tt>
+<br><tt>RAMDATA /INCADR => multiplier4_A</tt>
+<p><tt>loopCounter3_value => RAMADR/READ</tt>
+<br><tt>RAMDATA /INCADR => multiplier1_B</tt>
+<br><tt>RAMDATA /INCADR => multiplier2_B</tt>
+<br><tt>RAMDATA /INCADR => multiplier3_B</tt>
+<br><tt>RAMDATA /INCADR => multiplier4_B</tt>
+<p><tt>/ inc counter, skip jump back to loop if done</tt>
+<br><tt>loopCounter1_value => GPREG #0</tt>
+<br><tt>out-of-bounds-error => SKIPIF /NONZERO</tt>
+<br><tt>&lt;loop> => RAMXADR</tt>
+<p><tt>/ We have an answer</tt>
+<br><tt>tal

@@ -1,0 +1,56 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="Steve Bush">
+   <meta name="GENERATOR" content="Mozilla/4.73C-CCK-MCD NSCPCD47 (Macintosh; U; PPC) [Netscape]">
+   <title>pg002822.html</title>
+</head>
+<body>
+&nbsp;
+<br><b><font size=+2>Using the WIZ Central Memory to coordinate several
+WIZ-objects</font></b>
+<p>The concept of a shared Central Memory allows WIZes to communicate simply
+by agreeing on the name (ie, address) of a single memory. One WIZ stores
+something into that memory, another looks to see what is there.
+<p>For instance, suppose there was a WIZ-light switch, serial number 1738493.
+Suppose it agrees to store either the word "ON" or the word "OFF" in a
+WIZ memory called "light switch number 1738493 status".
+<p>Then when the switch is moved, all the software running in that WIZ-light
+switch has to do is to store either "ON" or "OFF" into "light switch number
+1738493 status". This programming is terribly simple. The entire purpose
+of this WIZ is to store either ON or OFF into that memory.
+<p>Now, any other WIZ anywhere in the universe can look at "light switch
+number 1738493 status" and see what is there.
+<p>For instance, suppose there was a WIZ-light bulb somewhere. It is not
+connected to any switch. It goes on and off when it pleases, so to speak.
+It is told to monitor light switch #1738493 and go on or off whenever that
+switch indicates to. All the software running in that WIZ-light bulb has
+to do is look at a memory called "light switch number 1738493 status".
+<p>Note that the switch and the light bulb could be in the same room, different
+rooms, or on opposite ends of the galaxy. It wouldn't matter, as the WIZ
+system handles the Central Memory, and neither WIZ is "aware" of the mechanics
+of how the transfer of information actually takes place.
+<p>This means that there are NO WIRES interconnecting things. A non-WIZ
+switch has to have a wire between it and the light bulb it controls. A
+WIZ-object has no wires other than power (if necessary) or a Central Memory
+communications line (if necessary). Many will use a radio link for their
+comm line to the Central Memory, and many also can use the power line as
+a comm line also. And many will be self-powered and radio-linked, completely
+eliminating any wiring.
+<p>There is an immense reduction in complexity by removing object-to-object
+wiring, along with a tremendous increase in flexibility. For instance,
+look at a car door with electric door locks. Each door has a switch to
+lock and unlock the door, which is wired to the solenoid that actually
+moves the locking mechanism up and down. But typically, the master switch
+at the driver's door controls all other doors, thus requiring a wire to
+go from that switch to each of the other three doors. Add to this the wires
+going back and forth for electric windows, speakers, and much more, and
+you get a mess of hundreds of wires that no one can understand. If all
+devices were WIZ devices, there would be only a power buss, and all other
+coordination between devices would be controlled by software.
+<center>
+<p>&copy; 2001 by <a href="http://www.steve.bush.org">Steve Bush</a></center>
+
+</body>
+</html>

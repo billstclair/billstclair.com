@@ -1,0 +1,100 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="Steve Bush">
+   <meta name="GENERATOR" content="Mozilla/4.73C-CCK-MCD NSCPCD47 (Macintosh; U; PPC) [Netscape]">
+   <title>The WIZ Processor - In Summary</title>
+</head>
+<body>
+&nbsp;
+<br><b><font size=+2>The WIZ Processor - In Summary</font></b>
+<p>In summary, I have defined a processor that is terribly simple. Incredibly
+simple. The ISC. Its only operation is to copy one register to another.
+It has only 7 basic registers, as follows:
+<blockquote>&nbsp;
+<table BORDER=3 >
+<tr>
+<td><tt>RAMDATA</tt></td>
+
+<td><tt>/INCADR</tt></td>
+</tr>
+
+<tr>
+<td><tt>RAMADR</tt></td>
+
+<td><tt>/READ, /ADDER</tt></td>
+</tr>
+
+<tr>
+<td><tt>RAMXADR</tt></td>
+
+<td><tt>/STACK</tt></td>
+</tr>
+
+<tr>
+<td><tt>STACK</tt></td>
+
+<td><tt>&nbsp;</tt></td>
+</tr>
+
+<tr>
+<td><tt>FBREG</tt></td>
+
+<td><tt>/0, /1, /SAME</tt></td>
+</tr>
+
+<tr>
+<td><tt>CONST</tt></td>
+
+<td><tt>/0B, /1B, /2B, /3B, /4B</tt></td>
+</tr>
+
+<tr>
+<td><tt>SKIPIF</tt></td>
+
+<td><tt>/NONZERO, /ZERO</tt></td>
+</tr>
+</table>
+</blockquote>
+The WIZ cycle is terribly fast. Register to register transfers run at a
+very great speed with few levels of logic between them, and those things
+that are by nature not so fast are partitioned out of the main loop and
+into function blocks, whose architecture allows parallelism to be exploited
+for maximum speed there.
+<p>The basic questions to ask are:
+<ol>
+<li>
+Could anything be removed? That is, have I reached "basic-basic", the fundamental
+minimum set of operations that still creates a useful machine?</li>
+
+<li>
+Is there any operation a Pentium can do that a straightforward set of WIZ
+instructions can't do?</li>
+
+<li>
+Do all decompositions of complex operators into a sequence of smaller ones
+result in going just as fast or faster? (At least for those complex operators
+found in a device like the Pentium).</li>
+</ol>
+This last question is answered YES, as follows:
+<p><b>THE FUNDAMENTAL (GUIDING) HYPOTHESIS OF THE ISC WIZ:</b>
+<blockquote>Any complex logical operation can be reduced to a series of
+simpler operations, some in series, some in parallel, whose total timing
+is essentially the same as the timing of the more complex operation they
+replace.</blockquote>
+I suspect that the proof of this would be similar to the proof that any
+logical equation can be expressed in canonical sum of products form, yes?
+<p><b>COROLLARY TO THE FUNDAMENTAL HYPOTHESIS:</b>
+<blockquote>The reduced complexity and reduced chip area gained by decomposing
+complex operations into simpler ones creates higher overall speed of the
+simpler operations and therefore a net gain in speed even over the complex
+operations is achieved.</blockquote>
+I rest my case! Simplicity works! Simpler is faster. Simpler is cheaper.
+Simpler is easier to manufacture. Simpler is easier to migrate to new technologies.
+Simpler is, well, ... simpler.
+<center>
+<p>&copy; 1999-2001 by <a href="http://www.steve.bush.org">Steve Bush</a></center>
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="Steve Bush">
+   <meta name="GENERATOR" content="Mozilla/4.73C-CCK-MCD NSCPCD47 (Macintosh; U; PPC) [Netscape]">
+   <title>The SKIPIF register</title>
+</head>
+<body>
+&nbsp;
+<br><b><u><font size=+1>The SKIPIF /ZERO and SKIPIF /NONZERO registers:</font></u></b>
+<p>The SKIPIF register's function is simply to cause the next WIZ instruction
+to be skipped if the data stored into it is either zero or non-zero. It
+is a destination register only, never a source. Data is copied into it,
+but that data is not stored, it is instead evaluated for a zero or non-zero
+value.
+<p>For example, to test if location &lt;xxx> contains a zero or not:
+<blockquote><tt>&lt;xxx> => RAMADR /READ</tt>
+<br><tt>RAMDATA => SKIPIF /ZERO</tt>
+<br><tt>&lt;branchLoc> => RAMXADR&nbsp;&nbsp; / branch out if non-zero</tt>
+<br><tt>...&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+/ continue here if zero</tt></blockquote>
+
+<center>
+<p><br>&copy; 1999-2001 by <a href="http://www.steve.bush.org">Steve Bush</a></center>
+
+</body>
+</html>

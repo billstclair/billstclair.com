@@ -1,0 +1,50 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="Steve Bush">
+   <meta name="GENERATOR" content="Mozilla/4.73C-CCK-MCD NSCPCD47 (Macintosh; U; PPC) [Netscape]">
+   <title>The WIZ processor architectural overview</title>
+</head>
+<body>
+&nbsp;
+<br><b><font size=+2>The WIZ processor architectural overview.</font></b>
+<p>A WIZ processor consists simply of a number of 32 bit registers, connected
+together on an inter-register transfer bus. The processor has only one
+operation, which is to take the contents of any one register and copy it
+to any other register. As there is only one operation, the WIZ has no opcodes.
+A WIZ program is simply a series of bytes which specify the source register
+and destination register for each copy.
+<p>And that is the simplicity of it. All the WIZ does on each cycle is:
+fetch the next byte or bytes of program, use them to address the source
+and destination registers, and execute a transfer across the bus from the
+source register to the destination register. End of cycle. This cycle is
+not clocked - it takes as long as it takes. Which isn't very long!
+<p>Assuming one unit of time (level of logic) to decode the register addresses,
+one more to turn on the bus drivers and receivers, one more for hold time
+to receive the data, and one more for fudge - we have 4 gate delays. According
+to Intel, their current (mid 1999) process (0.18 microns)&nbsp; is running
+33 pico-second gate delays, which would produce a 132 pico-second cycle
+time, or 7,000 MHz, without trying. And speed doubles every year or so
+these days!<sup>*</sup>
+<p>Now the trick is, some registers are not just ordinary registers which
+merely load, store, and retrieve 32 bits of data. Some also <b><u>do</u></b>
+various operations with the data they hold. These operations occur asynchronously
+to the processor cycle. They receive the data and then proceed to do whatever
+it is they do with that data while the WIZ is off handling the next transfer
+cycle.
+<p>The registers are then "fronts" for other logic. They have a "frontside"
+and a "backside". From the frontside, they appear on the WIZ bus as a simple
+set of 32 bit registers which can be loaded from and stored into. But on
+the backside, they have a completely separate function which occurs asynchronously
+to the frontside. As a register is stored into or read from on the frontside,
+the backside circuitry connected to it is triggered into action.
+<center>
+<p>&copy; 1999-2001 by <a href="http://www.steve.bush.org">Steve Bush</a></center>
+
+<p><font size=-2>* In April 2000, TI announced a .13 micron process with
+25 picosecond gate delays with a fanout of 3, which would produce a 10,000
+MHz WIZ. At the same time, 650 MHz Pentiums are just starting to become
+available.</font>
+</body>
+</html>

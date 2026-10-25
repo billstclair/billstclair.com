@@ -1,0 +1,84 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="Steve Bush">
+   <meta name="GENERATOR" content="Mozilla/4.73C-CCK-MCD NSCPCD47 (Macintosh; U; PPC) [Netscape]">
+   <title>pg002934.html</title>
+</head>
+<body>
+&nbsp;
+<br><b><font size=+2>The WIZ Power System</font></b>
+<p>Regarding the battery running out. WIZes run forever! Seriously! There
+are two pieces to this: low power requirements in the first place, and
+new kinds of power sources in the second.
+<p><b><font size=+1>Low Power Requirements:</font></b>
+<p>A WIZ processor can slow down to zero Hz, and wake on interrupt. Power
+usage is exactly linear to speed. At absolute zero Hz, it will use absolutely
+no power. It can sweep its cache RAM out to the Central Memory, and then
+doesn't even have to keep a D-RAM powered. Many WIZ applications can sleep
+most of the time. If I had a WIZ in my shoe. for instance, and it had a
+MEMS accelerometer to sense footsteps, it could wake just for a few nanoseconds
+at the peak of each footstep to record the data, then sleep until the next
+footstep. (Actually, it would be more interesting than that - it could
+change its speed in something like an adaptive sine wave, relating speed
+on a moment-by-moment basis to what its doing). A WIZ-light switch would
+only execute when the switch handle was jarred. (It might run at 100 Hz
+while waiting, just so it could keep monitoring everything). All WIZs slow
+down the CPU while waiting for an external event to wake it. In fact, whenever
+the processor goes into a "wait state" for I/O, it can cycle down speed
+and wake on interrupt from the device in question. Thus, power used will
+be often minuscule. (Its in a different chapter - "The WIZ-object", but
+most WIZes will be inside shoes, switches, staplers, whatever. Not "windows"
+machines running screens with multiple processes all going like crazy).
+Obviously, on a cpu bound application, this is not true, but that kind
+of application will be plugged in!
+<p>There will be an additional register in the standard FB1 which specifies
+the speed, all ones being max, and all zeroes being zero. At exact zero,
+only an interrupt can wake it up. Note that the nanosecond clock register
+also in the FB1 can also wake it on countdown, and is not shut off when
+the processor speed goes to zero -- although it too CAN be shut down too,
+if the target count register is zero also.
+<p><b><font size=+1>New Power Sources to be investigated:</font></b>
+<p>Secondly, I will be investigating a number of new kinds of power supplies.
+Since all isolated WIZes will have a radio link, they can pick up power
+over that link by using the radio signal itself as power (as Tesla always
+planned). It may be possible to keep powered by this alone. It may be possible
+to get enough energy by induction from the 60 Hz field that is all around
+us. It may be possible to "recharge" it occasionally with a higher than
+normal burst of radio power (at night or when no humans are around!).
+<p>Beyond that, new power sources have yet to be discovered. I believe
+cold fusion is a real phenomenon, and will be perfected. It could be applied
+on a MEMS nano-scale to make a cold fusion reactor a few nanometers big.
+<br>&nbsp;
+<p>I have also read the very theoretical idea of creating a "bowling alley"
+sort of MEMS structure a few nanometers wide, and accelerating single particles
+down the alley to a target, thus creating a very tiny but super-high energy
+particle accelerator, which would create hot (thermo-nuclear) fusion, but
+in non-dangerous quantities of a single atom at a time. Wouldn't that be
+far out!
+<p>And room-temperature superconducting nanotubes are right around the
+corner already.
+<p>And "transistors" of the future, or whatever may come, may use significantly
+less power than anything we can envision now.
+<p>The WIZ is a device for the future, and I am certain that the future
+holds plenty of possibilities like the above. So much so that the WIZ is
+designed from the start to assume that one or more of these technologies
+WILL be available.
+<p>In the short run, I think the radio link will do the trick for truly
+remote WIZes that have no other connections. Note that all WIZes have some
+sort of comm line, and if not radio, then there IS some sort of wire, and
+then power is easy to supply over that wire. Thus, all the above discussion
+is not about desktop computers running Windows. They can have plenty of
+power. It is for the truly remote or portable WIZ this discussion is for,
+the WIZ in the shoe, switch, turn signal, etc. The WIZ in a light bulb
+obviously has plenty of power available to it as the light itself will
+need plenty of power. Of course, as the above technologies really do become
+real, maybe even that will go away. Who knows how much power I can get
+out of a MEMS thermo-nuclear reactor using molecules right out of the air
+for power?
+<center>
+<p>&copy; 1999-2001 by <a href="http://www.steve.bush.org">Steve Bush</a></center>
+
+</body>
+</html>

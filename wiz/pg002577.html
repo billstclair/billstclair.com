@@ -1,0 +1,34 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="Steve Bush">
+   <meta name="GENERATOR" content="Mozilla/4.73C-CCK-MCD NSCPCD47 (Macintosh; U; PPC) [Netscape]">
+   <title>The RAMXADR and RAMXADR /STACK registers</title>
+</head>
+<body>
+&nbsp;
+<br><b><u><font size=+1>The RAMXADR and RAMXADR /STACK registers</font></u></b>
+<p>The RAMXADR or RAM eXecution address register holds the address to be
+used to fetch the next byte to be executed by the WIZ processor. When stored
+into, the sequential instruction flow is interrupted and the processor
+will fetch the next instruction byte from the new location.
+<p>In addition, whenever RAMXADR /STACK it is stored into, an implicit
+RAMXADR => STACK is automatically done first. That is, its previous contents
+are routed to the STACK before accepting the new data.
+<p>Thus, the standard method for "jumping" to an address is:
+<blockquote><tt>&lt;address>&nbsp; => RAMXADR</tt></blockquote>
+And the standard "call subroutine" at address is:
+<blockquote><tt>&lt;address> => RAMXADR /STACK</tt></blockquote>
+The standard "return" from such a subroutine would be:
+<blockquote><tt>STACK => RAMXADR</tt></blockquote>
+The RAMXADR logic has its own independent path to memory so that WIZ cycle
+execution is never slowed by waiting for the next program byte or bytes.
+And the RAMXADR logic computes the next address depending on the length
+of the current instruction, taking into account any additional bytes for
+CONST data and/or FBREG specifiers.
+<center>
+<p>&copy; 1999-2001 by <a href="http://www.steve.bush.org">Steve Bush</a></center>
+
+</body>
+</html>

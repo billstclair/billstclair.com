@@ -1,0 +1,125 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="Steve Bush">
+   <meta name="GENERATOR" content="Mozilla/4.73C-CCK-MCD NSCPCD47 (Macintosh; U; PPC) [Netscape]">
+   <title>More on the Fixup</title>
+</head>
+<body>
+&nbsp;
+<br><b><font size=+2>More on the Fixup</font></b>
+<p><b><u>ON NON-EQUAL SIZE OF ORIGINAL CODE AND FIXED-UP CODE:</u></b>
+<p>A fixup is defined as the replacement of WIZ machine code with other
+WIZ machine code. There is no restriction on the number of bytes being
+replaced or the number of bytes in the replacement, or that they need be
+the same.
+<p>There are two basic modes of handling non-equal size of old and new
+code, a quick low-overhead mode, which is used initially when a memory
+is first loaded and will probably have many fixups to be done, and a final,
+clean-up mode, which is done after most fixups are done and transforms
+many quick mode fixups at a single time into the final code.
+<p>In quick mode, if the new code is shorter than what it is replacing,
+the memory handler just replaces the code and adds a few bytes of "no-ops"
+to pad it out to be the same length as before. If more than 5 bytes of
+no-ops are needed, a jump instruction may be added just after the new code
+to jump to the byte after the last byte of the old code.
+<p>And in quick mode, if the new code is longer, the memory handler may
+put a jump instruction at the location of the fixup which jumps off to
+an area of RAM allocated by the memory handler, in which is put the new
+code, followed by a jump back to the byte after the last byte of the old
+code.
+<p>In final clean-up mode, if the new code is shorter, all bytes in the
+memory past the end of the old code are moved down to align to the end
+of the new code, thus actually shortening the memory by the difference
+in code length. All fixups to locations in the memory which are to addresses
+above the end of the old code are re-fixed up by subtracting this difference
+constant. All unfixed up offsets which refer to relative bytes in the memory
+above this same point will be interpreted to be off by this same difference,
+if and when they execute for fixup.
+<p>Likewise, in final mode, if the new code is longer, the memory handler
+can increase the size of the memory by simplying copying the data above
+the new code out a few bytes to make room for the insertion. Again, all
+fixups which reference an offset above the insertion point are re-fixed
+up, merely adding the constant difference to all, and all unfixed-up offsets
+which eventually execute will have the same constant change.
+<p>These two "modes" are not strictly enforced, and either can be used
+at any time. Typically, when a memory first executes, many fixups will
+occur quickly. If the memory is long, then copying a few bytes up and back
+over and over for each fixup represents a significant overhead, which is
+avoided by (excuse the pun) the quick fix-up. Later, a single final mode
+pass can be made with very little total overhead, which cleans up all the
+quick fixups at once, and leaves a perfectly running program with zero
+fixup overhead from then on out.
+<p><b><u>CONSTANT VARIABLES AND FIXUP DEPENDENCIES:</u></b>
+<p>Suppose we have a memory called &lt;&lt;dayOfTheMonth>> returns the
+current day of the month (1 to 31) in gp register #5 whenever it is called.
+The original call is:
+<blockquote><tt>&lt;dayOfTheMonth-packet> => MEMXADR /STACK</tt></blockquote>
+Upon execution, the memory handler fixes this up to be:
+<blockquote><tt>&lt;dayOfTheMonth copy absolute RAM address> => RAMXADR
+/STACK</tt></blockquote>
+But now, assuming that today is the 21'st of the month and will remain
+so for many hours, why can't we fix it up even further to become:
+<blockquote><tt>&lt;21> => GPREG #5</tt></blockquote>
+Such a fixup is allowed. It must be initiated by the memory (&lt;&lt;dayOfTheMonth>>)
+itself, as only it knows what instructions to put in stead of the call
+instruction.
+<p>Now, internal to &lt;&lt;dayOfTheMonth>> is a byte which it uses to
+hold the current value of the day of the month. It normally stores into
+this byte with:
+<blockquote><tt>.... code to compute day of the month to register gpreg
+#0</tt>
+<br><tt>&lt;offset to internal byte dayOfTheMonth> => MEMADR</tt>
+<br><tt>GPREG #0 => MEMDATA</tt></blockquote>
+Now, it can link this fixup to the first fixup above ( &lt;21> => XX) so
+that any time the above store occurs, the previous fixup is itself re-fixed
+up. Simply, when &lt;&lt;dayOfTheMonth>> calls the memory handler to tell
+it to fixup the call to &lt;21> => XX, it also provides a list of offsets
+within itself for which the fixup is dependant. Then, any change to any
+of them will simply cause an un-fixup of the dependant fixup, which can
+then be re-fixed up to the new value either immediately or at the next
+execution.
+<p>This method may apply to any "variable" in a program, thus blurring
+the line between a "variable" and a "constant". All LOADS of the variable/constant
+are fixed-up to load the current value as a constant, and all STORES are
+fixed-up to store and then execute the handling of the dependency list,
+ie, store and then unfixup all loads.
+<p>Any variable which is stored into much less frequently than it is read
+from is a candidate for this kind of fixup.&nbsp; The memory handler itself
+can count references and figure out whether such a fixup would be useful
+or not, and automatically apply it only as needed.
+<p><b><u>INLINE CODE:</u></b>
+<p>Because a fixup can replace a non-equal number of bytes, the concept
+of "inline" takes on a whole new perspective. Simply put, any very common
+subroutine which isn't too long can be "inlined" at any time! Again, this
+could be automatically judged by the memory handler itself as to applicability.
+<p><b><u>BRANCH PREDICTION</u></b>
+<p>Suppose we have some code dependant on a branch test like "IF A &lt;
+B", where both A and B change infrequently, as least as compared to the
+number of times they are tested by this test. Then the code can be fixed-up
+to completely remove the test, and all code of the branch not taken can
+be removed, and we are simply left with the code of the branch taken. As
+with the "constant variable" above, a dependency list including both A
+and B is given. Then, all STORES to A or B are fixed-up to store and then
+execute the unfixup on the list of fixups dependent on them, which would
+now include the "IF A &lt; B" code and its branches.
+<p>This gives "branch prediction" a whole new meaning. This is essentially
+a very powerful form of code re-ordering!
+<p><b><u>REALLY FAR OUT:</u></b>
+<p>Finally, I will get <i>very</i> far ahead of myself here and mention
+that it is possible for instance, to construct a language which works merely
+by fixing up each grammatical token as it is executed, replacing it (that
+is, fixing it up inline) with its lower level equivalent on a parse tree,
+until machine code is reached and that code executes. This then eliminates
+the distinction between "compiling" and "executing", between "source" and
+"binary". As each piece (token) of the memory executes, the action that
+piece does is to replace itself with more detailed pieces, and then execute
+them. A memory loads into RAM cache and begins to execute, literally "morphing"
+itself from source into binary as it goes. But that is getting WAY ahead
+of our story here...
+<center>
+<p>&copy; 1999-2000 by <a href="http://www.steve.bush.org">Steve Bush</a></center>
+
+</body>
+</html>

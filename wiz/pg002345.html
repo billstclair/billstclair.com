@@ -1,0 +1,55 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="Steve Bush">
+   <meta name="GENERATOR" content="Mozilla/4.73C-CCK-MCD NSCPCD47 (Macintosh; U; PPC) [Netscape]">
+   <title>The Network</title>
+</head>
+<body>
+&nbsp;
+<br><b><font size=+2>Some mechanics</font></b>
+<p>In order to make all of this work, a few details of the mechanics should
+be mentioned.
+<p><b><u>Cache expiration times.</u></b>
+<p>Every memory has a time constant which specifies how long it may remain
+in a cache without checking for update. This time constant will often be
+on the order of days. If a page is "published" in "final" version and is
+not expected to change for a long time, it may have a significantly higher
+time constant.
+<p>For instance, if I publish a picture of my house, it might easily have
+a 30 day time constant. It isn't likely to change, unless I repaint it
+or add a garage, and re-photograph it. In this case, any new reference
+to it will get the new picture, but WIZes which already have it cached
+may take up to 30 days to recognize a new version.
+<p>Additionally, there is a low cost command to send a message thru the
+network to force a cache update on any particular memory; so after updating
+my house picture, I could push a button and make sure anyone who had it
+in their cache would be updated sooner anyway.
+<p>For instance, newspapers, by definition, must not change (imagine looking
+up a reference article in the New York Times and finding it has changed
+from the original!). Such memories could have an infinite time constant,
+and thus would always cache for as long as any WIZ could hold it in its
+cache before it was replaced by a more active memory. And if such a page
+ever did change, a notification would appear anyway which would update
+any WIZ which still cached it.
+<p>Hot "web pages" may have one hour time constants, if they really change
+that often.
+<p>Program variables will have zero time constants, and thus always be
+re-read (eg, never cached). This is also the same bit (not really a single
+bit) referred to previously to keep a one-time only message from cacheing
+all along its transmission path.
+<p>Any program can ask to override the time constant and get the latest
+value anyway (like current browser "REFRESH" keys).
+<p>Thus there is a gamut of time constants from zero to infinity. And an
+awful lot will probably be days and longer.
+<p><b><u>The WRITE BIT.</u></b>
+<p>There can be any number of read-only copies of a memory, but obviously,
+only one copy can at any moment be written into. This copy owns the "write
+bit". This bit is managed cellularly by the memory handler in a very simple
+and ingenious way. More on this later.
+<center>
+<p>&copy; 1999-2000 by <a href="http://www.steve.bush.org">Steve Bush</a></center>
+
+</body>
+</html>

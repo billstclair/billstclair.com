@@ -1,0 +1,76 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="Steve Bush">
+   <meta name="GENERATOR" content="Mozilla/4.73C-CCK-MCD NSCPCD47 (Macintosh; U; PPC) [Netscape]">
+   <title>The WIZ-to-WIZ comm line</title>
+</head>
+<body>
+&nbsp;
+<br><b><font size=+2>The WIZ-to-WIZ comm line</font></b>
+<p>In the previous chapter I've described the WIZ-to-Central Memory connection,
+known only to and controlled only by the memory handler software. The details
+of this connection were left unspecified.
+<p>I'll now define the WIZ-to-WIZ communication line, also to be used by
+the memory handler software only. The hardware can be anything that the
+two WIZes can agree on. For instance: a portion of RAM memory shared by
+two WIZes on the same chip acting as function blocks to each other; a high
+speed parallel buss between two WIZes on a circuit board; a firewire/usb/ethernet-like
+cable; or a modem over a phone line.
+<p>As with Central Memory connection, only the memory handler will know
+about this WIZ-to-WIZ comm line. It will have full knowledge, responsibility,
+and control over it, and no other software will have access to it.
+<p>Only one type of information packet or "comm particle" passes over this
+WIZ-to-WIZ comm line, and that is a Memory. It is formatted as a &lt;&lt;memory
+id>> packet, that is, a string of bytes in exactly the same format as is
+used by the MEMXID /STACK register, which identifies the memory, followed
+by a copy of the memory itself.
+<p>The memory handler software uses this WIZ-to-WIZ comm line as an adjunct
+to the Central Memory. When either WIZ's memory handler software is handling
+a MEMXID /STACK register reference and cannot find the referenced memory
+in it's own cache, instead of (or in addition to) going to the Central
+Memory, it can transmit the memory id packet to the other WIZ, and if available
+there, get a reply containing a copy of the requested memory.
+<p>We can now present some truth about the Central Memory:
+<ol>
+<li>
+The Central Memory is itself a WIZ.</li>
+
+<li>
+There is no "WIZ-to-Central Memory" comm line. There are only WIZ-to-WIZ
+comm lines.</li>
+
+<li>
+All WIZes are connected either directly to the Central Memory , or may
+be connected via a WIZ-to-WIZ comm line to any other WIZ which is itself
+connected to the Central Memory.</li>
+</ol>
+This last point is recursive - that is, if a WIZ is connected to another
+WIZ instead of directly to the Central Memory, then that other WIZ must
+itself be connected either to the Central Memory, or may be connected to
+yet another WIZ which is in turn connected either to the Central Memory
+or to another WIZ, etc, etc. Thus there can be a chain of WIZes leading
+to the Central Memory.
+<p>A single WIZ can have any number of WIZ-to-WIZ comm lines. A WIZ which
+needs a memory from the central memory bank can send the request out to
+any or all of its connections, and merely wait for the first one to respond.
+<p>We can have then a richly connected network of arbitrary topology, entirely
+controlled by the memory handler. This net is terribly simple. Only one
+piece of software, the memory handler, ever deals with it. It is otherwise
+unknown. The only kinds of packets or messages that go through this network
+are memories or requests for memories. This makes for a terribly simple
+network protocol. There are no layers upon layers upon layers upon layers
+upon layers (upon layers!) of network protocol. There are just memories
+traveling from WIZ to WIZ.
+<p>And finally, each WIZ works cellularly. That is, no WIZ's memory handler
+has knowledge of the total network, but deals just with its immediate neighborhood.
+Memories traveling through the network have no "destination" or "routing".
+Each pair of WIZes simply transfers a memory from one to the other.
+<p>I recently saw a copy of a book called "TCP/IP MADE EASY". It looked
+to be at least 500 pages thick. Boy, I'd hate to imagine the hard version.
+<center>
+<p>&copy; 1999-2000 by <a href="http://www.steve.bush.org">Steve Bush</a></center>
+
+</body>
+</html>

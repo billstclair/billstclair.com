@@ -1,0 +1,137 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="Steve Bush">
+   <meta name="GENERATOR" content="Mozilla/4.73C-CCK-MCD NSCPCD47 (Macintosh; U; PPC) [Netscape]">
+   <title>The MEMADR, MEMDATA and MEMXADR registers</title>
+</head>
+<body>
+&nbsp;
+<br><b><font size=+2>The MEM registers in Function Block #1</font></b>
+<p>The interface to the Central Memory is accomplished thru standard function
+block #1, already defined to have the basic logical and arithmetic functions
+for all WIZes.
+<p>A set of 8 registers, almost identical in function to the RAM registers,
+is defined in FB1 as follows:
+<br>&nbsp;
+<table BORDER >
+<tr>
+<td><tt><font size=+1>MEMDATA</font></tt></td>
+
+<td><tt><font size=+1>Like RAMDATA</font></tt></td>
+</tr>
+
+<tr>
+<td><tt><font size=+1>MEMDATA /INCADR</font></tt></td>
+
+<td><tt><font size=+1>Like RAMDATA /INCADR</font></tt></td>
+</tr>
+
+<tr>
+<td><tt><font size=+1>MEMADR</font></tt></td>
+
+<td><tt><font size=+1>Like RAMADR</font></tt></td>
+</tr>
+
+<tr>
+<td><tt><font size=+1>MEMADR /READ</font></tt></td>
+
+<td><tt><font size=+1>Like RAMADR /READ</font></tt></td>
+</tr>
+
+<tr>
+<td><tt><font size=+1>MEMADR /ADDER</font></tt></td>
+
+<td><tt><font size=+1>Like RAMADR /ADDER</font></tt></td>
+</tr>
+
+<tr>
+<td><tt><font size=+1>MEMXADR</font></tt></td>
+
+<td><tt><font size=+1>Like RAMXADR</font></tt></td>
+</tr>
+
+<tr>
+<td><tt><font size=+1>MEMXADR /STACK</font></tt></td>
+
+<td><tt><font size=+1>Like RAMXADR /STACK</font></tt></td>
+</tr>
+
+<tr>
+<td><tt><font size=+1>MEMXID /STACK</font></tt></td>
+
+<td><tt><font size=+1>New: for inter-memory call</font></tt></td>
+</tr>
+
+<tr>
+<td><tt><font size=+1>MEMFB2</font></tt></td>
+
+<td><tt><font size=+1>New: for inter-memory call</font></tt></td>
+</tr>
+</table>
+
+<p>When a memory in the Central Memory executes, it can load from, store
+into, jump to or call any of
+<u>its own</u> bytes, but is restricted in
+ability to load, store, jump to or call bytes in any other memory. All
+of its memory references are to offsets within itself only.
+<p>Thus, while the RAM registers -- RAMADR, RAMDATA, and RAMXADR -- all
+hold 32 bit absolute addresses in the RAM, the MEM registers -- MEMADR,
+MEMDATA, and MEMXADR -- all hold 32 bit <u>offsets</u> within the currently
+executing memory.
+<p>Thus, the branch instruction, which used to look like this:
+<blockquote><tt>&lt;absolute address in RAM of destination>&nbsp; =>&nbsp;
+RAMXADR</tt></blockquote>
+is now changed to this:
+<blockquote><tt>&lt;relative offset in the current memory of destination>&nbsp;
+=>&nbsp; MEMXADR</tt></blockquote>
+Note that as MEMXADR is a register in FB1, the above notation is actually
+a shorthand for:
+<blockquote><tt>&lt;relative offset in the current memory of destination>&nbsp;
+=>&nbsp; FB1 REG# &lt;MEMXADR></tt></blockquote>
+I will continue to use the more direct notation.
+<p>Loading and storing operations, those operations which use the MEMADR
+and MEMDATA registers, may now occur only to data within the same memory
+as is currently executing . Thus, what used to look like this:
+<blockquote><tt>&lt;1234H>&nbsp; =>&nbsp; RAMADR</tt>
+<br><tt>&lt;0>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =>&nbsp; RAMDATA</tt></blockquote>
+which stored a zero into absolute RAM location 1234H, is now changed to
+this:
+<blockquote><tt>&lt;1234H>&nbsp; =>&nbsp; MEMADR</tt>
+<br><tt>&lt;0>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =>&nbsp; MEMDATA</tt></blockquote>
+which stores a zero into relative byte number 1234H <b><i>within the executing
+memory.</i></b>
+<p>As before, /READ and /INCADR are both applicable. Thus, to load a series
+of bytes within a memory:
+<blockquote><tt>&lt;offset of data>&nbsp; =>&nbsp; MEMADR /READ</tt>
+<br><tt>GPREG #34&nbsp; &lt;= MEMDATA /INCADR</tt>
+<br><tt>GPREG #35&nbsp; &lt;= MEMDATA</tt></blockquote>
+Likewise, MEMADR /ADDER works like RAMADR /ADDER. Thus, to address A[i],
+where A is an array of bytes within the current memory, and i = GPREG 16,
+we have:
+<blockquote><tt>&lt;offset of array A> => MEMADR</tt>
+<br><tt>GPREG # 16 => MEMADR /ADDER</tt></blockquote>
+A subroutine may be contained within a memory, and called like this:
+<blockquote><tt>&lt;offset of subroutine> => MEMXADR /STACK</tt></blockquote>
+And the subroutine can return with:
+<blockquote><tt>STACK => MEMXADR</tt></blockquote>
+
+<table CELLSPACING=0 CELLPADDING=0 >
+<tr>
+<td>Thus, all the RAM registers:
+<blockquote><tt>RAMDATA, RAMDATA /INCADR, RAMADR, RAMADR /READ, RAMADR
+/ADDER, RAMXADR, RAMXADR /STACK</tt></blockquote>
+are paralleled with MEM registers in FB1:
+<blockquote><tt>MEMDATA, MEMDATA /INCADR, MEMADR, MEMADR /READ, MEMADR
+/ADDER, MEMXADR, MEMXADR /STACK</tt></blockquote>
+These work essentially identically except to use relative offsets within
+the current memory instead of absolute addresses within the entire RAM.</td>
+</tr>
+</table>
+
+<center>
+<p>&copy; 1999-2000 by <a href="http://www.steve.bush.org">Steve Bush</a></center>
+
+</body>
+</html>

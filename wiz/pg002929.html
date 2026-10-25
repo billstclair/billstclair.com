@@ -1,0 +1,60 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="Steve Bush">
+   <meta name="GENERATOR" content="Mozilla/4.73C-CCK-MCD NSCPCD47 (Macintosh; U; PPC) [Netscape]">
+   <title>pg002929.html</title>
+</head>
+<body>
+&nbsp;
+<br><b><u><font size=+1>CONST /xB sign extended?</font></u></b>
+<p>Currently CONST /xB is right justified and zero filled. What if I want
+right jusfitied and SIGN extended? Working with signed integers could benefit
+by this. Perhaps CONST /xB always sign extends, may cause no real trouble.
+Don't know.
+<br>&nbsp;
+<p><b><u><font size=+1>How about RAMADR /INCADR/READ.</font></u></b>
+<p>For example, to retreive some registers
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;scratch adr> => MEMADR /READ
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MEMDATA /INCADR => GPREG #20
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MEMDATA /INCADR => GPREG #21
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MEMDATA /INCADR => GPREG #22
+<p>might be faster if we had:
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;scratch adr> => MEMADR /READ
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MEMDATA /INCADR/READ => GPREG
+#20
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MEMDATA /INCADR/READ => GPREG
+#21
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MEMDATA /INCADR/READ => GPREG
+#22
+<p>This would only be faster if /INCADR causes no wait, ie, can run as
+fast as the WIZ cycle. Otherwise, if it's not done, there is no advantage
+in also pre-starting the read. Well, ok, there could be a little if other
+instructions were interleaved between the MEMDATA references, ie,
+<blockquote><tt>MEMDATA /INCADR/READ => XXX</tt>
+<br><tt>&lt;any other instruction></tt>
+<br><tt>MEMDATA => YYY</tt></blockquote>
+In this case, the MEMDATA would be avail faster then if /INCADR/READ wasn't
+an option. My guess is that this is rare, as the point of /INCADR is to
+read sequential addresses, and one probably often wants them right in a
+row.
+<p>But if we can build an incrementer (by 4) faster than the WIZ cycle
+(I don't believe we can!) then /INCADR/READ would always be useful.
+<p>Note that you wouldn't want to auto imply /read on a read of memdata/incadr.
+For instance, to add one to several sequential items:
+<blockquote><tt>&lt;scratch adr> => MEMADR /READ</tt>
+<br><tt>MEMDATA => FB1REG # counter&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+! read memdata</tt>
+<br><tt>FB1REG # counter => MEMDATA /INCADR&nbsp;&nbsp;&nbsp; ! write back
+same data +1</tt>
+<p><tt>MEMDATA => FB1REG # counter&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+! read next memdata</tt>
+<br><tt>FB1REG # counter => MEMDATA /INCADR&nbsp;&nbsp;&nbsp; ! write back
+same data +1</tt>
+<br><tt>etc...</tt></blockquote>
+
+<p><br>So the question is, can we build a MEMADR incrementer faster than
+the WIZ main transfer cycle?
+</body>
+</html>

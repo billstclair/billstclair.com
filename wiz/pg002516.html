@@ -1,0 +1,51 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="Steve Bush">
+   <meta name="GENERATOR" content="Mozilla/4.73C-CCK-MCD NSCPCD47 (Macintosh; U; PPC) [Netscape]">
+   <title>A small system example</title>
+</head>
+<body>
+&nbsp;
+<br><b><font size=+2>A small system example:</font></b>
+<p>Suppose I have a car in which each part is a WIZ-part. That is, I have
+a steering-wheel-WIZ -- a cheap plastic wheel mounted on a bolt with a
+WIZ in it that can sense its rotational position. And four electric motor-WIZes
+spinning the wheels. And windshield-wiper-WIZes which sense the rain and
+also beat in time to the music now playing on the speaker-WIZes. The gas
+pedal is a pedal-WIZ, a cheap piece of plastic with a WIZ in it that can
+sense how hard it's being stomped on. In all there might be hundreds of
+WIZ-objects in my car. All are battery powered and connected by low-power
+radio links.
+<p>Now, the steering-wheel-WIZ, serial number 148293, continually updates
+a memory called <tt>&lt;&lt;steering-wheel-148293-angular-position>></tt>.
+This memory id is unique in the entire universe. If any other WIZ, say
+a wheel motor-WIZ, wants to know my steering wheel's current position,
+it just needs to read the value of <tt>&lt;&lt;steering-wheel-148293-angular-position>>.</tt>
+<p>In other words, to determine my steering wheel's position, all the motor-WIZ,
+or any WIZ anywhere in the world for that matter, needs to do is the single
+machine language instruction:
+<blockquote><tt>&lt;offset of &lt;&lt;steering-wheel-148293-angular-position>>
+id packet>&nbsp; =>&nbsp; MEMXID /STACK</tt></blockquote>
+There are no "sockets" to establish, "channels" to open, "protocols" to
+follow, "files" to open, nothing. One simply reads a memory from one's
+own memory and there it is. One WIZ stored into the memory, another WIZ
+reads from the memory, they are the same memory, and thus communication
+is effected. The two WIZes could be right next to each other, or at opposite
+ends of the galaxy. Neither WIZ is "aware" of the mechanics of how the
+transfer of information actually takes place.
+<p>Similarly, the left-turn-light-WIZ just continuously monitors the memory
+location named &lt;&lt;turn-signal-lever-347358>> to see what state it
+is in, and begins blinking when it goes to the "left" state. The turn-signal-lever-WIZ
+itself is a cheap plastic lever with a WIZ in it, of course, which stores
+any changes in its position into that same memory location.
+<p>Thus, the concepts of inter-device communication, inter-process communication,
+networking, etc, are replaced by a much simpler metaphor -- the central
+memory access. One merely looks at a memory to obtain data from any WIZ
+any time any where.
+<center>
+<p>&copy; 1999-2000 by <a href="http://www.steve.bush.org">Steve Bush</a></center>
+
+</body>
+</html>

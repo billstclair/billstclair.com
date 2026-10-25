@@ -1,0 +1,113 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="Steve Bush">
+   <meta name="GENERATOR" content="Mozilla/4.73C-CCK-MCD NSCPCD47 (Macintosh; U; PPC) [Netscape]">
+   <title>WIZ Function Blocks</title>
+</head>
+<body>
+&nbsp;
+<br><b><font size=+2>WIZ Function Blocks.</font></b>
+<p>From the point of view of the WIZ front-end, a function block is merely
+a set of (up to) 256 read/write registers of 32 bits each. The WIZ can
+store into any FB register and load data from any FB register. And that
+is all there is to a function block -- at least from the point of view
+of the WIZ front-end.
+<p>Independent of the WIZ operation, these blocks of registers then take
+up a life of their own and may do various things with the data in them.
+This is referred to as their backend function.
+<p>From the point of view of the backend, a function block is a piece of
+circuitry which "does" various functions for a WIZ. Examples of function
+blocks would be:
+<ul>
+<li>
+An integer arithmetic function block</li>
+
+<li>
+A floating point arithmetic unit</li>
+
+<li>
+An analog I/O block</li>
+
+<li>
+A digital signal processing block</li>
+
+<li>
+A graphics engine</li>
+
+<li>
+A disk controller</li>
+
+<li>
+A modem</li>
+
+<li>
+A radio transceiver</li>
+
+<li>
+Various other custom circuits</li>
+
+<li>
+Another WIZ</li>
+</ul>
+There can be up to 256 different function blocks on a single WIZ, each
+with its own set of up to 256 registers.
+<p>Function blocks #0 and #1 are reserved for the WIZ. FB0 is the general
+purpose register set, also known as the GPREGs. This function block actually
+has no function other than to provide a set of 256 registers. FB1 provides
+a number of standard arithmetical and logical functions for the WIZ. It
+is standard and appears identically on all WIZes.
+<p>A function block may continue operating even when no WIZ instruction
+is referencing it. A function block may have its own independent path to
+memory. A function block may cause an interrupt to signal when it is "done".
+A function block may be an entire independently operating WIZ on the same
+chip.
+<p>What are today called IP or "intellectual property" blocks, are typically
+one of the functions mentioned above, such as a disk controller, a modem,
+a floating point unit, etc. Produced by different companies who have patent
+rights and want to protect their investment, inter-operability between
+various such IP blocks is currently a geo-political engineering nightmare.
+The WIZ function block provides an absolutely standard interface for such
+things.
+<p>Suppose you have an IP block and maybe some proprietary software to
+make it go. What is the fewest number of gates you could add to your block
+that would (a) generalize the block to be useful to others, and (b) run
+software to make the block a complete hardware/software deliverable. Answer:
+a WIZ.
+<br>&nbsp;
+<table CELLSPACING=0 CELLPADDING=0 >
+<tr>
+<td>In other words, the tail wags the dog. Think of it not as
+<blockquote>"A WIZ with your IP function block inside it"</blockquote>
+but instead as
+<blockquote>"Your IP function block with a WIZ wrapped around it!"</blockquote>
+Or most simply, it is:
+<blockquote>"A WIZ (with your value added capabilities)."</blockquote>
+</td>
+</tr>
+</table>
+In terms of simplicity, a WIZ is a WIZ is a WIZ. You are marketing just
+another WIZ, this one with YOUR special value added capabilities. It is
+compatible to all other WIZs, and can easily be put on the same chip with
+other WIZs, being a standard WIZ function block itself, or, stand alone
+on a chip, being a complete WIZ itself.
+<p>By gate count, the WIZ is tiny compared to your IP block, so there is
+very little extra real estate penalty to adding it, and now it can run
+your software, control the block, meet a standard, and deliver a total
+package. And this package can be put onto a die with another WIZ. You can
+keep your hardware patents and protect your software, if that's your game.
+<p>In fact, a function block could be SOFTWARE ONLY! Take a standard WIZ
+and put it on a chip with another WIZ which thinks of it as just another
+function block. DSP comes to mind. A graphic transformations engine comes
+to mind. Any proprietary algorithm in ROM comes to mind -- you could deliver
+an algorithm in hardware as a proprietary on-chip block.
+<p>So the WIZ function block architecture gives us IP interoperability
+and SOC ("system on a chip"), solving both the hardware compatibility issues
+by providing a de facto standard, and the geo-political legal problem at
+the same time. Not to mention being a great idea in itself...
+<center>
+<p>&copy; 1999-2001 by <a href="http://www.steve.bush.org">Steve Bush</a></center>
+
+</body>
+</html>

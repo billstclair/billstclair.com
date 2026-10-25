@@ -1,0 +1,154 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="Steve Bush">
+   <meta name="GENERATOR" content="Mozilla/4.73C-CCK-MCD NSCPCD47 (Macintosh; U; PPC) [Netscape]">
+   <title>The Fixup and Software Function Blocks</title>
+</head>
+<body>
+&nbsp;
+<br><b><font size=+2>The Fixup and Software Function Blocks</font></b>
+<p>The MEMXID register allows an inter-memory subroutine call. It makes
+no assumptions regarding passing arguments, which may be passed in all
+the usual ways: through gp registers, through the stack, or through specific
+memory locations.
+<p>As a further example of what can be done with the Fixup mechanism, I
+will now define the MEMFB register and the SOFTWARE FUNCTION BLOCK. This
+register creates a method for argument passing which I propose as a standard.
+It is purely software driven, and not required, as the MEMXID register
+is always also available.
+<p>A hardware Function Block has already been defined. On the front end
+it appears simply as a block of 256 read/write registers. And the act of
+reading or writing any of these registers may trigger a back-end operation
+which runs independantly of the WIZ cpu.
+<p>A software Function Block is a memory whose first 256 words are likewise
+accessed as a block of read/write registers. The act of reading or writing
+any of these registers may likewize trigger a backend operation. In this
+case, the backend operation consists of executing code found in the same
+memory. This code may be executed independantly of the WIZ cpu, on another
+WIZ cpu, or at least as a seperate task on the same CPU.
+<p>We define the FB /MEM register, which works very much like the FBREG
+register, except that where FBREG is followed by two bytes, the FB number
+and the register number within the FB, the FB /MEM register is followed
+by 5 bytes, a 4 byte local address (offset) of a memory ID packet, and
+a single byte register number within that memory.
+<p>For example, whereas the following writes GPREG #23 to register #88
+in function block #47:
+<blockquote><tt>GPREG #23 => FB #47 REG #88</tt></blockquote>
+The following writes GPREG #23 to register #88 in SOFTWARE function block
+&lt;&lt;alpha>>:
+<blockquote><tt>GPREG #23 => FB /MEM &lt;alphaPacket> REG #88</tt></blockquote>
+where &lt;alphaPacket> is a 32 bit offset in the current memory of a memory-id
+packet referencing &lt;&lt;alpha>>.
+<p>Thus, <b>THE FB /MEM REGISTER MAPS THE FIRST 256 WORDS OF THE ADDRESSED
+MEMORY.</b>
+<p>And just as with a hardware function block, a read or write to or from
+any of a memory's 256 registers may also trigger a backend operation. In
+this case, <b>THE BACKEND OPERATION OF ANY REGISTER IN A FBMEM MAPPED MEMORY
+IS THE EXECUTION OF CODE IN THAT MEMORY. </b>This code is found in bytes
+beyond the first 256 words of the mapped memory, and its execution is a
+<u>backend</u>
+<u>operation</u> which may take place on another WIZ cpu, or as a separate
+task in the multitasking environment of the current WIZ cpu.
+<p>As with a hardware FB register, when a FB /MEM register is accessed,
+the register may cause a wait if the data in that register is not "ready".
+Presumably, intelligent programming will take advantage of this architecture
+to reduce or eliminate wait states.
+<br>For example, suppose we have a memory which has code in it to calculate
+a = b<sup><font size=+1>c</font></sup>. The interface is thru registers
+4,5 and 6. You store a number into register 4 (b) , the desired power into
+register 5 (c), and then get the answer from register 6 (a). Register 4
+is not a trigger, registers 5 and 6 are. Register 6 must wait until "ready"
+if not already. The code would be:
+<blockquote><tt>gpreg #34 => FB /MEM &lt;mathSubPacket> REG #4&nbsp;&nbsp;
+! Store b</tt>
+<br><tt>gpreg #35 => FB /MEM &lt;mathSubPacket> REG #5&nbsp;&nbsp; ! Store
+c, begin computation</tt>
+<br><tt>&nbsp;...&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+! ... other instructions may go here</tt>
+<br><tt>gpreg #36 &lt;= FB /MEM &lt;mathSubPacket> REG #6&nbsp;&nbsp; !
+Get b<sup><font size=+1>c</font></sup>, wait if not ready.</tt></blockquote>
+
+<p><br>Now, let's talk about how this all gets handled: more of <b><u>THE
+FIXUP</u></b>:
+<p>The first 256 words of the memory will be mapped to the 256 registers.
+Actually, we will use 256 x 12 or 3072 bytes to store the registers as
+we will need 12 bytes or 3 words for each register. If a memory needs less
+than 256 register (or, in other words, if a subroutine needs less than
+256 arguments) it may use less memory: only N x 12 bytes are needed if
+N is the highest number register used.
+<p>For each logical register we use three words of storage. One word is
+the 32 bit register itself. The second is the offset within the memory
+of the code to be called whenever that register is loaded from, and the
+third word is the offset within the memory of the code to be called whenever
+that register is stored into. Either or both of these two offsets may be
+zero, in which case no backend function occurs at all (ie, no code is executed).
+<p>As the FB /MEM register in FB1 is accessed, like all the MEM registers
+in FB1, a hardware trap to location zero and the Memory Handler occurs.
+The Memory Handler can now <b><u>replace</u></b> (fixup) the calling instruction
+with a different instruction or instructions.
+<p>For instance, suppose &lt;alpha-packet> is the offset of a packet referencing
+the memory id &lt;&lt;alpha>>, and that after being loaded into memory,
+a copy of &lt;&lt;alpha>> exists at absolute RAM address &lt;alpha-addr>.
+Then &lt;alpha-addr + 12 x 47>, or &lt;alpha-reg47-addr> is the address
+of the word to load or store for logical register #47 in &lt;&lt;alpha>>,
+and the data found at &lt;alpha-reg47-addr + 4>, when added to &lt;alpha-addr>,
+gives the absolute RAM address to call when register #47 is loaded from,
+we'll call it &lt;alpha-reg47-load-code-addr>, and the data found at &lt;alpha-reg47-addr
++ 8>, when added to &lt;alpha-addr>, gives the absolute RAM address to
+call when register #47 is stored into, we'll call it &lt;alpha-reg47-store-code-addr>.
+<p>Then, the instruction:
+<blockquote><tt>GPREG #34 => FB /MEM &lt;alpha-packet> REG #47&nbsp;&nbsp;
+! Store gpreg #34 into alpha reg #47</tt></blockquote>
+can be fixed-up with this new sequence:
+<blockquote><tt>&lt;alpha-reg47-addr>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+=> RAMADR</tt>
+<br><tt>GPREG #34&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+=> RAMDATA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ! Store gpreg #34
+into alpha reg #47</tt>
+<br><tt>&lt;alpha-reg47-store-code-addr> => RAMXADR /STACK ! Call corresponding
+code in alpha</tt></blockquote>
+This new code stores GPREG #34 into the copy of &lt;&lt;ALPHA>> at logical
+register 47, and then calls the code at the address given for handling
+stores into that register.
+<p>Note that execution of &lt;&lt;alpha>> may cause the offset at &lt;alpha-addr
++ 12 x 47 +4 or +8> to change, which would then in turn cause the third
+instruction above to change. This is fine, as any such code in alpha will
+itself go thru a fixup and can then be correctly handled.
+<p>Note that this new code is just three fast instructions. We store GPREG
+#34 into an absolute address, and then CALL another absolute address. Thus,
+after the FIXUP, the execution is as fast as can be done on a WIZ - no
+efficiency has been lost - yet a tremendous generalized memory access method
+is created!
+<p>Suppose that &lt;&lt;alpha>> register #4 is not a trigger, and data
+may be stored there simply by storing it, and no backend function is defined
+(as b in the above example of a = b<sup><font size=+1>c</font></sup>).
+In this case the call:
+<blockquote><tt>gpreg #34 => FB /MEM &lt;mathSubPacket> REG #4&nbsp;&nbsp;
+! Store b</tt></blockquote>
+fixups up simply to this code:
+<blockquote><tt>&lt;alpha-reg47-addr> => RAMADR</tt>
+<br><tt>gpreg #34&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+=> RAMDATA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+! Store b</tt></blockquote>
+Thus, a memory register with no backend function has no overhead added
+when stored into. One just stores into it.
+<p>While a STORE into a FB /MEM register generates code which stores first
+into the register memory address and then calls the corresponding routine,
+a LOAD reverses the order and calls the corresponding routine first, then
+loads the memory data. Thus:
+<blockquote><tt>FB /MEM REG #47 => GPREG #34</tt></blockquote>
+is fixed-up to become:
+<blockquote><tt>&lt;alpha-reg47-store-code-addrt> => RAMXADR /STACK</tt>
+<br><tt>&lt;alpha-reg47-addr>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+=> RAMADR /READ</tt>
+<br><tt>GPREG #34&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;= RAMDATA</tt></blockquote>
+
+<center>&copy; 1999-2000 by <a href="http://www.steve.bush.org">Steve Bush</a></center>
+
+<p><br>
+<br>
+</body>
+</html>

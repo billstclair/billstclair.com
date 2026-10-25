@@ -1,0 +1,77 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="Steve Bush">
+   <meta name="GENERATOR" content="Mozilla/4.73C-CCK-MCD NSCPCD47 (Macintosh; U; PPC) [Netscape]">
+   <title>pg000422</title>
+</head>
+<body>
+&nbsp;
+<br><b><font size=+2>The Hypersearch</font></b>
+<p><b><u><font size=+1>Definition: Semantic Distance</font></u></b>
+<p>Semantic distance is loosley described simply as how close or not close
+two texts are to each other in meaning. It can be used to compare any two
+texts, such as a search string and a page of text being searchd.
+<p>Semantic distance is more precisely defined to be a metric in the space
+of all text strings, such that a string has 0 semantic distance from itself,
+and increasing distance from more "dissimilar" strings.
+<p>The particular implementation of "dissimilar" is not critical. Lets
+start with a really simple measure like: number of words in the shorter
+text that are not matched in the longer text.
+<p><b><u><font size=+1>The hypersearch:</font></u></b>
+<p>To date, all searching algorithms concern themselves almost exclusively
+with the algorithm for semantic distance.
+<p>In the hypersearch, we are less concerned with that, as it is not critical
+to hypersearch performance, and "any old algorithm" will be suitable. Of
+course, we still want the best possible such algorithm in any case. It's
+just not critical here. Instead we will focus on the <u>ORDER</u> in which
+materials are searched.
+<p>In current algorithms, no mention is made of which pages are searched
+first. It is assumed that the semantic difference metric is simply applied
+to ALL pages and those with the highest score are then chosen.
+<p>In the hypersearch, we define a very simple yet very powerful search
+order:
+<p>1. The <u>current page</u> is the page the user is looking at.
+<p>2. The current page is divided into sub-strings according to hyperjumps
+(A HREFs), such that each sub-string contains exactly one hyperjump and
+also all words in the context of that hyperjump (on the same line, in the
+same sentence, etc). This does not have to be an exact or perfect subdivision,
+but should try to partition each hyperjump with the text that is its context
+or that describes it.
+<p>3. The semantic distance is computed from the search string to each
+hyperjump sub-string.
+<p>4.&nbsp; All the pages referenced by the hyperjumps on the current page
+are then searched using steps 2-4 recursively, in the order of increasing
+semantic distance of that hyperjump's sub-string.
+<p>5.&nbsp; The recursion is modified to go deep on low semantic distances
+and wide on high semantic distances.
+<p>6.&nbsp; The search is terminated when a page with a semantic distance
+below a preset threshold semantic distance is reached. or until some time
+or data quantity limit is reach.
+<p>So, if you are staring at the table of contents page for a cookbook,
+with chapters on both Chicken and on Soup, and you search for “chicken
+soup”, the first two pages to be searched will be the ones pointed to by
+the chicken href and the soup href.
+<p>This allows a human-assisted search strategy. The current page defines
+the context of the search. Searching for “apples” while staring at any
+page of a cookbook will get you somewhere completely different then if
+you are looking at a page of a personal computer catalog.
+<p>A hypersearch will likely be zillions of times more efficient than linear
+search of documents. EG, imagine searching for “apple pie” in a cookbook.
+Linearly, many pages would be searched through until the apple pie page
+is reached. A hyper-cookbook would have a main entry page listing general
+headings including “pies” which points to a page listing many types of
+pies including “apple”. A hypersearch would find this page in a perfectly
+direct route thru only two pages.
+<p>In general, a hypersearch in a section of intellectual materials will
+be terribly efficient.
+<p>More importantly, it will be extremely context sensitive. Entering “Is
+there a faster way to do that?” as a search request might find a different
+answer from each different starting point.
+<p>Interesting note: a page not connected to anything will never be found...
+<center>
+<p>&copy; 1999-2001 by <a href="http://www.steve.bush.org">Steve Bush</a></center>
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="Steve Bush">
+   <meta name="GENERATOR" content="Mozilla/4.73C-CCK-MCD NSCPCD47 (Macintosh; U; PPC) [Netscape]">
+   <title>The Memory Handler And Slower Memory</title>
+</head>
+<body>
+&nbsp;
+<br><b><font size=+2>The Memory Handler And Slower Memory</font></b>
+<p>Now here's another very simple idea: A WIZ may also have a big disk
+or other storage device. Knowledge, responsibility and control of this
+device is restricted completely to the memory handler software, which manages
+this extra storage as an extension of the RAM, ie, as if it was addressed
+still higher than the last RAM memory location. And it follows the same
+general algorithm - moving memories to lower addresses as they become more
+commonly used, and conversely, back to higher addresses as they become
+unused.
+<p>This disk then, just like the RAM, is known only to the memory handler.
+It is not accessible from any program. Its ONLY use will be to extend the
+cache space. Now, when a memory is deleted from the RAM, it can be copied
+to the disk, that is, moved from a lower address to a higher address!
+<p>As the disk fills up, memories will eventually have to be deleted from
+the disk. (Unless there is another device which extends the cache still
+further past the end of the disk!). The memory handler finally deletes
+memories from disk and completely unfixes-up any remaining references.
+Should any of these references re-execute in the future, the memory will
+then be retransmitted from the WIZ Central Memory Bank all over again.
+<p><b><u>Thus, a WIZ can have any amount of memory, of any form, but available
+only to the memory handler. Addressed in order of speed, we would typically
+have:</u></b>
+<p><b>WIZ Processor</b>
+<blockquote><b>&lt;= on-chip RAM memory</b>
+<blockquote><b>&lt;= on-board RAM memory</b>
+<blockquote><b>&lt;=&nbsp; more RAM memory</b>
+<blockquote><b>&lt;= disk memory</b>
+<blockquote><b>&lt;= The WIZ Central Memory Bank</b></blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<b><u>The memory handler would manage this entire address space identically,
+merely considering it one giant address space, and always striving to sort
+memories from lowest address to highest address in order of their usage.</u></b>
+<p>All memories start out residing in the WIZ Central Memory Bank, and
+as they are used, migrate first to one of the RAM memory devices, and from
+there move up and down the hierarchy depending on usage statistics.
+<center>
+<p>&copy; 1999-2000 by <a href="http://www.steve.bush.org">Steve Bush</a></center>
+
+</body>
+</html>

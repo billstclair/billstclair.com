@@ -1,0 +1,60 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="Steve Bush">
+   <meta name="GENERATOR" content="Mozilla/4.73C-CCK-MCD NSCPCD47 (Macintosh; U; PPC) [Netscape]">
+   <title>Thread Mode</title>
+</head>
+<body>
+&nbsp;
+<br><b><u><font size=+1>RAMXADR/00000 and THREAD MODE:</font></u></b>
+<p>By setting a status register flag called "thread mode" to one, the WIZ
+cycle changes. Instead of the RAMXADR logic bringing a program byte in
+as 4 bits of source and 4 bits of destination, it locks into a continuous
+CONST /1B => RAMXADR /00000. That is, each byte it brings in is sent to
+RAMXADR /00000 without any other decode.
+<p>After executing this call to a low memory subroutine, the WIZ goes to
+normal mode during the execution of that subroutine, and then returns to
+thread mode upon return, where the next single byte is fetched and sent
+to RAMXADR/00000. In thread mode, execution of a 00 byte terminates thread
+mode.
+<p>For example, suppose you have 5 subroutines in a row to call, A, B,
+C, D, and E, and all are located in low memory at multiples of 32 word
+boundaries. Instead of:
+<p>&nbsp;&nbsp;&nbsp; &lt;A> => RAMXADR/00000
+<br>&nbsp;&nbsp;&nbsp; &lt;B> => RAMXADR/00000
+<br>&nbsp;&nbsp;&nbsp; &lt;C> => RAMXADR/00000
+<br>&nbsp;&nbsp;&nbsp; &lt;D> => RAMXADR/00000
+<br>&nbsp;&nbsp;&nbsp; &lt;E> => RAMXADR/00000
+<p>which takes two bytes each (&lt;CONST /1B => RAMXADR /00000>, &lt;nn>),
+we can use thread mode to have:
+<p>&nbsp;&nbsp;&nbsp; &lt;ENTER THREAD MODE>, &lt;A>, &lt;B>, &lt;C>, &lt;D>,
+&lt;E>, &lt;00>
+<p>In thread mode we use just one byte per subroutine call, plus a few
+of overhead to enter thread mode and one more to exit it.
+<p>Also note that a subroutine can use the return stack pointer to grab
+in-line arguments and modify the pointer to return past the arguments.
+Thus, if subroutine B takes two bytes of data, and E takes 3, we would
+have:
+<p>&nbsp;&nbsp;&nbsp; &lt;ENTER THREAD MODE>, &lt;A>, &lt;B,xx,xx>, &lt;C>,
+&lt;D>, &lt;E,xx,xx,xx>, &lt;00>
+<p>If we think of some other (traditional) processor's "instruction set"
+as a set of 256 or less subroutines which can be emulated or implemented
+on the WIZ, then a WIZ running in "thread mode" basically BECOMES that
+other processor.
+<p>Note also that this lower memory is likely to be very fast memory (discussed
+later, low memory is on the WIZ chip itself), and so this "microcode" can
+execute very fast.
+<p>Operating in this mode, the WIZ is basically indistinguishable from
+a downloaded microcoded version of that other processor. In which case
+it has become a CISC. Far out, huh?
+<p>I'm not totally certain we need to include thread mode into the machine.
+It's a cool idea, and adds very little extra hardware, but it does add
+some extra hardware and it could slow the main instruction loop down. We'll
+see...
+<center>
+<p>&copy; 1999-2000 by <a href="http://www.steve.bush.org">Steve Bush</a></center>
+
+</body>
+</html>

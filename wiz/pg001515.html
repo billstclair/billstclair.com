@@ -1,0 +1,87 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="Steve Bush">
+   <meta name="GENERATOR" content="Mozilla/4.73C-CCK-MCD NSCPCD47 (Macintosh; U; PPC) [Netscape]">
+   <title>The Fixup</title>
+</head>
+<body>
+&nbsp;
+<br><b><font size=+2>The Fixup</font></b>
+<p>When a memory is copied from the Central Memory device and loaded into
+the RAM cache of a local WIZ, it can be loaded at any absolute address
+chosen by the Memory Handler software. While one could imagine that we
+could easily add "base register" addressing hardware to the WIZ, we will
+not. Such hardware can only slow us down. Even if operated in parallel,
+the extra silicon and complexity take away from effort to optimize the
+simplicity of what is the WIZ. Instead, I will show the Fixup mechanism
+to be more efficient in the first place, and enable all kinds of sophisticated
+addressing modes unthinkable without very complex hardware, yet easily
+doable with simple software.
+<p>The MEM registers in FB1 are the key to it all. All addressing goes
+through them. This gives us a software handle on ALL memory references.
+<p>Once a memory is loaded from the Central Memory into RAM, it has an
+absolute address. This address, when added to any &lt;offset> within the
+memory, translates a MEM offset into a RAM absolute address.
+<p>We will now define a mechanism, the FIXUP, which makes this translation
+perfectly efficient.
+<p>Suppose a memory, now copied into RAM, executes this instruction:
+<blockquote><tt>&lt;relative offset of branch point>&nbsp; =>&nbsp; MEMXADR</tt></blockquote>
+That is, "jump to branch point". Now, the memory handler picks this up
+and computes the absolute address of "branch point" by adding the memory's
+base address -- where the memory was loaded into the RAM -- to the relative
+offset given in the instruction.
+<p>The memory handler software can now <b>REPLACE</b> the above instruction
+with a new instruction, namely:
+<blockquote><tt>&lt;absolute offset of branch point> => RAMXADR</tt></blockquote>
+This operation is called a <b>FIXUP</b>. It replaces code with other code,
+that is all the definition there is of the FIXUP.
+<p>The specific kind of replacement we are interested in here is the replacement
+of code which moves a 32 bit &lt;relative offset> to a MEM register (one
+of MEMADR or MEMXADR), with new code which moves a 32 bit &lt;absolute
+address> to a RAM register (one of RAMADR or RAMXADR).
+<p>Note that this code modification is made only to the RAM copy of the
+memory. The original memory in the Central Memory device is left untouched.
+<p>Loads and stores of a memory's own data are handled identically. Thus,
+this instruction in a memory:
+<blockquote><tt>&lt;relative offset of data within this memory> => MEMADR
+/READ</tt></blockquote>
+when executed, will be fixed up to this instruction:
+<blockquote><tt>&lt;absolute address of data in RAM>&nbsp; =>&nbsp; RAMADR
+/READ</tt></blockquote>
+The local subroutine call works identically as well. Thus, this code:
+<blockquote><tt>&lt;relative offset of subroutine>&nbsp; =>&nbsp; MEMXADR
+/STACK</tt></blockquote>
+will fixup to become:
+<blockquote><tt>&lt;absolute address of subroutine> => RAMXADR /STACK</tt></blockquote>
+A record of every fixup made is stored in a data structure known only to
+the memory handler. A fixup can at anytime be un-fixed up, that is, the
+original instruction bytes be put back. It can also be re-fixed up, that
+is, changed to correspond to a new RAM address should the copy in RAM of
+a central memory be moved.
+<p>In this manner, a Central Memory Bank memory is transformed into a standard
+RAM procedure. All memory references are, as they execute, fixed up to
+become standard RAM memory references.
+<p>Thus, as a program starts to execute on a WIZ processor, parts of it
+-- memories -- are copied from the Central Memory device as they are used,
+and stored into the local RAM, and then "run-time-bound" to actual RAM
+addresses. The final product, after a slight delay on loading, is a program
+that runs at maximum speed, uses only RAM addresses and RAM registers,
+but still has the total flexibility of using the WIZ Central Memory. All
+of this is completely under the knowledge, responsibility, and control
+of the memory handler software. And using no special hardware, it runs
+at the maximum speed of the WIZ.
+<p>And note that we have still not had to describe anything about the Central
+Memory hardware itself! That detail is hidden completely from us through
+the Memory Handler software.
+<p>The fixup then, replaces all kinds of addressing mode hardware, base
+registers, etc, and virtual memory hardware too. In the implementation
+of the Central Memory, no hardware has been added, yet a sophisticated
+memory architecture is now possible and runs transparently on an "incredibly
+simple" (ISC) processor!
+<center>
+<p>&copy; 1999-2000 by <a href="http://www.steve.bush.org">Steve Bush</a></center>
+
+</body>
+</html>

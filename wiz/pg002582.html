@@ -1,0 +1,38 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="Steve Bush">
+   <meta name="GENERATOR" content="Mozilla/4.73C-CCK-MCD NSCPCD47 (Macintosh; U; PPC) [Netscape]">
+   <title>PSADR/00000 register</title>
+</head>
+<body>
+&nbsp;
+<br><b><u><font size=+1>RAMXADR /00000 register:</font></u></b>
+<p>RAMXADR /00000 is the same register as RAMXADR, but it shifts the bus
+data left 5 bits, adding 5 zero bits to the right end. This has the effect
+of multiplying the address stored into RAMXADR by 32. In addition, as with
+RAMXADR /STACK, the previous contents of RAMXADR are pushed onto the STACK.
+<p>This register makes the following scenario very useful: Suppose you
+have up to 256 short and commonly used subroutines, most of which are shorter
+than 32 bytes long. You put these subroutines into low memory, at addresses
+zero through 8192 (256 x 32 = 8192), and start each subroutine at an address
+that is a multiple of 32. In other words, the N'th subroutine is stored
+at address N x 32. Now you can call these subroutines with one byte addressing
+by using:
+<p>&nbsp;&nbsp;&nbsp; &lt;nn> => RAMXADR /00000
+<p>Which calls subroutine #nn located at nn x 32.
+<p>Note, there are two ways to work around a subroutine exceeding 32 bytes.
+One is to just overflow into the next 32, and skip using the next entry
+point. In other words, say subroutine #3 at location 32 x 3 = 96 is more
+than 32 but less than 64 bytes long. You just have no subroutine #4, and
+load the next subroutine at 5 x 32. The second way is to make the last
+instruction a jump which jumps to memory above 8192.
+<p>Also, the number 32 is not fixed in stone (silicon). We could change
+it to 64 or 128. Low memory is cheap. Simulations will probably tell us
+what we need here.
+<center>
+<p>&copy; 1999-2000 by <a href="http://www.steve.bush.org">Steve Bush</a></center>
+
+</body>
+</html>

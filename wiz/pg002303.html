@@ -1,0 +1,87 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="Steve Bush">
+   <meta name="GENERATOR" content="Mozilla/4.73C-CCK-MCD NSCPCD47 (Macintosh; U; PPC) [Netscape]">
+   <title>The Network Cache Effeciency</title>
+</head>
+<body>
+&nbsp;
+<br><b><font size=+2>The Network Cache Efficiency</font></b>
+<p>Let's take a look now at a large-scale piece of a possible network.
+Suppose I have a bunch of WIZes in my house. And one of the house WIZes
+has a connection to a "neighborhood" WIZ down the street. About 50 neighborhood
+WIZes connect to an area WIZ,&nbsp; about 50 area WIZs connect to a city
+WIZ. All the city WIZes connect to a county WIZ, all the county WIZes connect
+to a state WIZ, all the state WIZes connect to a continental WIZ, which
+connects to a Planetary WIZ, which connects to a Solar System Wiz, etc.
+Lets say that this pattern is structured so that no more than say 50 WIZes
+ever connect to a higher level WIZ, or no WIZ supports more than 50 "children"
+in this hypothetical tree.
+<p>Now keep in mind these would not be the only connections. WIZes may
+have many connections each. Thus, my home WIZ is connected to the neighborhood
+WIZ, but it is also connected to my company's WIZ downtown. My family,
+spread out across the planet, may all connect to a central Family WIZ somewhere.
+Thus my home WIZ will be involved in multiple networks, each a different
+topology, all simultaneously overlaid on each other.
+<p>Now let's look at what is currently a worst case scenario on today's
+Internet: someone famous says something important and every single person
+on the net wants to read it within 24 hours. Suppose that's 100 million
+people. On the Internet, the host computer which has the data will receive
+100 million "hits" and deliver it 100 million times!
+<p>But on the WIZ net, the host computer which has the data will deliver
+it at most 50 times, to the 50 or so other WIZs it is connected to. Each
+of them will in turn deliver it up to 50 times, to the 50 or so other WIZs
+they are each connected to, etc, etc. <b><font size=+1>NO WIZ WILL DELIVER
+IT MORE TIMES THAN THE NUMBER OF CONNECTIONS IT HAS TO OTHER WIZES.
+</font></b>Instead
+of millions of transmissions, we are talking about dozens!!!
+<p>I'll say that again! <b><font size=+1>NO WIZ DELIVERS A MEMORY MORE
+TIMES THAN THE NUMBER OF CONNECTIONS IT HAS TO OTHER WIZES. </font></b>Each
+of them will then cache the data and retransmit it, etc., etc.
+<p>The current Internet connection graph is structured much like a big
+tree. Many people connect to various local ISPs which have "trunk" lines
+connecting them to bigger servers, and even bigger servers, and humongous
+nodes that handle traffic across the ocean, etc. And at each point up the
+tree, the traffic multiplies to greater and greater bandwidth requirements.
+Thus, as we go up the hierarchy, <b><font size=+1>ON THE INTERNET, THE
+BANDWIDTH REQUIRED INCREASES EXPONENTIALLY.</font></b>
+<p>But on the WIZ central memory network, each node transmits a memory
+just once to each of its children, and as more and more "hits" continue
+occur to that page, no additional traffic occurs. In the above scenerio,
+where one page is published and 100 million computers read it, the bandwith
+used does not increase whatsever. In this case,<b><font size=+1> ON THE
+WIZ CENTRAL MEMORY NET, THE BANDWIDTH REQUIREMENT REMAINS CONSTANT AT EVERY
+LEVEL!</font></b>
+<p>Now while the above scenario represents an ideal and extreme case, the
+limiting factor still remains: <b><font size=+1>NO WIZ DELIVERS A MEMORY
+MORE TIMES THAN THE NUMBER OF CONNECTIONS IT HAS TO OTHER WIZES!</font></b>
+<p>The worst case scenario on the WIZ network is where one person sends
+an email to another person. It will be cached <u>unnecessarily</u> at every
+WIZ node it passes through. Fortunately, in all nodes but the final receiver,
+the copies will soon disappear from the caches (as unused items are deleted).
+<p>Only when you have such one-to-one data, as a person-to-person email,
+or when you check your account or buy a product, is their no value in caching
+all along the path. If all WIZ traffic were one-to-one, caching would not
+help any. However, looking at today's Internet let's ask this question:
+what percentage of the data is heading for a mass distribution? Specifically,
+what is the average number of hits all web pages get before they change?
+Whenever you access a web page which gets a million hits, you are looking
+at a system which has delivered that data a million times, which is about
+999,950 times too many.
+<p>Finally, note that there <b>IS</b> a bit in each WIZ memory to tell
+each node it goes through not to bother caching it. When on, the efficiency
+<u>is</u> the same as the current Internet.
+<p><b><font size=+1>THUS, THE WORST CASE SCENARIO ON THE WIZ NETWORK IS
+EQUAL TO THE BEST CASE SCENARIO ON THE CURRENT INTERNET, AND THE BEST CASE
+SCENARIO ON THE WIZ NETWORK IS LITERALLY MILLIONS OF TIMES MORE EFFICIENT
+THAN THE CURRENT INTERNET.</font></b>
+<p>And the average value is probably in the millions too, as the ratio
+of created data to the number of people or processes that read that data
+will probably always remain very high. Millions to one may be an understatement.
+<center>
+<p>&copy; 1999-2000 by <a href="http://www.steve.bush.org">Steve Bush</a></center>
+
+</body>
+</html>

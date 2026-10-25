@@ -1,0 +1,45 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="Steve Bush">
+   <meta name="GENERATOR" content="Mozilla/4.73C-CCK-MCD NSCPCD47 (Macintosh; U; PPC) [Netscape]">
+   <title>The MEMXID /STACK register</title>
+</head>
+<body>
+&nbsp;
+<br><b><font size=+2>The MEMXID /STACK register</font></b>
+<p>We have defined the MEM registers which, so far, only allow access to
+bytes within the executing memory. Now we will describe access <i>BETWEEN</i>
+memories in the Central Memory device.
+<p>A WIZ could be thought of as having multiple RAM memories, each from
+0 to 2<sup>32</sup>-1 bytes. Each memory can be independently loaded and
+executed, and any number (more than 2<sup>32</sup>) can coexist.
+<p>A memory may contain executable code, and may be "called" as any subroutine
+may be called. To do this, the MEMXID /STACK register is used. It is just
+like the RAMXADR /STACK and MEMXADR /STACK, but whereas these use a 32
+bit address or offset, the MEMXID /STACK register requires a &lt;&lt;memory
+id>> which can be much longer than 32 bits.
+<p>In order to easily address a &lt;&lt;memory id>> from a 32 bit register,
+a packet of information must be created, called a "memory id descriptor
+packet". This packet contains several items, including the variable length
+&lt;&lt;memory id>> of the memory to be accessed. It is stored somewhere
+within the current memory, and referred to by its &lt;offset>, which IS
+a 32 bit (or less) quantity.
+<p>One writes to the new register, MEMXID /STACK, the 32 bit relative address
+within the current memory of a memory id packet. This causes the next WIZ
+instruction byte to come from the first byte of that memory (after pushing
+the current memory id and offset onto the stack).
+<p>Thus:
+<blockquote><tt>&lt;offset of memory id packet>&nbsp; =>&nbsp; MEMXID /STACK</tt>
+<br><tt>&nbsp;&nbsp; .</tt>
+<br><tt>&nbsp;&nbsp; .</tt>
+<br><tt>&nbsp;&nbsp; .</tt>
+<br><tt>packet: several bytes, &lt;&lt;memory id>>, etc</tt></blockquote>
+causes a "call subroutine" to the referenced memory from the Central Memory
+bank.
+<center>
+<p>&copy; 1999-2000 by <a href="http://www.steve.bush.org">Steve Bush</a></center>
+
+</body>
+</html>
