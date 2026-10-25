@@ -1,0 +1,29 @@
+#jaLink {
+	height: 120px;
+	width: 120px;
+	position: relative;
+	background-image: url(dojhp_as.jpg);
+	background-repeat: no-repeat;
+	clip:  rect(40px auto 40px auto);
+}
+#jaLink a {
+	display: block;
+	height: 40px;
+	width: 120px;
+	top: 40px;
+	bottom: 40px;
+	position: relative;
+}
+#jaLink a:hover {
+	display: block;
+	height: 40px;
+	width: 120px;
+	background-image: url(dojhp_at.jpg);
+	background-position: center;
+}
+a:link, a:visited {
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}
