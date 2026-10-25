@@ -1,0 +1,146 @@
+body,td,th {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	line-height: 16px;
+}
+body {
+    background-image: url(../images/bkrndgrad2.gif);
+	background-repeat:repeat-x;
+	background-color:#FFFFFF;
+	background-attachment: fixed;
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	}
+.title {
+	font-family: Trebuchet MS, Verdana, Arial Bold;
+	font-weight: bolder;
+	font-size: 20px;
+	line-height: 23px;
+	color: #0066CC;
+}
+.text {
+	font-family: Arial, Helvetica, sans-serif;
+	line-height: 16px;
+	font-size: 14px;
+}
+.disclaimer {
+	font-size: 10px;
+	font-family: Arial, Helvetica, sans-serif;
+	line-height: 12px;
+}
+.description {
+	font-size: 12px;
+	font-family: Arial, Helvetica, sans-serif;
+	line-height: 14px;
+}
+.caption {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	font-size: 11px;
+	line-height: 13px;
+}
+.credit {
+	font-size: 12px;
+	line-height: 14px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	color: #333333 ;
+}
+.subtitle {
+	font-size: 16px;
+	line-height: 18px;
+	font-weight: bold;
+	font-family: Trebuchet MS, Verdana, Arial Bold;
+	color: #0066CC;
+}
+.tiny {
+	font-size: 7px;
+	font-size: 9px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+.bold {
+	font-weight: bold;
+}
+.bolder {
+	font-weight: bolder;
+}
+a {
+	color: #000000;
+}
+a:link {
+	text-decoration: none;
+	font-weight: bolder;
+}
+a:visited {
+	text-decoration: none;
+	font-weight: bolder;
+}
+a:hover {
+	text-decoration: underline;
+	color: #FF0000;
+}
+a:active {
+	text-decoration: none;
+}
+.redcover {
+	color: #FF0000;
+}
+.bluecover {
+	color: #0066CC;
+}
+.orangecover {
+	color: #FF6600;
+}
+.yellowcover {
+	color: #FFFF00;
+}
+.graycover {
+	color: #CCCCCC;
+}
+.dkgraycover {
+	color: #999999;
+}
+.whitecover {
+	color: #FFFFFF;
+}
+.greencover {
+	color: #006633;
+}
+.blackcover {
+	color: #000000;
+}
+.tblbg_gray {
+	background-color:#CCCCCC;
+}
+.tblbg_dkgray {
+	background-color:#999999;
+}
+.tblbg_dkergray {
+	background-color:#333333;
+}
+.tblbg_black {
+	background-color:#000000;
+}
+.tblbg_white {
+	background-color:#FFFFFF;
+}
+.tblbg_green {
+	background-color:#006633;
+}
+.transOFF {
+opacity:1;
+filter: alpha(opacity=100);
+border:0px;
+}
+
+.transON {
+opacity:.80;
+filter: alpha(opacity=70);
+border:0px;
+}
+.ltgraybkrnd {
+    background-image: url(/images/LTGrayBody_Plastic.gif);
+	background-repeat:repeat;
+	}
