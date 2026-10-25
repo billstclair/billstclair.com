@@ -1,0 +1,59 @@
+<!-- $Id: jmaze.html,v 1.9 2003/01/26 14:32:21 wws Exp $ -->
+<html>
+<head>
+<title>JMaze</title>
+</head>
+<body>
+<table>
+<tr>
+<td>
+<Applet CODE="jmaze.MazeApplet.class" ARCHIVE="jmaze-applet.jar"
+        WIDTH="500" HEIGHT="500"
+        ALT="Guess Java Applets don't work on your machine">
+Your browser doesn't know for applets. Too bad!
+</APPLET>
+</td><td>&nbsp;</td><td>
+Here's the maze.<br>
+You start at the ">" in the upper-left-hand corner.
+<p>
+<pre> _ _ _ _ _ _ _ _ _ _
+|> _   _ _   _ _ _  |
+|_  | |  _   _ _ _  |
+|  _| | |   |   | | |
+| | | | | | | | | | |
+| | | | | |_| | | | |
+|   | | |_ _  | | | |
+| | | |_ _  |_|   | |
+| | |  _  |_ _ _| | |
+| |_ _|_ _ _   _ _| |
+|_ _ _ _ _ _ _ _ _ _|</pre>
+</td></tr>
+</table>
+<p>
+Click on the image to enable keyboard control.
+Use the arrow keys to move around the maze. Press the space bar to
+shoot a missile.
+<p>
+There are three robots. Bob is a slow simple robot who goes straight
+until he runs into a wall and then prefers to turn left.  Bill is a
+smarter and faster robot. Be careful of him.  Joe is a drunk. Ignore
+him.  Bill and Bob will shoot you. Joe is unarmed. If two missiles
+collide, they are both destroyed. You can only have one missile in the
+air at a time.
+<p>
+Though Joe moves around under his own "volition", he is not identified
+to the game as a robot. True robots do not shoot each other, but Bob
+and Bill will happily shoot Joe.
+<p>
+You cannot move through another player unless that player is a ghost,
+identified by "(ghost)" after his name. Bob is a ghost. The other
+players are not.
+<p>
+Network play, better artwork, an active overhead view, and lots more
+coming soon. Have fun!
+<p>
+See the
+<a href="src">
+source directory</a> for source and CVS archive.
+</body>
+</html>
