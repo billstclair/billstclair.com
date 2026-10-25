@@ -1,0 +1,145 @@
+Part 4
+
+In part 3, I claimed that an organization could quite legally operate,
+assisted by encryption, international data networking, and untraceable
+digital cash, in a way that would (indirectly) hasten the death of named
+people, for instance hated government employees and officeholders.  I
+won't attempt to "prove" this, for reasons that I think will be obvious.
+First, even if such an operation were indeed "legal," that fact alone would
+not stop its opponents from wanting to shut it down.  However, there is
+also another way of looking at it:  If this system works as I expect it
+would, even its claimed "illegality" would be irrelevant, because it
+could operate over international borders and beyond the legal reach of
+any law-abiding government.
+
+Perhaps the most telling fact, however, is that if this system was as
+effective as it appears it would be, no prosecutor would dare file
+charges against any participant, and no judge would hear the case,
+because no matter how long the existing list of "targets," there would
+always be room for one or two more.  Any potential user of this system
+would recognize that an assault on this system represents a threat to
+its future availability, and would act accordingly by donating money to
+target anyone trying to shut it down.
+
+Even so, I think I should address two charges which have been made,
+apparently quite simplistically, claiming that an implementation of this
+idea would violate the law.  Specifically:  "Conspiracy to commit
+murder" and "misprision of felony."
+
+As I understand it, in order to have a "conspiracy" from a criminal
+standpoint, it is necessary to have at least two people agree to commit
+a crime, and have some overt act in furtherance of that crime.
+
+Well, this charge already "strikes out" because in the plan I described, 
+none of the participants _agrees_ with ANYONE to commit a
+crime.  None of the participants even informs anyone else that he will
+be committing a crime, whether before or after the fact.  In fact, the
+only crime appears (hypothetically; this assumes that a crime was
+actually committed) to be a murder committed by a single individual, a
+crime unknown to the other participants, with his identity similarly
+unknown.
+
+Remember, the "prediction" originally sent in by the predictor was fully
+encrypted, so that the organization (or anyone else, for that matter)
+would be unable to figure out the identity of the person whose death was
+predicted, or the date on which it was predicted to occur.  Thus, the
+organization is incapable of "agreeing" with such a thing, and likewise
+the donors as well.  Only if the prediction later came true would the
+decrypt key arrive, and only then would the organization (and the
+public) be made aware of the contents.  Even then, it's only a
+"prediction," so even then, nobody is actually aware of any crime which
+can be associated with the predictor.
+
+"Misprision of Felony"
+
+This crime, sort of a diluted form of "accessory before and/or after the
+fact," was claimed to qualify by "Tim of Angle," who subsequent to my
+answer to him on this subject has totally failed to support his initial
+claim.  (A recent curiosity is that this crime is one that has been
+charged against Michael Fortier, the person who claims he helped OKC
+bombing suspect Tim McVeigh "case the joint" at the Federal building.)
+
+I include it here, nevertheless, because his simplistic (and un-careful)
+reading of my idea led him to perhaps the "closest" law that one might
+allege that the participants would have broken.  Tim claimed:
+
+TOA> No.  That's called "misprision of felony" and makes you an accessory
+TOA> before the fact.  Arguably, under the felony murder rule you could get
+TOA> capital punishment in a state that has such.
+
+However, I did a little library research, checking Black's Law
+Dictionary.  Here is the entry for this item:  "Misprision of felony.  The
+offense of concealing a felony committed by another, but without such
+previous concert with or subsequent assistance to the felon as would
+make the party concealing an accessory before or after the fact.  United
+State s v. Perlstein, C.C.A.N.J., 126 F.2d 789, 798.  Elements of the
+crime are that the principal committed and completed the felony alleged,
+that the defendant had full knowledge of that fact, that the defendant
+failed to notify the authorities, and that defendant took an affirmative
+step to conceal the crime.  U.S. v. Ciambrone, C.A. Nev., 750 F.2d 1416,
+1417.  Whoever, having knowledge of the actual commission of a felony
+cognizable by a court of the United States, conceals and does not as
+soon as possible make known the same to some judge or other person in
+civil or military authority under the United States, is guilty of the
+federal crime of misprision of felony. 18 U.S.C.A 4."  See also
+Obstructing Justice.  ++++++++++end of Black's law Dictionary Entry
+
+The only "element" of this crime which is arguably satisfied is the
+first:  Some person (_other_than_ the defendant for "misprision of
+felony") committed a crime.  The second element fails miserably: "...
+that the defendant had full knowledge of that fact... "  My previous
+commentary makes it clear that far from "full knowledge of that fact,"
+other participants are carefully prevented from having ANY "knowledge of
+that fact."
+
+The third element, "..that the defendant failed to notify the
+authorities..." is also essentially non-existent: No other participants
+have any information as to the identity of a predictor, or his location,
+or for that matter whether he has had any involvement in any sort of
+crime.  In fact, it would be possible for each of the other participants to
+deliver (anonymously, presumably) copies of all correspondence
+they have sent, to the police or other agency, and that correspondence
+would not help the authorities even slightly to identify a criminal or
+even necessarily a crime.
+
+In fact, normal operation of this organization would be to publicize
+"all" correspondence it receives, in order to provide feedback to the
+public to assure them that all participants are fulfilling their
+promises and receiving their rewards.  This publication would presumably
+find its way to the police, or it could even be mailed to them on a
+regular basis to prevent any suggestion that the organization was
+"fail[ing] to notify authorities."  Nevertheless, none of this material
+could help any authorities with their investigations, to their dismay.
+
+The fourth and last element of the crime of "misprision of felony",
+"...and that defendant took an affirmative step to conceal the crime,"
+would totally fail.  The organization would not " conceal" the crime.  In
+fact, it will have no ability to do anything to the contrary, if for no
+other reason that it _has_ no knowledge of the crime!  And as described
+above, it would carefully avoid having access to any information that
+could help solve the crime, and thus it would escape any obligations
+along these lines.
+
+Summary:
+
+In hindsight, it is not surprising that such an organization could
+operate legally within the U.S., although at least initially not without
+political opposition.  First, this is at least nominally supposed to be
+a "free country," which should mean that police and other authorities
+aren't able to punish behavior just because they don't like it.
+
+Secondly, it is obvious that most laws today were originally written
+during an era in which laws assumed that "conspirators" at least knew
+each other, had met each other, could identify each other, or had (at
+least!) talked to each other.  On the contrary, in my scenario none of
+the participants even know on what continent any of the others reside,
+let alone their country, city, or street.  They don't know what they
+look like, sound like, or for that matter even "type like":  None of
+their prose, save a few sparse "predictions," ever gets communicated to
+anyone else, so even text-comparison programs would fail to "target"
+anyone.
+
+Equally surprising (to those who originally wrote the laws against
+"conspiracy") would be "Person A's" ability to satisfy himself that
+"Person B" deserves the award, without knowing that "Person B" is (or is
+not) actually responsible for a particular death.
