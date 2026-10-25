@@ -1,0 +1,1 @@
+rsyncit -av --exclude .git ./
