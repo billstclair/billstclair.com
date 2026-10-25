@@ -1,0 +1,35 @@
+/* $Source: /home/johnny/html/Jeff/RCS/jeff.css,v $ */
+html, body, table, td, th {
+ font-family: arial,helvetica,verdana,sans-serif }
+body { padding: 0; margin-left: 5%; margin-right: 5%; }
+a:link, a:visited { text-decoration: none;
+ background: transparent; color: blue; }
+a:hover, a:focus, a:active { background: #eee; color: black; }
+div.d1 { text-align: justify; }
+div.c1 { text-align: left; }
+div.c2 { font-style: italic; text-align: center; }
+h1 { text-align: left; }
+h1 a:hover, h1 a:active { color: black; background: #eee; }
+h1 a:link, h1 a:visited { color: black; }
+h1.c1 { text-align: center; }
+h1.dvc { text-align: center; font-style: italic; }
+h2 { text-align: center; }
+h2.m1 { text-align: left; }
+pre.p1 { font-weight: bold; }
+sub { font-size: smaller; vertical-align: baseline;
+ position: relative; bottom: -0.25em; }
+var { white-space: nowrap; }
+p.nowrap { white-space: nowrap; }
+ul li { list-style: circle; }
+acronym, abbr { border: none; cursor: help; }
+dl#editor dd { text-align: justify; }
+@media print {
+html, body { margin: 0; padding: 0; }
+html, body, table, td, th { background: white !important;
+ color: black !important;
+ font-size: 12pt !important;
+ font-family: times,"times new roman",serif !important; }
+* { color: inherit !important;
+ background: transparent; }
+} /* print */
+/* $Id: jeff.css,v 1.106 2007/08/19 09:38:42 johnny Exp $ */

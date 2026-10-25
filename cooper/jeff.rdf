@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<rdf:RDF
+xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+xmlns="http://my.netscape.com/rdf/simple/0.9/">
+<channel>
+<title>Jeff Cooper's Commentaries</title>
+<description>Thoughts from the Gunners Guru - Jeff Cooper's Commentaries.</description>
+<link>http://www.molonlabe.net/Commentaries/</link>
+</channel>
+<item>
+<title>Volume Fourteen: 2006</title>
+<link>http://www.molonlabe.net/Commentaries/jeff14.html</link>
+</item>
+<item>
+<title>Volume Thirteen: 2005</title>
+<link>http://www.molonlabe.net/Commentaries/jeff13.html</link>
+</item>
+<item>
+<title>Volume Twelve: 2004</title>
+<link>http://www.molonlabe.net/Commentaries/jeff12.html</link>
+</item>
+<item>
+<title>Volume Eleven: 2003</title>
+<link>http://www.molonlabe.net/Commentaries/jeff11.html</link>
+</item>
+<item>
+<title>Volume Ten: 2002</title>
+<link>http://www.molonlabe.net/Commentaries/jeff10.html</link>
+</item>
+<item>
+<title>Volume Nine: 2001</title>
+<link>http://www.molonlabe.net/Commentaries/jeff9.html</link>
+</item>
+<item>
+<title>Volume Eight: 2000</title>
+<link>http://www.molonlabe.net/Commentaries/jeff8.html</link>
+</item>
+<item>
+<title>Volume Seven: 1999</title>
+<link>http://www.molonlabe.net/Commentaries/jeff7.html</link>
+</item>
+<item>
+<title>Volume Six: 1998</title>
+<link>http://www.molonlabe.net/Commentaries/jeff6.html</link>
+</item>
+<item>
+<title>Volume Five: 1997</title>
+<link>http://www.molonlabe.net/Commentaries/jeff5.html</link>
+</item>
+<item>
+<title>Volume Four: 1996</title>
+<link>http://www.molonlabe.net/Commentaries/jeff4.html</link>
+</item>
+<item>
+<title>Volume Three: 1995</title>
+<link>http://www.molonlabe.net/Commentaries/jeff3.html</link>
+</item>
+<item>
+<title>Volume Two: 1994</title>
+<link>http://www.molonlabe.net/Commentaries/jeff2.html</link>
+</item>
+<item>
+<title>Volume One: 1993</title>
+<link>http://www.molonlabe.net/Commentaries/jeff1.html</link>
+</item>
+</rdf:RDF>

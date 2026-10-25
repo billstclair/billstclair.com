@@ -1,0 +1,9 @@
+/* $Source: /home/johnny/html/New.Jeff/RCS/menu.css,v $ */
+html, body { text-align: right;
+font-family: arial,sans-serif; padding: 0; margin: 0; }
+a { display: block; text-decoration: none; }
+a:link, a:visited { background: transparent; color: blue; }
+a:hover, a:focus, a:active { background-color: #CCC; color: black; }
+div.dm1 { margin-right: 15%; white-space: nowrap; }
+span.ms1 { font-size: 60%; }
+/* $Id: menu.css,v 1.39 2005/06/09 08:35:33 johnny Exp $ */
