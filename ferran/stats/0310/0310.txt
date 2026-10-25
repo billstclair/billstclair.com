@@ -1,0 +1,25 @@
+#       Hits            KBytes          URL     
+------- --------------- --------------- -----------------------------
+1       5177    2.92%   10329   0.38%   /blog/rss.xml   
+2       4022    2.27%   141618  5.22%   /blog/  
+3       1596    0.90%   11308   0.42%   /ammo.html      
+4       1503    0.85%   1381    0.05%   /html-redirect2.html    
+5       1482    0.84%   453     0.02%   /blogmax/rss.xml        
+6       1329    0.75%   34433   1.27%   /arms.html      
+7       1119    0.63%   7633    0.28%   /       
+8       1113    0.63%   11083   0.41%   /blogmax/       
+9       1101    0.62%   1112    0.04%   /html-redirect.html     
+10      1068    0.60%   445     0.02%   /buckeye-1024x1280.html 
+11      730     0.41%   1297    0.05%   /remington870-1236x434.html     
+12      478     0.27%   755     0.03%   /lcsmith/       
+13      446     0.25%   310     0.01%   /ferran/        
+16      323     0.18%   57660   2.13%   /ferran/atvtrespass.html        
+17      304     0.17%   2110    0.08%   /ferran/images/aaaremotes_1751_3213189  
+21      200     0.11%   2879    0.11%   /ferran/fourteenth.html 
+28      150     0.08%   2647    0.10%   /ferran/markferran2.html        
+32      139     0.08%   1818    0.07%   /ferran/batviolence.html        
+35      118     0.07%   835     0.03%   /ferran/groundzero.html 
+40      106     0.06%   12932   0.48%   /ferran/markferran1.html        
+58      85      0.05%   2993    0.11%   /ferran/aneedforspeed.html      
+62      82      0.05%   6011    0.22%   /ferran/righttouseforce.html    
+71      72      0.04%   6409    0.24%   /ferran/MotionInLimine.doc      

@@ -1,0 +1,19 @@
+January 1-20, 2004
+
+#     Hits        KBytes   URL
+-- ---------- ------------ -----------------------------
+1  3740 2.84%   9873 0.55% /blog/rss.xml 
+2  3571 2.71%  17352 0.96% /cgi-bin/wiki.pl 
+3  3255 2.47% 187919 10.42% /blog/ 
+4  1196 0.91%   8105 0.45% /ammo.html 
+5  1009 0.77%  27253 1.51% /arms.html 
+17  224 0.17%  40161 2.23% /ferran/atvtrespass.html 
+20  170 0.13%    153 0.01% /ferran/ 
+46   65 0.05%   4728 0.26% /ferran/righttouseforce.html 
+61   50 0.04%   1370 0.08% /ferran/batviolence.html 
+65   48 0.04%   1477 0.08% /ferran/markferran2.html 
+68   47 0.04%    992 0.05% /ferran/fourteenth.html 
+98   35 0.03%   4111 0.23% /ferran/markferran1.html 
+104  34 0.03%   2861 0.16% /ferran/MotionInLimine.doc 
+126  30 0.02%   1956 0.11% /ferran/aneedforspeed.html 
+135  29 0.02%    469 0.03% /ferran/groundzero.html @

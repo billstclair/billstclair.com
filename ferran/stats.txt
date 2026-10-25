@@ -1,0 +1,1588 @@
+July, 2003 statistics
+
+# Count      KB           URL
+= ========== ============ =======================
+1 4756 3.98%   8605 0.51% /blog/rss.xml
+2 3730 3.12% 153402 9.11% /blog/
+3 1653 1.38%  12015 0.71% /ammo.html
+4 1015 0.85%  24848 1.48% /arms.html
+19 150 0.13%    135 0.01% /ferran/
+38  76 0.06%   1076 0.06% /ferran/fourteenth.html
+44  70 0.06%   4046 0.24% /ferran/atvtrespass.html
+54  60 0.05%   4509 0.27% /ferran/righttouseforce.html
+69  51 0.04%   4656 0.28% /ferran/MotionInLimine.doc
+83  44 0.04%   1384 0.08% /ferran/batviolence.html
+133 32 0.03%   4102 0.24% /ferran/markferran1.html
+200 26 0.02%    794 0.05% /ferran/markferran2.html
+225 25 0.02%   1769 0.11% /ferran/aneedforspeed.html
+
+The form of the raw entries is:
+requestor_address - date command ?? ?? referer_URL (link address)
+
+67.168.65.213 - - [23/Jun/2003:04:20:05 -0400] "GET /ferran HTTP/1.1" 301 318 "http://64.4.14.250/cgi-bin/
+linkrd?_lang=EN&lah=dba903e2a16d54138246633d6b6ccaca&lat=1056356522&hm___action=http%3a%2f%2fwww%2ebillstclair%2ecom%2fferran
+"  "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; Alexa Toolbar)"
+c-67-168-65-213.client.comcast.net - - [23/Jun/2003:16:11:30 -0400] "GET /ferran/ HTTP/1.1" 200 1075 "http://
+64.4.14.250/cgi-bin/
+linkrd?_lang=EN&lah=6517d80b3bf946ffd10d3402286bec6b&lat=1056399340&hm___action=http%3a%2f%2fwww%2ebillstclair%2ecom%2fferran
+"  "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; Alexa Toolbar)"
+cache-mtc-aa10.proxy.aol.com - - [23/Jun/2003:20:56:31 -0400] "GET /ferran/righttouseforce.html HTTP/1.0" 200 84977 
+"http://aolsearch.aol.com/aol/search?query=proving+second+degree+harassment+nys&page=3"  "Mozilla/4.0 (compatible; 
+MSIE 5.5; AOL 7.0; Windows 98; Win 9x 4.90)"
+cpe-066-061-114-223.midsouth.rr.com - - [01/Jul/2003:00:26:00 -0400] "GET /ferran/fourteenth.html HTTP/1.1" 200 
+15970 "http://www.google.com/search?q=history+of+14th+amendment&hl=en&lr=&ie=UTF-8&oe=UTF-8&start=10&sa=N
+" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)"
+cpe-066-061-114-223.midsouth.rr.com - - [01/Jul/2003:00:38:22 -0400] "GET /ferran HTTP/1.1" 301 318 "http://
+billstclair.com/ferran/fourteenth.html" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)"
+cpe-066-061-114-223.midsouth.rr.com - - [01/Jul/2003:00:38:22 -0400] "GET /ferran/ HTTP/1.1" 200 1075 "http://
+billstclair.com/ferran/fourteenth.html" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)"
+adsl-63-194-21-125.dsl.lsan03.pacbell.net - - [01/Jul/2003:01:23:11 -0400] "GET /ferran HTTP/1.1" 301 318 "-" 
+"Mozilla/4.0 (compatible; MSIE 6.0; Windows 98)"
+adsl-63-194-21-125.dsl.lsan03.pacbell.net - - [01/Jul/2003:01:23:11 -0400] "GET /ferran/ HTTP/1.1" 200 1075 "-" 
+"Mozilla/4.0 (compatible; MSIE 6.0; Windows 98)"
+cache-dl06.proxy.aol.com - - [01/Jul/2003:08:20:29 -0400] "GET /ferran HTTP/1.0" 301 306 "-" "Mozilla/5.0 
+(Macintosh; U; PPC Mac OS X; en-US; rv:1.0.1) Gecko/20020730 AOL/7.0"
+cache-dh02.proxy.aol.com - - [01/Jul/2003:08:20:56 -0400] "GET /ferran/markferran1.html HTTP/1.0" 200 147407 "-" 
+"Mozilla/5.0 (Macintosh; U; PPC Mac OS X; en-US; rv:1.0.1) Gecko/20020730 AOL/7.0"
+217.158.111.146 - - [01/Jul/2003:10:34:08 -0400] "GET /ferran/MemorandumOfLawFaxedtoJudge.doc HTTP/1.0" 304 - "-" 
+"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)"
+217.158.111.146 - - [01/Jul/2003:10:34:16 -0400] "PROPFIND /ferran HTTP/1.1" 301 318 "-" "Microsoft-WebDAV-
+MiniRedir/5.1.2600"
+217.158.111.146 - - [01/Jul/2003:10:34:16 -0400] "PROPFIND /ferran/ HTTP/1.1" 405 323 "-" "Microsoft-WebDAV-
+MiniRedir/5.1.2600"
+217.158.111.146 - - [01/Jul/2003:10:34:16 -0400] "PROPFIND /ferran HTTP/1.1" 301 318 "-" "Microsoft-WebDAV-
+MiniRedir/5.1.2600"
+217.158.111.146 - - [01/Jul/2003:10:34:17 -0400] "PROPFIND /ferran/ HTTP/1.1" 405 323 "-" "Microsoft-WebDAV-
+MiniRedir/5.1.2600"
+217.158.111.146 - - [01/Jul/2003:10:34:17 -0400] "PROPFIND /ferran HTTP/1.1" 301 318 "-" "Microsoft-WebDAV-
+MiniRedir/5.1.2600"
+217.158.111.146 - - [01/Jul/2003:10:34:17 -0400] "PROPFIND /ferran/ HTTP/1.1" 405 323 "-" "Microsoft-WebDAV-
+MiniRedir/5.1.2600"
+206.205.37.2 - - [01/Jul/2003:11:49:21 -0400] "GET /ferran/fourteenth.html HTTP/1.1" 200 15970 "http://
+www.google.com/search?sourceid=navclient&q=14th+amendment+%22original+intent%22"  "Mozilla/4.0 (compatible; MSIE 
+5.5; Windows 95)"
+jc142-8.jackson.k12.ga.us - - [01/Jul/2003:13:03:32 -0400] "GET /ferran/fourteenth.html HTTP/1.1" 200 15970 "http://
+www.google.com/search?hl=en&ie=UTF-8&oe=UTF-8&q=section+1983+fourteenth+amendment&btnG=Google+Search
+" "Mozilla/4.0 (compatible; MSIE 5.5; Windows NT 5.0; .NET CLR 1.0.3705)"
+24-161-102-149.hvc.rr.com - - [01/Jul/2003:14:12:42 -0400] "HEAD /ferran/markferran1.html HTTP/1.1" 200 0 "-" 
+"Mozilla/4.5 [en] (Win98; I)"
+64.80.11.28 - - [01/Jul/2003:14:18:47 -0400] "GET /ferran/markferran1.html HTTP/1.0" 200 12840 "http://web.ask.com/
+redir?bpg=http%3a%2f%2fweb.ask.com%2fweb%3fq%3dhousehold%2bfinance%2balbany%2bnew%2byork%26o%3d0%26page%3d1&q=household+finance+albany+new+york&u=http%3a%2f%2ftm.wc.ask.com%2fr%3ft%3dan%26s%3da%26uid%3d0850AFE83CB776DE3%26sid%3d1A4FDF158EEFC10F3%26qid%3d2B788B80D345CD4C95DAE2758C13484A%26io%3d9%26sv%3dza5cb0dc0%26ask%3dhousehold%2bfinance%2balbany%2bnew%2byork%26uip%3d40500b1c%26en%3dte%26eo%3d-100%26pt%3dLaw%252c%2ba%2bRevolutionary%2bIdea%2bfor%2bPeace%26ac%3d4%26qs%3d0%26pg%3d1%26u%3dhttp%3a%2f%2fbillstclair.com%2fferran%2fmarkferran1.html&s=a&bu=http%3a%2f%2fbillstclair.com%2fferran%2fmarkferran1.html" 
+ "Mozilla/4.0 (compatible; MSIE 5.01; Windows 98)"
+64.80.11.28 - - [01/Jul/2003:14:18:51 -0400] "GET /ferran/markferran1.html HTTP/1.0" 200 88760 "http://web.ask.com/
+links?q=household+finance+albany+new+york&u=http%3a%2f%2ftm.wc.ask.com%2fr%3ft%3dan%26s%3da%26uid%3d0850AFE83CB776DE3%26sid%3d1A4FDF158EEFC10F3%26qid%3d2B788B80D345CD4C95DAE2758C13484A%26io%3d9%26sv%3dza5cb0dc0%26ask%3dhousehold%2bfinance%2balbany%2bnew%2byork%26uip%3d40500b1c%26en%3dte%26eo%3d-100%26pt%3dLaw%252c%2ba%2bRevolutionary%2bIdea%2bfor%2bPeace%26ac%3d4%26qs%3d0%26pg%3d1%26u%3dhttp%3a%2f%2fbillstclair.com%2fferran%2fmarkferran1.html&bu=http%3a%2f%2fbillstclair.com%2fferran%2fmarkferran1.html&bpg=http%3a%2f%2fweb.ask.com%2fweb%3fq%3dhousehold%2bfinance%2balbany%2bnew%2byork%26o%3d0%26page%3d1&s=a" 
+ "Mozilla/4.0 (compatible; MSIE 5.01; Windows 98)"
+webcache.crd.ge.com - - [01/Jul/2003:14:41:21 -0400] "GET /ferran/MotionInLimine.doc HTTP/1.0" 200 120320 "http://
+www.google.com/search?sourceid=navclient&ie=UTF-8&oe=UTF-8&q=New+York+1180%2DD
+" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0)"
+liberty-proxy.lmig.com - - [01/Jul/2003:14:43:37 -0400] "GET /ferran/righttouseforce.html HTTP/1.0" 200 84977 
+"http://www.google.com/search?hl=en&lr=&ie=UTF-8&oe=UTF-8&q=nys+brandishing+weapon+self+defense
+" "Mozilla/4.0 (compatible; MSIE 5.5; Windows NT 4.0)"
+proxy.west.saic.com - - [01/Jul/2003:16:01:42 -0400] "GET /ferran/fourteenth.html HTTP/1.1" 200 15970 "http://
+www.google.com/search?hl=en&lr=&ie=UTF-8&oe=UTF-8&q=14th+amendment+%26+section+1983
+" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0; T312461; .NET CLR 1.0.3705)"
+cache-dk11.proxy.aol.com - - [01/Jul/2003:17:00:27 -0400] "GET /ferran/aneedforspeed.html HTTP/1.0" 200 78778 
+"http://aolsearch.aol.com/aol/search?query=codes+tkt.-+Tenn.+law+officers" "Mozilla/4.0 (compatible; MSIE 6.0; AOL 
+7.0; Windows NT 5.1; YComp 5.0.2.6) "
+0-1pool56-27.nas3.new-york1.ny.us.da.qwest.net - - [28/Jun/2003:10:51:33 - 0400] "GET /ferran/ HTTP/1.1" 200 1075 "-
+" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)"
+0-1pool56-27.nas3.new-york1.ny.us.da.qwest.net - - [28/Jun/2003:10:51:39 - 0400] "GET /ferran HTTP/1.1" 301 318 "-" 
+"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)"
+0-1pool56-27.nas3.new-york1.ny.us.da.qwest.net - - [28/Jun/2003:10:51:39 - 0400] "GET /ferran/ HTTP/1.1" 304 - "-" 
+"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)"
+sdn-ap-006scfairp0357.dialsprint.net - - [28/Jun/2003:10:57:54 -0400] "GET /ferran HTTP/1.1" 301 318 "http://
+www.landrights.com/NY%20Troopers%20inciting%20defiant%20trespass.htm"  "Mozilla/4.0 (compatible; MSIE 6.0; Windows 
+NT 5.0)"
+sdn-ap-006scfairp0357.dialsprint.net - - [28/Jun/2003:10:57:55 -0400] "GET /ferran/ HTTP/1.1" 200 1075 "http://
+www.landrights.com/NY%20Troopers%20inciting%20defiant%20trespass.htm"  "Mozilla/4.0 (compatible; MSIE 6.0; Windows 
+NT 5.0)"
+0-1pool56-27.nas3.new-york1.ny.us.da.qwest.net - - [28/Jun/2003:11:09:34 - 0400] "GET /ferran/fourteenth.html HTTP/
+1.1" 200 15970 "http://billstclair.com/ferran/" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)"
+0-1pool56-27.nas3.new-york1.ny.us.da.qwest.net - - [28/Jun/2003:11:13:33 - 0400] "GET /ferran/markferran1.html HTTP/
+1.1" 200 97552 "http://billstclair.com/ferran/" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)"
+140.192.59.54 - - [28/Jun/2003:13:18:17 -0400] "GET /ferran HTTP/1.1" 301 318 "-" "Mozilla/4.0 (compatible; MSIE 
+6.0; Windows NT 5.1)"
+dialup-65.58.5.232.dial1.portland1.level3.net - - [28/Jun/2003:21:59:44 - 0400] "GET /ferran/fourteenth.html HTTP/
+1.1" 200 15970 "http://billstclair.com/ferran/" "Mozilla/4.0 (compatible; MSIE 6.0; Windows 98)"
+pool-68-161-79-6.ny325.east.verizon.net - - [01/Jul/2003:18:18:54 -0400] "GET /ferran/MotionInLimine.doc HTTP/1.1" 
+200 120320 "http://www.google.com/search?hl=en&lr=&ie=UTF-8&oe=UTF-8&q=ny+state++vtl+" "Mozilla/4.0 (compatible; 
+MSIE 5.5; Windows NT 4.0)"
+x94-2100-40.law.umn.edu - - [01/Jul/2003:18:34:37 -0400] "GET /ferran/fourteenth.html HTTP/1.1" 200 15970 "http://
+www.google.com/search?q=History+of+the+14th+Amendment&hl=en&lr=&ie=UTF-8&oe=UTF-8&start=10&sa=N
+ " "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0)"
+209.189.103.195 - - [01/Jul/2003:21:12:12 -0400] "GET /ferran HTTP/1.1" 301 318 "http://billstclair.com/ferran/
+fourteenth.html" "Mozilla/5.0 (compatible; Konqueror/3.1; , en_US, en)"
+209.189.103.195 - - [01/Jul/2003:21:12:13 -0400] "GET /ferran/ HTTP/1.1" 200 1075 "http://billstclair.com/ferran/
+fourteenth.html" "Mozilla/5.0 (compatible; Konqueror/3.1; , en_US, en)"
+209.189.103.195 - - [01/Jul/2003:21:12:33 -0400] "GET /ferran/fourteenth.html HTTP/1.1" 200 15970 "http://
+billstclair.com/ferran/" "Mozilla/5.0 (compatible; Konqueror/3.1; , en_US, en)"
+209.189.103.195 - - [01/Jul/2003:21:13:20 -0400] "GET /ferran/index.html HTTP/1.1" 200 1075 "http://billstclair.com/
+" "Mozilla/5.0 (compatible; Konqueror/3.1; , en_US, en)"
+209.189.103.195 - - [01/Jul/2003:21:13:27 -0400] "GET /ferran/markferran1.html HTTP/1.1" 200 147407 "http://
+billstclair.com/ferran/index.html" "Mozilla/5.0 (compatible; Konqueror/3.1; , en_US, en)"
+209.189.103.195 - - [01/Jul/2003:21:23:47 -0400] "GET /ferran/groundzero.html HTTP/1.1" 200 21048 "http://
+billstclair.com/ferran/index.html" "Mozilla/5.0 (compatible; Konqueror/3.1; , en_US, en)"
+64.241.243.65 - - [01/Jul/2003:21:58:51 -0400] "GET /ferran/atvtrespass.html HTTP/1.1" 200 14321 "-" "Mozilla/4.0 
+compatible ZyBorg/1.0 (wn.zyborg@looksmart.net; http://www.WISEnutbot.com)"
+66.155.142.149 - - [01/Jul/2003:21:59:47 -0400] "GET /ferran/ HTTP/1.1" 200 1075 "-" "Mozilla/4.0 (compatible; MSIE 
+6.0; Windows 98)"
+ool-44c289cc.dyn.optonline.net - - [01/Jul/2003:22:14:15 -0400] "GET /ferran/MotionInLimine.doc HTTP/1.1" 200 
+120320 "http://search.yahoo.com/search?p=new+york+state+law+section+1180&ei=UTF-8&vm=i&n=20&fl=0&x=wrt
+" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; .NET CLR 1.0.3705)"
+ool-44c289cc.dyn.optonline.net - - [01/Jul/2003:22:14:17 -0400] "OPTIONS /ferran HTTP/1.1" 301 318 "-" "Microsoft 
+Data Access Internet Publishing Provider Cache Manager"
+ool-44c289cc.dyn.optonline.net - - [01/Jul/2003:22:14:19 -0400] "OPTIONS /ferran/MotionInLimine.doc HTTP/1.1" 200 - 
+"-" "Microsoft Data Access Internet Publishing Provider DAV 1.1"
+ool-44c289cc.dyn.optonline.net - - [01/Jul/2003:22:18:11 -0400] "OPTIONS /ferran HTTP/1.1" 301 318 "-" "Microsoft 
+Data Access Internet Publishing Provider DAV 1.1"
+ool-44c289cc.dyn.optonline.net - - [01/Jul/2003:22:18:33 -0400] "GET /ferran HTTP/1.1" 301 318 "-" "Mozilla/4.0 
+(compatible; MSIE 6.0; Windows NT 5.1; .NET CLR 1.0.3705)"
+ool-44c289cc.dyn.optonline.net - - [01/Jul/2003:22:18:33 -0400] "GET /ferran/ HTTP/1.1" 200 1075 "-" "Mozilla/4.0 
+(compatible; MSIE 6.0; Windows NT 5.1; .NET CLR 1.0.3705)"
+ool-44c289cc.dyn.optonline.net - - [01/Jul/2003:22:18:43 -0400] "GET /ferran/aneedforspeed.html HTTP/1.1" 200 78778 
+"http://billstclair.com/ferran/" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; .NET CLR 1.0.3705)"
+ool-44c289cc.dyn.optonline.net - - [01/Jul/2003:22:19:16 -0400] "GET /ferran/aneedforspeed.html HTTP/1.1" 200 78778 
+"-" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; .NET CLR 1.0.3705)"
+ool-44c289cc.dyn.optonline.net - - [01/Jul/2003:22:19:31 -0400] "GET /ferran/ HTTP/1.1" 200 1075 "-" "Mozilla/4.0 
+(compatible; MSIE 6.0; Windows NT 5.1; .NET CLR 1.0.3705)"
+ool-44c289cc.dyn.optonline.net - - [01/Jul/2003:22:19:44 -0400] "GET /ferran/fourteenth.html HTTP/1.1" 200 15970 
+"http://billstclair.com/ferran/" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; .NET CLR 1.0.3705)"
+ool-44c289cc.dyn.optonline.net - - [01/Jul/2003:22:19:51 -0400] "GET /ferran/ HTTP/1.1" 200 1075 "-" "Mozilla/4.0 
+(compatible; MSIE 6.0; Windows NT 5.1; .NET CLR 1.0.3705)"
+as1-pool73.carlnet.org - - [01/Jul/2003:22:31:32 -0400] "GET /ferran/atvtrespass.html HTTP/1.1" 200 52674 "http://
+ms101.mysearch.com/jsp/AJmain.jsp?searchfor=what+happens+if+you+trespass+where+there+is+signs+posted"  "Mozilla/4.0 
+(compatible; MSIE 5.5; Windows 98; Win 9x 4.90)"
+ilm26-180-029.ec.rr.com - - [02/Jul/2003:00:28:41 -0400] "GET /ferran/righttouseforce.html HTTP/1.1" 200 84977 
+"http://web.ask.com/
+redir?bpg=http%3a%2f%2fweb.ask.com%2fweb%3fq%3dare%2bthere%2bregulations%2babout%2bposting%2bNo%2bhunting%2bsigns%2bin%2bNC%26o%3d0%26page%3d1&q=are+there+regulations+about+posting+No+hunting+signs+in+NC&u=http%3a%2f%2ftm.wc.ask.com%2fr%3ft%3dan%26s%3da%26uid%3d0BBE0B612BC761BE3%26sid%3d12A1EF0730FE520F3%26qid%3dCFFE7598E09D3840BD90C02FB5210673%26io%3d4%26sv%3dza5cb0dc7%26ask%3dare%2bthere%2bregulations%2babout%2bposting%2bNo%2bhunting%2bsigns%2bin%2bNC%26uip%3d421ab41d%26en%3dte%26eo%3d-100%26pt%3dRights%2bof%2bOccupants%2bof%2bPremises%2bto%2bUse%2bForce%2b(Display%2bGuns)%2bto%2bStop%252c%26ac%3d24%26qs%3d1%26pg%3d1%26u%3dhttp%3a%2f%2fbillstclair.com%2fferran%2frighttouseforce.html&s=a&bu=http%3a%2f%2fbillstclair.com%2fferran%2frighttouseforce.html" 
+ "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; .NET CLR 1.0.3705)"
+12-254-241-23.client.attbi.com - - [02/Jul/2003:02:16:21 -0400] "GET /ferran/markferran2.html HTTP/1.1" 200 38747 
+"http://www.google.com/search?num=30&hl=en&lr=&ie=ISO-8859-
+1&safe=active&q=Executive+the+Supreme+Court+1930%27s&btnG=Google+Search
+" "Mozilla/5.0 (Windows; U; Windows NT 5.0; en-US; rv:1.4) Gecko/20030624"
+12-254-241-23.client.attbi.com - - [02/Jul/2003:02:16:55 -0400] "GET /ferran/markferran2.html HTTP/1.1" 206 21511 
+"http://www.google.com/search?num=30&hl=en&lr=&ie=ISO-8859-
+1&safe=active&q=Executive+the+Supreme+Court+1930%27s&btnG=Google+Search
+" "Mozilla/5.0 (Windows; U; Windows NT 5.0; en-US; rv:1.4) Gecko/20030624"
+12-254-241-23.client.attbi.com - - [02/Jul/2003:02:16:55 -0400] "GET /ferran/markferran2.html HTTP/1.1" 200 38747 
+"http://www.google.com/search?num=30&hl=en&lr=&ie=ISO-8859-
+1&safe=active&q=Executive+the+Supreme+Court+1930%27s&btnG=Google+Search
+" "Mozilla/5.0 (Windows; U; Windows NT 5.0; en-US; rv:1.4) Gecko/20030624"
+pool-151-205-104-228.ny325.east.verizon.net - - [02/Jul/2003:02:35:18 - 0400] "GET /ferran/MotionInLimine.doc HTTP/
+1.1" 200 66675 "http://search.yahoo.com/search?p=motor+vehicle+moving+violation+in+New+York&ei=UTF-
+8&vm=i&n=20&fl=0&xargs=&fr=slv1&b=41
+ " "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)"
+cache-rg06.proxy.aol.com - - [02/Jul/2003:03:24:33 -0400] "GET /ferran/fourteenth.html HTTP/1.0" 200 15970 "http://
+aolsearch.aol.com/aol/search?query=14th+amendment%2C+damages&invocationType=spelling"  "Mozilla/4.0 (compatible; 
+MSIE 5.5; AOL 8.0; Windows 98)"
+adsl-81-175-247.mcn.bellsouth.net - - [02/Jul/2003:07:40:30 -0400] "GET /ferran/ HTTP/1.1" 200 1075 "-" "Mozilla/
+4.0 (compatible; MSIE 6.0; Windows NT 5.0; T312461; YComp 5.0.0.0; Cox High Speed Internet Customer)"
+cache-rl02.proxy.aol.com - - [02/Jul/2003:09:57:01 -0400] "GET /ferran/AppellateBriefDraft1mod.doc HTTP/1.0" 200 
+221184 "-" "Mozilla/4.0 (compatible; MSIE 6.0; AOL 8.0; Windows NT 5.1)"
+ac904569.ipt.aol.com - - [02/Jul/2003:10:00:12 -0400] "PROPFIND /ferran HTTP/1.1" 301 318 "-" "Microsoft-WebDAV-
+MiniRedir/5.1.2600"
+ac904569.ipt.aol.com - - [02/Jul/2003:10:00:13 -0400] "PROPFIND /ferran/ HTTP/1.1" 405 323 "-" "Microsoft-WebDAV-
+MiniRedir/5.1.2600"
+ac904569.ipt.aol.com - - [02/Jul/2003:10:00:15 -0400] "PROPFIND /ferran HTTP/1.1" 301 318 "-" "Microsoft-WebDAV-
+MiniRedir/5.1.2600"
+ac904569.ipt.aol.com - - [02/Jul/2003:10:00:15 -0400] "PROPFIND /ferran/ HTTP/1.1" 405 323 "-" "Microsoft-WebDAV-
+MiniRedir/5.1.2600"
+ac904569.ipt.aol.com - - [02/Jul/2003:10:00:16 -0400] "PROPFIND /ferran HTTP/1.1" 301 318 "-" "Microsoft-WebDAV-
+MiniRedir/5.1.2600"
+ac904569.ipt.aol.com - - [02/Jul/2003:10:00:17 -0400] "PROPFIND /ferran/ HTTP/1.1" 405 323 "-" "Microsoft-WebDAV-
+MiniRedir/5.1.2600"
+ac952562.ipt.aol.com - - [22/Jun/2003:12:42:22 -0400] "GET /ferran HTTP/1.1" 301 318 "http://us.f414.mail.yahoo.com/
+ym/
+ShowLetter?MsgId=463_2542146_1546_2775_5787_0_27136_16418_3268263785&YY=94714&inc=25&order=down&sort=date&pos=0&view=a&head=b&box=Inbox" 
+ "Mozilla/4.0 (compatible; MSIE 6.0; Windows 98; Win 9x 4.90)"
+nr1-216-196-129-213.fuse.net - - [22/Jun/2003:16:17:59 -0400] "GET /ferran HTTP/1.1" 301 318 "-" "Mozilla/4.0 
+(compatible; MSIE 6.0; Windows NT 5.0)"
+nr1-216-196-129-213.fuse.net - - [22/Jun/2003:16:18:00 -0400] "GET /ferran/ HTTP/1.1" 200 1075 "-" "Mozilla/4.0 
+(compatible; MSIE 6.0; Windows NT 5.0)"
+h171.2.31.12.cablerocket.net - - [23/Jun/2003:22:14:25 -0400] "GET /ferran/righttouseforce.html HTTP/1.1" 200 84977 
+"http://billstclair.com/ferran/" "Mozilla/4.0 (compatible; MSIE 6.0; Windows 98)"
+216.52.215.232 - - [23/Jun/2003:23:44:55 -0400] "GET /ferran/MotionInLimine.doc HTTP/1.1" 200 120320 "http://
+search.yahoo.com/search?p=new+york+vs+out+of+state+traffic+violations&ei=UTF-8&vm=i&n=20&fl=0&x=wrt
+ " "Mozilla/4.0 (compatible; MSIE 5.5; Windows NT 5.0; SCF - Mean & Nasty; T312461; DVD Owner)"
+dpc6682009043.direcpc.com - - [24/Jun/2003:06:59:44 -0400] "GET /ferran/MotionInLimine.doc HTTP/1.0" 200 120320 
+"http://www.google.com/search?as_q=+new+york+state+pl+35.00&num=10&hl=en&ie=UTF-8&oe=UTF-
+8&btnG=Google+Search&as_epq=&as_oq=&as_eq=&lr=&as_ft=i&as_filetype=&as_qdr=all&as_occt=any&as_dt=i&as_sitesearch=&safe=images
+"  "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; .NET CLR 1.0.3705)"
+208.31.36.217 - - [24/Jun/2003:07:55:06 -0400] "GET /ferran/righttouseforce.html HTTP/1.1" 200 84977 "http://
+search.netscape.com/nscp_results.adp?source=NSCPIndex&query=nys+penal+law+menacing+2nd+degree"  "Mozilla/4.0 
+(compatible; MSIE 6.0; Windows 98)"
+80.232.220.88 - - [24/Jun/2003:09:03:14 -0400] "GET /ferran/atvtrespass.html HTTP/1.1" 200 52674 "http://
+boards.fool.com/Message.asp?mid=19230959" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)"
+dialup4-42.umkc.edu - - [24/Jun/2003:16:32:22 -0400] "GET /ferran/MemorandumOfLawFaxedtoJudge.doc HTTP/1.1" 304 - "-
+" "Mozilla/4.0 (compatible; MSIE 5.5; Windows 95)"
+167.7.3.145 - - [24/Jun/2003:18:08:55 -0400] "GET /ferran/fourteenth.html HTTP/1.1" 200 15970 "http://
+www.google.com/search?hl=en&lr=&ie=UTF-8&oe=UTF-8&q=%2214th+amendment%22+race
+" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)"
+dsc04-chc-il-6-94.rasserver.net - - [25/Jun/2003:03:41:20 -0400] "GET /ferran/fourteenth.html HTTP/1.1" 200 15970 
+"http://www.google.com/search?hl=en&lr=&ie=UTF-8&oe=UTF-8&q=provisions+of+the+fourteenth+amendment
+" "Mozilla/4.0 (compatible; MSIE 5.5; Windows 98; Win 9x 4.90; MSN 6.1; MSNbBBYZ; MSNmen-us; MSNc21; v5m)"
+dhcp168-91.creighton.edu - - [25/Jun/2003:13:18:19 -0400] "GET /ferran/fourteenth.html HTTP/1.1" 304 - "http://
+www.google.com/search?hl=en&lr=&ie=UTF-8&oe=UTF-
+8&q=%22legislative+history%22+of+the+14th+amendment&btnG=Google+Search
+" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; Q312461; .NET CLR 1.0.3705; .NET CLR 1.1.4322)"
+adsl-67-121-234-47.dsl.chic01.pacbell.net - - [25/Jun/2003:17:43:23 -0400] "GET /ferran/ HTTP/1.1" 200 1075 "-" 
+"Mozilla/5.0 (Macintosh; U; PPC Mac OS X; en) AppleWebKit/85 (KHTML, like Gecko) Safari/85"
+rrcs-midsouth-24-199-182-134.biz.rr.com - - [02/Jul/2003:13:00:27 -0400] "GET /ferran/atvtrespass.html HTTP/1.1" 
+200 52674 "http://search.msn.com/results.aspx?q=Campgounds+Dunn%2C+NC&FORM=SMCRT" "Mozilla/4.0 (compatible; MSIE 
+5.5; Windows NT 5.0; .NET CLR 1.0.3705)"
+dsc01-chc-il-2-148.rasserver.net - - [03/Jul/2003:09:27:58 -0400] "GET /ferran/batviolence.html HTTP/1.1" 200 34560 
+"http://www.google.com/" "Mozilla/4.0 (compatible; MSIE 6.0; Windows 98; Win 9x 4.90)"
+64.241.243.65 - - [03/Jul/2003:11:10:48 -0400] "GET /ferran/atvtrespass.html HTTP/1.1" 200 23081 "-" "Mozilla/4.0 
+compatible ZyBorg/1.0 (wn.zyborg@looksmart.net; http://www.WISEnutbot.com)"
+ip68-10-111-216.hr.hr.cox.net - - [03/Jul/2003:22:05:49 -0400] "GET /ferran/atvtrespass.html HTTP/1.1" 200 52674 
+"http://www.google.com/search?hl=en&lr=&ie=UTF-8&q=marijuana+%2B+butterfly+bush&spell=1
+" "Mozilla/4.0 (compatible; MSIE 5.01; Windows NT 5.0)"
+i020-2.phx.extremezone.com - - [03/Jul/2003:23:02:44 -0400] "GET /ferran/ HTTP/1.1" 304 - "http://www.apfn.net/
+messageboard/6-07-03/discussion.cgi.3.html
+" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; (R1 1.3))"
+adsl-67-121-50-129.dsl.anhm01.pacbell.net - - [04/Jul/2003:03:11:48 -0400] "GET /ferran/righttouseforce.html HTTP/
+1.1" 200 84977 "http://webmail.aol.com/msgview.adp?folder=SU5CT1g=&uid=6694067" "Mozilla/4.0 (compatible; MSIE 
+5.01; Windows NT 5.0)"
+adsl-67-121-50-129.dsl.anhm01.pacbell.net - - [04/Jul/2003:03:12:18 -0400] "GET /ferran/righttouseforce.html HTTP/
+1.1" 304 - "http://webmail.aol.com/msgview.adp?folder=SU5CT1g=&uid=6694067" "Mozilla/4.0 (compatible; MSIE 5.01; 
+Windows NT 5.0)"
+roc-66-67-151-104.rochester.rr.com - - [04/Jul/2003:10:20:05 -0400] "GET /ferran/righttouseforce.html HTTP/1.1" 200 
+84977 "http://www.google.com/search?q=Penal+Law+section+140.05+on+business+property&hl=en&lr=&ie=UTF-8&oe=UTF-
+8&start=10&sa=N
+ " "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; (R1 1.3); .NET CLR 1.1.4322)"
+12.148.209.198 - - [04/Jul/2003:12:35:42 -0400] "GET /ferran/batviolence.html HTTP/1.1" 200 34560 "-" "NPBot (http:/
+/www.nameprotect.com/botinfo.html)"
+12.148.209.198 - - [04/Jul/2003:12:59:19 -0400] "GET /ferran/batviolence.html HTTP/1.1" 200 34560 "-" "NPBot (http:/
+/www.nameprotect.com/botinfo.html)"
+12.148.209.198 - - [04/Jul/2003:13:00:28 -0400] "GET /ferran/batviolence.html HTTP/1.1" 200 34560 "-" "NPBot (http:/
+/www.nameprotect.com/botinfo.html)"
+co-colspgs-u3-c3c-92.clspco.adelphia.net - - [04/Jul/2003:14:52:24 -0400] "GET /ferran/
+MemorandumOfLawFaxedtoJudge.doc HTTP/1.1" 200 73728 "http://www.google.com/search?hl=en&ie=UTF-8&oe=UTF-
+8&q=legal+justification+for+speeding&btnG=Google+Search
+" "Mozilla/5.0 (Windows; U; Windows NT 5.0; en-US; rv:1.0.2) Gecko/20021120 Netscape/7.01"
+kln2-t2-2.mcbone.net - - [04/Jul/2003:15:13:30 -0400] "GET /ferran/batviolence.html HTTP/1.0" 200 34560 "http://
+www.google.de/search?q=Balls+stomping+jpg&hl=de&lr=&ie=UTF-8&oe=UTF-8&start=10&sa=N
+" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0; QXW03416)"
+co-colspgs-u3-c3c-92.clspco.adelphia.net - - [04/Jul/2003:15:30:29 -0400] "GET /ferran/AppellateBriefDraft1mod.doc 
+HTTP/1.1" 200 221184 "http://www.google.com/search?hl=en&lr=&ie=UTF-8&oe=UTF-
+8&q=choice+of+evils+defense++speeding+violation&btnG=Google+Search
+" "Mozilla/5.0 (Windows; U; Windows NT 5.0; en-US; rv:1.0.2) Gecko/20021120 Netscape/7.01"
+user-112vp9q.biz.mindspring.com - - [04/Jul/2003:16:52:00 -0400] "GET /ferran/fourteenth.html HTTP/1.1" 200 15970 
+"http://www.google.com/search?q=%22Fourteenth+Amendment%22+history&hl=en&lr=&ie=UTF-8&start=80&sa=N
+ " "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0) Opera 7.10  [en]"
+dialup-4.72.86.16.dial1.orlando1.level3.net - - [04/Jul/2003:20:30:31 - 0400] "GET /ferran/markferran2.html HTTP/
+1.1" 200 38747 "-" "Mozilla/4.0 (compatible; MSIE 6.0; Windows 
+NT) ::ELNSB50::000080900320025802a00161000000000507000900000000"
+dialup-4.72.86.16.dial1.orlando1.level3.net - - [04/Jul/2003:20:29:53 - 0400] "GET /ferran/ HTTP/1.1" 200 1075 "-" 
+"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT) ::ELNSB50::000080900320025802a00161000000000507000900000000"
+ppp155.tc-12.alb-pt.ny.localnet.com - - [04/Jul/2003:21:50:09 -0400] "GET /ferran/righttouseforce.html HTTP/1.1" 
+200 84977 "http://www.google.com/search?hl=en&lr=&ie=UTF-8&oe=UTF-
+8&newwindow=1&safe=off&q=ATV+citizen%27s+arrest+NYS
+" "Mozilla/4.0 (compatible; MSIE 6.0; Windows 98)"
+h000ae609f342.ne.client2.attbi.com - - [04/Jul/2003:23:47:01 -0400] "GET /ferran/groundzero.html HTTP/1.1" 200 
+21048 "-" "Missigua Locator 1.9"
+adsl-65-64-49-228.dsl.tulsok.swbell.net - - [05/Jul/2003:01:17:25 -0400] "GET /ferran/ HTTP/1.1" 200 1075 "-" 
+"Mozilla/4.0 (compatible; MSIE 6.0; Windows 98; Win 9x 4.90; Q312461; .NET CLR 1.1.4322)"
+ool-182f20a1.dyn.optonline.net - - [05/Jul/2003:02:20:25 -0400] "GET /ferran/MotionInLimine.doc HTTP/1.1" 200 
+120320 "http://www.google.com/search?q=what+are+misdemeanor+traffic+violations+in+New+York+State&hl=en&lr=&ie=UTF-
+8&oe=UTF-8&start=30&sa=N
+ " "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; .NET CLR 1.0.3705)"
+64.241.243.65 - - [05/Jul/2003:01:48:28 -0400] "GET /ferran/atvtrespass.html HTTP/1.1" 200 42061 "-" "Mozilla/4.0 
+compatible ZyBorg/1.0 (wn.zyborg@looksmart.net; http://www.WISEnutbot.com)"
+m8-137-189.joust.net - - [05/Jul/2003:20:35:45 -0400] "GET /ferran/ HTTP/1.1" 200 1075 "-" "Mozilla/4.0 
+(compatible; MSIE 5.5; Windows 98; Win 9x 4.90)"
+m8-137-189.joust.net - - [05/Jul/2003:20:35:49 -0400] "GET /ferran HTTP/1.1" 301 318 "-" "Mozilla/4.0 (compatible; 
+MSIE 5.5; Windows 98; Win 9x 4.90)"
+0-1pool92-206.nas35.thornton1.co.us.da.qwest.net - - [05/Jul/2003:22:58:29 -  0400] "GET /ferran/markferran1.html 
+HTTP/1.1" 200 147407 "http://web.ask.com/
+redir?bpg=http%3a%2f%2fweb.ask.com%2fweb%3fq%3dan%2baction%2bor%2bprocedure%2bused%2bto%2benforce%2ba%2bright%2bor%2bto%2bget%2bdamages%2bfor%2ban%2binjury%2bis%2bknown%2bas%2ban%2b%253f%26o%3d0%26page%3d2&q=an+action+or+procedure+used+to+enforce+a+right+or+to+get+damages+for+an+injury+is+known+as+an+%3f&u=http%3a%2f%2ftm.wc.ask.com%2fr%3ft%3dan%26s%3da%26uid%3d08FFED5F205F870F3%26sid%3d1C054E5F205F870F3%26qid%3dB377963D6B6E224788E3792F5FF6CA8F%26io%3d1%26sv%3dza5cb0dc0%26ask%3dan%2baction%2bor%2bprocedure%2bused%2bto%2benforce%2ba%2bright%2bor%2bto%2bget%2bdamages%2bfor%2ban%2binjury%2bis%2bknown%2bas%2ban%2b%253f%26uip%3d43045cce%26en%3dte%26eo%3d-100%26pt%3dLaw%252c%2ba%2bRevolutionary%2bIdea%2bfor%2bPeace%26ac%3d24%26qs%3d19%26pg%3d2%26u%3dhttp%3a%2f%2fbillstclair.com%2fferran%2fmarkferran1.html&s=a&bu=http%3a%2f%2fbillstclair.com%2fferran%2fmarkferran1.html" 
+ "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; YComp 5.0.0.0; .NET CLR 1.0.3705; MSN 8.0; MSN 8.5; MSNbBBYZ; 
+MSNmen-us; MSNcIA)"
+auto-66.185.47.26.wirelessworld.vi - - [06/Jul/2003:00:20:51 -0400] "GET /ferran/fourteenth.html HTTP/1.1" 200 
+15970 "http://search.yahoo.com/search?x=wrb&va=%22Civil+Rights+Act+of+1866%22+and+%22sec.+1983%22&ei=UTF-
+8&vm=i&n=20&fl=0&ve=
+ " "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; .NET CLR 1.0.3705)"
+adsl-68-77-11-100.dsl.emhril.ameritech.net - - [06/Jul/2003:02:41:03 -0400] "GET /ferran/fourteenth.html HTTP/1.1" 
+200 15970 "http://search.yahoo.com/bin/search?p=history%20of%20the%2014th%20amendment"  "Mozilla/4.0 (compatible; 
+MSIE 6.0; Windows NT 5.1; Q312461; sbcydsl 3.12; YComp 5.0.0.0; yplus 3.01)"
+cache-dh01.proxy.aol.com - - [06/Jul/2003:14:19:42 -0400] "GET /ferran/fourteenth.html HTTP/1.0" 200 15970 "http://
+search.yahoo.com/bin/search?p=history+of+the+14th+amendment&ei=UTF-8
+" "Mozilla/4.0 (compatible; MSIE 5.5; AOL 8.0; Windows 98; YComp 5.0.2.6; (R1 1.1))"
+ool-182e18c8.dyn.optonline.net - - [06/Jul/2003:15:06:31 -0400] "GET /ferran/righttouseforce.html HTTP/1.1" 200 
+84977 "http://www.google.com/search?q=trespassory+taking+and+new+york&hl=en&lr=&ie=UTF-8&start=40&sa=N
+ " "Mozilla/4.0 (compatible; MSIE 6.0; Windows 98; Win 9x 4.90; T312461; Q312461)"
+64.241.243.65 - - [06/Jul/2003:15:14:35 -0400] "GET /ferran/atvtrespass.html HTTP/1.1" 200 17241 "-" "Mozilla/4.0 
+compatible ZyBorg/1.0 (wn.zyborg@looksmart.net; http://www.WISEnutbot.com)"
+cache-mtc-ag03.proxy.aol.com - - [06/Jul/2003:21:00:14 -0400] "GET /ferran/MotionInLimine.doc HTTP/1.0" 200 120320 
+"http://search.yahoo.com/bin/search?p=VTL+1180.D&ei=UTF-8" "Mozilla/4.0 (compatible; MSIE 6.0; AOL 8.0; Windows NT 
+5.1)"
+aca9e488.ipt.aol.com - - [06/Jul/2003:21:03:25 -0400] "PROPFIND /ferran HTTP/1.1" 301 318 "-" "Microsoft-WebDAV-
+MiniRedir/5.1.2600"
+aca9e488.ipt.aol.com - - [06/Jul/2003:21:03:26 -0400] "PROPFIND /ferran/ HTTP/1.1" 405 323 "-" "Microsoft-WebDAV-
+MiniRedir/5.1.2600"
+aca9e488.ipt.aol.com - - [06/Jul/2003:21:03:26 -0400] "PROPFIND /ferran HTTP/1.1" 301 318 "-" "Microsoft-WebDAV-
+MiniRedir/5.1.2600"
+aca9e488.ipt.aol.com - - [06/Jul/2003:21:03:26 -0400] "PROPFIND /ferran/ HTTP/1.1" 405 323 "-" "Microsoft-WebDAV-
+MiniRedir/5.1.2600"
+aca9e488.ipt.aol.com - - [06/Jul/2003:21:03:27 -0400] "PROPFIND /ferran HTTP/1.1" 301 318 "-" "Microsoft-WebDAV-
+MiniRedir/5.1.2600"
+aca9e488.ipt.aol.com - - [06/Jul/2003:21:03:27 -0400] "PROPFIND /ferran/ HTTP/1.1" 405 323 "-" "Microsoft-WebDAV-
+MiniRedir/5.1.2600"
+12-224-146-111.client.attbi.com - - [06/Jul/2003:22:30:12 -0400] "GET /ferran HTTP/1.1" 301 318 "http://
+mailman.network-lynx.net/pipermail/forum/2003-January/001427.html
+" "Mozilla/4.0 (compatible; MSIE 5.0; Windows 98; DigExt)"
+12-224-146-111.client.attbi.com - - [06/Jul/2003:22:30:12 -0400] "GET /ferran/ HTTP/1.1" 200 1075 "http://
+mailman.network-lynx.net/pipermail/forum/2003-January/001427.html
+" "Mozilla/4.0 (compatible; MSIE 5.0; Windows 98; DigExt)"
+12-224-146-111.client.attbi.com - - [06/Jul/2003:22:30:21 -0400] "GET /ferran/batviolence.html HTTP/1.1" 200 34560 
+"http://billstclair.com/ferran/" "Mozilla/4.0 (compatible; MSIE 5.0; Windows 98; DigExt)"
+dclient80-218-76-55.hispeed.ch - - [07/Jul/2003:02:31:51 -0400] "GET /ferran/index.html HTTP/1.1" 200 1075 "-" 
+"Java/1.4.1_01"
+148.177.1.212 - - [07/Jul/2003:08:45:33 -0400] "GET /ferran/batviolence.html HTTP/1.1" 200 34560 "http://
+billstclair.com/ferran/" "Mozilla/4.0 (compatible; MSIE 5.5; Windows NT 5.0)"
+148.177.1.212 - - [07/Jul/2003:08:47:23 -0400] "GET /ferran/righttouseforce.html HTTP/1.1" 200 84977 "http://
+billstclair.com/ferran/" "Mozilla/4.0 (compatible; MSIE 5.5; Windows NT 5.0)"
+148.177.1.212 - - [07/Jul/2003:08:53:11 -0400] "GET /ferran/aneedforspeed.html HTTP/1.1" 200 78778 "http://
+billstclair.com/ferran/" "Mozilla/4.0 (compatible; MSIE 5.5; Windows NT 5.0)"
+65.126.132.168 - - [07/Jul/2003:09:04:41 -0400] "GET /ferran/MemorandumOfLawFaxedtoJudge.doc HTTP/1.1" 200 73728 
+"http://www.google.com/search?hl=en&lr=&ie=UTF-8&oe=UTF-8&q=ny+state+speeding+violation
+" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0)"
+roc-24-95-202-164.rochester.rr.com - - [07/Jul/2003:10:41:07 -0400] "GET /ferran/righttouseforce.html HTTP/1.1" 200 
+84977 "http://www.google.com/search?hl=en&ie=UTF-8&oe=UTF-8&q=%22Terry+Kindlon%22
+" "Mozilla/4.0 (compatible; MSIE 6.0; Windows 98; Q312461)"
+roc-24-95-202-164.rochester.rr.com - - [07/Jul/2003:10:46:56 -0400] "GET /ferran/markferran1.html HTTP/1.1" 200 
+147407 "http://www.google.com/search?hl=en&ie=UTF-8&oe=UTF-8&q=%22Terry+Kindlon%22
+" "Mozilla/4.0 (compatible; MSIE 6.0; Windows 98; Q312461)"
+cache-mtc-aa10.proxy.aol.com - - [07/Jul/2003:10:52:11 -0400] "GET /ferran/righttouseforce.html HTTP/1.0" 200 84977 
+"http://aolsearch.aol.com/aol/search?query=ELEMENTS+REQUIRED+FOR+HARASSMENT+SECOND+DEGREE+VIOLATION+NYS&page=4"  
+"Mozilla/4.0 (compatible; MSIE 5.5; AOL 7.0; Windows 98; Win 9x 4.90)"
+66-192-134-14.gen.twtelecom.net - - [07/Jul/2003:11:12:47 -0400] "GET /ferran/fourteenth.html HTTP/1.1" 200 15970 
+"http://search.yahoo.com/search?p=14th+amendment+rights&ei=UTF-8&xargs=0&b=21
+" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0)"
+206.205.37.2 - - [07/Jul/2003:12:41:14 -0400] "GET /ferran/fourteenth.html HTTP/1.1" 200 15970 "http://
+www.google.com/search?q=%22privileges+or+immunities%22+14th+amendment&hl=en&lr=&ie=UTF-8&safe=off&start=10&sa=N
+ " "Mozilla/4.0 (compatible; MSIE 5.5; Windows 95)"
+12-254-104-185.client.attbi.com - - [07/Jul/2003:13:26:28 -0400] "GET /ferran/batviolence.html HTTP/1.1" 200 34560 
+"http://search.yahoo.com/search?p=how+to+fix+wooden+baseball+bats&ei=UTF-8&vm=i&n=20&fl=0&x=wrt
+" "Mozilla/4.0 (compatible; MSIE 6.0; Windows 98; AT&T CSM6.0; YComp 5.0.2.4; SEARCHALOT.COM)"
+cache-rg06.proxy.aol.com - - [07/Jul/2003:14:04:22 -0400] "GET /ferran/fourteenth.html HTTP/1.0" 200 15970 "http://
+www.google.com/search?q=42+USC+Section+1983-+Legislative+History&hl=en&lr=&ie=ISO-8859-1
+" "Mozilla/4.0 (compatible; MSIE 5.0; AOL 5.0; Windows 98; DigExt)"
+149.10.180.79 - - [07/Jul/2003:15:59:32 -0400] "GET /ferran HTTP/1.1" 301 318 "http://www.swoam.com/SWOAMForum/
+0000003f.htm" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0)"
+149.10.180.79 - - [07/Jul/2003:15:59:33 -0400] "GET /ferran/ HTTP/1.1" 200 1075 "http://www.swoam.com/SWOAMForum/
+0000003f.htm" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0)"
+149.10.180.79 - - [07/Jul/2003:15:59:39 -0400] "GET /ferran/atvtrespass.html HTTP/1.1" 200 52674 "http://
+billstclair.com/ferran/" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0)"
+149.10.180.79 - - [07/Jul/2003:16:10:42 -0400] "GET /ferran HTTP/1.1" 301 318 "http://www.swoam.com/SWOAMForum/
+0000003f.htm" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0)"
+149.10.180.79 - - [07/Jul/2003:16:10:42 -0400] "GET /ferran/ HTTP/1.1" 304 -  "http://www.swoam.com/SWOAMForum/
+0000003f.htm" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0)"
+149.10.180.79 - - [07/Jul/2003:16:10:52 -0400] "GET /ferran/righttouseforce.html HTTP/1.1" 200 84977 "http://
+billstclair.com/ferran/" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0)"
+pool-141-157-198-71.ny325.east.verizon.net - - [07/Jul/2003:16:30:52 -0400] "GET /ferran HTTP/1.1" 301 318 "http://
+www.swoam.com/SWOAMForum/00000035.htm" "Mozilla/4.0 (compatible; MSIE 5.0; Windows 98; DigExt)"
+pool-141-157-198-71.ny325.east.verizon.net - - [07/Jul/2003:16:30:52 -0400] "GET /ferran/ HTTP/1.1" 200 1075 "http:/
+/www.swoam.com/SWOAMForum/00000035.htm" "Mozilla/4.0 (compatible; MSIE 5.0; Windows 98; DigExt)"
+hse-ottawa-ppp163395.sympatico.ca - - [07/Jul/2003:16:54:29 -0400] "GET /ferran/markferran2.html HTTP/1.1" 200 
+38747 "http://www.google.ca/search?hl=en&lr=&ie=UTF-8&oe=UTF-
+8&q=CONSTITUTION+OF+THE+SUPREME+COURT+OF+USA+ON+SODOM&spell=1
+" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0; .NET CLR 1.1.4322)"
+hse-ottawa-ppp163395.sympatico.ca - - [07/Jul/2003:17:13:18 -0400] "GET /ferran/markferran2.html HTTP/1.1" 304 - 
+"http://www.google.ca/search?hl=en&ie=UTF-8&oe=UTF-
+8&q=CONSTITUTION+OF+THE+SUPREME+COURT+OF+USA+ON+SODOM&btnG=Google+Search&meta=
+"  "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0; .NET CLR 1.1.4322)"
+syr-24-58-197-65.twcny.rr.com - - [07/Jul/2003:17:42:12 -0400] "GET /ferran HTTP/1.1" 301 318 "-" "Mozilla/4.0 
+(compatible; MSIE 6.0; Windows 98; Win 9x 4.90)"
+roc-24-93-14-224.rochester.rr.com - - [07/Jul/2003:18:57:41 -0400] "GET /ferran/MotionInLimine.doc HTTP/1.1" 200 
+120320 "-" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)"
+205.232.76.110 - - [07/Jul/2003:20:53:47 -0400] "GET /ferran HTTP/1.1" 301 318 "-" "Mozilla/4.0 (compatible; MSIE 
+6.0; Windows 98; Win 9x 4.90; YComp 5.0.0.0)"
+205.232.76.110 - - [07/Jul/2003:20:53:48 -0400] "GET /ferran/ HTTP/1.1" 200 1075 "-" "Mozilla/4.0 (compatible; MSIE 
+6.0; Windows 98; Win 9x 4.90; YComp 5.0.0.0)"
+205.232.76.110 - - [07/Jul/2003:20:54:34 -0400] "GET /ferran/groundzero.html HTTP/1.1" 200 21048 "http://
+billstclair.com/ferran/" "Mozilla/4.0 (compatible; MSIE 6.0; Windows 98; Win 9x 4.90; YComp 5.0.0.0)"
+205.232.76.110 - - [07/Jul/2003:21:05:14 -0400] "GET /ferran/atvtrespass.html HTTP/1.1" 200 52674 "http://
+billstclair.com/ferran/" "Mozilla/4.0 (compatible; MSIE 6.0; Windows 98; Win 9x 4.90; YComp 5.0.0.0)"
+207-91-136-241.nstci.net - - [07/Jul/2003:23:56:15 -0400] "GET /ferran/fourteenth.html HTTP/1.1" 200 15970 "http://
+search.yahoo.com/search?p=legislative+history+of+the+fourteenth+amendment&sp=1&ei=UTF-8&vm=i&n=20&fl=0
+ " "Mozilla/4.0 (compatible; MSIE 5.5; Windows 95)"
+207-91-136-241.nstci.net - - [08/Jul/2003:00:33:34 -0400] "GET /ferran/fourteenth.html HTTP/1.1" 200 15970 "http://
+search.yahoo.com/search?p=legislative+history+of+the+fourteenth+amendment&sp=1&ei=UTF-8&vm=i&n=20&fl=0
+ " "Mozilla/4.0 (compatible; MSIE 5.5; Windows 95)"
+68.198.69.107 - - [08/Jul/2003:00:59:31 -0400] "GET /ferran/MotionInLimine.doc HTTP/1.1" 200 120320 "http://
+search.yahoo.com/search?x=wrb&va=ny+traffic+law+1180+%28d%29&ei=UTF-8&vm=i&n=20&fl=0&ve=
+ " "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; .NET CLR 1.0.3705)"
+217.17.233.136 - - [08/Jul/2003:04:15:13 -0400] "GET /ferran/batviolence.html HTTP/1.1" 200 34560 "-" "Mozilla/4.0 
+(compatible; MSIE 5.5; Windows 98; Win 9x 4.90)"
+proxy4.data-tronics.com - - [08/Jul/2003:06:58:37 -0400] "GET /ferran/ HTTP/1.0" 200 1075 "http://www.swoam.com/
+SWOAMForum/00000035.htm" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0)"
+proxy4.data-tronics.com - - [08/Jul/2003:06:58:37 -0400] "GET /ferran HTTP/1.0" 301 306 "http://www.swoam.com/
+SWOAMForum/00000035.htm" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0)"
+roc-66-66-164-9.rochester.rr.com - - [08/Jul/2003:07:34:52 -0400] "GET /ferran/MotionInLimine.doc HTTP/1.1" 200 
+120320 "http://www.google.com/search?hl=en&lr=&ie=UTF-8&oe=UTF-8&q=violation+1180+new+york
+" "Mozilla/4.0 (compatible; MSIE 6.0; Windows 98; Win 9x 4.90; Roadrunner)"
+publicl.trane.com - - [08/Jul/2003:08:05:47 -0400] "GET /ferran/MotionInLimine.doc HTTP/1.0" 200 120320 "http://
+www.google.com/search?hl=en&lr=&ie=ISO-8859-1&q=%22new+York+state%22+%22%22traffic+law%22+1180-d&btnG=Google+Search
+" "Mozilla/4.0 (compatible; MSIE 5.01; Windows NT 5.0)"
+64.241.243.65 - - [08/Jul/2003:08:12:28 -0400] "GET /ferran/atvtrespass.html HTTP/1.1" 200 42061 "-" "Mozilla/4.0 
+compatible ZyBorg/1.0 (wn.zyborg@looksmart.net; http://www.WISEnutbot.com)"
+dpc6682051248.direcpc.com - - [08/Jul/2003:09:16:39 -0400] "GET /ferran/ HTTP/1.0" 200 1075 "http://www.swoam.com/
+SWOAMForum/00000035.htm" "Mozilla/4.7 [en] (WinNT; I)"
+dpc6682051248.direcpc.com - - [08/Jul/2003:09:16:51 -0400] "GET /ferran/atvtrespass.html HTTP/1.0" 200 52674 "http:/
+/billstclair.com/ferran/" "Mozilla/4.7 [en] (WinNT; I)"
+hse-ottawa-ppp161492.sympatico.ca - - [08/Jul/2003:09:35:06 -0400] "GET /ferran/markferran2.html HTTP/1.1" 304 - 
+"http://www.google.ca/search?q=supreme+court+of+usa+decision+on+sodom&hl=en&lr=&ie=UTF-8&oe=UTF-8&start=10&sa=N
+ " "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0; .NET CLR 1.1.4322)"
+sv-fw.looksmart.com - - [08/Jul/2003:10:15:11 -0400] "GET /ferran/atvtrespass.html HTTP/1.1" 200 11401 "-" "Mozilla/
+4.0 compatible ZyBorg/1.0 (wn.zyborg@looksmart.net; http://www.WISEnutbot.com)"
+dialup-wash-131-88.thebiz.net - - [08/Jul/2003:14:38:47 -0400] "GET /ferran/righttouseforce.html HTTP/1.1" 200 
+84977 "http://search.lycos.com/default.asp?query=magliato&first=131&pmore=more&ca=w&gi=0"  "Mozilla/4.0 
+(compatible; MSIE 5.5; Windows 98)"
+207.19.62.100 - - [09/Jul/2003:09:24:46 -0400] "GET /ferran/markferran1.html HTTP/1.1" 200 147407 "http://
+search.yahoo.com/search?p=landlock+laws+new+york&ei=UTF-8&vm=i&n=20&fl=0&xargs=0&b=21
+" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)"
+dialup-67.30.43.208.dial1.dallas1.level3.net - - [09/Jul/2003:11:09:40 - 0400] "GET /ferran/markferran1.html HTTP/
+1.0" 200 147407 "-" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; Q312461)"
+student3.brooklaw.edu - - [09/Jul/2003:11:25:36 -0400] "GET /ferran/AppellateBriefDraft1mod.doc HTTP/1.1" 200 
+221184 "http://www.google.com/search?hl=en&ie=UTF-8&oe=UTF-
+8&q=New+York+City+and+forfeiture+of+cars+and+strict+liability
+" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 4.0)"
+148.4.31.14 - - [09/Jul/2003:11:50:39 -0400] "GET /ferran/fourteenth.html HTTP/1.0" 200 15970 "http://
+www.google.com/search?q=14th+Amendment+history&hl=en&lr=&ie=UTF-8&start=10&sa=N
+" "Mozilla/4.7 [en] (Win98; I)"
+164.156.136.160 - - [09/Jul/2003:13:25:58 -0400] "GET /ferran/fourteenth.html HTTP/1.1" 200 15970 "http://
+lawcrawler.findlaw.com/scripts/lc.pl?sites=wlegal&lang=&entry=14th%20amendment&country=&start=25"  "Mozilla/4.0 
+(compatible; MSIE 6.0; Windows NT 5.1; .NET CLR 1.0.3705)"
+ip-66-218-248-36.cablemo.net - - [09/Jul/2003:13:47:07 -0400] "GET /ferran/fourteenth.html HTTP/1.0" 200 15970 
+"http://search.yahoo.com/search?fr=slv1&ei=UTF-8&p=when+was+14th+amendment+adopted%3f
+" "Mozilla/4.0 (compatible; MSIE 5.0; Windows 98; DigExt; ezn/32/63/ie; Hotbar 4.3.1.0)"
+adsl-153-84-18.bct.bellsouth.net - - [09/Jul/2003:13:49:32 -0400] "GET /ferran HTTP/1.1" 301 318 "-" "Twenty Two 
+Elm Street"
+adsl-153-84-18.bct.bellsouth.net - - [09/Jul/2003:13:49:33 -0400] "GET /ferran/ HTTP/1.1" 200 1075 "-" "Twenty Two 
+Elm Street"
+cache-dk01.proxy.aol.com - - [09/Jul/2003:14:08:41 -0400] "GET /ferran/atvtrespass.html HTTP/1.0" 200 52674 "http://
+aolsearch.aol.com/aol/search?query=destruction+of+vicious+dogs+nj&page=3"  "Mozilla/4.0 (compatible; MSIE 6.0; AOL 
+6.0; Windows 98)"
+67.105.118.19.ptr.us.xo.net - - [09/Jul/2003:14:14:57 -0400] "GET /ferran/righttouseforce.html HTTP/1.1" 200 84977 
+"http://www.google.com/search?q=Trespass+to+land+California+burglar&hl=en&lr=&ie=UTF-8&oe=UTF-8&start=20&sa=N
+ " "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)"
+67.105.118.19.ptr.us.xo.net - - [09/Jul/2003:14:20:49 -0400] "GET /ferran HTTP/1.1" 301 318 "http://billstclair.com/
+ferran/righttouseforce.html" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)"
+67.105.118.19.ptr.us.xo.net - - [09/Jul/2003:14:20:50 -0400] "GET /ferran/ HTTP/1.1" 200 1075 "http://
+billstclair.com/ferran/righttouseforce.html" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)"
+as5201-p095.dialin.iupui.edu - - [09/Jul/2003:14:38:50 -0400] "GET /ferran HTTP/1.1" 301 318 "-" "Mozilla/4.0 
+(compatible; MSIE 6.0; Windows 98)"
+as5201-p095.dialin.iupui.edu - - [09/Jul/2003:14:38:52 -0400] "GET /ferran/ HTTP/1.1" 200 1075 "-" "Mozilla/4.0 
+(compatible; MSIE 6.0; Windows 98)"
+as5201-p095.dialin.iupui.edu - - [09/Jul/2003:14:40:23 -0400] "GET /ferran/fourteenth.html HTTP/1.1" 200 15970 
+"http://billstclair.com/ferran/" "Mozilla/4.0 (compatible; MSIE 6.0; Windows 98)"
+alb-24-195-197-170.nycap.rr.com - - [09/Jul/2003:15:12:17 -0400] "GET /ferran/ HTTP/1.1" 200 1075 "http://
+www.google.com/search?sourceid=navclient&q=Mark+Ferran&X=1" "Mozilla/4.0 (compatible; MSIE 6.0; Windows 98; Hotbar 
+4.2.4.0)"
+alb-24-195-197-170.nycap.rr.com - - [09/Jul/2003:15:12:20 -0400] "GET /ferran/righttouseforce.html HTTP/1.1" 200 
+84977 "http://billstclair.com/ferran/" "Mozilla/4.0 (compatible; MSIE 6.0; Windows 98; Hotbar 4.2.4.0)"
+cache-rf08.proxy.aol.com - - [09/Jul/2003:16:17:10 -0400] "GET /ferran/righttouseforce.html HTTP/1.0" 200 84977 
+"http://aolsearch.aol.com/aol/
+search?invocationType=bottomsearchbox.%2Faol%2Fjsp%2Fsearch.jsp&query=newyor+states+driver+l&x=21&y=11"  "Mozilla/
+4.0 (compatible; MSIE 6.0; AOL 8.0; Windows NT 5.1)"
+adsl-66-122-67-207.dsl.snlo01.pacbell.net - - [09/Jul/2003:18:51:12 -0400] "GET /ferran/aneedforspeed.html HTTP/
+1.1" 200 78778 "http://www.google.com/search?q=Thompson+v.+Smith+,+154+S.E.+579,+584+(Va.+1930) 
+ ,+&hl=en&lr=&ie=UTF-8&oe=UTF-8&start=10&sa=N" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0)"
+scjlab2.scj.albany.edu - - [09/Jul/2003:20:33:59 -0400] "GET /ferran/atvtrespass.html HTTP/1.1" 200 52674 "http://
+search.msn.com/results.asp?RS=CHECKED&FORM=MSNH&v=1&q=trespassing+laws+in+Albany%2C+ny"  "Mozilla/4.0 (compatible; 
+MSIE 6.0; Windows NT 5.1)"
+roc-66-66-65-41.rochester.rr.com - - [09/Jul/2003:20:21:22 -0400] "GET /ferran/MotionInLimine.doc HTTP/1.1" 200 
+120320 "http://search.yahoo.com/bin/search?p=VTl+1180-+D&ei=UTF-8" "Mozilla/4.0 (compatible; MSIE 6.0; Windows 98; 
+YComp 5.0.2.6; .NET CLR 1.0.3705)"
+aca6ba60.ipt.aol.com - - [09/Jul/2003:22:17:37 -0400] "GET /ferran/MotionInLimine.doc HTTP/1.1" 200 120320 "http://
+search.yahoo.com/search?p=traffic+%22sec+1180%22&ei=UTF-8&vm=i&n=20&fl=0&x=wrt
+" "Mozilla/4.0 (compatible; MSIE 6.0; Windows 98)"
+aca6ba60.ipt.aol.com - - [09/Jul/2003:22:17:42 -0400] "OPTIONS /ferran HTTP/1.1" 301 318 "-" "Microsoft Data Access 
+Internet Publishing Provider Cache Manager"
+aca6ba60.ipt.aol.com - - [09/Jul/2003:22:17:48 -0400] "OPTIONS /ferran/MotionInLimine.doc HTTP/1.1" 200 - "-" 
+"Microsoft Data Access Internet Publishing Provider DAV"
+aca6ba60.ipt.aol.com - - [09/Jul/2003:22:23:58 -0400] "GET /ferran/aneedforspeed.html HTTP/1.1" 200 78778 "http://
+search.yahoo.com/search?p=traffic+violation+%22sec+1180%22&ei=UTF-8&vm=i&n=20&fl=0&vst=0&vs=billstclair.com
+" "Mozilla/4.0 (compatible; MSIE 6.0; Windows 98)"
+pool-162-83-222-179.ny5030.east.verizon.net - - [09/Jul/2003:21:47:33 - 0400] "HEAD /ferran/markferran1.html HTTP/
+1.1" 200 0 "-" "Mozilla/4.5 [en] (Win98; I)"
+64.241.243.65 - - [09/Jul/2003:22:02:20 -0400] "GET /ferran/atvtrespass.html HTTP/1.1" 200 17241 "-" "Mozilla/4.0 
+compatible ZyBorg/1.0 (wn.zyborg@looksmart.net; http://www.WISEnutbot.com)"
+210.187.123.10 - - [10/Jul/2003:00:50:40 -0400] "GET /ferran/atvtrespass.html HTTP/1.1" 200 43464 "http://
+search.yahoo.com/search?p=DoorKing+1610+price&ei=UTF-8&vm=i&n=20&fl=0&x=wrt
+" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1) "
+pool-162-84-192-231.ny5030.east.verizon.net - - [10/Jul/2003:00:47:37 - 0400] "GET /ferran/aneedforspeed.html HTTP/
+1.1" 200 78778 "http://www.google.com/search?hl=en&lr=&ie=UTF-8&oe=UTF-
+8&q=%22pretrial+memorandum+of+law%22+%2B%22new+york%22&spell=1
+" "Mozilla/4.0 (compatible; MSIE 6.0; Windows 98; Win 9x 4.90; Q312461)"
+netcache-2003.public.lawson.webtv.net - - [10/Jul/2003:07:58:03 -0400] "GET /ferran HTTP/1.1" 301 318 "-" "Mozilla/
+4.0 WebTV/2.6 (compatible; MSIE 4.0) "
+netcache-2003.public.lawson.webtv.net - - [10/Jul/2003:07:58:04 -0400] "GET /ferran/ HTTP/1.1" 200 1075 "http://
+billstclair.com/ferran" "Mozilla/4.0 WebTV/2.6 (compatible; MSIE 4.0)"
+gigablast.com - - [10/Jul/2003:08:06:41 -0400] "GET /ferran/index.html HTTP/1.0" 200 1075 "-" "Gigabot/1.0"
+netcache-2002.public.lawson.webtv.net - - [10/Jul/2003:07:58:21 -0400] "GET /ferran/atvtrespass.html HTTP/1.1" 200 
+52674 "http://billstclair.com/ferran/" "Mozilla/4.0 WebTV/2.6 (compatible; MSIE 4.0)"
+dig-140.wcta.net - - [10/Jul/2003:11:23:34 -0400] "GET /ferran HTTP/1.0" 301 306 "-" "Mozilla/4.72 [en] (Win98; U)"
+dig-140.wcta.net - - [10/Jul/2003:11:23:39 -0400] "GET /ferran/ HTTP/1.0" 200 1075 "-" "Mozilla/4.72 [en] (Win98; 
+U)"
+ws-207-213-160-221.washoe.k12.nv.us - - [10/Jul/2003:11:29:38 -0400] "GET /ferran/fourteenth.html HTTP/1.0" 200 
+15970 "http://www.google.com/search?q=14th+amendment&hl=en&lr=&ie=UTF-8&oe=UTF-8&start=50&sa=N
+" "Mozilla/4.0 (compatible; MSIE 5.5; Windows 98; T312461)"
+66.237.175.196.ptr.us.xo.net - - [10/Jul/2003:12:27:41 -0400] "GET /ferran/righttouseforce.html HTTP/1.1" 200 84977 
+"http://www.altavista.com/web/
+results?q=new+york+state+campgounds+%22deadly+physical+force%22&pptt=new+york+state+campgounds%7Fdeadly+physical+force&ppps=2" 
+ "Mozilla/4.0 (compatible; MSIE 6.0; Windows 98)"
+dig-140.wcta.net - - [10/Jul/2003:11:23:19 -0400] "GET /ferran HTTP/1.0" 301 306 "-" "Mozilla/4.72 [en] (Win98; U)"
+66.237.175.196.ptr.us.xo.net - - [10/Jul/2003:12:22:31 -0400] "GET /ferran/atvtrespass.html HTTP/1.1" 200 52674 
+"http://www.altavista.com/web/
+results?q=new+york+state+campgounds+%22deadly+physical+force%22&pptt=new+york+state+campgounds%7Fdeadly+physical+force&ppps=2" 
+ "Mozilla/4.0 (compatible; MSIE 6.0; Windows 98)"
+pool-162-84-203-179.ny5030.east.verizon.net - - [10/Jul/2003:14:17:01 - 0400] "GET /ferran/
+AppellateBriefDraft1mod.doc HTTP/1.1" 200 221184 "http://www.google.com/search?hl=en&lr=&ie=UTF-8&oe=UTF-
+8&q=nys+vehicle++traffic+sec+1180+
+" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)"
+pool-162-84-203-179.ny5030.east.verizon.net - - [10/Jul/2003:14:17:21 - 0400] "PROPFIND /ferran HTTP/1.1" 301 318 "-
+" "Microsoft-WebDAV- MiniRedir/5.1.2600"
+pool-162-84-203-179.ny5030.east.verizon.net - - [10/Jul/2003:14:17:21 - 0400] "PROPFIND /ferran/ HTTP/1.1" 405 323 
+"-" "Microsoft-WebDAV- MiniRedir/5.1.2600"
+pool-162-84-203-179.ny5030.east.verizon.net - - [10/Jul/2003:14:17:21 - 0400] "PROPFIND /ferran HTTP/1.1" 301 318 "-
+" "Microsoft-WebDAV- MiniRedir/5.1.2600"
+pool-162-84-203-179.ny5030.east.verizon.net - - [10/Jul/2003:14:17:21 - 0400] "PROPFIND /ferran/ HTTP/1.1" 405 323 
+"-" "Microsoft-WebDAV- MiniRedir/5.1.2600"
+pool-162-84-203-179.ny5030.east.verizon.net - - [10/Jul/2003:14:17:21 - 0400] "PROPFIND /ferran HTTP/1.1" 301 318 "-
+" "Microsoft-WebDAV- MiniRedir/5.1.2600"
+pool-162-84-203-179.ny5030.east.verizon.net - - [10/Jul/2003:14:17:21 - 0400] "PROPFIND /ferran/ HTTP/1.1" 405 323 
+"-" "Microsoft-WebDAV- MiniRedir/5.1.2600"
+165.189.102.161 - - [10/Jul/2003:15:22:00 -0400] "GET /ferran HTTP/1.1" 301 318 "http://www.swoam.com/SWOAMForum/
+00000035.htm" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0)"
+165.189.102.161 - - [10/Jul/2003:15:22:00 -0400] "GET /ferran/ HTTP/1.1" 200 1075 "http://www.swoam.com/SWOAMForum/
+00000035.htm" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0)"
+165.189.102.161 - - [10/Jul/2003:15:22:12 -0400] "GET /ferran/atvtrespass.html HTTP/1.1" 200 52674 "http://
+billstclair.com/ferran/" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0)"
+12.107.152.37 - - [10/Jul/2003:15:40:59 -0400] "GET /ferran/ HTTP/1.0" 200 1075 "http://search.yahoo.com/bin/
+search?p=mark+ferran" "Mozilla/5.0 (Windows; U; WinNT4.0; en-US; rv:1.0.1) Gecko/20020823 Netscape/7.0 (CK- NYS-
+OAG)"
+12.107.152.37 - - [10/Jul/2003:15:41:11 -0400] "GET /ferran/atvtrespass.html HTTP/1.0" 200 52674 "http://
+billstclair.com/ferran/" "Mozilla/5.0 (Windows; U; WinNT4.0; en-US; rv:1.0.1) Gecko/20020823 Netscape/7.0 (CK-NYS-
+OAG)"
+cache-mtc-ag03.proxy.aol.com - - [10/Jul/2003:17:09:14 -0400] "GET /ferran/MotionInLimine.doc HTTP/1.0" 200 120320 
+"http://www.google.com/search?hl=en&lr=&ie=ISO-8859-
+1&q=section+1180+of+new+york+state+vehicle+and+traffic+law+&btnG=Google+Search
+"  "Mozilla/4.0 (compatible; MSIE 5.5; AOL 8.0; Windows 98; AT&T CSM6.0; YComp 5.0.2.5)"
+12.144.29.99 - - [10/Jul/2003:18:08:33 -0400] "GET /ferran/MotionInLimine.doc HTTP/1.0" 200 120320 "http://
+www.google.com/search?hl=en&lr=&ie=ISO-8859-1&q=new+york+state+VTL+1180&btnG=Google+Search
+" "Mozilla/4.0 (compatible; MSIE 5.01; Windows NT 5.0; AT&T CSM6.0)"
+ool-182d7560.dyn.optonline.net - - [10/Jul/2003:21:45:36 -0400] "GET /ferran/markferran1.html HTTP/1.1" 200 147407 
+"http://www.google.com/search?hl=en&lr=&ie=UTF-8&oe=UTF-8&q=ny+state+penal+laws+chapter+40+penal+pointing+a+gun
+" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; YComp 5.0.2.5)"
+24-90-53-240.nyc.rr.com - - [11/Jul/2003:00:18:26 -0400] "GET /ferran/righttouseforce.html HTTP/1.1" 200 84977 
+"http://www.google.com/search?q=%22city+of+new+york%22+code+fence+driveway&hl=en&lr=&ie=UTF-8&oe=UTF-8&start=10&sa=N
+ " "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)"
+24-193-20-245.nyc.rr.com - - [11/Jul/2003:01:27:17 -0400] "OPTIONS /ferran HTTP/1.1" 301 318 "-" "Microsoft Data 
+Access Internet Publishing Provider Cache Manager"
+24-193-20-245.nyc.rr.com - - [11/Jul/2003:01:27:18 -0400] "OPTIONS /ferran/AppellateBriefDraft1mod.doc HTTP/1.1" 
+200 - "-" "Microsoft Data Access Internet Publishing Provider DAV 1.1"
+66.150.40.81 - - [11/Jul/2003:02:18:35 -0400] "GET /ferran/MotionInLimine.doc HTTP/1.1" 200 17211 "-" 
+"sitecheck.internetseer.com (For more info see: http://sitecheck.internetseer.com)"
+66.150.40.70 - - [11/Jul/2003:02:24:26 -0400] "GET /ferran/AppellateBriefDraft1mod.doc HTTP/1.1" 200 14291 "-" 
+"sitecheck.internetseer.com (For more info see: http://sitecheck.internetseer.com)"
+66.150.40.70 - - [11/Jul/2003:02:29:21 -0400] "GET /ferran/MemorandumOfLawFaxedtoJudge.doc HTTP/1.1" 200 17212 "-" 
+"sitecheck.internetseer.com (For more info see: http://sitecheck.internetseer.com)"
+66.150.40.70 - - [11/Jul/2003:02:31:54 -0400] "GET /ferran/www.geocities.com/SoHo/Gallery/3452/nonleth.htm HTTP/
+1.1" 404 1650 "-" "sitecheck.internetseer.com (For more info see: http://sitecheck.internetseer.com)"
+pm60.internetseer.net - - [11/Jul/2003:02:19:42 -0400] "GET /ferran/outdoors.mainetoday.com/hunting/
+011128underwoo.shtml HTTP/1.1" 404 1650 "-" "sitecheck.internetseer.com (For more info see: http://
+sitecheck.internetseer.com)"
+ss1.bluebird.ibm.com - - [11/Jul/2003:07:04:23 -0400] "GET /ferran/ HTTP/1.1" 200 1075 "http://search.yahoo.com/bin/
+search?p=billstclair&ei=UTF-8" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0; YComp 5.0.2.6)"
+nh-mtvernon-cmts2c-104.lndnnh.adelphia.net - - [11/Jul/2003:07:26:44 -0400] "GET /ferran HTTP/1.1" 301 318 "http://
+www.swoam.com/SWOAMForum/00000035.htm" "Mozilla/4.0 (compatible; MSIE 5.5; Windows 98; sureseeker.com)"
+nh-mtvernon-cmts2c-104.lndnnh.adelphia.net - - [11/Jul/2003:07:26:44 -0400] "GET /ferran/ HTTP/1.1" 200 1075 "http:/
+/www.swoam.com/SWOAMForum/00000035.htm" "Mozilla/4.0 (compatible; MSIE 5.5; Windows 98; sureseeker.com)"
+nh-mtvernon-cmts2c-104.lndnnh.adelphia.net - - [11/Jul/2003:07:26:59 -0400] "GET /ferran/markferran2.html HTTP/1.1" 
+200 38747 "http://billstclair.com/ferran/" "Mozilla/4.0 (compatible; MSIE 5.5; Windows 98; sureseeker.com)"
+nh-mtvernon-cmts2c-104.lndnnh.adelphia.net - - [11/Jul/2003:07:28:15 -0400] "GET /ferran/atvtrespass.html HTTP/1.1" 
+200 52674 "http://billstclair.com/ferran/" "Mozilla/4.0 (compatible; MSIE 5.5; Windows 98; sureseeker.com)"
+cache.d-n-a.net - - [11/Jul/2003:07:50:08 -0400] "GET /ferran/ HTTP/1.1" 200 1075 "http://uk.search.yahoo.com/
+search/ukie?p=ferran&y=y" "Mozilla/4.0 (compatible; MSIE 5.01; Windows NT 5.0)"
+nh-mtvernon-cmts2c-104.lndnnh.adelphia.net - - [11/Jul/2003:07:27:06 -0400] "GET /ferran/righttouseforce.html HTTP/
+1.1" 200 84977 "http://billstclair.com/ferran/" "Mozilla/4.0 (compatible; MSIE 5.5; Windows 98; sureseeker.com)"
+12-238-242-170.client.attbi.com - - [11/Jul/2003:08:50:39 -0400] "GET /ferran/markferran2.html HTTP/1.1" 200 38747 
+"http://www.google.com/search?q=clear+caselaw+fifth+circuit+unlawful+carry+weapon&hl=en&lr=&ie=UTF-8&oe=UTF-
+8&start=10&sa=N
+ " "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; Q312461)"
+64.241.243.65 - - [11/Jul/2003:11:12:18 -0400] "GET /ferran/atvtrespass.html HTTP/1.1" 200 52674 "-" "Mozilla/4.0 
+compatible ZyBorg/1.0 (wn.zyborg@looksmart.net; http://www.WISEnutbot.com)"
+12.33.124.227 - - [11/Jul/2003:12:20:00 -0400] "GET /ferran/markferran1.html HTTP/1.1" 206 118765 "http://
+search.yahoo.com/search?p=Misevis&ei=UTF-8&vm=i&n=20&fl=0&x=wrt" "Mozilla/4.0 (compatible; MSIE 5.5; Windows NT 
+4.0)"
+64.158.138.48 - - [11/Jul/2003:16:31:25 -0400] "GET /ferran/index.html HTTP/1.1" 200 1075 "-" "Mozilla/4.7 
+(compatible; Intelliseek; http://www.intelliseek.com)"
+pion.ext.extranet.xerox.com - - [11/Jul/2003:17:34:49 -0400] "GET /ferran/righttouseforce.html HTTP/1.0" 200 84977 
+"-" "Mozilla/3.01 (compatible;)"
+ool-4357b1a8.dyn.optonline.net - - [11/Jul/2003:20:47:37 -0400] "GET /ferran/MotionInLimine.doc HTTP/1.1" 200 
+120320 "-" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0)"
+ool-4357b1a8.dyn.optonline.net - - [11/Jul/2003:20:47:39 -0400] "OPTIONS /ferran HTTP/1.1" 301 318 "-" "Microsoft 
+Data Access Internet Publishing Provider Cache Manager"
+ool-4357b1a8.dyn.optonline.net - - [11/Jul/2003:20:47:41 -0400] "OPTIONS /ferran/MotionInLimine.doc HTTP/1.1" 200 - 
+"-" "Microsoft Data Access Internet Publishing Provider DAV 1.1"
+24-193-68-80.nyc.rr.com - - [11/Jul/2003:21:57:24 -0400] "GET /ferran/righttouseforce.html HTTP/1.1" 200 84977 
+"http://www.google.com/search?q=People+v+Scott+d,+34+N.Y.+2d+588+decision&hl=en&lr=&ie=UTF-8&oe=UTF-
+8&as_qdr=all&start=30&sa=N
+ " "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; Q312461; Roadrunner; YComp 5.0.0.0)"
+user-0c93d22.cable.mindspring.com - - [12/Jul/2003:01:13:23 -0400] "GET /ferran HTTP/1.1" 301 318 "http://
+members.aol.com/_ht_a/edsfreedom/myhomepage/profile.html?mtbrand=AOL_US"  "Mozilla/4.0 (compatible; MSIE 5.5; 
+Windows 98)"
+user-0c93d22.cable.mindspring.com - - [12/Jul/2003:01:13:23 -0400] "GET /ferran/ HTTP/1.1" 200 1075 "http://
+members.aol.com/_ht_a/edsfreedom/myhomepage/profile.html?mtbrand=AOL_US"  "Mozilla/4.0 (compatible; MSIE 5.5; 
+Windows 98)"
+user-0c93d22.cable.mindspring.com - - [12/Jul/2003:01:14:28 -0400] "GET /ferran/fourteenth.html HTTP/1.1" 200 15970 
+"http://billstclair.com/ferran/" "Mozilla/4.0 (compatible; MSIE 5.5; Windows 98)"
+167.127.24.26 - - [12/Jul/2003:04:47:55 -0400] "GET /ferran HTTP/1.1" 301 318 "-" "Mozilla/4.0 (compatible; MSIE 
+5.5; Windows NT 5.0; D4; T312461)"
+167.127.24.26 - - [12/Jul/2003:04:47:56 -0400] "GET /ferran/ HTTP/1.1" 200 1075 "-" "Mozilla/4.0 (compatible; MSIE 
+5.5; Windows NT 5.0; D4; T312461)"
+167.127.24.26 - - [12/Jul/2003:04:48:20 -0400] "GET /ferran/righttouseforce.html HTTP/1.1" 200 84977 "http://
+billstclair.com/ferran/" "Mozilla/4.0 (compatible; MSIE 5.5; Windows NT 5.0; D4; T312461)"
+ppp164.mn.centurytel.net - - [12/Jul/2003:11:13:29 -0400] "GET /ferran/atvtrespass.html HTTP/1.1" 304 - "http://
+search.msn.com/results.aspx?q=damage+caused+by+ATV&FORM=SMCRT" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; 
+Hotbar 4.2.11.0)"
+madmax-42.sfsu.edu - - [12/Jul/2003:14:48:06 -0400] "GET /ferran/fourteenth.html HTTP/1.1" 200 15970 "http://
+www.google.com/search?hl=en&lr=&ie=UTF-8&oe=UTF-8&q=The+14th+amendment+and+its+purposes
+" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)"
+63.148.99.253 - - [12/Jul/2003:14:56:49 -0400] "GET /ferran/index.html HTTP/1.0" 200 1075 "-" "Mozilla/4.0 
+(compatible; MSIE 5.01; Windows NT 5.0) "
+adsl-67-121-72-240.dsl.snfc21.pacbell.net - - [12/Jul/2003:16:44:21 -0400] "GET /ferran/fourteenth.html HTTP/1.1" 
+200 15970 "http://www.google.com/search?q=%22fourteenth+amendment%22+%22privileges+and+immunities%22+purpose&ie=UTF-
+8&oe=UTF-8&hl=ja&lr=
+ " "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; YComp 5.0.0.0; Overture)"
+hsa132.pool032.at101.earthlink.net - - [12/Jul/2003:20:00:18 -0400] "GET /ferran/batviolence.html HTTP/1.1" 200 
+34560 "http://search.yahoo.com/search?fr=slv1&ei=UTF-8&p=bum+stomping" "Mozilla/4.0 (compatible; MSIE 6.0; Windows 
+NT 5.1; YComp 5.0.2.6)"
+ip-12-32-65-157.utionline.net - - [12/Jul/2003:21:57:25 -0400] "GET /ferran/atvtrespass.html HTTP/1.1" 206 16763 
+"http://www.google.com/search?hl=en&ie=UTF-8&oe=UTF-
+8&q=kentucky+state+dogs+laws+on+vicious+dogs+chasing+people+and+running+loose
+"  "Mozilla/4.0 (compatible; MSIE 6.0; Windows 98)"
+cache-rg05.proxy.aol.com - - [12/Jul/2003:22:29:43 -0400] "GET /ferran HTTP/1.0" 301 306 "http://profiles.yahoo.com/
+nylandowner" "Mozilla/5.0 (Windows; U; Win98; en-US; rv:0.9.4.2) Gecko/20021112 CS 2000 7.0/7.0"
+cache-rg05.proxy.aol.com - - [12/Jul/2003:22:29:44 -0400] "GET /ferran HTTP/1.1" 301 318 "http://profiles.yahoo.com/
+nylandowner" "Mozilla/5.0 (Windows; U; Win98; en-US; rv:0.9.4.2) Gecko/20021112 CS 2000 7.0/7.0"
+cache-rg08.proxy.aol.com - - [12/Jul/2003:22:29:44 -0400] "GET /ferran/ HTTP/1.0" 200 1075 "http://
+profiles.yahoo.com/nylandowner" "Mozilla/5.0 (Windows; U; Win98; en-US; rv:0.9.4.2) Gecko/20021112 CS 2000 7.0/7.0"
+cvg-65-27-221-185.cinci.rr.com - - [12/Jul/2003:22:39:42 -0400] "GET /ferran/batviolence.html HTTP/1.1" 200 34560 
+"http://www.google.com/search?q=baltimore+%22bum+stomping%22" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 
+5.1; .NET CLR 1.0.3705; .NET CLR 1.1.4322)"
+dialup-4.72.106.246.dial1.orlando1.level3.net - - [13/Jul/2003:00:02:15 - 0400] "GET /ferran/fourteenth.html HTTP/
+1.1" 200 15970 "http://search.yahoo.com/search?ei=UTF-8&p=Fourteenth+Amendment&xargs=&fr=slv1&b=101
+" "Mozilla/4.0 (compatible; MSIE 5.5; Windows 98; YComp 5.0.2.5)"
+24-148-17-119.na.21stcentury.net - - [13/Jul/2003:01:05:48 -0400] "GET /ferran/batviolence.html HTTP/1.1" 200 34560 
+"http://www.google.com/search?q=bum+stomping&hl=en&lr=&ie=UTF-8&oe=UTF-8&start=10&sa=N
+" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0; Q312461; .NET CLR 1.1.4322)"
+ny-utica8c-37.aburny.adelphia.net - - [13/Jul/2003:02:59:54 -0400] "GET /ferran/MotionInLimine.doc HTTP/1.1" 200 
+120320 "http://www.google.com/search?num=20&hl=ja&ie=UTF-8&oe=UTF-8&q=violation+speed+new+york+1180+D&lr=
+" "Mozilla/4.0 (compatible; MSIE 6.0; Windows 98; Q312461)"
+e23.ryd.student.liu.se - - [13/Jul/2003:03:27:19 -0400] "GET /ferran/batviolence.html HTTP/1.1" 200 34560 "http://
+www.google.com/search?q=bum+stomping&hl=en&lr=&ie=UTF-8&oe=UTF-8&start=10&sa=N
+" "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.5a) Gecko/20030702"
+dyn117037.shef.ac.uk - - [13/Jul/2003:05:38:31 -0400] "GET /ferran/batviolence.html HTTP/1.0" 200 34560 "http://
+www.google.com/search?hl=en&ie=ISO-8859-1&q=%22bum+stomping%22+crime+case+baltimore
+" "Mozilla/4.0 (compatible; MSIE 5.0; Windows 98; DigExt)"
+63.146.82.179 - - [13/Jul/2003:08:49:43 -0400] "GET /ferran/markferran1.html HTTP/1.1" 200 147407 "http://
+www.google.com/search?q=Disinherited+heirs+Attorney+Chicago&hl=en&lr=&ie=UTF-8&start=20&sa=N
+ " "Mozilla/4.0 (compatible; MSIE 5.01; Windows 98)"
+pcp04369562pcs.nrockv01.md.comcast.net - - [13/Jul/2003:09:51:39 -0400] "GET /ferran/batviolence.html HTTP/1.1" 200 
+34560 "http://search.netscape.com/nscp_results.adp?source=NSCPResults&query=%22bum+stomping%22+race&x=0&y=0"  
+"Mozilla/5.0 (Macintosh; U; PPC Mac OS X; en-us) AppleWebKit/85 (KHTML, like Gecko) Safari/85"
+netcache-2003.public.lawson.webtv.net - - [13/Jul/2003:12:54:53 -0400] "GET /ferran HTTP/1.1" 301 318 "-" "Mozilla/
+4.0 WebTV/2.6 (compatible; MSIE 4.0) "
+netcache-2003.public.lawson.webtv.net - - [13/Jul/2003:12:54:54 -0400] "GET /ferran/ HTTP/1.1" 304 - "http://
+billstclair.com/ferran" "Mozilla/4.0 WebTV/2.6 (compatible; MSIE 4.0)"
+h-68-164-238-70.lsanca54.covad.net - - [13/Jul/2003:13:22:27 -0400] "GET /ferran/righttouseforce.html HTTP/1.1" 200 
+84977 "http://search.yahoo.com/search?p=%22severe+tire+damage%22+spikes+regulations&ei=UTF-8&vm=i&n=20&fl=0&x=wrt
+ " "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1) "
+66.205.18.149 - - [13/Jul/2003:13:31:47 -0400] "GET /ferran/ HTTP/1.0" 200 1075 "-" "Mozilla/4.0 (compatible; MSIE 
+6.0; Windows 98)"
+64.241.243.65 - - [13/Jul/2003:14:12:04 -0400] "GET /ferran/atvtrespass.html HTTP/1.1" 200 28921 "-" "Mozilla/4.0 
+compatible ZyBorg/1.0 (wn.zyborg@looksmart.net; http://www.WISEnutbot.com)"
+ip68-7-118-200.sd.sd.cox.net - - [13/Jul/2003:15:17:56 -0400] "GET /ferran/batviolence.html HTTP/1.1" 200 34560 
+"http://search.yahoo.com/bin/search?p=bum+stomping&ei=UTF-8" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)"
+ip68-7-118-200.sd.sd.cox.net - - [13/Jul/2003:15:19:51 -0400] "GET /ferran/batviolence.html HTTP/1.1" 304 - "http://
+search.yahoo.com/bin/search?p=bum+stomping&ei=UTF-8" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)"
+clgr005181.hs.telusplanet.net - - [13/Jul/2003:15:40:07 -0400] "GET /ferran/batviolence.html HTTP/1.1" 200 34560 
+"http://www.google.ca/search?q=bum+stomping&hl=en&lr=&ie=UTF-8&oe=UTF-8&start=10&sa=N
+" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; Hotbar 4.1.8.0)"
+207.81.38.230 - - [13/Jul/2003:16:25:40 -0400] "GET /ferran HTTP/1.1" 301 318 "-" "Mozilla/4.0 (compatible; MSIE 
+6.0; Windows 98; (R1 1.3); .NET CLR 1.1.4322)"
+207.81.38.230 - - [13/Jul/2003:16:25:40 -0400] "GET /ferran/ HTTP/1.1" 200 1075 "-" "Mozilla/4.0 (compatible; MSIE 
+6.0; Windows 98; (R1 1.3); .NET CLR 1.1.4322)"
+207.81.38.230 - - [13/Jul/2003:16:25:50 -0400] "GET /ferran/markferran1.html HTTP/1.1" 200 147407 "-" "Mozilla/4.0 
+(compatible; MSIE 6.0; Windows 98; (R1 1.3); .NET CLR 1.1.4322)"
+207.81.38.230 - - [13/Jul/2003:16:26:25 -0400] "GET /ferran/atvtrespass.html HTTP/1.1" 200 52674 "-" "Mozilla/4.0 
+(compatible; MSIE 6.0; Windows 98; (R1 1.3); .NET CLR 1.1.4322)"
+adsl-34-224-214.bct.bellsouth.net - - [13/Jul/2003:19:07:43 -0400] "GET /ferran/batviolence.html HTTP/1.1" 200 
+34560 "http://www.google.com/search?hl=en&lr=&ie=UTF-8&oe=UTF-8&q=baltimore+teens+sentenced+for+bum+stomping
+" "Mozilla/4.0 (compatible; MSIE 6.0; Windows 98; Win 9x 4.90; .NET CLR 1.0.3705; MSN 6.1; MSNbMSFT; MSNmen-us; 
+MSNc00; v5m)"
+216.239.37.5 - - [13/Jul/2003:18:15:14 -0400] "GET /ferran/batviolence.html HTTP/1.0" 200 34560 "http://
+www.google.com/search?q=bum+stomping&start=10&hl=en&lr=&ie=UTF-8&safe=off&output=gv&oi=gvlink&sa=N
+" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; Q312461)"
+138.92.27.71 - - [13/Jul/2003:22:24:29 -0400] "GET /ferran/aneedforspeed.html HTTP/1.1" 200 78778 "http://
+www.google.com/search?hl=en&lr=&ie=UTF-8&oe=UTF-8&q=%22NYS%22+AND+%22traffic+violations%22+AND+%221180%22
+" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)"
+hdslppp220.spkn.uswest.net - - [13/Jul/2003:22:46:41 -0400] "GET /ferran/markferran2.html HTTP/1.1" 200 38747 
+"http://www.google.com/search?hl=en&lr=&ie=UTF-8&oe=UTF-
+8&q=Laws+owning+swords%2C+%22US+constitution%22&btnG=Google+Search
+" "Mozilla/4.0 (compatible; MSIE 6.0; Windows 98; Win 9x 4.90; c_athome)"
+resnet70-236.resnet.buffalo.edu - - [13/Jul/2003:23:04:29 -0400] "GET /ferran/MotionInLimine.doc HTTP/1.1" 200 
+120320 "http://www.google.com/search?sourceid=navclient&ie=UTF-8&oe=UTF-8&q=new+york+state+1180+d
+" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)"
+h000094b78ab4.ne.client2.attbi.com - - [13/Jul/2003:23:10:36 -0400] "GET /ferran/markferran1.html HTTP/1.1" 200 
+147407 "http://www.comcast.net/qry/
+websearch?query=MASSACHUSETTS+CRIMINAL+EVIDENCE+REFERED+TO+AS+DISCOVERY%2E+LEGAL+RIGHTS+FOR+ACCUSED&safe=on&as_qdr=all&lr=&base=10&num=10" 
+ "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)"
+resnet70-236.resnet.buffalo.edu - - [13/Jul/2003:23:25:05 -0400] "GET /ferran/ HTTP/1.1" 200 1075 "-" "Mozilla/4.0 
+(compatible; MSIE 6.0; Windows NT 5.1)"
+resnet70-236.resnet.buffalo.edu - - [13/Jul/2003:23:25:06 -0400] "PROPFIND /ferran HTTP/1.1" 301 318 "-" "Microsoft-
+WebDAV-MiniRedir/5.1.2600"
+resnet70-236.resnet.buffalo.edu - - [13/Jul/2003:23:25:08 -0400] "PROPFIND /ferran/ HTTP/1.1" 405 323 "-" 
+"Microsoft-WebDAV-MiniRedir/5.1.2600"
+resnet70-236.resnet.buffalo.edu - - [13/Jul/2003:23:25:19 -0400] "PROPFIND /ferran HTTP/1.1" 301 318 "-" "Microsoft-
+WebDAV-MiniRedir/5.1.2600"
+resnet70-236.resnet.buffalo.edu - - [13/Jul/2003:23:25:19 -0400] "PROPFIND /ferran/ HTTP/1.1" 405 323 "-" 
+"Microsoft-WebDAV-MiniRedir/5.1.2600"
+resnet70-236.resnet.buffalo.edu - - [13/Jul/2003:23:25:20 -0400] "PROPFIND /ferran HTTP/1.1" 301 318 "-" "Microsoft-
+WebDAV-MiniRedir/5.1.2600"
+resnet70-236.resnet.buffalo.edu - - [13/Jul/2003:23:25:20 -0400] "PROPFIND /ferran/ HTTP/1.1" 405 323 "-" 
+"Microsoft-WebDAV-MiniRedir/5.1.2600"
+resnet70-236.resnet.buffalo.edu - - [13/Jul/2003:23:25:37 -0400] "GET /ferran/aneedforspeed.html HTTP/1.1" 200 
+78778 "http://billstclair.com/ferran/" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)"
+cache-rl05.proxy.aol.com - - [14/Jul/2003:00:54:07 -0400] "GET /ferran HTTP/1.0" 301 306 "-" "Mozilla/4.0 
+(compatible; MSIE 6.0; AOL 7.0; Windows NT 5.1; YComp 5.0.0.0; .NET CLR 1.0.3705)"
+cache-rg08.proxy.aol.com - - [14/Jul/2003:00:54:13 -0400] "GET /ferran/ HTTP/1.0" 304 - "-" "Mozilla/4.0 
+(compatible; MSIE 6.0; AOL 7.0; Windows NT 5.1; YComp 5.0.0.0; .NET CLR 1.0.3705)"
+resnet70-236.resnet.buffalo.edu - - [13/Jul/2003:23:25:13 -0400] "GET /ferran/batviolence.html HTTP/1.1" 200 34560 
+"http://billstclair.com/ferran/" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)"
+rrcs-nys-24-97-71-229.biz.rr.com - - [14/Jul/2003:05:06:37 -0400] "GET /ferran/righttouseforce.html HTTP/1.1" 200 
+84977 "http://www.google.com/search?sourceid=navclient&q=McKinney%27s+Law+Reckless+Endangerment+2nd+degree"  
+"Mozilla/4.0 (compatible; MSIE 6.0; Windows 98)"
+209-63-242-197.nrp6.mon.ny.frontiernet.net - - [14/Jul/2003:10:43:49 -0400] "GET /ferran/ HTTP/1.1" 200 1075 "http:/
+/groups.yahoo.com/group/NYConstitutionParty/message/4533" "Mozilla/4.0 (compatible; MSIE 6.0; Windows 98)"
+209-63-242-197.nrp6.mon.ny.frontiernet.net - - [14/Jul/2003:10:44:00 -0400] "GET /ferran/fourteenth.html HTTP/1.1" 
+200 15970 "http://billstclair.com/ferran/" "Mozilla/4.0 (compatible; MSIE 6.0; Windows 98)"
+66.88.43.226.ptr.us.xo.net - - [14/Jul/2003:12:31:24 -0400] "GET /ferran/MotionInLimine.doc HTTP/1.1" 200 120320 
+"http://search.yahoo.com/bin/search?p=statute+VTL+section+1180+&ei=UTF-8" "Mozilla/4.0 (compatible; MSIE 6.0; 
+Windows NT 5.0; .NET CLR 1.0.3705)"
+alb-24-195-197-170.nycap.rr.com - - [14/Jul/2003:12:57:48 -0400] "GET /ferran/ HTTP/1.1" 200 1075 "http://
+www.google.com/search?sourceid=navclient&q=Mark+Ferran&X=1" "Mozilla/4.0 (compatible; MSIE 6.0; Windows 98; Hotbar 
+4.2.4.0)"
+alb-24-195-197-170.nycap.rr.com - - [14/Jul/2003:13:23:25 -0400] "GET /ferran/righttouseforce.html HTTP/1.1" 304 - 
+"http://billstclair.com/ferran/" "Mozilla/4.0 (compatible; MSIE 6.0; Windows 98; Hotbar 4.2.4.0)"
+alb-24-195-197-170.nycap.rr.com - - [14/Jul/2003:13:29:19 -0400] "GET /ferran/ HTTP/1.1" 200 1075 "http://
+www.google.com/search?sourceid=navclient&q=Mark+Ferran&X=1" "Mozilla/4.0 (compatible; MSIE 6.0; Windows 98; Hotbar 
+4.2.4.0)"
+alb-24-195-197-170.nycap.rr.com - - [14/Jul/2003:13:29:21 -0400] "GET /ferran/atvtrespass.html HTTP/1.1" 200 52674 
+"http://billstclair.com/ferran/" "Mozilla/4.0 (compatible; MSIE 6.0; Windows 98; Hotbar 4.2.4.0)"
+host-216-153-210-211.man.choiceone.net - - [14/Jul/2003:13:34:02 -0400] "GET /ferran HTTP/1.1" 301 318 "http://
+www.swoam.com/SWOAMForum/00000035.htm" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; .NET CLR 1.0.3705)"
+host-216-153-210-211.man.choiceone.net - - [14/Jul/2003:13:34:02 -0400] "GET /ferran/ HTTP/1.1" 200 1075 "http://
+www.swoam.com/SWOAMForum/00000035.htm" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; .NET CLR 1.0.3705)"
+host-216-153-210-211.man.choiceone.net - - [14/Jul/2003:13:34:10 -0400] "GET /ferran/atvtrespass.html HTTP/1.1" 200 
+52674 "http://billstclair.com/ferran/" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; .NET CLR 1.0.3705)"
+host-216-153-210-211.man.choiceone.net - - [14/Jul/2003:13:35:20 -0400] "GET /ferran HTTP/1.1" 301 318 "http://
+billstclair.com/ferran/atvtrespass.html" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; .NET CLR 1.0.3705)"
+ip66-106-60-3.z60-106-66.customer.algx.net - - [14/Jul/2003:13:42:28 -0400] "GET /ferran/MotionInLimine.doc HTTP/
+1.1" 200 98933 "http://www.google.com/search?hl=en&lr=&ie=UTF-8&oe=UTF-
+8&q=+%22new+York%22+and+vtl&btnG=Google+Search
+" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0)"
+adsl-66-123-54-127.dsl.lsan03.pacbell.net - - [14/Jul/2003:13:59:18 -0400] "HEAD /ferran HTTP/1.1" 301 0 "-" "Xenu 
+Link Sleuth 1.2d"
+adsl-66-123-54-127.dsl.lsan03.pacbell.net - - [14/Jul/2003:13:59:19 -0400] "HEAD /ferran/ HTTP/1.1" 200 0 "-" "Xenu 
+Link Sleuth 1.2d"
+adsl-66-123-54-127.dsl.lsan03.pacbell.net - - [14/Jul/2003:13:59:24 -0400] "HEAD /ferran/atvtrespass.html HTTP/1.1" 
+200 0 "-" "Xenu Link Sleuth 1.2d"
+alachua.ocadm.rl.af.mil - - [14/Jul/2003:14:00:58 -0400] "GET /ferran/AppellateBriefDraft1mod.doc HTTP/1.1" 200 
+221184 "http://www.google.com/search?hl=en&ie=UTF-8&oe=UTF-8&q=%22in+violation+of%22+NYS+sec+1180
+" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)"
+alachua.ocadm.rl.af.mil - - [14/Jul/2003:14:02:50 -0400] "PROPFIND /ferran HTTP/1.1" 301 318 "-" "Microsoft-WebDAV-
+MiniRedir/5.1.2600"
+alachua.ocadm.rl.af.mil - - [14/Jul/2003:14:02:50 -0400] "PROPFIND /ferran/ HTTP/1.1" 405 323 "-" "Microsoft-WebDAV-
+MiniRedir/5.1.2600"
+alachua.ocadm.rl.af.mil - - [14/Jul/2003:14:02:50 -0400] "PROPFIND /ferran HTTP/1.1" 301 318 "-" "Microsoft-WebDAV-
+MiniRedir/5.1.2600"
+alachua.ocadm.rl.af.mil - - [14/Jul/2003:14:02:50 -0400] "PROPFIND /ferran/ HTTP/1.1" 405 323 "-" "Microsoft-WebDAV-
+MiniRedir/5.1.2600"
+alachua.ocadm.rl.af.mil - - [14/Jul/2003:14:02:50 -0400] "PROPFIND /ferran HTTP/1.1" 301 318 "-" "Microsoft-WebDAV-
+MiniRedir/5.1.2600"
+alachua.ocadm.rl.af.mil - - [14/Jul/2003:14:02:50 -0400] "PROPFIND /ferran/ HTTP/1.1" 405 323 "-" "Microsoft-WebDAV-
+MiniRedir/5.1.2600"
+alachua.ocadm.rl.af.mil - - [14/Jul/2003:14:02:54 -0400] "GET /ferran/AppellateBriefDraft1mod.doc HTTP/1.1" 304 - "-
+" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)"
+alb-24-195-197-170.nycap.rr.com - - [14/Jul/2003:14:16:50 -0400] "GET /ferran/ HTTP/1.1" 200 1075 "http://
+www.google.com/search?sourceid=navclient&q=Mark+Ferran&X=1" "Mozilla/4.0 (compatible; MSIE 6.0; Windows 98; Hotbar 
+4.2.4.0)"
+alb-24-195-197-170.nycap.rr.com - - [14/Jul/2003:14:16:53 -0400] "GET /ferran/righttouseforce.html HTTP/1.1" 200 
+84977 "http://billstclair.com/ferran/" "Mozilla/4.0 (compatible; MSIE 6.0; Windows 98; Hotbar 4.2.4.0)"
+host-216-153-210-211.man.choiceone.net - - [14/Jul/2003:13:35:11 -0400] "GET /ferran/righttouseforce.html HTTP/1.1" 
+200 84977 "http://billstclair.com/ferran/" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; .NET CLR 1.0.3705)"
+adsl-66-123-54-127.dsl.lsan03.pacbell.net - - [14/Jul/2003:13:58:58 -0400] "HEAD /ferran/righttouseforce.html HTTP/
+1.1" 200 0 "-" "Xenu Link Sleuth 1.2d"
+alb-24-195-197-170.nycap.rr.com - - [14/Jul/2003:15:33:36 -0400] "GET /ferran/ HTTP/1.1" 200 1075 "http://
+www.google.com/search?sourceid=navclient&q=Mark+Ferran&X=1" "Mozilla/4.0 (compatible; MSIE 6.0; Windows 98; Hotbar 
+4.2.4.0)"
+alb-24-195-197-170.nycap.rr.com - - [14/Jul/2003:15:33:38 -0400] "GET /ferran/atvtrespass.html HTTP/1.1" 200 52674 
+"http://billstclair.com/ferran/" "Mozilla/4.0 (compatible; MSIE 6.0; Windows 98; Hotbar 4.2.4.0)"
+adsl-67-117-163-234.dsl.lsan03.pacbell.net - - [14/Jul/2003:15:37:26 -0400] "GET /ferran/batviolence.html HTTP/1.1" 
+200 34560 "http://search.yahoo.com/bin/search?p=CTSBV+distribution&ei=UTF-8" "Mozilla/4.0 (compatible; MSIE 5.5; 
+Windows 98; Win 9x 4.90; Hotbar 4.3.1.0)"
+alb-24-195-197-170.nycap.rr.com - - [14/Jul/2003:16:39:03 -0400] "GET /ferran/righttouseforce.html HTTP/1.1" 200 
+84977 "http://billstclair.com/ferran/" "Mozilla/4.0 (compatible; MSIE 6.0; Windows 98; Hotbar 4.2.4.0)"
+128.172.134.45 - - [14/Jul/2003:19:00:56 -0400] "GET /ferran/batviolence.html HTTP/1.1" 200 34560 "http://
+www.google.com/search?q=safety+%27baseball+bats%27&hl=en&lr=&ie=UTF-8&oe=UTF-8&start=30&sa=N
+ " "Mozilla/4.0 (compatible; MSIE 6.0; Windows 98)"
+12-238-93-247.client.attbi.com - - [14/Jul/2003:19:17:27 -0400] "GET /ferran/index.html HTTP/1.0" 200 1075 "http://
+www.billstclair.com" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; YComp 5.0.0.0)"
+66.188.58.189.bay.mi.chartermi.net - - [14/Jul/2003:19:45:58 -0400] "GET /ferran/atvtrespass.html HTTP/1.1" 200 
+52674 "http://search.msn.com/results.asp?RS=CHECKED&FORM=MSNH&v=1&q=private+campgounds+in+michigan"  "Mozilla/4.0 
+(compatible; MSIE 6.0; Windows 98)"
+ool-4355f47b.dyn.optonline.net - - [14/Jul/2003:21:09:37 -0400] "GET /ferran/MotionInLimine.doc HTTP/1.1" 200 
+120320 "http://www.google.com/search?hl=en&lr=&ie=UTF-8&oe=UTF-8&q=traffic+ticket+NY+violation+1180
+" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)"
+ool-4355f47b.dyn.optonline.net - - [14/Jul/2003:21:17:40 -0400] "PROPFIND /ferran HTTP/1.1" 301 318 "-" "Microsoft-
+WebDAV-MiniRedir/5.1.2600"
+ool-4355f47b.dyn.optonline.net - - [14/Jul/2003:21:17:41 -0400] "PROPFIND /ferran/ HTTP/1.1" 405 323 "-" "Microsoft-
+WebDAV-MiniRedir/5.1.2600"
+ool-4355f47b.dyn.optonline.net - - [14/Jul/2003:21:17:42 -0400] "PROPFIND /ferran HTTP/1.1" 301 318 "-" "Microsoft-
+WebDAV-MiniRedir/5.1.2600"
+ool-4355f47b.dyn.optonline.net - - [14/Jul/2003:21:17:43 -0400] "PROPFIND /ferran/ HTTP/1.1" 405 323 "-" "Microsoft-
+WebDAV-MiniRedir/5.1.2600"
+ool-4355f47b.dyn.optonline.net - - [14/Jul/2003:21:17:46 -0400] "PROPFIND /ferran HTTP/1.1" 301 318 "-" "Microsoft-
+WebDAV-MiniRedir/5.1.2600"
+ool-4355f47b.dyn.optonline.net - - [14/Jul/2003:21:17:47 -0400] "PROPFIND /ferran/ HTTP/1.1" 405 323 "-" "Microsoft-
+WebDAV-MiniRedir/5.1.2600"
+cache-ra06.proxy.aol.com - - [14/Jul/2003:21:42:16 -0400] "GET /ferran/index.html HTTP/1.0" 200 1075 "http://
+billstclair.com/" "Mozilla/4.0 (compatible; MSIE 6.0; AOL 8.0; Windows 98; YComp 5.0.0.0)"
+alb-24-195-197-170.nycap.rr.com - - [14/Jul/2003:23:30:48 -0400] "GET /ferran/ HTTP/1.1" 200 1075 "http://
+www.google.com/search?sourceid=navclient&q=Mark+Ferran+&X=1" "Mozilla/4.0 (compatible; MSIE 6.0; Windows 98; Hotbar 
+4.2.4.0)"
+alb-24-195-197-170.nycap.rr.com - - [14/Jul/2003:23:30:53 -0400] "GET /ferran/batviolence.html HTTP/1.1" 200 34560 
+"http://billstclair.com/ferran/" "Mozilla/4.0 (compatible; MSIE 6.0; Windows 98; Hotbar 4.2.4.0)"
+24-90-120-92.nyc.rr.com - - [15/Jul/2003:02:24:02 -0400] "GET /ferran/MotionInLimine.doc HTTP/1.1" 200 120320 
+"http://www.google.com/search?hl=en&lr=&ie=UTF-8&oe=UTF-8&q=%22Sec+1180%22+VTL+law+New+York
+" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; .NET CLR 1.0.3705)"
+24-90-120-92.nyc.rr.com - - [15/Jul/2003:02:25:39 -0400] "PROPFIND /ferran/ HTTP/1.1" 405 323 "-" "Microsoft-WebDAV-
+MiniRedir/5.1.2600"
+24-90-120-92.nyc.rr.com - - [15/Jul/2003:02:25:39 -0400] "PROPFIND /ferran HTTP/1.1" 301 318 "-" "Microsoft-WebDAV-
+MiniRedir/5.1.2600"
+24-90-120-92.nyc.rr.com - - [15/Jul/2003:02:25:39 -0400] "PROPFIND /ferran/ HTTP/1.1" 405 323 "-" "Microsoft-WebDAV-
+MiniRedir/5.1.2600"
+24-90-120-92.nyc.rr.com - - [15/Jul/2003:02:25:39 -0400] "PROPFIND /ferran HTTP/1.1" 301 318 "-" "Microsoft-WebDAV-
+MiniRedir/5.1.2600"
+24-90-120-92.nyc.rr.com - - [15/Jul/2003:02:25:40 -0400] "PROPFIND /ferran HTTP/1.1" 301 318 "-" "Microsoft-WebDAV-
+MiniRedir/5.1.2600"
+24-90-120-92.nyc.rr.com - - [15/Jul/2003:02:25:40 -0400] "PROPFIND /ferran/ HTTP/1.1" 405 323 "-" "Microsoft-WebDAV-
+MiniRedir/5.1.2600"
+24-90-120-92.nyc.rr.com - - [15/Jul/2003:02:28:58 -0400] "PROPFIND /ferran HTTP/1.1" 301 318 "-" "Microsoft-WebDAV-
+MiniRedir/5.1.2600"
+24-90-120-92.nyc.rr.com - - [15/Jul/2003:02:28:58 -0400] "PROPFIND /ferran/ HTTP/1.1" 405 323 "-" "Microsoft-WebDAV-
+MiniRedir/5.1.2600"
+24-90-120-92.nyc.rr.com - - [15/Jul/2003:02:28:58 -0400] "PROPFIND /ferran HTTP/1.1" 301 318 "-" "Microsoft-WebDAV-
+MiniRedir/5.1.2600"
+24-90-120-92.nyc.rr.com - - [15/Jul/2003:02:28:58 -0400] "PROPFIND /ferran/ HTTP/1.1" 405 323 "-" "Microsoft-WebDAV-
+MiniRedir/5.1.2600"
+24-90-120-92.nyc.rr.com - - [15/Jul/2003:02:28:58 -0400] "PROPFIND /ferran HTTP/1.1" 301 318 "-" "Microsoft-WebDAV-
+MiniRedir/5.1.2600"
+24-90-120-92.nyc.rr.com - - [15/Jul/2003:02:28:58 -0400] "PROPFIND /ferran/ HTTP/1.1" 405 323 "-" "Microsoft-WebDAV-
+MiniRedir/5.1.2600"
+24-90-120-92.nyc.rr.com - - [15/Jul/2003:02:29:11 -0400] "GET /ferran/aneedforspeed.html HTTP/1.1" 200 78778 "http:/
+/www.google.com/search?q=%22Sec+1180%22+VTL+law+New+York&hl=en&lr=&ie=UTF-8&oe=UTF-8&filter=0
+ " "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; .NET CLR 1.0.3705)"
+24-90-120-92.nyc.rr.com - - [15/Jul/2003:02:36:44 -0400] "GET /ferran/MotionInLimine.doc HTTP/1.1" 304 - "-" 
+"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; .NET CLR 1.0.3705)"
+24-90-120-92.nyc.rr.com - - [15/Jul/2003:02:25:35 -0400] "GET /ferran/AppellateBriefDraft1mod.doc HTTP/1.1" 200 
+221184 "http://www.google.com/search?hl=en&lr=&ie=UTF-8&oe=UTF-8&q=%22Sec+1180%22+VTL+law+New+York
+" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; .NET CLR 1.0.3705)"
+24-90-120-92.nyc.rr.com - - [15/Jul/2003:02:36:26 -0400] "PROPFIND /ferran HTTP/1.1" 301 318 "-" "Microsoft-WebDAV-
+MiniRedir/5.1.2600"
+24-90-120-92.nyc.rr.com - - [15/Jul/2003:02:36:26 -0400] "PROPFIND /ferran/ HTTP/1.1" 405 323 "-" "Microsoft-WebDAV-
+MiniRedir/5.1.2600"
+24-90-120-92.nyc.rr.com - - [15/Jul/2003:02:36:26 -0400] "PROPFIND /ferran HTTP/1.1" 301 318 "-" "Microsoft-WebDAV-
+MiniRedir/5.1.2600"
+24-90-120-92.nyc.rr.com - - [15/Jul/2003:02:36:26 -0400] "PROPFIND /ferran/ HTTP/1.1" 405 323 "-" "Microsoft-WebDAV-
+MiniRedir/5.1.2600"
+24-90-120-92.nyc.rr.com - - [15/Jul/2003:02:36:26 -0400] "PROPFIND /ferran HTTP/1.1" 301 318 "-" "Microsoft-WebDAV-
+MiniRedir/5.1.2600"
+24-90-120-92.nyc.rr.com - - [15/Jul/2003:02:36:26 -0400] "PROPFIND /ferran/ HTTP/1.1" 405 323 "-" "Microsoft-WebDAV-
+MiniRedir/5.1.2600"
+node-d-40a2.a2000.nl - - [15/Jul/2003:04:06:33 -0400] "GET /ferran HTTP/1.1" 301 318 "-" "Mozilla/4.0 (compatible; 
+MSIE 6.0; Windows NT 5.0)"
+node-d-40a2.a2000.nl - - [15/Jul/2003:04:06:33 -0400] "GET /ferran/ HTTP/1.1" 200 1075 "-" "Mozilla/4.0 
+(compatible; MSIE 6.0; Windows NT 5.0)"
+64.241.243.65 - - [15/Jul/2003:09:27:15 -0400] "GET /ferran/atvtrespass.html HTTP/1.1" 200 52674 "-" "Mozilla/4.0 
+compatible ZyBorg/1.0 (wn.zyborg@looksmart.net; http://www.WISEnutbot.com)"
+acb858bb.ipt.aol.com - - [15/Jul/2003:10:06:14 -0400] "GET /ferran/fourteenth.html HTTP/1.1" 200 15970 "-" "Mozilla/
+4.0 (compatible; MSIE 6.0; Windows NT 5.1)"
+ws-207-213-160-212.washoe.k12.nv.us - - [15/Jul/2003:10:45:14 -0400] "GET /ferran/fourteenth.html HTTP/1.0" 304 - 
+"http://www.google.com/search?hl=en&ie=UTF-8&oe=UTF-8&q=support+for+the+14th+amendment
+" "Mozilla/4.0 (compatible; MSIE 5.5; Windows 98; T312461)"
+64-115-8-78.dsl.broadviewnet.net - - [15/Jul/2003:12:40:07 -0400] "GET /ferran/MemorandumOfLawFaxedtoJudge.doc HTTP/
+1.1" 200 73728 "http://www.google.com/search?q=mark+r.+ferran&hl=en&lr=&ie=UTF-8&oe=UTF-8&start=10&sa=N
+" "Mozilla/4.0 (compatible; MSIE 6.0; Windows 98; Win 9x 4.90)"
+64-115-8-78.dsl.broadviewnet.net - - [15/Jul/2003:12:40:08 -0400] "OPTIONS /ferran HTTP/1.1" 301 318 "-" "Microsoft 
+Data Access Internet Publishing Provider Cache Manager"
+64-115-8-78.dsl.broadviewnet.net - - [15/Jul/2003:12:42:06 -0400] "OPTIONS /ferran HTTP/1.1" 301 318 "-" "Microsoft 
+Data Access Internet Publishing Provider Cache Manager"
+64-115-8-78.dsl.broadviewnet.net - - [15/Jul/2003:12:42:07 -0400] "OPTIONS /ferran/MemorandumOfLawFaxedtoJudge.doc 
+HTTP/1.1" 200 - "-" "Microsoft Data Access Internet Publishing Provider DAV 1.1"
+natgate.scls.lib.wi.us - - [15/Jul/2003:13:16:39 -0400] "GET /ferran/fourteenth.html HTTP/1.1" 200 15970 "http://
+www.google.com/search?hl=en&lr=&ie=UTF-8&oe=UTF-8&q=%2Bnegro+%2Bpartial+%2Bcitizens
+" "Mozilla/4.0 (compatible; MSIE 5.5; Windows NT 4.0)"
+cache-rg01.proxy.aol.com - - [15/Jul/2003:14:24:20 -0400] "GET /ferran/MemorandumOfLawFaxedtoJudge.doc HTTP/1.0" 
+304 - "http://aolsearch.aol.com/aol/
+search?invocationType=topsearchbox.%2Faol%2Fjsp%2Fsearch.jsp&query=new+york+state+speeding+violation+codes&x=8&y=8" 
+ "Mozilla/4.0 (compatible; MSIE 6.0; AOL 8.0; Windows 98; Win 9x 4.90; Roadrunner)"
+acfw1x.spjc.edu - - [15/Jul/2003:14:35:26 -0400] "GET /ferran/fourteenth.html HTTP/1.1" 200 15970 "http://
+search.yahoo.com/search?p=fourteenth+amendment+citizenship&ei=UTF-8&xargs=0&b=21
+" "Mozilla/4.0 (compatible; MSIE 6.0; Windows 98)"
+129.174.228.120 - - [15/Jul/2003:14:52:46 -0400] "GET /ferran/fourteenth.html HTTP/1.1" 200 15970 "http://
+search.yahoo.com/search?p=Congressional+Globe+Fourteenth+Amendment&ei=UTF-8&vm=i&n=20&fl=0&x=wrt
+ " "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0) "
+205.128.215.152 - - [15/Jul/2003:15:18:41 -0400] "GET /ferran/markferran1.html HTTP/1.0" 200 147407 "http://
+www.google.com/search?hl=en&ie=ISO-8859-1&q=%22Cropsey+Road%22%2BPoestenkill
+" "Mozilla/4.0 (compatible; MSIE 5.0; Windows NT; DigExt)"
+alb-24-195-197-170.nycap.rr.com - - [15/Jul/2003:15:23:38 -0400] "GET /ferran/ HTTP/1.1" 200 1075 "http://
+www.google.com/search?sourceid=navclient&q=Mark+Ferran&X=1" "Mozilla/4.0 (compatible; MSIE 6.0; Windows 98; Hotbar 
+4.2.4.0)"
+alb-24-195-197-170.nycap.rr.com - - [15/Jul/2003:15:23:41 -0400] "GET /ferran/righttouseforce.html HTTP/1.1" 200 
+84977 "http://billstclair.com/ferran/" "Mozilla/4.0 (compatible; MSIE 6.0; Windows 98; Hotbar 4.2.4.0)"
+63.66.241.7 - - [15/Jul/2003:16:25:04 -0400] "GET /ferran/fourteenth.html HTTP/1.1" 200 15970 "http://
+www.google.com/search?hl=en&lr=&ie=ISO-8859-1&q=42+u.s.c.+1983+1871
+" "Mozilla/4.0 (compatible; MSIE 5.01; Windows NT 5.0)"
+web.co.oswego.ny.us - - [15/Jul/2003:16:28:08 -0400] "GET /ferran HTTP/1.1" 301 318 "http://www.nyjail4judges.org/
+inside/stories-1/ticket_defence.htm" "Mozilla/4.0 (compatible; MSIE 6.0; Windows 98)"
+web.co.oswego.ny.us - - [15/Jul/2003:16:28:08 -0400] "GET /ferran/ HTTP/1.1" 200 1075 "http://www.nyjail4judges.org/
+inside/stories-1/ticket_defence.htm
+" "Mozilla/4.0 (compatible; MSIE 6.0; Windows 98)"
+web.co.oswego.ny.us - - [15/Jul/2003:16:28:32 -0400] "GET /ferran/aneedforspeed.html HTTP/1.1" 200 78778 "http://
+billstclair.com/ferran/" "Mozilla/4.0 (compatible; MSIE 6.0; Windows 98)"
+web.co.oswego.ny.us - - [15/Jul/2003:16:30:20 -0400] "GET /ferran/MemorandumOfLawFaxedtoJudge.doc HTTP/1.1" 200 
+73728 "http://billstclair.com/ferran/aneedforspeed.html" "Mozilla/4.0 (compatible; MSIE 6.0; Windows 98)"
+web.co.oswego.ny.us - - [15/Jul/2003:16:31:29 -0400] "GET /ferran/MotionInLimine.doc HTTP/1.1" 200 120320 "http://
+billstclair.com/ferran/aneedforspeed.html" "Mozilla/4.0 (compatible; MSIE 6.0; Windows 98)"
+12-213-226-46.client.attbi.com - - [15/Jul/2003:19:22:33 -0400] "GET /ferran/MotionInLimine.doc HTTP/1.1" 200 
+120320 "http://search.yahoo.com/search?p=Motion+to+Dismiss,+Rochester,+New+York&ei=UTF-8&vm=i&n=20&fl=0&xargs=0&b=21
+ " "Mozilla/4.0 (compatible; MSIE 5.5; Windows 98)"
+12-213-226-46.client.attbi.com - - [15/Jul/2003:19:22:36 -0400] "OPTIONS /ferran HTTP/1.1" 301 318 "-" "Microsoft 
+Data Access Internet Publishing Provider Cache Manager"
+12-213-226-46.client.attbi.com - - [15/Jul/2003:19:22:37 -0400] "OPTIONS /ferran/MotionInLimine.doc HTTP/1.1" 200 - 
+"-" "Microsoft Data Access Internet Publishing Provider DAV"
+12-213-226-46.client.attbi.com - - [15/Jul/2003:19:22:38 -0400] "GET /ferran/MotionInLimine.doc HTTP/1.1" 304 - "-" 
+"Mozilla/4.0 (compatible; MSIE 5.5; Windows 98)"
+pcp03071135pcs.avenel01.nj.comcast.net - - [15/Jul/2003:19:26:32 -0400] "GET /ferran/righttouseforce.html HTTP/1.1" 
+304 - "http://web.ask.com/
+redir?bpg=http%3a%2f%2fweb.ask.com%2fweb%3fq%3d%2bunder%2bwhat%2bcircumstances%2bcan%2ba%2bhomeowner%2b%2blegally%2buse%2ba%2bgun%2bto%2bdefend%2bhimself%2bagainst%2ba%2bhome%2bintruder%253f%26o%3d0%26page%3d1&q=+under+what+circumstances+can+a+homeowner++legally+use+a+gun+to+defend+himself+against+a+home+intruder%3f&u=http%3a%2f%2ftm.wc.ask.com%2fr%3ft%3dan%26s%3da%26uid%3d05CBB54E2E16B11F3%26sid%3d17F8C5C72DEA841F3%26qid%3d5B47533FAEB1D1409B25DC38A4E758B2%26io%3d4%26sv%3dza5cb0d88%26ask%3d%2bunder%2bwhat%2bcircumstances%2bcan%2ba%2bhomeowner%2b%2blegally%2buse%2ba%2bgun%2bto%2bdefend%2bhimself%2bagainst%2ba%2bhome%2bintruder%253f%26uip%3d44543d9d%26en%3dte%26eo%3d-100%26pt%3dRights%2bof%2bOccupants%2bof%2bPremises%2bto%2bUse%2bForce%2b(Display%2bGuns)%2bto%2bStop%252c%26ac%3d10%26qs%3d1%26pg%3d1%26u%3dhttp%3a%2f%2fbillstclair.com%2fferran%2frighttouseforce.html&s=a&bu=http%3a%2f%2fbillstclair.com%2fferran%2frighttouseforce.html" 
+ "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; YComp 5.0.2.6)"
+ool-43514253.dyn.optonline.net - - [15/Jul/2003:20:10:31 -0400] "GET /ferran/fourteenth.html HTTP/1.1" 200 0 "http:/
+/www.google.com/search?q=Fourteenth+Amendment&hl=en&lr=&ie=UTF-8&oe=UTF-8&safe=off&start=140&sa=N
+" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; YComp 5.0.2.5)"
+cache-dk01.proxy.aol.com - - [15/Jul/2003:22:17:02 -0400] "GET /ferran/atvtrespass.html HTTP/1.0" 200 52674 "http://
+websearch.cs.com/cs/
+cs_results.adp?start=51&first=50&nav=next&query=www%2etribune%2dchronicle%2ecom&source=BetaNextPrev"  "Mozilla/5.0 
+(Windows; U; Windows NT 5.1; en-US; rv:0.9.4.2) Gecko/20021112 CS 2000 7.0/7.0"
+h00045ad6d982.ne.client2.attbi.com - - [15/Jul/2003:22:33:26 -0400] "GET /ferran/MotionInLimine.doc HTTP/1.1" 200 
+120320 "http://search.yahoo.com/search?fr=slv1&ei=UTF-8&p=violation+of+speed+limit+NY
+" "Mozilla/4.0 (compatible; MSIE 6.0; Windows 98)"
+h00045ad6d982.ne.client2.attbi.com - - [15/Jul/2003:22:33:29 -0400] "OPTIONS /ferran HTTP/1.1" 301 318 "-" 
+"Microsoft Data Access Internet Publishing Provider Cache Manager"
+h00045ad6d982.ne.client2.attbi.com - - [15/Jul/2003:22:33:34 -0400] "OPTIONS /ferran/MotionInLimine.doc HTTP/1.1" 
+200 - "-" "Microsoft Data Access Internet Publishing Provider DAV"
+cache-rh06.proxy.aol.com - - [15/Jul/2003:22:35:09 -0400] "GET /ferran/atvtrespass.html HTTP/1.0" 200 52674 "http://
+aolsearch.aol.com/aol/search?query=ny+atv+law&page=4" "Mozilla/4.0 (compatible; MSIE 5.5; AOL 8.0; Windows 98)"
+c-24-126-170-32.we.client2.attbi.com - - [16/Jul/2003:00:43:43 -0400] "GET /ferran/markferran1.html HTTP/1.1" 200 
+147407 "http://www.google.com/search?q=trees+neighbor+trespass+california+law+&hl=en&lr=&ie=UTF-8&oe=UTF-
+8&start=30&sa=N
+ " "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; Hotbar 4.3.1.0; .NET CLR 1.1.4322)"
+user-0cej7vk.cable.mindspring.com - - [16/Jul/2003:02:23:06 -0400] "GET /ferran/groundzero.html HTTP/1.1" 200 21048 
+"http://www.google.com/search?q=leaving+ground+zero&hl=en&lr=&ie=UTF-8&oe=UTF-8
+" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)"
+cpe-144-137-163-117.qld.bigpond.net.au - - [16/Jul/2003:02:33:30 -0400] "GET /ferran/batviolence.html HTTP/1.1" 200 
+34560 "http://www.google.com.au/search?q=baseball+bats+australia&hl=en&lr=&ie=UTF-8&oe=UTF-8&start=10&sa=N
+ " "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0; SIK1.02)"
+c-67-160-64-186.client.comcast.net - - [16/Jul/2003:03:48:51 -0400] "GET /ferran/fourteenth.html HTTP/1.1" 200 
+15970 "http://www.altavista.com/web/results?q=42+usc+1985&kgs=0&kls=1&avkw=aapt&stq=10"  "Mozilla/4.0 (compatible; 
+MSIE 6.0; Windows NT 5.1; .NET CLR 1.0.3705)"
+adsl-64-173-152-51.dsl.snfc21.pacbell.net - - [16/Jul/2003:06:51:36 -0400] "GET /ferran/righttouseforce.html HTTP/
+1.1" 200 84977 "http://www.google.com/search?hl=en&ie=UTF-8&oe=UTF-8&q=doorking+1837" "Mozilla/4.0 (compatible; 
+MSIE 6.0; Windows NT 5.1; .NET CLR 1.0.3705; .NET CLR 1.1.4322)"
+bgm-66-24-231-6.stny.rr.com - - [16/Jul/2003:08:38:10 -0400] "GET /ferran/MemorandumOfLawFaxedtoJudge.doc HTTP/1.1" 
+200 73728 "http://search.yahoo.com/search?p=speeding+violation+new+york&ei=UTF-8&vm=i&n=20&fl=0&x=wrt
+" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; .NET CLR 1.0.3705)"
+bgm-66-24-231-6.stny.rr.com - - [16/Jul/2003:08:39:26 -0400] "PROPFIND /ferran HTTP/1.1" 301 318 "-" "Microsoft-
+WebDAV-MiniRedir/5.1.2600"
+bgm-66-24-231-6.stny.rr.com - - [16/Jul/2003:08:39:26 -0400] "PROPFIND /ferran/ HTTP/1.1" 405 323 "-" "Microsoft-
+WebDAV-MiniRedir/5.1.2600"
+bgm-66-24-231-6.stny.rr.com - - [16/Jul/2003:08:39:26 -0400] "PROPFIND /ferran HTTP/1.1" 301 318 "-" "Microsoft-
+WebDAV-MiniRedir/5.1.2600"
+bgm-66-24-231-6.stny.rr.com - - [16/Jul/2003:08:39:26 -0400] "PROPFIND /ferran/ HTTP/1.1" 405 323 "-" "Microsoft-
+WebDAV-MiniRedir/5.1.2600"
+bgm-66-24-231-6.stny.rr.com - - [16/Jul/2003:08:39:27 -0400] "PROPFIND /ferran HTTP/1.1" 301 318 "-" "Microsoft-
+WebDAV-MiniRedir/5.1.2600"
+bgm-66-24-231-6.stny.rr.com - - [16/Jul/2003:08:39:27 -0400] "PROPFIND /ferran/ HTTP/1.1" 405 323 "-" "Microsoft-
+WebDAV-MiniRedir/5.1.2600"
+64-205-246-67.client.dsl.net - - [16/Jul/2003:10:07:31 -0400] "GET /ferran/MotionInLimine.doc HTTP/1.1" 200 39073 
+"http://search.yahoo.com/search?p=new+york+vtl&ei=UTF-8&vm=i&n=20&fl=0&x=wrt
+" "Mozilla/4.0 (compatible; MSIE 6.0; Windows 98)"
+exln038.dialup.cornell.edu - - [16/Jul/2003:13:49:03 -0400] "GET /ferran HTTP/1.1" 301 318 "http://
+www.nyjail4judges.org/inside/link.htm" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; YComp 5.0.8.6)"
+exln038.dialup.cornell.edu - - [16/Jul/2003:13:49:04 -0400] "GET /ferran/ HTTP/1.1" 200 1075 "http://
+www.nyjail4judges.org/inside/link.htm" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; YComp 5.0.8.6)"
+exln038.dialup.cornell.edu - - [16/Jul/2003:13:49:11 -0400] "GET /ferran/fourteenth.html HTTP/1.1" 200 15970 "http:/
+/billstclair.com/ferran/" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; YComp 5.0.8.6)"
+nycmny1-ar7-4-3-084-248.nycmny1.elnk.dsl.genuity.net - - [16/Jul/2003:14:24:13 -0400] "GET /ferran/
+MotionInLimine.doc HTTP/1.1" 200 120320 "http://search.yahoo.com/
+search?p=new+york+penal+law+affirmative+defense&ei=UTF-8&vm=i&n=20&fl=0&x=wrt
+ " "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; Creative)"
+nycmny1-ar7-4-3-084-248.nycmny1.elnk.dsl.genuity.net - - [16/Jul/2003:14:24:14 -0400] "OPTIONS /ferran HTTP/1.1" 
+301 318 "-" "Microsoft Data Access Internet Publishing Provider Cache Manager"
+nycmny1-ar7-4-3-084-248.nycmny1.elnk.dsl.genuity.net - - [16/Jul/2003:14:24:14 -0400] "OPTIONS /ferran/
+MotionInLimine.doc HTTP/1.1" 200 - "-" "Microsoft Data Access Internet Publishing Provider DAV 1.1"
+nycmny1-ar7-4-3-084-248.nycmny1.elnk.dsl.genuity.net - - [16/Jul/2003:14:24:52 -0400] "PROPFIND /ferran HTTP/1.1" 
+301 318 "-" "Microsoft-WebDAV-MiniRedir/5.1.2600"
+nycmny1-ar7-4-3-084-248.nycmny1.elnk.dsl.genuity.net - - [16/Jul/2003:14:24:52 -0400] "PROPFIND /ferran/ HTTP/1.1" 
+405 323 "-" "Microsoft-WebDAV-MiniRedir/5.1.2600"
+nycmny1-ar7-4-3-084-248.nycmny1.elnk.dsl.genuity.net - - [16/Jul/2003:14:24:52 -0400] "PROPFIND /ferran HTTP/1.1" 
+301 318 "-" "Microsoft-WebDAV-MiniRedir/5.1.2600"
+nycmny1-ar7-4-3-084-248.nycmny1.elnk.dsl.genuity.net - - [16/Jul/2003:14:24:52 -0400] "PROPFIND /ferran/ HTTP/1.1" 
+405 323 "-" "Microsoft-WebDAV-MiniRedir/5.1.2600"
+nycmny1-ar7-4-3-084-248.nycmny1.elnk.dsl.genuity.net - - [16/Jul/2003:14:24:52 -0400] "PROPFIND /ferran HTTP/1.1" 
+301 318 "-" "Microsoft-WebDAV-MiniRedir/5.1.2600"
+nycmny1-ar7-4-3-084-248.nycmny1.elnk.dsl.genuity.net - - [16/Jul/2003:14:24:52 -0400] "PROPFIND /ferran/ HTTP/1.1" 
+405 323 "-" "Microsoft-WebDAV-MiniRedir/5.1.2600"
+ip113.ipaper.com - - [16/Jul/2003:15:39:16 -0400] "GET /ferran/atvtrespass.html HTTP/1.1" 200 52674 "http://
+search.msn.com/results.aspx?q=whose+insurance+is+responsible+when+car+and+atv+hit&FORM=SMCRB"  "Mozilla/4.0 
+(compatible; MSIE 5.01; Windows NT 5.0; IPIE5.1)"
+204.167.223.70 - - [16/Jul/2003:15:58:50 -0400] "GET /ferran/markferran1.html HTTP/1.1" 200 147407 "http://
+search.yahoo.com/search?p=%22highway+law+189%22&ei=UTF-8&vm=i&n=20&fl=0&x=wrt
+" "Mozilla/4.0 (compatible; MSIE 5.5; Windows NT 4.0) "
+cache-dm04.proxy.aol.com - - [16/Jul/2003:16:04:32 -0400] "GET /ferran/righttouseforce.html HTTP/1.0" 200 84977 
+"http://web.ask.com/
+redir?bpg=http%3a%2f%2fweb.ask.com%2fweb%3fq%3ddefiant%2btrespass%26o%3d0%26page%3d1&q=defiant+trespass&u=http%3a%2f%2ftm.wc.ask.com%2fr%3ft%3dan%26s%3da%26uid%3d025DBF3AB28AA51F3%26sid%3d122A104AB28AA51F3%26qid%3dE1C617066F60C64382E7020A4C4CAE18%26io%3d4%26sv%3dza5cb0db7%26ask%3ddefiant%2btrespass%26uip%3dcdbcd069%26en%3dte%26eo%3d-100%26pt%3dRights%2bof%2bOccupants%2bof%2bPremises%2bto%2bUse%2bForce%2b(Display%2bGuns)%2bto%2bStop%252c%26ac%3d24%26qs%3d0%26pg%3d1%26u%3dhttp%3a%2f%2fbillstclair.com%2fferran%2frighttouseforce.html&s=a&bu=http%3a%2f%2fbillstclair.com%2fferran%2frighttouseforce.html" 
+ "Mozilla/4.0 (compatible; MSIE 6.0; AOL 8.0; Windows NT 5.1; YComp 5.0.0.0; .NET CLR 1.0.3705)"
+host-65-123-199-62.infinitex.com - - [16/Jul/2003:18:40:56 -0400] "GET /ferran/ HTTP/1.0" 200 1075 "-" 
+"larbin_2.6.2 larbin2.6.2@unspecified.mail"
+c-67-161-80-40.client.comcast.net - - [16/Jul/2003:20:18:34 -0400] "GET /ferran/AppellateBriefDraft1mod.doc HTTP/
+1.1" 200 221184 "http://lawcrawler.findlaw.com/cgi-bin/
+lc.pl?sites=wlegal&lang=&entry=Maher%20v.%20People&country=&start=20
+" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)"
+barrierc241.nike.com - - [16/Jul/2003:22:24:36 -0400] "GET /ferran/fourteenth.html HTTP/1.0" 200 15970 "http://
+www.google.com/search?hl=en&lr=&ie=UTF-8&oe=UTF-8&q=why+is+there+a+14th+amendment&btnG=Google+Search
+" "Mozilla/4.0 (compatible; MSIE 5.5; Windows NT 5.0; Hotbar 3.0; T312461)"
+syr-24-24-6-73.twcny.rr.com - - [16/Jul/2003:23:29:50 -0400] "GET /ferran/MotionInLimine.doc HTTP/1.1" 200 120320 
+"http://www.google.com/search?hl=en&lr=&ie=UTF-8&oe=UTF-8&q=VTL+1180-d&spell=1
+" "Mozilla/4.0 (compatible; MSIE 6.0; Windows 98)"
+user-10cm63g.cable.mindspring.com - - [17/Jul/2003:03:13:57 -0400] "GET /ferran HTTP/1.1" 301 318 "http://
+members.aol.com/_ht_a/edsfreedom/myhomepage/profile.html?mtbrand=AOL_US"  "Mozilla/5.0 (Macintosh; U; PPC Mac OS X; 
+en-US; rv:1.0.1) Gecko/20020823 Netscape/7.0"
+user-10cm63g.cable.mindspring.com - - [17/Jul/2003:03:13:57 -0400] "GET /ferran/ HTTP/1.1" 200 1075 "http://
+members.aol.com/_ht_a/edsfreedom/myhomepage/profile.html?mtbrand=AOL_US"  "Mozilla/5.0 (Macintosh; U; PPC Mac OS X; 
+en-US; rv:1.0.1) Gecko/20020823 Netscape/7.0"
+65.118.131.106 - - [17/Jul/2003:10:38:31 -0400] "GET /ferran/MotionInLimine.doc HTTP/1.1" 200 120320 "http://
+www.google.com/search?q=new+york+section+1180&hl=en&lr=&ie=UTF-8&oe=UTF-8&start=10&sa=N
+" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)"
+65.118.131.106 - - [17/Jul/2003:10:39:42 -0400] "PROPFIND /ferran HTTP/1.1" 301 318 "-" "Microsoft-WebDAV-MiniRedir/
+5.1.2600"
+65.118.131.106 - - [17/Jul/2003:10:39:42 -0400] "PROPFIND /ferran/ HTTP/1.1" 405 323 "-" "Microsoft-WebDAV-
+MiniRedir/5.1.2600"
+65.118.131.106 - - [17/Jul/2003:10:39:42 -0400] "PROPFIND /ferran HTTP/1.1" 301 318 "-" "Microsoft-WebDAV-MiniRedir/
+5.1.2600"
+65.118.131.106 - - [17/Jul/2003:10:39:42 -0400] "PROPFIND /ferran/ HTTP/1.1" 405 323 "-" "Microsoft-WebDAV-
+MiniRedir/5.1.2600"
+65.118.131.106 - - [17/Jul/2003:10:39:42 -0400] "PROPFIND /ferran HTTP/1.1" 301 318 "-" "Microsoft-WebDAV-MiniRedir/
+5.1.2600"
+65.118.131.106 - - [17/Jul/2003:10:39:42 -0400] "PROPFIND /ferran/ HTTP/1.1" 405 323 "-" "Microsoft-WebDAV-
+MiniRedir/5.1.2600"
+65.118.131.106 - - [17/Jul/2003:10:39:48 -0400] "GET /ferran/MotionInLimine.doc HTTP/1.1" 304 - "-" "Mozilla/4.0 
+(compatible; MSIE 6.0; Windows NT 5.1)"
+65.118.131.106 - - [17/Jul/2003:10:40:00 -0400] "GET /ferran/MotionInLimine.doc HTTP/1.1" 200 120320 "http://
+www.google.com/search?q=new+york+section+1180&hl=en&lr=&ie=UTF-8&oe=UTF-8&start=10&sa=N
+" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)"
+65.118.131.106 - - [17/Jul/2003:10:42:09 -0400] "PROPFIND /ferran HTTP/1.1" 301 318 "-" "Microsoft-WebDAV-MiniRedir/
+5.1.2600"
+65.118.131.106 - - [17/Jul/2003:10:42:09 -0400] "PROPFIND /ferran/ HTTP/1.1" 405 323 "-" "Microsoft-WebDAV-
+MiniRedir/5.1.2600"
+65.118.131.106 - - [17/Jul/2003:10:42:09 -0400] "PROPFIND /ferran HTTP/1.1" 301 318 "-" "Microsoft-WebDAV-MiniRedir/
+5.1.2600"
+65.118.131.106 - - [17/Jul/2003:10:42:09 -0400] "PROPFIND /ferran/ HTTP/1.1" 405 323 "-" "Microsoft-WebDAV-
+MiniRedir/5.1.2600"
+65.118.131.106 - - [17/Jul/2003:10:42:09 -0400] "PROPFIND /ferran HTTP/1.1" 301 318 "-" "Microsoft-WebDAV-MiniRedir/
+5.1.2600"
+65.118.131.106 - - [17/Jul/2003:10:42:09 -0400] "PROPFIND /ferran/ HTTP/1.1" 405 323 "-" "Microsoft-WebDAV-
+MiniRedir/5.1.2600"
+hiding-address.aanet.org - - [17/Jul/2003:11:18:43 -0400] "GET /ferran HTTP/1.1" 301 318 "http://www.swoam.com/
+SWOAMForum/0000003f.htm" "Mozilla/5.0 (Windows; U; Windows NT 5.0; en-US; rv:1.3) Gecko/20030312"
+hiding-address.aanet.org - - [17/Jul/2003:11:18:43 -0400] "GET /ferran/ HTTP/1.1" 200 1075 "http://www.swoam.com/
+SWOAMForum/0000003f.htm" "Mozilla/5.0 (Windows; U; Windows NT 5.0; en-US; rv:1.3) Gecko/20030312"
+hiding-address.aanet.org - - [17/Jul/2003:11:18:54 -0400] "GET /ferran/righttouseforce.html HTTP/1.1" 200 84977 
+"http://billstclair.com/ferran/" "Mozilla/5.0 (Windows; U; Windows NT 5.0; en-US; rv:1.3) Gecko/20030312"
+ppp200-70.ppp.nova.edu - - [17/Jul/2003:14:15:55 -0400] "GET /ferran/fourteenth.html HTTP/1.1" 200 15970 "http://
+search.yahoo.com/bin/search?p=Original+Intent+of+the+14th+Amendment&ei=UTF-8
+ " "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0)"
+ool-182ca82b.dyn.optonline.net - - [17/Jul/2003:14:57:55 -0400] "GET /ferran HTTP/1.1" 301 318 "-" "Mozilla/4.0 
+(compatible; MSIE 5.5; Windows NT 5.0; T312461)"
+ool-182ca82b.dyn.optonline.net - - [17/Jul/2003:14:57:55 -0400] "GET /ferran/ HTTP/1.1" 200 1075 "-" "Mozilla/4.0 
+(compatible; MSIE 5.5; Windows NT 5.0; T312461)"
+ool-182ca82b.dyn.optonline.net - - [17/Jul/2003:14:58:16 -0400] "GET /ferran/righttouseforce.html HTTP/1.1" 200 
+84977 "http://billstclair.com/ferran/" "Mozilla/4.0 (compatible; MSIE 5.5; Windows NT 5.0; T312461)"
+ool-182ca82b.dyn.optonline.net - - [17/Jul/2003:16:01:41 -0400] "GET /ferran/groundzero.html HTTP/1.1" 200 21048 
+"http://billstclair.com/ferran/" "Mozilla/4.0 (compatible; MSIE 5.5; Windows NT 5.0; T312461)"
+ool-182ca82b.dyn.optonline.net - - [17/Jul/2003:16:32:24 -0400] "GET /ferran/fourteenth.html HTTP/1.1" 200 15970 
+"http://billstclair.com/ferran/" "Mozilla/4.0 (compatible; MSIE 5.5; Windows NT 5.0; T312461)"
+ool-182ca82b.dyn.optonline.net - - [17/Jul/2003:15:56:59 -0400] "GET /ferran/ HTTP/1.1" 200 1075 "-" "Mozilla/4.0 
+(compatible; MSIE 5.5; Windows NT 5.0; T312461)"
+ool-182ca82b.dyn.optonline.net - - [17/Jul/2003:16:13:42 -0400] "GET /ferran/aneedforspeed.html HTTP/1.1" 200 78778 
+"http://billstclair.com/ferran/" "Mozilla/4.0 (compatible; MSIE 5.5; Windows NT 5.0; T312461)"
+roc-24-169-193-201.rochester.rr.com - - [17/Jul/2003:20:42:53 -0400] "GET /ferran/MotionInLimine.doc HTTP/1.1" 200 
+120320 "http://www.google.com/search?sourceid=navclient&ie=UTF-8&oe=UTF-8&q=Penal+law+%28PL%29+35%2E05
+" "Mozilla/4.0 (compatible; MSIE 5.5; Windows NT 5.0)"
+netcache1e1.redstone.army.mil - - [18/Jul/2003:11:42:56 -0400] "GET /ferran/fourteenth.html HTTP/1.1" 200 15970 
+"http://www.google.com/search?hl=en&lr=&ie=UTF-8&oe=UTF-8&q=Title+42+USC+Section+1983+purpose
+" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; .NET CLR 1.0.3705)"
+cache-rg06.proxy.aol.com - - [18/Jul/2003:13:50:17 -0400] "GET /ferran/fourteenth.html HTTP/1.0" 200 15970 "-" 
+"Mozilla/4.0 (compatible; MSIE 6.0; AOL 5.0; Windows 98; Win 9x 4.90)"
+209-63-242-197.nrp6.mon.ny.frontiernet.net - - [18/Jul/2003:16:11:22 -0400] "GET /ferran/index.html HTTP/1.1" 200 
+1075 "http://billstclair.com/" "Mozilla/4.0 (compatible; MSIE 6.0; Windows 98)"
+209-63-242-197.nrp6.mon.ny.frontiernet.net - - [18/Jul/2003:16:11:26 -0400] "GET /ferran/fourteenth.html HTTP/1.1" 
+200 15970 "http://billstclair.com/ferran/index.html" "Mozilla/4.0 (compatible; MSIE 6.0; Windows 98)"
+209-63-242-197.nrp6.mon.ny.frontiernet.net - - [18/Jul/2003:17:31:04 -0400] "GET /ferran/fourteenth.html HTTP/1.1" 
+304 - "-" "Mozilla/4.0 (compatible; MSIE 6.0; Windows 98)"
+209-63-242-197.nrp6.mon.ny.frontiernet.net - - [18/Jul/2003:17:31:36 -0400] "GET /ferran/fourteenth.html HTTP/1.1" 
+304 - "http://preview.ecomplanet.com/output.asp?SessionGUID=7CCCF947-98AE-4ABA-B83C-56CFEE08231C&did=ELDR9739
+" "Mozilla/4.0 (compatible; MSIE 6.0; Windows 98)"
+207.170.28.199 - - [18/Jul/2003:17:33:51 -0400] "GET /ferran HTTP/1.1" 301 318 "-" "Mozilla/4.0 (compatible; MSIE 
+5.5; Windows 98)"
+207.170.28.199 - - [18/Jul/2003:17:33:51 -0400] "GET /ferran/ HTTP/1.1" 200 1075 "-" "Mozilla/4.0 (compatible; MSIE 
+5.5; Windows 98)"
+dyn-lawres-213-125.dyn.columbia.edu - - [18/Jul/2003:20:24:14 -0400] "GET /ferran HTTP/1.1" 301 318 "http://
+groups.yahoo.com/group/militia-discuss/message/3818
+" "Mozilla/4.0 (compatible; MSIE 6.0; Windows 98; T312461; Q312461)"
+dyn-lawres-213-125.dyn.columbia.edu - - [18/Jul/2003:20:24:14 -0400] "GET /ferran/ HTTP/1.1" 200 1075 "http://
+groups.yahoo.com/group/militia-discuss/message/3818
+" "Mozilla/4.0 (compatible; MSIE 6.0; Windows 98; T312461; Q312461)"
+dyn-lawres-213-125.dyn.columbia.edu - - [18/Jul/2003:20:24:20 -0400] "GET /ferran/batviolence.html HTTP/1.1" 200 
+34560 "http://billstclair.com/ferran/" "Mozilla/4.0 (compatible; MSIE 6.0; Windows 98; T312461; Q312461)"
+dyn-lawres-213-125.dyn.columbia.edu - - [18/Jul/2003:20:24:34 -0400] "GET /ferran/fourteenth.html HTTP/1.1" 200 
+15970 "http://billstclair.com/ferran/" "Mozilla/4.0 (compatible; MSIE 6.0; Windows 98; T312461; Q312461)"
+63.148.99.232 - - [18/Jul/2003:21:27:33 -0400] "GET /ferran/index.html HTTP/1.1" 200 1075 "http://
+www.billstclair.com/" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0)"
+64.122.1.18 - - [18/Jul/2003:21:45:25 -0400] "GET /ferran/fourteenth.html HTTP/1.1" 200 15970 "http://
+www.google.com/search?hl=en&ie=UTF-8&oe=UTF-8&q=fourteenth+amendment+provisions
+" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; .NET CLR 1.1.4322)"
+bi-03pt1.bluebird.ibm.com - - [19/Jul/2003:03:47:24 -0400] "GET /ferran/ HTTP/1.1" 200 1075 "http://
+search.yahoo.com/bin/search?p=billstclair&ei=UTF-8" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0)"
+rrcs-nys-24-213-146-208.biz.rr.com - - [19/Jul/2003:17:06:18 -0400] "GET /ferran/fourteenth.html HTTP/1.1" 200 
+15970 "http://billstclair.com/ferran/" "Mozilla/4.0 (compatible; MSIE 6.0; Windows 98; TUCOWS)"
+ppp12.39.92.231.madbbs.com - - [19/Jul/2003:20:35:52 -0400] "GET /ferran/markferran1.html HTTP/1.0" 200 147407 
+"http://www.google.com/
+search?q=%22New+York+State%22+law+and+%22private+property%22+and+trespassers+and+injury&hl=en&lr=&ie=UTF-
+8&start=10&sa=N
+ " "Mozilla/4.5 [en] (Win95; U)"
+ip-209-23-19-166.modem.logical.net - - [19/Jul/2003:07:47:14 -0400] "GET /ferran HTTP/1.1" 301 318 "-" "Mozilla/4.0 
+(compatible; MSIE 6.0; Windows 98; Win 9x 4.90; Q312461)"
+ip-209-23-19-166.modem.logical.net - - [19/Jul/2003:07:47:14 -0400] "GET /ferran/ HTTP/1.1" 200 1075 "-" "Mozilla/
+4.0 (compatible; MSIE 6.0; Windows 98; Win 9x 4.90; Q312461)"
+rrcs-nys-24-213-146-208.biz.rr.com - - [19/Jul/2003:17:05:57 -0400] "GET /ferran/ HTTP/1.1" 200 1075 "-" "Mozilla/
+4.0 (compatible; MSIE 6.0; Windows 98; TUCOWS)"
+208-251-248-96.res.evv.cable.sigecom.net - - [19/Jul/2003:22:49:12 -0400] "GET /ferran/ HTTP/1.1" 200 1075 "http://
+64.4.20.250/cgi-bin/
+linkrd?_lang=EN&lah=ccd6ff323304df721cc04e53a6377a3a&lat=1058669316&hm___action=http%3a%2f%2fwww%2ebillstclair%2ecom%2fferran
+"  "Mozilla/4.0 (compatible; MSIE 6.0; Windows 98)"
+208-251-248-96.res.evv.cable.sigecom.net - - [19/Jul/2003:22:49:16 -0400] "GET /ferran/ HTTP/1.1" 304 - "http://
+64.4.20.250/cgi-bin/
+linkrd?_lang=EN&lah=ccd6ff323304df721cc04e53a6377a3a&lat=1058669316&hm___action=http%3a%2f%2fwww%2ebillstclair%2ecom%2fferran
+"  "Mozilla/4.0 (compatible; MSIE 6.0; Windows 98)"
+pool0819.cvx18-bradley.dialup.earthlink.net - - [19/Jul/2003:23:44:43 - 0400] "GET /ferran/fourteenth.html HTTP/
+1.1" 200 15970 "http://www.google.com/search?q=%22original+intent%22&hl=en&lr=&ie=UTF-8&start=30&sa=N
+" "Mozilla/4.0 (compatible; MSIE 5.01; Windows 98)"
+clt88-169-046.carolina.rr.com - - [20/Jul/2003:00:18:29 -0400] "GET /ferran/markferran1.html HTTP/1.1" 200 147407 
+"http://www.google.com/search?hl=en&lr=&ie=UTF-8&oe=UTF-8&q=Landlock+Law&btnG=Google+Search
+" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; Q312461)"
+mcha-ai102.taconic.net - - [20/Jul/2003:07:28:25 -0400] "GET /ferran HTTP/1.1" 301 318 "-" "Mozilla/4.0 
+(compatible; MSIE 6.0; Windows NT 5.0) Opera 7.10  [en]"
+mcha-ai102.taconic.net - - [20/Jul/2003:07:28:25 -0400] "GET /ferran/ HTTP/1.1" 200 1075 "-" "Mozilla/4.0 
+(compatible; MSIE 6.0; Windows NT 5.0) Opera 7.10  [en]"
+mcha-ai102.taconic.net - - [20/Jul/2003:07:28:39 -0400] "GET /ferran/righttouseforce.html HTTP/1.1" 200 88224 
+"http://billstclair.com/ferran/" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0) Opera 7.10  [en]"
+mcha-ai102.taconic.net - - [20/Jul/2003:07:28:58 -0400] "GET /ferran/atvtrespass.html HTTP/1.1" 200 98561 "http://
+billstclair.com/ferran/" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0) Opera 7.10  [en]"
+user-0cev9j7.cable.mindspring.com - - [20/Jul/2003:12:14:58 -0400] "GET /ferran/righttouseforce.html HTTP/1.1" 200 
+88224 "-" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; .NET CLR 1.1.4322)"
+164.156.110.102 - - [20/Jul/2003:14:27:27 -0400] "GET /ferran HTTP/1.1" 301 318 "http://www.swoam.com/SWOAMForum/
+00000035.htm" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0)"
+164.156.110.102 - - [20/Jul/2003:14:27:27 -0400] "GET /ferran/ HTTP/1.1" 200 1075 "http://www.swoam.com/SWOAMForum/
+00000035.htm" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0)"
+164.156.110.102 - - [20/Jul/2003:14:27:43 -0400] "GET /ferran/atvtrespass.html HTTP/1.1" 200 98561 "http://
+billstclair.com/ferran/" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0)"
+lsanca1-ar8-4-60-074-169.lsanca1.dsl-verizon.net - - [20/Jul/2003:16:59:21 -  0400] "GET /ferran HTTP/1.1" 301 318 
+"http://members.aol.com/_ht_a/edsfreedom/myhomepage/profile.html?mtbrand=AOL_US"  "Mozilla/4.0 (compatible; MSIE 
+6.0; Windows 98; Q312461; .NET CLR 1.1.4322)"
+pcp02988611pcs.malvrn01.pa.comcast.net - - [20/Jul/2003:17:28:52 -0400] "GET /ferran/fourteenth.html HTTP/1.1" 200 
+15970 "http://www.google.com/search?hl=en&ie=UTF-8&oe=UTF-8&q=14th+amendment+purpose&btnG=Google+Search
+" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0)"
+43.gardena-10rh16rt.ca.dial-access.att.net - - [21/Jul/2003:01:11:33 -0400] "GET /ferran HTTP/1.1" 301 318 "-" 
+"Mozilla/4.0 (compatible; MSIE 6.0; Windows 98) Opera 7.11  [en]"
+43.gardena-10rh16rt.ca.dial-access.att.net - - [21/Jul/2003:01:11:33 -0400] "GET /ferran/ HTTP/1.1" 200 1075 "-" 
+"Mozilla/4.0 (compatible; MSIE 6.0; Windows 98) Opera 7.11  [en]"
+rrcs-sw-24-153-151-51.biz.rr.com - - [21/Jul/2003:07:02:32 -0400] "GET /ferran/fourteenth.html HTTP/1.1" 200 15970 
+"-" "Mozilla/4.0 (compatible; MSIE 5.5; Windows NT 5.0)"
+rrcs-sw-24-153-151-51.biz.rr.com - - [21/Jul/2003:07:03:37 -0400] "GET /ferran/aneedforspeed.html HTTP/1.1" 200 
+78778 "-" "Mozilla/4.0 (compatible; MSIE 5.5; Windows NT 5.0)"
+yahoobb219037192130.bbtec.net - - [21/Jul/2003:08:42:41 -0400] "GET /ferran/markferran2.html HTTP/1.1" 200 38747 
+"http://search.msn.co.jp/spresults.aspx?q=JAMESOTIS&FORM=IE6" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)"
+159.247.160.75 - - [18/Jul/2003:09:54:20 -0400] "GET /ferran/MemorandumOfLawFaxedtoJudge.doc HTTP/1.0" 200 73728 
+"http://www.google.com/search?hl=en&lr=&ie=UTF-8&oe=UTF-8&q=new+york+speeding+violation
+" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; .NET CLR 1.0.3705; .NET CLR 1.1.4322)"
+pool-151-199-20-178.bos.east.verizon.net - - [18/Jul/2003:13:36:27 -0400] "GET /ferran/index.html HTTP/1.1" 200 
+1075 "http://www.billstclair.com/" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)"
+209-63-242-197.nrp6.mon.ny.frontiernet.net - - [18/Jul/2003:16:36:02 -0400] "GET /ferran/fourteenth.html HTTP/1.1" 
+304 - "http://billstclair.com/ferran/index.html" "Mozilla/4.0 (compatible; MSIE 6.0; Windows 98)"
+acab57f1.ipt.aol.com - - [19/Jul/2003:13:48:26 -0400] "GET /ferran/fourteenth.html HTTP/1.1" 200 15970 "http://
+myweb.ecomplanet.com/ELDR9739/home.htm" "Mozilla/4.0 (compatible; MSIE 6.0; Windows 98)"
+rrcs-nys-24-213-146-208.biz.rr.com - - [19/Jul/2003:17:05:53 -0400] "GET /ferran HTTP/1.1" 301 318 "-" "Mozilla/4.0 
+(compatible; MSIE 6.0; Windows 98; TUCOWS)"
+user46.net392.oh.sprint-hsd.net - - [20/Jul/2003:12:47:58 -0400] "GET /ferran/aneedforspeed.html HTTP/1.1" 200 
+78778 "http://www.google.com/search?hl=en&lr=&ie=UTF-8&oe=UTF-
+8&q=Ohio+statute+of+limitations+for+traffic+violations+leaving+the+scene&as_q=how+long+after+the+fact+can+I+be+prosecuted&btnG=Search%C2%A0within%C2%A0results
+"  "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)"
+lsanca1-ar8-4-60-074-169.lsanca1.dsl-verizon.net - - [20/Jul/2003:16:59:21 -  0400] "GET /ferran/ HTTP/1.1" 200 
+1075 "http://members.aol.com/_ht_a/edsfreedom/myhomepage/profile.html?mtbrand=AOL_US"  "Mozilla/4.0 (compatible; 
+MSIE 6.0; Windows 98; Q312461; .NET CLR 1.1.4322)"
+lsanca1-ar8-4-60-074-169.lsanca1.dsl-verizon.net - - [20/Jul/2003:16:59:46 -  0400] "GET /ferran/fourteenth.html 
+HTTP/1.1" 200 15970 "http://billstclair.com/ferran/" "Mozilla/4.0 (compatible; MSIE 6.0; Windows 98; Q312461; .NET 
+CLR 1.1.4322)"
+lsanca1-ar8-4-60-074-169.lsanca1.dsl-verizon.net - - [20/Jul/2003:16:59:56 -  0400] "GET /ferran/atvtrespass.html 
+HTTP/1.1" 200 98561 "http://billstclair.com/ferran/" "Mozilla/4.0 (compatible; MSIE 6.0; Windows 98; Q312461; .NET 
+CLR 1.1.4322)"
+adsl-155-83-119.mia.bellsouth.net - - [20/Jul/2003:19:59:23 -0400] "GET /ferran/fourteenth.html HTTP/1.1" 200 15970 
+"http://www.google.com/search?q=history+of+14th+amendment&hl=en&lr=&ie=UTF-8&start=10&sa=N
+" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)"
+170-215-214-93.nas3.nor.ny.frontiernet.net - - [21/Jul/2003:10:03:47 -0400] "GET /ferran/
+MemorandumOfLawFaxedtoJudge.doc HTTP/1.1" 200 73728 "http://search.yahoo.com/search?p=penal+law+defenses&ei=UTF-
+8&vm=i&n=20&fl=0&xargs=0&b=21
+" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; .NET CLR 1.0.3705)"
+ptldnewspapers.com - - [21/Jul/2003:13:25:20 -0400] "GET /ferran/ HTTP/1.0" 200 1075 "http://www.swoam.com/
+SWOAMForum/00000035.htm" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; .NET CLR 1.0.3705)"
+vt-williston10b-120.bur.adelphia.net - - [21/Jul/2003:13:33:07 -0400] "GET /ferran HTTP/1.1" 301 318 "-" "Mozilla/
+4.0 (compatible; MSIE 6.0; Windows 98)"
+vt-williston10b-120.bur.adelphia.net - - [21/Jul/2003:13:33:08 -0400] "GET /ferran/ HTTP/1.1" 200 1075 "-" "Mozilla/
+4.0 (compatible; MSIE 6.0; Windows 98)"
+vt-williston10b-120.bur.adelphia.net - - [21/Jul/2003:13:33:38 -0400] "GET /ferran/aneedforspeed.html HTTP/1.1" 200 
+78778 "http://billstclair.com/ferran/" "Mozilla/4.0 (compatible; MSIE 6.0; Windows 98)"
+vt-williston10b-120.bur.adelphia.net - - [21/Jul/2003:13:35:02 -0400] "GET /ferran HTTP/1.1" 301 318 "-" "Mozilla/
+4.0 (compatible; MSIE 6.0; Windows 98)"
+vt-williston10b-120.bur.adelphia.net - - [21/Jul/2003:13:35:03 -0400] "GET /ferran/ HTTP/1.1" 304 - "-" "Mozilla/
+4.0 (compatible; MSIE 6.0; Windows 98)"
+vt-williston10b-120.bur.adelphia.net - - [21/Jul/2003:13:35:09 -0400] "GET /ferran/righttouseforce.html HTTP/1.1" 
+200 88224 "http://billstclair.com/ferran/" "Mozilla/4.0 (compatible; MSIE 6.0; Windows 98)"
+vt-williston10b-120.bur.adelphia.net - - [21/Jul/2003:13:47:46 -0400] "GET /ferran/fourteenth.html HTTP/1.1" 200 
+15970 "http://billstclair.com/ferran/" "Mozilla/4.0 (compatible; MSIE 6.0; Windows 98)"
+rrcs-nys-24-97-8-66.biz.rr.com - - [21/Jul/2003:15:31:28 -0400] "GET /ferran/atvtrespass.html HTTP/1.1" 200 98561 
+"http://search.msn.com/results.aspx?srch=105&FORM=AS5&q=Attacked+By+ATV+riders"  "Mozilla/4.0 (compatible; MSIE 
+5.5; Windows NT 5.0)"
+alb-24-195-45-248.nycap.rr.com - - [21/Jul/2003:19:03:13 -0400] "GET /ferran HTTP/1.1" 301 318 "http://
+rr.looksmart.com/r_search?l&iacs&key=mark+ferran&search=0" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)"
+alb-24-195-45-248.nycap.rr.com - - [21/Jul/2003:19:03:13 -0400] "GET /ferran/ HTTP/1.1" 200 1075 "http://
+rr.looksmart.com/r_search?l&iacs&key=mark+ferran&search=0" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)"
+alb-24-195-45-248.nycap.rr.com - - [21/Jul/2003:19:03:30 -0400] "GET /ferran/batviolence.html HTTP/1.1" 200 34560 
+"http://billstclair.com/ferran/" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)"
+alb-24-195-45-248.nycap.rr.com - - [21/Jul/2003:19:03:45 -0400] "GET /ferran/righttouseforce.html HTTP/1.1" 200 
+88224 "http://billstclair.com/ferran/" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)"
+ac8d66e3.ipt.aol.com - - [21/Jul/2003:20:02:36 -0400] "GET /ferran/atvtrespass.html HTTP/1.1" 200 39103 "http://
+groups.yahoo.com/group/politics/message/9052" "Mozilla/4.0 (compatible; MSIE 6.0; Windows 98; Hotbar 4.2.14.0)"
+ool-18b87590.dyn.optonline.net - - [21/Jul/2003:20:04:30 -0400] "GET /ferran HTTP/1.1" 301 318 "-" "Mozilla/4.0 
+(compatible; MSIE 6.0; Windows NT 5.0; .NET CLR 1.0.3705)"
+ool-18b87590.dyn.optonline.net - - [21/Jul/2003:20:04:30 -0400] "GET /ferran/ HTTP/1.1" 200 1075 "-" "Mozilla/4.0 
+(compatible; MSIE 6.0; Windows NT 5.0; .NET CLR 1.0.3705)"
+ania0j3y12g4.bc.hsia.telus.net - - [21/Jul/2003:21:31:27 -0400] "GET /ferran/atvtrespass.html HTTP/1.1" 200 98561 
+"http://www.altavista.com/web/results?q=Trespass+to+Property+Act+canada&kgs=0&kls=1&avkw=aapt&stq=130"  "Mozilla/
+4.0 (compatible; MSIE 6.0; Windows 98)"
+c-67-163-17-118.client.comcast.net - - [22/Jul/2003:07:59:51 -0400] "GET /ferran/markferran1.html HTTP/1.1" 200 
+147407 "http://www.google.com/search?q=illinois+landlock+statute&btnG=Google+Search&hl=en&lr=&ie=UTF-8&oe=UTF-8
+ " "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; Hotbar 4.3.1.0; .NET CLR 1.0.3705; MSN 8.0; MSN 8.5; 
+MSNbMSNI; MSNmen-us; MSNcOTH) "
+wva-guard-cn1.wva.army.mil - - [22/Jul/2003:11:32:50 -0400] "GET /ferran/ HTTP/1.1" 200 1075 "-" "Mozilla/4.0 
+(compatible; MSIE 5.5; Windows 95)"
+wva-guard-cn1.wva.army.mil - - [22/Jul/2003:11:33:18 -0400] "GET /ferran/atvtrespass.html HTTP/1.1" 200 98561 
+"http://billstclair.com/ferran/" "Mozilla/4.0 (compatible; MSIE 5.5; Windows 95)"
+64.241.243.65 - - [22/Jul/2003:12:15:53 -0400] "GET /ferran/atvtrespass.html HTTP/1.1" 200 17240 "-" "Mozilla/4.0 
+compatible ZyBorg/1.0 (wn.zyborg@looksmart.net; http://www.WISEnutbot.com)"
+216.255.31.248 - - [22/Jul/2003:17:03:27 -0400] "GET /ferran/fourteenth.html HTTP/1.1" 200 15970 "http://
+www.google.com/search?hl=en&ie=UTF-8&oe=UTF-8&q=object+of+the+14th+amendment
+" "Mozilla/4.0 (compatible; MSIE 6.0; Windows 98; Win 9x 4.90; OneDisc.com, Inc.; MSN)"
+66-65-91-243.nyc.rr.com - - [22/Jul/2003:17:27:55 -0400] "GET /ferran/MemorandumOfLawFaxedtoJudge.doc HTTP/1.1" 200 
+73728 "http://www.google.com/search?hl=en&lr=&ie=UTF-8&q=traffic+violation+code+ny+speeding&spell=1
+" "Mozilla/4.0 (compatible; MSIE 5.12; Mac_PowerPC)"
+66-65-91-243.nyc.rr.com - - [22/Jul/2003:17:27:54 -0400] "GET /ferran/MemorandumOfLawFaxedtoJudge.doc HTTP/1.1" 200 
+30062 "http://www.google.com/search?hl=en&lr=&ie=UTF-8&q=traffic+violation+code+ny+speeding&spell=1
+" "Mozilla/4.0 (compatible; MSIE 5.12; Mac_PowerPC)"
+66-65-91-243.nyc.rr.com - - [22/Jul/2003:17:38:14 -0400] "GET /ferran/MemorandumOfLawFaxedtoJudge.doc HTTP/1.1" 200 
+14134 "http://www.google.com/search?hl=en&lr=&ie=ISO-8859-1&q=nys+traffic+violation+codes+speeding+
+" "Mozilla/4.0 (compatible; MSIE 5.12; Mac_PowerPC)"
+pool-141-155-150-211.ny5030.east.verizon.net - - [22/Jul/2003:19:21:59 - 0400] "GET /ferran/fourteenth.html HTTP/
+1.1" 200 15970 "-" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; .NET CLR 1.0.3705; .NET CLR 1.1.4322; Alexa 
+Toolbar)"
+pcp02349505pcs.rtchrd01.md.comcast.net - - [22/Jul/2003:22:27:22 -0400] "GET /ferran/fourteenth.html HTTP/1.1" 200 
+15970 "http://www.google.com/search?hl=en&ie=UTF-8&oe=UTF-8&q=14th+amendment+guarantees&btnG=Google+Search
+" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0; Hotbar 4.3.1.0)"
+65.194.133.4 - - [23/Jul/2003:00:02:43 -0400] "GET /ferran/MemorandumOfLawFaxedtoJudge.doc HTTP/1.1" 200 27526 
+"http://search.yahoo.com/search?p=west+virginia+law+driving+on+suspension&ei=UTF-8&vm=i&n=20&fl=0&xargs=&b=121
+ " "Mozilla/4.0 (compatible; MSIE 6.0; MSN 2.5; Windows 98)"
+d2.as0.cdwr.mi.voyager.net - - [23/Jul/2003:08:09:24 -0400] "GET /ferran/righttouseforce.html HTTP/1.1" 200 88224 
+"http://www.landrights.com/NY%20Troopers%20inciting%20defiant%20trespass.htm"  "Mozilla/5.0 (Windows; U; Win98; en-
+US; rv:0.9.4.1) Gecko/20020314 Netscape6/6.2.2"
+128.253.96.45 - - [23/Jul/2003:08:34:56 -0400] "GET /ferran/atvtrespass.html HTTP/1.1" 200 98561 "http://
+search.msn.com/spresults.aspx?q=town+of+barton+ny+atv+trails&FORM=IE4&x=22&y=17"  "Mozilla/4.0 (compatible; MSIE 
+5.01; Windows NT 5.0; YComp 5.0.2.6)"
+de224185.health.state.ny.us - - [23/Jul/2003:10:12:59 -0400] "GET /ferran/ HTTP/1.1" 200 1075 "-" "Mozilla/4.0 
+(compatible; MSIE 6.0; Windows NT 5.1)"
+de224185.health.state.ny.us - - [23/Jul/2003:10:13:13 -0400] "GET /ferran/batviolence.html HTTP/1.1" 200 34560 
+"http://billstclair.com/ferran/" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)"
+146.214.103.7 - - [23/Jul/2003:10:13:52 -0400] "GET /ferran/MotionInLimine.doc HTTP/1.0" 200 101773 "http://
+search.yahoo.com/bin/search?p=penal+Law+35.05%3B+35%3B10&ei=UTF-8" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 
+5.1)"
+146.214.103.7 - - [23/Jul/2003:10:14:06 -0400] "GET /ferran/MotionInLimine.doc HTTP/1.0" 206 112128 "http://
+search.yahoo.com/bin/search?p=penal+Law+35.05%3B+35%3B10&ei=UTF-8" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 
+5.1)"
+146.214.103.251 - - [23/Jul/2003:10:22:12 -0400] "PROPFIND /ferran HTTP/1.1" 301 318 "-" "Microsoft-WebDAV-
+MiniRedir/5.1.2600"
+146.214.103.251 - - [23/Jul/2003:10:22:12 -0400] "PROPFIND /ferran/ HTTP/1.1" 405 323 "-" "Microsoft-WebDAV-
+MiniRedir/5.1.2600"
+146.214.103.251 - - [23/Jul/2003:10:22:13 -0400] "PROPFIND /ferran HTTP/1.1" 301 318 "-" "Microsoft-WebDAV-
+MiniRedir/5.1.2600"
+146.214.103.251 - - [23/Jul/2003:10:22:13 -0400] "PROPFIND /ferran/ HTTP/1.1" 405 323 "-" "Microsoft-WebDAV-
+MiniRedir/5.1.2600"
+146.214.103.251 - - [23/Jul/2003:10:22:13 -0400] "PROPFIND /ferran HTTP/1.1" 301 318 "-" "Microsoft-WebDAV-
+MiniRedir/5.1.2600"
+146.214.103.251 - - [23/Jul/2003:10:22:13 -0400] "PROPFIND /ferran/ HTTP/1.1" 405 323 "-" "Microsoft-WebDAV-
+MiniRedir/5.1.2600"
+63.148.99.229 - - [23/Jul/2003:11:40:39 -0400] "GET /ferran/index.html HTTP/1.0" 200 1075 "-" "Mozilla/4.0 
+(compatible; MSIE 5.01; Windows NT 5.0) "
+cache-mtc-af03.proxy.aol.com - - [23/Jul/2003:12:40:43 -0400] "GET /ferran/batviolence.html HTTP/1.0" 200 34560 
+"http://aolsearch.aol.com/aol/search?query=beat+with+an+aluminum+baseball+bat&page=4"  "Mozilla/4.0 (compatible; 
+MSIE 5.5; AOL 8.0; Windows 98; Win 9x 4.90)"
+cache.web-sat.com - - [23/Jul/2003:16:18:37 -0400] "GET /ferran/batviolence.html HTTP/1.0" 200 34560 "-" "Mozilla/
+3.0 (compatible)"
+cache.web-sat.com - - [23/Jul/2003:16:18:39 -0400] "GET /ferran/batviolence.html HTTP/1.0" 200 34560 "-" "Mozilla/
+3.0 (compatible)"
+wbrg-dialup-216-74-206-19.iland.net - - [23/Jul/2003:21:48:04 -0400] "GET /ferran/markferran1.html HTTP/1.1" 200 
+147407 "http://search.msn.com/
+results.asp?RS=CHECKED&FORM=MSNH&v=1&q=justifiable+use+of+force+%28missouri+law%29%2E"  "Mozilla/4.0 (compatible; 
+MSIE 5.5; Windows 98; Win 9x 4.90)"
+dialup-67.30.103.142.dial1.sanjose1.level3.net - - [23/Jul/2003:22:59:06 - 0400] "GET /ferran/righttouseforce.html 
+HTTP/1.1" 200 88224 "-" "Mozilla/5.0 (Macintosh; U; PPC Mac OS X; en-us) AppleWebKit/73 (KHTML, like Gecko) Safari/
+73"
+w01.proxy.fedex.com - - [24/Jul/2003:01:44:37 -0400] "GET /ferran/fourteenth.html HTTP/1.0" 200 15970 "http://
+www.google.com/search?hl=en&lr=&ie=ISO-8859-1&q=+section+1983+fourteenth+amendment
+" "Mozilla/4.79 [en] (Windows NT 5.0; U)"
+216.88.158.142 - - [24/Jul/2003:05:52:50 -0400] "GET /ferran/ HTTP/1.1" 200 1075 "-" "Mozilla/4.0 compatible ZyBorg/
+1.0 (wn.zyborg@looksmart.net; http://www.WISEnutbot.com)"
+m-1.p1.197.warwick.net - - [24/Jul/2003:14:00:42 -0400] "GET /ferran/MotionInLimine.doc HTTP/1.1" 200 120320 "http:/
+/www.google.com/search?sourceid=navclient&ie=UTF-8&oe=UTF-8&q=%22VTL+1180%22
+" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)"
+m-1.p1.197.warwick.net - - [24/Jul/2003:14:00:46 -0400] "OPTIONS /ferran HTTP/1.1" 301 318 "-" "Microsoft Data 
+Access Internet Publishing Provider Cache Manager"
+m-1.p1.197.warwick.net - - [24/Jul/2003:14:00:49 -0400] "OPTIONS /ferran/MotionInLimine.doc HTTP/1.1" 200 - "-" 
+"Microsoft Data Access Internet Publishing Provider DAV 1.1"
+m-1.p1.197.warwick.net - - [24/Jul/2003:14:05:50 -0400] "GET /ferran/ HTTP/1.1" 200 1075 "-" "Mozilla/4.0 
+(compatible; MSIE 6.0; Windows NT 5.1)"
+m-1.p1.197.warwick.net - - [24/Jul/2003:14:06:18 -0400] "GET /ferran/atvtrespass.html HTTP/1.1" 200 98561 "http://
+billstclair.com/ferran/" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)"
+m-1.p1.197.warwick.net - - [24/Jul/2003:14:07:26 -0400] "GET /ferran/ HTTP/1.1" 200 1075 "-" "Mozilla/4.0 
+(compatible; MSIE 6.0; Windows NT 5.1)"
+m-1.p1.197.warwick.net - - [24/Jul/2003:14:07:50 -0400] "GET /ferran/aneedforspeed.html HTTP/1.1" 200 78778 "http://
+billstclair.com/ferran/" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)"
+nova16.corvis.com - - [24/Jul/2003:14:22:24 -0400] "GET /ferran/MotionInLimine.doc HTTP/1.1" 200 120320 "http://
+search.yahoo.com/search?p=new+york+state+vehicle+traffic+law+1180&ei=UTF-8&vm=i&n=20&fl=0&x=wrt
+ " "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0; CorvisUser; YComp 5.0.0.0; .NET CLR 1.0.3705; .NET CLR 
+1.1.4322)"
+cache-mtc-ab09.proxy.aol.com - - [24/Jul/2003:14:25:10 -0400] "GET /ferran/fourteenth.html HTTP/1.0" 200 15970 
+"http://myweb.ecomplanet.com/ELDR9739/home.htm" "Mozilla/4.0 (compatible; MSIE 5.5; AOL 8.0; Windows 98; Win 9x 
+4.90)"
+cache-mtc-ag04.proxy.aol.com - - [24/Jul/2003:14:29:08 -0400] "GET /ferran HTTP/1.0" 301 306 "http://
+billstclair.com/ferran/fourteenth.html" "Mozilla/4.0 (compatible; MSIE 5.5; AOL 8.0; Windows 98; Win 9x 4.90)"
+cache-mtc-af01.proxy.aol.com - - [24/Jul/2003:14:30:15 -0400] "GET /ferran/ HTTP/1.0" 200 1075 "http://
+billstclair.com/ferran/fourteenth.html" "Mozilla/4.0 (compatible; MSIE 5.5; AOL 8.0; Windows 98; Win 9x 4.90)"
+cache-mtc-af01.proxy.aol.com - - [24/Jul/2003:14:30:40 -0400] "GET /ferran/markferran1.html HTTP/1.1" 200 147407 
+"http://billstclair.com/ferran/" "Mozilla/4.0 (compatible; MSIE 5.5; AOL 8.0; Windows 98; Win 9x 4.90)"
+cache-mtc-af01.proxy.aol.com - - [24/Jul/2003:14:34:59 -0400] "GET /ferran/markferran2.html HTTP/1.1" 200 38747 
+"http://billstclair.com/ferran/" "Mozilla/4.0 (compatible; MSIE 5.5; AOL 8.0; Windows 98; Win 9x 4.90)"
+cache-mtc-af03.proxy.aol.com - - [24/Jul/2003:14:46:53 -0400] "GET /ferran/batviolence.html HTTP/1.0" 304 - "http://
+billstclair.com/ferran/" "Mozilla/4.0 (compatible; MSIE 5.5; AOL 8.0; Windows 98; Win 9x 4.90)"
+cache-dk11.proxy.aol.com - - [24/Jul/2003:17:54:02 -0400] "GET /ferran/aneedforspeed.html HTTP/1.0" 200 78778 
+"http://aolsearch.aol.com/aol/search?query=albany+ny+ordinance+gun+codes&page=2"  "Mozilla/4.0 (compatible; MSIE 
+5.0; AOL 8.0; Windows 98; DigExt)"
+209-105-185-196.dialup.eisg.net - - [24/Jul/2003:20:11:33 -0400] "GET /ferran/righttouseforce.html HTTP/1.1" 200 
+88224 "http://www.google.com/
+search?q=%22new+york+state%22+%22criminal+trespass%22+%22penal+code%22&hl=en&lr=&ie=UTF-8&start=20&sa=N
+ " "Mozilla/4.0 (compatible; MSIE 5.0; Windows 95; DigExt)"
+c68.112.130.100.stc.mn.charter.com - - [24/Jul/2003:23:08:11 -0400] "GET /ferran/atvtrespass.html HTTP/1.1" 200 
+98561 "-" "Mozilla/4.0 (compatible; MSIE 5.5; Windows 98; sureseeker.com)"
+216.88.158.142 - - [25/Jul/2003:00:33:47 -0400] "GET /ferran/ HTTP/1.1" 200 1075 "-" "Mozilla/4.0 compatible ZyBorg/
+1.0 (wn.zyborg@looksmart.net; http://www.WISEnutbot.com)"
+ncgent01.telenet-ops.be - - [17/Jul/2003:15:48:46 -0400] "GET /ferran/ HTTP/1.1" 200 1075 "http://www.google.be/
+search?hl=en&ie=UTF-8&oe=UTF-8&q=ferran&meta=
+" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)"
+ool-182ca82b.dyn.optonline.net - - [17/Jul/2003:16:08:14 -0400] "GET /ferran/ HTTP/1.1" 304 - "-" "Mozilla/4.0 
+(compatible; MSIE 5.5; Windows NT 5.0; T312461)"
+ool-182ca82b.dyn.optonline.net - - [17/Jul/2003:16:08:17 -0400] "GET /ferran/batviolence.html HTTP/1.1" 200 34560 
+"http://billstclair.com/ferran/" "Mozilla/4.0 (compatible; MSIE 5.5; Windows NT 5.0; T312461)"
+ool-182ca82b.dyn.optonline.net - - [17/Jul/2003:16:09:12 -0400] "GET /ferran/groundzero.html HTTP/1.1" 200 21048 
+"http://billstclair.com/ferran/" "Mozilla/4.0 (compatible; MSIE 5.5; Windows NT 5.0; T312461)"
+roc-24-169-193-201.rochester.rr.com - - [17/Jul/2003:20:37:53 -0400] "OPTIONS /ferran HTTP/1.1" 301 318 "-" 
+"Microsoft Data Access Internet Publishing Provider Cache Manager"
+roc-24-169-193-201.rochester.rr.com - - [17/Jul/2003:20:38:00 -0400] "OPTIONS /ferran/MotionInLimine.doc HTTP/1.1" 
+200 - "-" "Microsoft Data Access Internet Publishing Provider DAV 1.1"
+gatekeeper.hunter.com - - [25/Jul/2003:02:54:14 -0400] "GET /ferran/index.html HTTP/1.0" 200 1075 "-" "Mozilla/4.0 
+(compatible; MSIE 5.0; Windows NT)"
+64.241.243.65 - - [28/Jul/2003:21:38:02 -0400] "GET /ferran/atvtrespass.html HTTP/1.1" 200 28920 "-" "Mozilla/4.0 
+compatible ZyBorg/1.0 (wn.zyborg@looksmart.net; http://www.WISEnutbot.com)"
+dialup-67.31.28.212.dial1.newyork1.level3.net - - [28/Jul/2003:21:51:19 - 0400] "GET /ferran/MotionInLimine.doc 
+HTTP/1.1" 200 120320 "http://www.google.com/search?q=1180+speed+%22new+york%22&hl=en&lr=&ie=UTF-8&oe=UTF-8&safe=off
+" "Mozilla/4.0 (compatible; MSIE 6.0; Windows 98)"
+dialup-67.31.28.212.dial1.newyork1.level3.net - - [28/Jul/2003:21:55:34 - 0400] "GET /ferran/ HTTP/1.1" 200 1075 "-
+" "Mozilla/4.0 (compatible; MSIE 6.0; Windows 98)"
+dialup-67.31.28.212.dial1.newyork1.level3.net - - [28/Jul/2003:21:56:11 - 0400] "GET /ferran/markferran2.html HTTP/
+1.1" 200 38747 "http://billstclair.com/ferran/" "Mozilla/4.0 (compatible; MSIE 6.0; Windows 98)"
+hse-montreal-ppp339253.sympatico.ca - - [28/Jul/2003:23:27:50 -0400] "GET /ferran/batviolence.html HTTP/1.1" 200 
+34560 "http://www.google.ca/search?q=serial+key+for+high+heat+baseball+2002&hl=en&lr=&ie=UTF-8&oe=UTF-
+8&start=20&sa=N
+ " "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)"
+bsn-95-242-56.dsl.siol.net - - [29/Jul/2003:04:37:49 -0400] "GET /ferran/index.html HTTP/1.1" 200 1075 "-" "Mozilla/
+4.0 (compatible; MSIE 5.0; Windows 98; DigExt)"
+cache-mtc-af01.proxy.aol.com - - [29/Jul/2003:05:20:12 -0400] "GET /ferran/markferran1.html HTTP/1.0" 200 147407 
+"http://www.google.com/search?q=terry+kindlon&hl=en&lr=&ie=UTF-8&start=90&sa=N
+" "Mozilla/4.0 (compatible; MSIE 5.5; AOL 7.0; Windows NT 5.0; Hotbar 4.3.2.0)"
+216.88.158.142 - - [29/Jul/2003:03:58:10 -0400] "GET /ferran/markferran2.html HTTP/1.1" 200 28681 "-" "Mozilla/4.0 
+compatible ZyBorg/1.0 (wn.zyborg@looksmart.net; http://www.WISEnutbot.com)"
+66.153.69.227 - - [29/Jul/2003:11:14:10 -0400] "GET /ferran HTTP/1.1" 301 318 "-" "Mozilla/4.0 (compatible; MSIE 
+5.01; Windows 98)"
+66.153.69.227 - - [29/Jul/2003:11:14:10 -0400] "GET /ferran/ HTTP/1.1" 200 1075 "-" "Mozilla/4.0 (compatible; MSIE 
+5.01; Windows 98)"
+66.153.69.227 - - [29/Jul/2003:11:14:18 -0400] "GET /ferran/righttouseforce.html HTTP/1.1" 200 88224 "http://
+billstclair.com/ferran/" "Mozilla/4.0 (compatible; MSIE 5.01; Windows 98)"
+66.36.26.194 - - [29/Jul/2003:12:17:55 -0400] "GET /ferran/ HTTP/1.1" 200 1075 "http://www.thinkforyourself.us" 
+"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0; .NET CLR 1.0.3705)"
+65-37-36-251.nrp4.roc.ny.frontiernet.net - - [29/Jul/2003:13:05:37 -0400] "GET /ferran HTTP/1.1" 301 318 "http://
+profiles.yahoo.com/nylandowner" "Mozilla/4.0 (compatible; MSIE 4.01; Windows 98)"
+65-37-36-251.nrp4.roc.ny.frontiernet.net - - [29/Jul/2003:13:05:37 -0400] "GET /ferran/ HTTP/1.1" 200 1075 "http://
+profiles.yahoo.com/nylandowner" "Mozilla/4.0 (compatible; MSIE 4.01; Windows 98)"
+65-37-36-251.nrp4.roc.ny.frontiernet.net - - [29/Jul/2003:13:07:01 -0400] "GET /ferran/batviolence.html HTTP/1.1" 
+200 34560 "http://billstclair.com/ferran/" "Mozilla/4.0 (compatible; MSIE 4.01; Windows 98)"
+adsl-068-017-113-216.sip.bna.bellsouth.net - - [29/Jul/2003:12:56:01 -0400] "GET /ferran/fourteenth.html HTTP/1.1" 
+200 15970 "http://search.netscape.com/
+nscp_results.adp?source=NSCPTop&query=1866%20opinions%20on%20the%2014th%20amendment"  "Mozilla/4.0 (compatible; 
+MSIE 6.0; Windows NT 5.1)"
+157.238.138.150 - - [29/Jul/2003:13:11:15 -0400] "GET /ferran/atvtrespass.html HTTP/1.1" 200 98561 "http://
+www.google.com/search?q=atv+trails+cuba+ny&hl=en&lr=&ie=UTF-8&oe=UTF-8
+" "Mozilla/4.0 (compatible; MSIE 5.01; Windows NT 5.0)"
+209.137.75.222 - - [29/Jul/2003:17:59:27 -0400] "GET /ferran/MemorandumOfLawFaxedtoJudge.doc HTTP/1.1" 200 45194 
+"http://search.yahoo.com/search?p=speeding+in+a+school+zone+ny+state&ei=UTF-8&vm=i&n=20&fl=0&x=wrt
+ " "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1) "
+bgm-66-24-172-231.stny.rr.com - - [29/Jul/2003:19:29:24 -0400] "GET /ferran/fourteenth.html HTTP/1.1" 200 15970 
+"http://search.yahoo.com/search?p=district+of+columbia+act+of+1871&ei=UTF-8&xargs=0&b=46
+" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)"
+209.213.55.2 - - [29/Jul/2003:19:50:40 -0400] "GET /ferran/ HTTP/1.1" 200 1075 "http://www.google.com/
+search?hl=en&lr=&ie=UTF-8&oe=UTF-8&q=mark+ferran
+" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)"
+208-15-26-49.netsync.net - - [29/Jul/2003:20:00:49 -0400] "GET /ferran/righttouseforce.html HTTP/1.1" 200 88224 
+"http://www.google.com/search?hl=en&ie=ISO-8859-
+1&q=http%3A%2F%2Fassembly.state.ny.us%2Fleg%2F%3Fcl%3D82%26a%3D31+%28Penal+Law+Article+140%29&btnG=Google+Search
+"  "Mozilla/4.0 (compatible; MSIE 5.01; Windows NT)"
+216.88.158.142 - - [29/Jul/2003:21:59:04 -0400] "GET /ferran/atvtrespass.html HTTP/1.1" 200 12860 "-" "Mozilla/4.0 
+compatible ZyBorg/1.0 (wn.zyborg@looksmart.net; http://www.WISEnutbot.com)"
+216.88.158.142 - - [29/Jul/2003:22:49:00 -0400] "GET /ferran/markferran1.html\xa0 HTTP/1.1" 404 1650 "-" "Mozilla/
+4.0 compatible ZyBorg/1.0 (wn.zyborg@looksmart.net; http://www.WISEnutbot.com)"
+ip-204-95-127-254.stewireless.net - - [29/Jul/2003:21:10:35 -0400] "GET /ferran/atvtrespass.html HTTP/1.1" 200 
+98561 "-" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; Q312461; .NET CLR 1.0.3705)"
+216.88.158.142 - - [30/Jul/2003:03:54:00 -0400] "GET /ferran/markferran2.html HTTP/1.1" 200 12861 "-" "Mozilla/4.0 
+compatible ZyBorg/1.0 (wn.zyborg@looksmart.net; http://www.WISEnutbot.com)"
+216.88.158.142 - - [30/Jul/2003:06:42:26 -0400] "GET /ferran/ HTTP/1.1" 200 1075 "-" "Mozilla/4.0 compatible ZyBorg/
+1.0 (wn.zyborg@looksmart.net; http://www.WISEnutbot.com)"
+asam91h.sam.usace.army.mil - - [30/Jul/2003:11:17:50 -0400] "GET /ferran/atvtrespass.html HTTP/1.0" 200 98561 
+"http://www.altavista.com/web/results?q=atv+lock%2C+cable%2C+chain&kgs=1&kls=1&avkw=aapt&stq=60"  "Mozilla/4.0 
+(compatible; MSIE 6.0; Windows NT 5.0)"
+65-37-61-93.nrp6.roc.ny.frontiernet.net - - [30/Jul/2003:13:58:07 -0400] "GET /ferran/MotionInLimine.doc HTTP/1.1" 
+200 120320 "http://search.yahoo.com/search?p=New+York+State+Law+Section+1180+fine&ei=UTF-8&vm=i&n=20&fl=0&x=wrt
+ " "Mozilla/4.0 (compatible; MSIE 6.0; Windows 98; Win 9x 4.90; T312461)"
+65-37-61-93.nrp6.roc.ny.frontiernet.net - - [30/Jul/2003:13:58:08 -0400] "OPTIONS /ferran HTTP/1.1" 301 318 "-" 
+"Microsoft Data Access Internet Publishing Provider Cache Manager"
+07-139.125.popsite.net - - [30/Jul/2003:14:51:56 -0400] "GET /ferran/fourteenth.html HTTP/1.1" 200 15970 "http://
+www.google.com/search?q=provisions+and+intent+of+the+14th+amendment&hl=en&lr=&ie=UTF-8&oe=UTF-8
+ " "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; .NET CLR 1.0.3705)"
+rch5.gtwy.uscourts.gov - - [30/Jul/2003:15:00:18 -0400] "GET /ferran/fourteenth.html HTTP/1.0" 200 15970 "http://
+www.google.com/search?q=history+14th+amendment&hl=en&lr=&ie=UTF-8&oe=UTF-8&start=10&sa=N
+" "Mozilla/4.0 (compatible; MSIE 5.5; Windows NT 5.0)"
+64.241.243.65 - - [30/Jul/2003:15:22:12 -0400] "GET /ferran/atvtrespass.html HTTP/1.1" 200 75640 "-" "Mozilla/4.0 
+compatible ZyBorg/1.0 (wn.zyborg@looksmart.net; http://www.WISEnutbot.com)"
+65-37-61-93.nrp6.roc.ny.frontiernet.net - - [30/Jul/2003:13:57:16 -0400] "OPTIONS /ferran/MotionInLimine.doc HTTP/
+1.1" 200 - "-" "Microsoft Data Access Internet Publishing Provider DAV 1.1"
+ool-43542308.dyn.optonline.net - - [30/Jul/2003:18:53:53 -0400] "GET /ferran/fourteenth.html HTTP/1.1" 200 15970 "-
+" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; Q312461; .NET CLR 1.0.3705; .NET CLR 1.1.4322)"
+cache-dh01.proxy.aol.com - - [31/Jul/2003:00:41:49 -0400] "GET /ferran/fourteenth.html HTTP/1.0" 200 15970 "http://
+aolsearch.aol.com/aol/search?query=14th+Amendment+USC" "Mozilla/4.0 (compatible; MSIE 5.0; AOL 7.0; Windows 98; 
+DigExt)"
+216.88.158.142 - - [31/Jul/2003:02:41:43 -0400] "GET /ferran/www.geocities.com/SoHo/Gallery/3452/nonleth.htm HTTP/
+1.1" 404 1650 "-" "Mozilla/4.0 compatible ZyBorg/1.0 (wn.zyborg@looksmart.net; http://www.WISEnutbot.com)"
+216.88.158.142 - - [31/Jul/2003:03:23:27 -0400] "GET /ferran/outdoors.mainetoday.com/hunting/011128underwoo.shtml 
+HTTP/1.1" 404 1650 "-" "Mozilla/4.0 compatible ZyBorg/1.0 (wn.zyborg@looksmart.net; http://www.WISEnutbot.com)"
+rrcs-sw-24-153-151-51.biz.rr.com - - [31/Jul/2003:05:26:08 -0400] "GET /ferran/atvtrespass.html HTTP/1.1" 200 98561 
+"-" "Mozilla/4.0 (compatible; MSIE 5.5; Windows NT 5.0)"
+bi-03pt1.bluebird.ibm.com - - [31/Jul/2003:06:19:08 -0400] "GET /ferran/ HTTP/1.1" 200 1075 "http://
+search.yahoo.com/search?p=billstclair.com&ei=UTF-8&fr=fp-top" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0)"
+cache-rg05.proxy.aol.com - - [31/Jul/2003:06:26:38 -0400] "GET /ferran HTTP/1.0" 301 306 "-" "Mozilla/4.0 
+(compatible; MSIE 5.5; AOL 8.0; Windows 98)"
+cache-rg08.proxy.aol.com - - [31/Jul/2003:06:26:39 -0400] "GET /ferran/ HTTP/1.0" 200 1075 "-" "Mozilla/4.0 
+(compatible; MSIE 5.5; AOL 8.0; Windows 98)"
+cache-rg08.proxy.aol.com - - [31/Jul/2003:06:27:39 -0400] "GET /ferran/markferran2.html HTTP/1.1" 200 38747 "http://
+billstclair.com/ferran/" "Mozilla/4.0 (compatible; MSIE 5.5; AOL 8.0; Windows 98)"
+216.88.158.142 - - [31/Jul/2003:08:18:05 -0400] "GET /ferran/righttouseforce.html HTTP/1.1" 200 12130 "-" "Mozilla/
+4.0 compatible ZyBorg/1.0 DLC (wn.zyborg@looksmart.net; http://www.WISEnutbot.com)"
+dialup-171.75.160.185.dial1.boston1.level3.net - - [31/Jul/2003:09:16:50 - 0400] "GET /ferran/atvtrespass.html HTTP/
+1.1" 200 98561 "-" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; .NET CLR 1.0.3705)"
+dial237-27.brinet.com - - [31/Jul/2003:12:47:36 -0400] "GET /ferran/fourteenth.html HTTP/1.1" 200 15970 "http://
+lawcrawler.findlaw.com/cgi-bin/lc.pl?entry=42+USC+1985+cases&sites=wlegal
+" "Mozilla/4.0 (compatible; MSIE 6.0; Windows 98)"
+dial237-27.brinet.com - - [31/Jul/2003:12:49:30 -0400] "GET /ferran/ HTTP/1.1" 200 1075 "http://billstclair.com/
+ferran/fourteenth.html" "Mozilla/4.0 (compatible; MSIE 6.0; Windows 98)"
+dial237-27.brinet.com - - [31/Jul/2003:12:49:30 -0400] "GET /ferran HTTP/1.1" 301 318 "http://billstclair.com/
+ferran/fourteenth.html" "Mozilla/4.0 (compatible; MSIE 6.0; Windows 98)"
+ip68-111-172-78.sd.sd.cox.net - - [31/Jul/2003:14:02:41 -0400] "HEAD /ferran/markferran1.html HTTP/1.1" 200 0 "-" 
+"Mozilla/4.5 [en] (Win98; I)"
+ool-182f90fc.dyn.optonline.net - - [31/Jul/2003:14:42:09 -0400] "GET /ferran/MotionInLimine.doc HTTP/1.1" 200 
+120320 "http://www.google.com/search?hl=en&lr=&ie=UTF-8&oe=UTF-
+8&q=fault+determination+act+new+york&lr=&start=10&sa=N&lr=&start=20
+" "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.0.2) Gecko/20030208 Netscape/7.02"
+pcp01447178pcs.carlsl01.pa.comcast.net - - [31/Jul/2003:14:42:55 -0400] "GET /ferran/fourteenth.html HTTP/1.1" 200 
+15970 "http://www.google.com/search?hl=en&ie=UTF-8&oe=UTF-
+8&q=%22legislative+history%22+of+the+%22fourteenth+amendment%22+of+the+%22united+states%22+%22constitution%22
+"  "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0)"
+man12-pool-42.fcgnetworks.net - - [31/Jul/2003:15:00:48 -0400] "GET /ferran/righttouseforce.html HTTP/1.1" 200 
+81464 "-" "Mozilla/5.0 (Macintosh; U; PPC Mac OS X; en-us) AppleWebKit/85 (KHTML, like Gecko) Safari/85"
+cl1611.dsl.psu.edu - - [31/Jul/2003:16:17:11 -0400] "GET /ferran/fourteenth.html HTTP/1.1" 200 15970 "http://
+www.google.com/search?hl=en&ie=UTF-8&oe=UTF-
+8&q=%22legislative+history%22+of+the+%22fourteenth+amendment%22+of+the+%22united+states%22+%22constitution%22
+"  "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0)"
+216.88.158.142 - - [31/Jul/2003:16:52:48 -0400] "GET /ferran/markferran2.html HTTP/1.1" 200 12861 "-" "Mozilla/4.0 
+compatible ZyBorg/1.0 DLC (wn.zyborg@looksmart.net; http://www.WISEnutbot.com)"
+209-63-242-197.nrp6.mon.ny.frontiernet.net - - [31/Jul/2003:18:56:46 -0400] "GET /ferran/fourteenth.html HTTP/1.1" 
+200 15970 "http://myweb.ecomplanet.com/ELDR9739/home.htm" "Mozilla/4.0 (compatible; MSIE 6.0; Windows 98)"
+ny-utica-cmts6c-48.albyny.adelphia.net - - [31/Jul/2003:20:04:20 -0400] "GET /ferran/righttouseforce.html HTTP/1.1" 
+200 88224 "http://search.msn.com/results.aspx?q=ny+criminal+trespass+tenant&FORM=SMCRT"  "Mozilla/4.0 (compatible; 
+MSIE 6.0; Windows 98; YComp 5.0.0.0)"
+ny-amherst-c4-2-bg2b-2-49.bflony.adelphia.net - - [31/Jul/2003:21:18:34 - 0400] "GET /ferran/
+AppellateBriefDraft1mod.doc HTTP/1.1" 200 221184 "http://www.google.com/search?hl=en&lr=&ie=UTF-8&oe=UTF-
+8&q=leaving+accident+scene+600&lr=&start=10&sa=N
+" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)"
+adsl-67-120-4-146.dsl.lsan03.pacbell.net - - [31/Jul/2003:22:09:16 -0400] "GET /ferran/atvtrespass.html HTTP/1.1" 
+200 98561 "http://search.yahoo.com/search?p=%22citizen%27s+arrest%22%2b%22common+law%22%2bcalifornia&ei=UTF-
+8&vm=i&n=20&fl=0&xargs=0&b=21
+ " "Mozilla/4.0 (compatible; MSIE 6.0; Windows 98; sbcydsl 3.11; YComp 5.0.0.0; yplus 3.01)"
