@@ -1,0 +1,76 @@
+<html>
+<head>
+<title>The Interlopers at The Red Room</title>
+<script src="player/jquery.js"></script>	
+<script src="player/mediaelement-and-player.min.js"></script>
+<link rel="stylesheet" href="player/mediaelementplayer.min.css" />
+<link rel="stylesheet" href="style.css" />
+<script>
+function play(num, title) {
+  var src = num + ' ' + title + '.mp3';
+  var elt = $('#player')[0];
+  elt.pause();
+  $('#player').attr('src', src);
+  $('#title').html(title);
+  elt.play();
+}
+</script>
+</head>
+<body>
+<h2>The Interlopers</h2>
+<h3>The Red Room, 20 September, 2014</h3>
+
+<p>
+<span id='title'>Love and Laughter</span>
+<audio id='player' src="01 Love and Laughter.mp3" type="audio/mp3" controls="controls"></audio>
+</p>
+
+<p>Click a triangle below to play that track. Right-click a title and "Save Link As..." to download.</p>
+
+<ol>
+<li>
+  <a href="01 Love and Laughter.mp3">Love and Laughter</a>
+  <a href='javascript:play("01", "Love and Laughter")'> &nbsp;<img src='play.png'/>&nbsp;</a>
+</li>
+<li>
+  <a href="02 The Fight.mp3">The Fight</a>
+  <a href='javascript:play("02", "The Fight")'> &nbsp;<img src='play.png'/>&nbsp;</a>
+</li>
+<li>
+  <a href="03 Fresh Out of Time.mp3">Fresh Out of Time</a>
+  <a href='javascript:play("03", "Fresh Out of Time")'> &nbsp;<img src='play.png'/>&nbsp;</a>
+</li>
+<li>
+  <a href="04 Gordon OReilly.mp3">Gordon O'Reilly</a>
+  <a href='javascript:play("04", "Gordon OReilly")'> &nbsp;<img src='play.png'/>&nbsp;</a>
+</li>
+<li>
+  <a href="05 Sun Drenched.mp3">Sun Drenched</a>
+  <a href='javascript:play("05", "Sun Drenched")'> &nbsp;<img src='play.png'/>&nbsp;</a>
+</li>
+<li>
+  <a href="06 Happy Birthday Kirsten Thorn.mp3">Happy Birthday Kirsten Thorn</a>
+  <a href='javascript:play("06", "Happy Birthday Kirsten Thorn")'> &nbsp;<img src='play.png'/>&nbsp;</a>
+</li>
+<li>
+  <a href="07 Hold On.mp3">Hold On</a>
+  <a href='javascript:play("07", "Hold On")'> &nbsp;<img src='play.png'/>&nbsp;</a>
+</li>
+<li>
+  <a href="08 TBD.mp3">TBD</a>
+  <a href='javascript:play("08", "TBD")'> &nbsp;<img src='play.png'/>&nbsp;</a>
+</li>
+<li>
+  <a href="09 Johnny Eyebrows.mp3">Johnny Eyebrows</a>
+  <a href='javascript:play("09", "Johnny Eyebrows")'> &nbsp;<img src='play.png'/>&nbsp;</a>
+</li>
+</ol>
+
+<p>Many thanks to John Dyer for <a href='http://mediaelementjs.com/'>MediaElement.js</a>.</p>
+
+<script>
+$('audio,video').mediaelementplayer();
+</script>
+
+</body>
+</html>
