@@ -1,0 +1,188 @@
+<HTML><HEAD>
+<TITLE>Wolfe's Lodge - Friends - Dr. Spook's Data</TITLE>
+<META NAME="Generator" CONTENT="WebWriter/2 v1.2">
+</HEAD>
+<BODY BGCOLOR="#CCCCCC" TEXT="#990000" LINK="#006600" VLINK="#FFFFFF" ALINK="#FFFFFF">
+<A NAME="ToF"></A>
+
+<!-- TOP -->
+<center>
+<IMG src="images/navbar.gif" WIDTH="620" HEIGHT="65" USEMAP="#navbarMap"  BORDER=0 >
+</center>
+<!-- Starting navbarMap Client Side ImageMap info -->
+<MAP NAME="navbarMap">
+<!-- #$: An Embellish creation. from http://www.dadaware.com -->
+<AREA SHAPE=RECT COORDS="443,21,487,38" HREF="Den.shtml" ALT="Den">
+<AREA SHAPE=RECT COORDS="504,20,558,37" HREF="Links.shtml" ALT="Links">
+<AREA SHAPE=RECT COORDS="343,20,426,37" HREF="Literature.shtml" ALT="Literature">
+<AREA SHAPE=RECT COORDS="248,20,323,38" HREF="Reviews.shtml" ALT="Reviews">
+<AREA SHAPE=RECT COORDS="158,19,228,38" HREF="Bookstore.shtml" ALT="Bookstore">
+<AREA SHAPE=RECT COORDS="525,3,582,19" HREF="Friends.shtml" ALT="Friends">
+<AREA SHAPE=RECT COORDS="457,3,506,20" HREF="Neill.shtml">
+<AREA SHAPE=RECT COORDS="354,2,438,19" HREF="Humor.shtml" ALT="Humor">
+<AREA SHAPE=RECT COORDS="248,2,337,19" HREF="Essays.shtml" ALT="Claire's Essays">
+<AREA SHAPE=RECT COORDS="129,1,228,20" HREF="Books.shtml" ALT="Claire's Books">
+<AREA SHAPE=RECT COORDS="0,1,93,65" HREF="Lodge.html" ALT="Wolfe's Lodge">
+</MAP>
+<!-- End of navbarMap Client Side ImageMap info -->
+
+
+<BR CLEAR=ALL><BR>
+<CENTER>
+<TABLE WIDTH=90%><TR><TD ALIGN=LEFT>
+	<A HREF="F_StalkingHorse.shtml" REL="Previous"><IMG src="images/TrackBack.GIF" BORDER=0 HEIGHT=60 WIDTH=100 ALT="Previous"></A>
+	</TD><TD ALIGN=CENTER><IMG src="images/TXT_Friends.GIF" HEIGHT=46 WIDTH=149 ALT="FRIENDS">
+	</TD>	<TD ALIGN=RIGHT><A HREF="F_ThankYouAlGore.shtml" REL="Previous"><IMG src="images/TrackNext.GIF" BORDER=0 HEIGHT=60 WIDTH=100 ALT="Next"></A>
+</TD></TR></TABLE>
+<P><IMG src="images/Tracks.GIF" HEIGHT=20 WIDTH=498 ALT="Wolf Tracks"><P>
+</CENTER>
+<BR>
+<H2 ALIGN=CENTER>SCREWING UP DR. SPOOK'S DATA</H2>
+<H3 ALIGN=CENTER>By Julia Cochrane</H3>
+</CENTER><BR CLEAR=ALL>
+
+<P>Worried about "Them" keeping all sorts of information on you and your
+friends and family without your permission?  You probably should be.  They can keep track of where you live, how much you make, what your likes and dislikes are, where you hang out, what you read.  It's almost like having a little window into your head, except the anonymous "they" looking into your head might
+not be as benign and ethical as the science-fiction telepath, Mr. Spock.
+
+<P>Hi, I'm a database programmer, and I'm the kind of talent "They" use to
+keep track of you and yours.  That's not what I personally do, I personally do industrial data that has nothing to do with people-tracking, but prior
+experience working on large people databases has taught me a thing or two
+that I think you and yours may find useful.
+
+<P>I don't mean to imply that all people databases are bad. Some people like some junk mail sent from those people databases, when the mailings are narrowly targetted by companies who are offering quality products you tend to buy.  It can be fun to look through catalogs with pretty pictures, particularly if
+you like to shop by mail.  It can be flattering to get recruiting fliers
+from colleges and universities when you're graduating from high school.  But people databases can also be abused, when the data is collected from
+everywhere and compiled by people who want to keep tabs on large groups of
+individuals to identify the ones getting out of whatever particular "line" the snoop has drawn in the sand.
+
+<P>Fortunately for you, there are easy things you can do that, if you do them
+on a regular basis, will still get you
+any pretty catalogs you like to look through while making life difficult
+for the snoops trying to build and manage
+mega-databases to use to pry into your business.
+
+<P>The bane of large people databases is duplicate entries.  This is even
+worse with big, cross-referenced
+databases that try to scoop up data from everywhere to compile profiles on
+individuals.  The time it takes
+and the hardware it takes to make and search databases expands a whole lot
+as more "people" get added.
+So if you have one entry for every person in the US you have 260 million
+records, but if you have ten entries
+for every person you have 2.6 billion records!  Not only that, the more
+duplicates you tend to get in your system,
+the more people you have to hire to look for them and weed them out.  This
+can get very expensive very quickly,
+since it requires high-quality technical talent at top dollar to find and
+remove the duplicates.
+
+<P>So, the core of your "screw up spook data on yourself" strategy needs to be
+to generate as many entries that
+look like they might possibly be different people, or might all be the same
+person (you), as possible.  See,
+the computer wizards trying to clean up the database always have to ask
+themselves, "I have what the computer
+thinks are two different people here.  Are they different, or are they one
+person?"  If they make a mistake and
+combine the records of two different people, say, Muffy and Buffy Swenson,
+twins whose social security numbers
+are one digit apart, then their data is likely screwed up permanently and
+worthless.  If, on the other hand, you
+are Buffy Swenson and the record for "Muffy Swenson" is also you, when they
+pull up a profile on you they'll
+only get about half your information, and for every other few thousand
+people who did the same thing, their
+database gets that much bigger, more unweildy, and more expensive to run,
+AND they have to ask themselves
+again if Buffy and Muffy are one person or two people EVERY time they do a
+major database cleanup.
+
+<P>Even governments and mega-corporations don't have infinite resources.  The
+more resources you make them
+waste by making their databases inefficient, the less they have to really
+do you harm with.
+
+<P><B>Okay, so in practical terms how do you do this?</B>
+
+<P><B>1)  Try to look like a twin.</B>
+
+<P>Parents are notorious for naming their twins cutesy names that start with
+the same letter and are just a couple
+of letters different.  Twins get social security numbers at the same time,
+so frequently those are only one digit
+different in the last four digits of the SS number.  Twins live at the same
+address as children, and can live in the
+same neighborhood or on the same street as adults, so all but the address
+number could be the same, or the
+phone number could be the same or similar.  Filling out forms on yourself
+that are just slightly wrong in one or
+two particulars that could be one person with information wrong or could be
+two people who are twins is a
+bureaucrat's nightmare.  If you're creative, you can even confuse them
+about your gender.
+
+<P><B>2)  Try to make "mistakes" on forms look like errors of memory, bad
+writing, or typos.</B>
+
+<P>Write sevens that look a lot like ones.  Write fours that look like sevens.
+Transpose digits.  Instead of
+742-6111 write 742-1116.  Change letters for one next to it or typed with
+the same finger of the other hand on
+a typewriter  "Dara" for "Sara".  Use variations in how you spell your
+first name--"Julie", "Juli", "Julia".  Change
+your middle initial for the one next to it on the typewriter on a typed
+form.
+
+<P>On official forms, you need plausible deniability, "I did not falsify your
+form, I made a typo, you're being petty."
+
+<P>On unofficial forms, you need no excuse at all--which means they shouldn't
+be collecting the data to snoop
+on you and serve them right if they muck up their database with it!  For
+those catalogs you may like, do you
+really care if they spell your name or street just right as long as it gets
+to you?  For snoopy forms that you don't
+care if what they send gets to you or not, and perhaps would rather it not,
+play games with your address like
+changing around "Road, Lane, Circle, Way, Place"----there is probably a
+similarly named street nearby.
+
+<P>The trick to this is that once it gets in the "big" database of the snoops,
+they usually have no way of telling where the information came from.  They don't know that "Pine Tree Road" on your gun form 4473 is absolutely
+correct and "Pine Tree Lane" on your purchase of wood chips from the
+nursery is wrong, and they don't know which address came from which source.
+
+<P>Usually the paper the data came from, or the clerk typing it in at the cash
+register, is ancient history and the
+"bad guys" will never know if you gave out the information wrong, if you
+had a lapse of memory while reciting
+your phone number, if the data entry clerk keyed it wrong, or if you are
+really more than one person.
+
+<P>But trying to figure it out will keep them awfully busy--and out of your
+hair, and mine.
+
+<P>So the next time some clerk at some store asks snoopy questions about your
+name and phone number when you're checking out, don't respond with the deserved "None of Your Damn Business!", but instead treat it as an opportunity to give yourself some protective camouflage from the snoops as with a cheerful
+smile you happily mispell and transpose and mangle the personal data the
+clerk types in to your heart's content!
+
+<P>Enjoy!
+
+
+<HR>
+<BLOCKQUOTE>(c) 1999 Julia Cochrane
+</BLOCKQUOTE>
+</TD></TD></TABLE>
+</CENTER>
+<CENTER><HR><BR><BR>
+<TABLE WIDTH=90%><TR><TD ALIGN=LEFT>
+		<A HREF="F_StalkingHorse.shtml"><IMG src="images/TrackBack.GIF" BORDER=0 HEIGHT=60 WIDTH=100 ALT="Previous"></A>
+		</TD><TD ALIGN=CENTER>
+		<A HREF="#Tof"><IMG src="images/TrackTop.GIF" BORDER=0 HEIGHT=60 WIDTH=95 ALT="Top"></A>
+			</TD><TD ALIGN=RIGHT>
+		<A HREF="F_ThankYouAlGore.shtml"><IMG src="images/TrackNext.GIF" BORDER=0 HEIGHT=60 WIDTH=100 ALT="Next"></A>
+</TD></TR></TABLE>
+<BR><BR><SMALL>22 June, 1999</SMALL></BODY>
+</HTML>

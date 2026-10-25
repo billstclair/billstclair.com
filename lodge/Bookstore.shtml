@@ -1,0 +1,125 @@
+<HTML>
+<!--~========= start header1 =========~-->
+<HEAD>
+<TITLE>
+Wolfe's Lodge - Bookstore
+</TITLE>
+<META NAME="Generator" CONTENT="WebWriter/2 v1.2">
+</HEAD>
+<!--~========== end header1 ==========~-->
+<BODY BACKGROUND="images/or5.jpg" BGCOLOR="#CCCCCC" TEXT="#990000" LINK="#006600"
+VLINK="#FFFFFF" ALINK="#FFFFFF">
+
+<!-- TOP -->
+<center>
+<IMG src="images/navbar.gif" WIDTH="620" HEIGHT="65" USEMAP="#navbarMap"  BORDER=0 >
+</center>
+<!-- Starting navbarMap Client Side ImageMap info -->
+<MAP NAME="navbarMap">
+<!-- #$: An Embellish creation. from http://www.dadaware.com -->
+<AREA SHAPE=RECT COORDS="443,21,487,38" HREF="Den.shtml" ALT="Den">
+<AREA SHAPE=RECT COORDS="504,20,558,37" HREF="Links.shtml" ALT="Links">
+<AREA SHAPE=RECT COORDS="343,20,426,37" HREF="Literature.shtml" ALT="Literature">
+<AREA SHAPE=RECT COORDS="248,20,323,38" HREF="Reviews.shtml" ALT="Reviews">
+<AREA SHAPE=RECT COORDS="158,19,228,38" HREF="Bookstore.shtml" ALT="Bookstore">
+<AREA SHAPE=RECT COORDS="525,3,582,19" HREF="Friends.shtml" ALT="Friends">
+<AREA SHAPE=RECT COORDS="457,3,506,20" HREF="Neill.shtml">
+<AREA SHAPE=RECT COORDS="354,2,438,19" HREF="Humor.shtml" ALT="Humor">
+<AREA SHAPE=RECT COORDS="248,2,337,19" HREF="Essays.shtml" ALT="Claire's Essays">
+<AREA SHAPE=RECT COORDS="129,1,228,20" HREF="Books.shtml" ALT="Claire's Books">
+<AREA SHAPE=RECT COORDS="0,1,93,65" HREF="Lodge.html" ALT="Wolfe's Lodge">
+</MAP>
+<!-- End of navbarMap Client Side ImageMap info -->
+
+
+<P>
+<BR>
+<P>
+<!--~------------ TABLE2 ------------~-->
+<TABLE WIDTH=100%>
+<TR>
+<TD ALIGN=LEFT VALIGN=TOP>
+<IMG src="images/WolfM.jpg" HEIGHT=603 WIDTH=185 ALT="Wolf Image (14.5k)">
+<BR>
+<BR>
+<IMG src="images/amazon.gif" ALT="Amazon.com">
+</TD>
+<TD ALIGN=LEFT VALIGN=TOP>
+<CENTER>
+<IMG src="images/TXT_LoneWolfe.GIF" WIDTH=322 HEIGHT=54 ALT="The Lone Wolfe">
+<BR>
+<IMG src="images/TXT_Bookstore.GIF" WIDTH=198 HEIGHT=46 ALT="Bookstore">
+<P>
+<IMG src="images/TracksM.GIF" HEIGHT=20 WIDTH=300 ALT="Wolf Tracks">
+</CENTER>
+<P>Welcome to the Wolfe's Lodge Lone Wolfe Bookstore. This store operates in conjunction with Amazon.com. With your help, Wolfe's Lodge can earn veritable <B><I>TENS</I></B> of dollars per year! (Please don't tell the IRS!!!)
+<P>Look under any of the four catagories that follow, click on any book you're interested in and shop 'til you drop!
+<P><B>New books added in all categories 8/26/99.</B>
+<DL>
+<BR>
+<DT>
+<A HREF="BK_Individual_Freedom.shtml"><IMG src="images/TXT_IndividualFreedom_sm.GIF" HEIGHT=37 WIDTH=250 BORDER=0 ALT="Individual Freedom"></A>
+<BR>
+<BR>
+<DT>
+<A HREF="BK_Novels.shtml"><IMG src="images/TXT_Novels_sm.GIF" HEIGHT=40 WIDTH=100 BORDER=0 ALT="Novels"></A>
+<BR>
+<BR>
+<DT>
+<A HREF="BK_Firearms.shtml"><IMG src="images/TXT_Firearms_sm.GIF" HEIGHT=37 WIDTH=115 BORDER=0 ALT="Firearms"></A>
+<BR>
+<BR>
+<DT>
+<A HREF="BK_Current_Events.shtml"><IMG src="images/TXT_CurrentEvents_sm.GIF" HEIGHT=40 WIDTH=200 BORDER=0 ALT="Current Events"></A>
+<BR>
+<BR>
+<DT>
+<A HREF="BK_History.shtml"><IMG src="images/TXT_HistandPhilos_sm.GIF" HEIGHT=45 WIDTH=275 BORDER=0 ALT="History"></A>
+<BR>
+</DL>
+</TD>
+</TR>
+</TABLE>
+<!--~---------- END TABLE2 ----------~-->
+<BR>
+<BR>
+
+<HTML>
+<HEAD>
+<TITLE></TITLE>
+</HEAD>
+<BODY>
+
+<CENTER>
+<P><IMG src="images/Tracks.GIF" HEIGHT=20 WIDTH=498 ALT="Wolf Tracks"><P>
+<P>| <A HREF="Lodge.html">The Lodge</A>
+ | <A HREF="Books.shtml">Claire's Books</A>
+ | <A HREF="Essays.shtml">CW Essays</A>
+ | <A HREF="Humor.shtml">CW Sillies</A>
+ | <A HREF="Neill.shtml">Patricia Neill</A>
+ | <A HREF="Friends.shtml">Friends</A>
+<br>
+ | <a href="Bookstore.shtml">Bookstore</a>
+ | <A HREF="Reviews.shtml">Reviews</A>
+ | <A HREF="Literature.shtml">Literature</A>
+ | <A HREF="Rants.shtml">Sound-Off Archive
+ | <A HREF="Den.shtml">Den</A>
+ | <A HREF="Links.shtml">Links</A>
+|
+<P>If you find anything awry at this site,<BR><A HREF="Form_Reporting.shtml"> please contact the Web Tender</A>.<BR>
+
+</CENTER>
+
+
+</BODY>
+
+</HTML>
+
+
+<!-- BOT -->
+
+<SMALL>
+01 December 1998
+</SMALL>
+</BODY>
+</HTML>

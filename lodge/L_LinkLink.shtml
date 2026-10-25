@@ -1,0 +1,87 @@
+<HTML>
+<BODY BACKGROUND="images/or5.jpg" BGCOLOR="#CCCCCC" TEXT="#990000" LINK="#006600" VLINK="#FFFFFF" ALINK="#FFFFFF">
+
+<!-- TOP -->
+<center>
+<IMG src="images/navbar.gif" WIDTH="620" HEIGHT="65" USEMAP="#navbarMap"  BORDER=0 >
+</center>
+<!-- Starting navbarMap Client Side ImageMap info -->
+<MAP NAME="navbarMap">
+<!-- #$: An Embellish creation. from http://www.dadaware.com -->
+<AREA SHAPE=RECT COORDS="443,21,487,38" HREF="Den.shtml" ALT="Den">
+<AREA SHAPE=RECT COORDS="504,20,558,37" HREF="Links.shtml" ALT="Links">
+<AREA SHAPE=RECT COORDS="343,20,426,37" HREF="Literature.shtml" ALT="Literature">
+<AREA SHAPE=RECT COORDS="248,20,323,38" HREF="Reviews.shtml" ALT="Reviews">
+<AREA SHAPE=RECT COORDS="158,19,228,38" HREF="Bookstore.shtml" ALT="Bookstore">
+<AREA SHAPE=RECT COORDS="525,3,582,19" HREF="Friends.shtml" ALT="Friends">
+<AREA SHAPE=RECT COORDS="457,3,506,20" HREF="Neill.shtml">
+<AREA SHAPE=RECT COORDS="354,2,438,19" HREF="Humor.shtml" ALT="Humor">
+<AREA SHAPE=RECT COORDS="248,2,337,19" HREF="Essays.shtml" ALT="Claire's Essays">
+<AREA SHAPE=RECT COORDS="129,1,228,20" HREF="Books.shtml" ALT="Claire's Books">
+<AREA SHAPE=RECT COORDS="0,1,93,65" HREF="Lodge.html" ALT="Wolfe's Lodge">
+</MAP>
+<!-- End of navbarMap Client Side ImageMap info -->
+
+
+<P><BR><BR>
+<CENTER>
+<H2>LINKS TO PLACES WITH GREAT LINKS</H2>
+</CENTER>
+<BR>
+<P><A HREF="http://www.skalman.nu/seven/" target="Wolf_Lnk">The Seventh Seal</A> An incredible research site! Worldwide links on political ideologies, plus a huge collection of links on hot issues -- drugs, feminism, guns, black pride, white pride, animal rights, censorship, separatism, world government, environmentalism, gay rights, militias, troubled nations and more. (Most -- though not all -- topic areas contain both pro and anti views.) Check their downloadable classics of political literature, from Marx and Hitler (Booooo) to Frederick Douglass and Patrick Henry (Yaaaay).
+<P><A HREF="http://www.disinfo.com/" target="Wolf_Lnk">Disinformation</A> Here's a search engine specializing in hard-to-find political and cultural information. Its viewpoint is iconoclastic, off-the-wall, anti-censorship, conspiratorial, civil-libertarian and sometimes surrealistic.
+<P><A HREF="http://www.geocities.com/capitolhill/7093/links.html" target="Wolf_Lnk">The Fountain of Truth</A> Doug Newman presents this Christian libertarian site which also happens to be a goldmine of links for freedom lovers of any creed.
+<P><A HREF="http://freedomlaw.com/" target="Wolf_Lnk"><!--Dr. Tavel's Reading Room-->Freedomlaw.com</A> Check out <!--the Reading Room at -->Dr. Tavel's excellent legal self-help site.  The site also contains law texts, historic documents and a wealth of self-help tools to use against stupid, unjust laws.
+<P><A HREF="http://www.militia-watchdog.org" target="Wolf_Lnk">Militia Watchdog</A> This site was created by someone who hates the freedom movement and who lumps libertarians and patriots in with white supremacists. However, aside from the WS category, the compiler of this info really has picked out some of the best sites on the web.
+<BR><BR><BR><BR>
+<CENTER>
+<P><IMG src="images/Tracks.GIF" HEIGHT=20 WIDTH=498 ALT="Wolf Tracks"><P>
+<H2>Other Links</H2>| <A HREF="L_Curmudgeon.shtml">Curmudgeons</A>
+ | <A HREF="L_Weird.shtml">Weird</A>
+ | <A HREF="L_Bookstore.shtml">Bookstores</A>
+ | <A HREF="L_Guns.shtml">Firearms</A>
+ | <A HREF="L_Privacy.shtml">Privacy</A>
+ | <A HREF="L_FreeLife.shtml">Live Free</A>
+ | <A HREF="L_News.shtml">Free Press</A>
+ | <A HREF="L_Lib.shtml">Libertarian</A>
+ | <A HREF="L_Patriot.shtml">Patriot</A>
+ | <A HREF="L_Orgs.shtml">Organizations</A>
+ | <A HREF="L_LinkLink.shtml">Other</A>
+</CENTER>
+
+<HTML>
+<HEAD>
+
+<TITLE></TITLE>
+</HEAD>
+<BODY>
+
+<CENTER>
+<P><IMG src="images/Tracks.GIF" HEIGHT=20 WIDTH=498 ALT="Wolf Tracks"><P>
+<P>| <A HREF="Lodge.html">The Lodge</A>
+ | <A HREF="Books.shtml">Claire's Books</A>
+ | <A HREF="Essays.shtml">CW Essays</A>
+ | <A HREF="Humor.shtml">CW Sillies</A>
+ | <A HREF="Neill.shtml">Patricia Neill</A>
+ | <A HREF="Friends.shtml">Friends</A>
+<br>
+ | <a href="Bookstore.shtml">Bookstore</a>
+ | <A HREF="Reviews.shtml">Reviews</A>
+ | <A HREF="Literature.shtml">Literature</A>
+ | <A HREF="Rants.shtml">Sound-Off Archive
+ | <A HREF="Den.shtml">Den</A>
+ | <A HREF="Links.shtml">Links</A>
+|
+<P>If you find anything awry at this site,<BR><A HREF="Form_Reporting.shtml"> please contact the Web Tender</A>.<BR>
+
+</CENTER>
+
+
+</BODY>
+
+</HTML>
+
+
+<!-- BOT -->
+
+<BR><BR><SMALL>20 November, 1997</SMALL></BODY></HTML>

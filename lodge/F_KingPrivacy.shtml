@@ -1,0 +1,309 @@
+<HTML><HEAD>
+<TITLE>Wolfe's Lodge - Friends - Privacy</TITLE>
+<META NAME="Generator" CONTENT="WebWriter/2 v1.2">
+</HEAD>
+<BODY BGCOLOR="#CCCCCC" TEXT="#990000" LINK="#006600" VLINK="#FFFFFF" ALINK="#FFFFFF">
+<A NAME="ToF"></A>
+
+<!-- TOP -->
+<center>
+<IMG src="images/navbar.gif" WIDTH="620" HEIGHT="65" USEMAP="#navbarMap"  BORDER=0 >
+</center>
+<!-- Starting navbarMap Client Side ImageMap info -->
+<MAP NAME="navbarMap">
+<!-- #$: An Embellish creation. from http://www.dadaware.com -->
+<AREA SHAPE=RECT COORDS="443,21,487,38" HREF="Den.shtml" ALT="Den">
+<AREA SHAPE=RECT COORDS="504,20,558,37" HREF="Links.shtml" ALT="Links">
+<AREA SHAPE=RECT COORDS="343,20,426,37" HREF="Literature.shtml" ALT="Literature">
+<AREA SHAPE=RECT COORDS="248,20,323,38" HREF="Reviews.shtml" ALT="Reviews">
+<AREA SHAPE=RECT COORDS="158,19,228,38" HREF="Bookstore.shtml" ALT="Bookstore">
+<AREA SHAPE=RECT COORDS="525,3,582,19" HREF="Friends.shtml" ALT="Friends">
+<AREA SHAPE=RECT COORDS="457,3,506,20" HREF="Neill.shtml">
+<AREA SHAPE=RECT COORDS="354,2,438,19" HREF="Humor.shtml" ALT="Humor">
+<AREA SHAPE=RECT COORDS="248,2,337,19" HREF="Essays.shtml" ALT="Claire's Essays">
+<AREA SHAPE=RECT COORDS="129,1,228,20" HREF="Books.shtml" ALT="Claire's Books">
+<AREA SHAPE=RECT COORDS="0,1,93,65" HREF="Lodge.html" ALT="Wolfe's Lodge">
+</MAP>
+<!-- End of navbarMap Client Side ImageMap info -->
+
+
+<BR CLEAR=ALL><BR>
+<CENTER>
+<TABLE WIDTH=90%><TR><TD ALIGN=LEFT>
+	<A HREF="F_HouseArrest.shtml" REL="Previous"><IMG src="images/TrackBack.GIF" BORDER=0 HEIGHT=60 WIDTH=100 ALT="Previous"></A>
+	</TD><TD ALIGN=CENTER><IMG src="images/TXT_Friends.GIF" HEIGHT=46 WIDTH=149 ALT="FRIENDS">
+	</TD>	<TD ALIGN=RIGHT><A HREF="F_Peabody.shtml" REL="Previous"><IMG src="images/TrackNext.GIF" BORDER=0 HEIGHT=60 WIDTH=100 ALT="Next"></A>
+</TD></TR></TABLE>
+<P><IMG src="images/Tracks.GIF" HEIGHT=20 WIDTH=498 ALT="Wolf Tracks"><P>
+</CENTER>
+<BR>
+<H2 ALIGN=CENTER>PRIVACY ON THE INTERNET</H2>
+<H3 ALIGN=CENTER>By David B. King</H3>
+</CENTER><BR CLEAR=ALL>
+<BLOCKQUOTE><I>I have written several articles about privacy from a personal point of view -- trust, discretion and other necessities of life. David B. King writes on another extremely important aspect -- electronic privacy resources available on the 'net. His article covers: Communications privacy, e-gold, DigiCash/ecash, Mark Twain Bank and CyberCash. At the end of the article you'll find links to all the URL's mentioned in the text. Just click and go directly to these useful sites.</I></BLOCKQUOTE><BR CLEAR=ALL>
+
+<P><B>Communications privacy</B>
+
+<P>There are two elements to communications privacy: The identity of the
+participants and the content of the messages transmitted among them.
+
+<P>It is possible to preserve the content of your messages with absolute
+security. You simply encrypt them. There are two good ways to do this: by
+using the one-time-pad encipherment scheme, or by using the Pretty Good
+Privacy program.
+
+<P>I have created a program, CIPHER.EXE (runs under MS-DOS), which is a
+simple implementation of the one-time-pad process. This program is (so
+far) perfectly legal and is freely available from me:
+<A HREF="mailto:davidbking@hotmail.com" TITLE="David B. King">
+davidbking@hotmail.com</A>
+
+<P>The Pretty Good Privacy program was invented by Philip Zimmermann in
+June 1991. How secure is it? In 1997 these three attacks were made:<BR>
+<UL>
+<LI>250 computers cooperated to break a 40-bit key in 4 hours.
+<LI>3500 computers broke a 48-bit key in 13 days.
+<LI>Several thousand computers linked on the Internet broke a 56-bit key
+in 140 days.
+</UL>
+
+<P>As you can see, the difficulty increases exponentially, not linearly,
+with increasing key length.
+
+<P>As of February, 1998 the legally-exportable (from the United States)
+key size is 56 bits. Keys larger than that size are considered by the
+American Government to be dangerous weapons, even though the citizens of
+many other countries are using them. The latest version of PGP is available from Norway at: http://www.pgpi.com/download
+
+<P>It may or may not be legal for American citizens to use this program.
+
+<P>The PGP home page (http://www.ifi.uio.no/pgp) has more information about
+the legal ramifications of the program.
+
+<P>There is a trade-off between PGP and CIPHER:
+
+<P>PGP is much more convenient to use than CIPHER. The one-time-pad
+process requires each message to have a unique key, which must be at
+least as long as the message, and these keys must be in the possession of
+all participants. This key-handling can be a hassle. It is a much simpler
+process in PGP.
+
+<P>As you saw above, PGP encipherments can be broken. (I will leave it to
+you as an exercise to calculate how many centuries it would take to break
+a 1024-bit key.) The one-time-pad process is absolutely unbreakable.
+
+<P>For the vast majority of Internet users there is no such thing as true
+anonymity. Every privacy and financial service I examined is quite clear
+in its assertions that "We will release account information if we are
+served a subpoena by law enforcement officials." The e-gold service is
+really emphatic about this (see below). The only thing people WON'T tell
+about you is what they CAN'T tell about you. And the only thing they
+can't tell is what they don't know. I hope somebody will tell me that I
+am wrong, and that there IS a good way to ensure anonymity.
+
+<P>Everything you send to or receive from the Internet is transmitted,
+via a telephone cable, through your Internet Service Provider. That phone
+cable is a finger that points directly at you, and the government has
+unlimited access to it through its control over the phone company. Thus
+whatever information your ISP has about you is available to the
+government. Unless you can bypass this scheme, you have no true
+anonymity. (But don't feel bad, you CAN bypass it. I will explain below.)
+
+<P>You can obtain partial anonymity by using proxy servers. A proxy
+server is a middleman between your ISP and the websites you visit.
+
+<P>To use a proxy server for e-mail, you send your message to the proxy
+server, where all the identifying data is stripped off your message and
+the proxy server's data is installed in its place. The message is then
+sent on to its destination. The recipient sends his reply to the proxy
+server, which routes the message on to you. The recipient has no way of
+knowing at what address the message originated, but the proxy server DOES
+know this.
+
+<P>The same procedure is used to enable you to access a webpage
+anonymously.   You query the proxy server, which strips off all
+references to your identity before forwarding your request to the
+website. The website knows only that the proxy server came to get the
+page.
+
+<P>The mixmaster process routes your message through several proxy server
+remailers, thus making it impossible for anyone to trace it. A mixmaster
+message is structured as a nested set of encrypted envelopes.
+Instructions for processing are hidden inside each envelope, which is
+specifically encrypted to a specific remailer. Each remailer removes his
+layer of encryption and its accompanying instructions, and takes the
+requested actions, sending the remainder of the package on to the next
+remailer. Thus, only the first remailer knows where the message
+originated, and only the last remailer knows the ultimate recipient.
+
+<P>Of course, none of these proxy schemes provides any security between
+your computer and your ISP or between your ISP and the proxy server.
+
+<P>Much better anonymity can be obtained through the use of a Ricochet
+cellular modem. If you choose to purchase a modem ($300) rather than rent
+it ($10/month), the only information Ricochet will ask for is a name and
+address where it can send its monthly bills ($30/month for unlimited
+Internet access). A fictitious name at a mail drop will do just fine.
+Thus even if the government uses a court order to access the Ricochet
+radio network, it cannot identify you or locate you. The modem can be
+used in any of the areas that have been equipped with relays for the
+Ricochet network. As of early 1998 they are: Seattle, San Francisco,
+Washington DC, and several small towns in Wyoming and Nebraska. I do not
+know if Ricochet has any competitors.
+
+<P>Aside from privacy considerations, Ricochet's radio system has the
+benefit of being a much more speedy and secure link to the Internet than
+is the phone system. Ricochet does not use local phone lines - the
+modems' radio signals are relayed to a local collector which uplinks to a
+satellite system which is then connected to a main trunk phone line. I
+have been using a Ricochet modem (with a laptop computer) for several
+months and find it vastly superior to an ordinary phone modem. It's small
+and battery-powered - this portability is quite handy.
+
+<P>The Ricochet home page is: http://www.ricochet.net
+
+<P><B>e-gold (http://www.e-gold.com)</B>
+
+<P>E-gold is a monetary transfer system, operated by Gold & Silver
+Reserve, Inc. which enables the use of precious metals as money. Transfer
+orders are expressed in amounts of gold, silver, and other metals.
+
+<P>The recipient of each e-metal payment is assessed a 1% fee, in metal.
+
+<P>You must provide them with your Name, Social Security#, Postal
+address, e-mail address, Phone#, and your Mother's maiden name.
+
+<P>Its policy on privacy is:
+
+<P><BLOCKQUOTE>G&SR complies with US legislation and regulations which require
+virtually every monetary transaction to have a paper trail which must be
+made accessible to government officials acting in accordance with law.
+All transactions within the e-gold system generate a permanent record so
+it is possible to trace the entire lineage of any metal back to the point
+where value entered the system. If you send us a payment which requires
+the filing of information with the government, but refuse to adequately
+document your identity, we will not accept it.</BLOCKQUOTE>
+
+<P>Don't think too harshly about this policy. G&SR, just like any
+ordinary banking institution, is compelled by law to do this. Only if
+they were to spread their metals storage around among several countries,
+and move their business headquarters out of the USA, would they be able
+to provide secure financial services.
+
+<P>Secure e-gold accounts could be provided if they were, like mixmaster,
+doubly encrypted. Only the bank would have the key to the inner envelope,
+containing the individual account data, and only the account holder would
+have the key to the outer envelope. Thus, the bank would not have to know
+anything about the account holder. It would merely deal with whoever
+could open the outer envelope.
+
+<P><B>DigiCash, alias ecash (http://www.digicash.com)</B>
+
+<P>This company operates thru the Mark Twain Bank, where each participant
+must have an account.
+
+<P>No physical money is involved in the actual transfer system. The
+transfers consist of strings of digits, each corresponding to a different
+digital coin. Each coin has a denomination, or value, and purses of
+digital coins are managed automatically by the ecash software.
+
+<P>Having received a payment request from Bob, Alice's ecash software
+chooses coins with the desired total value from the purse on her hard
+disk. Then it removes these coins and sends them over the network to Bob.
+Bob's software automatically sends them on to the bank.
+
+<P>To ensure that each coin is used only once, the bank records the
+serial number of each coin in its spent coin database. If the coin's
+serial number is already recorded, the bank has detected someone trying
+to spend the coin more than once and informs Bob that it is a worthless
+copy.
+
+<P><B>Mark Twain Bank (http://www.marktwain.com</B>)
+
+<P>Requires: Name, Birthdate, Social Security#, Driver's license#, Street
+address, Phone#, e-mail address.
+
+<P><B>CyberCash (http://www.cybercash.com)</B>
+
+<P>This company enables merchants to process credit cards online.
+
+<P><B>LINKS</B>
+
+   <P><B>Proxy Servers</B>
+   <P><A href="http://www.anonymizer.com" target="Wolf_Lnk">Anonymizer</A><BR>
+   <A href="http://www.nymserver.com" target="Wolf_Lnk">Nymserver</A><BR>
+   <A HREF="http://www.obscura.com/~loki/" target="Wolf_Lnk">Mixmaster</A><BR>
+   <A HREF="http://www.cyberpass.net/" target="Wolf_Lnk">Cyberpass</A><BR>
+   <A HREF="http://www.infonex.com" target="Wolf_Lnk">Infonex</A><BR>
+   <A HREF="http://www.obscura.com" target="Wolf_Lnk">Obscura</A><BR>
+   <A HREF="http://www.c2.net" target="Wolf_Lnk">c2</A><BR>
+   <A HREF="http://www.eskimo.com/~joelm/pi.html" target="Wolf_Lnk">Private Idaho</A> Private Idaho is a utility for Windows. It simplifies using privacy
+tools such as e-mail PGP, anonymous remailers, etc.<BR>
+
+<P><B>Privacy information</B>
+   <P><A href="http://www.well.com/user/abacard/remail.html" target="Wolf_Lnk">Remailer information</A><BR>
+   <A HREF="http://www.stack.nl/~galactus/remailers" target="Wolf_Lnk">remailer info</A><BR>
+   <A HREF="http://www.cookiecentral.com" target="Wolf_Lnk">Information about cookies</A><BR>
+information</A><BR>
+   <A href="http://www.ifi.uio.no/pgp/" target="Wolf_Lnk">The PGP Home Page</A><BR>
+   <A href="http://www.pgpi.com/download" target="Wolf_Lnk">Download the latest version of PGP from Norway</A><BR>
+
+<P><B>Financial</B>
+   <P><A href="http://www.e-gold.com" target="Wolf_Lnk">E-Gold</A><BR>
+   <A href="http://www.digicash.com" target="Wolf_Lnk">DigiCash</A><BR>
+   <A href="http://www.marktwain.com" target="Wolf_Lnk">Mark Twain Bank</A><BR>
+   <A href="http://www.cybercash.com" target="Wolf_Lnk">CyberCash</A><BR>
+   <A href="http://www.ricochet.net" target="Wolf_Lnk">The Ricochet cellular modem</A><BR><BR>
+<HR>
+
+<BLOCKQUOTE>(c) David B. King 1998. Who the hell is David King?
+<A HREF="http://www.free-market.net/members/d/davidbking.html" target="Wolf_Lnk">http://www.free-market.net/members/d/davidbking.html"</A>
+
+
+</TD></TD></TABLE>
+</CENTER>
+<CENTER><HR><BR><BR>
+<TABLE WIDTH=90%><TR><TD ALIGN=LEFT>
+		<A HREF="F_HouseArrest.shtml"><IMG src="images/TrackBack.GIF" BORDER=0 HEIGHT=60 WIDTH=100 ALT="Previous"></A>
+		</TD><TD ALIGN=CENTER>
+		<A HREF="#Tof"><IMG src="images/TrackTop.GIF" BORDER=0 HEIGHT=60 WIDTH=95 ALT="Top"></A>
+			</TD><TD ALIGN=RIGHT>
+		<A HREF="F_Peabody.shtml"><IMG src="images/TrackNext.GIF" BORDER=0 HEIGHT=60 WIDTH=100 ALT="Next"></A>
+</TD></TR></TABLE>
+
+<HTML>
+<HEAD>
+
+<TITLE></TITLE>
+</HEAD>
+<BODY>
+
+<CENTER>
+<P><IMG src="images/Tracks.GIF" HEIGHT=20 WIDTH=498 ALT="Wolf Tracks"><P>
+<P>| <A HREF="Lodge.html">The Lodge</A>
+ | <A HREF="Books.shtml">Claire's Books</A>
+ | <A HREF="Essays.shtml">CW Essays</A>
+ | <A HREF="Humor.shtml">CW Sillies</A>
+ | <A HREF="Neill.shtml">Patricia Neill</A>
+ | <A HREF="Friends.shtml">Friends</A>
+<br>
+ | <a href="Bookstore.shtml">Bookstore</a>
+ | <A HREF="Reviews.shtml">Reviews</A>
+ | <A HREF="Literature.shtml">Literature</A>
+ | <A HREF="Rants.shtml">Sound-Off Archive
+ | <A HREF="Den.shtml">Den</A>
+ | <A HREF="Links.shtml">Links</A>
+|
+<P>If you find anything awry at this site,<BR><A HREF="Form_Reporting.shtml"> please contact the Web Tender</A>.<BR>
+
+</CENTER>
+
+
+</BODY>
+
+</HTML>
+
+
+<!-- BOT -->
+
+<BR><BR><SMALL>06 June, 1998</SMALL></BODY></HTML>
