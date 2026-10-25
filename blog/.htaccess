@@ -1,0 +1,16 @@
+# Make sure "AllowOverride All" is in your config
+
+# Also make sure you've enabled the following Apache modules:
+#   rewrite, proxy, proxy_http
+
+# Set some options.
+Options -Indexes
+Options +FollowSymLinks
+
+# Rewriting rules for the gone dark page
+RewriteEngine on
+
+#RewriteCond %{REQUEST_URI} !/blog/index.html
+#RewriteRule .* /blog/index.html [R,L]
+
+RewriteRule (.*) https://etwof.com/$1 [R,L]
