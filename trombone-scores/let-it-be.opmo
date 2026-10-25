@@ -1,0 +1,41 @@
+(cl:in-package :om)
+
+;; Let It Be
+(defvar *let-it-be*
+  '((repeat
+     (-h -q e g3 g3)
+     (q g3 e g3 a3 tie q a3 e3)
+     (g3 g3 e c4 q. d4)
+     (e e4 e4 q e4 tie e4 d4)
+     (q d4 e c4 c4 tie h c4)
+     (q e4 e e4 f4 tie q f4 e4)
+     (e e4 d4 tie q d4 e4 d4)
+     (e d4 e_h c4 -q))
+
+    ;; Bridge
+    (-h e e4 d4 tie q d4)
+    (h c4 e e4 g4 tie q g4)
+    (e a4 q. g4 q e4 d4)
+    (q c4 e d4 q a3 e g3 q e4 tie)
+    (h e4 -h)
+    (q e4 e4 f4 e4)
+    (e e4 d4 tie q d4 e4 q d4)
+    (e d4 q._h c4)
+    ))
+
+(def-score let-it-be
+           (:title "Let It Be"
+            :composer "The Beatles"
+            :key-signature '(bb major)
+            :time-signature '(4 4)
+            :tempo '(120)
+            :layout (bass-layout 'inst)
+            )
+  
+  (inst :omn 
+        (ast-to-omn
+         (transpose (omn-audition-to-ast *let-it-be*) -2))
+        :channel 1
+        :sound 'gm
+        :program 0))
+ 

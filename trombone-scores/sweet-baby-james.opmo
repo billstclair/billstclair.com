@@ -1,0 +1,54 @@
+(in-package :om)
+
+;; Sweet Baby James
+(defvar *sweet-baby-james-1*
+  '((-h q a3) (e d4 fs4 q a4 b4) (h. a4) (q b4 a4 e g4 a4 tie)
+    (h. a4 tie) (h_e a4 e a4)
+    (q b4 b4 b4) (e cs5 b4 tie q e e) (q a4 fs4 d4) (e fs4 e_h a4 tie)
+    (h_e a4 e)
+    (q b4 b4 b4) (e cs5 b4 tie q e b4 b4) (q a4 fs4 d4) (e fs4 e_h a4)
+    (e g4 g4 tie q g4 g4) (e fs4 e4 tie q e4 d4) (q e4 e4 e fs4 e4 tie)
+    (h. e4 tie) (h. e4) (-h.)
+    ))
+
+(defvar *sweet-baby-james-2*
+  '((-h -e a3) 
+    (reh q. b4 e b4 q b4) (q b4 a4 g4) (q b4 a4 e g4 a4 tie) (h. a4)
+    (e b4 q b4 e b4 q b4) (q cs5 b4 b4) (q a4 fs4 e d4 e4 tie) (h_e e4 e a3)
+    (q. b4 e b4 q b4) (q cs5 b4 b4) (q a4 fs4 e d4 fs4 tie) (h_e fs4 e d4)
+    (q e4 e4 e e4 e4 tie) (q e4 e4 e fs4 e4 tie) (h. e4 tie) (h. e4)
+    (-h.) (-h.)
+    ))
+
+(defvar *sweet-baby-james-chorus*
+      '((reh q fs4 q_e fs4 e fs4) (h g4 q fs4) (h e4 q fs4 tie) (q fs4 -h)
+        (q. b4 e b4 q b4) (q b4 b4 e a4 a4 tie) (h a4 -q) (-h.)
+        (q b4 b4 e b4 b4 tie) (q b4 b4 q a4) (e a4 q fs4 q. d4)
+        (h d4 e d4 d4) (q e4 q. e4 e e4) (q e4 q e4 e fs4 e4 tie) (h. e4)
+        (-q. q. fs4) (e g4 q. g4 q fs4) (e e4 q. d4 q cs4) (h. d4 tie) (q d4 -h )
+        ))
+
+(defun sweet-baby-james ()
+  (append *sweet-baby-james-1*
+          *sweet-baby-james-2*
+          *sweet-baby-james-chorus*
+          ))
+
+(def-score sweet-baby-james
+           (:title "Sweet Baby James"
+            :composer "James Taylor"
+            :key-signature '(f major)
+            :time-signature '(3 4)
+            :tempo '(144)
+            :layout (bass-layout 'inst)
+            )
+  
+  (inst :omn 
+        (ast-to-omn
+         (transpose 
+          (omn-audition-to-ast
+           (sweet-baby-james))
+          -9))
+        :channel 1
+        :sound 'gm
+        :program 0))
