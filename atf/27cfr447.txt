@@ -1,0 +1,1629 @@
+From http://www.access.gpo.gov/nara/cfr/waisidx_03/27cfr447_03.html
+
+[Code of Federal Regulations]
+[Title 27, Volume 2]
+[Revised as of April 1, 2003]
+From the U.S. Government Printing Office via GPO Access
+[CITE: 27CFR447.1]
+
+[Page 88]
+ 
+            TITLE 27--ALCOHOL, TOBACCO PRODUCTS AND FIREARMS
+ 
+   CHAPTER II--BUREAU OF ALCOHOL, TOBACCO, FIREARMS, AND EXPLOSIVES, 
+                          DEPARTMENT OF JUSTICE
+ 
+PART 447--IMPORTATION OF ARMS, AMMUNITION AND IMPLEMENTS OF WAR--Table of Contents
+ 
+                            Subpart A--Scope
+ 
+Sec. 447.1  General.
+
+
+    The regulations in this part relate to that portion of Section 38, 
+Arms Export Control Act of 1976, as amended, which is concerned with the 
+importation of arms, ammunition and implements of war. This part 
+contains the U.S. Munitions Import List and includes procedural and 
+administrative requirements and provisions relating to registration of 
+importers, permits, articles in transit, import certification, delivery 
+verification, import restrictions applicable to certain countries, 
+exemptions, U.S. military firearms or ammunition, penalties, seizures, 
+and forfeitures. All designations and changes in designation of articles 
+subject to import control under Section 414 of the Mutual Security Act 
+of 1954, as amended, have the concurrence of the Secretary of State and 
+the Secretary of Defense.
+
+[T.D. ATF-8, 39 FR 3251, Jan. 25, 1974, as amended by T.D. ATF-215, 50 
+FR 42158, Oct. 18, 1985]
+
+
+
+
+
+
+[Code of Federal Regulations]
+[Title 27, Volume 2]
+[Revised as of April 1, 2003]
+From the U.S. Government Printing Office via GPO Access
+[CITE: 27CFR447.2]
+
+[Page 88-89]
+ 
+            TITLE 27--ALCOHOL, TOBACCO PRODUCTS AND FIREARMS
+ 
+   CHAPTER II--BUREAU OF ALCOHOL, TOBACCO, FIREARMS, AND EXPLOSIVES, 
+                          DEPARTMENT OF JUSTICE
+ 
+PART 447--IMPORTATION OF ARMS, AMMUNITION AND IMPLEMENTS OF WAR--Table of Contents
+ 
+                            Subpart A--Scope
+ 
+Sec. 447.2  Relation to other laws and regulations.
+
+    (a) All of those items on the U.S. Munitions Import List (see 
+Sec. 447.21) which are ``firearms'' or ``ammunition'' as defined in 18 
+U.S.C. 921(a) are subject to the interstate and foreign commerce 
+controls contained in Chapter 44 of Title 18 U.S.C. and 27 CFR Part 478 
+and if they are ``firearms'' within the definition set out in 26 U.S.C. 
+5845(a) are also subject to the provisions of 27 CFR Part 479. Any 
+person engaged in the business of importing firearms or ammunition as 
+defined in 18 U.S.C. 921(a) must obtain a license under the provisions 
+of 27 CFR Part 478, and if he imports firearms which fall within the
+
+[[Page 89]]
+
+definition of 26 U.S.C. 5845(a) must also register and pay special tax 
+pursuant to the provisions of 27 CFR Part 479. Such licensing, 
+registration and special tax requirements are in addition to 
+registration under subpart D of this part.
+    (b) The permit procedures of subpart E of this part are applicable 
+to all importations of articles on the U.S. Munitions Import List not 
+subject to controls under 27 CFR Part 478 or 479. U.S. Munitions Import 
+List articles subject to controls under 27 CFR Part 478 or 27 CFR Part 
+479 are subject to the import permit procedures of those regulations if 
+imported into the United States (within the meaning of 27 CFR Parts 478 
+and 479).
+    (c) Articles on the U.S. Munitions Import List imported for the 
+United States or any State or political subdivision thereof are exempt 
+from the import controls of 27 CFR Part 478 but are not exempt from 
+control under Section 38, Arms Export Control Act of 1976, unless 
+imported by the United States or any agency thereof. All such 
+importations not imported by the United States or any agency thereof 
+shall be subject to the import permit procedures of subpart E of this 
+part.
+    (d) For provisions requiring the registration of persons engaged in 
+the business of brokering activities with respect to the importation of 
+any defense article or defense service, see Department of State 
+regulations in 22 CFR part 129.
+
+[T.D. ATF-215, 50 FR 42158, Oct. 18, 1985, as amended by T.D. ATF-426, 
+65 FR 38197, June 20, 2000]
+
+
+
+
+
+
+[Code of Federal Regulations]
+[Title 27, Volume 2]
+[Revised as of April 1, 2003]
+From the U.S. Government Printing Office via GPO Access
+[CITE: 27CFR447.11]
+
+[Page 89-90]
+ 
+            TITLE 27--ALCOHOL, TOBACCO PRODUCTS AND FIREARMS
+ 
+   CHAPTER II--BUREAU OF ALCOHOL, TOBACCO, FIREARMS, AND EXPLOSIVES, 
+                          DEPARTMENT OF JUSTICE
+ 
+PART 447--IMPORTATION OF ARMS, AMMUNITION AND IMPLEMENTS OF WAR--Table of Contents
+ 
+                         Subpart B--Definitions
+ 
+Sec. 447.11  Meaning of terms.
+
+
+    When used in this part and in forms prescribed under this part, 
+where not otherwise distinctly expressed or manifestly incompatible with 
+the intent thereof, terms shall have the meanings ascribed in this 
+section. Words in the plural form shall include the singular, and vice 
+versa, and words imparting the masculine gender shall include the 
+feminine. The terms ``includes'' and ``including'' do not exclude other 
+things not enumerated which are in the same general class or are 
+otherwise within the scope thereof.
+    Appropriate ATF officer. An officer or employee of the Bureau of 
+Alcohol, Tobacco and Firearms (ATF) specified by ATF Order 1130.34, 
+Delegation of the Director's Authorities in 27 CFR Part 447, Importation 
+of Arms, Ammunition and Implements of War.
+    Article. Any of the arms, ammunition, and implements of war 
+enumerated in the U.S. Munitions Import List.
+    Bureau. Bureau of Alcohol, Tobacco and Firearms, the Department of 
+the Treasury.
+    Carbine. A short-barrelled rifle whose barrel is generally not 
+longer than 22 inches and is characterized by light weight.
+    CFR. The Code of Federal Regulations.
+    Chemical agent. A substance useful in war which, by its ordinary and 
+direct chemical action, produces a powerful physiological effect.
+    Defense articles. Any item designated in Sec. 447.21 or Sec. 447.22. 
+This term includes models, mockups, and other such items which reveal 
+technical data directly relating to Sec. 447.21 or Sec. 447.22. For 
+purposes of Category XXII, any item enumerated on the U.S. Munitions 
+List (22 CFR Part 121).
+    Defense services. (a) The furnishing of assistance, including 
+training, to foreign persons in the design, engineering, development, 
+production, processing, manufacture, use, operation, overhaul, repair, 
+maintenance, modification, or reconstruction of defense articles, 
+whether in the United States or abroad; or
+    (b) The furnishing to foreign persons of any technical data, whether 
+in the United States or abroad.
+    Director. The Director, Bureau of Alcohol, Tobacco and Firearms, the 
+Department of the Treasury, Washington, DC 20226.
+    Executed under the penalties of perjury. Signed with the prescribed 
+declaration under the penalties of perjury as provided on or with 
+respect to the application, form, or other document or, where no form of 
+declaration is prescribed, with the declaration: ``I declare under the 
+penalties of perjury that this ---- (insert type of document
+
+[[Page 90]]
+
+such as statement, certificate, application, or other document), 
+including the documents submitted in support thereof, has been examined 
+by me and, to best of my knowledge and belief, is true, correct, and 
+complete.''
+    Firearms. A weapon, and all components and parts therefor, not over 
+.50 caliber which will or is designed to or may be readily converted to 
+expel a projectile by the action of an explosive, but shall not include 
+BB and pellet guns, and muzzle loading (black powder) firearms 
+(including any firearm with a matchlock, flintlock, percussion cap, or 
+similar type of ignition system) or firearms covered by Category I(a) 
+established to have been manufactured in or before 1898.
+    Import or importation. Bringing into the United States from a 
+foreign country any of the articles on the Import List, but shall not 
+include intransit, temporary import or temporary export transactions 
+subject to Department of State controls under Title 22, Code of Federal 
+Regulations.
+    Import List. The list of articles contained in Sec. 447.21 and 
+identified therein as ``The U.S. Munitions Import List''.
+    Machinegun. A ``machinegun'', ``machine pistol'', ``submachinegun'', 
+or ``automatic rifle'' is a firearm originally designed to fire, or 
+capable of being fired fully automatically by a single pull of the 
+trigger.
+    Permit. The same as ``license'' for purposes of 22 U.S.C. 1934(c).
+    Person. A partnership, company, association, or corporation, as well 
+as a natural person.
+    Pistol. A hand-operated firearm having a chamber integral with, or 
+permanently aligned with, the bore.
+    Revolver. A hand-operated firearm with a revolving cylinder 
+containing chambers for individual cartridges.
+    Rifle. A shoulder firearm discharging bullets through a rifled 
+barrel at least 16 inches in length, including combination and drilling 
+guns.
+    Sporting type sight including optical. A telescopic sight suitable 
+for daylight use on a rifle, shotgun, pistol, or revolver for hunting or 
+target shooting.
+    This chapter. Title 27, Code of Federal Regulations, Chapter II (27 
+CFR Chapter II).
+    United States. When used in the geographical sense, includes the 
+several States, the Commonwealth of Puerto Rico, the insular possessions 
+of the United States, the District of Columbia, and any territory over 
+which the United States exercises any powers of administration, 
+legislation, and jurisdiction.
+
+(26 U.S.C. 7805 (68A Stat. 917), 27 U.S.C. 205 (49 Stat. 981 as 
+amended), 18 U.S.C. 926 (82 Stat. 959), and sec. 38, Arms Export Control 
+Act (22 U.S.C. 2778, 90 Stat. 744))
+
+[T.D. ATF-48, 43 FR 13535, Mar. 31, 1978; 44 FR 55840, Sept. 28, 1979, 
+as amended by T.D. ATF-202, 50 FR 14382, Apr. 12, 1985; T.D. ATF-215, 50 
+FR 42158, Oct. 18, 1985; T.D. ATF-484, 67 FR 64526, Oct. 21, 2002]
+
+
+
+
+
+
+[Code of Federal Regulations]
+[Title 27, Volume 2]
+[Revised as of April 1, 2003]
+From the U.S. Government Printing Office via GPO Access
+[CITE: 27CFR447.21]
+
+[Page 90-94]
+ 
+            TITLE 27--ALCOHOL, TOBACCO PRODUCTS AND FIREARMS
+ 
+   CHAPTER II--BUREAU OF ALCOHOL, TOBACCO, FIREARMS, AND EXPLOSIVES, 
+                          DEPARTMENT OF JUSTICE
+ 
+PART 447--IMPORTATION OF ARMS, AMMUNITION AND IMPLEMENTS OF WAR--Table of Contents
+ 
+                Subpart C--The U.S. Munitions Import List
+ 
+Sec. 447.21  The U.S. Munitions Import List.
+
+
+    The U.S. Munitions List compiled by the Department of State, Office 
+of Defense Trade Controls, and published at 22 CFR 121.1, with the 
+deletions indicated, has been adopted as an enumeration of the defense 
+articles subject to controls under this part. The expurgated list, set 
+out below, shall, for the purposes of this part, be known as the U.S. 
+Munitions Import List:
+
+                     The U.S. Munitions Import List
+
+                          category i--firearms
+
+    (a) Nonautomatic and semiautomatic firearms, to caliber .50 
+inclusive, combat shotguns, and shotguns with barrels less than 18 
+inches in length, and all components and parts for such firearms.
+    (b) Automatic firearms and all components and parts for such 
+firearms to caliber .50 inclusive.
+    (c) Insurgency-counterinsurgency type firearms of other weapons 
+having a special military application (e.g. close assault weapons 
+systems) regardless of caliber and all components and parts for such 
+firearms.
+    (d) Firearms silencers and suppressors, including flash suppressors.
+    (e) Riflescopes manufactured to military specifications and 
+specifically designed or modified components therefor.
+    Note: Rifles, carbines, revolvers, and pistols, to caliber .50 
+inclusive, combat shotguns, and shotguns with barrels less than 18 
+inches in length are included under Category I(a). Machineguns, 
+submachineguns, machine
+
+[[Page 91]]
+
+pistols and fully automatic rifles to caliber .50 inclusive are included 
+under Category I(b).
+
+                    category ii--artillery projectors
+
+    (a) Guns over caliber .50, howitzers, mortars, and recoiless rifles.
+    (b) Military flamethrowers and projectors.
+    (c) Components, parts, accessories, and attachments for the articles 
+in paragraphs (a) and (b) of this category, including but not limited to 
+mounts and carriages for these articles.
+
+                        category iii--ammunition
+
+    (a) Ammunition for the arms in Categories I and II of this section.
+    (b) Components, parts, accessories, and attachments for articles in 
+paragraph (a) of this category, including but not limited to cartridge 
+cases, powder bags, bullets, jackets, cores, shells (excluding shotgun 
+shells), projectiles, boosters, fuzes and components therefor, primers, 
+and other detonating devices for such ammunition.
+    (c) Ammunition belting and linking machines.
+    (d) Ammunition manufacturing machines and ammunition loading 
+machines (except handloading ones).
+    Note: Cartridge and shell casings are included under Category III 
+unless, prior to their importation, they have been rendered useless 
+beyond the possibility of restoration for use as a cartridge or shell 
+casing by means of heating, flame treatment, mangling, crushing, 
+cutting, or popping.
+
+   category iv--launch vehicles, guided missiles, ballistic missiles, 
+                   rockets, torpedoes, bombs and mines
+
+    (a) Rockets (including but not limited to meteorological and other 
+sounding rockets), bombs, grenades, torpedoes, depth charges, land and 
+naval mines, as well as launchers for such defense articles, and 
+demolition blocks and blasting caps.
+    (b) Launch vehicles and missile and anti-missile systems including 
+but not limited to guided, tactical and strategic missiles, launchers, 
+and systems.
+    (c) Apparatus, devices, and materials for the handling, control, 
+activation, monitoring, detection, protection, discharge, or detonation 
+of the articles in paragraphs (a) and (b) of this category. Articles in 
+this category include, but are not limited to, the following: Fuses and 
+components for the items in this category, bomb racks and shackles, bomb 
+shackle release units, bomb ejectors, torpedo tubes, torpedo and guided 
+missile boosters, guidance system equipment and parts, launching racks 
+and projectors, pistols (exploders), igniters, fuze arming devices, 
+intervalometers, guided missile launchers and specialized handling 
+equipment, and hardened missile launching facilities.
+    (d) Missile and space vehicle powerplants.
+    (e) Military explosive excavating devices.
+    (f) Ablative materials fabricated or semifabricated from advanced 
+composites (e.g., silica, graphite, carbon, carbon/carbon, and boron 
+filaments) for the articles in this category that are derived directly 
+from or specifically developed or modified for defense articles.
+    (g) Non/nuclear warheads for rockets and guided missiles.
+    (h) All specifically designed components or modified components, 
+parts, accessories, attachments, and associated equipment for the 
+articles in this category.
+    Note: Military demolition blocks and blasting caps referred to in 
+Category IV(a) do not include the following articles:
+    (a) Electric squibs.
+    (b) No. 6 and No. 8 blasting caps, including electric ones.
+    (c) Delay electric blasting caps (including No. 6 and No. 8 
+millisecond ones).
+    (d) Seismograph electric blasting caps (including SSS, Static-
+Master, Vibrocap SR, and SEISMO SR).
+    (e) Oil well perforating devices.
+    Note: Category V of ``Munitions List'' deleted as inapplicable to 
+imports.
+
+         category vi--vessels of war and special naval equipment
+
+    (a) Warships, amphibious warfare vessels, landing craft, mine 
+warfare vessels, patrol vessels, auxiliary vessels and service craft, 
+experimental types of naval ships and any vessels specifically designed 
+or modified for military purposes.
+    (b) Turrets and gun mounts, arresting gear, special weapons systems, 
+protective systems, submarine storage batteries, catapults and other 
+components, parts, attachments, and accessories specifically designed or 
+modified for combatant vessels.
+    (c) Mine sweeping equipment, components, parts, attachments and 
+accessories specifically designed or modified therefor.
+    (d) Harbor entrance detection devices (magnetic, pressure, and 
+acoustic ones) and controls and components therefor.
+    (e) Naval nuclear propulsion plants, their land prototypes and 
+special facilities for their construction, support and maintenance. This 
+includes any machinery, device, component, or equipment specifically 
+developed or designed or modified for use in such plants or facilities.
+    Note: The term ``vessels of war'' includes, but is not limited to 
+the following:
+    (a) Combatant vessels:
+    (1) Warships (including nuclear-powered versions):
+    (i) Aircraft carriers (CV, CVN)
+    (ii) Battleships (BB)
+    (iii) Cruisers (CA, CG, CGN)
+
+[[Page 92]]
+
+    (iv) Destroyers (DD, DDG)
+    (v) Frigates (FF, FFG)
+    (vi) Submarines (SS, SSN, SSBN, SSG, SSAG).
+    (2) Other Combatant Classifications:
+    (i) Patrol Combatants (PC, PHM)
+    (ii) Amphibious Helicopter/Landing Craft Carriers (LHA, LPD, LPH)
+    (iii) Amphibious Landing Craft Carriers (LKA, LPA, LSD, LST)
+    (iv) Amphibious Command Ships (LCC)
+    (v) Mine Warfare Ships (MSO).
+    (b) Auxiliaries:
+    (1) Mobile Logistics Support:
+    (i) Under way Replenishment (AD, AF, AFS, AO, AOE, AOR)
+    (ii) Material Support (AD, AR, AS).
+    (2) Support Ships:
+    (i) Fleet Support Ships (ARS, ASR, ATA, ATF, ATS)
+    (ii) Other Auxiliaries (AG, AGDS, AGF, AGM, AGOR, AGOS, AGS, AH, AK, 
+AKR, AOG, AOT, AP, APB, ARC, ARL, AVM, AVT).
+    (c) Combatant Craft:
+    (1) Patrol Craft:
+    (i) Coastal Patrol Combatants (PB, PCF, PCH, PTF)
+    (ii) River, Roadstead Craft (ATC, PBR).
+    (2) Amphibious Warfare Craft:
+    (i) Landing Craft (AALC, LCAC, LCM, LCPL, LCPR, LCU, LWT, SLWT)
+    (ii) Special Warfare Craft (LSSC, MSSC, SDV, SWCL, SWCM).
+    (3) Mine Warfare Craft:
+    (i) Mine Countermeasures Craft (MSB, MSD, MSI, MSM, MSR).
+    (d) Support and Service Craft:
+    (1) Tugs (YTB, YTL, YTM)
+    (2) Tankers (YO, YOG, YW)
+    (3) Lighters (YC, YCF, YCV, YF, YFN, YFNB, YFNX, YFR, YFRN, YFU, YG, 
+YGN, YOGN, YON, YOS, YSR, YWN)
+    (4) Floating Dry Docks (AFDB, AFDL, AFDM, ARD, ARDM, YFD)
+    (5) Miscellaneous (APL, DSRV, DSV, IX, NR, YAG, YD, YDT, YFB, YFND, 
+YEP, YFRT, YHLC, YM, YNG, YP, YPD, YR, YRB, YRBN, YRDH, YRDM, YRR, YRST, 
+YSD).
+    (e) Coast Guard Patrol and Service Vessels and Craft:
+    (1) Coast Guard Cutters (CGC, WHEC, WMEC)
+    (2) Patrol Craft (WPB)
+    (3) Icebreakers (WAGB)
+    (4) Oceanography Vessels (WAGO)
+    (5) Special Vessels (WIX)
+    (6) Buoy Tenders (WLB, WLM, WLI, WLR, WLIC)
+    (7) Tugs (WYTM, WYTL)
+    (8) Light Ships (WLV).
+
+                category vii--tanks and military vehicles
+
+    (a) Military type armed or armored vehicles, military railway 
+trains, and vehicles specifically designed or modified to accommodate 
+mountings for arms or other specialized military equipment or fitted 
+with such items.
+    (b) Military tanks, combat engineer vehicles, bridge launching 
+vehicles, halftracks and gun carriers.
+    (c) Self-propelled guns and howitzers.
+    Note: Category VII (d) and (e) of ``Munitions List'' deleted as 
+inapplicable to imports.
+    (f) Amphibious vehicles.
+    (g) Engines specifically designed or modified for the vehicles in 
+paragraphs (a), (b), (c), and (f) of this category.
+    (h) All specifically designed or modified components and parts, 
+accessories, attachments, and associated equipment for the articles in 
+this category, including but not limited to military bridging and deep 
+water fording kits.
+    Note: An ``amphibious vehicle'' in Category VII(f) is an automotive 
+vehicle or chassis which embodies all-wheel drive, which is equipped to 
+meet special military requirements, and which has sealed electrical 
+systems and adaptation features for deep water fording.
+
+      category viii--aircraft, spacecraft, and associated equipment
+
+    (a) Aircraft, including but not limited to helicopters, non-
+expansive balloons, drones and lighter-than-air aircraft, which are 
+specifically designed, modified, or equipped for military purposes. This 
+includes but is not limited to the following military purposes: gunnery, 
+bombing, rocket or missile launching, electronic and other surveillance, 
+reconnaissance, refueling, aerial mapping, military liaison, cargo 
+carrying or dropping, personnel dropping, airborne warning and control, 
+and military training.
+    Note: Category VIII (b) through (j) and Categories IX, X, XI, XII 
+and XIII of ``Munitions List'' deleted as inapplicable to imports.
+    Note: In Category VIII, ``aircraft'' means aircraft designed, 
+modified, or equipped for a military purpose, including aircraft 
+described as ``demilitarized.'' All aircraft bearing an original 
+military designation are included in Category VIII. However, the 
+following aircraft are not so included so long as they have not been 
+specifically equipped, reequipped, or modified for military operations:
+    (a) Cargo aircraft bearing ``C'' designations and numbered C-45 
+through C-118 inclusive, and C-121 through C-125 inclusive, and C-131, 
+using reciprocating engines only.
+    (b) Trainer aircraft bearing ``T'' designations and using 
+reciprocating engines or turboprop engines with less than 600 horsepower 
+(s.h.p.).
+    (c) Utility aircraft bearing ``U'' designations and using 
+reciprocating engines only.
+    (d) All liaison aircraft bearing an ``L'' designation.
+
+[[Page 93]]
+
+    (e) All observation aircraft bearing ``O'' designations and using 
+reciprocating engines.
+
+   category xiv--toxicological agents and equipment and radiological 
+                                equipment
+
+    (a) Chemical agents, including but not limited to lung irritants, 
+vesicants, lachrymators, and tear gases (except tear gas formulations 
+containing 1% or less CN or CS), sternutators and irritant smoke, and 
+nerve gases and incapacitating agents.
+    (b) Biological agents.
+    (c) Equipment for dissemination, detection, and identification of, 
+and defense against, the articles in paragraphs (a) and (b) of this 
+category.
+    (d) Nuclear radiation detection and measuring devices manufactured 
+to military specification.
+    (e) Components, parts, accessories, attachments, and associated 
+equipment specifically designed or modified for the articles in 
+paragraphs (c) and (d) of this category.
+    Note: A chemical agent in Category XIV(a) is a substance having 
+military application which by its ordinary and direct chemical action 
+produces a powerful physiological effect. The term ``chemical agent'' 
+includes, but is not limited to, the following chemical compounds:
+    (a) Lung irritants:
+    (1) Diphenylcyanoarsine (DC).
+    (2) Fluorine (but not fluorene).
+    (3) Trichloronitro methane (chloropicrin PS).
+    (b) Vesicants:
+    (1) B-Chlorovinyldichloroarsine (Lewisite, L).
+    (2) Bis(dichlorethyl) sulphide (Mustard Gas, HD or H).
+    (3) Ethyldichloroarsine (ED).
+    (4) Methyldichloroarsine (MD).
+    (c) Lachrymators and tear gases:
+    (1) A-Brombenzyl cyanide (BBC).
+    (2) Chloroacetophenone (CN).
+    (3) Dibromodimethyl ether.
+    (4) Dichlorodimethyl ether (ClCi).
+    (5) Ethyldibromoarsine.
+    (6) Phenylcarbylamine chloride.
+    (7) Tear gas solutions (CNB and CNS).
+    (8) Tear gas orthochlorobenzalmalononitrile (CS).
+    (d) Sternutators and irritant smokes:
+    (1) Diphenylamine chloroarsine (Adamsite, DM).
+    (2) Diphenylchloroarsine (BA).
+    (3) Liquid pepper.
+    (e) Nerve agents, gases, and aerosols. These are toxic compounds 
+which affect the nervous system, such as:
+    (1) Dimethylaminoethoxycyanophosphine oxide (GA).
+    (2) Methylisopropoxyfluorophosphine oxide (GB).
+    (3) Methylpinacolyloxyfluoriphosphine oxide (GD).
+    (f) Antiplant chemicals, such as: Butyl 2-chloro-4-
+fluorophenoxyacetate (LNF).
+
+                         category xv [Reserved]
+
+         category xvi--nuclear weapons design and test equipment
+
+    (a) Any article, material, equipment, or device, which is 
+specifically designed or modified for use in the design, development, or 
+fabrication of nuclear weapons or nuclear explosive devices.
+    (b) Any article, material, equipment, or device, which is 
+specifically designed or modified for use in the devising, carrying out, 
+or evaluating of nuclear weapons tests or any other nuclear explosions, 
+except such items as are in normal commercial use for other purposes.
+    Note: Categories XVII, XVIII, and XIX of ``Munitions List'' deleted 
+as inapplicable to imports.
+
+category xx--submersible vessels, oceanographic and associated equipment
+
+    (a) Submersible vessels, manned and unmanned, designed or modified 
+for military purposes or having independent capability to maneuver 
+vertically or horizontally at depths below 1,000 feet, or powered by 
+nuclear propulsion plants.
+    (b) Submersible vessels, manned or unmanned, designed or modified in 
+whole or in part from technology developed by or for the U.S. Armed 
+Forces.
+    (c) Any of the articles in Category VI and elsewhere in this part 
+specifically designed or modified for use with submersible vessels, and 
+oceanographic or associated equipment assigned a military designation.
+    (d) Equipment, components, parts, accessories, and attachments 
+specifically designed for any of the articles in paragraphs (a) and (b) 
+of this category.
+
+                  category xxi--miscellaneous articles
+
+    Any article not specifically enumerated in the other categories of 
+the U.S. Munitions List which has substantial military applicability and 
+which has been specifically designed or modified for military purposes. 
+The decision on whether any article may be included in this category 
+shall be made by the Director, Office of Defense Trade Controls, 
+Department of State, with the concurrence of the Department of Defense.
+
+                       category xxii--south africa
+
+    (a) Defense articles enumerated on the U.S. Munitions List (22 CFR 
+Part 121).
+    (b) Technical data relating to defense articles enumerated on the 
+U.S. Munitions List.
+    Note: This category is applicable only to South Africa.
+    Note: ``Technical data'' means, for purposes of this category:
+
+[[Page 94]]
+
+    (1) Classified information relating to defense articles and defense 
+services;
+    (2) Information covered by an invention secrecy order;
+    (3) Information which is directly related to the design, 
+engineering, development, production, processing, manufacture, use, 
+operation, overhaul, repair, maintenance, modification, or 
+reconstruction of defense articles. This includes, for example, 
+information in the form of blueprints, drawings, photographs, plans, 
+instructions, computer software and documentation. This also includes 
+information which advances the state of the art of articles on the U.S. 
+Munitions List. This does not include information concerning general 
+scientific, mathematical or engineering principles.
+
+[T.D. ATF-215, 50 FR 42158, Oct. 18, 1985; 50 FR 46647, Nov. 12, 1985, 
+as amended by T.D. ATF-426, 65 FR 38197, June 20, 2000]
+
+
+
+
+
+
+[Code of Federal Regulations]
+[Title 27, Volume 2]
+[Revised as of April 1, 2003]
+From the U.S. Government Printing Office via GPO Access
+[CITE: 27CFR447.22]
+
+[Page 94]
+ 
+            TITLE 27--ALCOHOL, TOBACCO PRODUCTS AND FIREARMS
+ 
+   CHAPTER II--BUREAU OF ALCOHOL, TOBACCO, FIREARMS, AND EXPLOSIVES, 
+                          DEPARTMENT OF JUSTICE
+ 
+PART 447--IMPORTATION OF ARMS, AMMUNITION AND IMPLEMENTS OF WAR--Table of Contents
+ 
+                Subpart C--The U.S. Munitions Import List
+ 
+Sec. 447.22  Forgings, castings, and machined bodies.
+
+    Articles on the U.S. Munitions Import List include articles in a 
+partially completed state (such as forgings, castings, extrusions, and 
+machined bodies) which have reached a stage in manufacture where they 
+are clearly identifiable as defense articles. If the end-item is an 
+article on the U.S. Munitions Import List, (including components, 
+accessories, attachments and parts) then the particular forging, 
+casting, extrusion, machined body, etc., is considered a defense article 
+subject to the controls of this part, except for such items as are in 
+normal commercial use.
+
+[T.D. ATF-215, 50 FR 42160, Oct. 18, 1985]
+
+
+
+
+
+
+[Code of Federal Regulations]
+[Title 27, Volume 2]
+[Revised as of April 1, 2003]
+From the U.S. Government Printing Office via GPO Access
+[CITE: 27CFR447.31]
+
+[Page 94]
+ 
+            TITLE 27--ALCOHOL, TOBACCO PRODUCTS AND FIREARMS
+ 
+   CHAPTER II--BUREAU OF ALCOHOL, TOBACCO, FIREARMS, AND EXPLOSIVES, 
+                          DEPARTMENT OF JUSTICE
+ 
+PART 447--IMPORTATION OF ARMS, AMMUNITION AND IMPLEMENTS OF WAR--Table of Contents
+ 
+                         Subpart D--Registration
+ 
+Sec. 447.31  Registration requirement.
+
+
+    Persons engaged in the business, in the United States, of importing 
+articles enumerated on the U.S. Munitions Import List must register by 
+making an application on ATF Form 4587.
+
+[T.D. ATF-484, 67 FR 64526, Oct. 21, 2002]
+
+
+
+
+
+
+[Code of Federal Regulations]
+[Title 27, Volume 2]
+[Revised as of April 1, 2003]
+From the U.S. Government Printing Office via GPO Access
+[CITE: 27CFR447.32]
+
+[Page 94]
+ 
+            TITLE 27--ALCOHOL, TOBACCO PRODUCTS AND FIREARMS
+ 
+   CHAPTER II--BUREAU OF ALCOHOL, TOBACCO, FIREARMS, AND EXPLOSIVES, 
+                          DEPARTMENT OF JUSTICE
+ 
+PART 447--IMPORTATION OF ARMS, AMMUNITION AND IMPLEMENTS OF WAR--Table of Contents
+ 
+                         Subpart D--Registration
+ 
+Sec. 447.32  Application for registration and refund of fee.
+
+    (a) Application for registration must be filed on ATF Form 4587 and 
+must be accompanied by the registration fee at the rate prescribed in 
+this section. The appropriate ATF officer will approve the application 
+and return the original to the applicant.
+    (b) Registration may be effected for periods of from 1 to 5 years at 
+the option of the registrant by identifying on Form 4587 the period of 
+registration desired. The registration fees are as follows:
+
+1 year..........................................................    $250
+2 years.........................................................     500
+3 years.........................................................     700
+4 years.........................................................     850
+5 years.........................................................   1,000
+
+
+    (c) Fees paid in advance for whole future years of a multiple year 
+registration will be refunded upon request if the registrant ceases to 
+engage in importing articles on the U.S. Munitions Import List. A 
+request for a refund must be submitted to the appropriate ATF officer at 
+the Bureau of Alcohol, Tobacco and Firearms, Washington, DC 20226, prior 
+to the beginning of any year for which a refund is claimed.
+
+(Approved by the Office of Management and Budget under control number 
+1512-0021)
+
+[T.D. ATF-8, 39 FR 3251, Jan. 25, 1974, as amended by T.D. ATF-215, 50 
+FR 42161, Oct. 18, 1985; T.D. ATF-484, 67 FR 64526, Oct. 21, 2002]
+
+
+
+
+
+
+[Code of Federal Regulations]
+[Title 27, Volume 2]
+[Revised as of April 1, 2003]
+From the U.S. Government Printing Office via GPO Access
+[CITE: 27CFR447.33]
+
+[Page 94]
+ 
+            TITLE 27--ALCOHOL, TOBACCO PRODUCTS AND FIREARMS
+ 
+   CHAPTER II--BUREAU OF ALCOHOL, TOBACCO, FIREARMS, AND EXPLOSIVES, 
+                          DEPARTMENT OF JUSTICE
+ 
+PART 447--IMPORTATION OF ARMS, AMMUNITION AND IMPLEMENTS OF WAR--Table of Contents
+ 
+                         Subpart D--Registration
+ 
+Sec. 447.33  Notification of changes in information furnished by registrants.
+
+    Registered persons shall notify the appropriate ATF officer in 
+writing, in duplicate, of significant changes in the information set 
+forth in their registration
+
+(Approved by the Office of Management and Budget under control number 
+1512-0021)
+
+[T.D. ATF-8, 39 FR 3251, Jan. 25, 1974, as amended by T.D. ATF-215, 50 
+FR 42161, Oct. 18, 1985]
+
+
+
+
+
+
+[Code of Federal Regulations]
+[Title 27, Volume 2]
+[Revised as of April 1, 2003]
+From the U.S. Government Printing Office via GPO Access
+[CITE: 27CFR447.34]
+
+[Page 94-95]
+ 
+            TITLE 27--ALCOHOL, TOBACCO PRODUCTS AND FIREARMS
+ 
+   CHAPTER II--BUREAU OF ALCOHOL, TOBACCO, FIREARMS, AND EXPLOSIVES, 
+                          DEPARTMENT OF JUSTICE
+ 
+PART 447--IMPORTATION OF ARMS, AMMUNITION AND IMPLEMENTS OF WAR--Table of Contents
+ 
+                         Subpart D--Registration
+ 
+Sec. 447.34  Maintenance of records by persons required to register as importers of Import List articles.
+
+    (a) Registrants under this part engaged in the business of importing 
+articles subject to controls under 27 CFR Parts 478 and 479 shall 
+maintain records in accordance with the applicable provisions of those 
+parts.
+    (b) Registrants under this part engaged in importing articles on the 
+U.S. Munitions Import List subject to the permit procedures of subpart E 
+of this part must maintain for a period of 6 years records bearing on 
+such articles imported, including records concerning
+
+[[Page 95]]
+
+their acquisition and disposition, including Forms 6 and 6A. The 
+appropriate ATF officer may prescribe a longer or shorter period in 
+individual cases as such officer deems necessary. See Sec. 478.129 of 
+this chapter for articles subject to import control under part 478 of 
+this chapter.
+
+(Approved by the Office of Management and Budget under control number 
+1512-0387)
+
+[T.D. ATF-8, 39 FR 3251, Jan. 25, 1974, as amended by T.D. ATF-172, 49 
+FR 14941, Apr. 16, 1984; T.D. ATF-215, 50 FR 42161, Oct. 18, 1985; T.D. 
+ATF-426, 65 FR 38197, June 20, 2000; T.D. ATF-484, 67 FR 64526, Oct. 21, 
+2002]
+
+
+
+
+
+
+[Code of Federal Regulations]
+[Title 27, Volume 2]
+[Revised as of April 1, 2003]
+From the U.S. Government Printing Office via GPO Access
+[CITE: 27CFR447.35]
+
+[Page 95]
+ 
+            TITLE 27--ALCOHOL, TOBACCO PRODUCTS AND FIREARMS
+ 
+   CHAPTER II--BUREAU OF ALCOHOL, TOBACCO, FIREARMS, AND EXPLOSIVES, 
+                          DEPARTMENT OF JUSTICE
+ 
+PART 447--IMPORTATION OF ARMS, AMMUNITION AND IMPLEMENTS OF WAR--Table of Contents
+ 
+                         Subpart D--Registration
+ 
+Sec. 447.35  Forms prescribed.
+
+    (a) The appropriate ATF officer is authorized to prescribe all forms 
+required by this part. All of the information called for in each form 
+shall be furnished as indicated by the headings on the form and the 
+instructions on or pertaining to the form. In addition, information 
+called for in each form shall be furnished as required by this part. The 
+form will be filed in accordance with the instructions for the form.
+    (b) Forms may be requested from the ATF Distribution Center, P.O. 
+Box 5950, Springfield, Virginia 22150-5950, or by accessing the ATF Web 
+site http://www.atf.treas.gov/.
+
+[T.D. ATF-92, 46 FR 46914, Sept. 23, 1981, as amended by T.D. ATF-249, 
+52 FR 5961, Feb. 27, 1987; T.D. ATF-426, 65 FR 38197, June 20, 2000; 
+T.D. ATF-484, 67 FR 64526, Oct. 21, 2002]
+
+
+
+
+
+
+[Code of Federal Regulations]
+[Title 27, Volume 2]
+[Revised as of April 1, 2003]
+From the U.S. Government Printing Office via GPO Access
+[CITE: 27CFR447.41]
+
+[Page 95]
+ 
+            TITLE 27--ALCOHOL, TOBACCO PRODUCTS AND FIREARMS
+ 
+   CHAPTER II--BUREAU OF ALCOHOL, TOBACCO, FIREARMS, AND EXPLOSIVES, 
+                          DEPARTMENT OF JUSTICE
+ 
+PART 447--IMPORTATION OF ARMS, AMMUNITION AND IMPLEMENTS OF WAR--Table of Contents
+ 
+                           Subpart E--Permits
+ 
+Sec. 447.41  Permit requirement.
+
+
+    (a) Articles on the U.S. Munitions Import List will not be imported 
+into the United States except pursuant to a permit under this subpart. 
+For articles subject to control under parts 478 or 479 of this chapter, 
+a separate permit is not necessary.
+    (b) Articles on the U.S. Munitions Import List intended for the 
+United States or any State or political subdivision thereof, or the 
+District of Columbia, which are exempt from import controls of 27 CFR 
+478.115 shall not be imported into the United States, except by the 
+United States or agency thereof, without first obtaining a permit under 
+this subpart.
+    (c) A permit is not required for the importation of--
+    (1)(i) The U.S. Munitions Import List articles from Canada, except 
+articles enumerated in Categories I, II, III, IV, VI(e), VIII(a), XVI, 
+and XX; and
+    (ii) Nuclear weapons strategic delivery systems and all specifically 
+designed components, parts, accessories, attachments, and associated 
+equipment thereof (see Category XXI); or
+    (2) Minor components and parts for Category I(a) and I(b) firearms, 
+except barrels, cylinders, receivers (frames) or complete breech 
+mechanisms, when the total value does not exceed $100 wholesale in any 
+single transaction.
+
+[T.D. ATF-215, 50 FR 42161, Oct. 18, 1985, as amended by T.D. ATF-426, 
+65 FR 38197, June 20, 2000; T.D. ATF-484, 67 FR 64526, Oct. 21, 2002]
+
+
+
+
+
+
+[Code of Federal Regulations]
+[Title 27, Volume 2]
+[Revised as of April 1, 2003]
+From the U.S. Government Printing Office via GPO Access
+[CITE: 27CFR447.42]
+
+[Page 95-96]
+ 
+            TITLE 27--ALCOHOL, TOBACCO PRODUCTS AND FIREARMS
+ 
+   CHAPTER II--BUREAU OF ALCOHOL, TOBACCO, FIREARMS, AND EXPLOSIVES, 
+                          DEPARTMENT OF JUSTICE
+ 
+PART 447--IMPORTATION OF ARMS, AMMUNITION AND IMPLEMENTS OF WAR--Table of Contents
+ 
+                           Subpart E--Permits
+ 
+Sec. 447.42  Application for permit.
+
+    (a)(1) Persons required to obtain a permit as provided in 
+Sec. 447.41 must file a Form 6--Part I. The application must be signed 
+and dated and must contain the information requested on the form, 
+including:
+    (i) The name, address, telephone number, license and registration 
+number, if any (including expiration date) of the importer;
+    (ii) The country from which the defense article is to be imported;
+    (iii) The name and address of the foreign seller and foreign 
+shipper;
+    (iv) A description of the defense article to be imported, including-
+-
+    (A) The name and address of the manufacturer;
+    (B) The type (e.g., rifle, shotgun, pistol, revolver, aircraft, 
+vessel, and in the case of ammunition only, ball, wadcutter, shot, 
+etc.);
+    (C) The caliber, gauge, or size;
+    (D) The model;
+    (E) The length of barrel, if any (in inches);
+    (F) The overall length, if a firearm (in inches);
+    (G) The serial number, if known;
+    (H) Whether the defense article is new or used;
+    (I) The quantity;
+    (J) The unit cost of the firearm, firearm barrel, ammunition, or 
+other defense article to be imported;
+
+[[Page 96]]
+
+    (K) The category of U.S. Munitions Import List under which the 
+article is regulated;
+    (v) The specific purpose of importation, including final recipient 
+information if different from the importer; and
+    (vi) Certification of origin.
+    (2)(i) If the appropriate ATF officer approves the application, such 
+approved application will serve as the permit to import the defense 
+article described therein, and importation of such defense article may 
+continue to be made by the licensed/registered importer (if applicable) 
+under the approved application (permit) during the period specified 
+thereon. The appropriate ATF officer will furnish the approved 
+application (permit) to the applicant and retain two copies thereof for 
+administrative use.
+    (ii) If the Director disapproves the application, the licensed/
+registered importer (if applicable) will be notified of the basis for 
+the disapproval.
+    (b) For additional requirements relating to the importation of 
+plastic explosives into the United States on or after April 24, 1997, 
+see Sec. 555.183 of this title.
+
+(Approved by the Office of Management and Budget under control number 
+1512-0017)
+
+[T.D. ATF-215, 50 FR 42161, Oct. 18, 1985, as amended by T.D. ATF-387, 
+62 FR 8376, Feb. 25, 1997; T.D. ATF-426, 65 FR 38197, June 20, 2000;T.D. 
+ATF-484, 67 FR 64526, Oct. 21, 2002]
+
+
+
+
+
+
+[Code of Federal Regulations]
+[Title 27, Volume 2]
+[Revised as of April 1, 2003]
+From the U.S. Government Printing Office via GPO Access
+[CITE: 27CFR447.43]
+
+[Page 96]
+ 
+            TITLE 27--ALCOHOL, TOBACCO PRODUCTS AND FIREARMS
+ 
+   CHAPTER II--BUREAU OF ALCOHOL, TOBACCO, FIREARMS, AND EXPLOSIVES, 
+                          DEPARTMENT OF JUSTICE
+ 
+PART 447--IMPORTATION OF ARMS, AMMUNITION AND IMPLEMENTS OF WAR--Table of Contents
+ 
+                           Subpart E--Permits
+ 
+Sec. 447.43  Terms of permit.
+
+    (a) Import permits issued under this subpart are valid for one year 
+from their issuance date unless a different period of validity is stated 
+thereon. They are not transferable.
+    (b) If shipment cannot be completed during the period of validity of 
+the permit, another application must be submitted for permit to cover 
+the unshipped balance. Such an application shall make reference to the 
+previous permit and may include materials in addition to the unshipped 
+balance.
+    (c) No amendments or alteration of a permit may be made, except by 
+the appropriate ATF officer.
+
+[T.D. ATF-8, 39 FR 3251, Jan. 25, 1974, as amended by T.D. ATF-325, 57 
+FR 29787, July 7, 1992; T.D. ATF-426, 65 FR 38197, June 20, 2000]
+
+
+
+
+
+
+[Code of Federal Regulations]
+[Title 27, Volume 2]
+[Revised as of April 1, 2003]
+From the U.S. Government Printing Office via GPO Access
+[CITE: 27CFR447.44]
+
+[Page 96]
+ 
+            TITLE 27--ALCOHOL, TOBACCO PRODUCTS AND FIREARMS
+ 
+   CHAPTER II--BUREAU OF ALCOHOL, TOBACCO, FIREARMS, AND EXPLOSIVES, 
+                          DEPARTMENT OF JUSTICE
+ 
+PART 447--IMPORTATION OF ARMS, AMMUNITION AND IMPLEMENTS OF WAR--Table of Contents
+ 
+                           Subpart E--Permits
+ 
+Sec. 447.44  Permit denial, revocation or suspension.
+
+    (a) Import permits under this subpart may be denied, revoked, 
+suspended or revised without prior notice whenever the appropriate ATF 
+officer finds the proposed importation to be inconsistent with the 
+purpose or in violation of section 38, Arms Export Control Act of 1976 
+or the regulations in this part.
+    (b) Whenever, after appropriate consideration, a permit application 
+is denied or an outstanding permit is revoked, suspended, or revised, 
+the applicant or permittee shall be promptly advised in writing of the 
+appropriate ATF officer's decision and the reasons therefor.
+    (c) Upon written request made within 30 days after receipt of an 
+adverse decision, the applicant or permittee shall be accorded an 
+opportunity to present additional information and to have a full review 
+of his case by the appropriate ATF officer.
+    (d) Unused, expired, suspended, or revoked permits must be returned 
+immediately to the appropriate ATF officer.
+
+[T.D. ATF-8, 39 FR 3251, Jan. 25, 1974, as amended by T.D. ATF-215, 50 
+FR 42161, Oct. 18, 1985]
+
+
+
+
+
+
+[Code of Federal Regulations]
+[Title 27, Volume 2]
+[Revised as of April 1, 2003]
+From the U.S. Government Printing Office via GPO Access
+[CITE: 27CFR447.45]
+
+[Page 96-97]
+ 
+            TITLE 27--ALCOHOL, TOBACCO PRODUCTS AND FIREARMS
+ 
+   CHAPTER II--BUREAU OF ALCOHOL, TOBACCO, FIREARMS, AND EXPLOSIVES, 
+                          DEPARTMENT OF JUSTICE
+ 
+PART 447--IMPORTATION OF ARMS, AMMUNITION AND IMPLEMENTS OF WAR--Table of Contents
+ 
+                           Subpart E--Permits
+ 
+Sec. 447.45  Importation.
+
+    (a) Articles subject to the import permit procedures of this subpart 
+imported into the United States may be released from Customs custody to 
+the person authorized to import same upon his showing that he has a 
+permit for the importation of the article or articles to be released. 
+For articles in Categories I and III imported by a registered importer, 
+the importer will also submit to Customs a copy of the export license 
+authorizing the export of the article or articles from the exporting 
+country. If the exporting country does not require issuance of an export 
+license, the importer must submit a certification, under penalty of 
+perjury, to that effect.
+    (1) In obtaining the release from Customs custody of an article 
+imported pursuant to a permit, the permit holder will prepare and file 
+Form 6A according to its instructions.
+    (2) The ATF Form 6A must contain the information requested on the 
+form, including:
+
+[[Page 97]]
+
+    (i) The name, address, and license number (if any) of the importer;
+    (ii) The name of the manufacturer of the defense article;
+    (iii) The country of manufacture;
+    (iv) The type;
+    (v) The model;
+    (vi) The caliber, gauge, or size;
+    (vii) The serial number in the case of firearms, if known; and
+    (viii) The number of defense articles released.
+    (b) Within 15 days of the date of their release from Customs 
+custody, the importer of the articles released will forward to the 
+address specified on the form a copy of Form 6A on which will be 
+reported any error or discrepancy appearing on the Form 6A certified by 
+Customs and serial numbers if not previously provided on ATF Form 6A.
+
+(Approved by the Office of Management and Budget under control number 
+1512-0019)
+
+[T.D. ATF-215, 50 FR 42161, Oct. 18, 1985, as amended by T.D. ATF-426, 
+65 FR 38197, June 20, 2000; T.D. ATF-484, 67 FR 64526, Oct. 21, 2002]
+
+
+
+
+
+
+[Code of Federal Regulations]
+[Title 27, Volume 2]
+[Revised as of April 1, 2003]
+From the U.S. Government Printing Office via GPO Access
+[CITE: 27CFR447.46]
+
+[Page 97]
+ 
+            TITLE 27--ALCOHOL, TOBACCO PRODUCTS AND FIREARMS
+ 
+   CHAPTER II--BUREAU OF ALCOHOL, TOBACCO, FIREARMS, AND EXPLOSIVES, 
+                          DEPARTMENT OF JUSTICE
+ 
+PART 447--IMPORTATION OF ARMS, AMMUNITION AND IMPLEMENTS OF WAR--Table of Contents
+ 
+                           Subpart E--Permits
+ 
+Sec. 447.46  Articles in transit.
+
+    Articles subject to the import permit procedures of this subpart 
+which enter the United States for temporary deposit pending removal 
+therefrom and such articles which are temporarily taken out of the 
+United States for return thereto shall be regarded as in transit and 
+will be considered neither imported nor exported under this part. Such 
+transactions are subject to the Intransit or Temporary Export License 
+procedures of the Department of State (see 22 CFR Part 123).
+
+[T.D. ATF-8, 39 FR 3251, Jan. 25, 1974, as amended by T.D. ATF-215, 50 
+FR 42161, Oct. 18, 1985]
+
+
+
+
+
+
+[Code of Federal Regulations]
+[Title 27, Volume 2]
+[Revised as of April 1, 2003]
+From the U.S. Government Printing Office via GPO Access
+[CITE: 27CFR447.51]
+
+[Page 97]
+ 
+            TITLE 27--ALCOHOL, TOBACCO PRODUCTS AND FIREARMS
+ 
+   CHAPTER II--BUREAU OF ALCOHOL, TOBACCO, FIREARMS, AND EXPLOSIVES, 
+                          DEPARTMENT OF JUSTICE
+ 
+PART 447--IMPORTATION OF ARMS, AMMUNITION AND IMPLEMENTS OF WAR--Table of Contents
+ 
+                   Subpart F--Miscellaneous Provisions
+ 
+Sec. 447.51  Import certification and delivery verification.
+
+
+    Pursuant to agreement with the United States, certain foreign 
+countries are entitled to request certification of legality of 
+importation of articles on the U.S. Munitions Import List. Upon request 
+of a foreign government, the appropriate ATF officer will certify the 
+importation, on Form ITA-645P/ATF-4522/DSP53, for the U.S. importer. 
+Normally, the U.S. importer will submit this form at the time he applies 
+for an import permit. This document will serve as evidence to the 
+government of the exporting company that the U.S. importer has complied 
+with import regulations of the U.S. Government and is prohibited from 
+diverting, transshipping, or reexporting the material described therein 
+without the approval of the U.S. Government. Foreign governments may 
+also require documentation attesting to the delivery of the material 
+into the United States. When such delivery certification is requested by 
+a foreign government, the U.S. importer may obtain directly from the 
+U.S. District Director of Customs the authenticated Delivery 
+Verification Certificate (U.S. Department of Commerce Form ITA-647P) for 
+this purpose.
+
+(Approved by the Office of Management and Budget under control number 
+0625-0064)
+
+[T.D. ATF-215, 50 FR 42162, Oct. 18, 1985, as amended by T.D. ATF-484, 
+67 FR 64526, Oct. 21, 2002]
+
+
+
+
+
+
+[Code of Federal Regulations]
+[Title 27, Volume 2]
+[Revised as of April 1, 2003]
+From the U.S. Government Printing Office via GPO Access
+[CITE: 27CFR447.52]
+
+[Page 97-99]
+ 
+            TITLE 27--ALCOHOL, TOBACCO PRODUCTS AND FIREARMS
+ 
+   CHAPTER II--BUREAU OF ALCOHOL, TOBACCO, FIREARMS, AND EXPLOSIVES, 
+                          DEPARTMENT OF JUSTICE
+ 
+PART 447--IMPORTATION OF ARMS, AMMUNITION AND IMPLEMENTS OF WAR--Table of Contents
+ 
+                   Subpart F--Miscellaneous Provisions
+ 
+Sec. 447.52  Import restrictions applicable to certain countries.
+
+    (a) It is the policy of the United States to deny licenses and other 
+approvals with respect to defense articles and defense services 
+originating in certain countries or areas. This policy applies to Cuba, 
+Iran, Iraq, Libya, Mongolia, North Korea, Sudan, Syria, Vietnam, and 
+some of the states that comprised the former Soviet Union (Armenia, 
+Azerbaijan, Belarus, and Tajikistan). This policy applies to countries 
+or areas with respect to which the United States maintains an arms 
+embargo (e.g., Burma, China, the Federal Republic of Yugoslavia (Serbia 
+and Montenegro), Haiti, Liberia, Rwanda, Somalia, Sudan, UNITA (Angola), 
+and Zaire). It also applies when an import would not be in furtherance 
+of world peace and the security and foreign policy of the United States.
+
+    Note: Changes in foreign policy may result in additions to and 
+deletions from the above list of countries. The ATF will publish changes 
+to this list in the Federal Register. Contact the Firearms and 
+Explosives
+
+[[Page 98]]
+
+Imports Branch at (202) 927-8320 for current information.
+
+    (b) Notwithstanding paragraph (a) of this section, the appropriate 
+ATF officer shall deny applications to import into the United States the 
+following firearms and ammunition:
+    (1) Any firearm located or manufactured in Georgia, Kazakstan, 
+Kyrgyzstan, Moldova, Russian Federation, Turkmenistan, Ukraine, or 
+Uzbekistan, and any firearm previously manufactured in the Soviet Union, 
+that is not one of the models listed below:
+    (i) Pistols/Revolvers:
+    (A) German Model P08 Pistol.
+    (B) IZH 34M, .22 caliber Target Pistol.
+    (C) IZH 35M, .22 caliber Target Pistol.
+    (D) Mauser Model 1896 Pistol.
+    (E) MC-57-1 Pistol.
+    (F) MC-1-5 Pistol.
+    (G) Polish Vis Model 35 Pistol.
+    (H) Soviet Nagant Revolver.
+    (I) TOZ 35, .22 caliber Target Pistol.
+    (ii) Rifles:
+    (A) BARS-4 Bolt Action Carbine.
+    (B) Biathlon Target Rifle, .22LR caliber.
+    (C) British Enfield Rifle.
+    (D) CM2, .22 caliber Target Rifle (also known as SM2, 22 caliber).
+    (E) German Model 98K Rifle.
+    (F) German Model G41 Rifle.
+    (G) German Model G43 Rifle.
+    (H) IZH-94.
+    (I) LOS-7 Bolt Action Rifle.
+    (J) MC-7-07.
+    (K) MC-18-3.
+    (L) MC-19-07.
+    (M) MC-105-01.
+    (N) MC-112-02.
+    (O) MC-113-02.
+    (P) MC-115-1.
+    (Q) MC-125/127.
+    (R) MC-126.
+    (S) MC-128.
+    (T) Saiga Rifle.
+    (U) Soviet Model 38 Carbine.
+    (V) Soviet Model 44 Carbine.
+    (W) Soviet Model 91/30 Rifle.
+    (X) TOZ 18, .22 caliber Bolt Action Rifle.
+    (Y) TOZ 55.
+    (Z) TOZ 78.
+    (AA) Ural Target Rifle, .22LR caliber.
+    (BB) VEPR Rifle.
+    (CC) Winchester Model 1895, Russian Model Rifle;
+    (2) Ammunition located or manufactured in Georgia, Kazakstan, 
+Kyrgyzstan, Moldova, Russian Federation, Turkmenistan, Ukraine, or 
+Uzbekistan, and ammunition previously manufactured in the Soviet Union, 
+that is 7.62X25mm caliber (also known as 7.63X25mm caliber or .30 
+Mauser); or
+    (3) A type of firearm the manufacture of which began after February 
+9, 1996.
+    (c) The provisions of paragraph (b) of this section shall not affect 
+the fulfillment of contracts with respect to firearms or ammunition 
+entered or withdrawn from warehouse for consumption in the United States 
+on or before February 9, 1996.
+    (d) A defense article authorized for importation under this part may 
+not be shipped on a vessel, aircraft or other means or conveyance which 
+is owned or operated by, or leased to or from, any of the countries or 
+areas covered by paragraph (a) of this section.
+    (e) Applications for permits to import articles that were 
+manufactured in, or have been in, a country or area proscribed under 
+this section may be approved where the articles are covered by Category 
+I(a) of the Import List (other than those subject to the provisions of 
+27 CFR Part 479), are importable as curios or relics under the 
+provisions of 27 CFR 478.118, and meet the following criteria:
+    (1) The articles were manufactured in a proscribed country or area 
+prior to the date, as established by the Department of State, the 
+country or area became proscribed, or, were manufactured in a non-
+proscribed country or area; and
+    (2) The articles have been stored for the five year period 
+immediately prior to importation in a non-proscribed country or area.
+    (f) Applicants desiring to import articles claimed to meet the 
+criteria specified in paragraph (e) of this section shall explain, and 
+certify to, how the firearms meet the criteria. The certification 
+statement will be prepared in letter form, executed under the penalties 
+of perjury, and should be submitted with the application for an import 
+permit. The certification statement must be accompanied by documentary 
+information on the country or
+
+[[Page 99]]
+
+area of original manufacture and on the country or area of storage for 
+the five year period immediately prior to importation. Such information 
+may, for example, include a verifiable statement in the English language 
+of a government official or any other person having knowledge of the 
+date and place of manufacture and/or the place of storage; a warehouse 
+receipt or other document which provides the required history of 
+storage; and any other document that the applicant believes 
+substantiates the place and date of manufacture and the place of 
+storage. The appropriate ATF officer, however, reserves the right to 
+determine whether documentation is acceptable. Applicants shall, when 
+required by the appropriate ATF officer, furnish additional 
+documentation as may be necessary to determine whether an import permit 
+application should be approved.
+
+[T.D. ATF-202, 50 FR 14382, Apr. 12, 1985, as amended by T.D. ATF-215, 
+50 FR 42162, Oct. 18, 1985; T.D. ATF-287, 54 FR 13681, Apr. 5, 1989; 
+T.D. ATF-323, 57 FR 24189, June 8, 1992; T.D. ATF-349, 58 FR 47831, 
+Sept. 13, 1993; T.D. ATF-367, 60 FR 47866, Sept. 15, 1995; T.D. ATF-396, 
+62 FR 61234, Nov. 17, 1997; T.D. ATF-484, 67 FR 64526, Oct. 21, 2002]
+
+
+
+
+
+
+[Code of Federal Regulations]
+[Title 27, Volume 2]
+[Revised as of April 1, 2003]
+From the U.S. Government Printing Office via GPO Access
+[CITE: 27CFR447.53]
+
+[Page 99]
+ 
+            TITLE 27--ALCOHOL, TOBACCO PRODUCTS AND FIREARMS
+ 
+   CHAPTER II--BUREAU OF ALCOHOL, TOBACCO, FIREARMS, AND EXPLOSIVES, 
+                          DEPARTMENT OF JUSTICE
+ 
+PART 447--IMPORTATION OF ARMS, AMMUNITION AND IMPLEMENTS OF WAR--Table of Contents
+ 
+                   Subpart F--Miscellaneous Provisions
+ 
+Sec. 447.53  Exemptions.
+
+    (a) The provisions of this part are not applicable to:
+    (1) Importations by the United States or any agency thereof;
+    (2) Importation of components for items being manufactured under 
+contract for the Department of Defense; or
+    (3) Importation of articles (other than those which would be 
+``firearms'' as defined in 18 U.S.C. 921(a)(3) manufactured in foreign 
+countries for persons in the United States pursuant to Department of 
+State approval.
+    (b) Any person seeking to import articles on the U.S. Munitions 
+Import List as exempt under paragraph (a)(2) or (3) of this section may 
+obtain release of such articles from Customs custody by submitting, to 
+the Customs officer with authority to release, a statement claiming the 
+exemption accompanied by satisfactory proof of eligibility. Such proof 
+may be in the form of a letter from the Department of Defense or State, 
+as the case may be, confirming that the conditions of the exemption are 
+met.
+
+[T.D. ATF-8, 39 FR 3251, Jan. 25, 1974, as amended by T.D. ATF-215, 50 
+FR 42162, Oct. 18, 1985]
+
+
+
+
+
+
+[Code of Federal Regulations]
+[Title 27, Volume 2]
+[Revised as of April 1, 2003]
+From the U.S. Government Printing Office via GPO Access
+[CITE: 27CFR447.54]
+
+[Page 99]
+ 
+            TITLE 27--ALCOHOL, TOBACCO PRODUCTS AND FIREARMS
+ 
+   CHAPTER II--BUREAU OF ALCOHOL, TOBACCO, FIREARMS, AND EXPLOSIVES, 
+                          DEPARTMENT OF JUSTICE
+ 
+PART 447--IMPORTATION OF ARMS, AMMUNITION AND IMPLEMENTS OF WAR--Table of Contents
+ 
+                   Subpart F--Miscellaneous Provisions
+ 
+Sec. 447.54  Administrative procedures inapplicable.
+
+    The functions conferred under section 38, Arms Export Control Act of 
+1976, as amended, are excluded from the operation of Chapter 5, Title 5, 
+United States Code, with respect to Rule Making and Adjudication, 5 
+U.S.C. 553 and 554.
+
+[T.D. ATF-8, 39 FR 3251, Jan. 25, 1974, as amended by T.D. ATF-215, 50 
+FR 42162, Oct. 18, 1985]
+
+
+
+
+
+
+[Code of Federal Regulations]
+[Title 27, Volume 2]
+[Revised as of April 1, 2003]
+From the U.S. Government Printing Office via GPO Access
+[CITE: 27CFR447.55]
+
+[Page 99]
+ 
+            TITLE 27--ALCOHOL, TOBACCO PRODUCTS AND FIREARMS
+ 
+   CHAPTER II--BUREAU OF ALCOHOL, TOBACCO, FIREARMS, AND EXPLOSIVES, 
+                          DEPARTMENT OF JUSTICE
+ 
+PART 447--IMPORTATION OF ARMS, AMMUNITION AND IMPLEMENTS OF WAR--Table of Contents
+ 
+                   Subpart F--Miscellaneous Provisions
+ 
+Sec. 447.55  Departments of State and Defense consulted.
+
+    The administration of the provisions of this part will be subject to 
+the guidance of the Secretaries of State and Defense on matters 
+affecting world peace and the external security and foreign policy of 
+the United States.
+
+
+
+
+
+
+[Code of Federal Regulations]
+[Title 27, Volume 2]
+[Revised as of April 1, 2003]
+From the U.S. Government Printing Office via GPO Access
+[CITE: 27CFR447.56]
+
+[Page 99]
+ 
+            TITLE 27--ALCOHOL, TOBACCO PRODUCTS AND FIREARMS
+ 
+   CHAPTER II--BUREAU OF ALCOHOL, TOBACCO, FIREARMS, AND EXPLOSIVES, 
+                          DEPARTMENT OF JUSTICE
+ 
+PART 447--IMPORTATION OF ARMS, AMMUNITION AND IMPLEMENTS OF WAR--Table of Contents
+ 
+                   Subpart F--Miscellaneous Provisions
+ 
+Sec. 447.56  Authority of Customs officers.
+
+    (a) Officers of the U.S. Customs Service are authorized to take 
+appropriate action to assure compliance with this part and with 27 CFR 
+Parts 478 and 479 as to the importation or attempted importation of 
+articles on the U.S. Munitions Import List, whether or not authorized by 
+permit.
+    (b) Upon the presentation to him of a permit or written approval 
+authorizing importation of articles on the U.S. Munitions Import List, 
+the Customs officer who has authority to release same may require, in 
+addition to such documents as may be required by Customs regulations, 
+the production of other relevant documents relating to the proposed 
+importation, including, but not limited to, invoices, orders, packing 
+lists, shipping documents, correspondence, and instructions.
+
+[T.D. ATF-8, 39 FR 3251, Jan. 25, 1974, as amended by T.D. ATF-215, 50 
+FR 42162, Oct. 18, 1985]
+
+
+
+
+
+
+[Code of Federal Regulations]
+[Title 27, Volume 2]
+[Revised as of April 1, 2003]
+From the U.S. Government Printing Office via GPO Access
+[CITE: 27CFR447.58]
+
+[Page 100]
+ 
+            TITLE 27--ALCOHOL, TOBACCO PRODUCTS AND FIREARMS
+ 
+   CHAPTER II--BUREAU OF ALCOHOL, TOBACCO, FIREARMS, AND EXPLOSIVES, 
+                          DEPARTMENT OF JUSTICE
+ 
+PART 447--IMPORTATION OF ARMS, AMMUNITION AND IMPLEMENTS OF WAR--Table of Contents
+ 
+                   Subpart F--Miscellaneous Provisions
+ 
+Sec. 447.58  Delegations of the Director.
+
+    The regulatory authorities of the Director contained in this part 
+are delegated to appropriate ATF officers. These ATF officers are 
+specified in ATF O 1130.34, Delegation of the Director's Authorities in 
+27 CFR Part 447. ATF delegation orders, such as ATF O 1130.34, are 
+available to any interested party by mailing a request to the ATF 
+Distribution Center, PO Box 5950, Springfield, VA 22150-5950, or by 
+accessing the ATF Web site http://www.atf.treas.gov/.
+
+[T.D. ATF-484, 67 FR 64526, Oct. 21, 2002]
+
+
+
+
+
+
+[Code of Federal Regulations]
+[Title 27, Volume 2]
+[Revised as of April 1, 2003]
+From the U.S. Government Printing Office via GPO Access
+[CITE: 27CFR447.61]
+
+[Page 100]
+ 
+            TITLE 27--ALCOHOL, TOBACCO PRODUCTS AND FIREARMS
+ 
+   CHAPTER II--BUREAU OF ALCOHOL, TOBACCO, FIREARMS, AND EXPLOSIVES, 
+                          DEPARTMENT OF JUSTICE
+ 
+PART 447--IMPORTATION OF ARMS, AMMUNITION AND IMPLEMENTS OF WAR--Table of Contents
+ 
+             Subpart G--Penalties, Seizures and Forfeitures
+ 
+Sec. 447.61  Unlawful importation.
+
+
+    Any person who willfully:
+    (a) Imports articles on the U.S. Munitions Import List without a 
+permit;
+    (b) Engages in the business of importing articles on the U.S. 
+Munitions Import List without registering under this part; or
+    (c) Otherwise violates any provisions of this part;
+
+Shall upon conviction be fined not more than $1,000,000 or imprisoned 
+not more than 10 years, or both.
+
+[T.D. ATF-8, 39 FR 3251, Jan. 25, 1974, as amended at 39 FR 4760, Feb. 
+7, 1974; T.D. ATF-215, 50 FR 42162, Oct. 18, 1985; T.D. ATF-287, 54 FR 
+13681, Apr. 5, 1989]
+
+
+
+
+
+
+[Code of Federal Regulations]
+[Title 27, Volume 2]
+[Revised as of April 1, 2003]
+From the U.S. Government Printing Office via GPO Access
+[CITE: 27CFR447.62]
+
+[Page 100]
+ 
+            TITLE 27--ALCOHOL, TOBACCO PRODUCTS AND FIREARMS
+ 
+   CHAPTER II--BUREAU OF ALCOHOL, TOBACCO, FIREARMS, AND EXPLOSIVES, 
+                          DEPARTMENT OF JUSTICE
+ 
+PART 447--IMPORTATION OF ARMS, AMMUNITION AND IMPLEMENTS OF WAR--Table of Contents
+ 
+             Subpart G--Penalties, Seizures and Forfeitures
+ 
+Sec. 447.62  False statements or concealment of facts.
+
+    Any person who willfully, in a registration or permit application, 
+makes any untrue statement of a material fact or fails to state a 
+material fact required to be stated therein or necessary to make the 
+statements therein not misleading, shall upon conviction be fined not 
+more than $1,000,000, or imprisoned not more than 10 years, or both.
+
+[T.D. ATF-8, 39 FR 3251, Jan. 25, 1974, as amended by T.D. ATF-215, 50 
+FR 42162, Oct. 18, 1985; T.D. ATF-287, 54 FR 13681, Apr. 5, 1989]
+
+
+
+
+
+
+[Code of Federal Regulations]
+[Title 27, Volume 2]
+[Revised as of April 1, 2003]
+From the U.S. Government Printing Office via GPO Access
+[CITE: 27CFR447.63]
+
+[Page 100-101]
+ 
+            TITLE 27--ALCOHOL, TOBACCO PRODUCTS AND FIREARMS
+ 
+   CHAPTER II--BUREAU OF ALCOHOL, TOBACCO, FIREARMS, AND EXPLOSIVES, 
+                          DEPARTMENT OF JUSTICE
+ 
+PART 447--IMPORTATION OF ARMS, AMMUNITION AND IMPLEMENTS OF WAR--Table of Contents
+ 
+             Subpart G--Penalties, Seizures and Forfeitures
+ 
+Sec. 447.63  Seizure and forfeiture.
+
+    Whoever knowingly imports into the United States contrary to law any 
+article on the U.S. Munitions Import List; or receives, conceals, buys, 
+sells, or in any manner facilitates its transportation, concealment, or 
+sale after importation, knowing the same to have been imported contrary 
+to law, shall be fined not more than $10,000 or imprisoned not more than 
+5 years, or both; and the merchandise so imported, or
+
+[[Page 101]]
+
+the value thereof shall be forfeited to the United States.
+
+(18 U.S.C. 545)
+
+[T.D. ATF-8, 39 FR 3251, Jan. 25, 1974, as amended by T.D. ATF-215, 50 
+FR 42162, Oct. 18, 1985]
+
+
+
+
+
