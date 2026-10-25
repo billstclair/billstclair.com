@@ -1,0 +1,9 @@
+ts³11098020862³1version³13³1cache_oldmajor³10³1cache_oldauthor³10³1cache_diff_default_author³11³1revision³11³1tscreate³11098020862³1text_default³1ip³265.219.208.102³2ts³21098020862³2version³21³2name³2text_default³2data³2summary³3*³3text³3= What kind of encrypted communication does Linux offer? =
+
+Linux offers several programs that can aid in encrypting communications. Most notably, a Linux version of the [http://www.gnupg.org Gnu Privacy Guard] (GPG), an open source version of the more-famous PGP (Pretty Good Privacy) is available from the [http://www.fsf.org/ Free Software Foundation]. Additionally, there are [http://gaim.sourceforge.net/plugins.php plugins] for the instant messaging client [http://gaim.sourceforge.net/ Gaim] that allow the user to send IMs with RSA or GPG encryption.
+³3newauthor³31³3minor³30³2username³2BillStClair³2host³2dcha-aa-65-219-208-102.taconic.net³2revision³21³2tscreate³21098020862³2id³21153³1cache_diff_default_major³11³1cache_diff_default_minor³11c1,3
+< Describe the new page here.
+---
+> = What kind of encrypted communication does Linux offer? =
+> 
+> Linux offers several programs that can aid in encrypting communications. Most notably, a Linux version of the [http://www.gnupg.org Gnu Privacy Guard] (GPG), an open source version of the more-famous PGP (Pretty Good Privacy) is available from the [http://www.fsf.org/ Free Software Foundation]. Additionally, there are [http://gaim.sourceforge.net/plugins.php plugins] for the instant messaging client [http://gaim.sourceforge.net/ Gaim] that allow the user to send IMs with RSA or GPG encryption.

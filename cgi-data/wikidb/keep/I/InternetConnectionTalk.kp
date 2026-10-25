@@ -1,0 +1,480 @@
+³1version³21³2ts³21098805402³2ip³2202.105.113.90³2name³2text_default³2data³2summary³3*³3text³3&lt;b&gt;[[Internet Connection]] Talk&lt;/b&gt;
+
+040121, JunkerIn:
+
+&quot;notes on using and programming a powerful tool.&quot;
+
+possibilities:
+
+&amp;nbsp;
+
+hosting: lot of hype out there, what&#39;s needed?, what does what?
+
+On a recent elist--
+
+tech question: once email is available at all, it seems to me that
+adding a new user addr would be space in a database, perhaps 10 to 100
+bytes. so each site owner should have addrs up to the limit of memory.
+is the &#39;limitation&#39; on email addrs hype or am I missing something?
+
+One place, #2 on my Google listing, http://www.powerhoster.com/, in
+Canada shows:
+        Unlimited mail forwarding accounts
+        Unlimited web emails
+        Unlimited ftp accounts
+        Unlimited POP emails
+        Unlimited auto responders
+        Unlimited yourdomain.com/~user
+        Catch-All email addresses
+(so on my question, you&#39;ll run out of uses for this stuff before they
+run out of memory, I guess)
+
+the ads don&#39;t seem to want to clarify. seems there ought to be some normal hackers out there running hosting svcs. &amp; and that know how to talk non-marketing.
+
+auto add of scripts should be a developing thing--wiki, majordomo, phpBB, etc.
+wonder if that&#39;s a niche for someone?
+
+---
+
+setting up your own linux box as a server. how do, how get &amp; what type of connections. or is that unnecessary with the cheap services available? on these rented boxes at the hosts, what do you do, log in to linux as a remote user, then do *anything* linus allows? setting up an encrypted subchannel. or use winnowing. or...?
+
+add 040122, JunkerIn: war chest security. anything in an unscured box can be compromised, in time. cost effectiveness controls. generally all keys are there or at least get there. it&#39;s easier to exclude with material passing thru a box. so, compromise solutions? highest security example now seems to be grabbe &amp; dmt. maybe, list the links in the chain &amp; pro/con security at each step.
+
+minimum secure linux box? or security in general. encrypters out there-disk, commo, etc. encrypted subchannel with anon email etc. freenet is developing.
+
+i note your orlin grabbe. what&#39;s up on LESE? are there other DMTs in the works? what&#39;s it take to do one? encryption sub-routines are avail. distributed database is avail. grabbe&#39;s java implementation is an example. various [http://www.yourgoogle.com>googleÅÅÃû]
+[http://www.yourgoogle.com/google-list/google-list.htm >google×ó²àÅÅÃû]
+[http://www.yourgoogle.com/webdesign/webdesign-1.htm>ÍøÕ¾½¨Éè]
+[http://googlesz.freewebpage.org>googleÍÆ¹ã]
+[http://www.tlup.com>ÍøÂçÓªÏú]
+[http://www.tlup.com>ÏîÄ¿ºÏ×÷]
+[http://swellong.freewebpage.org>ÍøÂçÉãÏñ»ú]
+[http://www.flowerwish.com>ÏÊ»¨]
+[http://www.flowerwish.com>ÍøÉÏ»¨µê]
+[http://www.flowerwish.com/ups>upsµçÔ´]
+[http://www.blueattain.com>¹ÜÀí×ÊÁÏ]
+[http://www.szsuun.com> KVM]
+[http://www.szsuun.com/htm/kvm/kvm1.htm>KVM]
+[http://kvmkvm.freewebpage.org> KVM]
+[http://www.flowerwish.com/qygl>ÆóÒµ¹ÜÀí]
+[http://www.flowerwish.com/qygl>¹ÜÀíÅàÑµ]
+[http://www.ktyu.com>fiberglass yarn]
+[http://www.edmcocn.com> EDM]
+[http://www.yourgoogle.com/company-card-index/companyindex.htm>ÆóÒµÃûÂ¼]
+[http://flowerwish.freewebpage.org>ÏÊ»¨]
+[http://www.glpx.com>¹ÜÀíÅàÑµ]
+[http://www.glpx.com>¹ÜÀí×ÉÑ¯]
+[http://www.glpx.com>ÈËÁ¦×ÊÔ´ÅàÑµ]
+[http://www.pinghengji.com>ÀëºÏÆ÷]
+[http://www.flowerwish.com/zhuce>¹«Ë¾×¢²á]
+[http://www.xingfuquan.com>³ÉÈËÓÃÆ·]
+[http://www.xingfuquan.com>ÐÔÓÃÆ·]
+[http://www.huaqiplas.com>ËÜÁÏÖÆÆ·]
+[http://www.smartsource.com.cn/di_15.htm>diamond blade]
+[http://www.smartsource.com.cn>diamond disc]
+[http://www.smartsource.com.cn>high visibility jacket]
+[http://www.smartsource.com.cn>high visibility vest]
+[http://www.tradechances.com>cutting disc]
+[http://www.tradechances.com>sanding disc]
+[http://www.chinadrills.com>sanding belt]
+[http://www.chinadrills.com>diamond core]
+[http://magnesia.freewebpage.org>comb binding]
+[http://magnesia.freewebpage.org>comb binding machine ]
+[http://magnesia.freewebpage.org> wire binding]
+[http://magnesia.freewebpage.org>wire binding machine ]
+[http://magnesia.freewebpage.org>comb binding machine]
+[http://magnesia.freewebpage.org>binding supplies]
+[http://magnesia.freewebpage.org>laminating machine]
+[http://www.flowerwish.com/kvm/>kvm]
+[http://www.0755shopping.com>Æû³µÓÃÆ·]
+[http://tingchechang.freewebpage.org>Í£³µ³¡]
+[http://wlsxj.freewebpage.org>³ÉÈËÓÃÆ·]
+[http://wlsxj.freewebpage.org>ÐÔÓÃÆ·]
+[http://netphoto.freewebpage.org>ËÜÁÏÖÆÆ·]
+[http://www.flowerwish.com/edm/>edm]
+[http://www.flowerwish.com/diaokeji/>µñ¿Ì»ú]
+[http://www.flowerwish.com/touyingji>Í¶Ó°»ú]
+[http://www.pinghengji.com>ÀëºÏÆ÷]
+[http://pyrethum.freewebpage.org>diamond blade]
+[http://pyrethum.freewebpage.org>diamond disc]
+[http://pyrethum.freewebpage.org>high visibility jacket]
+[http://pyrethum.freewebpage.org>high visibility vest]
+[http://pyrethum.freewebpage.org>cutting disc]
+[http://pyrethum.freewebpage.org>sanding disc]
+[http://pyrethum.freewebpage.org>sanding belt]
+[http://pyrethum.freewebpage.org>diamond core]
+[http://kvm.bizhat.com>kvm]
+[http://logistics.freewebpage.org>logistics]
+[www.yourgoogle.com/company-card-index/companyindex.htm>ÆóÒµÃûÂ¼]
+[www.yourgoogle.com/company-card-index/companyindex.htm>ÆóÒµ»ÆÒ³]
+[http://www.51gl.cn>ÆóÒµ¹ÜÀí]
+[http://www.yourgoogle.com/default.asp>ÆóÒµÃûÂ¼]
+[http://netphone.freewebpage.org>ÀëºÏÆ÷]
+[http://glassbead.freewebpage.org>Æû³µÓÃÆ·]
+[http://www.sfcomm.com>ÍøÂçÉãÏñ»ú]
+[http://www.yourgoogle.com/default.asp>¹«Ë¾ÃûÂ¼]
+[http://www.yourgoogle.com/paobuji/>ÅÜ²½»ú]
+ ######groups are going to need to withdraw from frn&#39;s as much as possible. the plan? the execution? and the security of even discussing it on the net? or, security thru obscurity should be outlined.
+
+---
+
+linux runs well on lesser platforms. i buy a new system every x years. i should be netted &amp; multiprocessing already. why am i not? i guess i&#39;m not excited enough by it to do it. my fastest, biggest do the same old thing. i was happy with my first 4mhz, 640k, no HD 8088 ibm. assembler was fun and fast. pictures and music? i got my video &amp; stereo. don&#39;t do it when i program anyway. fractals have become more fun. i did a 3d projection of the bug, mandelbrot set, on my old machine with its old ibm color monitor. took all night to calc one picture. turboP for that one.
+
+----
+
+³3newauthor³31³3minor³31³2host³2202.105.113.90³2username³2³2revision³25³2id³2111³2tscreate³21074727037³2keepts³21100509551³1ip³2222.248.18.10³2ts³21100509551³2version³21³2name³2text_default³2data³2summary³3*³3text³3&amp;lt;b&amp;gt;[[Internet Connection]] Talk&amp;lt;/b&amp;gt;
+
+040121, JunkerIn:
+
+&amp;quot;notes on using and programming a powerful tool.&amp;quot;
+
+possibilities:
+
+&amp;amp;nbsp;
+
+hosting: lot of hype out there, what&amp;#39;s needed?, what does what?
+
+On a recent elist--
+
+tech question: once email is available at all, it seems to me that
+adding a new user addr would be space in a database, perhaps 10 to 100
+bytes. so each site owner should have addrs up to the limit of memory.
+is the &amp;#39;limitation&amp;#39; on email addrs hype or am I missing something?
+
+One place, #2 on my Google listing, http://www.powerhoster.com/, in
+Canada shows:
+        Unlimited mail forwarding accounts
+        Unlimited web emails
+        Unlimited ftp accounts
+        Unlimited POP emails
+        Unlimited auto responders
+        Unlimited yourdomain.com/~user
+        Catch-All email addresses
+(so on my question, you&amp;#39;ll run out of uses for this stuff before they
+run out of memory, I guess)
+
+the ads don&amp;#39;t seem to want to clarify. seems there ought to be some normal hackers out there running hosting svcs. &amp;amp; and that know how to talk non-marketing.
+
+auto add of scripts should be a developing thing--wiki, majordomo, phpBB, etc.
+wonder if that&amp;#39;s a niche for someone?
+
+---
+
+setting up your own linux box as a server. how do, how get &amp;amp; what type of connections. or is that unnecessary with the cheap services available? on these rented boxes at the hosts, what do you do, log in to linux as a remote user, then do *anything* linus allows? setting up an encrypted subchannel. or use winnowing. or...?
+
+add 040122, JunkerIn: war chest security. anything in an unscured box can be compromised, in time. cost effectiveness controls. generally all keys are there or at least get there. it&amp;#39;s easier to exclude with material passing thru a box. so, compromise solutions? highest security example now seems to be grabbe &amp;amp; dmt. maybe, list the links in the chain &amp;amp; pro/con security at each step.
+
+minimum secure linux box? or security in general. encrypters out there-disk, commo, etc. encrypted subchannel with anon email etc. freenet is developing.
+
+i note your orlin grabbe. what&amp;#39;s up on LESE? are there other DMTs in the works? what&amp;#39;s it take to do one? encryption sub-routines are avail. distributed database is avail. grabbe&amp;#39;s java implementation is an example. various [http://www.yourgoogle.com&gt;google????]
+[http://www.yourgoogle.com/google-list/google-list.htm &gt;google¡Á¨®?¨¤????]
+[http://www.yourgoogle.com/webdesign/webdesign-1.htm&gt;?????¡§?¨¨]
+[http://googlesz.freewebpage.org&gt;google????]
+[http://www.tlup.com&gt;???????¨²]
+[http://www.tlup.com&gt;??????¡Á¡Â]
+[http://swellong.freewebpage.org&gt;?????????¨²]
+[http://www.flowerwish.com&gt;???¡§]
+[http://www.flowerwish.com&gt;?????¡§?¨º]
+[http://www.flowerwish.com/ups&gt;ups????]
+[http://www.blueattain.com&gt;???¨ª¡Á???]
+[http://www.szsuun.com&gt; KVM]
+[http://www.szsuun.com/htm/kvm/kvm1.htm&gt;KVM]
+[http://kvmkvm.freewebpage.org&gt; KVM]
+[http://www.flowerwish.com/qygl&gt;?¨®?????¨ª]
+[http://www.flowerwish.com/qygl&gt;???¨ª?¨¤??]
+[http://www.ktyu.com&gt;fiberglass yarn]
+[http://www.edmcocn.com&gt; EDM]
+[http://www.yourgoogle.com/company-card-index/companyindex.htm&gt;?¨®??????]
+[http://flowerwish.freewebpage.org&gt;???¡§]
+[http://www.glpx.com&gt;???¨ª?¨¤??]
+[http://www.glpx.com&gt;???¨ª¡Á???]
+[http://www.glpx.com&gt;????¡Á????¨¤??]
+[http://www.pinghengji.com&gt;?????¡Â]
+[http://www.flowerwish.com/zhuce&gt;????¡Á??¨¢]
+[http://www.xingfuquan.com&gt;???????¡¤]
+[http://www.xingfuquan.com&gt;?????¡¤]
+[http://www.huaqiplas.com&gt;???????¡¤]
+[http://www.smartsource.com.cn/di_15.htm&gt;diamond blade]
+[http://www.smartsource.com.cn&gt;diamond disc]
+[http://www.smartsource.com.cn&gt;high visibility jacket]
+[http://www.smartsource.com.cn&gt;high visibility vest]
+[http://www.tradechances.com&gt;cutting disc]
+[http://www.tradechances.com&gt;sanding disc]
+[http://www.chinadrills.com&gt;sanding belt]
+[http://www.chinadrills.com&gt;diamond core]
+[http://magnesia.freewebpage.org&gt;comb binding]
+[http://magnesia.freewebpage.org&gt;comb binding machine ]
+[http://magnesia.freewebpage.org&gt; wire binding]
+[http://magnesia.freewebpage.org&gt;wire binding machine ]
+[http://magnesia.freewebpage.org&gt;comb binding machine]
+[http://magnesia.freewebpage.org&gt;binding supplies]
+[http://magnesia.freewebpage.org&gt;laminating machine]
+[http://www.flowerwish.com/kvm/&gt;kvm]
+[http://www.0755shopping.com&gt;???????¡¤]
+[http://tingchechang.freewebpage.org&gt;??????]
+[http://wlsxj.freewebpage.org&gt;???????¡¤]
+[http://wlsxj.freewebpage.org&gt;?????¡¤]
+[http://netphoto.freewebpage.org&gt;???????¡¤]
+[http://www.flowerwish.com/edm/&gt;edm]
+[http://www.flowerwish.com/diaokeji/&gt;?????¨²]
+[http://www.flowerwish.com/touyingji&gt;???¡ã?¨²]
+[http://www.pinghengji.com&gt;?????¡Â]
+[http://pyrethum.freewebpage.org&gt;diamond blade]
+[http://pyrethum.freewebpage.org&gt;diamond disc]
+[http://www.yourgoogle.com>googleÅÅÃû]
+[http://www.yourgoogle.com/google-list/google-list.htm >google×ó²àÅÅÃû]
+[http://www.yourgoogle.com/webdesign/webdesign-1.htm>ÍøÕ¾½¨Éè]
+[http://googlesz.freewebpage.org>googleÍÆ¹ã]
+[http://www.tlup.com>ÍøÂçÓªÏú]
+[http://www.tlup.com>ÏîÄ¿ºÏ×÷]
+[http://swellong.freewebpage.org>ÍøÂçÉãÏñ»ú]
+[http://www.flowerwish.com>ÏÊ»¨]
+[http://www.flowerwish.com>ÍøÉÏ»¨µê]
+[http://www.flowerwish.com/ups>upsµçÔ´]
+[http://www.blueattain.com>¹ÜÀí×ÊÁÏ]
+[http://www.szsuun.com> KVM]
+[http://kvmkvm.freewebpage.org> KVM]
+[http://www.51gl.cn>ÆóÒµ¹ÜÀí]
+[http://www.51gl.cn>¹ÜÀí×ÊÁÏ]
+[http://www.ktyu.com>fiberglass yarn]
+[http://www.edmcocn.com> EDM]
+[http://www.yourgoogle.com/company-card-index/companyindex.htm>ÆóÒµÃûÂ¼]
+[http://flowerwish.freewebpage.org>ÏÊ»¨]
+[http://www.glpx.com>¹ÜÀíÅàÑµ]
+[http://www.glpx.com>¹ÜÀí×ÉÑ¯]
+[http://www.glpx.com>ÈËÁ¦×ÊÔ´ÅàÑµ]
+[http://www.flowerwish.com/zhuce>¹«Ë¾×¢²á]
+[http://www.huaqiplas.com>ËÜÁÏ]
+[http://www.flowerwish.com/byq>±äÑ¹Æ÷]
+[http://www.inflatables-china.com>china inflatable]
+[http://www.inflatables-china.com>china inflatables]
+[http://www.jlcggs.com/chanpin/chanpin2.htm>·À·øÉäÒÂ·þ]
+[http://kvm.bizhat.com>kvm]
+[http://logistics.freewebpage.org>logistics]
+[http://www.yourgoogle.com/company-card-index/companyindex.htm>ÆóÒµÃûÂ¼]
+[http://www.yourgoogle.com/company-card-index/companyindex.htm>ÆóÒµ»ÆÒ³]
+[http://www.114-yp.com>ÆóÒµÃûÂ¼]
+[http://www.yourgoogle.com/default.asp>ÆóÒµÃûÂ¼]
+[http://glassbead.freewebpage.org>Æû³µÓÃÆ·]
+[http://www.sfcomm.com>ÍøÂçÉãÏñ»ú]
+[http://www.yourgoogle.com/default.asp>¹«Ë¾ÃûÂ¼]
+[http://www.yourgoogle.com/paobuji/>ÅÜ²½»ú]
+[http://www.flowerwish.com/cdq/>³äµçÆ÷]
+[http://www.jlcggs.com/chanpin/fanghu/anzuobao/anzuobao.htm>¶ùÍ¯°²È«×ùÒÎ]
+[http://www.jlcggs.com/chanpin/chelei/dulun/dulunche.htm>¶ÀÂÖ×ÔÐÐ³µ]
+[http://www.creator-cg.com/crcs/>»áÒéÏµÍ³]
+[http://www.flowerwish.com/huanbao/>Ë®´¦Àí]
+[http://www.szsuun.com>kvm]
+[http://www.yourgoogle.com/ghdprinting/>²ÊÓ¡]
+[http://www.yourgoogle.com/ghdprinting/>²ÊÉ«Ó¡Ë¢]
+[http://www.pinghengji.com/cp2.asp>ÀëºÏÆ÷]
+[http://www.huaqiplas.com>ËÜÁÏ]
+[http://www.yourgoogle.com/duijiangji>¶Ô½²»ú]
+[http://www.sfcomm.com>ÍøÂçÉãÏñ»ú]
+[http://www.flowerwish.com/zuche/>Æû³µ×âÁÞ]
+[http://www.flowerwish.com/zuche/>ÉÏº£Æû³µ×âÁÞ]
+[http://flowerwish.51.net>ÏÊ»¨]
+[http://www.flowerwish.com/zuche>Æû³µ×âÁÞ]
+[http://www.flowerwish.com/zuche/>×â³µ]
+[http://www.kingdee.com/solutions/hr/index.htm>ÈËÁ¦×ÊÔ´¹ÜÀí]
+[http://www.flowerwish.com/jipiao/>ÉîÛÚ»úÆ±]
+[http://magnesia.freewebpage.org>comb binding]
+[http://magnesia.freewebpage.org>comb binding machine ]
+[http://magnesia.freewebpage.org> wire binding]
+[http://magnesia.freewebpage.org>wire binding machine ]
+[http://magnesia.freewebpage.org>comb binding machine]
+[http://magnesia.freewebpage.org>binding supplies]
+[http://magnesia.freewebpage.org>laminating machine]
+[http://www.flowerwish.com/kvm/>kvm]
+[http://tingchechang.freewebpage.org>Í£³µ³¡]
+[http://wlsxj.freewebpage.org>³ÉÈËÓÃÆ·]
+[http://wlsxj.freewebpage.org>ÐÔÓÃÆ·]
+[http://netphoto.freewebpage.org>ËÜÁÏÖÆÆ·]
+[http://www.flowerwish.com/edm/>edm]
+[http://www.flowerwish.com/diaokeji/>µñ¿Ì»ú]
+[http://www.flowerwish.com/touyingji>Í¶Ó°»ú]
+[http://pyrethum.freewebpage.org>diamond blade]
+[http://pyrethum.freewebpage.org>diamond disc]
+[http://pyrethum.freewebpage.org>high visibility jacket]
+[http://pyrethum.freewebpage.org>high visibility vest]
+[http://pyrethum.freewebpage.org>cutting disc]
+[http://pyrethum.freewebpage.org>sanding disc]
+[http://pyrethum.freewebpage.org>sanding belt]
+[http://pyrethum.freewebpage.org>diamond core]
+ ######[http://pyrethum.freewebpage.org&gt;high visibility jacket]
+[http://pyrethum.freewebpage.org&gt;high visibility vest]
+[http://pyrethum.freewebpage.org&gt;cutting disc]
+[http://pyrethum.freewebpage.org&gt;sanding disc]
+[http://pyrethum.freewebpage.org&gt;sanding belt]
+[http://pyrethum.freewebpage.org&gt;diamond core]
+[http://kvm.bizhat.com&gt;kvm]
+[http://logistics.freewebpage.org&gt;logistics]
+[www.yourgoogle.com/company-card-index/companyindex.htm&gt;?¨®??????]
+[www.yourgoogle.com/company-card-index/companyindex.htm&gt;?¨®??????]
+[http://www.51gl.cn&gt;?¨®?????¨ª]
+[http://www.yourgoogle.com/default.asp&gt;?¨®??????]
+[http://netphone.freewebpage.org&gt;?????¡Â]
+[http://glassbead.freewebpage.org&gt;???????¡¤]
+[http://www.sfcomm.com&gt;?????????¨²]
+[http://www.yourgoogle.com/default.asp&gt;????????]
+[http://www.yourgoogle.com/paobuji/&gt;?????¨²]
+ ######groups are going to need to withdraw from frn&amp;#39;s as much as possible. the plan? the execution? and the security of even discussing it on the net? or, security thru obscurity should be outlined.
+
+---
+
+linux runs well on lesser platforms. i buy a new system every x years. i should be netted &amp;amp; multiprocessing already. why am i not? i guess i&amp;#39;m not excited enough by it to do it. my fastest, biggest do the same old thing. i was happy with my first 4mhz, 640k, no HD 8088 ibm. assembler was fun and fast. pictures and music? i got my video &amp;amp; stereo. don&amp;#39;t do it when i program anyway. fractals have become more fun. i did a 3d projection of the bug, mandelbrot set, on my old machine with its old ibm color monitor. took all night to calc one picture. turboP for that one.
+
+----
+
+³3minor³31³3newauthor³31³2username³2³2host³2222.248.18.10³2revision³26³2tscreate³21074727037³2id³2111³2keepts³21100669820³1version³21³2ts³21100669820³2ip³2205.231.31.86³2name³2text_default³2data³2summary³3*³3text³3040122, JunkerIn:
+
+"notes on using and programming a powerful tool."
+
+possibilities:
+
+&nbsp;
+
+hosting: lot of hype out there, what's needed?, what does what?
+
+On a recent elist--
+
+tech question: once email is available at all, it seems to me that
+adding a new user addr would be space in a database, perhaps 10 to 100
+bytes. so each site owner should have addrs up to the limit of memory.
+is the 'limitation' on email addrs hype or am I missing something?
+
+One place, #2 on my Google listing, http://www.powerhoster.com/, in
+Canada shows:
+        Unlimited mail forwarding accounts
+        Unlimited web emails
+        Unlimited ftp accounts
+        Unlimited POP emails
+        Unlimited auto responders
+        Unlimited yourdomain.com/~user
+        Catch-All email addresses
+(so on my question, you'll run out of uses for this stuff before they
+run out of memory, I guess)
+
+the ads don't seem to want to clarify. seems there ought to be some normal hackers out there running hosting svcs. & and that know how to talk non-marketing.
+
+auto add of scripts should be a developing thing--wiki, majordomo, phpBB, etc.
+wonder if that's a niche for someone?
+
+---
+
+setting up your own linux box as a server. how do, how get & what type of connections. or is that unnecessary with the cheap services available? on these rented boxes at the hosts, what do you do, log in to linux as a remote user, then do *anything* linus allows? setting up an encrypted subchannel. or use winnowing. or...?
+
+minimum secure linux box? or security in general. encrypters out there-disk, commo, etc. encrypted subchannel with anon email etc. freenet is developing.
+
+i note your orlin grabbe. what's up on LESE? are there other DMTs in the works? what's it take to do one? encryption sub-routines are avail. distributed database is avail. grabbe's java implementation is an example. various groups are going to need to withdraw from frn's as much as possible. the plan? the execution?
+
+---
+
+linux runs well on lesser platforms. i buy a new system every x years. i should be netted & multiprocessing already. why am i not? i guess i'm not excited enough by it to do it. my fastest, biggest do the same old thing. i was happy with my first 4mhz, 640k, no HD 8088 ibm. assembler was fun and fast. pictures and music? i got my video & stereo. don't do it when i program anyway. fractals have become more fun. i did a 3d projection of the bug, mandelbrot set, on my old machine with its old ibm color monitor.
+
+----
+
+3newauthor313minor302host2cw02.ma1.srv.t-online.de2username2Junker2revision212id210172tscreate210747270372keepts210747295601ip262.225.252.2522ts210747295602version212name2text_default2data2summary3*3text3<b>[[Internet Connection]] Talk</b>
+
+040121, JunkerIn:
+
+"notes on using and programming a powerful tool."
+
+possibilities:
+
+&nbsp;
+
+hosting: lot of hype out there, what's needed?, what does what?
+
+On a recent elist--
+
+tech question: once email is available at all, it seems to me that
+adding a new user addr would be space in a database, perhaps 10 to 100
+bytes. so each site owner should have addrs up to the limit of memory.
+is the 'limitation' on email addrs hype or am I missing something?
+
+One place, #2 on my Google listing, http://www.powerhoster.com/, in
+Canada shows:
+        Unlimited mail forwarding accounts
+        Unlimited web emails
+        Unlimited ftp accounts
+        Unlimited POP emails
+        Unlimited auto responders
+        Unlimited yourdomain.com/~user
+        Catch-All email addresses
+(so on my question, you'll run out of uses for this stuff before they
+run out of memory, I guess)
+
+the ads don't seem to want to clarify. seems there ought to be some normal hackers out there running hosting svcs. & and that know how to talk non-marketing.
+
+auto add of scripts should be a developing thing--wiki, majordomo, phpBB, etc.
+wonder if that's a niche for someone?
+
+---
+
+setting up your own linux box as a server. how do, how get & what type of connections. or is that unnecessary with the cheap services available? on these rented boxes at the hosts, what do you do, log in to linux as a remote user, then do *anything* linus allows? setting up an encrypted subchannel. or use winnowing. or...?
+
+add 040122, JunkerIn: war chest security. anything in an unscured box can be compromised, in time. cost effectiveness controls. generally all keys are there or at least get there. it's easier to exclude with material passing thru a box. so, compromise solutions? highest security example now seems to be grabbe & dmt. maybe, list the links in the chain & pro/con security at each step.
+
+minimum secure linux box? or security in general. encrypters out there-disk, commo, etc. encrypted subchannel with anon email etc. freenet is developing.
+
+i note your orlin grabbe. what's up on LESE? are there other DMTs in the works? what's it take to do one? encryption sub-routines are avail. distributed database is avail. grabbe's java implementation is an example. various groups are going to need to withdraw from frn's as much as possible. the plan? the execution?
+
+---
+
+linux runs well on lesser platforms. i buy a new system every x years. i should be netted & multiprocessing already. why am i not? i guess i'm not excited enough by it to do it. my fastest, biggest do the same old thing. i was happy with my first 4mhz, 640k, no HD 8088 ibm. assembler was fun and fast. pictures and music? i got my video & stereo. don't do it when i program anyway. fractals have become more fun. i did a 3d projection of the bug, mandelbrot set, on my old machine with its old ibm color monitor.
+
+----
+
+3minor313newauthor302username2Junker2host2cw08.ma1.srv.t-online.de2revision222tscreate210747270372id210172keepts210747298301version212ts210747298302ip262.225.252.2452name2text_default2data2summary3*3text3<b>[[Internet Connection]] Talk</b>
+
+040121, JunkerIn:
+
+"notes on using and programming a powerful tool."
+
+possibilities:
+
+&nbsp;
+
+hosting: lot of hype out there, what's needed?, what does what?
+
+On a recent elist--
+
+tech question: once email is available at all, it seems to me that
+adding a new user addr would be space in a database, perhaps 10 to 100
+bytes. so each site owner should have addrs up to the limit of memory.
+is the 'limitation' on email addrs hype or am I missing something?
+
+One place, #2 on my Google listing, http://www.powerhoster.com/, in
+Canada shows:
+        Unlimited mail forwarding accounts
+        Unlimited web emails
+        Unlimited ftp accounts
+        Unlimited POP emails
+        Unlimited auto responders
+        Unlimited yourdomain.com/~user
+        Catch-All email addresses
+(so on my question, you'll run out of uses for this stuff before they
+run out of memory, I guess)
+
+the ads don't seem to want to clarify. seems there ought to be some normal hackers out there running hosting svcs. & and that know how to talk non-marketing.
+
+auto add of scripts should be a developing thing--wiki, majordomo, phpBB, etc.
+wonder if that's a niche for someone?
+
+---
+
+setting up your own linux box as a server. how do, how get & what type of connections. or is that unnecessary with the cheap services available? on these rented boxes at the hosts, what do you do, log in to linux as a remote user, then do *anything* linus allows? setting up an encrypted subchannel. or use winnowing. or...?
+
+add 040122, JunkerIn: war chest security. anything in an unscured box can be compromised, in time. cost effectiveness controls. generally all keys are there or at least get there. it's easier to exclude with material passing thru a box. so, compromise solutions? highest security example now seems to be grabbe & dmt. maybe, list the links in the chain & pro/con security at each step.
+
+minimum secure linux box? or security in general. encrypters out there-disk, commo, etc. encrypted subchannel with anon email etc. freenet is developing.
+
+i note your orlin grabbe. what's up on LESE? are there other DMTs in the works? what's it take to do one? encryption sub-routines are avail. distributed database is avail. grabbe's java implementation is an example. various groups are going to need to withdraw from frn's as much as possible. the plan? the execution? and the security of even discussing it on the net? or, security thru obscurity should be outlined.
+
+---
+
+linux runs well on lesser platforms. i buy a new system every x years. i should be netted & multiprocessing already. why am i not? i guess i'm not excited enough by it to do it. my fastest, biggest do the same old thing. i was happy with my first 4mhz, 640k, no HD 8088 ibm. assembler was fun and fast. pictures and music? i got my video & stereo. don't do it when i program anyway. fractals have become more fun. i did a 3d projection of the bug, mandelbrot set, on my old machine with its old ibm color monitor.
+
+----
+³3newauthor³31³3minor³30³2host³2dcha-aa086.taconic.net³2username³2BillStClair³2revision³27³2id³21190³2tscreate³21074727037³2keepts³21100669893

@@ -1,0 +1,348 @@
+³1ip³265.219.208.102³2ts³21097750953³2version³21³2name³2text_default³2data³2summary³3*³3text³3= Acenet Review =
+
+040522 Update - JunkerIn
+
+All has gone fine. My first site had one lack -- only one SQL dbase was there. Most of the installables use one, so today I went to the Ace site to find out how and cost for more dbases.
+
+Upon arrival, I saw a new special -- 2000 MB Disk Space, 60 GB Bandwidth, Unlimited SQLs, As low as $3.95 (for, I assume a 2 year contract like mine)...
+
+So, a few minutes later, click, ckick, service ticket, I upgraded for $1/mo or $24 totoal for my total contract of 2 years. My site immediately showed the upgrade. All done in a few minutes.
+
+So here it is again with a listing of the automatic software installs. I don't know what half of them do, but they are all free software projects on the web and have their own sites with tons of info.
+
+- - -
+
+2000 MB Disk Space, 60 GB Bandwidth, Unlimited <nowiki>MySQL</nowiki>, Unlimited Email, POP3/SMTP/IMAP, <nowiki>WebMail</nowiki> Access, SPAM Assassin, <nowiki>MySQL</nowiki> & PHP, Perl & CGI-Bin, 24/7 FTP Access, Easy Control Panel, Auto-install Scripts, Free Templates, Free Software
+
+Auto-Install Scripts via Fantastico:
+
+Navigation - Fantastico Home, Control Panel Home, 
+
+Blogs - b2, b2evolution, Nucleus, pMachine Free, <nowiki>WordPress</nowiki>
+
+Content Management - Drupal, Geeklog, Mambo Open Source, PHP-Nuke, <nowiki>phpWCMS, phpWebSite</nowiki>, Post-Nuke, Siteframe, Xoops 
+
+Customer Support - Crafty Syntax Live Help, Help Center Live, <nowiki>osTicket</nowiki>, PHP Support Tickets, Support Logic Helpdesk, Support Services Manager
+ 
+Discussion Boards - Invision Board, <nowiki>phpBB2, YaBBSE</nowiki>
+ 
+E-Commerce - <nowiki>CubeCart</nowiki>, OS Commerce
+ 
+F.A.Q. - <nowiki>FAQMasterFlex</nowiki>
+ 
+Image Galleries - 4Images Gallery, Coppermine Photo Gallery, Gallery 
+ 
+Mailing Lists - <nowiki>PHPlist</nowiki>
+ 
+Polls and Surveys - Advanced Poll, <nowiki>phpESP, PHPSurveyor</nowiki>
+ 
+Project Management - <nowiki>dotProject, PHProjekt</nowiki>
+ 
+Wiki - <nowiki>PhpWiki, TikiWiki</nowiki>
+ 
+Other Scripts - Moodle, Noahs Classifieds, Open-Realty, <nowiki>phpAdsNew, PHPauction, phpCOIN, phpFormGenerator, phpLinks, WebCalendar</nowiki>
+ 
+Extras - Language, Side menu appearance, Email notifications, Installations overview
+
+- - -
+
+UPDATE - 040327, JunkerIn. No problems. All works as should.
+
+So, $110.80 for two years ($4.62/mo). My domain name had now spread and I can access the control panel. Here it is:
+
+||<b>General account</b>||x||<b>information:</b>||x||
+||Hosting package:||undefined||Subdomains:||0 / unlimited||
+||Parked Domains:|| 0 / 0||Addon Domains:|| 0 / 0||
+||<nowiki>MySQL</nowiki> Databases:||0 / 1||Disk usage:|| 0.26 MB||
+||SQL Disk usage:||0.00 MB||Disk space available:||999.74 Mb||
+||Bandwidth usage (month):||0.00 MB||Email Accounts:||0 / unlimited||
+||Email Forwarders:||0||Autoresponders:||0||
+||Mailing Lists:||0 / 0||Email filters:||0||
+||FTP Accounts:||0 / 1||x||x||
+||<b>General server</b>||x||<b>information:</b>||x||
+||Operating system:||Linux||Service Status:||Click to View||
+||Kernel version:||2.4.20-28.9smp||Apache version:||1.3.29 (Unix)||
+||PERL version:||5.8.0||Path to PERL:||...||
+||Path to sendmail:|| ...||Installed Perl Modules:||Click to View||
+||PHP version:||4.3.4||<nowiki>MySQL</nowiki> version:||4.0.15-standard||
+||cPanel Build:||8.7.0-RELEASE 26||Theme: cPanel X||v2.2.6||
+||Documentation:||Click to View||x||x||
+
+Icons:
+||Mail||Webmail||Change: Password||Parked Domains||
+||Addon Domains||FTP Manager||File Manager||||Disk usage||
+||Backup||Password Protect Directories||Error pages||Subdomains||
+||<nowiki>MySQL</nowiki>: Databases||Redirects||Frontpage Extensions||Web/FTP Stats||
+||Raw Access Logs||Raw Log Manager||Error log||Subdomain: Stats||
+||Search Engine Submit||Chatroom||<nowiki>PhpMyChat</nowiki>||Bulletin Board||
+||CGI Center||Scripts Library||Agora: Shopping Cart||Cron jobs||
+||Network Tools||MIME Types||Apache Handlers||Manage Open PGP Keys||
+||<nowiki>HotLink</nowiki> Protection||Index Manager||IP Deny Manager||Fantastico||
+
+- - -more, 040128,  JunkerIn
+
+Control panel documentation Table of Contents, Part 1: General
+
+What is CPanel?, How do I get help?, CPanel themes, General server information, Mail, <nowiki>NeoMail</nowiki> summary, Horde summary, <nowiki>SquirrelMail</nowiki> summary, Setting your default e-mail address, Autoresponders, E-mail Filtering, Forwarders, Mailing Lists, Spam Assassin, Tracing an e-mail address, Altering your Mail Exchanger (MX Entry) setting, Change Password, Parked Domains, Addon Domains, FTP Manager, Setting Anonymous FTP access, File Manager, Changing file/folder permissions, <nowiki>Generating/Restoring</nowiki> backups, Password protect directories, Subdomains, <nowiki>MySQL</nowiki>, Managing <nowiki>MySQL</nowiki> databases, Adding host access, <nowiki>PostgreSQL</nowiki>, Managing <nowiki>PostgreSQL</nowiki> databases, SSL <nowiki>Shell/Telnet</nowiki> access, Redirects, <nowiki>Web/FTP</nowiki> Stats, Search Engine Submit, Chatroom, <nowiki>PhpMyChat</nowiki>, Bulletin Board
+
+Control panel documentation Table of Contents, Part 2: The CGI Center
+
+Introduction to CGI, Simple CGI Wrappper, Random HTML, Guestbook, Advanced Guestbook, Counter Maker, CGI EMail, <nowiki>FormMail</nowiki> Clone, Entropy Search, Entropy Banner, Scripts Library, Interchange shopping cart, Agora Shopping Cart, Cron jobs, Network Tools, Domain Lookup, Trace Route, MIME Types, Apache handlers, Manage <nowiki>OpenPGP</nowiki> keys, <nowiki>HotLink</nowiki> Prevention, Index Manager, IP Deny Manager, Index
+
+Control panel documentation Table of Contents, notes:
+
+:<nowiki>NeoMail</nowiki> summary - online mail function
+:Horde summary - <nowiki>SquirrelMail/Horde</nowiki> is a full-featured e-mail application, http://www.horde.org/
+:<nowiki>SquirrelMail</nowiki> summary - a full-featured e-mail application, http://www.squirrelmail.org/
+:Default e-mail address - unknowns rerouted to your default: user@yourdomain.com
+:Mailing Lists - a mailing list, http://www.gnu.org/software/mailman/mailman.html
+:Spam Assassin - a mail filter, http://spamassassin.taint.org/index.html
+:Tracing an e-mail address - trace the delivery path of an e-mail address
+
+:Subdomains - subdom.yourdom.com, on your master account. But, no new CPanel. a sub folder within public_http with it's own cgi-bin. Currently no e-mail accounts, but a workaround is name-subdom@yourdom.com or similar.
+
+:SSL <nowiki>Shell/Telnet</nowiki> access - log in, linux your domain: uses "<nowiki>MindTerm</nowiki>" http://www.appgate.com/mindterm/, get "<nowiki>PuTTy</nowiki>" - http://www.appgate.com/mindterm/ - an excellent <nowiki>Telnet/SSL</nowiki> utility: small; fast; and free (for Windows).
+
+:Chatroom - Entropy Chat is a simple chat script that offers basic features.
+:<nowiki>PhpMyChat</nowiki> - PHP chat room uses <nowiki>MySQL</nowiki> database, see http://www.phpheaven.net/rubrique4.html
+:Bulletin Board - install a pre-made forum called phpBB, see http://www.phpbb.com/
+
+More on CGI Center is to come.
+
+- - -next step, 040128,  JunkerIn
+
+Docs > Bulletin Board > "Click on the Icon"
+
+Clicked on the Icon > "Type in a sub-diectory name" > "Hit Go"
+
+AND...
+
+my *Powered by phpBB 2.0.6 © 2001, 2002 phpBB Group* was up and running.
+
+/////
+
+And there it was. If you've seen a phpBB on the net, that is what it looks and works like. It uses one of <nowiki>MySQLs</nowiki>, my only one. Is that OK? Will I need more? What do they cost? But that was sure easy and the product looks fine.
+
+040327, note: Still no idea on SQL use, haven't had a need to track it down yet. Also, started new svc for old domain name with a requested transfer of name. Transfer generated two emails requesting confirmation from current admin of domain name. Answered 'yes' to each. New service came up with no problem. I FTP-ed my HTML files and the transfer was completed. No problem. --JunkerIn.
+
+- - -
+
+AcenetReviewTalk
+³3minor³30³3newauthor³31³2username³2BillStClair³2host³2dcha-aa-65-219-208-102.taconic.net³2revision³210³2tscreate³21075227541³2id³21153³2keepts³21099512509³1version³21³2ts³21099512509³2ip³2202.105.113.90³2name³2text_default³2data³2summary³3*³3text³3
+³3newauthor³31³3minor³31³2host³2202.105.113.90³2username³2³2revision³211³2id³2111³2tscreate³21075227541³2keepts³21100167143³1ip³2210.82.108.58³2ts³21100167143³2version³21³2name³2text_default³2data³2summary³3*³3text³3[http://www.ghcz.com/index1.asp &#24515;&#29702;&#21672;&#35810;]
+[http://www.hema.com.cn &#27827;&#39532;&#36275;&#24425;]
+[http://www.chinagiftboxes.com &#31036;&#21697;&#21253;&#35013;&#30418;]
+[http://www.microresume.com &#27714;&#32844;&#31616;&#21382; &#27714;&#32844;&#20449;]
+[http://www.bjanhua.com &#38450;&#30423;&#38376;]
+[http://www.kbrother.com &#32763;&#35793;&#20844;&#21496;]
+[http://www.okhere.net &#32771;&#30740;]
+[http://www.googlepaiming.com Google&#25490;&#21517;]
+[http://www.famouschool.com &#32771;&#30740;]
+[http://www.investment-casting.biz/english/superalloy-lost-wax-casting.htm Superalloy Casting Lost Wax Casting]
+[http://www.genphoal.com LED Bulbs]
+[http://www.investment-casting.biz Investment Casting Precision Casting]
+[http://www.sny.cn/jd/index.asp &#37202;&#24215;&#23486;&#39302;]
+[http://www.zqgl.com &#20225;&#19994;&#31649;&#29702;]
+³3minor³30³3newauthor³31³2username³2³2host³2210.82.108.58³2revision³212³2tscreate³21075227541³2id³2111³2keepts³21100192481³1version³21³2ts³21100192481³2ip³2217.247.139.182³2name³2text_default³2data³2summary³3despam³3text³3= Acenet Review =
+
+040522 Update - JunkerIn
+
+All has gone fine. My first site had one lack -- only one SQL dbase was there. Most of the installables use one, so today I went to the Ace site to find out how and cost for more dbases.
+
+Upon arrival, I saw a new special -- 2000 MB Disk Space, 60 GB Bandwidth, Unlimited SQLs, As low as $3.95 (for, I assume a 2 year contract like mine)...
+
+So, a few minutes later, click, ckick, service ticket, I upgraded for $1/mo or $24 totoal for my total contract of 2 years. My site immediately showed the upgrade. All done in a few minutes.
+
+So here it is again with a listing of the automatic software installs. I don't know what half of them do, but they are all free software projects on the web and have their own sites with tons of info.
+
+- - -
+
+2000 MB Disk Space, 60 GB Bandwidth, Unlimited <nowiki>MySQL</nowiki>, Unlimited Email, POP3/SMTP/IMAP, <nowiki>WebMail</nowiki> Access, SPAM Assassin, <nowiki>MySQL</nowiki> & PHP, Perl & CGI-Bin, 24/7 FTP Access, Easy Control Panel, Auto-install Scripts, Free Templates, Free Software
+
+Auto-Install Scripts via Fantastico:
+
+Navigation - Fantastico Home, Control Panel Home, 
+
+Blogs - b2, b2evolution, Nucleus, pMachine Free, <nowiki>WordPress</nowiki>
+
+Content Management - Drupal, Geeklog, Mambo Open Source, PHP-Nuke, <nowiki>phpWCMS, phpWebSite</nowiki>, Post-Nuke, Siteframe, Xoops 
+
+Customer Support - Crafty Syntax Live Help, Help Center Live, <nowiki>osTicket</nowiki>, PHP Support Tickets, Support Logic Helpdesk, Support Services Manager
+ 
+Discussion Boards - Invision Board, <nowiki>phpBB2, YaBBSE</nowiki>
+ 
+E-Commerce - <nowiki>CubeCart</nowiki>, OS Commerce
+ 
+F.A.Q. - <nowiki>FAQMasterFlex</nowiki>
+ 
+Image Galleries - 4Images Gallery, Coppermine Photo Gallery, Gallery 
+ 
+Mailing Lists - <nowiki>PHPlist</nowiki>
+ 
+Polls and Surveys - Advanced Poll, <nowiki>phpESP, PHPSurveyor</nowiki>
+ 
+Project Management - <nowiki>dotProject, PHProjekt</nowiki>
+ 
+Wiki - <nowiki>PhpWiki, TikiWiki</nowiki>
+ 
+Other Scripts - Moodle, Noahs Classifieds, Open-Realty, <nowiki>phpAdsNew, PHPauction, phpCOIN, phpFormGenerator, phpLinks, WebCalendar</nowiki>
+ 
+Extras - Language, Side menu appearance, Email notifications, Installations overview
+
+- - -
+
+UPDATE - 040327, JunkerIn. No problems. All works as should.
+
+So, $110.80 for two years ($4.62/mo). My domain name had now spread and I can access the control panel. Here it is:
+
+||<b>General account</b>||x||<b>information:</b>||x||
+||Hosting package:||undefined||Subdomains:||0 / unlimited||
+||Parked Domains:|| 0 / 0||Addon Domains:|| 0 / 0||
+||<nowiki>MySQL</nowiki> Databases:||0 / 1||Disk usage:|| 0.26 MB||
+||SQL Disk usage:||0.00 MB||Disk space available:||999.74 Mb||
+||Bandwidth usage (month):||0.00 MB||Email Accounts:||0 / unlimited||
+||Email Forwarders:||0||Autoresponders:||0||
+||Mailing Lists:||0 / 0||Email filters:||0||
+||FTP Accounts:||0 / 1||x||x||
+||<b>General server</b>||x||<b>information:</b>||x||
+||Operating system:||Linux||Service Status:||Click to View||
+||Kernel version:||2.4.20-28.9smp||Apache version:||1.3.29 (Unix)||
+||PERL version:||5.8.0||Path to PERL:||...||
+||Path to sendmail:|| ...||Installed Perl Modules:||Click to View||
+||PHP version:||4.3.4||<nowiki>MySQL</nowiki> version:||4.0.15-standard||
+||cPanel Build:||8.7.0-RELEASE 26||Theme: cPanel X||v2.2.6||
+||Documentation:||Click to View||x||x||
+
+Icons:
+||Mail||Webmail||Change: Password||Parked Domains||
+||Addon Domains||FTP Manager||File Manager||||Disk usage||
+||Backup||Password Protect Directories||Error pages||Subdomains||
+||<nowiki>MySQL</nowiki>: Databases||Redirects||Frontpage Extensions||Web/FTP Stats||
+||Raw Access Logs||Raw Log Manager||Error log||Subdomain: Stats||
+||Search Engine Submit||Chatroom||<nowiki>PhpMyChat</nowiki>||Bulletin Board||
+||CGI Center||Scripts Library||Agora: Shopping Cart||Cron jobs||
+||Network Tools||MIME Types||Apache Handlers||Manage Open PGP Keys||
+||<nowiki>HotLink</nowiki> Protection||Index Manager||IP Deny Manager||Fantastico||
+
+- - -more, 040128,  JunkerIn
+
+Control panel documentation Table of Contents, Part 1: General
+
+What is CPanel?, How do I get help?, CPanel themes, General server information, Mail, <nowiki>NeoMail</nowiki> summary, Horde summary, <nowiki>SquirrelMail</nowiki> summary, Setting your default e-mail address, Autoresponders, E-mail Filtering, Forwarders, Mailing Lists, Spam Assassin, Tracing an e-mail address, Altering your Mail Exchanger (MX Entry) setting, Change Password, Parked Domains, Addon Domains, FTP Manager, Setting Anonymous FTP access, File Manager, Changing file/folder permissions, <nowiki>Generating/Restoring</nowiki> backups, Password protect directories, Subdomains, <nowiki>MySQL</nowiki>, Managing <nowiki>MySQL</nowiki> databases, Adding host access, <nowiki>PostgreSQL</nowiki>, Managing <nowiki>PostgreSQL</nowiki> databases, SSL <nowiki>Shell/Telnet</nowiki> access, Redirects, <nowiki>Web/FTP</nowiki> Stats, Search Engine Submit, Chatroom, <nowiki>PhpMyChat</nowiki>, Bulletin Board
+
+Control panel documentation Table of Contents, Part 2: The CGI Center
+
+Introduction to CGI, Simple CGI Wrappper, Random HTML, Guestbook, Advanced Guestbook, Counter Maker, CGI EMail, <nowiki>FormMail</nowiki> Clone, Entropy Search, Entropy Banner, Scripts Library, Interchange shopping cart, Agora Shopping Cart, Cron jobs, Network Tools, Domain Lookup, Trace Route, MIME Types, Apache handlers, Manage <nowiki>OpenPGP</nowiki> keys, <nowiki>HotLink</nowiki> Prevention, Index Manager, IP Deny Manager, Index
+
+Control panel documentation Table of Contents, notes:
+
+:<nowiki>NeoMail</nowiki> summary - online mail function
+:Horde summary - <nowiki>SquirrelMail/Horde</nowiki> is a full-featured e-mail application, http://www.horde.org/
+:<nowiki>SquirrelMail</nowiki> summary - a full-featured e-mail application, http://www.squirrelmail.org/
+:Default e-mail address - unknowns rerouted to your default: user@yourdomain.com
+:Mailing Lists - a mailing list, http://www.gnu.org/software/mailman/mailman.html
+:Spam Assassin - a mail filter, http://spamassassin.taint.org/index.html
+:Tracing an e-mail address - trace the delivery path of an e-mail address
+
+:Subdomains - subdom.yourdom.com, on your master account. But, no new CPanel. a sub folder within public_http with it's own cgi-bin. Currently no e-mail accounts, but a workaround is name-subdom@yourdom.com or similar.
+
+:SSL <nowiki>Shell/Telnet</nowiki> access - log in, linux your domain: uses "<nowiki>MindTerm</nowiki>" http://www.appgate.com/mindterm/, get "<nowiki>PuTTy</nowiki>" - http://www.appgate.com/mindterm/ - an excellent <nowiki>Telnet/SSL</nowiki> utility: small; fast; and free (for Windows).
+
+:Chatroom - Entropy Chat is a simple chat script that offers basic features.
+:<nowiki>PhpMyChat</nowiki> - PHP chat room uses <nowiki>MySQL</nowiki> database, see http://www.phpheaven.net/rubrique4.html
+:Bulletin Board - install a pre-made forum called phpBB, see http://www.phpbb.com/
+
+More on CGI Center is to come.
+
+- - -next step, 040128,  JunkerIn
+
+Docs > Bulletin Board > "Click on the Icon"
+
+Clicked on the Icon > "Type in a sub-diectory name" > "Hit Go"
+
+AND...
+
+my *Powered by phpBB 2.0.6 © 2001, 2002 phpBB Group* was up and running.
+
+/////
+
+And there it was. If you've seen a phpBB on the net, that is what it looks and works like. It uses one of <nowiki>MySQLs</nowiki>, my only one. Is that OK? Will I need more? What do they cost? But that was sure easy and the product looks fine.
+
+040327, note: Still no idea on SQL use, haven't had a need to track it down yet. Also, started new svc for old domain name with a requested transfer of name. Transfer generated two emails requesting confirmation from current admin of domain name. Answered 'yes' to each. New service came up with no problem. I FTP-ed my HTML files and the transfer was completed. No problem. --JunkerIn.
+
+- - -
+
+AcenetReviewTalk
+³3newauthor³31³3minor³30³2host³2pD9F78BB6.dip.t-dialin.net³2username³2Junker³2revision³213³2id³21210³2tscreate³21075227541³2keepts³21100479534³1ip³2220.184.55.153³2ts³21100479534³2version³21³2name³2text_default³2data³2summary³3*³3text³3[http://www.uusky.com &#19990;&#32426;&#24773;&#24863;]
+[http://www.uusky.org &#26477;&#24030;&#32593;&#31449;&#24314;&#35774;]
+[http://www.uusky.net &#26477;&#24030;&#21943;&#22609;]
+[http://www.znpp.com &#26477;&#24030;&#32593;&#32476;&#20844;&#21496;] 
+[http://www.hzn.cn &#26477;&#24030;&#32593;&#31449;&#24314;&#35774;]
+[http://www.hzn.cn &#26477;&#24030;&#32593;&#32476;&#20844;&#21496;]
+[http://www.uusky.com/ &#24773;&#24863;]
+[http://www.uusky.org &#26477;&#24030;&#32593;&#31449;&#24314;&#35774;]
+[http://www.znpp.com &#26477;&#24030;&#32593;&#31449;&#24314;&#35774;] 
+[http://www.uusky.org &#26477;&#24030;&#32593;&#32476;&#20844;&#21496;]
+ [http://www.nanyangcn.net/bzj.htm &#39135;&#21697;&#26426;&#26800;] 
+[http://www.nanyangcn.net/bzj.htm &#21253;&#35013;&#26426;]
+[http://www.nanyangcn.net/bzj.htm &#39135;&#21697;&#21253;&#35013;&#26426;&#26800;]
+[http://www.uusky.org &#26477;&#24030;&#32593;&#31449;&#24314;&#35774;]
+[http://www.znpp.com &#26477;&#24030;&#32593;&#32476;&#20844;&#21496;] 
+[http://www.hzn.cn &#26477;&#24030;&#32593;&#32476;&#20844;&#21496;]
+[http://www.uusky.net &#21943;&#22609;]
+[http://home.qz168.com/home/xnann &#32593;&#31449;&#24314;&#35774;]
+[http://www.18ny.com/html/xnan2/ &#32593;&#31449;&#25512;&#24191;]
+[http://home.lygweb.com/home/xnan2/ &#20225;&#19994;&#37038;&#23616;]
+[http://web.awxk.net/home/xnannn &#34394;&#25311;&#20027;&#26426;]
+[http://www.loveday.somee.com/ GOOGLE&#25490;&#21517;]
+[http://www.cnzjqi.somee.com &#32593;&#31449;&#24314;&#35774;]
+[http://www.uusky.com/host &#32593;&#31449;&#24314;&#35774;]
+[http://www.uusky.com/webpage/ &#32593;&#31449;&#24314;&#35774;]
+[http://www.uusky.com/inf/ &#32593;&#31449;&#24314;&#35774;]
+[http://www.hzjl365.com/inc/ &#32593;&#31449;&#24314;&#35774;]
+[http://xnan2.91x.net/ &#32593;&#31449;&#24314;&#35774;]
+[http://www.xinyifang.net/inf/ &#32593;&#31449;&#24314;&#35774;]
+[http://web.uusky.org/ &#32593;&#31449;&#24314;&#35774;]
+[http://www.pagerealm.com/agent2732/ &#32593;&#31449;&#24314;&#35774;]
+[http://www.pcpages.com/uusky/ &#32593;&#31449;&#24314;&#35774;]
+[http://uusky2.home.sunbo.net/ &#32593;&#31449;&#24314;&#35774;]
+[http://www.coolgoose.com/sites/xnane/ &#32593;&#31449;&#24314;&#35774;]
+[http://www.coolgoose.com/sites/xnane/web/ &#32593;&#31449;&#24314;&#35774;]
+[http://www.coolgoose.com/sites/xnane/company/ &#32593;&#32476;&#20844;&#21496;]
+[http://www.znpp.com/google/ &#32593;&#32476;&#20844;&#21496;]
+[http://www.znpp.com/google/ &#32593;&#32476;&#20844;&#21496;]
+[http://uusky.zj.com/company/ &#32593;&#32476;&#20844;&#21496;]
+[http://uusky.zj.com/web/ &#32593;&#32476;&#20844;&#21496;]
+[http://www.houseclub.com.cn/sitemap.htm &#32593;&#32476;&#20844;&#21496;]
+[http://www.nanyangcn.net/sitemap.htm &#32593;&#32476;&#20844;&#21496;]
+[http://www.softsenior.com/sitemap.htm &#32593;&#32476;&#20844;&#21496;]
+[http://www.uusky.com/webpage &#32593;&#31449;&#24314;&#35774;]
+[http://www.softsenior.com &#35270;&#39057;&#20250;&#35758;]
+[http://www.softsenior.com V2 conference]
+[http://www.softsenior.com/sitemap.htm &#32593;&#32476;&#30417;&#25511;]
+[http://www.uusky.org/zuqiu.htm &#36275;&#29699;&#32593;&#31449;&#35774;&#35745;]
+[http://www.houseclub.com.cn &#36141;&#25151;]
+[http://www.houseclub.com.cn &#27004;&#30424;&#20195;&#29702;]
+[http://www.houseclub.com.cn &#25151;&#20135;&#20132;&#26131;]
+[http://www.houseclub.com.cn &#25151;&#23627;&#20080;&#21334;]
+[http://www.houseclub.com.cn &#27004;&#30424;&#22242;&#36141;]
+[http://www.softsenior.com &#35270;&#39057;&#20250;&#35758;]
+[http://www.houseclub.com.cn/sitemap.htm &#36141;&#25151;]
+[http://www.houseclub.com.cn/sitemapa.htm &#36141;&#25151;]
+[http://www.houseclub.com.cn/sitemapb.htm &#27004;&#30424;&#20195;&#29702;]
+[http://www.houseclub.com.cn/sitemapc.htm &#25151;&#20135;&#20132;&#26131;]
+[http://www.houseclub.com.cn/sitemapd.htm &#25151;&#23627;&#20080;&#21334;]
+[http://www.softsenior.com V2 conference]
+ [http://www.softsenior.com &#32593;&#32476;&#30417;&#25511;]
+[http://www.softsenior.com &#21150;&#20844;&#33258;&#21160;&#21270;]
+[http://www.softsenior.com &#39184;&#39278;&#25910;&#38134;]
+[http://www.softsenior.com &#32593;&#36335;&#23703;]
+[http://www.nanyangcn.net &#34507;&#40644;&#27966;]
+[http://www.blogcn.com/user20/xnan2 &#32593;&#31449;&#24314;&#35774;]
+[http://xnan2.blogdriver.com/xnan2/ &#32593;&#31449;&#24314;&#35774;]
+[http://www.blogbus.com/blogbus/blog/index.php?blogid=45288 &#32593;&#31449;&#24314;&#35774;]
+[http://www.loveday.epsystem.net &#32593;&#31449;&#24314;&#35774;]
+[http://www.loveday.epsystem.net &#32593;&#32476;&#20844;&#21496;]
+[http://loveday.epsystem.net &#32593;&#31449;&#24314;&#35774;]
+[http://loveday.epsystem.net &#32593;&#32476;&#20844;&#21496;] 
+³3minor³30³3newauthor³31³2username³2³2host³2220.184.55.153³2revision³214³2tscreate³21075227541³2id³2111³2keepts³21100586037

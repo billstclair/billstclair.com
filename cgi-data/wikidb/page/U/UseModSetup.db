@@ -1,0 +1,259 @@
+version³13³1ts³11099650269³1cache_oldmajor³119³1cache_oldauthor³119³1cache_diff_default_author³11³1revision³120³1text_default³1version³21³2ts³21099650269³2ip³2217.247.142.177³2name³2text_default³2data³2summary³3despam³3text³3= Setting up UseMod =
+
+UseMod:UseModWiki/Install has details. The rest of this page contains comments from people who have actually done it.
+
+040117: BillStClair
+
+Summary:
+# Figure out how to make cgi scripts work
+# Change "wiki.pl" to use your "wikidb" directory, and upload it to "cgi-bin"
+# Create a "wikidb" directory
+# Edit the "config" file, and upload it to your "wikidb" directory
+# Upload the logo file, "wiki.gif" to top-level of your site
+
+First off, you have to learn how to make a cgi script work. This usually requires a commercial web hosting service. The free hosting services don't usually support it. It's pretty common to have a "cgi-bin" directory into which you can install scripts. Your web host should have documentation. Make sure that you upload in ascii mode, especially if you're transferring from <nowiki>Windows/Macintosh to Unix/Linux or vice-versa. Windows CR/LF</nowiki> pairs confuse a Unix Perl interpreter that's expecting to see just LF.
+
+Get a simple script working first. http://zhanshou.hypermart.net/CGITutorial/perl.html (included below) is installed at http://billstclair.com/cgi-bin/HelloWorld.pl . You might have to change "/usr/local/bin/perl" below. "/usr/bin/perl" is common (and is used in UseMod's "wiki.pl"). My provider supports both. Once you get this working, you're half-way to getting wiki.pl to work.
+
+<pre>
+#!/usr/local/bin/perl
+#-------------------------------------------
+# helloWorld.pl by Zhanshou Yu
+# http://zhanshou.hypermart.net/CGITutorial/perl.html
+#-------------------------------------------
+
+ #This is a html file
+ print"Content-type: text/html\n\n";
+
+ #The html output 
+ print "<html>\n";
+ print "<head><title>Hello World !!!</title></head>\n";
+ print "<body>\n";
+ print "<h2>Hello World !!!</h2>\n";
+ print "</body>\n";
+ print "</html>\n";
+ exit;
+</pre>
+
+You might need to set the .pl file's execute bits. A "dir" FTP command on your cgi-bin directory should come back with something like the following:
+
+<pre>
+ftp> dir
+200 PORT command successful.
+150 Opening ASCII mode data connection for /bin/ls.
+-rwxr-xr-x   1 wws      www-data       455 Jan 17 04:58 HelloWorld.pl
+-rwxr-x---   1 wws      www-data        81 Jul 31  2000 helloworld.py
+-rwxr-xr-x   1 wws      www-data    157387 Jan 14 11:22 wiki.pl
+226 Listing completed.
+ftp: 629 bytes received in 0.02Seconds 31.45Kbytes/sec.
+</pre>
+
+The important features above are the "x"s in the first column. Those are execute bits for owner, group, and world. They are part of the file permissions, set by the "chmod" command. Most FTP servers don't support "chmod", so you'll need to do it in a unix shell (not supported by most web service providers) or by using a control panel page. If your provider has no such thing, it's probably because you don't need it; the execute bits will be properly set when you upload the script. Set the file permissions to 755 (octal for the read/write/execute bit of each of owner/group/world, so 7 is "rwx" & 5 is "r-x"), though it appears that 750 works on my provider.
+
+The next step is to create a script-writeable directory to house your wiki's "database" (UseMod uses the file sytem to store everything, a desireable feature IMHO, so it's not really a database). When I ftp to my site, the top-level directory is not accessible from the web. The "public_html" sub-directory IS accessible. So I made my "wikidb" directory a sibling of public_html. Finally, you need to know the full path to your directory. Your web hosting provider should tell you that.
+
+Edit "wiki.pl" from the UseMod distribution, and in the "Configuration" section, change the definition for <nowiki>$DataDir to "dirpath/wikidb", where "dirpath" is the full path to your directory on the host and "wikidb" is the name of the folder you created. Make sure the $UseConfig is set to 1. Upload "wiki.pl" to your "cgi-bin" directory.
+
+Edit the "config" file from the distribution and change at least $CookieName, $SiteName, and $HomePage</nowiki>. Upload wiki.gif to the top-level of your site, so that you'll have a logo (and change it if you want). Upload the "config" file to your "wikidb" directory, and you're done. <tt><nowiki>http://yoursite/cgi-bin/wiki.pl</nowiki></tt> should now bring up your wiki.
+³3minor³30³3newauthor³31³2host³2pD9F78EB1.dip.t-dialin.net³2username³2Junker³2revision³220³2id³21210³2tscreate³21074333954³2keepts³21099650269³1tscreate³11074333954³1cache_diff_default_major³11³1cache_diff_default_minor³11,143c1,57
+< [http://home.qz168.com/home/xnann &#32593;&#31449;&#24314;&#35774;]
+< [http://www.18ny.com/html/xnan2/ &#32593;&#31449;&#25512;&#24191;]
+< [http://home.lygweb.com/home/xnan2/ &#20225;&#19994;&#37038;&#23616;]
+< [http://web.awxk.net/home/xnannn &#34394;&#25311;&#20027;&#26426;]
+< [http://cnzj.freewebpage.org &#22269;&#38469;&#22495;&#21517;]
+< [http://zjrcfff.freewebpage.org &#26477;&#24030;&#32593;&#32476;]
+< [http://uuskyjjj.freewebpage.org &#20844;&#21496;&#24314;&#31449;]
+< [http://www.freehost.ag/asdfasd &#32593;&#32476;&#25512;&#24191;]
+< [http://www.loveday.somee.com/ GOOGLE&#25490;&#21517;]
+< [http://www.cnzjqi.somee.com &#32593;&#31449;&#24314;&#35774;]
+< [http://gogi.51.net &#21830;&#22823;&#20449;&#24687;]
+< [http://xnan2.512j.com &#32593;&#32476;&#20844;&#21496;]
+< [http://www.uusky.com &#19990;&#32426;&#24773;&#24863;]
+< [http://www.uusky.org &#32593;&#31449;&#24314;&#35774;]
+< [http://www.uusky.net &#32593;&#32476;&#20844;&#21496;]
+< [http://www.znpp.com &#32593;&#32476;&#24314;&#35774;&#20844;&#21496;]
+< [http://www.hzn.cn &#26477;&#24030;&#32593;&#31449;&#24314;&#35774;]
+< http://www.uusky.com/host
+< http://www.uusky.com/webpage/
+< http://www.uusky.com/inf/
+< http://www.hzjl365.com/inc/
+< http://xnan2.91x.net/
+< http://www.xinyifang.net/inf/
+< http://web.uusky.org/
+< http://www.pagerealm.com/agent2732/
+< http://www.pcpages.com/uusky/
+< http://uusky2.home.sunbo.net/
+< http://www.coolgoose.com/sites/xnane/
+< http://www.coolgoose.com/sites/xnane/web/
+< http://www.coolgoose.com/sites/xnane/company/
+< http://gogi.51.net/web
+< http://gogi.51.net/company
+< http://www.znpp.com/google/
+< http://www.znpp.com/google/
+< http://uusky.zj.com/company/
+< http://uusky.zj.com/web/
+< http://www.uusky.com/
+< [http://www.uusky.org &#26477;&#24030;&#32593;&#31449;&#24314;&#35774;]
+< [http://www.znpp.com &#26477;&#24030;&#32593;&#31449;&#24314;&#35774;]
+< [http://www.uusky.org &#26477;&#24030;&#32593;&#32476;&#20844;&#21496;]
+< [http://www.znpp.com &#26477;&#24030;&#32593;&#32476;&#20844;&#21496;]
+< [http://www.hzn.cn &#26477;&#24030;&#32593;&#32476;&#20844;&#21496;]
+< [http://www.uusky.net  &#21943;&#22609;]
+< http://www.houseclub.com.cn/sitemap.htm
+< http://www.nanyangcn.net/sitemap.htm
+< http://www.softsenior.com/sitemap.htm
+< http://www.freewebs.com/uuskyee/
+< [http://www.uusky.org &#26477;&#24030;&#32593;&#31449;&#24314;&#35774;]
+< 
+< 
+< [http://www.uusky.com/webpage &#32593;&#31449;&#24314;&#35774;]
+< [http://www.softsenior.com &#35270;&#39057;&#20250;&#35758;]
+< [http://www.softsenior.com V2 conference]
+< [http://www.softsenior.com/sitemap.htm &#32593;&#32476;&#30417;&#25511;]
+< [http://www.uusky.org/zuqiu.htm &#36275;&#29699;&#32593;&#31449;&#35774;&#35745;]
+< [http://www.houseclub.com.cn &#36141;&#25151;]
+< [http://www.houseclub.com.cn &#27004;&#30424;&#20195;&#29702;]
+< [http://www.houseclub.com.cn &#25151;&#20135;&#20132;&#26131;]
+< [http://www.houseclub.com.cn &#25151;&#23627;&#20080;&#21334;]
+< [http://www.houseclub.com.cn &#27004;&#30424;&#22242;&#36141;]
+< [http://www.softsenior.com &#35270;&#39057;&#20250;&#35758;]
+< [http://www.houseclub.com.cn/sitemap.htm &#36141;&#25151;]
+< [http://www.houseclub.com.cn/sitemapa.htm &#36141;&#25151;]
+< [http://www.houseclub.com.cn/sitemapb.htm &#27004;&#30424;&#20195;&#29702;]
+< [http://www.houseclub.com.cn/sitemapc.htm &#25151;&#20135;&#20132;&#26131;]
+< [http://www.houseclub.com.cn/sitemapd.htm &#25151;&#23627;&#20080;&#21334;]
+< [http://www.softsenior.com V2 conference]
+< [http://www.softsenior.com &#32593;&#32476;&#30417;&#25511;]
+< [http://www.softsenior.com &#21150;&#20844;&#33258;&#21160;&#21270;]
+< [http://www.softsenior.com &#39184;&#39278;&#25910;&#38134;]
+< [http://www.softsenior.com &#32593;&#36335;&#23703;]
+< [http://www.nanyangcn.net &#34507;&#40644;&#27966;][http://home.qz168.com/home/xnann &#32593;&#31449;&#24314;&#35774;]
+< [http://www.18ny.com/html/xnan2/ &#32593;&#31449;&#25512;&#24191;]
+< [http://home.lygweb.com/home/xnan2/ &#20225;&#19994;&#37038;&#23616;]
+< [http://web.awxk.net/home/xnannn &#34394;&#25311;&#20027;&#26426;]
+< [http://cnzj.freewebpage.org &#22269;&#38469;&#22495;&#21517;]
+< [http://zjrcfff.freewebpage.org &#26477;&#24030;&#32593;&#32476;]
+< [http://uuskyjjj.freewebpage.org &#20844;&#21496;&#24314;&#31449;]
+< [http://www.freehost.ag/asdfasd &#32593;&#32476;&#25512;&#24191;]
+< [http://www.loveday.somee.com/ GOOGLE&#25490;&#21517;]
+< [http://www.cnzjqi.somee.com &#32593;&#31449;&#24314;&#35774;]
+< [http://gogi.51.net &#21830;&#22823;&#20449;&#24687;]
+< [http://xnan2.512j.com &#32593;&#32476;&#20844;&#21496;]
+< [http://www.uusky.com &#19990;&#32426;&#24773;&#24863;]
+< [http://www.uusky.org &#32593;&#31449;&#24314;&#35774;]
+< [http://www.uusky.net &#32593;&#32476;&#20844;&#21496;]
+< [http://www.znpp.com &#32593;&#32476;&#24314;&#35774;&#20844;&#21496;]
+< [http://www.hzn.cn &#26477;&#24030;&#32593;&#31449;&#24314;&#35774;]
+< http://www.uusky.com/host
+< http://www.uusky.com/webpage/
+< http://www.uusky.com/inf/
+< http://www.hzjl365.com/inc/
+< http://xnan2.91x.net/
+< http://www.xinyifang.net/inf/
+< http://web.uusky.org/
+< http://www.pagerealm.com/agent2732/
+< http://www.pcpages.com/uusky/
+< http://uusky2.home.sunbo.net/
+< http://www.coolgoose.com/sites/xnane/
+< http://www.coolgoose.com/sites/xnane/web/
+< http://www.coolgoose.com/sites/xnane/company/
+< http://gogi.51.net/web
+< http://gogi.51.net/company
+< http://www.znpp.com/google/
+< http://www.znpp.com/google/
+< http://uusky.zj.com/company/
+< http://uusky.zj.com/web/
+< http://www.uusky.com/
+< [http://www.uusky.org &#26477;&#24030;&#32593;&#31449;&#24314;&#35774;]
+< [http://www.znpp.com &#26477;&#24030;&#32593;&#31449;&#24314;&#35774;]
+< [http://www.uusky.org &#26477;&#24030;&#32593;&#32476;&#20844;&#21496;]
+< [http://www.znpp.com &#26477;&#24030;&#32593;&#32476;&#20844;&#21496;]
+< [http://www.hzn.cn &#26477;&#24030;&#32593;&#32476;&#20844;&#21496;]
+< [http://www.uusky.net  &#21943;&#22609;]
+< http://www.houseclub.com.cn/sitemap.htm
+< http://www.nanyangcn.net/sitemap.htm
+< http://www.softsenior.com/sitemap.htm
+< http://www.freewebs.com/uuskyee/
+< [http://www.uusky.org &#26477;&#24030;&#32593;&#31449;&#24314;&#35774;]
+< 
+< 
+< [http://www.uusky.com/webpage &#32593;&#31449;&#24314;&#35774;]
+< [http://www.softsenior.com &#35270;&#39057;&#20250;&#35758;]
+< [http://www.softsenior.com V2 conference]
+< [http://www.softsenior.com/sitemap.htm &#32593;&#32476;&#30417;&#25511;]
+< [http://www.uusky.org/zuqiu.htm &#36275;&#29699;&#32593;&#31449;&#35774;&#35745;]
+< [http://www.houseclub.com.cn &#36141;&#25151;]
+< [http://www.houseclub.com.cn &#27004;&#30424;&#20195;&#29702;]
+< [http://www.houseclub.com.cn &#25151;&#20135;&#20132;&#26131;]
+< [http://www.houseclub.com.cn &#25151;&#23627;&#20080;&#21334;]
+< [http://www.houseclub.com.cn &#27004;&#30424;&#22242;&#36141;]
+< [http://www.softsenior.com &#35270;&#39057;&#20250;&#35758;]
+< [http://www.houseclub.com.cn/sitemap.htm &#36141;&#25151;]
+< [http://www.houseclub.com.cn/sitemapa.htm &#36141;&#25151;]
+< [http://www.houseclub.com.cn/sitemapb.htm &#27004;&#30424;&#20195;&#29702;]
+< [http://www.houseclub.com.cn/sitemapc.htm &#25151;&#20135;&#20132;&#26131;]
+< [http://www.houseclub.com.cn/sitemapd.htm &#25151;&#23627;&#20080;&#21334;]
+< [http://www.softsenior.com V2 conference]
+< [http://www.softsenior.com &#32593;&#32476;&#30417;&#25511;]
+< [http://www.softsenior.com &#21150;&#20844;&#33258;&#21160;&#21270;]
+< [http://www.softsenior.com &#39184;&#39278;&#25910;&#38134;]
+< [http://www.softsenior.com &#32593;&#36335;&#23703;]
+< [http://www.nanyangcn.net &#34507;&#40644;&#27966;]
+---
+> = Setting up UseMod =
+> 
+> UseMod:UseModWiki/Install has details. The rest of this page contains comments from people who have actually done it.
+> 
+> 040117: BillStClair
+> 
+> Summary:
+> # Figure out how to make cgi scripts work
+> # Change "wiki.pl" to use your "wikidb" directory, and upload it to "cgi-bin"
+> # Create a "wikidb" directory
+> # Edit the "config" file, and upload it to your "wikidb" directory
+> # Upload the logo file, "wiki.gif" to top-level of your site
+> 
+> First off, you have to learn how to make a cgi script work. This usually requires a commercial web hosting service. The free hosting services don't usually support it. It's pretty common to have a "cgi-bin" directory into which you can install scripts. Your web host should have documentation. Make sure that you upload in ascii mode, especially if you're transferring from <nowiki>Windows/Macintosh to Unix/Linux or vice-versa. Windows CR/LF</nowiki> pairs confuse a Unix Perl interpreter that's expecting to see just LF.
+> 
+> Get a simple script working first. http://zhanshou.hypermart.net/CGITutorial/perl.html (included below) is installed at http://billstclair.com/cgi-bin/HelloWorld.pl . You might have to change "/usr/local/bin/perl" below. "/usr/bin/perl" is common (and is used in UseMod's "wiki.pl"). My provider supports both. Once you get this working, you're half-way to getting wiki.pl to work.
+> 
+> <pre>
+> #!/usr/local/bin/perl
+> #-------------------------------------------
+> # helloWorld.pl by Zhanshou Yu
+> # http://zhanshou.hypermart.net/CGITutorial/perl.html
+> #-------------------------------------------
+> 
+>  #This is a html file
+>  print"Content-type: text/html\n\n";
+> 
+>  #The html output 
+>  print "<html>\n";
+>  print "<head><title>Hello World !!!</title></head>\n";
+>  print "<body>\n";
+>  print "<h2>Hello World !!!</h2>\n";
+>  print "</body>\n";
+>  print "</html>\n";
+>  exit;
+> </pre>
+> 
+> You might need to set the .pl file's execute bits. A "dir" FTP command on your cgi-bin directory should come back with something like the following:
+> 
+> <pre>
+> ftp> dir
+> 200 PORT command successful.
+> 150 Opening ASCII mode data connection for /bin/ls.
+> -rwxr-xr-x   1 wws      www-data       455 Jan 17 04:58 HelloWorld.pl
+> -rwxr-x---   1 wws      www-data        81 Jul 31  2000 helloworld.py
+> -rwxr-xr-x   1 wws      www-data    157387 Jan 14 11:22 wiki.pl
+> 226 Listing completed.
+> ftp: 629 bytes received in 0.02Seconds 31.45Kbytes/sec.
+> </pre>
+> 
+> The important features above are the "x"s in the first column. Those are execute bits for owner, group, and world. They are part of the file permissions, set by the "chmod" command. Most FTP servers don't support "chmod", so you'll need to do it in a unix shell (not supported by most web service providers) or by using a control panel page. If your provider has no such thing, it's probably because you don't need it; the execute bits will be properly set when you upload the script. Set the file permissions to 755 (octal for the read/write/execute bit of each of owner/group/world, so 7 is "rwx" & 5 is "r-x"), though it appears that 750 works on my provider.
+> 
+> The next step is to create a script-writeable directory to house your wiki's "database" (UseMod uses the file sytem to store everything, a desireable feature IMHO, so it's not really a database). When I ftp to my site, the top-level directory is not accessible from the web. The "public_html" sub-directory IS accessible. So I made my "wikidb" directory a sibling of public_html. Finally, you need to know the full path to your directory. Your web hosting provider should tell you that.
+> 
+> Edit "wiki.pl" from the UseMod distribution, and in the "Configuration" section, change the definition for <nowiki>$DataDir to "dirpath/wikidb", where "dirpath" is the full path to your directory on the host and "wikidb" is the name of the folder you created. Make sure the $UseConfig is set to 1. Upload "wiki.pl" to your "cgi-bin" directory.
+> 
+> Edit the "config" file from the distribution and change at least $CookieName, $SiteName, and $HomePage</nowiki>. Upload wiki.gif to the top-level of your site, so that you'll have a logo (and change it if you want). Upload the "config" file to your "wikidb" directory, and you're done. <tt><nowiki>http://yoursite/cgi-bin/wiki.pl</nowiki></tt> should now bring up your wiki.

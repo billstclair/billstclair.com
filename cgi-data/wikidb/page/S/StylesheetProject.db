@@ -1,0 +1,27 @@
+ts³11117998080³1version³13³1cache_oldmajor³112³1cache_oldauthor³112³1revision³113³1cache_diff_default_author³11³1text_default³1ip³268.164.224.62³2ts³21117998080³2version³21³2name³2text_default³2data³2summary³3*³3text³3= Stylesheet Project =
+
+UseMod ships with a sample wiki.css file that has all the places to hang styles on, but it uses gawdy colors. It's at http://billstclair.com/wiki.css . You can see what it looks like by setting that as your style sheet at the bottom of your [http://billstclair.com/cgi-bin/wiki.pl?action=editprefs preferences] page.
+
+All it needs is someone who is good with style sheets (and that ain't BillStClair) to make a nice one. You can upload them to the uploads area and list them below, so that people can try them and vote. Of course, individuals can choose whichever style they like, but we need a default style (what do you mean, "we", white man?).
+
+No style sheet. Like it is now.
+:Votes: -1 (Ugh. --Jac)
+
+040124, BillStClair:
+
+<tt>/bill.css</tt> for the style sheet. Black header, lightgrey background, a few other colors.
+:Votes: 2
+
+050605, BillStClair:
+
+Brad Spangler uploaded a couple of style sheets. I like the second one, though it would need a change to the Amagi icon's background color.
+
+<tt>/uploads/brad1.css</tt>
+:Votes: 0
+
+<tt>/uploads/brad2.css</tt>
+:Votes: 2
+³3newauthor³31³3minor³30³2username³2³2host³2h-68-164-224-62.chcgilgm.dynamic.covad.net³2revision³213³2tscreate³21074525773³2id³22107³2keepts³21117998080³1tscreate³11074525773³1cache_diff_default_major³11³1cache_diff_default_minor³123c23
+< :Votes: 1
+---
+> :Votes: 2

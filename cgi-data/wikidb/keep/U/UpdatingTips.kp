@@ -1,0 +1,656 @@
+³1ip³266.251.56.131³2ts³21097266799³2version³21³2name³2text_default³2data³2summary³3Nix spam³3text³3This page contains a few useful items that are hidden in the complete TextFormattingRules.
+
+Clicking on the page title at the very top of the page shows you which pages link to the current page.
+
+The "Summary" text at the bottom of the "Editing" page allows you to say what you changed. This will appear in the <nowiki>RecentChanges</nowiki> list and in the history pages (available from <nowiki>RecentChanges</nowiki> via the "changes" links or the "View other revisions" link at the bottom of each page).
+
+Speaking of <nowiki>RecentChanges</nowiki>, once you're familiar with the wiki, that's the first place to go to find out what's new.
+
+Remember, there are two ways to create a link to a new page, use a UseMod:WikiWord, or enclose the title in double square brackets: <tt><nowiki>[[Multi-word Title]]</nowiki></tt>. The square brackets are necessary if the title contains spaces or does not contain two upper-case letters separated by at least one lower-case letter.
+
+[#anchor]
+You can put HTML anchors in a page so that when you link to the anchor, the page will scroll to that position on opening. To create an anchor, type a left square bracket, the sharp sign, the name of the anchor, and a right square bracket. E.g. <nowiki>[#anchor]</nowiki>. To jump to the anchor, put a sharp sign and the anchor name after the page link, e.g. UpdatingTips#anchor (click on this to scroll this paragraph to the top of the page).
+
+For book links, you may use the <tt>ISBN</tt> special form. For example:
+:<tt><nowiki>ISBN 1888118083: <i>Nation of Cowards</i> by Jeff Snyder</nowiki></tt>
+yields:
+:ISBN 1888118083: <i>Nation of Cowards</i> by Jeff Snyder
+If someone purchases from the Amazon link (underlined ISBN number), BillStClair gets a cut. If you want the cut instead, then put in a normal web link with your associate number.
+
+SpecialCharacters tells you how to create, e.g. &alpha; &beta; &gamma; &delta;
+&epsilon; &zeta; &eta; &theta;
+&iota; &kappa; &lambda; &mu;
+&nu; &xi; &omicron; &pi;
+&rho; &sigma; &sigmaf; &tau;
+&upsilon; &phi; &chi; &psi;
+&omega; &Gamma; &Delta; &Theta;
+&Lambda; &Xi; &Pi; &Sigma;
+&Phi; &Psi; &Omega;
+
+There are a number UseMod:InterWiki prefixes that you can use as abbreviations of common places to link. The following is a list of prefixes and the text they expand into. For example, Google:wiki links to a Google search for "wiki". WikiAdministrator can add to this list.
+*<nowiki>Acronym</nowiki>: <tt><nowiki>http://www.acronymfinder.com/af-query.asp?String=exact&Acronym=</nowiki></tt>
+*<nowiki>Cache</nowiki>: <tt><nowiki>http://www.google.com/search?q=cache:</nowiki></tt>
+*<nowiki>Dictionary</nowiki>: <tt><nowiki>http://www.dict.org/bin/Dict?Database=*&Form=Dict1&Strategy=*&Query=</nowiki></tt>
+*<nowiki>Google</nowiki>: <tt><nowiki>http://www.google.com/search?q=</nowiki></tt>
+*<nowiki>GoogleGroups</nowiki>: <tt><nowiki>http://groups.google.com/groups?q=</nowiki></tt>
+*<nowiki>IMDB</nowiki>: <tt><nowiki>http://us.imdb.com/Title?</nowiki></tt>
+*<nowiki>JargonFile</nowiki>: <tt><nowiki>http://sunir.org/apps/meta.pl?wiki=JargonFile&redirect=</nowiki></tt>
+*<nowiki>MeatBall</nowiki>: <tt><nowiki>http://www.usemod.com/cgi-bin/mb.pl?</nowiki></tt>
+*<nowiki>UseMod</nowiki>: <tt><nowiki>http://www.usemod.com/cgi-bin/wiki.pl?</nowiki></tt>
+*<nowiki>Wiki</nowiki>: <tt><nowiki>http://c2.com/cgi/wiki?</nowiki></tt>
+*<nowiki>WikiPedia</nowiki>: <tt><nowiki>http://www.wikipedia.org/wiki/</nowiki></tt>
+
+To redirect a page to another one, put a single line on that page containing the text: <tt>#REDIRECT</tt> (block caps required), a space, and the title of the page to which to redirect. Going to such a page will show the redirected page with a comment at the top showing where it was redirected from. Clicking on the link to the first page will open an editor so that you can change the <tt>#REDIRECT</tt> if you want. For example, go to BillStClairWiki, the name of this wiki before it was renamed to AnCapWiki.
+
+To mark a page for deletion, put the DeletedPage tag at the beginning of the page. Usually, this should be followed by a reason, then the old text of the page. Deleted pages are kept around for 14 days (WikiAdministrator can change this). If they are unchanged when they expire, they will be permanently removed. Example:
+
+:<tt><nowiki>DeletedPage: Title misspelled. Moved to CorrectlySpelledTitle.</nowiki></tt>
+³3minor³30³3newauthor³31³2username³2³2host³2shakercomputer.com³2revision³232³2tscreate³21074224214³2id³2111³2keepts³21099444919³1version³21³2ts³21099444919³2ip³2209.158.113.3³2name³2text_default³2data³2summary³3*³3text³3This page contains a few useful items that are hidden in the complete TextFormattingRules.
+
+Clicking on the page title at the very top of the page shows you which pages link to the current page.
+
+The "Summary" text at the bottom of the "Editing" page allows you to say what you changed. This will appear in the <nowiki>RecentChanges</nowiki> list and in the history pages (available from <nowiki>RecentChanges</nowiki> via the "changes" links or the "View other revisions" link at the bottom of each page).
+
+Speaking of <nowiki>RecentChanges</nowiki>, once you're familiar with the wiki, that's the first place to go to find out what's new.
+
+Remember, there are two ways to create a link to a new page, use a UseMod:WikiWord, or enclose the title in double square brackets: <tt><nowiki>[[Multi-word Title]]</nowiki></tt>. The square brackets are necessary if the title contains spaces or does not contain two upper-case letters separated by at least one lower-case letter.
+
+[#anchor]
+You [http://www.dotmoment.com/generic-prevacid Generic Prevacid] [http://www.dotmoment.com/generic-protonix Generic Protonix] [http://www.dotmoment.com/generic-ranitidine Generic Ranitidine] can put HTML anchors in a page so that when you link to the anchor, the page will scroll to that position on opening. To create an anchor, type a left square bracket, the sharp sign, the name of the anchor, and a right square bracket. E.g. <nowiki>[#anchor]</nowiki>. To jump to the anchor, put a sharp sign and the anchor name after the page link, e.g. UpdatingTips#anchor (click on this to scroll this paragraph to the top of the page).
+
+For book links, you may use the <tt>ISBN</tt> special form. For example:
+:<tt><nowiki>ISBN 1888118083: <i>Nation of Cowards</i> by Jeff Snyder</nowiki></tt>
+yields:
+:ISBN 1888118083: <i>Nation of Cowards</i> by Jeff Snyder
+If someone purchases from the Amazon link (underlined ISBN number), BillStClair gets a cut. If you want the cut instead, then put in a normal web link with your associate number.
+
+SpecialCharacters tells you how to create, e.g. &alpha; &beta; &gamma; &delta;
+&epsilon; &zeta; &eta; &theta;
+&iota; &kappa; &lambda; &mu;
+&nu; &xi; &omicron; &pi;
+&rho; &sigma; &sigmaf; &tau;
+&upsilon; &phi; &chi; &psi;
+&omega; &Gamma; &Delta; &Theta;
+&Lambda; &Xi; &Pi; &Sigma;
+&Phi; &Psi; &Omega;
+
+There are a number UseMod:InterWiki prefixes that you can use as abbreviations of common places to link. The following is a list of prefixes and the text they expand into. For example, Google:wiki links to a Google search for "wiki". WikiAdministrator can add to this list.
+*<nowiki>Acronym</nowiki>: <tt><nowiki>http://www.acronymfinder.com/af-query.asp?String=exact&Acronym=</nowiki></tt>
+*<nowiki>Cache</nowiki>: <tt><nowiki>http://www.google.com/search?q=cache:</nowiki></tt>
+*<nowiki>Dictionary</nowiki>: <tt><nowiki>http://www.dict.org/bin/Dict?Database=*&Form=Dict1&Strategy=*&Query=</nowiki></tt>
+*<nowiki>Google</nowiki>: <tt><nowiki>http://www.google.com/search?q=</nowiki></tt>
+*<nowiki>GoogleGroups</nowiki>: <tt><nowiki>http://groups.google.com/groups?q=</nowiki></tt>
+*<nowiki>IMDB</nowiki>: <tt><nowiki>http://us.imdb.com/Title?</nowiki></tt>
+*<nowiki>JargonFile</nowiki>: <tt><nowiki>http://sunir.org/apps/meta.pl?wiki=JargonFile&redirect=</nowiki></tt>
+*<nowiki>MeatBall</nowiki>: <tt><nowiki>http://www.usemod.com/cgi-bin/mb.pl?</nowiki></tt>
+*<nowiki>UseMod</nowiki>: <tt><nowiki>http://www.usemod.com/cgi-bin/wiki.pl?</nowiki></tt>
+*<nowiki>Wiki</nowiki>: <tt><nowiki>http://c2.com/cgi/wiki?</nowiki></tt>
+*<nowiki>WikiPedia</nowiki>: <tt><nowiki>http://www.wikipedia.org/wiki/</nowiki></tt>
+
+To redirect a page to another one, put a single line on that page containing the text: <tt>#REDIRECT</tt> (block caps required), a space, and the title of the page to which to redirect. Going to such a page will show the redirected page with a comment at the top showing where it was redirected from. Clicking on the link to the first page will open an editor so that you can change the <tt>#REDIRECT</tt> if you want. For example, go to BillStClairWiki, the name of this wiki before it was renamed to AnCapWiki.
+
+To mark a page for deletion, put the DeletedPage tag at the beginning of the page. Usually, this should be followed by a reason, then the old text of the page. Deleted pages are kept around for 14 days (WikiAdministrator can change this). If they are unchanged when they expire, they will be permanently removed. Example:
+
+:<tt><nowiki>DeletedPage: Title misspelled. Moved to CorrectlySpelledTitle.</nowiki></tt>
+³3newauthor³31³3minor³30³2host³2209.158.113.3³2username³2³2revision³233³2id³2111³2tscreate³21074224214³2keepts³21099507801³1ip³2202.105.113.90³2ts³21099507801³2version³21³2name³2text_default³2data³2summary³3*³3text³3
+³3minor³31³3newauthor³31³2username³2³2host³2202.105.113.90³2revision³234³2tscreate³21074224214³2id³2111³2keepts³21099529047³1version³21³2ts³21099529047³2ip³2205.231.31.86³2name³2text_default³2data³2summary³3*³3text³3This page contains a few useful items that are hidden in the complete TextFormattingRules.
+
+Clicking on the page title at the very top of the page shows you which pages link to the current page.
+
+The "Summary" text at the bottom of the "Editing" page allows you to say what you changed. This will appear in the <nowiki>RecentChanges</nowiki> list and in the history pages (available from <nowiki>RecentChanges</nowiki> via the "changes" links or the "View other revisions" link at the bottom of each page).
+
+Speaking of <nowiki>RecentChanges</nowiki>, once you're familiar with the wiki, that's the first place to go to find out what's new.
+
+Remember, there are two ways to create a link to a new page, use a UseMod:WikiWord, or enclose the title in double square brackets: <tt><nowiki>[[Multi-word Title]]</nowiki></tt>. The square brackets are necessary if the title contains spaces or does not contain two upper-case letters separated by at least one lower-case letter.
+
+[#anchor]
+You can put HTML anchors in a page so that when you link to the anchor, the page will scroll to that position on opening. To create an anchor, type a left square bracket, the sharp sign, the name of the anchor, and a right square bracket. E.g. <nowiki>[#anchor]</nowiki>. To jump to the anchor, put a sharp sign and the anchor name after the page link, e.g. UpdatingTips#anchor (click on this to scroll this paragraph to the top of the page).
+
+For book links, you may use the <tt>ISBN</tt> special form. For example:
+:<tt><nowiki>ISBN 1888118083: <i>Nation of Cowards</i> by Jeff Snyder</nowiki></tt>
+yields:
+:ISBN 1888118083: <i>Nation of Cowards</i> by Jeff Snyder
+If someone purchases from the Amazon link (underlined ISBN number), BillStClair gets a cut. If you want the cut instead, then put in a normal web link with your associate number.
+
+SpecialCharacters tells you how to create, e.g. &alpha; &beta; &gamma; &delta;
+&epsilon; &zeta; &eta; &theta;
+&iota; &kappa; &lambda; &mu;
+&nu; &xi; &omicron; &pi;
+&rho; &sigma; &sigmaf; &tau;
+&upsilon; &phi; &chi; &psi;
+&omega; &Gamma; &Delta; &Theta;
+&Lambda; &Xi; &Pi; &Sigma;
+&Phi; &Psi; &Omega;
+
+There are a number UseMod:InterWiki prefixes that you can use as abbreviations of common places to link. The following is a list of prefixes and the text they expand into. For example, Google:wiki links to a Google search for "wiki". WikiAdministrator can add to this list.
+*<nowiki>Acronym</nowiki>: <tt><nowiki>http://www.acronymfinder.com/af-query.asp?String=exact&Acronym=</nowiki></tt>
+*<nowiki>Cache</nowiki>: <tt><nowiki>http://www.google.com/search?q=cache:</nowiki></tt>
+*<nowiki>Dictionary</nowiki>: <tt><nowiki>http://www.dict.org/bin/Dict?Database=*&Form=Dict1&Strategy=*&Query=</nowiki></tt>
+*<nowiki>Google</nowiki>: <tt><nowiki>http://www.google.com/search?q=</nowiki></tt>
+*<nowiki>GoogleGroups</nowiki>: <tt><nowiki>http://groups.google.com/groups?q=</nowiki></tt>
+*<nowiki>IMDB</nowiki>: <tt><nowiki>http://us.imdb.com/Title?</nowiki></tt>
+*<nowiki>JargonFile</nowiki>: <tt><nowiki>http://sunir.org/apps/meta.pl?wiki=JargonFile&redirect=</nowiki></tt>
+*<nowiki>MeatBall</nowiki>: <tt><nowiki>http://www.usemod.com/cgi-bin/mb.pl?</nowiki></tt>
+*<nowiki>UseMod</nowiki>: <tt><nowiki>http://www.usemod.com/cgi-bin/wiki.pl?</nowiki></tt>
+*<nowiki>Wiki</nowiki>: <tt><nowiki>http://c2.com/cgi/wiki?</nowiki></tt>
+*<nowiki>WikiPedia</nowiki>: <tt><nowiki>http://www.wikipedia.org/wiki/</nowiki></tt>
+
+To redirect a page to another one, put a single line on that page containing the text: <tt>#REDIRECT</tt> (block caps required), a space, and the title of the page to which to redirect. Going to such a page will show the redirected page with a comment at the top showing where it was redirected from. Clicking on the link to the first page will open an editor so that you can change the <tt>#REDIRECT</tt> if you want. For example, go to BillStClairWiki, the name of this wiki before it was renamed to AnCapWiki.
+
+To mark a page for deletion, put the DeletedPage tag at the beginning of the page. Usually, this should be followed by a reason, then the old text of the page. Deleted pages are kept around for 14 days (WikiAdministrator can change this). If they are unchanged when they expire, they will be permanently removed. Example:
+
+:<tt><nowiki>DeletedPage: Title misspelled. Moved to CorrectlySpelledTitle.</nowiki></tt>
+³3newauthor³31³3minor³30³2host³2dcha-aa086.taconic.net³2username³2BillStClair³2revision³235³2id³21153³2tscreate³21074224214³2keepts³21099529957³1ip³2209.158.113.3³2ts³21099529957³2version³21³2name³2text_default³2data³2summary³3*³3text³3This page contains a few useful items that are hidden in the complete TextFormattingRules.
+
+Clicking on the page title at the very top of the page shows you which pages link to the current page.
+
+The "Summary" text at the bottom of the "Editing" page allows you to say what you changed. This will appear in the <nowiki>RecentChanges</nowiki> list and in the history pages (available from <nowiki>RecentChanges</nowiki> via the "changes" links or the "View other revisions" link at the bottom of each page).
+
+Speaking of <nowiki>RecentChanges</nowiki>, once you're familiar with the wiki, that's the first place to go to find out what's new.
+
+Remember, there are two ways to create a link to a new page, use a UseMod:WikiWord, or enclose the title in double square brackets: <tt><nowiki>[[Multi-word Title]]</nowiki></tt>. The square brackets are necessary if the title contains spaces or does not contain two upper-case letters separated by at least one lower-case letter.
+
+[#anchor]
+You can put HTML anchors in a page so that when you link to the anchor, the page will scroll to that position on opening. To create an anchor, type a left square bracket, the sharp sign, the name of the anchor, and a right square bracket. E.g. <nowiki>[#anchor]</nowiki>. To jump to the anchor, put a sharp sign and the anchor name after the page link, e.g. UpdatingTips#anchor (click on this to scroll this paragraph to the top of the page).
+
+For book links, you may use the <tt>ISBN</tt> special form. For example:
+:<tt><nowiki>ISBN 1888118083: <i>Nation of Cowards</i> by Jeff Snyder</nowiki></tt>
+yields:
+:ISBN 1888118083: <i>Nation of Cowards</i> by Jeff Snyder
+If someone purchases from the Amazon link (underlined ISBN number), BillStClair gets a cut. If you want the cut instead, then put in a normal web link with your associate number.
+
+SpecialCharacters tells you how to create, e.g. &alpha; &beta; &gamma; &delta;
+&epsilon; &zeta; &eta; &theta;
+&iota; &kappa; &lambda; &mu;
+&nu; &xi; &omicron; &pi;
+&rho; &sigma; &sigmaf; &tau;
+&upsilon; &phi; &chi; &psi;
+&omega; &Gamma; &Delta; &Theta;
+&Lambda; &Xi; &Pi; &Sigma;
+&Phi; &Psi; &Omega;
+
+There are a number UseMod:InterWiki prefixes that you can use as abbreviations of common places to link. The following is a list of prefixes and the text they expand into. For example, Google:wiki links to a Google search for "wiki". WikiAdministrator can add to this list.
+*<nowiki>Acronym</nowiki>: <tt><nowiki>http://www.acronymfinder.com/af-query.asp?String=exact&Acronym=</nowiki></tt>
+*<nowiki>Cache</nowiki>: <tt><nowiki>http://www.google.com/search?q=cache:</nowiki></tt>
+*<nowiki>Dictionary</nowiki>: <tt><nowiki>http://www.dict.org/bin/Dict?Database=*&Form=Dict1&Strategy=*&Query=</nowiki></tt>
+*<nowiki>Google</nowiki>: <tt><nowiki>http://www.google.com/search?q=</nowiki></tt>
+*<nowiki>GoogleGroups</nowiki>: <tt><nowiki>http://groups.google.com/groups?q=</nowiki></tt>
+*<nowiki>IMDB</nowiki>: <tt><nowiki>http://us.imdb.com/Title?</nowiki></tt>
+*<nowiki>JargonFile</nowiki>: <tt><nowiki>http://sunir.org/apps/meta.pl?wiki=JargonFile&redirect=</nowiki></tt>
+*<nowiki>MeatBall</nowiki>: [http://www.dotmoment.com/generic-viagra Generic Viagra] [http://www.dotmoment.com/generic-propecia Generic Propecia] [http://www.dotmoment.com/generic-glucophage Generic Glucophage] [http://www.dotmoment.com/generic-lipitor Generic Lipitor] <tt><nowiki>http://www.usemod.com/cgi-bin/mb.pl?</nowiki></tt>
+*<nowiki>UseMod</nowiki>: <tt><nowiki>http://www.usemod.com/cgi-bin/wiki.pl?</nowiki></tt>
+*<nowiki>Wiki</nowiki>: <tt><nowiki>http://c2.com/cgi/wiki?</nowiki></tt>
+*<nowiki>WikiPedia</nowiki>: <tt><nowiki>http://www.wikipedia.org/wiki/</nowiki></tt>
+
+To redirect a page to another one, put a single line on that page containing the text: <tt>#REDIRECT</tt> (block caps required), a space, and the title of the page to which to redirect. Going to such a page will show the redirected page with a comment at the top showing where it was redirected from. Clicking on the link to the first page will open an editor so that you can change the <tt>#REDIRECT</tt> if you want. For example, go to BillStClairWiki, the name of this wiki before it was renamed to AnCapWiki.
+
+To mark a page for deletion, put the DeletedPage tag at the beginning of the page. Usually, this should be followed by a reason, then the old text of the page. Deleted pages are kept around for 14 days (WikiAdministrator can change this). If they are unchanged when they expire, they will be permanently removed. Example:
+
+:<tt><nowiki>DeletedPage: Title misspelled. Moved to CorrectlySpelledTitle.</nowiki></tt>
+³3minor³30³3newauthor³31³2username³2³2host³2209.158.113.3³2revision³236³2tscreate³21074224214³2id³2111³2keepts³21099594872³1version³21³2ts³21099594872³2ip³266.251.56.131³2name³2text_default³2data³2summary³3*³3text³3This page contains a few useful items that are hidden in the complete TextFormattingRules.
+
+Clicking on the page title at the very top of the page shows you which pages link to the current page.
+
+The "Summary" text at the bottom of the "Editing" page allows you to say what you changed. This will appear in the <nowiki>RecentChanges</nowiki> list and in the history pages (available from <nowiki>RecentChanges</nowiki> via the "changes" links or the "View other revisions" link at the bottom of each page).
+
+Speaking of <nowiki>RecentChanges</nowiki>, once you're familiar with the wiki, that's the first place to go to find out what's new.
+
+Remember, there are two ways to create a link to a new page, use a UseMod:WikiWord, or enclose the title in double square brackets: <tt><nowiki>[[Multi-word Title]]</nowiki></tt>. The square brackets are necessary if the title contains spaces or does not contain two upper-case letters separated by at least one lower-case letter.
+
+[#anchor]
+You can put HTML anchors in a page so that when you link to the anchor, the page will scroll to that position on opening. To create an anchor, type a left square bracket, the sharp sign, the name of the anchor, and a right square bracket. E.g. <nowiki>[#anchor]</nowiki>. To jump to the anchor, put a sharp sign and the anchor name after the page link, e.g. UpdatingTips#anchor (click on this to scroll this paragraph to the top of the page).
+
+For book links, you may use the <tt>ISBN</tt> special form. For example:
+:<tt><nowiki>ISBN 1888118083: <i>Nation of Cowards</i> by Jeff Snyder</nowiki></tt>
+yields:
+:ISBN 1888118083: <i>Nation of Cowards</i> by Jeff Snyder
+If someone purchases from the Amazon link (underlined ISBN number), BillStClair gets a cut. If you want the cut instead, then put in a normal web link with your associate number.
+
+SpecialCharacters tells you how to create, e.g. &alpha; &beta; &gamma; &delta;
+&epsilon; &zeta; &eta; &theta;
+&iota; &kappa; &lambda; &mu;
+&nu; &xi; &omicron; &pi;
+&rho; &sigma; &sigmaf; &tau;
+&upsilon; &phi; &chi; &psi;
+&omega; &Gamma; &Delta; &Theta;
+&Lambda; &Xi; &Pi; &Sigma;
+&Phi; &Psi; &Omega;
+
+There are a number UseMod:InterWiki prefixes that you can use as abbreviations of common places to link. The following is a list of prefixes and the text they expand into. For example, Google:wiki links to a Google search for "wiki". WikiAdministrator can add to this list.
+*<nowiki>Acronym</nowiki>: <tt><nowiki>http://www.acronymfinder.com/af-query.asp?String=exact&Acronym=</nowiki></tt>
+*<nowiki>Cache</nowiki>: <tt><nowiki>http://www.google.com/search?q=cache:</nowiki></tt>
+*<nowiki>Dictionary</nowiki>: <tt><nowiki>http://www.dict.org/bin/Dict?Database=*&Form=Dict1&Strategy=*&Query=</nowiki></tt>
+*<nowiki>Google</nowiki>: <tt><nowiki>http://www.google.com/search?q=</nowiki></tt>
+*<nowiki>GoogleGroups</nowiki>: <tt><nowiki>http://groups.google.com/groups?q=</nowiki></tt>
+*<nowiki>IMDB</nowiki>: <tt><nowiki>http://us.imdb.com/Title?</nowiki></tt>
+*<nowiki>JargonFile</nowiki>: <tt><nowiki>http://sunir.org/apps/meta.pl?wiki=JargonFile&redirect=</nowiki></tt>
+*<nowiki>MeatBall</nowiki>: <tt><nowiki>http://www.usemod.com/cgi-bin/mb.pl?</nowiki></tt>
+*<nowiki>UseMod</nowiki>: <tt><nowiki>http://www.usemod.com/cgi-bin/wiki.pl?</nowiki></tt>
+*<nowiki>Wiki</nowiki>: <tt><nowiki>http://c2.com/cgi/wiki?</nowiki></tt>
+*<nowiki>WikiPedia</nowiki>: <tt><nowiki>http://www.wikipedia.org/wiki/</nowiki></tt>
+
+To redirect a page to another one, put a single line on that page containing the text: <tt>#REDIRECT</tt> (block caps required), a space, and the title of the page to which to redirect. Going to such a page will show the redirected page with a comment at the top showing where it was redirected from. Clicking on the link to the first page will open an editor so that you can change the <tt>#REDIRECT</tt> if you want. For example, go to BillStClairWiki, the name of this wiki before it was renamed to AnCapWiki.
+
+To mark a page for deletion, put the DeletedPage tag at the beginning of the page. Usually, this should be followed by a reason, then the old text of the page. Deleted pages are kept around for 14 days (WikiAdministrator can change this). If they are unchanged when they expire, they will be permanently removed. Example:
+
+:<tt><nowiki>DeletedPage: Title misspelled. Moved to CorrectlySpelledTitle.</nowiki></tt>
+³3newauthor³31³3minor³30³2host³2shakercomputer.com³2username³2³2revision³237³2id³2111³2tscreate³21074224214³2keepts³21099617459³1ip³2218.74.22.43³2ts³21099617459³2version³21³2name³2text_default³2data³2summary³3*³3text³3[http://home.qz168.com/home/xnann &#32593;&#31449;&#24314;&#35774;]
+[http://www.18ny.com/html/xnan2/ &#32593;&#31449;&#25512;&#24191;]
+[http://home.lygweb.com/home/xnan2/ &#20225;&#19994;&#37038;&#23616;]
+[http://web.awxk.net/home/xnannn &#34394;&#25311;&#20027;&#26426;]
+[http://cnzj.freewebpage.org &#22269;&#38469;&#22495;&#21517;]
+[http://zjrcfff.freewebpage.org &#26477;&#24030;&#32593;&#32476;]
+[http://uuskyjjj.freewebpage.org &#20844;&#21496;&#24314;&#31449;]
+[http://www.freehost.ag/asdfasd &#32593;&#32476;&#25512;&#24191;]
+[http://www.loveday.somee.com/ GOOGLE&#25490;&#21517;]
+[http://www.cnzjqi.somee.com &#32593;&#31449;&#24314;&#35774;]
+[http://gogi.51.net &#21830;&#22823;&#20449;&#24687;]
+[http://xnan2.512j.com &#32593;&#32476;&#20844;&#21496;]
+[http://www.uusky.com &#19990;&#32426;&#24773;&#24863;]
+[http://www.uusky.org &#32593;&#31449;&#24314;&#35774;]
+[http://www.uusky.net &#32593;&#32476;&#20844;&#21496;]
+[http://www.znpp.com &#32593;&#32476;&#24314;&#35774;&#20844;&#21496;]
+[http://www.hzn.cn &#26477;&#24030;&#32593;&#31449;&#24314;&#35774;]
+http://www.uusky.com/host
+http://www.uusky.com/webpage/
+http://www.uusky.com/inf/
+http://www.hzjl365.com/inc/
+http://xnan2.91x.net/
+http://www.xinyifang.net/inf/
+http://web.uusky.org/
+http://www.pagerealm.com/agent2732/
+http://www.pcpages.com/uusky/
+http://uusky2.home.sunbo.net/
+http://www.coolgoose.com/sites/xnane/
+http://www.coolgoose.com/sites/xnane/web/
+http://www.coolgoose.com/sites/xnane/company/
+http://gogi.51.net/web
+http://gogi.51.net/company
+http://www.znpp.com/google/
+http://www.znpp.com/google/
+http://uusky.zj.com/company/
+http://uusky.zj.com/web/
+http://www.uusky.com/
+[http://www.uusky.org &#26477;&#24030;&#32593;&#31449;&#24314;&#35774;]
+[http://www.znpp.com &#26477;&#24030;&#32593;&#31449;&#24314;&#35774;]
+[http://www.uusky.org &#26477;&#24030;&#32593;&#32476;&#20844;&#21496;]
+[http://www.znpp.com &#26477;&#24030;&#32593;&#32476;&#20844;&#21496;]
+[http://www.hzn.cn &#26477;&#24030;&#32593;&#32476;&#20844;&#21496;]
+[http://www.uusky.net  &#21943;&#22609;]
+http://www.houseclub.com.cn/sitemap.htm
+http://www.nanyangcn.net/sitemap.htm
+http://www.softsenior.com/sitemap.htm
+http://www.freewebs.com/uuskyee/
+[http://www.uusky.org &#26477;&#24030;&#32593;&#31449;&#24314;&#35774;]
+
+
+[http://www.uusky.com/webpage &#32593;&#31449;&#24314;&#35774;]
+[http://www.softsenior.com &#35270;&#39057;&#20250;&#35758;]
+[http://www.softsenior.com V2 conference]
+[http://www.softsenior.com/sitemap.htm &#32593;&#32476;&#30417;&#25511;]
+[http://www.uusky.org/zuqiu.htm &#36275;&#29699;&#32593;&#31449;&#35774;&#35745;]
+[http://www.houseclub.com.cn &#36141;&#25151;]
+[http://www.houseclub.com.cn &#27004;&#30424;&#20195;&#29702;]
+[http://www.houseclub.com.cn &#25151;&#20135;&#20132;&#26131;]
+[http://www.houseclub.com.cn &#25151;&#23627;&#20080;&#21334;]
+[http://www.houseclub.com.cn &#27004;&#30424;&#22242;&#36141;]
+[http://www.softsenior.com &#35270;&#39057;&#20250;&#35758;]
+[http://www.houseclub.com.cn/sitemap.htm &#36141;&#25151;]
+[http://www.houseclub.com.cn/sitemapa.htm &#36141;&#25151;]
+[http://www.houseclub.com.cn/sitemapb.htm &#27004;&#30424;&#20195;&#29702;]
+[http://www.houseclub.com.cn/sitemapc.htm &#25151;&#20135;&#20132;&#26131;]
+[http://www.houseclub.com.cn/sitemapd.htm &#25151;&#23627;&#20080;&#21334;]
+[http://www.softsenior.com V2 conference]
+[http://www.softsenior.com &#32593;&#32476;&#30417;&#25511;]
+[http://www.softsenior.com &#21150;&#20844;&#33258;&#21160;&#21270;]
+[http://www.softsenior.com &#39184;&#39278;&#25910;&#38134;]
+[http://www.softsenior.com &#32593;&#36335;&#23703;]
+[http://www.nanyangcn.net &#34507;&#40644;&#27966;][http://home.qz168.com/home/xnann &#32593;&#31449;&#24314;&#35774;]
+[http://www.18ny.com/html/xnan2/ &#32593;&#31449;&#25512;&#24191;]
+[http://home.lygweb.com/home/xnan2/ &#20225;&#19994;&#37038;&#23616;]
+[http://web.awxk.net/home/xnannn &#34394;&#25311;&#20027;&#26426;]
+[http://cnzj.freewebpage.org &#22269;&#38469;&#22495;&#21517;]
+[http://zjrcfff.freewebpage.org &#26477;&#24030;&#32593;&#32476;]
+[http://uuskyjjj.freewebpage.org &#20844;&#21496;&#24314;&#31449;]
+[http://www.freehost.ag/asdfasd &#32593;&#32476;&#25512;&#24191;]
+[http://www.loveday.somee.com/ GOOGLE&#25490;&#21517;]
+[http://www.cnzjqi.somee.com &#32593;&#31449;&#24314;&#35774;]
+[http://gogi.51.net &#21830;&#22823;&#20449;&#24687;]
+[http://xnan2.512j.com &#32593;&#32476;&#20844;&#21496;]
+[http://www.uusky.com &#19990;&#32426;&#24773;&#24863;]
+[http://www.uusky.org &#32593;&#31449;&#24314;&#35774;]
+[http://www.uusky.net &#32593;&#32476;&#20844;&#21496;]
+[http://www.znpp.com &#32593;&#32476;&#24314;&#35774;&#20844;&#21496;]
+[http://www.hzn.cn &#26477;&#24030;&#32593;&#31449;&#24314;&#35774;]
+http://www.uusky.com/host
+http://www.uusky.com/webpage/
+http://www.uusky.com/inf/
+http://www.hzjl365.com/inc/
+http://xnan2.91x.net/
+http://www.xinyifang.net/inf/
+http://web.uusky.org/
+http://www.pagerealm.com/agent2732/
+http://www.pcpages.com/uusky/
+http://uusky2.home.sunbo.net/
+http://www.coolgoose.com/sites/xnane/
+http://www.coolgoose.com/sites/xnane/web/
+http://www.coolgoose.com/sites/xnane/company/
+http://gogi.51.net/web
+http://gogi.51.net/company
+http://www.znpp.com/google/
+http://www.znpp.com/google/
+http://uusky.zj.com/company/
+http://uusky.zj.com/web/
+http://www.uusky.com/
+[http://www.uusky.org &#26477;&#24030;&#32593;&#31449;&#24314;&#35774;]
+[http://www.znpp.com &#26477;&#24030;&#32593;&#31449;&#24314;&#35774;]
+[http://www.uusky.org &#26477;&#24030;&#32593;&#32476;&#20844;&#21496;]
+[http://www.znpp.com &#26477;&#24030;&#32593;&#32476;&#20844;&#21496;]
+[http://www.hzn.cn &#26477;&#24030;&#32593;&#32476;&#20844;&#21496;]
+[http://www.uusky.net  &#21943;&#22609;]
+http://www.houseclub.com.cn/sitemap.htm
+http://www.nanyangcn.net/sitemap.htm
+http://www.softsenior.com/sitemap.htm
+http://www.freewebs.com/uuskyee/
+[http://www.uusky.org &#26477;&#24030;&#32593;&#31449;&#24314;&#35774;]
+
+
+[http://www.uusky.com/webpage &#32593;&#31449;&#24314;&#35774;]
+[http://www.softsenior.com &#35270;&#39057;&#20250;&#35758;]
+[http://www.softsenior.com V2 conference]
+[http://www.softsenior.com/sitemap.htm &#32593;&#32476;&#30417;&#25511;]
+[http://www.uusky.org/zuqiu.htm &#36275;&#29699;&#32593;&#31449;&#35774;&#35745;]
+[http://www.houseclub.com.cn &#36141;&#25151;]
+[http://www.houseclub.com.cn &#27004;&#30424;&#20195;&#29702;]
+[http://www.houseclub.com.cn &#25151;&#20135;&#20132;&#26131;]
+[http://www.houseclub.com.cn &#25151;&#23627;&#20080;&#21334;]
+[http://www.houseclub.com.cn &#27004;&#30424;&#22242;&#36141;]
+[http://www.softsenior.com &#35270;&#39057;&#20250;&#35758;]
+[http://www.houseclub.com.cn/sitemap.htm &#36141;&#25151;]
+[http://www.houseclub.com.cn/sitemapa.htm &#36141;&#25151;]
+[http://www.houseclub.com.cn/sitemapb.htm &#27004;&#30424;&#20195;&#29702;]
+[http://www.houseclub.com.cn/sitemapc.htm &#25151;&#20135;&#20132;&#26131;]
+[http://www.houseclub.com.cn/sitemapd.htm &#25151;&#23627;&#20080;&#21334;]
+[http://www.softsenior.com V2 conference]
+[http://www.softsenior.com &#32593;&#32476;&#30417;&#25511;]
+[http://www.softsenior.com &#21150;&#20844;&#33258;&#21160;&#21270;]
+[http://www.softsenior.com &#39184;&#39278;&#25910;&#38134;]
+[http://www.softsenior.com &#32593;&#36335;&#23703;]
+[http://www.nanyangcn.net &#34507;&#40644;&#27966;]
+³3minor³30³3newauthor³31³2username³2³2host³2218.74.22.43³2revision³238³2tscreate³21074224214³2id³2111³2keepts³21099650341³1version³21³2ts³21099650341³2ip³2217.247.142.177³2name³2text_default³2data³2summary³3despam³3text³3This page contains a few useful items that are hidden in the complete TextFormattingRules.
+
+Clicking on the page title at the very top of the page shows you which pages link to the current page.
+
+The "Summary" text at the bottom of the "Editing" page allows you to say what you changed. This will appear in the <nowiki>RecentChanges</nowiki> list and in the history pages (available from <nowiki>RecentChanges</nowiki> via the "changes" links or the "View other revisions" link at the bottom of each page).
+
+Speaking of <nowiki>RecentChanges</nowiki>, once you're familiar with the wiki, that's the first place to go to find out what's new.
+
+Remember, there are two ways to create a link to a new page, use a UseMod:WikiWord, or enclose the title in double square brackets: <tt><nowiki>[[Multi-word Title]]</nowiki></tt>. The square brackets are necessary if the title contains spaces or does not contain two upper-case letters separated by at least one lower-case letter.
+
+[#anchor]
+You can put HTML anchors in a page so that when you link to the anchor, the page will scroll to that position on opening. To create an anchor, type a left square bracket, the sharp sign, the name of the anchor, and a right square bracket. E.g. <nowiki>[#anchor]</nowiki>. To jump to the anchor, put a sharp sign and the anchor name after the page link, e.g. UpdatingTips#anchor (click on this to scroll this paragraph to the top of the page).
+
+For book links, you may use the <tt>ISBN</tt> special form. For example:
+:<tt><nowiki>ISBN 1888118083: <i>Nation of Cowards</i> by Jeff Snyder</nowiki></tt>
+yields:
+:ISBN 1888118083: <i>Nation of Cowards</i> by Jeff Snyder
+If someone purchases from the Amazon link (underlined ISBN number), BillStClair gets a cut. If you want the cut instead, then put in a normal web link with your associate number.
+
+SpecialCharacters tells you how to create, e.g. &alpha; &beta; &gamma; &delta;
+&epsilon; &zeta; &eta; &theta;
+&iota; &kappa; &lambda; &mu;
+&nu; &xi; &omicron; &pi;
+&rho; &sigma; &sigmaf; &tau;
+&upsilon; &phi; &chi; &psi;
+&omega; &Gamma; &Delta; &Theta;
+&Lambda; &Xi; &Pi; &Sigma;
+&Phi; &Psi; &Omega;
+
+There are a number UseMod:InterWiki prefixes that you can use as abbreviations of common places to link. The following is a list of prefixes and the text they expand into. For example, Google:wiki links to a Google search for "wiki". WikiAdministrator can add to this list.
+*<nowiki>Acronym</nowiki>: <tt><nowiki>http://www.acronymfinder.com/af-query.asp?String=exact&Acronym=</nowiki></tt>
+*<nowiki>Cache</nowiki>: <tt><nowiki>http://www.google.com/search?q=cache:</nowiki></tt>
+*<nowiki>Dictionary</nowiki>: <tt><nowiki>http://www.dict.org/bin/Dict?Database=*&Form=Dict1&Strategy=*&Query=</nowiki></tt>
+*<nowiki>Google</nowiki>: <tt><nowiki>http://www.google.com/search?q=</nowiki></tt>
+*<nowiki>GoogleGroups</nowiki>: <tt><nowiki>http://groups.google.com/groups?q=</nowiki></tt>
+*<nowiki>IMDB</nowiki>: <tt><nowiki>http://us.imdb.com/Title?</nowiki></tt>
+*<nowiki>JargonFile</nowiki>: <tt><nowiki>http://sunir.org/apps/meta.pl?wiki=JargonFile&redirect=</nowiki></tt>
+*<nowiki>MeatBall</nowiki>: <tt><nowiki>http://www.usemod.com/cgi-bin/mb.pl?</nowiki></tt>
+*<nowiki>UseMod</nowiki>: <tt><nowiki>http://www.usemod.com/cgi-bin/wiki.pl?</nowiki></tt>
+*<nowiki>Wiki</nowiki>: <tt><nowiki>http://c2.com/cgi/wiki?</nowiki></tt>
+*<nowiki>WikiPedia</nowiki>: <tt><nowiki>http://www.wikipedia.org/wiki/</nowiki></tt>
+
+To redirect a page to another one, put a single line on that page containing the text: <tt>#REDIRECT</tt> (block caps required), a space, and the title of the page to which to redirect. Going to such a page will show the redirected page with a comment at the top showing where it was redirected from. Clicking on the link to the first page will open an editor so that you can change the <tt>#REDIRECT</tt> if you want. For example, go to BillStClairWiki, the name of this wiki before it was renamed to AnCapWiki.
+
+To mark a page for deletion, put the DeletedPage tag at the beginning of the page. Usually, this should be followed by a reason, then the old text of the page. Deleted pages are kept around for 14 days (WikiAdministrator can change this). If they are unchanged when they expire, they will be permanently removed. Example:
+
+:<tt><nowiki>DeletedPage: Title misspelled. Moved to CorrectlySpelledTitle.</nowiki></tt>
+³3newauthor³31³3minor³30³2host³2pD9F78EB1.dip.t-dialin.net³2username³2Junker³2revision³239³2id³21210³2tscreate³21074224214³2keepts³21099989805³1ip³2221.219.32.167³2ts³21099989805³2version³21³2name³2text_default³2data³2summary³3*³3text³3[http://www.iqwork.com &#25968;&#25454;&#24674;&#22797; &#30828;&#30424;&#24674;&#22797;]
+[http://www.dataoky.com &#25968;&#25454;&#24674;&#22797; &#30828;&#30424;&#20462;&#22797;]
+[http://www.witji.com raid&#25968;&#25454;&#24674;&#22797;]
+[http://www.vcubsu.com &#30828;&#30424;&#20462;&#22797;]
+[http://www.huifusj.com raid&#25968;&#25454;&#24674;&#22797;]
+
+----
+
+
+
+
+This page contains a few useful items that are hidden in the complete TextFormattingRules.
+
+Clicking on the page title at the very top of the page shows you which pages link to the current page.
+
+The "Summary" text at the bottom of the "Editing" page allows you to say what you changed. This will appear in the <nowiki>RecentChanges</nowiki> list and in the history pages (available from <nowiki>RecentChanges</nowiki> via the "changes" links or the "View other revisions" link at the bottom of each page).
+
+Speaking of <nowiki>RecentChanges</nowiki>, once you're familiar with the wiki, that's the first place to go to find out what's new.
+
+Remember, there are two ways to create a link to a new page, use a UseMod:WikiWord, or enclose the title in double square brackets: <tt><nowiki>[[Multi-word Title]]</nowiki></tt>. The square brackets are necessary if the title contains spaces or does not contain two upper-case letters separated by at least one lower-case letter.
+
+[#anchor]
+You can put HTML anchors in a page so that when you link to the anchor, the page will scroll to that position on opening. To create an anchor, type a left square bracket, the sharp sign, the name of the anchor, and a right square bracket. E.g. <nowiki>[#anchor]</nowiki>. To jump to the anchor, put a sharp sign and the anchor name after the page link, e.g. UpdatingTips#anchor (click on this to scroll this paragraph to the top of the page).
+
+For book links, you may use the <tt>ISBN</tt> special form. For example:
+:<tt><nowiki>ISBN 1888118083: <i>Nation of Cowards</i> by Jeff Snyder</nowiki></tt>
+yields:
+:ISBN 1888118083: <i>Nation of Cowards</i> by Jeff Snyder
+If someone purchases from the Amazon link (underlined ISBN number), BillStClair gets a cut. If you want the cut instead, then put in a normal web link with your associate number.
+
+SpecialCharacters tells you how to create, e.g. &alpha; &beta; &gamma; &delta;
+&epsilon; &zeta; &eta; &theta;
+&iota; &kappa; &lambda; &mu;
+&nu; &xi; &omicron; &pi;
+&rho; &sigma; &sigmaf; &tau;
+&upsilon; &phi; &chi; &psi;
+&omega; &Gamma; &Delta; &Theta;
+&Lambda; &Xi; &Pi; &Sigma;
+&Phi; &Psi; &Omega;
+
+There are a number UseMod:InterWiki prefixes that you can use as abbreviations of common places to link. The following is a list of prefixes and the text they expand into. For example, Google:wiki links to a Google search for "wiki". WikiAdministrator can add to this list.
+*<nowiki>Acronym</nowiki>: <tt><nowiki>http://www.acronymfinder.com/af-query.asp?String=exact&Acronym=</nowiki></tt>
+*<nowiki>Cache</nowiki>: <tt><nowiki>http://www.google.com/search?q=cache:</nowiki></tt>
+*<nowiki>Dictionary</nowiki>: <tt><nowiki>http://www.dict.org/bin/Dict?Database=*&Form=Dict1&Strategy=*&Query=</nowiki></tt>
+*<nowiki>Google</nowiki>: <tt><nowiki>http://www.google.com/search?q=</nowiki></tt>
+*<nowiki>GoogleGroups</nowiki>: <tt><nowiki>http://groups.google.com/groups?q=</nowiki></tt>
+*<nowiki>IMDB</nowiki>: <tt><nowiki>http://us.imdb.com/Title?</nowiki></tt>
+*<nowiki>JargonFile</nowiki>: <tt><nowiki>http://sunir.org/apps/meta.pl?wiki=JargonFile&redirect=</nowiki></tt>
+*<nowiki>MeatBall</nowiki>: <tt><nowiki>http://www.usemod.com/cgi-bin/mb.pl?</nowiki></tt>
+*<nowiki>UseMod</nowiki>: <tt><nowiki>http://www.usemod.com/cgi-bin/wiki.pl?</nowiki></tt>
+*<nowiki>Wiki</nowiki>: <tt><nowiki>http://c2.com/cgi/wiki?</nowiki></tt>
+*<nowiki>WikiPedia</nowiki>: <tt><nowiki>http://www.wikipedia.org/wiki/</nowiki></tt>
+
+To redirect a page to another one, put a single line on that page containing the text: <tt>#REDIRECT</tt> (block caps required), a space, and the title of the page to which to redirect. Going to such a page will show the redirected page with a comment at the top showing where it was redirected from. Clicking on the link to the first page will open an editor so that you can change the <tt>#REDIRECT</tt> if you want. For example, go to BillStClairWiki, the name of this wiki before it was renamed to AnCapWiki.
+
+To mark a page for deletion, put the DeletedPage tag at the beginning of the page. Usually, this should be followed by a reason, then the old text of the page. Deleted pages are kept around for 14 days (WikiAdministrator can change this). If they are unchanged when they expire, they will be permanently removed. Example:
+
+:<tt><nowiki>DeletedPage: Title misspelled. Moved to CorrectlySpelledTitle.</nowiki></tt>
+³3minor³30³3newauthor³31³2username³2³2host³2221.219.32.167³2revision³240³2tscreate³21074224214³2id³2111³2keepts³21100015266³1version³21³2ts³21100015266³2ip³2217.247.139.38³2name³2text_default³2data³2summary³3again³3text³3This page contains a few useful items that are hidden in the complete TextFormattingRules.
+
+Clicking on the page title at the very top of the page shows you which pages link to the current page.
+
+The "Summary" text at the bottom of the "Editing" page allows you to say what you changed. This will appear in the <nowiki>RecentChanges</nowiki> list and in the history pages (available from <nowiki>RecentChanges</nowiki> via the "changes" links or the "View other revisions" link at the bottom of each page).
+
+Speaking of <nowiki>RecentChanges</nowiki>, once you're familiar with the wiki, that's the first place to go to find out what's new.
+
+Remember, there are two ways to create a link to a new page, use a UseMod:WikiWord, or enclose the title in double square brackets: <tt><nowiki>[[Multi-word Title]]</nowiki></tt>. The square brackets are necessary if the title contains spaces or does not contain two upper-case letters separated by at least one lower-case letter.
+
+[#anchor]
+You can put HTML anchors in a page so that when you link to the anchor, the page will scroll to that position on opening. To create an anchor, type a left square bracket, the sharp sign, the name of the anchor, and a right square bracket. E.g. <nowiki>[#anchor]</nowiki>. To jump to the anchor, put a sharp sign and the anchor name after the page link, e.g. UpdatingTips#anchor (click on this to scroll this paragraph to the top of the page).
+
+For book links, you may use the <tt>ISBN</tt> special form. For example:
+:<tt><nowiki>ISBN 1888118083: <i>Nation of Cowards</i> by Jeff Snyder</nowiki></tt>
+yields:
+:ISBN 1888118083: <i>Nation of Cowards</i> by Jeff Snyder
+If someone purchases from the Amazon link (underlined ISBN number), BillStClair gets a cut. If you want the cut instead, then put in a normal web link with your associate number.
+
+SpecialCharacters tells you how to create, e.g. &alpha; &beta; &gamma; &delta;
+&epsilon; &zeta; &eta; &theta;
+&iota; &kappa; &lambda; &mu;
+&nu; &xi; &omicron; &pi;
+&rho; &sigma; &sigmaf; &tau;
+&upsilon; &phi; &chi; &psi;
+&omega; &Gamma; &Delta; &Theta;
+&Lambda; &Xi; &Pi; &Sigma;
+&Phi; &Psi; &Omega;
+
+There are a number UseMod:InterWiki prefixes that you can use as abbreviations of common places to link. The following is a list of prefixes and the text they expand into. For example, Google:wiki links to a Google search for "wiki". WikiAdministrator can add to this list.
+*<nowiki>Acronym</nowiki>: <tt><nowiki>http://www.acronymfinder.com/af-query.asp?String=exact&Acronym=</nowiki></tt>
+*<nowiki>Cache</nowiki>: <tt><nowiki>http://www.google.com/search?q=cache:</nowiki></tt>
+*<nowiki>Dictionary</nowiki>: <tt><nowiki>http://www.dict.org/bin/Dict?Database=*&Form=Dict1&Strategy=*&Query=</nowiki></tt>
+*<nowiki>Google</nowiki>: <tt><nowiki>http://www.google.com/search?q=</nowiki></tt>
+*<nowiki>GoogleGroups</nowiki>: <tt><nowiki>http://groups.google.com/groups?q=</nowiki></tt>
+*<nowiki>IMDB</nowiki>: <tt><nowiki>http://us.imdb.com/Title?</nowiki></tt>
+*<nowiki>JargonFile</nowiki>: <tt><nowiki>http://sunir.org/apps/meta.pl?wiki=JargonFile&redirect=</nowiki></tt>
+*<nowiki>MeatBall</nowiki>: <tt><nowiki>http://www.usemod.com/cgi-bin/mb.pl?</nowiki></tt>
+*<nowiki>UseMod</nowiki>: <tt><nowiki>http://www.usemod.com/cgi-bin/wiki.pl?</nowiki></tt>
+*<nowiki>Wiki</nowiki>: <tt><nowiki>http://c2.com/cgi/wiki?</nowiki></tt>
+*<nowiki>WikiPedia</nowiki>: <tt><nowiki>http://www.wikipedia.org/wiki/</nowiki></tt>
+
+To redirect a page to another one, put a single line on that page containing the text: <tt>#REDIRECT</tt> (block caps required), a space, and the title of the page to which to redirect. Going to such a page will show the redirected page with a comment at the top showing where it was redirected from. Clicking on the link to the first page will open an editor so that you can change the <tt>#REDIRECT</tt> if you want. For example, go to BillStClairWiki, the name of this wiki before it was renamed to AnCapWiki.
+
+To mark a page for deletion, put the DeletedPage tag at the beginning of the page. Usually, this should be followed by a reason, then the old text of the page. Deleted pages are kept around for 14 days (WikiAdministrator can change this). If they are unchanged when they expire, they will be permanently removed. Example:
+
+:<tt><nowiki>DeletedPage: Title misspelled. Moved to CorrectlySpelledTitle.</nowiki></tt>
+³3newauthor³31³3minor³30³2host³2pD9F78B26.dip.t-dialin.net³2username³2Junker³2revision³241³2id³21210³2tscreate³21074224214³2keepts³21100050598³1ip³2220.184.52.243³2ts³21100050598³2version³21³2name³2text_default³2data³2summary³3*³3text³3[http://www.uusky.com &#19990;&#32426;&#24773;&#24863;]
+[http://www.uusky.org &#26477;&#24030;&#32593;&#31449;&#24314;&#35774;]
+[http://www.uusky.net &#26477;&#24030;&#21943;&#22609;]
+[http://www.znpp.com &#26477;&#24030;&#32593;&#32476;&#20844;&#21496;] 
+[http://www.hzn.cn &#26477;&#24030;&#32593;&#31449;&#24314;&#35774;]
+[http://www.hzn.cn &#26477;&#24030;&#32593;&#32476;&#20844;&#21496;]
+[http://www.uusky.com/ &#24773;&#24863;]
+[http://www.uusky.org &#26477;&#24030;&#32593;&#31449;&#24314;&#35774;]
+[http://www.znpp.com &#26477;&#24030;&#32593;&#31449;&#24314;&#35774;] 
+[http://www.uusky.org &#26477;&#24030;&#32593;&#32476;&#20844;&#21496;]
+ [http://www.nanyangcn.net/bzj.htm &#39135;&#21697;&#26426;&#26800;] 
+[http://www.nanyangcn.net/bzj.htm &#21253;&#35013;&#26426;]
+[http://www.nanyangcn.net/bzj.htm &#39135;&#21697;&#21253;&#35013;&#26426;&#26800;]
+[http://www.uusky.org &#26477;&#24030;&#32593;&#31449;&#24314;&#35774;]
+[http://www.znpp.com &#26477;&#24030;&#32593;&#32476;&#20844;&#21496;] 
+[http://www.hzn.cn &#26477;&#24030;&#32593;&#32476;&#20844;&#21496;]
+[http://www.uusky.net &#21943;&#22609;]
+[http://home.qz168.com/home/xnann &#32593;&#31449;&#24314;&#35774;]
+[http://www.18ny.com/html/xnan2/ &#32593;&#31449;&#25512;&#24191;]
+[http://home.lygweb.com/home/xnan2/ &#20225;&#19994;&#37038;&#23616;]
+[http://web.awxk.net/home/xnannn &#34394;&#25311;&#20027;&#26426;]
+[http://cnzj.freewebpage.org &#22269;&#38469;&#22495;&#21517;]
+[http://zjrcfff.freewebpage.org &#26477;&#24030;&#32593;&#32476;]
+[http://uuskyjjj.freewebpage.org &#20844;&#21496;&#24314;&#31449;]
+[http://www.freehost.ag/asdfasd &#32593;&#32476;&#25512;&#24191;]
+[http://www.loveday.somee.com/ GOOGLE&#25490;&#21517;]
+[http://www.cnzjqi.somee.com &#32593;&#31449;&#24314;&#35774;]
+[http://gogi.51.net &#21830;&#22823;&#20449;&#24687;]
+[http://xnan2.512j.com &#32593;&#32476;&#20844;&#21496;]
+[http://www.uusky.com/host &#32593;&#31449;&#24314;&#35774;]
+[http://www.uusky.com/webpage/ &#32593;&#31449;&#24314;&#35774;]
+[http://www.uusky.com/inf/ &#32593;&#31449;&#24314;&#35774;]
+[http://www.hzjl365.com/inc/ &#32593;&#31449;&#24314;&#35774;]
+[http://xnan2.91x.net/ &#32593;&#31449;&#24314;&#35774;]
+[http://www.xinyifang.net/inf/ &#32593;&#31449;&#24314;&#35774;]
+[http://web.uusky.org/ &#32593;&#31449;&#24314;&#35774;]
+[http://www.pagerealm.com/agent2732/ &#32593;&#31449;&#24314;&#35774;]
+[http://www.pcpages.com/uusky/ &#32593;&#31449;&#24314;&#35774;]
+[http://uusky2.home.sunbo.net/ &#32593;&#31449;&#24314;&#35774;]
+[http://www.coolgoose.com/sites/xnane/ &#32593;&#31449;&#24314;&#35774;]
+[http://www.coolgoose.com/sites/xnane/web/ &#32593;&#31449;&#24314;&#35774;]
+[http://www.coolgoose.com/sites/xnane/company/ &#32593;&#32476;&#20844;&#21496;]
+[http://gogi.51.net/web &#32593;&#32476;&#20844;&#21496;]
+ [http://gogi.51.net/company &#32593;&#32476;&#20844;&#21496;]
+[http://www.znpp.com/google/ &#32593;&#32476;&#20844;&#21496;]
+[http://www.znpp.com/google/ &#32593;&#32476;&#20844;&#21496;]
+[http://uusky.zj.com/company/ &#32593;&#32476;&#20844;&#21496;]
+[http://uusky.zj.com/web/ &#32593;&#32476;&#20844;&#21496;]
+[http://www.houseclub.com.cn/sitemap.htm &#32593;&#32476;&#20844;&#21496;]
+[http://www.nanyangcn.net/sitemap.htm &#32593;&#32476;&#20844;&#21496;]
+[http://www.softsenior.com/sitemap.htm &#32593;&#32476;&#20844;&#21496;]
+[http://www.freewebs.com/uuskyee/ &#32593;&#32476;&#20844;&#21496;]
+[http://www.uusky.com/webpage &#32593;&#31449;&#24314;&#35774;]
+[http://www.softsenior.com &#35270;&#39057;&#20250;&#35758;]
+[http://www.softsenior.com V2 conference]
+[http://www.softsenior.com/sitemap.htm &#32593;&#32476;&#30417;&#25511;]
+[http://www.uusky.org/zuqiu.htm &#36275;&#29699;&#32593;&#31449;&#35774;&#35745;]
+[http://www.houseclub.com.cn &#36141;&#25151;]
+[http://www.houseclub.com.cn &#27004;&#30424;&#20195;&#29702;]
+[http://www.houseclub.com.cn &#25151;&#20135;&#20132;&#26131;]
+[http://www.houseclub.com.cn &#25151;&#23627;&#20080;&#21334;]
+[http://www.houseclub.com.cn &#27004;&#30424;&#22242;&#36141;]
+[http://www.softsenior.com &#35270;&#39057;&#20250;&#35758;]
+[http://www.houseclub.com.cn/sitemap.htm &#36141;&#25151;]
+[http://www.houseclub.com.cn/sitemapa.htm &#36141;&#25151;]
+[http://www.houseclub.com.cn/sitemapb.htm &#27004;&#30424;&#20195;&#29702;]
+[http://www.houseclub.com.cn/sitemapc.htm &#25151;&#20135;&#20132;&#26131;]
+[http://www.houseclub.com.cn/sitemapd.htm &#25151;&#23627;&#20080;&#21334;]
+[http://www.softsenior.com V2 conference]
+ [http://www.softsenior.com &#32593;&#32476;&#30417;&#25511;]
+[http://www.softsenior.com &#21150;&#20844;&#33258;&#21160;&#21270;]
+[http://www.softsenior.com &#39184;&#39278;&#25910;&#38134;]
+[http://www.softsenior.com &#32593;&#36335;&#23703;]
+[http://www.nanyangcn.net &#34507;&#40644;&#27966;]
+[http://www.blogcn.com/user20/xnan2 &#32593;&#31449;&#24314;&#35774;]
+[http://xnan2.blogdriver.com/xnan2/ &#32593;&#31449;&#24314;&#35774;]
+[http://www.blogbus.com/blogbus/blog/index.php?blogid=45288 &#32593;&#31449;&#24314;&#35774;]
+³3minor³30³3newauthor³31³2username³2³2host³2220.184.52.243³2revision³242³2tscreate³21074224214³2id³2111³2keepts³21100059477³1version³21³2ts³21100059477³2ip³2205.231.31.86³2name³2text_default³2data³2summary³3*³3text³3This page contains a few useful items that are hidden in the complete TextFormattingRules.
+
+Clicking on the page title at the very top of the page shows you which pages link to the current page.
+
+The "Summary" text at the bottom of the "Editing" page allows you to say what you changed. This will appear in the <nowiki>RecentChanges</nowiki> list and in the history pages (available from <nowiki>RecentChanges</nowiki> via the "changes" links or the "View other revisions" link at the bottom of each page).
+
+Speaking of <nowiki>RecentChanges</nowiki>, once you're familiar with the wiki, that's the first place to go to find out what's new.
+
+Remember, there are two ways to create a link to a new page, use a UseMod:WikiWord, or enclose the title in double square brackets: <tt><nowiki>[[Multi-word Title]]</nowiki></tt>. The square brackets are necessary if the title contains spaces or does not contain two upper-case letters separated by at least one lower-case letter.
+
+[#anchor]
+You can put HTML anchors in a page so that when you link to the anchor, the page will scroll to that position on opening. To create an anchor, type a left square bracket, the sharp sign, the name of the anchor, and a right square bracket. E.g. <nowiki>[#anchor]</nowiki>. To jump to the anchor, put a sharp sign and the anchor name after the page link, e.g. UpdatingTips#anchor (click on this to scroll this paragraph to the top of the page).
+
+For book links, you may use the <tt>ISBN</tt> special form. For example:
+:<tt><nowiki>ISBN 1888118083: <i>Nation of Cowards</i> by Jeff Snyder</nowiki></tt>
+yields:
+:ISBN 1888118083: <i>Nation of Cowards</i> by Jeff Snyder
+If someone purchases from the Amazon link (underlined ISBN number), BillStClair gets a cut. If you want the cut instead, then put in a normal web link with your associate number.
+
+SpecialCharacters tells you how to create, e.g. &alpha; &beta; &gamma; &delta;
+&epsilon; &zeta; &eta; &theta;
+&iota; &kappa; &lambda; &mu;
+&nu; &xi; &omicron; &pi;
+&rho; &sigma; &sigmaf; &tau;
+&upsilon; &phi; &chi; &psi;
+&omega; &Gamma; &Delta; &Theta;
+&Lambda; &Xi; &Pi; &Sigma;
+&Phi; &Psi; &Omega;
+
+There are a number UseMod:InterWiki prefixes that you can use as abbreviations of common places to link. The following is a list of prefixes and the text they expand into. For example, Google:wiki links to a Google search for "wiki". WikiAdministrator can add to this list.
+*<nowiki>Acronym</nowiki>: <tt><nowiki>http://www.acronymfinder.com/af-query.asp?String=exact&Acronym=</nowiki></tt>
+*<nowiki>Cache</nowiki>: <tt><nowiki>http://www.google.com/search?q=cache:</nowiki></tt>
+*<nowiki>Dictionary</nowiki>: <tt><nowiki>http://www.dict.org/bin/Dict?Database=*&Form=Dict1&Strategy=*&Query=</nowiki></tt>
+*<nowiki>Google</nowiki>: <tt><nowiki>http://www.google.com/search?q=</nowiki></tt>
+*<nowiki>GoogleGroups</nowiki>: <tt><nowiki>http://groups.google.com/groups?q=</nowiki></tt>
+*<nowiki>IMDB</nowiki>: <tt><nowiki>http://us.imdb.com/Title?</nowiki></tt>
+*<nowiki>JargonFile</nowiki>: <tt><nowiki>http://sunir.org/apps/meta.pl?wiki=JargonFile&redirect=</nowiki></tt>
+*<nowiki>MeatBall</nowiki>: <tt><nowiki>http://www.usemod.com/cgi-bin/mb.pl?</nowiki></tt>
+*<nowiki>UseMod</nowiki>: <tt><nowiki>http://www.usemod.com/cgi-bin/wiki.pl?</nowiki></tt>
+*<nowiki>Wiki</nowiki>: <tt><nowiki>http://c2.com/cgi/wiki?</nowiki></tt>
+*<nowiki>WikiPedia</nowiki>: <tt><nowiki>http://www.wikipedia.org/wiki/</nowiki></tt>
+
+To redirect a page to another one, put a single line on that page containing the text: <tt>#REDIRECT</tt> (block caps required), a space, and the title of the page to which to redirect. Going to such a page will show the redirected page with a comment at the top showing where it was redirected from. Clicking on the link to the first page will open an editor so that you can change the <tt>#REDIRECT</tt> if you want. For example, go to BillStClairWiki, the name of this wiki before it was renamed to AnCapWiki.
+
+To mark a page for deletion, put the DeletedPage tag at the beginning of the page. Usually, this should be followed by a reason, then the old text of the page. Deleted pages are kept around for 14 days (WikiAdministrator can change this). If they are unchanged when they expire, they will be permanently removed. Example:
+
+:<tt><nowiki>DeletedPage: Title misspelled. Moved to CorrectlySpelledTitle.</nowiki></tt>
+³3newauthor³31³3minor³30³2host³2dcha-aa086.taconic.net³2username³2BillStClair³2revision³243³2id³21190³2tscreate³21074224214³2keepts³21100651690

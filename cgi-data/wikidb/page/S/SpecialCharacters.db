@@ -1,0 +1,704 @@
+version³13³1ts³11099506832³1cache_oldmajor³12³1cache_oldauthor³13³1revision³14³1cache_diff_default_author³11³1tscreate³11074348522³1text_default³1version³21³2ts³21099506832³2ip³2202.105.113.90³2name³2text_default³2data³2summary³3*³3text³3= Special characters =
+
+PmWiki&#39;s [http://www.pmichaud.com/wiki/PmWiki/SpecialCharacters SpecialCharacters] page has a more nicely formatted version of this. Canadian Mind Products&#39; [http://mindprod.com/jgloss/htmlcheat.html#SPECIALCHARS HTML Cheat Sheet] has some more.
+
+These are not strictly kosher in HTML any more. You&#39;re supposed to use
+[http://www.w3.org/TR/html4/sgml/entities.html numeric codes]. Yuck.
+
+UseMod passes through the HTML codes for special characters. These are typed with an ampersand, some text, and a semi-colon, as in the &quot;Token&quot; column in the table below.
+
+||&lt;b&gt;Category&lt;/b&gt;||&lt;b&gt;Character&lt;/b&gt;||&lt;b&gt;Token&lt;/b&gt;||
+||Punctuation||\
+&amp;iquest; &amp;iexcl; &amp;laquo; &amp;raquo;&lt;br&gt;\
+&amp;sect; &amp;para; &amp;dagger; &amp;Dagger;&lt;br&gt;\
+&amp;bull; &amp;mdash; &amp;ndash; &amp;amp; ||\
+&amp;amp;iquest; &amp;amp;iexcl; &amp;amp;laquo; &amp;amp;raquo;&lt;br&gt;\
+&amp;amp;sect; &amp;amp;para; &amp;amp;dagger; &amp;amp;Dagger;&lt;br&gt;\
+&amp;amp;bull; &amp;amp;mdash; &amp;amp;ndash; &amp;amp;amp; ||
+||Commercial||\
+&amp;trade; &amp;copy; &amp;reg; &amp;cent;&lt;br&gt;\
+&amp;euro; &amp;yen; &amp;pound; &amp;curren;||\
+&amp;amp;trade; &amp;amp;copy; &amp;amp;reg; &amp;amp;cent&lt;br&gt;\
+&amp;amp;euro; &amp;amp;yen; &amp;amp;pound; &amp;amp;curren;||
+||Greek||\
+&amp;alpha; &amp;beta; &amp;gamma; &amp;delta;&lt;br&gt;\
+&amp;epsilon; &amp;zeta; &amp;eta; &amp;theta;&lt;br&gt;\
+&amp;iota; &amp;kappa; &amp;lambda; &amp;mu;&lt;br&gt;\
+&amp;nu; &amp;xi; &amp;omicron; &amp;pi;&lt;br&gt;\
+&amp;rho; &amp;sigma; &amp;sigmaf; &amp;tau;&lt;br&gt;\
+&amp;upsilon; &amp;phi; &amp;chi; &amp;psi;&lt;br&gt;\
+&amp;omega; &amp;Gamma; &amp;Delta; &amp;Theta;&lt;br&gt;\
+&amp;Lambda; &amp;Xi; &amp;Pi; &amp;Sigma;&lt;br&gt;\
+&amp;Phi; &amp;Psi; &amp;Omega;||\
+&amp;amp;alpha; &amp;amp;beta; &amp;amp;gamma &amp;amp;delta;&lt;br&gt;\
+&amp;amp;epsilon; &amp;amp;zeta; &amp;amp;eta; &amp;amp;theta;&lt;br&gt;\
+&amp;amp;iota; &amp;amp;kappa; &amp;amp;lambda; &amp;amp;mu;&lt;br&gt;\
+&amp;amp;nu; &amp;amp;xi; &amp;amp;omicron; &amp;amp;pi;&lt;br&gt;\
+&amp;amp;rho; &amp;amp;sigma; &amp;amp;sigmaf; &amp;amp;tau;&lt;br&gt;\
+&amp;amp;upsilon; &amp;amp;phi; &amp;amp;chi; &amp;amp;psi;&lt;br&gt;\
+&amp;amp;omega; &amp;amp;Gamma; &amp;amp;Delta; &amp;amp;Theta;&lt;br&gt;\
+&amp;amp;Lambda; &amp;amp;Xi; &amp;amp;Pi; &amp;amp;Sigma;&lt;br&gt;\
+&amp;amp;Phi; &amp;amp;Psi; &amp;amp;Omega;||
+||Maths||\
+&amp;int; &amp;sum; &amp;prod; &amp;radic;&lt;br&gt;\
+&amp;minus; &amp;plusmn; &amp;infin; &amp;asymp; &lt;br&gt;\
+&amp;prop; &amp;equiv; &amp;ne; &amp;le;&lt;br&gt;\
+&amp;ge; &amp;rarr; &amp;times; &amp;middot;&lt;br&gt;\
+&amp;divide; &amp;part; &amp;prime; &amp;Prime;&lt;br&gt;\
+&amp;nabla; &amp;permil; &amp;deg; &amp;there4;&lt;br&gt;\
+&amp;alefsym; &amp;oslash; &amp;isin; &amp;notin;&lt;br&gt;\
+&amp;cap; &amp;cup; &amp;sub; &amp;sup;&lt;br&gt;\
+&amp;sube; &amp;supe; &amp;not; &amp;and;&lt;br&gt;\
+&amp;or; &amp;exist; &amp;forall; &amp;rArr;&lt;br&gt;\
+&amp;hArr;||\
+&amp;amp;int; &amp;amp;sum; &amp;amp;prod; &amp;amp;radic;&lt;br&gt;\
+&amp;amp;minus; &amp;amp;plusmn; &amp;amp;infin; &amp;amp;asymp; &lt;br&gt;\
+&amp;amp;prop; &amp;amp;equiv; &amp;amp;ne; &amp;amp;le;&lt;br&gt;\
+&amp;amp;ge; &amp;amp;rarr; &amp;amp;times; &amp;amp;middot;&lt;br&gt;\
+&amp;amp;divide; &amp;amp;part; &amp;amp;prime; &amp;amp;Prime;&lt;br&gt;\
+&amp;amp;nabla; &amp;amp;permil; &amp;amp;deg; &amp;amp;there4;&lt;br&gt;\
+&amp;amp;alefsym; &amp;amp;oslash; &amp;amp;isin; &amp;amp;notin;&lt;br&gt;\
+&amp;amp;cap; &amp;amp;cup; &amp;amp;sub; &amp;amp;sup;&lt;br&gt;\
+&amp;amp;sube; &amp;amp;supe; &amp;amp;not; &amp;amp;and;&lt;br&gt;\
+&amp;amp;or; &amp;amp;exist; &amp;amp;forall; &amp;amp;rArr;&lt;br&gt;\
+&amp;amp;hArr;||
+||Non-Breaking Space||\
+x&amp;nbsp;&amp;nbsp;&amp;ge;&amp;nbsp;&amp;nbsp;y||\
+x&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;ge;&amp;amp;nbsp;&amp;amp;nbsp;y||
+||Accents||\
+&amp;Agrave; &amp;Aacute; &amp;Acirc; &amp;Atilde;&lt;br&gt;\
+&amp;Auml; &amp;Aring; &amp;Ccedil; &amp;Egrave;&lt;br&gt;\
+&amp;Eacute; &amp;Ecirc; &amp;Euml; &amp;Igrave;&lt;br&gt;\
+&amp;Iacute; &amp;Icirc; &amp;Iuml; &amp;Ntilde;&lt;br&gt;\
+&amp;Ograve; &amp;Oacute; &amp;Ocirc; &amp;Otilde;&lt;br&gt;\
+&amp;Ouml; &amp;Oslash; &amp;Ugrave; &amp;Uacute;&lt;br&gt;\
+&amp;Ucirc; &amp;Uuml; &amp;szlig; &amp;agrave;&lt;br&gt;\
+&amp;aacute; &amp;ac[http://www.yourgoogle.com>googleÅÅÃû]
+[http://www.yourgoogle.com/google-list/google-list.htm >google×ó²àÅÅÃû]
+[http://www.yourgoogle.com/webdesign/webdesign-1.htm>ÍøÕ¾½¨Éè]
+[http://googlesz.freewebpage.org>googleÍÆ¹ã]
+[http://www.tlup.com>ÍøÂçÓªÏú]
+[http://www.tlup.com>ÏîÄ¿ºÏ×÷]
+[http://swellong.freewebpage.org>ÍøÂçÉãÏñ»ú]
+[http://www.flowerwish.com>ÏÊ»¨]
+[http://www.flowerwish.com>ÍøÉÏ»¨µê]
+[http://www.flowerwish.com/ups>upsµçÔ´]
+[http://www.blueattain.com>¹ÜÀí×ÊÁÏ]
+[http://www.szsuun.com> KVM]
+[http://kvmkvm.freewebpage.org> KVM]
+[http://www.flowerwish.com/qygl>ÆóÒµ¹ÜÀí]
+[http://www.flowerwish.com/qygl>¹ÜÀíÅàÑµ]
+[http://www.ktyu.com>fiberglass yarn]
+[http://www.edmcocn.com> EDM]
+[http://www.yourgoogle.com/company-card-index/companyindex.htm>ÆóÒµÃûÂ¼]
+[http://flowerwish.freewebpage.org>ÏÊ»¨]
+[http://www.glpx.com>¹ÜÀíÅàÑµ]
+[http://www.glpx.com>¹ÜÀí×ÉÑ¯]
+[http://www.glpx.com>ÈËÁ¦×ÊÔ´ÅàÑµ]
+[http://www.flowerwish.com/zhuce>¹«Ë¾×¢²á]
+[http://www.xingfuquan.com>³ÉÈËÓÃÆ·]
+[http://www.xingfuquan.com>ÐÔÓÃÆ·]
+[http://www.huaqiplas.com>ËÜÁÏÖÆÆ·]
+[http://www.flowerwish.com/byq>±äÑ¹Æ÷]
+[http://www.inflatables-china.com>china inflatable]
+[http://www.inflatables-china.com>china inflatables]
+[http://www.jlcggs.com/chanpin/chanpin2.htm>·À·øÉäÒÂ·þ]
+[http://kvm.bizhat.com>kvm]
+[http://logistics.freewebpage.org>logistics]
+[www.yourgoogle.com/company-card-index/companyindex.htm>ÆóÒµÃûÂ¼]
+[www.yourgoogle.com/company-card-index/companyindex.htm>ÆóÒµ»ÆÒ³]
+[http://www.51gl.cn>ÆóÒµ¹ÜÀí]
+[http://www.yourgoogle.com/default.asp>ÆóÒµÃûÂ¼]
+[http://glassbead.freewebpage.org>Æû³µÓÃÆ·]
+[http://www.sfcomm.com>ÍøÂçÉãÏñ»ú]
+[http://www.yourgoogle.com/default.asp>¹«Ë¾ÃûÂ¼]
+[http://www.yourgoogle.com/paobuji/>ÅÜ²½»ú]
+[http://www.flowerwish.com/cdq/>³äµçÆ÷]
+[http://www.jlcggs.com/chanpin/fanghu/anzuobao/anzuobao.htm>¶ùÍ¯°²È«×ùÒÎ]
+[http://www.jlcggs.com/chanpin/chelei/dulun/dulunche.htm>¶ÀÂÖ×ÔÐÐ³µ]
+[http://www.creator-cg.com/crcs/>»áÒéÏµÍ³]
+[http://www.flowerwish.com/huanbao/>Ë®´¦Àí]
+[http://www.szsuun.com>kvm]
+[http://www.yourgoogle.com/ghdprinting/>²ÊÓ¡]
+[http://www.yourgoogle.com/ghdprinting/>²ÊÉ«Ó¡Ë¢]
+[http://www.pinghengji.com/cp2.asp>ÀëºÏÆ÷]
+[http://www.huaqiplas.com>ËÜÁÏ]
+[http://www.yourgoogle.com/duijiangji>¶Ô½²»ú]
+[http://www.sfcomm.com>ÍøÂçÉãÏñ»ú]
+[http://magnesia.freewebpage.org>comb binding]
+[http://magnesia.freewebpage.org>comb binding machine ]
+[http://magnesia.freewebpage.org> wire binding]
+[http://magnesia.freewebpage.org>wire binding machine ]
+[http://magnesia.freewebpage.org>comb binding machine]
+[http://magnesia.freewebpage.org>binding supplies]
+[http://magnesia.freewebpage.org>laminating machine]
+[http://www.flowerwish.com/kvm/>kvm]
+[http://www.0755shopping.com>Æû³µÓÃÆ·]
+[http://tingchechang.freewebpage.org>Í£³µ³¡]
+[http://wlsxj.freewebpage.org>³ÉÈËÓÃÆ·]
+[http://wlsxj.freewebpage.org>ÐÔÓÃÆ·]
+[http://netphoto.freewebpage.org>ËÜÁÏÖÆÆ·]
+[http://www.flowerwish.com/edm/>edm]
+[http://www.flowerwish.com/diaokeji/>µñ¿Ì»ú]
+[http://www.flowerwish.com/touyingji>Í¶Ó°»ú]
+[http://pyrethum.freewebpage.org>diamond blade]
+[http://pyrethum.freewebpage.org>diamond disc]
+[http://pyrethum.freewebpage.org>high visibility jacket]
+[http://pyrethum.freewebpage.org>high visibility vest]
+[http://pyrethum.freewebpage.org>cutting disc]
+[http://pyrethum.freewebpage.org>sanding disc]
+[http://pyrethum.freewebpage.org>sanding belt]
+[http://pyrethum.freewebpage.org>diamond core]
+ ######irc; &amp;atilde; &amp;auml;&lt;br&gt;\
+&amp;aring; &amp;aelig; &amp;ccedil; &amp;egrave;&lt;br&gt;\
+&amp;eacute; &amp;ecirc; &amp;euml; &amp;igrave;&lt;br&gt;\
+&amp;iacute; &amp;icirc; &amp;iuml; &amp;ntilde;&lt;br&gt;\
+&amp;ograve; &amp;oacute; &amp;ocirc; &amp;otilde;&lt;br&gt;\
+&amp;ouml; &amp;oslash; &amp;ugrave; &amp;uacute;&lt;br&gt;\
+&amp;ucirc; &amp;uuml; &amp;yuml;||\
+&amp;amp;Agrave; &amp;amp;Aacute; &amp;amp;Acirc; &amp;amp;Atilde;&lt;br&gt;\
+&amp;amp;Auml; &amp;amp;Aring; &amp;amp;Ccedil; &amp;amp;Egrave;&lt;br&gt;\
+&amp;amp;Eacute; &amp;amp;Ecirc; &amp;amp;Euml; &amp;amp;Igrave;&lt;br&gt;\
+&amp;amp;Iacute; &amp;amp;Icirc; &amp;amp;Iuml; &amp;amp;Ntilde;&lt;br&gt;\
+&amp;amp;Ograve; &amp;amp;Oacute; &amp;amp;Ocirc; &amp;amp;Otilde;&lt;br&gt;\
+&amp;amp;Ouml; &amp;amp;Oslash; &amp;amp;Ugrave; &amp;amp;Uacute;&lt;br&gt;\
+&amp;amp;Ucirc; &amp;amp;Uuml; &amp;amp;szlig; &amp;amp;agrave;&lt;br&gt;\
+&amp;amp;aacute; &amp;amp;acirc; &amp;amp;atilde; &amp;amp;auml;&lt;br&gt;\
+&amp;amp;aring; &amp;amp;aelig; &amp;amp;ccedil; &amp;amp;egrave;&lt;br&gt;\
+&amp;amp;eacute; &amp;amp;ecirc; &amp;amp;euml; &amp;amp;igrave;&lt;br&gt;\
+&amp;amp;iacute; &amp;amp;icirc; &amp;amp;iuml; &amp;amp;ntilde;&lt;br&gt;\
+&amp;amp;ograve; &amp;amp;oacute; &amp;amp;ocirc; &amp;amp;otilde;&lt;br&gt;\
+&amp;amp;ouml; &amp;amp;oslash; &amp;amp;ugrave; &amp;amp;uacute;&lt;br&gt;\
+&amp;amp;ucirc; &amp;amp;uuml; &amp;amp;yuml;||
+||Ligatures||&amp;AElig;||&amp;amp;AElig;||
+³3minor³31³3newauthor³31³2host³2202.105.113.90³2username³2³2revision³24³2id³2111³2tscreate³21074348522³2keepts³21099506832³1cache_diff_default_major³13c3
+< PmWiki's [http://www.pmichaud.com/wiki/PmWiki/SpecialCharacters SpecialCharacters] page has a more nicely formatted version of this. Canadian Mind Products' [http://mindprod.com/jgloss/htmlcheat.html#SPECIALCHARS HTML Cheat Sheet] has some more.
+---
+> PmWiki&#39;s [http://www.pmichaud.com/wiki/PmWiki/SpecialCharacters SpecialCharacters] page has a more nicely formatted version of this. Canadian Mind Products&#39; [http://mindprod.com/jgloss/htmlcheat.html#SPECIALCHARS HTML Cheat Sheet] has some more.
+5c5
+< These are not strictly kosher in HTML any more. You're supposed to use
+---
+> These are not strictly kosher in HTML any more. You&#39;re supposed to use
+8c8
+< UseMod passes through the HTML codes for special characters. These are typed with an ampersand, some text, and a semi-colon, as in the "Token" column in the table below.
+---
+> UseMod passes through the HTML codes for special characters. These are typed with an ampersand, some text, and a semi-colon, as in the &quot;Token&quot; column in the table below.
+10c10
+< ||<b>Category</b>||<b>Character</b>||<b>Token</b>||
+---
+> ||&lt;b&gt;Category&lt;/b&gt;||&lt;b&gt;Character&lt;/b&gt;||&lt;b&gt;Token&lt;/b&gt;||
+12,17c12,17
+< &iquest; &iexcl; &laquo; &raquo;<br>\
+< &sect; &para; &dagger; &Dagger;<br>\
+< &bull; &mdash; &ndash; &amp; ||\
+< &amp;iquest; &amp;iexcl; &amp;laquo; &amp;raquo;<br>\
+< &amp;sect; &amp;para; &amp;dagger; &amp;Dagger;<br>\
+< &amp;bull; &amp;mdash; &amp;ndash; &amp;amp; ||
+---
+> &amp;iquest; &amp;iexcl; &amp;laquo; &amp;raquo;&lt;br&gt;\
+> &amp;sect; &amp;para; &amp;dagger; &amp;Dagger;&lt;br&gt;\
+> &amp;bull; &amp;mdash; &amp;ndash; &amp;amp; ||\
+> &amp;amp;iquest; &amp;amp;iexcl; &amp;amp;laquo; &amp;amp;raquo;&lt;br&gt;\
+> &amp;amp;sect; &amp;amp;para; &amp;amp;dagger; &amp;amp;Dagger;&lt;br&gt;\
+> &amp;amp;bull; &amp;amp;mdash; &amp;amp;ndash; &amp;amp;amp; ||
+19,22c19,22
+< &trade; &copy; &reg; &cent;<br>\
+< &euro; &yen; &pound; &curren;||\
+< &amp;trade; &amp;copy; &amp;reg; &amp;cent<br>\
+< &amp;euro; &amp;yen; &amp;pound; &amp;curren;||
+---
+> &amp;trade; &amp;copy; &amp;reg; &amp;cent;&lt;br&gt;\
+> &amp;euro; &amp;yen; &amp;pound; &amp;curren;||\
+> &amp;amp;trade; &amp;amp;copy; &amp;amp;reg; &amp;amp;cent&lt;br&gt;\
+> &amp;amp;euro; &amp;amp;yen; &amp;amp;pound; &amp;amp;curren;||
+24,41c24,41
+< &alpha; &beta; &gamma; &delta;<br>\
+< &epsilon; &zeta; &eta; &theta;<br>\
+< &iota; &kappa; &lambda; &mu;<br>\
+< &nu; &xi; &omicron; &pi;<br>\
+< &rho; &sigma; &sigmaf; &tau;<br>\
+< &upsilon; &phi; &chi; &psi;<br>\
+< &omega; &Gamma; &Delta; &Theta;<br>\
+< &Lambda; &Xi; &Pi; &Sigma;<br>\
+< &Phi; &Psi; &Omega;||\
+< &amp;alpha; &amp;beta; &amp;gamma; &amp;delta;<br>\
+< &amp;epsilon; &amp;zeta; &amp;eta; &amp;theta;<br>\
+< &amp;iota; &amp;kappa; &amp;lambda; &amp;mu;<br>\
+< &amp;nu; &amp;xi; &amp;omicron; &amp;pi;<br>\
+< &amp;rho; &amp;sigma; &amp;sigmaf; &amp;tau;<br>\
+< &amp;upsilon; &amp;phi; &amp;chi; &amp;psi;<br>\
+< &amp;omega; &amp;Gamma; &amp;Delta; &amp;Theta;<br>\
+< &amp;Lambda; &amp;Xi; &amp;Pi; &amp;Sigma;<br>\
+< &amp;Phi; &amp;Psi; &amp;Omega;||
+---
+> &amp;alpha; &amp;beta; &amp;gamma; &amp;delta;&lt;br&gt;\
+> &amp;epsilon; &amp;zeta; &amp;eta; &amp;theta;&lt;br&gt;\
+> &amp;iota; &amp;kappa; &amp;lambda; &amp;mu;&lt;br&gt;\
+> &amp;nu; &amp;xi; &amp;omicron; &amp;pi;&lt;br&gt;\
+> &amp;rho; &amp;sigma; &amp;sigmaf; &amp;tau;&lt;br&gt;\
+> &amp;upsilon; &amp;phi; &amp;chi; &amp;psi;&lt;br&gt;\
+> &amp;omega; &amp;Gamma; &amp;Delta; &amp;Theta;&lt;br&gt;\
+> &amp;Lambda; &amp;Xi; &amp;Pi; &amp;Sigma;&lt;br&gt;\
+> &amp;Phi; &amp;Psi; &amp;Omega;||\
+> &amp;amp;alpha; &amp;amp;beta; &amp;amp;gamma &amp;amp;delta;&lt;br&gt;\
+> &amp;amp;epsilon; &amp;amp;zeta; &amp;amp;eta; &amp;amp;theta;&lt;br&gt;\
+> &amp;amp;iota; &amp;amp;kappa; &amp;amp;lambda; &amp;amp;mu;&lt;br&gt;\
+> &amp;amp;nu; &amp;amp;xi; &amp;amp;omicron; &amp;amp;pi;&lt;br&gt;\
+> &amp;amp;rho; &amp;amp;sigma; &amp;amp;sigmaf; &amp;amp;tau;&lt;br&gt;\
+> &amp;amp;upsilon; &amp;amp;phi; &amp;amp;chi; &amp;amp;psi;&lt;br&gt;\
+> &amp;amp;omega; &amp;amp;Gamma; &amp;amp;Delta; &amp;amp;Theta;&lt;br&gt;\
+> &amp;amp;Lambda; &amp;amp;Xi; &amp;amp;Pi; &amp;amp;Sigma;&lt;br&gt;\
+> &amp;amp;Phi; &amp;amp;Psi; &amp;amp;Omega;||
+43,64c43,64
+< &int; &sum; &prod; &radic;<br>\
+< &minus; &plusmn; &infin; &asymp; <br>\
+< &prop; &equiv; &ne; &le;<br>\
+< &ge; &rarr; &times; &middot;<br>\
+< &divide; &part; &prime; &Prime;<br>\
+< &nabla; &permil; &deg; &there4;<br>\
+< &alefsym; &oslash; &isin; &notin;<br>\
+< &cap; &cup; &sub; &sup;<br>\
+< &sube; &supe; &not; &and;<br>\
+< &or; &exist; &forall; &rArr;<br>\
+< &hArr;||\
+< &amp;int; &amp;sum; &amp;prod; &amp;radic;<br>\
+< &amp;minus; &amp;plusmn; &amp;infin; &amp;asymp; <br>\
+< &amp;prop; &amp;equiv; &amp;ne; &amp;le;<br>\
+< &amp;ge; &amp;rarr; &amp;times; &amp;middot;<br>\
+< &amp;divide; &amp;part; &amp;prime; &amp;Prime;<br>\
+< &amp;nabla; &amp;permil; &amp;deg; &amp;there4;<br>\
+< &amp;alefsym; &amp;oslash; &amp;isin; &amp;notin;<br>\
+< &amp;cap; &amp;cup; &amp;sub; &amp;sup;<br>\
+< &amp;sube; &amp;supe; &amp;not; &amp;and;<br>\
+< &amp;or; &amp;exist; &amp;forall; &amp;rArr;<br>\
+< &amp;hArr;||
+---
+> &amp;int; &amp;sum; &amp;prod; &amp;radic;&lt;br&gt;\
+> &amp;minus; &amp;plusmn; &amp;infin; &amp;asymp; &lt;br&gt;\
+> &amp;prop; &amp;equiv; &amp;ne; &amp;le;&lt;br&gt;\
+> &amp;ge; &amp;rarr; &amp;times; &amp;middot;&lt;br&gt;\
+> &amp;divide; &amp;part; &amp;prime; &amp;Prime;&lt;br&gt;\
+> &amp;nabla; &amp;permil; &amp;deg; &amp;there4;&lt;br&gt;\
+> &amp;alefsym; &amp;oslash; &amp;isin; &amp;notin;&lt;br&gt;\
+> &amp;cap; &amp;cup; &amp;sub; &amp;sup;&lt;br&gt;\
+> &amp;sube; &amp;supe; &amp;not; &amp;and;&lt;br&gt;\
+> &amp;or; &amp;exist; &amp;forall; &amp;rArr;&lt;br&gt;\
+> &amp;hArr;||\
+> &amp;amp;int; &amp;amp;sum; &amp;amp;prod; &amp;amp;radic;&lt;br&gt;\
+> &amp;amp;minus; &amp;amp;plusmn; &amp;amp;infin; &amp;amp;asymp; &lt;br&gt;\
+> &amp;amp;prop; &amp;amp;equiv; &amp;amp;ne; &amp;amp;le;&lt;br&gt;\
+> &amp;amp;ge; &amp;amp;rarr; &amp;amp;times; &amp;amp;middot;&lt;br&gt;\
+> &amp;amp;divide; &amp;amp;part; &amp;amp;prime; &amp;amp;Prime;&lt;br&gt;\
+> &amp;amp;nabla; &amp;amp;permil; &amp;amp;deg; &amp;amp;there4;&lt;br&gt;\
+> &amp;amp;alefsym; &amp;amp;oslash; &amp;amp;isin; &amp;amp;notin;&lt;br&gt;\
+> &amp;amp;cap; &amp;amp;cup; &amp;amp;sub; &amp;amp;sup;&lt;br&gt;\
+> &amp;amp;sube; &amp;amp;supe; &amp;amp;not; &amp;amp;and;&lt;br&gt;\
+> &amp;amp;or; &amp;amp;exist; &amp;amp;forall; &amp;amp;rArr;&lt;br&gt;\
+> &amp;amp;hArr;||
+66,67c66,67
+< x&nbsp;&nbsp;&ge;&nbsp;&nbsp;y||\
+< x&amp;nbsp;&amp;nbsp;&amp;ge;&amp;nbsp;&amp;nbsp;y||
+---
+> x&amp;nbsp;&amp;nbsp;&amp;ge;&amp;nbsp;&amp;nbsp;y||\
+> x&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;ge;&amp;amp;nbsp;&amp;amp;nbsp;y||
+69,96c69,173
+< &Agrave; &Aacute; &Acirc; &Atilde;<br>\
+< &Auml; &Aring; &Ccedil; &Egrave;<br>\
+< &Eacute; &Ecirc; &Euml; &Igrave;<br>\
+< &Iacute; &Icirc; &Iuml; &Ntilde;<br>\
+< &Ograve; &Oacute; &Ocirc; &Otilde;<br>\
+< &Ouml; &Oslash; &Ugrave; &Uacute;<br>\
+< &Ucirc; &Uuml; &szlig; &agrave;<br>\
+< &aacute; &acirc; &atilde; &auml;<br>\
+< &aring; &aelig; &ccedil; &egrave;<br>\
+< &eacute; &ecirc; &euml; &igrave;<br>\
+< &iacute; &icirc; &iuml; &ntilde;<br>\
+< &ograve; &oacute; &ocirc; &otilde;<br>\
+< &ouml; &oslash; &ugrave; &uacute;<br>\
+< &ucirc; &uuml; &yuml;||\
+< &amp;Auml; &amp;Aring; &amp;Ccedil; &amp;Egrave;<br>\
+< &amp;Eacute; &amp;Ecirc; &amp;Euml; &amp;Igrave;<br>\
+< &amp;Iacute; &amp;Icirc; &amp;Iuml; &amp;Ntilde;<br>\
+< &amp;Ograve; &amp;Oacute; &amp;Ocirc; &amp;Otilde;<br>\
+< &amp;Ouml; &amp;Oslash; &amp;Ugrave; &amp;Uacute;<br>\
+< &amp;Ucirc; &amp;Uuml; &amp;szlig; &amp;agrave;<br>\
+< &amp;aacute; &amp;acirc; &amp;atilde; &amp;auml;<br>\
+< &amp;aring; &amp;aelig; &amp;ccedil; &amp;egrave;<br>\
+< &amp;eacute; &amp;ecirc; &amp;euml; &amp;igrave;<br>\
+< &amp;iacute; &amp;icirc; &amp;iuml; &amp;ntilde;<br>\
+< &amp;ograve; &amp;oacute; &amp;ocirc; &amp;otilde;<br>\
+< &amp;ouml; &amp;oslash; &amp;ugrave; &amp;uacute;<br>\
+< &amp;ucirc; &amp;uuml; &amp;yuml;||
+< ||Ligatures||&AElig;||&amp;AElig;||
+---
+> &amp;Agrave; &amp;Aacute; &amp;Acirc; &amp;Atilde;&lt;br&gt;\
+> &amp;Auml; &amp;Aring; &amp;Ccedil; &amp;Egrave;&lt;br&gt;\
+> &amp;Eacute; &amp;Ecirc; &amp;Euml; &amp;Igrave;&lt;br&gt;\
+> &amp;Iacute; &amp;Icirc; &amp;Iuml; &amp;Ntilde;&lt;br&gt;\
+> &amp;Ograve; &amp;Oacute; &amp;Ocirc; &amp;Otilde;&lt;br&gt;\
+> &amp;Ouml; &amp;Oslash; &amp;Ugrave; &amp;Uacute;&lt;br&gt;\
+> &amp;Ucirc; &amp;Uuml; &amp;szlig; &amp;agrave;&lt;br&gt;\
+> &amp;aacute; &amp;ac[http://www.yourgoogle.com>googleÅÅÃû]
+> [http://www.yourgoogle.com/google-list/google-list.htm >google×ó²àÅÅÃû]
+> [http://www.yourgoogle.com/webdesign/webdesign-1.htm>ÍøÕ¾½¨Éè]
+> [http://googlesz.freewebpage.org>googleÍÆ¹ã]
+> [http://www.tlup.com>ÍøÂçÓªÏú]
+> [http://www.tlup.com>ÏîÄ¿ºÏ×÷]
+> [http://swellong.freewebpage.org>ÍøÂçÉãÏñ»ú]
+> [http://www.flowerwish.com>ÏÊ»¨]
+> [http://www.flowerwish.com>ÍøÉÏ»¨µê]
+> [http://www.flowerwish.com/ups>upsµçÔ´]
+> [http://www.blueattain.com>¹ÜÀí×ÊÁÏ]
+> [http://www.szsuun.com> KVM]
+> [http://kvmkvm.freewebpage.org> KVM]
+> [http://www.flowerwish.com/qygl>ÆóÒµ¹ÜÀí]
+> [http://www.flowerwish.com/qygl>¹ÜÀíÅàÑµ]
+> [http://www.ktyu.com>fiberglass yarn]
+> [http://www.edmcocn.com> EDM]
+> [http://www.yourgoogle.com/company-card-index/companyindex.htm>ÆóÒµÃûÂ¼]
+> [http://flowerwish.freewebpage.org>ÏÊ»¨]
+> [http://www.glpx.com>¹ÜÀíÅàÑµ]
+> [http://www.glpx.com>¹ÜÀí×ÉÑ¯]
+> [http://www.glpx.com>ÈËÁ¦×ÊÔ´ÅàÑµ]
+> [http://www.flowerwish.com/zhuce>¹«Ë¾×¢²á]
+> [http://www.xingfuquan.com>³ÉÈËÓÃÆ·]
+> [http://www.xingfuquan.com>ÐÔÓÃÆ·]
+> [http://www.huaqiplas.com>ËÜÁÏÖÆÆ·]
+> [http://www.flowerwish.com/byq>±äÑ¹Æ÷]
+> [http://www.inflatables-china.com>china inflatable]
+> [http://www.inflatables-china.com>china inflatables]
+> [http://www.jlcggs.com/chanpin/chanpin2.htm>·À·øÉäÒÂ·þ]
+> [http://kvm.bizhat.com>kvm]
+> [http://logistics.freewebpage.org>logistics]
+> [www.yourgoogle.com/company-card-index/companyindex.htm>ÆóÒµÃûÂ¼]
+> [www.yourgoogle.com/company-card-index/companyindex.htm>ÆóÒµ»ÆÒ³]
+> [http://www.51gl.cn>ÆóÒµ¹ÜÀí]
+> [http://www.yourgoogle.com/default.asp>ÆóÒµÃûÂ¼]
+> [http://glassbead.freewebpage.org>Æû³µÓÃÆ·]
+> [http://www.sfcomm.com>ÍøÂçÉãÏñ»ú]
+> [http://www.yourgoogle.com/default.asp>¹«Ë¾ÃûÂ¼]
+> [http://www.yourgoogle.com/paobuji/>ÅÜ²½»ú]
+> [http://www.flowerwish.com/cdq/>³äµçÆ÷]
+> [http://www.jlcggs.com/chanpin/fanghu/anzuobao/anzuobao.htm>¶ùÍ¯°²È«×ùÒÎ]
+> [http://www.jlcggs.com/chanpin/chelei/dulun/dulunche.htm>¶ÀÂÖ×ÔÐÐ³µ]
+> [http://www.creator-cg.com/crcs/>»áÒéÏµÍ³]
+> [http://www.flowerwish.com/huanbao/>Ë®´¦Àí]
+> [http://www.szsuun.com>kvm]
+> [http://www.yourgoogle.com/ghdprinting/>²ÊÓ¡]
+> [http://www.yourgoogle.com/ghdprinting/>²ÊÉ«Ó¡Ë¢]
+> [http://www.pinghengji.com/cp2.asp>ÀëºÏÆ÷]
+> [http://www.huaqiplas.com>ËÜÁÏ]
+> [http://www.yourgoogle.com/duijiangji>¶Ô½²»ú]
+> [http://www.sfcomm.com>ÍøÂçÉãÏñ»ú]
+> [http://magnesia.freewebpage.org>comb binding]
+> [http://magnesia.freewebpage.org>comb binding machine ]
+> [http://magnesia.freewebpage.org> wire binding]
+> [http://magnesia.freewebpage.org>wire binding machine ]
+> [http://magnesia.freewebpage.org>comb binding machine]
+> [http://magnesia.freewebpage.org>binding supplies]
+> [http://magnesia.freewebpage.org>laminating machine]
+> [http://www.flowerwish.com/kvm/>kvm]
+> [http://www.0755shopping.com>Æû³µÓÃÆ·]
+> [http://tingchechang.freewebpage.org>Í£³µ³¡]
+> [http://wlsxj.freewebpage.org>³ÉÈËÓÃÆ·]
+> [http://wlsxj.freewebpage.org>ÐÔÓÃÆ·]
+> [http://netphoto.freewebpage.org>ËÜÁÏÖÆÆ·]
+> [http://www.flowerwish.com/edm/>edm]
+> [http://www.flowerwish.com/diaokeji/>µñ¿Ì»ú]
+> [http://www.flowerwish.com/touyingji>Í¶Ó°»ú]
+> [http://pyrethum.freewebpage.org>diamond blade]
+> [http://pyrethum.freewebpage.org>diamond disc]
+> [http://pyrethum.freewebpage.org>high visibility jacket]
+> [http://pyrethum.freewebpage.org>high visibility vest]
+> [http://pyrethum.freewebpage.org>cutting disc]
+> [http://pyrethum.freewebpage.org>sanding disc]
+> [http://pyrethum.freewebpage.org>sanding belt]
+> [http://pyrethum.freewebpage.org>diamond core]
+>  ######irc; &amp;atilde; &amp;auml;&lt;br&gt;\
+> &amp;aring; &amp;aelig; &amp;ccedil; &amp;egrave;&lt;br&gt;\
+> &amp;eacute; &amp;ecirc; &amp;euml; &amp;igrave;&lt;br&gt;\
+> &amp;iacute; &amp;icirc; &amp;iuml; &amp;ntilde;&lt;br&gt;\
+> &amp;ograve; &amp;oacute; &amp;ocirc; &amp;otilde;&lt;br&gt;\
+> &amp;ouml; &amp;oslash; &amp;ugrave; &amp;uacute;&lt;br&gt;\
+> &amp;ucirc; &amp;uuml; &amp;yuml;||\
+> &amp;amp;Agrave; &amp;amp;Aacute; &amp;amp;Acirc; &amp;amp;Atilde;&lt;br&gt;\
+> &amp;amp;Auml; &amp;amp;Aring; &amp;amp;Ccedil; &amp;amp;Egrave;&lt;br&gt;\
+> &amp;amp;Eacute; &amp;amp;Ecirc; &amp;amp;Euml; &amp;amp;Igrave;&lt;br&gt;\
+> &amp;amp;Iacute; &amp;amp;Icirc; &amp;amp;Iuml; &amp;amp;Ntilde;&lt;br&gt;\
+> &amp;amp;Ograve; &amp;amp;Oacute; &amp;amp;Ocirc; &amp;amp;Otilde;&lt;br&gt;\
+> &amp;amp;Ouml; &amp;amp;Oslash; &amp;amp;Ugrave; &amp;amp;Uacute;&lt;br&gt;\
+> &amp;amp;Ucirc; &amp;amp;Uuml; &amp;amp;szlig; &amp;amp;agrave;&lt;br&gt;\
+> &amp;amp;aacute; &amp;amp;acirc; &amp;amp;atilde; &amp;amp;auml;&lt;br&gt;\
+> &amp;amp;aring; &amp;amp;aelig; &amp;amp;ccedil; &amp;amp;egrave;&lt;br&gt;\
+> &amp;amp;eacute; &amp;amp;ecirc; &amp;amp;euml; &amp;amp;igrave;&lt;br&gt;\
+> &amp;amp;iacute; &amp;amp;icirc; &amp;amp;iuml; &amp;amp;ntilde;&lt;br&gt;\
+> &amp;amp;ograve; &amp;amp;oacute; &amp;amp;ocirc; &amp;amp;otilde;&lt;br&gt;\
+> &amp;amp;ouml; &amp;amp;oslash; &amp;amp;ugrave; &amp;amp;uacute;&lt;br&gt;\
+> &amp;amp;ucirc; &amp;amp;uuml; &amp;amp;yuml;||
+> ||Ligatures||&amp;AElig;||&amp;amp;AElig;||
+³1cache_diff_default_minor³13c3
+< PmWiki's [http://www.pmichaud.com/wiki/PmWiki/SpecialCharacters SpecialCharacters] page has a more nicely formatted version of this. Canadian Mind Products' [http://mindprod.com/jgloss/htmlcheat.html#SPECIALCHARS HTML Cheat Sheet] has some more.
+---
+> PmWiki&#39;s [http://www.pmichaud.com/wiki/PmWiki/SpecialCharacters SpecialCharacters] page has a more nicely formatted version of this. Canadian Mind Products&#39; [http://mindprod.com/jgloss/htmlcheat.html#SPECIALCHARS HTML Cheat Sheet] has some more.
+5c5
+< These are not strictly kosher in HTML any more. You're supposed to use
+---
+> These are not strictly kosher in HTML any more. You&#39;re supposed to use
+8c8
+< UseMod passes through the HTML codes for special characters. These are typed with an ampersand, some text, and a semi-colon, as in the "Token" column in the table below.
+---
+> UseMod passes through the HTML codes for special characters. These are typed with an ampersand, some text, and a semi-colon, as in the &quot;Token&quot; column in the table below.
+10c10
+< ||<b>Category</b>||<b>Character</b>||<b>Token</b>||
+---
+> ||&lt;b&gt;Category&lt;/b&gt;||&lt;b&gt;Character&lt;/b&gt;||&lt;b&gt;Token&lt;/b&gt;||
+12,17c12,17
+< &iquest; &iexcl; &laquo; &raquo;<br>\
+< &sect; &para; &dagger; &Dagger;<br>\
+< &bull; &mdash; &ndash; &amp; ||\
+< &amp;iquest; &amp;iexcl; &amp;laquo; &amp;raquo;<br>\
+< &amp;sect; &amp;para; &amp;dagger; &amp;Dagger;<br>\
+< &amp;bull; &amp;mdash; &amp;ndash; &amp;amp; ||
+---
+> &amp;iquest; &amp;iexcl; &amp;laquo; &amp;raquo;&lt;br&gt;\
+> &amp;sect; &amp;para; &amp;dagger; &amp;Dagger;&lt;br&gt;\
+> &amp;bull; &amp;mdash; &amp;ndash; &amp;amp; ||\
+> &amp;amp;iquest; &amp;amp;iexcl; &amp;amp;laquo; &amp;amp;raquo;&lt;br&gt;\
+> &amp;amp;sect; &amp;amp;para; &amp;amp;dagger; &amp;amp;Dagger;&lt;br&gt;\
+> &amp;amp;bull; &amp;amp;mdash; &amp;amp;ndash; &amp;amp;amp; ||
+19,22c19,22
+< &trade; &copy; &reg; &cent;<br>\
+< &euro; &yen; &pound; &curren;||\
+< &amp;trade; &amp;copy; &amp;reg; &amp;cent<br>\
+< &amp;euro; &amp;yen; &amp;pound; &amp;curren;||
+---
+> &amp;trade; &amp;copy; &amp;reg; &amp;cent;&lt;br&gt;\
+> &amp;euro; &amp;yen; &amp;pound; &amp;curren;||\
+> &amp;amp;trade; &amp;amp;copy; &amp;amp;reg; &amp;amp;cent&lt;br&gt;\
+> &amp;amp;euro; &amp;amp;yen; &amp;amp;pound; &amp;amp;curren;||
+24,41c24,41
+< &alpha; &beta; &gamma; &delta;<br>\
+< &epsilon; &zeta; &eta; &theta;<br>\
+< &iota; &kappa; &lambda; &mu;<br>\
+< &nu; &xi; &omicron; &pi;<br>\
+< &rho; &sigma; &sigmaf; &tau;<br>\
+< &upsilon; &phi; &chi; &psi;<br>\
+< &omega; &Gamma; &Delta; &Theta;<br>\
+< &Lambda; &Xi; &Pi; &Sigma;<br>\
+< &Phi; &Psi; &Omega;||\
+< &amp;alpha; &amp;beta; &amp;gamma &amp;delta;<br>\
+< &amp;epsilon; &amp;zeta; &amp;eta; &amp;theta;<br>\
+< &amp;iota; &amp;kappa; &amp;lambda; &amp;mu;<br>\
+< &amp;nu; &amp;xi; &amp;omicron; &amp;pi;<br>\
+< &amp;rho; &amp;sigma; &amp;sigmaf; &amp;tau;<br>\
+< &amp;upsilon; &amp;phi; &amp;chi; &amp;psi;<br>\
+< &amp;omega; &amp;Gamma; &amp;Delta; &amp;Theta;<br>\
+< &amp;Lambda; &amp;Xi; &amp;Pi; &amp;Sigma;<br>\
+< &amp;Phi; &amp;Psi; &amp;Omega;||
+---
+> &amp;alpha; &amp;beta; &amp;gamma; &amp;delta;&lt;br&gt;\
+> &amp;epsilon; &amp;zeta; &amp;eta; &amp;theta;&lt;br&gt;\
+> &amp;iota; &amp;kappa; &amp;lambda; &amp;mu;&lt;br&gt;\
+> &amp;nu; &amp;xi; &amp;omicron; &amp;pi;&lt;br&gt;\
+> &amp;rho; &amp;sigma; &amp;sigmaf; &amp;tau;&lt;br&gt;\
+> &amp;upsilon; &amp;phi; &amp;chi; &amp;psi;&lt;br&gt;\
+> &amp;omega; &amp;Gamma; &amp;Delta; &amp;Theta;&lt;br&gt;\
+> &amp;Lambda; &amp;Xi; &amp;Pi; &amp;Sigma;&lt;br&gt;\
+> &amp;Phi; &amp;Psi; &amp;Omega;||\
+> &amp;amp;alpha; &amp;amp;beta; &amp;amp;gamma &amp;amp;delta;&lt;br&gt;\
+> &amp;amp;epsilon; &amp;amp;zeta; &amp;amp;eta; &amp;amp;theta;&lt;br&gt;\
+> &amp;amp;iota; &amp;amp;kappa; &amp;amp;lambda; &amp;amp;mu;&lt;br&gt;\
+> &amp;amp;nu; &amp;amp;xi; &amp;amp;omicron; &amp;amp;pi;&lt;br&gt;\
+> &amp;amp;rho; &amp;amp;sigma; &amp;amp;sigmaf; &amp;amp;tau;&lt;br&gt;\
+> &amp;amp;upsilon; &amp;amp;phi; &amp;amp;chi; &amp;amp;psi;&lt;br&gt;\
+> &amp;amp;omega; &amp;amp;Gamma; &amp;amp;Delta; &amp;amp;Theta;&lt;br&gt;\
+> &amp;amp;Lambda; &amp;amp;Xi; &amp;amp;Pi; &amp;amp;Sigma;&lt;br&gt;\
+> &amp;amp;Phi; &amp;amp;Psi; &amp;amp;Omega;||
+43,64c43,64
+< &int; &sum; &prod; &radic;<br>\
+< &minus; &plusmn; &infin; &asymp; <br>\
+< &prop; &equiv; &ne; &le;<br>\
+< &ge; &rarr; &times; &middot;<br>\
+< &divide; &part; &prime; &Prime;<br>\
+< &nabla; &permil; &deg; &there4;<br>\
+< &alefsym; &oslash; &isin; &notin;<br>\
+< &cap; &cup; &sub; &sup;<br>\
+< &sube; &supe; &not; &and;<br>\
+< &or; &exist; &forall; &rArr;<br>\
+< &hArr;||\
+< &amp;int; &amp;sum; &amp;prod; &amp;radic;<br>\
+< &amp;minus; &amp;plusmn; &amp;infin; &amp;asymp; <br>\
+< &amp;prop; &amp;equiv; &amp;ne; &amp;le;<br>\
+< &amp;ge; &amp;rarr; &amp;times; &amp;middot;<br>\
+< &amp;divide; &amp;part; &amp;prime; &amp;Prime;<br>\
+< &amp;nabla; &amp;permil; &amp;deg; &amp;there4;<br>\
+< &amp;alefsym; &amp;oslash; &amp;isin; &amp;notin;<br>\
+< &amp;cap; &amp;cup; &amp;sub; &amp;sup;<br>\
+< &amp;sube; &amp;supe; &amp;not; &amp;and;<br>\
+< &amp;or; &amp;exist; &amp;forall; &amp;rArr;<br>\
+< &amp;hArr;||
+---
+> &amp;int; &amp;sum; &amp;prod; &amp;radic;&lt;br&gt;\
+> &amp;minus; &amp;plusmn; &amp;infin; &amp;asymp; &lt;br&gt;\
+> &amp;prop; &amp;equiv; &amp;ne; &amp;le;&lt;br&gt;\
+> &amp;ge; &amp;rarr; &amp;times; &amp;middot;&lt;br&gt;\
+> &amp;divide; &amp;part; &amp;prime; &amp;Prime;&lt;br&gt;\
+> &amp;nabla; &amp;permil; &amp;deg; &amp;there4;&lt;br&gt;\
+> &amp;alefsym; &amp;oslash; &amp;isin; &amp;notin;&lt;br&gt;\
+> &amp;cap; &amp;cup; &amp;sub; &amp;sup;&lt;br&gt;\
+> &amp;sube; &amp;supe; &amp;not; &amp;and;&lt;br&gt;\
+> &amp;or; &amp;exist; &amp;forall; &amp;rArr;&lt;br&gt;\
+> &amp;hArr;||\
+> &amp;amp;int; &amp;amp;sum; &amp;amp;prod; &amp;amp;radic;&lt;br&gt;\
+> &amp;amp;minus; &amp;amp;plusmn; &amp;amp;infin; &amp;amp;asymp; &lt;br&gt;\
+> &amp;amp;prop; &amp;amp;equiv; &amp;amp;ne; &amp;amp;le;&lt;br&gt;\
+> &amp;amp;ge; &amp;amp;rarr; &amp;amp;times; &amp;amp;middot;&lt;br&gt;\
+> &amp;amp;divide; &amp;amp;part; &amp;amp;prime; &amp;amp;Prime;&lt;br&gt;\
+> &amp;amp;nabla; &amp;amp;permil; &amp;amp;deg; &amp;amp;there4;&lt;br&gt;\
+> &amp;amp;alefsym; &amp;amp;oslash; &amp;amp;isin; &amp;amp;notin;&lt;br&gt;\
+> &amp;amp;cap; &amp;amp;cup; &amp;amp;sub; &amp;amp;sup;&lt;br&gt;\
+> &amp;amp;sube; &amp;amp;supe; &amp;amp;not; &amp;amp;and;&lt;br&gt;\
+> &amp;amp;or; &amp;amp;exist; &amp;amp;forall; &amp;amp;rArr;&lt;br&gt;\
+> &amp;amp;hArr;||
+66,67c66,67
+< x&nbsp;&nbsp;&ge;&nbsp;&nbsp;y||\
+< x&amp;nbsp;&amp;nbsp;&amp;ge;&amp;nbsp;&amp;nbsp;y||
+---
+> x&amp;nbsp;&amp;nbsp;&amp;ge;&amp;nbsp;&amp;nbsp;y||\
+> x&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;ge;&amp;amp;nbsp;&amp;amp;nbsp;y||
+69,97c69,173
+< &Agrave; &Aacute; &Acirc; &Atilde;<br>\
+< &Auml; &Aring; &Ccedil; &Egrave;<br>\
+< &Eacute; &Ecirc; &Euml; &Igrave;<br>\
+< &Iacute; &Icirc; &Iuml; &Ntilde;<br>\
+< &Ograve; &Oacute; &Ocirc; &Otilde;<br>\
+< &Ouml; &Oslash; &Ugrave; &Uacute;<br>\
+< &Ucirc; &Uuml; &szlig; &agrave;<br>\
+< &aacute; &acirc; &atilde; &auml;<br>\
+< &aring; &aelig; &ccedil; &egrave;<br>\
+< &eacute; &ecirc; &euml; &igrave;<br>\
+< &iacute; &icirc; &iuml; &ntilde;<br>\
+< &ograve; &oacute; &ocirc; &otilde;<br>\
+< &ouml; &oslash; &ugrave; &uacute;<br>\
+< &ucirc; &uuml; &yuml;||\
+< &amp;Agrave; &amp;Aacute; &amp;Acirc; &amp;Atilde;<br>\
+< &amp;Auml; &amp;Aring; &amp;Ccedil; &amp;Egrave;<br>\
+< &amp;Eacute; &amp;Ecirc; &amp;Euml; &amp;Igrave;<br>\
+< &amp;Iacute; &amp;Icirc; &amp;Iuml; &amp;Ntilde;<br>\
+< &amp;Ograve; &amp;Oacute; &amp;Ocirc; &amp;Otilde;<br>\
+< &amp;Ouml; &amp;Oslash; &amp;Ugrave; &amp;Uacute;<br>\
+< &amp;Ucirc; &amp;Uuml; &amp;szlig; &amp;agrave;<br>\
+< &amp;aacute; &amp;acirc; &amp;atilde; &amp;auml;<br>\
+< &amp;aring; &amp;aelig; &amp;ccedil; &amp;egrave;<br>\
+< &amp;eacute; &amp;ecirc; &amp;euml; &amp;igrave;<br>\
+< &amp;iacute; &amp;icirc; &amp;iuml; &amp;ntilde;<br>\
+< &amp;ograve; &amp;oacute; &amp;ocirc; &amp;otilde;<br>\
+< &amp;ouml; &amp;oslash; &amp;ugrave; &amp;uacute;<br>\
+< &amp;ucirc; &amp;uuml; &amp;yuml;||
+< ||Ligatures||&AElig;||&amp;AElig;||
+---
+> &amp;Agrave; &amp;Aacute; &amp;Acirc; &amp;Atilde;&lt;br&gt;\
+> &amp;Auml; &amp;Aring; &amp;Ccedil; &amp;Egrave;&lt;br&gt;\
+> &amp;Eacute; &amp;Ecirc; &amp;Euml; &amp;Igrave;&lt;br&gt;\
+> &amp;Iacute; &amp;Icirc; &amp;Iuml; &amp;Ntilde;&lt;br&gt;\
+> &amp;Ograve; &amp;Oacute; &amp;Ocirc; &amp;Otilde;&lt;br&gt;\
+> &amp;Ouml; &amp;Oslash; &amp;Ugrave; &amp;Uacute;&lt;br&gt;\
+> &amp;Ucirc; &amp;Uuml; &amp;szlig; &amp;agrave;&lt;br&gt;\
+> &amp;aacute; &amp;ac[http://www.yourgoogle.com>googleÅÅÃû]
+> [http://www.yourgoogle.com/google-list/google-list.htm >google×ó²àÅÅÃû]
+> [http://www.yourgoogle.com/webdesign/webdesign-1.htm>ÍøÕ¾½¨Éè]
+> [http://googlesz.freewebpage.org>googleÍÆ¹ã]
+> [http://www.tlup.com>ÍøÂçÓªÏú]
+> [http://www.tlup.com>ÏîÄ¿ºÏ×÷]
+> [http://swellong.freewebpage.org>ÍøÂçÉãÏñ»ú]
+> [http://www.flowerwish.com>ÏÊ»¨]
+> [http://www.flowerwish.com>ÍøÉÏ»¨µê]
+> [http://www.flowerwish.com/ups>upsµçÔ´]
+> [http://www.blueattain.com>¹ÜÀí×ÊÁÏ]
+> [http://www.szsuun.com> KVM]
+> [http://kvmkvm.freewebpage.org> KVM]
+> [http://www.flowerwish.com/qygl>ÆóÒµ¹ÜÀí]
+> [http://www.flowerwish.com/qygl>¹ÜÀíÅàÑµ]
+> [http://www.ktyu.com>fiberglass yarn]
+> [http://www.edmcocn.com> EDM]
+> [http://www.yourgoogle.com/company-card-index/companyindex.htm>ÆóÒµÃûÂ¼]
+> [http://flowerwish.freewebpage.org>ÏÊ»¨]
+> [http://www.glpx.com>¹ÜÀíÅàÑµ]
+> [http://www.glpx.com>¹ÜÀí×ÉÑ¯]
+> [http://www.glpx.com>ÈËÁ¦×ÊÔ´ÅàÑµ]
+> [http://www.flowerwish.com/zhuce>¹«Ë¾×¢²á]
+> [http://www.xingfuquan.com>³ÉÈËÓÃÆ·]
+> [http://www.xingfuquan.com>ÐÔÓÃÆ·]
+> [http://www.huaqiplas.com>ËÜÁÏÖÆÆ·]
+> [http://www.flowerwish.com/byq>±äÑ¹Æ÷]
+> [http://www.inflatables-china.com>china inflatable]
+> [http://www.inflatables-china.com>china inflatables]
+> [http://www.jlcggs.com/chanpin/chanpin2.htm>·À·øÉäÒÂ·þ]
+> [http://kvm.bizhat.com>kvm]
+> [http://logistics.freewebpage.org>logistics]
+> [www.yourgoogle.com/company-card-index/companyindex.htm>ÆóÒµÃûÂ¼]
+> [www.yourgoogle.com/company-card-index/companyindex.htm>ÆóÒµ»ÆÒ³]
+> [http://www.51gl.cn>ÆóÒµ¹ÜÀí]
+> [http://www.yourgoogle.com/default.asp>ÆóÒµÃûÂ¼]
+> [http://glassbead.freewebpage.org>Æû³µÓÃÆ·]
+> [http://www.sfcomm.com>ÍøÂçÉãÏñ»ú]
+> [http://www.yourgoogle.com/default.asp>¹«Ë¾ÃûÂ¼]
+> [http://www.yourgoogle.com/paobuji/>ÅÜ²½»ú]
+> [http://www.flowerwish.com/cdq/>³äµçÆ÷]
+> [http://www.jlcggs.com/chanpin/fanghu/anzuobao/anzuobao.htm>¶ùÍ¯°²È«×ùÒÎ]
+> [http://www.jlcggs.com/chanpin/chelei/dulun/dulunche.htm>¶ÀÂÖ×ÔÐÐ³µ]
+> [http://www.creator-cg.com/crcs/>»áÒéÏµÍ³]
+> [http://www.flowerwish.com/huanbao/>Ë®´¦Àí]
+> [http://www.szsuun.com>kvm]
+> [http://www.yourgoogle.com/ghdprinting/>²ÊÓ¡]
+> [http://www.yourgoogle.com/ghdprinting/>²ÊÉ«Ó¡Ë¢]
+> [http://www.pinghengji.com/cp2.asp>ÀëºÏÆ÷]
+> [http://www.huaqiplas.com>ËÜÁÏ]
+> [http://www.yourgoogle.com/duijiangji>¶Ô½²»ú]
+> [http://www.sfcomm.com>ÍøÂçÉãÏñ»ú]
+> [http://magnesia.freewebpage.org>comb binding]
+> [http://magnesia.freewebpage.org>comb binding machine ]
+> [http://magnesia.freewebpage.org> wire binding]
+> [http://magnesia.freewebpage.org>wire binding machine ]
+> [http://magnesia.freewebpage.org>comb binding machine]
+> [http://magnesia.freewebpage.org>binding supplies]
+> [http://magnesia.freewebpage.org>laminating machine]
+> [http://www.flowerwish.com/kvm/>kvm]
+> [http://www.0755shopping.com>Æû³µÓÃÆ·]
+> [http://tingchechang.freewebpage.org>Í£³µ³¡]
+> [http://wlsxj.freewebpage.org>³ÉÈËÓÃÆ·]
+> [http://wlsxj.freewebpage.org>ÐÔÓÃÆ·]
+> [http://netphoto.freewebpage.org>ËÜÁÏÖÆÆ·]
+> [http://www.flowerwish.com/edm/>edm]
+> [http://www.flowerwish.com/diaokeji/>µñ¿Ì»ú]
+> [http://www.flowerwish.com/touyingji>Í¶Ó°»ú]
+> [http://pyrethum.freewebpage.org>diamond blade]
+> [http://pyrethum.freewebpage.org>diamond disc]
+> [http://pyrethum.freewebpage.org>high visibility jacket]
+> [http://pyrethum.freewebpage.org>high visibility vest]
+> [http://pyrethum.freewebpage.org>cutting disc]
+> [http://pyrethum.freewebpage.org>sanding disc]
+> [http://pyrethum.freewebpage.org>sanding belt]
+> [http://pyrethum.freewebpage.org>diamond core]
+>  ######irc; &amp;atilde; &amp;auml;&lt;br&gt;\
+> &amp;aring; &amp;aelig; &amp;ccedil; &amp;egrave;&lt;br&gt;\
+> &amp;eacute; &amp;ecirc; &amp;euml; &amp;igrave;&lt;br&gt;\
+> &amp;iacute; &amp;icirc; &amp;iuml; &amp;ntilde;&lt;br&gt;\
+> &amp;ograve; &amp;oacute; &amp;ocirc; &amp;otilde;&lt;br&gt;\
+> &amp;ouml; &amp;oslash; &amp;ugrave; &amp;uacute;&lt;br&gt;\
+> &amp;ucirc; &amp;uuml; &amp;yuml;||\
+> &amp;amp;Agrave; &amp;amp;Aacute; &amp;amp;Acirc; &amp;amp;Atilde;&lt;br&gt;\
+> &amp;amp;Auml; &amp;amp;Aring; &amp;amp;Ccedil; &amp;amp;Egrave;&lt;br&gt;\
+> &amp;amp;Eacute; &amp;amp;Ecirc; &amp;amp;Euml; &amp;amp;Igrave;&lt;br&gt;\
+> &amp;amp;Iacute; &amp;amp;Icirc; &amp;amp;Iuml; &amp;amp;Ntilde;&lt;br&gt;\
+> &amp;amp;Ograve; &amp;amp;Oacute; &amp;amp;Ocirc; &amp;amp;Otilde;&lt;br&gt;\
+> &amp;amp;Ouml; &amp;amp;Oslash; &amp;amp;Ugrave; &amp;amp;Uacute;&lt;br&gt;\
+> &amp;amp;Ucirc; &amp;amp;Uuml; &amp;amp;szlig; &amp;amp;agrave;&lt;br&gt;\
+> &amp;amp;aacute; &amp;amp;acirc; &amp;amp;atilde; &amp;amp;auml;&lt;br&gt;\
+> &amp;amp;aring; &amp;amp;aelig; &amp;amp;ccedil; &amp;amp;egrave;&lt;br&gt;\
+> &amp;amp;eacute; &amp;amp;ecirc; &amp;amp;euml; &amp;amp;igrave;&lt;br&gt;\
+> &amp;amp;iacute; &amp;amp;icirc; &amp;amp;iuml; &amp;amp;ntilde;&lt;br&gt;\
+> &amp;amp;ograve; &amp;amp;oacute; &amp;amp;ocirc; &amp;amp;otilde;&lt;br&gt;\
+> &amp;amp;ouml; &amp;amp;oslash; &amp;amp;ugrave; &amp;amp;uacute;&lt;br&gt;\
+> &amp;amp;ucirc; &amp;amp;uuml; &amp;amp;yuml;||
+> ||Ligatures||&amp;AElig;||&amp;amp;AElig;||

@@ -1,0 +1,61 @@
+ts³11099266722³1version³13³1cache_oldmajor³10³1cache_oldauthor³10³1cache_diff_default_author³11³1revision³11³1tscreate³11099266722³1text_default³1ip³2217.247.138.3³2ts³21099266722³2version³21³2name³2text_default³2data³2summary³3start³3text³3<b>Q: Can anyone suggest a PGP version to use with XP and Outlook Express? Is it possible to also use it with Yahoo IM?</b>
+
+A: <debra> PGP 6.5.8 You can download it free from http://www.pgpi.com
+
+Don't get version 7 (it crashes XP). Don't get version 8 (a lot of the features are disabled, and portions expire after a month).
+
+I think the only IM that works with PGP is ICQ. 
+
+<Intrepid> Your questions are answered in an article by Claire Wolfe entitled The Hardyville Beginners Guide to Encryption. You can access this article at http://www.backwoodshome.com/columns/wolfe040215.html
+
+I just read the article and I am about to download and install PGP by clicking on the link she provides in the article. I have done this before and I anticipate no problem in doing so.
+
+<b>Q: How do you make your keyrings portable? Can you set up PGP so that it looks for its keyring files on the floppy drive, or maybe a USB memory thing? Without having to copy the keyring flies onto the hard drive of every computer I use?</b>
+
+<b>Next question. What about GPG? Will GPG use my PGP keyrings? I am pretty sure PGP public keys can be used by GPG. But what about my private key? Do I need 1 private key for PGP and another private key for GPG?</b>
+
+<b>Actually, I guess I should restate my problem. I want to use encryption on multiple computers, Linux and Windows. And I only want one set of keyrings that I can transport between these computers, using a floppy disk or USB memory device. Is this possible?</b>
+
+A: <Plinker-MS> The USB memory things work fine. No more floppys for me. Great for keeping your keyrings and messages. 
+
+I am not sure how you would use it with Windows/PGP, but "ln -s /mnt/removable/.gnupg .gnupg" works fine in Linux. For using Windows/PGP on multiple machines, you could probably put PGP itself on the USB memory and run it from there. 
+
+I also recommend encrypting your keyrings with symmetric (non-public key) encryption when you are not using them. (Or keeping them on an encrypted Linux partition -- although that might spoil your Windows compatibility)
+
+I'm not sure if GPG can use your PGP keyrings. The file formats are the same, but GPG and PGP use different algorithms for encryption. It also probably depends on which version of PGP you are using. You will just have to try it to find out.
+ 
+<analog> GPG can use your PGP private key. I did this, and it worked just fine. You just have to export the private key into a plain text file, and import it into GPG. Be careful not to leave that plain text file laying around on your computer though, since it is completetly unprotected, and can be used to decrypt your messages.
+
+- - -
+³3newauthor³31³3minor³30³2username³2Junker³2host³2pD9F78A03.dip.t-dialin.net³2revision³21³2tscreate³21099266722³2id³21210³1cache_diff_default_major³11³1cache_diff_default_minor³11c1,29
+< Describe the new page here.
+---
+> <b>Q: Can anyone suggest a PGP version to use with XP and Outlook Express? Is it possible to also use it with Yahoo IM?</b>
+> 
+> A: <debra> PGP 6.5.8 You can download it free from http://www.pgpi.com
+> 
+> Don't get version 7 (it crashes XP). Don't get version 8 (a lot of the features are disabled, and portions expire after a month).
+> 
+> I think the only IM that works with PGP is ICQ. 
+> 
+> <Intrepid> Your questions are answered in an article by Claire Wolfe entitled The Hardyville Beginners Guide to Encryption. You can access this article at http://www.backwoodshome.com/columns/wolfe040215.html
+> 
+> I just read the article and I am about to download and install PGP by clicking on the link she provides in the article. I have done this before and I anticipate no problem in doing so.
+> 
+> <b>Q: How do you make your keyrings portable? Can you set up PGP so that it looks for its keyring files on the floppy drive, or maybe a USB memory thing? Without having to copy the keyring flies onto the hard drive of every computer I use?</b>
+> 
+> <b>Next question. What about GPG? Will GPG use my PGP keyrings? I am pretty sure PGP public keys can be used by GPG. But what about my private key? Do I need 1 private key for PGP and another private key for GPG?</b>
+> 
+> <b>Actually, I guess I should restate my problem. I want to use encryption on multiple computers, Linux and Windows. And I only want one set of keyrings that I can transport between these computers, using a floppy disk or USB memory device. Is this possible?</b>
+> 
+> A: <Plinker-MS> The USB memory things work fine. No more floppys for me. Great for keeping your keyrings and messages. 
+> 
+> I am not sure how you would use it with Windows/PGP, but "ln -s /mnt/removable/.gnupg .gnupg" works fine in Linux. For using Windows/PGP on multiple machines, you could probably put PGP itself on the USB memory and run it from there. 
+> 
+> I also recommend encrypting your keyrings with symmetric (non-public key) encryption when you are not using them. (Or keeping them on an encrypted Linux partition -- although that might spoil your Windows compatibility)
+> 
+> I'm not sure if GPG can use your PGP keyrings. The file formats are the same, but GPG and PGP use different algorithms for encryption. It also probably depends on which version of PGP you are using. You will just have to try it to find out.
+>  
+> <analog> GPG can use your PGP private key. I did this, and it worked just fine. You just have to export the private key into a plain text file, and import it into GPG. Be careful not to leave that plain text file laying around on your computer though, since it is completetly unprotected, and can be used to decrypt your messages.
+> 
+> - - -

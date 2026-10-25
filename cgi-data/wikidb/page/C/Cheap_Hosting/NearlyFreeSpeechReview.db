@@ -1,0 +1,84 @@
+version³13³1ts³11102267230³1cache_oldmajor³19³1cache_oldauthor³17³1cache_diff_default_author³10a1,16
+> <b>041205, Junker:</b> I started gulching.org with NFS a few weeks ago. I like NFS. I like the cheap and clear business and billing model. I like their control panels. I like their attitude. It might be that they get too expensive if you have a *very* active site, but otherwise, I say that they're the ones to go with. As my other sites run their two year contracts out, I'll switch them to nfs or the next generation equivalent.
+> 
+> Cost:
+> :~$0.01/month Data Transfers (rate 1GB/$1.00)
+> :~$0.03/month Disk Space (rate $0.01/MB/month)
+> :~$0.30/month Basic Domain Name service (rate: $3.65/year)
+> :~$0.58/month Domain Name registration (outsourced rate: ~$7.00/yr)
+> 
+> Total: ~$0.92/month or $11.02/year
+> 
+> Compared, Acenet costs $4.00/month ($48.00/year). But that's for standard 2GB space & 6GB transfer/month, but not including domain name registration of $15/year.
+> 
+> The breakeven point is 400MB disk size or 4GB transfer. My largest site to date is 35MB and negligable transfer. It's cost then at NFS would be $1.24/month ($14.88/year). The only remaining advantage to Acenet is its bundle of automatically installable software-- forums, wikis, blogs, etc. You have to load the software by hand at NFS.
+> 
+> - - -
+> 
+³1revision³110³1tscreate³11095793744³1text_default³1version³21³2ts³21102267230³2ip³2217.247.143.194³2name³2text_default³2data³2summary³3*³3text³3<b>041205, Junker:</b> I started gulching.org with NFS a few weeks ago. I like NFS. I like the cheap and clear business and billing model. I like their control panels. I like their attitude. It might be that they get too expensive if you have a *very* active site, but otherwise, I say that they're the ones to go with. As my other sites run their two year contracts out, I'll switch them to nfs or the next generation equivalent.
+
+Cost:
+:~$0.01/month Data Transfers (rate 1GB/$1.00)
+:~$0.03/month Disk Space (rate $0.01/MB/month)
+:~$0.30/month Basic Domain Name service (rate: $3.65/year)
+:~$0.58/month Domain Name registration (outsourced rate: ~$7.00/yr)
+
+Total: ~$0.92/month or $11.02/year
+
+Compared, Acenet costs $4.00/month ($48.00/year). But that's for standard 2GB space & 6GB transfer/month, but not including domain name registration of $15/year.
+
+The breakeven point is 400MB disk size or 4GB transfer. My largest site to date is 35MB and negligable transfer. It's cost then at NFS would be $1.24/month ($14.88/year). The only remaining advantage to Acenet is its bundle of automatically installable software-- forums, wikis, blogs, etc. You have to load the software by hand at NFS.
+
+- - -
+
+Written by Tom Osman at TCF:
+
+Yes, I use this host for [http://www.ideasforliberty.com my site], and have for the past month or so.   Based upon my experiences of the past month, I would recommend it.  Of course, past results are no guarantee of future performance!
+
+Okay:  I put five bux on the site, the minimum to open an account.   I still haven't used 3 bux worth yet. Now, I haven't had that many members join yet, (I just revamped it to ALLOW members) but I HAVE uploaded a bunch of stuff.  
+
+The interface?  If you have WS_FTP and know how to use it, you'll be fine.  And what you don't know about running the "myPHPadmin" thing and mySQL stuff, you'll learn fast, really.  I didn't know what this stuff was, and yet I've been able to diagnose and solve my major problems relatively quickly.  But there are NO frills at all, mind you.
+
+
+Pros:  
+
+:Insanely cheap
+:Easy to use
+:Your own mySQL thingy
+:Customer support is FAST (both times I've used it, I got replies within the hour) and accurate
+:DNS service for 2 cents per day - I had my own domain already, and it worked like a charm, redirecting in less than an hour. (they say it could take two days, but it didn't!)
+:Email redirection  (anything @ IdeasForLiberty.com)
+:Accept money orders - I suppose you could have a completely anonymous site this way.   :ph34r: 
+:Technical stuff (everything technical I wanna do with my site, they have the ability to do.)
+:You can host a porn site (I'm just saying!)
+
+:But the most unique, I think, is the attitude of the people who run it:
+
+::We will not disclose your personally identifiable information to any third party without your prior consent unless legally compelled to do so. We will attempt to notify you any time we are forced to disclose your personally identifiable information unless we are legally prevented from doing so.
+
+:So basically, no court order, no cooperation.  For this attitude alone we should support them.
+
+:Some notables that have sites there, besides myself, include [http://www.billstclair.com Bill St. Clair] and [http://www.bugmenot.com BugMeNot], who were chased off of their previous host by lawyers and threat of lawsuit.
+
+Cons:
+
+:A few days ago, they had several hours of downtime.  Apparently, they ran out of file descriptors.  Well, they say they've more than tripled their capacity for that stuff. Frankly, it's mostly over my head.   It was overnight, so I barely noticed the problem, but I'm sure many others did.  And it started during a time I was working on my PHP code stuff (something I only recently learned SO I could do my site) so, I thought I'd messed something up and couldn't figure it out.   I was scared that maybe I'd signed on with a crappy service, but then I went through the records of their previous member alerts, and this is quite an uncommon occurence, thankfully.
+
+And the price.  Too good to be true?  Maybe I'm a pessimist, but I fear a rate increase.  Of course, at those rates ($1/GB storage, $1/GB data transfer), an increase may not even be too noticeable.  Especially since you prepay.   Whatever the money they're making, they claim to be making a profit, so good for them.
+
+I also asked - what happens when your prepaid balance runs low?  I mean, what if you're "Slashdotted" or something?  They told me they leave it up for a month, just in case of something like that.  
+
+Junker mentioned that it seems nice for small sites.  I have high hopes for my site, I think we all want our sites to succeed.  But realistically, I don't know how many members I'll get.  It's about building freedom community, and giving freedom lovers resources they need to spread liberty.  And that's quite a small niche, and it's my first serious attempt.  So for MY needs, this will work just fine, I think.  If you're trying to build the next Amazon, maybe not, but then again - you gotta start somewhere!
+
+
+Bottom line:  I like <nowiki>NearlyFreeSpeech.net</nowiki>. The price is right, the service does everything it's supposed to, and the owners' heads are in the right places.  And if you give it a test and don't like it, well - if you've made backups of your data, then what are you out, 5 bucks?
+³3minor³30³3newauthor³30³2host³2pD9F78FC2.dip.t-dialin.net³2username³2Junker³2revision³210³2id³21210³2tscreate³21095793744³2keepts³21102267230³1cache_diff_default_major³11³1cache_diff_default_minor³14,7c4,7
+< ~$0.01/month Data Transfers (rate 1GB/$1.00)
+< ~$0.03/month Disk Space (rate $0.01/MB/month)
+< ~$0.30/month Basic Domain Name service (rate: $3.65/year)
+< ~$0.58/month Domain Name registration (outsourced rate: ~$7.00/yr)
+---
+> :~$0.01/month Data Transfers (rate 1GB/$1.00)
+> :~$0.03/month Disk Space (rate $0.01/MB/month)
+> :~$0.30/month Basic Domain Name service (rate: $3.65/year)
+> :~$0.58/month Domain Name registration (outsourced rate: ~$7.00/yr)

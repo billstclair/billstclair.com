@@ -1,0 +1,194 @@
+³1ip³2205.231.146.31³2ts³21074348695³2version³21³2name³2text_default³2data³2summary³3*³3text³3= Special characters =
+
+PmWiki's [http://www.pmichaud.com/wiki/PmWiki/SpecialCharacters SpecialCharacters] page has a more nicely formatted version of this. Canadian Mind Products' [http://mindprod.com/jgloss/htmlcheat.html#SPECIALCHARS HTML Cheat Sheet] has some more.
+
+These are not strictly kosher in HTML any more. You're supposed to use
+[http://www.w3.org/TR/html4/sgml/entities.html numeric codes]. Yuck.
+
+UseMod passes through the HTML codes for special characters. These are typed with an ampersand, some text, and a semi-colon, as in the "Token" column in the table below.
+
+||<b>Category</b>||<b>Character</b>||<b>Token</b>||
+||Punctuation||\
+&iquest; &iexcl; &laquo; &raquo;<br>\
+&sect; &para; &dagger; &Dagger;<br>\
+&bull; &mdash; &ndash; &amp; ||\
+&amp;iquest; &amp;iexcl; &amp;laquo; &amp;raquo;<br>\
+&amp;sect; &amp;para; &amp;dagger; &amp;Dagger;<br>\
+&amp;bull; &amp;mdash; &amp;ndash; &amp;amp; ||
+||Commercial||\
+&trade; &copy; &reg; &cent;<br>\
+&euro; &yen; &pound; &curren;||\
+&amp;trade; &amp;copy; &amp;reg; &amp;cent<br>\
+&amp;euro; &amp;yen; &amp;pound; &amp;curren;||
+||Greek||\
+&alpha; &beta; &gamma; &delta;<br>\
+&epsilon; &zeta; &eta; &theta;<br>\
+&iota; &kappa; &lambda; &mu;<br>\
+&nu; &xi; &omicron; &pi;<br>\
+&rho; &sigma; &sigmaf; &tau;<br>\
+&upsilon; &phi; &chi; &psi;<br>\
+&omega; &Gamma; &Delta; &Theta;<br>\
+&Lambda; &Xi; &Pi; &Sigma;<br>\
+&Phi; &Psi; &Omega;||\
+&amp;alpha; &amp;beta; &amp;gamma; &amp;delta;<br>\
+&amp;epsilon; &amp;zeta; &amp;eta; &amp;theta;<br>\
+&amp;iota; &amp;kappa; &amp;lambda; &amp;mu;<br>\
+&amp;nu; &amp;xi; &amp;omicron; &amp;pi;<br>\
+&amp;rho; &amp;sigma; &amp;sigmaf; &amp;tau;<br>\
+&amp;upsilon; &amp;phi; &amp;chi; &amp;psi;<br>\
+&amp;omega; &amp;Gamma; &amp;Delta; &amp;Theta;<br>\
+&amp;Lambda; &amp;Xi; &amp;Pi; &amp;Sigma;<br>\
+&amp;Phi; &amp;Psi; &amp;Omega;||
+||Maths||\
+&int; &sum; &prod; &radic;<br>\
+&minus; &plusmn; &infin; &asymp; <br>\
+&prop; &equiv; &ne; &le;<br>\
+&ge; &rarr; &times; &middot;<br>\
+&divide; &part; &prime; &Prime;<br>\
+&nabla; &permil; &deg; &there4;<br>\
+&alefsym; &oslash; &isin; &notin;<br>\
+&cap; &cup; &sub; &sup;<br>\
+&sube; &supe; &not; &and;<br>\
+&or; &exist; &forall; &rArr;<br>\
+&hArr;||\
+&amp;int; &amp;sum; &amp;prod; &amp;radic;<br>\
+&amp;minus; &amp;plusmn; &amp;infin; &amp;asymp; <br>\
+&amp;prop; &amp;equiv; &amp;ne; &amp;le;<br>\
+&amp;ge; &amp;rarr; &amp;times; &amp;middot;<br>\
+&amp;divide; &amp;part; &amp;prime; &amp;Prime;<br>\
+&amp;nabla; &amp;permil; &amp;deg; &amp;there4;<br>\
+&amp;alefsym; &amp;oslash; &amp;isin; &amp;notin;<br>\
+&amp;cap; &amp;cup; &amp;sub; &amp;sup;<br>\
+&amp;sube; &amp;supe; &amp;not; &amp;and;<br>\
+&amp;or; &amp;exist; &amp;forall; &amp;rArr;<br>\
+&amp;hArr;||
+||Non-Breaking Space||\
+x&nbsp;&nbsp;&ge;&nbsp;&nbsp;y||\
+x&amp;nbsp;&amp;nbsp;&amp;ge;&amp;nbsp;&amp;nbsp;y||
+||Accents||\
+&Agrave; &Aacute; &Acirc; &Atilde;<br>\
+&Auml; &Aring; &Ccedil; &Egrave;<br>\
+&Eacute; &Ecirc; &Euml; &Igrave;<br>\
+&Iacute; &Icirc; &Iuml; &Ntilde;<br>\
+&Ograve; &Oacute; &Ocirc; &Otilde;<br>\
+&Ouml; &Oslash; &Ugrave; &Uacute;<br>\
+&Ucirc; &Uuml; &szlig; &agrave;<br>\
+&aacute; &acirc; &atilde; &auml;<br>\
+&aring; &aelig; &ccedil; &egrave;<br>\
+&eacute; &ecirc; &euml; &igrave;<br>\
+&iacute; &icirc; &iuml; &ntilde;<br>\
+&ograve; &oacute; &ocirc; &otilde;<br>\
+&ouml; &oslash; &ugrave; &uacute;<br>\
+&ucirc; &uuml; &yuml;||\
+&amp;Auml; &amp;Aring; &amp;Ccedil; &amp;Egrave;<br>\
+&amp;Eacute; &amp;Ecirc; &amp;Euml; &amp;Igrave;<br>\
+&amp;Iacute; &amp;Icirc; &amp;Iuml; &amp;Ntilde;<br>\
+&amp;Ograve; &amp;Oacute; &amp;Ocirc; &amp;Otilde;<br>\
+&amp;Ouml; &amp;Oslash; &amp;Ugrave; &amp;Uacute;<br>\
+&amp;Ucirc; &amp;Uuml; &amp;szlig; &amp;agrave;<br>\
+&amp;aacute; &amp;acirc; &amp;atilde; &amp;auml;<br>\
+&amp;aring; &amp;aelig; &amp;ccedil; &amp;egrave;<br>\
+&amp;eacute; &amp;ecirc; &amp;euml; &amp;igrave;<br>\
+&amp;iacute; &amp;icirc; &amp;iuml; &amp;ntilde;<br>\
+&amp;ograve; &amp;oacute; &amp;ocirc; &amp;otilde;<br>\
+&amp;ouml; &amp;oslash; &amp;ugrave; &amp;uacute;<br>\
+&amp;ucirc; &amp;uuml; &amp;yuml;||
+||Ligatures||&AElig;||&amp;AElig;||
+³3minor³31³3newauthor³30³2username³2BillStClair³2host³2dcha-aa1503.taconic.net³2revision³22³2tscreate³21074348522³2id³21004³2keepts³21074352917³1version³21³2ts³21074352917³2ip³2205.231.146.31³2name³2text_default³2data³2summary³3*³3text³3= Special characters =
+
+PmWiki's [http://www.pmichaud.com/wiki/PmWiki/SpecialCharacters SpecialCharacters] page has a more nicely formatted version of this. Canadian Mind Products' [http://mindprod.com/jgloss/htmlcheat.html#SPECIALCHARS HTML Cheat Sheet] has some more.
+
+These are not strictly kosher in HTML any more. You're supposed to use
+[http://www.w3.org/TR/html4/sgml/entities.html numeric codes]. Yuck.
+
+UseMod passes through the HTML codes for special characters. These are typed with an ampersand, some text, and a semi-colon, as in the "Token" column in the table below.
+
+||<b>Category</b>||<b>Character</b>||<b>Token</b>||
+||Punctuation||\
+&iquest; &iexcl; &laquo; &raquo;<br>\
+&sect; &para; &dagger; &Dagger;<br>\
+&bull; &mdash; &ndash; &amp; ||\
+&amp;iquest; &amp;iexcl; &amp;laquo; &amp;raquo;<br>\
+&amp;sect; &amp;para; &amp;dagger; &amp;Dagger;<br>\
+&amp;bull; &amp;mdash; &amp;ndash; &amp;amp; ||
+||Commercial||\
+&trade; &copy; &reg; &cent;<br>\
+&euro; &yen; &pound; &curren;||\
+&amp;trade; &amp;copy; &amp;reg; &amp;cent<br>\
+&amp;euro; &amp;yen; &amp;pound; &amp;curren;||
+||Greek||\
+&alpha; &beta; &gamma; &delta;<br>\
+&epsilon; &zeta; &eta; &theta;<br>\
+&iota; &kappa; &lambda; &mu;<br>\
+&nu; &xi; &omicron; &pi;<br>\
+&rho; &sigma; &sigmaf; &tau;<br>\
+&upsilon; &phi; &chi; &psi;<br>\
+&omega; &Gamma; &Delta; &Theta;<br>\
+&Lambda; &Xi; &Pi; &Sigma;<br>\
+&Phi; &Psi; &Omega;||\
+&amp;alpha; &amp;beta; &amp;gamma &amp;delta;<br>\
+&amp;epsilon; &amp;zeta; &amp;eta; &amp;theta;<br>\
+&amp;iota; &amp;kappa; &amp;lambda; &amp;mu;<br>\
+&amp;nu; &amp;xi; &amp;omicron; &amp;pi;<br>\
+&amp;rho; &amp;sigma; &amp;sigmaf; &amp;tau;<br>\
+&amp;upsilon; &amp;phi; &amp;chi; &amp;psi;<br>\
+&amp;omega; &amp;Gamma; &amp;Delta; &amp;Theta;<br>\
+&amp;Lambda; &amp;Xi; &amp;Pi; &amp;Sigma;<br>\
+&amp;Phi; &amp;Psi; &amp;Omega;||
+||Maths||\
+&int; &sum; &prod; &radic;<br>\
+&minus; &plusmn; &infin; &asymp; <br>\
+&prop; &equiv; &ne; &le;<br>\
+&ge; &rarr; &times; &middot;<br>\
+&divide; &part; &prime; &Prime;<br>\
+&nabla; &permil; &deg; &there4;<br>\
+&alefsym; &oslash; &isin; &notin;<br>\
+&cap; &cup; &sub; &sup;<br>\
+&sube; &supe; &not; &and;<br>\
+&or; &exist; &forall; &rArr;<br>\
+&hArr;||\
+&amp;int; &amp;sum; &amp;prod; &amp;radic;<br>\
+&amp;minus; &amp;plusmn; &amp;infin; &amp;asymp; <br>\
+&amp;prop; &amp;equiv; &amp;ne; &amp;le;<br>\
+&amp;ge; &amp;rarr; &amp;times; &amp;middot;<br>\
+&amp;divide; &amp;part; &amp;prime; &amp;Prime;<br>\
+&amp;nabla; &amp;permil; &amp;deg; &amp;there4;<br>\
+&amp;alefsym; &amp;oslash; &amp;isin; &amp;notin;<br>\
+&amp;cap; &amp;cup; &amp;sub; &amp;sup;<br>\
+&amp;sube; &amp;supe; &amp;not; &amp;and;<br>\
+&amp;or; &amp;exist; &amp;forall; &amp;rArr;<br>\
+&amp;hArr;||
+||Non-Breaking Space||\
+x&nbsp;&nbsp;&ge;&nbsp;&nbsp;y||\
+x&amp;nbsp;&amp;nbsp;&amp;ge;&amp;nbsp;&amp;nbsp;y||
+||Accents||\
+&Agrave; &Aacute; &Acirc; &Atilde;<br>\
+&Auml; &Aring; &Ccedil; &Egrave;<br>\
+&Eacute; &Ecirc; &Euml; &Igrave;<br>\
+&Iacute; &Icirc; &Iuml; &Ntilde;<br>\
+&Ograve; &Oacute; &Ocirc; &Otilde;<br>\
+&Ouml; &Oslash; &Ugrave; &Uacute;<br>\
+&Ucirc; &Uuml; &szlig; &agrave;<br>\
+&aacute; &acirc; &atilde; &auml;<br>\
+&aring; &aelig; &ccedil; &egrave;<br>\
+&eacute; &ecirc; &euml; &igrave;<br>\
+&iacute; &icirc; &iuml; &ntilde;<br>\
+&ograve; &oacute; &ocirc; &otilde;<br>\
+&ouml; &oslash; &ugrave; &uacute;<br>\
+&ucirc; &uuml; &yuml;||\
+&amp;Agrave; &amp;Aacute; &amp;Acirc; &amp;Atilde;<br>\
+&amp;Auml; &amp;Aring; &amp;Ccedil; &amp;Egrave;<br>\
+&amp;Eacute; &amp;Ecirc; &amp;Euml; &amp;Igrave;<br>\
+&amp;Iacute; &amp;Icirc; &amp;Iuml; &amp;Ntilde;<br>\
+&amp;Ograve; &amp;Oacute; &amp;Ocirc; &amp;Otilde;<br>\
+&amp;Ouml; &amp;Oslash; &amp;Ugrave; &amp;Uacute;<br>\
+&amp;Ucirc; &amp;Uuml; &amp;szlig; &amp;agrave;<br>\
+&amp;aacute; &amp;acirc; &amp;atilde; &amp;auml;<br>\
+&amp;aring; &amp;aelig; &amp;ccedil; &amp;egrave;<br>\
+&amp;eacute; &amp;ecirc; &amp;euml; &amp;igrave;<br>\
+&amp;iacute; &amp;icirc; &amp;iuml; &amp;ntilde;<br>\
+&amp;ograve; &amp;oacute; &amp;ocirc; &amp;otilde;<br>\
+&amp;ouml; &amp;oslash; &amp;ugrave; &amp;uacute;<br>\
+&amp;ucirc; &amp;uuml; &amp;yuml;||
+||Ligatures||&AElig;||&amp;AElig;||
+³3newauthor³30³3minor³30³2host³2dcha-aa1503.taconic.net³2username³2BillStClair³2revision³23³2id³21004³2tscreate³21074348522³2keepts³21099506832

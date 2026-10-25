@@ -1,0 +1,218 @@
+ts³11100669187³1version³13³1cache_oldmajor³124³1cache_oldauthor³124³1cache_diff_default_author³11³1revision³125³1text_default³1ip³2205.231.31.86³2ts³21100669187³2version³21³2name³2text_default³2data³2summary³3*³3text³3= Cheap Hosting =
+
+&nbsp;
+
+<b>Cheap and responsible.</b> Cheap can be found on the internet from the net pages provided by the hosting services. Anyone can help gather the information needed here. Reports on their customer service and reliabilty however need to be gathered from those who have personal experience with the service. Anyone with experience can help by reporting it here.
+
+The formats of the entries below are documented at the bottom of the page.
+
+<b>The Companies.</b>
+
+<b>[http://www.nearlyfreespeech.net/ Nearly Free Speech]:</b> New. Found by our host. [[Cheap Hosting/NearlyFreeSpeechReview]]
+
+:DN: $7-8
+:Data Transfers: 1GB/$1.00
+:Disk Space:     <nowiki>$0.01/MB/Month</nowiki>
+
+vs. Acenet. 500MB/25GB/$4.95/(59.40) = $5+$25 = $30, but they charge *only* for what you use down to the byte. Thus, a small site of 10MB/0.5GB costs $0.60 only, or $7.20/yr+$7 DN = $14.20/yr for your small homepage (or less if your site or traffic is even smaller). No extra charges. Not bad.
+
+Support? No idea, yet. At the price, I'd assume only limited support. We know the folk at <nowiki>BetterThanYours</nowiki> are striving libertarian businessmen and the support there should be ample. Still, support to the side, the "smaller the cheaper" idea at Nearly Free Speech would seem to be the coming business model. Also, NFS's payment/identification system seems ideal for those concerned about privacy. 040913, JunkerIn.
+
+<b>[https://betterthanyours.com/ BetterThanYours]:</b> [[Cheap Hosting/BetterThanYours]]. [[Cheap Hosting/BetterThanYoursReview]]. DN: n/a. 5MB/500MB/($1.25)/$14.95. 10MB/1GB/($2.42)/$28.95. 20MB/2GB/($4.75)/$56.95. 040327, JunkerIn.
+
+<b>[http://ace-host.net/ Acenet]:</b> [[Cheap Hosting/Acenet]]. [[Cheap Hosting/AcenetReview]]. DN: $15yr. 500MB/25GB/$4.95/(59.40). 2000MB/80GB/$9.95/(119.40). 20GB/200GB/$39.95/(479.40). 040125, JunkerIn.
+
+<b>[http://www.powerhoster.com/ Powerhoster]:</b> [[Cheap Hosting/Powerhoster]]. [[Cheap Hosting/PowerhosterReview]]. DN: $8.75yr and below. 300MB/1GB/$2.99/$35.88. 500MB/3GB/$4.89/$58.68. 800MB/8GB/$8.89/$106.68. 1000MB/18GB/$18.00/$216.00. 040122, JunkerIn.
+
+<b>[http://www.infinology.com/unixlimited.htm Infinology]:</b> [[Cheap Hosting/Infinology]]. [[Cheap Hosting/InfinologyReview]]. DN: ?. 50MB/3GB/$9.00/($108). 3GB/5GB/$19.00/($228.00). 4GB/7GB/$29.00/($348). For short compare. Web hosting rating site has rated as #1. 040130, JunkerIn.
+
+<b>[http://www.catalog.com/ Catalog]:</b> [[Cheap Hosting/Catalog]]. [[Cheap Hosting/CatalogReview]]. DN: inc. 50MB/1GB/($2.92)/$35. 300MB/UL/$8.29/($99.48). 040123, JunkerIn.
+
+<b>[http://www.wiredfusion.net WIREDFUSION]:</b> found by accident. DN: ?. 20MB/??/$20.00/($240) - POP3 accounts 1; e-mail aliases 2; FTP accounts 1; sub-domains None; CGI/PHP yes; <nowiki>MySQL</nowiki> db no*. Here for comparison--shows a higher-cost provider. 040217, JunkerIn.
+
+<b>[http://www.t-online.de/ T-Online] Germany:</b> [[Cheap Hosting/T-Online]]. [[Cheap Hosting/T-OnlineReview]]. DN: inc.  040122, JunkerIn.
+
+----
+
+[#formats]
+<b>Company Entry Formats.</b>
+
+:Short Company Name, linked.
+:Info link. [<nowiki>Cheap Hosting/CompanyName</nowiki>.]
+:Responsibility link.  [<nowiki>Cheap Hosting/CompanyNameReview</nowiki>.]
+:Short cost review. [ DN: $yr. (<nowiki>Disk/Tfc-Mo/$-Mo/$-Yr</nowiki>)x3 ]
+:Date of last price info check, identity of checker.
+
+::Notes:
+:::<nowiki>Cheap Hosting/CompanyName</nowiki>=Company info usually from the firm site.
+:::<nowiki>Cheap Hosting/CompanyNameReview</nowiki>=Review based on personal experience with the firm.
+:::DN=domain name regestration cost, use 'inc.' if included in regular fees
+:::Disk=disk space (e.g., 100MB)
+:::Tfc-Mo=bandwidth traffic per month (e.g., 2GB)
+:::$-Mo=cost per month ($2.50 - no '/mo' needed & costs in parens are calc'd)
+:::$-Yr=cost per year
+:::in general <b>UL</b> means unlimited, however, many warn that UL bandwidth is actually limited by the 'terms of use' contract&#151;So be aware, be careful.
+
+&nbsp;
+
+CheapHostingTalk
+³3newauthor³31³3minor³30³2username³2BillStClair³2host³2dcha-aa086.taconic.net³2revision³225³2tscreate³21074897409³2id³21190³2keepts³21100669187³1tscreate³11074897409³1cache_diff_default_major³11³1cache_diff_default_minor³13c3
+< &amp;nbsp;
+---
+> &nbsp;
+5c5
+< &lt;b&gt;Cheap and responsible.&lt;/b&gt; Cheap can be found on the internet from the net pages provided by the hosting services. Anyone can help gather the information needed here. Reports on their customer service and reliabilty however need to be gathered from those who have personal experience with the service. Anyone with experience can help by reporting it here.
+---
+> <b>Cheap and responsible.</b> Cheap can be found on the internet from the net pages provided by the hosting services. Anyone can help gather the information needed here. Reports on their customer service and reliabilty however need to be gathered from those who have personal experience with the service. Anyone with experience can help by reporting it here.
+9c9
+< &lt;b&gt;The Companies.&lt;/b&gt;
+---
+> <b>The Companies.</b>
+11c11
+< &lt;b&gt;[http://www.nearlyfreespeech.net/ Nearly Free Speech]:&lt;/b&gt; New. Found by our host. [[Cheap Hosting/NearlyFreeSpeechReview]]
+---
+> <b>[http://www.nearlyfreespeech.net/ Nearly Free Speech]:</b> New. Found by our host. [[Cheap Hosting/NearlyFreeSpeechReview]]
+15c15
+< :Disk Space:     &lt;nowiki&gt;$0.01/MB/Month&lt;/nowiki&gt;
+---
+> :Disk Space:     <nowiki>$0.01/MB/Month</nowiki>
+19c19
+< Support? No idea, yet. At the price, I&#39;d assume only limited support. We know the folk at &lt;nowiki&gt;BetterThanYours&lt;/nowiki&gt; are striving libertarian businessmen and the support there should be ample. Still, support to the side, the &quot;smaller the cheaper&quot; idea at Nearly Free Speech would seem to be the coming business model. Also, NFS&#39;s payment/identification system seems ideal for those concerned about privacy. 040913, JunkerIn.
+---
+> Support? No idea, yet. At the price, I'd assume only limited support. We know the folk at <nowiki>BetterThanYours</nowiki> are striving libertarian businessmen and the support there should be ample. Still, support to the side, the "smaller the cheaper" idea at Nearly Free Speech would seem to be the coming business model. Also, NFS's payment/identification system seems ideal for those concerned about privacy. 040913, JunkerIn.
+21c21
+< &lt;b&gt;[https://betterthanyours.com/ BetterThanYours]:&lt;/b&gt; [[Cheap Hosting/BetterThanYours]]. [[Cheap Hosting/BetterThanYoursReview]]. DN: n/a. 5MB/500MB/($1.25)/$14.95. 10MB/1GB/($2.42)/$28.95. 20MB/2GB/($4.75)/$56.95. 040327, JunkerIn.
+---
+> <b>[https://betterthanyours.com/ BetterThanYours]:</b> [[Cheap Hosting/BetterThanYours]]. [[Cheap Hosting/BetterThanYoursReview]]. DN: n/a. 5MB/500MB/($1.25)/$14.95. 10MB/1GB/($2.42)/$28.95. 20MB/2GB/($4.75)/$56.95. 040327, JunkerIn.
+23c23
+< &lt;b&gt;[http://ace-host.net/ Acenet]:&lt;/b&gt; [[Cheap Hosting/Acenet]]. [[Cheap Hosting/AcenetReview]]. DN: $15yr. 500MB/25GB/$4.95/(59.40). 2000MB/80GB/$9.95/(119.40). 20GB/200GB/$39.95/(479.40). 040125, JunkerIn.
+---
+> <b>[http://ace-host.net/ Acenet]:</b> [[Cheap Hosting/Acenet]]. [[Cheap Hosting/AcenetReview]]. DN: $15yr. 500MB/25GB/$4.95/(59.40). 2000MB/80GB/$9.95/(119.40). 20GB/200GB/$39.95/(479.40). 040125, JunkerIn.
+25c25
+< &lt;b&gt;[http://www.powerhoster.com/ Powerhoster]:&lt;/b&gt; [[Cheap Hosting/Powerhoster]]. [[Cheap Hosting/PowerhosterReview]]. DN: $8.75yr and below. 300MB/1GB/$2.99/$35.88. 500MB/3GB/$4.89/$58.68. 800MB/8GB/$8.89/$106.68. 1000MB/18GB/$18.00/$216.00. 040122, JunkerIn.
+---
+> <b>[http://www.powerhoster.com/ Powerhoster]:</b> [[Cheap Hosting/Powerhoster]]. [[Cheap Hosting/PowerhosterReview]]. DN: $8.75yr and below. 300MB/1GB/$2.99/$35.88. 500MB/3GB/$4.89/$58.68. 800MB/8GB/$8.89/$106.68. 1000MB/18GB/$18.00/$216.00. 040122, JunkerIn.
+27c27
+< &lt;b&gt;[http://www.infinology.com/unixlimited.htm Infinology]:&lt;/b&gt; [[Cheap Hosting/Infinology]]. [[Cheap Hosting/InfinologyReview]]. DN: ?. 50MB/3GB/$9.00/($108). 3GB/5GB/$19.00/($228.00). 4GB/7GB/$29.00/($348). For short compare. Web hosting rating site has rated as #1. 040130, JunkerIn.
+---
+> <b>[http://www.infinology.com/unixlimited.htm Infinology]:</b> [[Cheap Hosting/Infinology]]. [[Cheap Hosting/InfinologyReview]]. DN: ?. 50MB/3GB/$9.00/($108). 3GB/5GB/$19.00/($228.00). 4GB/7GB/$29.00/($348). For short compare. Web hosting rating site has rated as #1. 040130, JunkerIn.
+29c29
+< &lt;b&gt;[http://www.catalog.com/ Catalog]:&lt;/b&gt; [[Cheap Hosting/Catalog]]. [[Cheap Hosting/CatalogReview]]. DN: inc. 50MB/1GB/($2.92)/$35. 300MB/UL/$8.29/($99.48). 040123, JunkerIn.
+---
+> <b>[http://www.catalog.com/ Catalog]:</b> [[Cheap Hosting/Catalog]]. [[Cheap Hosting/CatalogReview]]. DN: inc. 50MB/1GB/($2.92)/$35. 300MB/UL/$8.29/($99.48). 040123, JunkerIn.
+31c31
+< &lt;b&gt;[http://www.wiredfusion.net WIREDFUSION]:&lt;/b&gt; found by accident. DN: ?. 20MB/??/$20.00/($240) - POP3 accounts 1; e-mail aliases 2; FTP accounts 1; sub-domains None; CGI/PHP yes; &lt;nowiki&gt;MySQL&lt;/nowiki&gt; db no*. Here for comparison--shows a higher-cost provider. 040217, JunkerIn.
+---
+> <b>[http://www.wiredfusion.net WIREDFUSION]:</b> found by accident. DN: ?. 20MB/??/$20.00/($240) - POP3 accounts 1; e-mail aliases 2; FTP accounts 1; sub-domains None; CGI/PHP yes; <nowiki>MySQL</nowiki> db no*. Here for comparison--shows a higher-cost provider. 040217, JunkerIn.
+33c33
+< &lt;b&gt;[http://www.t-online.de/ T-Online] Germany:&lt;/b&gt; [[Cheap Hosting/T-Online]]. [[Cheap Hosting/T-OnlineReview]]. DN: inc.  040122, JunkerIn.
+---
+> <b>[http://www.t-online.de/ T-Online] Germany:</b> [[Cheap Hosting/T-Online]]. [[Cheap Hosting/T-OnlineReview]]. DN: inc.  040122, JunkerIn.
+38,114c38
+< &lt;b&gt;Company Ent[http://www.yourgoogle.com>googleÅÅÃû]
+< [http://www.yourgoogle.com/google-list/google-list.htm >google×ó²àÅÅÃû]
+< [http://www.yourgoogle.com/webdesign/webdesign-1.htm>ÍøÕ¾½¨Éè]
+< [http://googlesz.freewebpage.org>googleÍÆ¹ã]
+< [http://www.tlup.com>ÍøÂçÓªÏú]
+< [http://www.tlup.com>ÏîÄ¿ºÏ×÷]
+< [http://swellong.freewebpage.org>ÍøÂçÉãÏñ»ú]
+< [http://www.flowerwish.com>ÏÊ»¨]
+< [http://www.flowerwish.com>ÍøÉÏ»¨µê]
+< [http://www.flowerwish.com/ups>upsµçÔ´]
+< [http://www.blueattain.com>¹ÜÀí×ÊÁÏ]
+< [http://www.szsuun.com> KVM]
+< [http://kvmkvm.freewebpage.org> KVM]
+< [http://www.flowerwish.com/qygl>ÆóÒµ¹ÜÀí]
+< [http://www.flowerwish.com/qygl>¹ÜÀíÅàÑµ]
+< [http://www.ktyu.com>fiberglass yarn]
+< [http://www.edmcocn.com> EDM]
+< [http://www.yourgoogle.com/company-card-index/companyindex.htm>ÆóÒµÃûÂ¼]
+< [http://flowerwish.freewebpage.org>ÏÊ»¨]
+< [http://www.glpx.com>¹ÜÀíÅàÑµ]
+< [http://www.glpx.com>¹ÜÀí×ÉÑ¯]
+< [http://www.glpx.com>ÈËÁ¦×ÊÔ´ÅàÑµ]
+< [http://www.flowerwish.com/zhuce>¹«Ë¾×¢²á]
+< [http://www.xingfuquan.com>³ÉÈËÓÃÆ·]
+< [http://www.xingfuquan.com>ĞÔÓÃÆ·]
+< [http://www.huaqiplas.com>ËÜÁÏÖÆÆ·]
+< [http://www.flowerwish.com/byq>±äÑ¹Æ÷]
+< [http://www.inflatables-china.com>china inflatable]
+< [http://www.inflatables-china.com>china inflatables]
+< [http://www.jlcggs.com/chanpin/chanpin2.htm>·À·øÉäÒÂ·ş]
+< [http://kvm.bizhat.com>kvm]
+< [http://logistics.freewebpage.org>logistics]
+< [www.yourgoogle.com/company-card-index/companyindex.htm>ÆóÒµÃûÂ¼]
+< [www.yourgoogle.com/company-card-index/companyindex.htm>ÆóÒµ»ÆÒ³]
+< [http://www.51gl.cn>ÆóÒµ¹ÜÀí]
+< [http://www.yourgoogle.com/default.asp>ÆóÒµÃûÂ¼]
+< [http://glassbead.freewebpage.org>Æû³µÓÃÆ·]
+< [http://www.sfcomm.com>ÍøÂçÉãÏñ»ú]
+< [http://www.yourgoogle.com/default.asp>¹«Ë¾ÃûÂ¼]
+< [http://www.yourgoogle.com/paobuji/>ÅÜ²½»ú]
+< [http://www.flowerwish.com/cdq/>³äµçÆ÷]
+< [http://www.jlcggs.com/chanpin/fanghu/anzuobao/anzuobao.htm>¶ùÍ¯°²È«×ùÒÎ]
+< [http://www.jlcggs.com/chanpin/chelei/dulun/dulunche.htm>¶ÀÂÖ×ÔĞĞ³µ]
+< [http://www.creator-cg.com/crcs/>»áÒéÏµÍ³]
+< [http://www.flowerwish.com/huanbao/>Ë®´¦Àí]
+< [http://www.szsuun.com>kvm]
+< [http://www.yourgoogle.com/ghdprinting/>²ÊÓ¡]
+< [http://www.yourgoogle.com/ghdprinting/>²ÊÉ«Ó¡Ë¢]
+< [http://www.pinghengji.com/cp2.asp>ÀëºÏÆ÷]
+< [http://www.huaqiplas.com>ËÜÁÏ]
+< [http://www.yourgoogle.com/duijiangji>¶Ô½²»ú]
+< [http://www.sfcomm.com>ÍøÂçÉãÏñ»ú]
+< [http://magnesia.freewebpage.org>comb binding]
+< [http://magnesia.freewebpage.org>comb binding machine ]
+< [http://magnesia.freewebpage.org> wire binding]
+< [http://magnesia.freewebpage.org>wire binding machine ]
+< [http://magnesia.freewebpage.org>comb binding machine]
+< [http://magnesia.freewebpage.org>binding supplies]
+< [http://magnesia.freewebpage.org>laminating machine]
+< [http://www.flowerwish.com/kvm/>kvm]
+< [http://www.0755shopping.com>Æû³µÓÃÆ·]
+< [http://tingchechang.freewebpage.org>Í£³µ³¡]
+< [http://wlsxj.freewebpage.org>³ÉÈËÓÃÆ·]
+< [http://wlsxj.freewebpage.org>ĞÔÓÃÆ·]
+< [http://netphoto.freewebpage.org>ËÜÁÏÖÆÆ·]
+< [http://www.flowerwish.com/edm/>edm]
+< [http://www.flowerwish.com/diaokeji/>µñ¿Ì»ú]
+< [http://www.flowerwish.com/touyingji>Í¶Ó°»ú]
+< [http://pyrethum.freewebpage.org>diamond blade]
+< [http://pyrethum.freewebpage.org>diamond disc]
+< [http://pyrethum.freewebpage.org>high visibility jacket]
+< [http://pyrethum.freewebpage.org>high visibility vest]
+< [http://pyrethum.freewebpage.org>cutting disc]
+< [http://pyrethum.freewebpage.org>sanding disc]
+< [http://pyrethum.freewebpage.org>sanding belt]
+< [http://pyrethum.freewebpage.org>diamond core]
+<  ######ry Formats.&lt;/b&gt;
+---
+> <b>Company Entry Formats.</b>
+117,119c41,43
+< :Info link. [&lt;nowiki&gt;Cheap Hosting/CompanyName&lt;/nowiki&gt;.]
+< :Responsibility link.  [&lt;nowiki&gt;Cheap Hosting/CompanyNameReview&lt;/nowiki&gt;.]
+< :Short cost review. [ DN: $yr. (&lt;nowiki&gt;Disk/Tfc-Mo/$-Mo/$-Yr&lt;/nowiki&gt;)x3 ]
+---
+> :Info link. [<nowiki>Cheap Hosting/CompanyName</nowiki>.]
+> :Responsibility link.  [<nowiki>Cheap Hosting/CompanyNameReview</nowiki>.]
+> :Short cost review. [ DN: $yr. (<nowiki>Disk/Tfc-Mo/$-Mo/$-Yr</nowiki>)x3 ]
+123,125c47,49
+< :::&lt;nowiki&gt;Cheap Hosting/CompanyName&lt;/nowiki&gt;=Company info usually from the firm site.
+< :::&lt;nowiki&gt;Cheap Hosting/CompanyNameReview&lt;/nowiki&gt;=Review based on personal experience with the firm.
+< :::DN=domain name regestration cost, use &#39;inc.&#39; if included in regular fees
+---
+> :::<nowiki>Cheap Hosting/CompanyName</nowiki>=Company info usually from the firm site.
+> :::<nowiki>Cheap Hosting/CompanyNameReview</nowiki>=Review based on personal experience with the firm.
+> :::DN=domain name regestration cost, use 'inc.' if included in regular fees
+128c52
+< :::$-Mo=cost per month ($2.50 - no &#39;/mo&#39; needed &amp; costs in parens are calc&#39;d)
+---
+> :::$-Mo=cost per month ($2.50 - no '/mo' needed & costs in parens are calc'd)
+130c54
+< :::in general &lt;b&gt;UL&lt;/b&gt; means unlimited, however, many warn that UL bandwidth is actually limited by the &#39;terms of use&#39; contract&amp;#151;So be aware, be careful.
+---
+> :::in general <b>UL</b> means unlimited, however, many warn that UL bandwidth is actually limited by the 'terms of use' contract&#151;So be aware, be careful.
+132c56
+< &amp;nbsp;
+---
+> &nbsp;

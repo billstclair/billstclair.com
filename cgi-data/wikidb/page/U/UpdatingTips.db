@@ -1,0 +1,51 @@
+version³13³1ts³11100651690³1cache_oldmajor³143³1cache_oldauthor³143³1cache_diff_default_author³11³1revision³144³1text_default³1version³21³2ts³21100651690³2ip³2213.161.8.53, 213.161.0.16³2name³2text_default³2data³2summary³3*³3text³3This page contains a few useful items that are hidden in the complete TextFormattingRules.
+
+Clicking on the page title at the very top of the page shows you which pages link to the current page.
+
+The "Summary" text at the bottom of the "Editing" page allows you to say what you changed. This will appear in the <nowiki>RecentChanges</nowiki> list and in the history pages (available from <nowiki>RecentChanges</nowiki> via the "changes" links or the "View other revisions" link at the bottom of each page).
+
+Speaking of <nowiki>RecentChanges</nowiki>, once you're familiar with the wiki, that's the first place to go to find out what's new.
+
+Remember, there are two ways to create a link to a new page, use a UseMod:WikiWord, or enclose the title in double square brackets: <tt><nowiki>[[Multi-word Title]]</nowiki></tt>. The square brackets are necessary if the title contains spaces or does not contain two upper-case letters separated by at least one lower-case letter.
+
+[#anchor]
+You can put HTML anchors in a page so that when you link to the anchor, the page will scroll to that position on opening. To create an anchor, type a left square bracket, the sharp sign, the name of the anchor, and a right square bracket. E.g. <nowiki>[#anchor]</nowiki>. To jump to the anchor, put a sharp sign and the anchor name after the page link, e.g. UpdatingTips#anchor (click on this to scroll this paragraph to the top of the page).
+
+For book links, you may use the <tt>ISBN</tt> special form. For example:
+:<tt><nowiki>ISBN 1888118083: <i>Nation of Cowards</i> by Jeff Snyder</nowiki></tt>
+yields:
+:ISBN [http://www.dotmoment.com/generic-cephalexin Generic Cephalexin] [http://www.dotmoment.com/generic-levaquin Generic Levaquin] [http://www.dotmoment.com/generic-zithromax Generic Zithromax] [http://www.dotmoment.com/generic-advair Generic Advair] [http://www.dotmoment.com/generic-allegra Generic Allegra] 1888118083: <i>Nation of Cowards</i> by Jeff Snyder
+If someone purchases from the Amazon link (underlined ISBN number), BillStClair gets a cut. If you want the cut instead, then put in a normal web link with your associate number.
+
+SpecialCharacters tells you how to create, e.g. &alpha; &beta; &gamma; &delta;
+&epsilon; &zeta; &eta; &theta;
+&iota; &kappa; &lambda; &mu;
+&nu; &xi; &omicron; &pi;
+&rho; &sigma; &sigmaf; &tau;
+&upsilon; &phi; &chi; &psi;
+&omega; &Gamma; &Delta; &Theta;
+&Lambda; &Xi; &Pi; &Sigma;
+&Phi; &Psi; &Omega;
+
+There are a number UseMod:InterWiki prefixes that you can use as abbreviations of common places to link. The following is a list of prefixes and the text they expand into. For example, Google:wiki links to a Google search for "wiki". WikiAdministrator can add to this list.
+*<nowiki>Acronym</nowiki>: <tt><nowiki>http://www.acronymfinder.com/af-query.asp?String=exact&Acronym=</nowiki></tt>
+*<nowiki>Cache</nowiki>: <tt><nowiki>http://www.google.com/search?q=cache:</nowiki></tt>
+*<nowiki>Dictionary</nowiki>: <tt><nowiki>http://www.dict.org/bin/Dict?Database=*&Form=Dict1&Strategy=*&Query=</nowiki></tt>
+*<nowiki>Google</nowiki>: <tt><nowiki>http://www.google.com/search?q=</nowiki></tt>
+*<nowiki>GoogleGroups</nowiki>: <tt><nowiki>http://groups.google.com/groups?q=</nowiki></tt>
+*<nowiki>IMDB</nowiki>: <tt><nowiki>http://us.imdb.com/Title?</nowiki></tt>
+*<nowiki>JargonFile</nowiki>: <tt><nowiki>http://sunir.org/apps/meta.pl?wiki=JargonFile&redirect=</nowiki></tt>
+*<nowiki>MeatBall</nowiki>: <tt><nowiki>http://www.usemod.com/cgi-bin/mb.pl?</nowiki></tt>
+*<nowiki>UseMod</nowiki>: <tt><nowiki>http://www.usemod.com/cgi-bin/wiki.pl?</nowiki></tt>
+*<nowiki>Wiki</nowiki>: <tt><nowiki>http://c2.com/cgi/wiki?</nowiki></tt>
+*<nowiki>WikiPedia</nowiki>: <tt><nowiki>http://www.wikipedia.org/wiki/</nowiki></tt>
+
+To redirect a page to another one, put a single line on that page containing the text: <tt>#REDIRECT</tt> (block caps required), a space, and the title of the page to which to redirect. Going to such a page will show the redirected page with a comment at the top showing where it was redirected from. Clicking on the link to the first page will open an editor so that you can change the <tt>#REDIRECT</tt> if you want. For example, go to BillStClairWiki, the name of this wiki before it was renamed to AnCapWiki.
+
+To mark a page for deletion, put the DeletedPage tag at the beginning of the page. Usually, this should be followed by a reason, then the old text of the page. Deleted pages are kept around for 14 days (WikiAdministrator can change this). If they are unchanged when they expire, they will be permanently removed. Example:
+
+:<tt><nowiki>DeletedPage: Title misspelled. Moved to CorrectlySpelledTitle.</nowiki></tt>
+³3minor³30³3newauthor³31³2host³2localhost³2username³2³2revision³244³2id³2111³2tscreate³21074224214³2keepts³21100651690³1tscreate³11074224214³1cache_diff_default_major³11³1cache_diff_default_minor³117c17
+< :ISBN 1888118083: <i>Nation of Cowards</i> by Jeff Snyder
+---
+> :ISBN [http://www.dotmoment.com/generic-cephalexin Generic Cephalexin] [http://www.dotmoment.com/generic-levaquin Generic Levaquin] [http://www.dotmoment.com/generic-zithromax Generic Zithromax] [http://www.dotmoment.com/generic-advair Generic Advair] [http://www.dotmoment.com/generic-allegra Generic Allegra] 1888118083: <i>Nation of Cowards</i> by Jeff Snyder

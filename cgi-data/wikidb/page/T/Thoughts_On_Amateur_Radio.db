@@ -1,0 +1,165 @@
+ts³11100669455³1version³13³1cache_oldmajor³14³1cache_oldauthor³14³1revision³15³1cache_diff_default_author³11³1tscreate³11075205121³1text_default³1ip³2205.231.31.86³2ts³21100669455³2version³21³2name³2text_default³2data³2summary³3*³3text³3= Thoughts on Amateur Radio =
+
+040127, JunkerIn
+
+In the theory of state control, one of the major control categories is communication. One of the nodes in this attempt at control extends to Amateur Radio. Within Amateur Radio there are those who are completely naive and there are also 'outlaws' of various types. The outlaws have continuously helped keep open 'holes' in the control structures. One must be careful of both the naive and the outlaw and as well their fights for continued 'free' use. It would not be polite to bring undue attention.
+
+In any case, note that all tranmitters are licenced in Amateur Radio, but seldom receivers. Both are useful. HF and satellite packet switching networks provide a less traceable communications channel. One of the problems in this arena is the lack of nodes. The more nodes there are the more reliability and possibly speed in the network.
+
+IMO, this is and should be a growth phenomoenon. I can easily see the need for a cheap, single-package repeater node. It only receives and re-transmits packets. It has a receiver, a transmitter, a baby computer, and hook-ups for antennae, power, and standard hardwire network (ethernet I would suppose). Buy one, hook the antennae to the roof and plug it in. You've supplied another node for world-wide commo. Plug in your personal net and you have worldwide commo&#151;with no monthly fees. This as well could be a cell-phone node&#151;world-wide cell phone commo, again without the monthly fees. But, TANSTAAFL, each pays for their node and each still pays the electricity bill.
+
+But, of course, such is likely not available. So, it's homebrew time! Needed: 1) minimal tranceiver, 2) minimal computer, and 3) software & wires. The network card is optional for the minimal computer. This configuation needs to become well defined and priced. Research is indicated&#151;more to come.
+
+- - -more--a beginning--
+
+Large number of info pages on http://www.packetradio.com/
+
+To begin:
+
+excerpted from  http://www.packetradio.com/primer.htm
+
+3 things needed:
+# computer
+# terminal node controller (TNC)
+# transceiver (HF, VHF)
+
+TNC contains a modem similar to the modem used to connect your computer to this internet page, except that it also contains special firmware especially designed for PacketRadio. This "firmware" converts computer data into "packets" of digital information that can be sent (error free, via PacketRadio nodes) across the PacketRadio network.
+
+Very little power is needed, as the nodes along the network perform as "store and forward" devices for this purpose.   The nodes do the "store and forward" function automatically.   All the PacketRadio user has to do is establish the connection, the rest is handled by the nodes.
+
+If you have a PC or compatible computer but do not have a Packet terminal program, CLICK HERE to DOWNLOAD the 1999 version 2.7 of BUXTERM.EXE The ZIPped file also contains the text version of BUXTERM documentation. If you prefer, you may download BUXTERM.EXE (it is FREEWARE, give a copy to a friend). 
+
+Since we are about to begin operating in the VHF region we will begin with an on-air HBAUD speed of 1200 baud’s. ABAUD refers to the terminal to TNC, and HBAUD refers to the RADIO or ON-AIR baudrate (data speed). Most computer and TNCs will operate at an ABAUD of 9600 baud’s.
+
+[ed. - TNCs work automatically with call signs, thus 1) do you need one? & 2) that means passing the test & getting a license 3) or?]
+
+Many frequencies for PacketRadio use: VHF and UHF (In Mhz): [28 freqs listed].
+
+SSIDs. Each call sign, e.g. K4ABT, has up to 15 Secondary Station IDentifiers, thus K4ABT-1 through K4ABT-15. K4ABT without an SSID extension, is considered the 0 (zero) SSID. Your personal mailbox (MYM or MYP) is almost always set into your TNC as -1 SSID.
+
+If you are looking for a TNC free environment, you may try Sound Card to Transceiver, Packet, PSK31, RTTY, and SSTV, using the RASCAL Mark V Transceiver to PC interface.
+
+- - -
+
+followed by one of several huge sections: http://www.packetradio.com/snode.htm
+
+HOME of the RASCAL--Antennas, Accessories, Connectors, and Components present.....
+
+= = =
+
+Good set of links: http://www.csun.edu/~vfeen0br/johnpage/pack.html
+
+= = =
+
+http://www.janrix.com/paccomm/contents.htm
+
+:Amateur Products
+
+||<nowiki>PicoPacket</nowiki>||1200 Baud Ultra Miniature portable TNC||
+||PTC-II||Multimode DSP Communications Controller||
+||Spirit-2||9600 Baud TNC||
+||Tiny-2||1200 Baud TNC||
+||<nowiki>HandiPacket</nowiki>||Portable TNC||
+||TNC-320||HF/VHF Dual port TNC||
+||PC-320||HF/VHF Dual port PC Packet Controller Card||
+||PC-120||Internal PC SCC TNC card||
+
+= = =
+
+http://www.tapr.org/tapr/html/Fpktfaq.html
+
+Introduction to Packet Radio by Greg Jones, WD5IVD -- Retrieve a plain-text copy of this document, History of Packet, Why Packet Over Other Modes?, Elements of a Packet Station, Distance Limitations, Channel Sharing, What is AX.25?, Networks and  Special Protocols, Other Protocols, Network Schemes-Digipeaters-KA-Nodes-NET/ROM-ROSE-TCP/IP-<nowiki>TexNet</nowiki>, BBS Message Transfer
+
+TCP/IP, Linux, and UNIX Link: AMPRNet IP address coordinators list maintained by Brian Kantor, WB6CYT, Authoritative data for ampr.org domain, Linux AX25-HOWTO, Amateur Radio, Linux HAM HOWTO, Amateur Radio, DxNet : Cluster software for Linux and DOS, TNOS Page, The Internet Protocol, The Internet Control Message Protocol, Requirements for IP Version 4 routers, N8UR's General Linux and TCP/IP Amateur Web, CLX DX Packet Cluster Server Software for Linux, Development of DX cluster protocols and cluster software
+
+= = =
+
+And more and more and more. Amateur radio's tradition is homebrew.
+
+&nbsp;
+
+ThoughtsOnAmateurRadioTalk
+³3newauthor³31³3minor³30³2username³2BillStClair³2host³2dcha-aa086.taconic.net³2revision³25³2tscreate³21075205121³2id³21190³2keepts³21100669455³1cache_diff_default_major³11³1cache_diff_default_minor³11c1,81
+< 
+---
+> = Thoughts on Amateur Radio =
+> 
+> 040127, JunkerIn
+> 
+> In the theory of state control, one of the major control categories is communication. One of the nodes in this attempt at control extends to Amateur Radio. Within Amateur Radio there are those who are completely naive and there are also 'outlaws' of various types. The outlaws have continuously helped keep open 'holes' in the control structures. One must be careful of both the naive and the outlaw and as well their fights for continued 'free' use. It would not be polite to bring undue attention.
+> 
+> In any case, note that all tranmitters are licenced in Amateur Radio, but seldom receivers. Both are useful. HF and satellite packet switching networks provide a less traceable communications channel. One of the problems in this arena is the lack of nodes. The more nodes there are the more reliability and possibly speed in the network.
+> 
+> IMO, this is and should be a growth phenomoenon. I can easily see the need for a cheap, single-package repeater node. It only receives and re-transmits packets. It has a receiver, a transmitter, a baby computer, and hook-ups for antennae, power, and standard hardwire network (ethernet I would suppose). Buy one, hook the antennae to the roof and plug it in. You've supplied another node for world-wide commo. Plug in your personal net and you have worldwide commo&#151;with no monthly fees. This as well could be a cell-phone node&#151;world-wide cell phone commo, again without the monthly fees. But, TANSTAAFL, each pays for their node and each still pays the electricity bill.
+> 
+> But, of course, such is likely not available. So, it's homebrew time! Needed: 1) minimal tranceiver, 2) minimal computer, and 3) software & wires. The network card is optional for the minimal computer. This configuation needs to become well defined and priced. Research is indicated&#151;more to come.
+> 
+> - - -more--a beginning--
+> 
+> Large number of info pages on http://www.packetradio.com/
+> 
+> To begin:
+> 
+> excerpted from  http://www.packetradio.com/primer.htm
+> 
+> 3 things needed:
+> # computer
+> # terminal node controller (TNC)
+> # transceiver (HF, VHF)
+> 
+> TNC contains a modem similar to the modem used to connect your computer to this internet page, except that it also contains special firmware especially designed for PacketRadio. This "firmware" converts computer data into "packets" of digital information that can be sent (error free, via PacketRadio nodes) across the PacketRadio network.
+> 
+> Very little power is needed, as the nodes along the network perform as "store and forward" devices for this purpose.   The nodes do the "store and forward" function automatically.   All the PacketRadio user has to do is establish the connection, the rest is handled by the nodes.
+> 
+> If you have a PC or compatible computer but do not have a Packet terminal program, CLICK HERE to DOWNLOAD the 1999 version 2.7 of BUXTERM.EXE The ZIPped file also contains the text version of BUXTERM documentation. If you prefer, you may download BUXTERM.EXE (it is FREEWARE, give a copy to a friend). 
+> 
+> Since we are about to begin operating in the VHF region we will begin with an on-air HBAUD speed of 1200 baud’s. ABAUD refers to the terminal to TNC, and HBAUD refers to the RADIO or ON-AIR baudrate (data speed). Most computer and TNCs will operate at an ABAUD of 9600 baud’s.
+> 
+> [ed. - TNCs work automatically with call signs, thus 1) do you need one? & 2) that means passing the test & getting a license 3) or?]
+> 
+> Many frequencies for PacketRadio use: VHF and UHF (In Mhz): [28 freqs listed].
+> 
+> SSIDs. Each call sign, e.g. K4ABT, has up to 15 Secondary Station IDentifiers, thus K4ABT-1 through K4ABT-15. K4ABT without an SSID extension, is considered the 0 (zero) SSID. Your personal mailbox (MYM or MYP) is almost always set into your TNC as -1 SSID.
+> 
+> If you are looking for a TNC free environment, you may try Sound Card to Transceiver, Packet, PSK31, RTTY, and SSTV, using the RASCAL Mark V Transceiver to PC interface.
+> 
+> - - -
+> 
+> followed by one of several huge sections: http://www.packetradio.com/snode.htm
+> 
+> HOME of the RASCAL--Antennas, Accessories, Connectors, and Components present.....
+> 
+> = = =
+> 
+> Good set of links: http://www.csun.edu/~vfeen0br/johnpage/pack.html
+> 
+> = = =
+> 
+> http://www.janrix.com/paccomm/contents.htm
+> 
+> :Amateur Products
+> 
+> ||<nowiki>PicoPacket</nowiki>||1200 Baud Ultra Miniature portable TNC||
+> ||PTC-II||Multimode DSP Communications Controller||
+> ||Spirit-2||9600 Baud TNC||
+> ||Tiny-2||1200 Baud TNC||
+> ||<nowiki>HandiPacket</nowiki>||Portable TNC||
+> ||TNC-320||HF/VHF Dual port TNC||
+> ||PC-320||HF/VHF Dual port PC Packet Controller Card||
+> ||PC-120||Internal PC SCC TNC card||
+> 
+> = = =
+> 
+> http://www.tapr.org/tapr/html/Fpktfaq.html
+> 
+> Introduction to Packet Radio by Greg Jones, WD5IVD -- Retrieve a plain-text copy of this document, History of Packet, Why Packet Over Other Modes?, Elements of a Packet Station, Distance Limitations, Channel Sharing, What is AX.25?, Networks and  Special Protocols, Other Protocols, Network Schemes-Digipeaters-KA-Nodes-NET/ROM-ROSE-TCP/IP-<nowiki>TexNet</nowiki>, BBS Message Transfer
+> 
+> TCP/IP, Linux, and UNIX Link: AMPRNet IP address coordinators list maintained by Brian Kantor, WB6CYT, Authoritative data for ampr.org domain, Linux AX25-HOWTO, Amateur Radio, Linux HAM HOWTO, Amateur Radio, DxNet : Cluster software for Linux and DOS, TNOS Page, The Internet Protocol, The Internet Control Message Protocol, Requirements for IP Version 4 routers, N8UR's General Linux and TCP/IP Amateur Web, CLX DX Packet Cluster Server Software for Linux, Development of DX cluster protocols and cluster software
+> 
+> = = =
+> 
+> And more and more and more. Amateur radio's tradition is homebrew.
+> 
+> &nbsp;
+> 
+> ThoughtsOnAmateurRadioTalk

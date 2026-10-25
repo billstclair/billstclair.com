@@ -1,0 +1,27 @@
+ts³11098020784³1version³13³1cache_oldmajor³10³1cache_oldauthor³10³1cache_diff_default_author³11³1revision³11³1tscreate³11098020784³1text_default³1ip³265.219.208.102³2ts³21098020784³2version³21³2name³2text_default³2data³2summary³3*³3text³3= What kind of hardware is supported by Linux? =
+
+The answer is that most modern PC hardware is supported by Linux. However, there are certain pieces of hardware which may not work, so listed here are a variety of websites for you to check to make sure your hardware will be supported
+
+1. General lists of compatible hardware.
+:[http://www.mandrakelinux.com/en/hardware.php3 Mandrake Linux's List of Compatible Hardware]
+:[http://hardware.redhat.com/hcl/ Redhat Linux's List of Compatible Hardware] 
+:[http://www.tldp.org/HOWTO/Hardware-HOWTO/index.html Linux Hardware Compatibility HOWTO]
+2. Help with Modems
+:[http://linmodems.org/ LinModems.org]- Help finding Linux drivers for your modem.
+3. Help with Wi-Fi cards
+:[http://www.linux-wlan.org/ AbsoluteValue Systems] - Has a helpful FAQ and list of Linux-compatible Wi-Fi cards.
+³3newauthor³31³3minor³30³2username³2BillStClair³2host³2dcha-aa-65-219-208-102.taconic.net³2revision³21³2tscreate³21098020784³2id³21153³1cache_diff_default_major³11³1cache_diff_default_minor³11c1,12
+< Describe the new page here.
+---
+> = What kind of hardware is supported by Linux? =
+> 
+> The answer is that most modern PC hardware is supported by Linux. However, there are certain pieces of hardware which may not work, so listed here are a variety of websites for you to check to make sure your hardware will be supported
+> 
+> 1. General lists of compatible hardware.
+> :[http://www.mandrakelinux.com/en/hardware.php3 Mandrake Linux's List of Compatible Hardware]
+> :[http://hardware.redhat.com/hcl/ Redhat Linux's List of Compatible Hardware] 
+> :[http://www.tldp.org/HOWTO/Hardware-HOWTO/index.html Linux Hardware Compatibility HOWTO]
+> 2. Help with Modems
+> :[http://linmodems.org/ LinModems.org]- Help finding Linux drivers for your modem.
+> 3. Help with Wi-Fi cards
+> :[http://www.linux-wlan.org/ AbsoluteValue Systems] - Has a helpful FAQ and list of Linux-compatible Wi-Fi cards.

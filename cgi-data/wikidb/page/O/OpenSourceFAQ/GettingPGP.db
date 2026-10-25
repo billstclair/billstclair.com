@@ -1,0 +1,49 @@
+ts³11098021196³1version³13³1cache_oldmajor³10³1cache_oldauthor³10³1cache_diff_default_author³11³1revision³11³1tscreate³11098021196³1text_default³1ip³265.219.208.102³2ts³21098021196³2version³21³2name³2text_default³2data³2summary³3*³3text³3= Where can I get PGP/<nowiki>GnuPG</nowiki> for my computer? =
+
+PGP can be downloaded free for non-commercial use from the net at [http://www.pgpi.org/products/pgp/versions/freeware/ The International PGP Home Page]:
+
+Freeware PGP versions
+
+:Amiga (8)
+:Atari (6)
+:<nowiki>BeOS</nowiki> (5)
+:EPOC (Psion etc.)
+:<nowiki>MacOS</nowiki> (22)
+:MS-DOS (9)
+:Newton
+:OS/2 (6)
+:<nowiki>PalmOS</nowiki> (2)
+:Unix (19)
+:Windows 2000 (5)
+:Windows 3.x (2)
+:Windows 95/98/NT (31)
+:Windows ME (3)
+:Windows XP (4)
+
+GPG is on most or all distributions. If you have a Linux installation, it is most likely there, already installed or waiting on the installation CDs. Check your distribution help files or in the terminal window type "pgp --help" or "gpg --help". If it's there, you will get the program's help page.
+³3newauthor³31³3minor³30³2username³2BillStClair³2host³2dcha-aa-65-219-208-102.taconic.net³2revision³21³2tscreate³21098021196³2id³21153³1cache_diff_default_major³11³1cache_diff_default_minor³11c1,23
+< Describe the new page here.
+---
+> = Where can I get PGP/<nowiki>GnuPG</nowiki> for my computer? =
+> 
+> PGP can be downloaded free for non-commercial use from the net at [http://www.pgpi.org/products/pgp/versions/freeware/ The International PGP Home Page]:
+> 
+> Freeware PGP versions
+> 
+> :Amiga (8)
+> :Atari (6)
+> :<nowiki>BeOS</nowiki> (5)
+> :EPOC (Psion etc.)
+> :<nowiki>MacOS</nowiki> (22)
+> :MS-DOS (9)
+> :Newton
+> :OS/2 (6)
+> :<nowiki>PalmOS</nowiki> (2)
+> :Unix (19)
+> :Windows 2000 (5)
+> :Windows 3.x (2)
+> :Windows 95/98/NT (31)
+> :Windows ME (3)
+> :Windows XP (4)
+> 
+> GPG is on most or all distributions. If you have a Linux installation, it is most likely there, already installed or waiting on the installation CDs. Check your distribution help files or in the terminal window type "pgp --help" or "gpg --help". If it's there, you will get the program's help page.

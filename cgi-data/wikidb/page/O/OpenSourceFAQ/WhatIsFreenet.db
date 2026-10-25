@@ -1,0 +1,9 @@
+ts³11098021404³1version³13³1cache_oldmajor³10³1cache_oldauthor³10³1cache_diff_default_author³11³1revision³11³1tscreate³11098021404³1text_default³1ip³265.219.208.102³2ts³21098021404³2version³21³2name³2text_default³2data³2summary³3*³3text³3= What is Freenet? = 
+
+Freenet is software created by the folks at the [http://freenetproject.org Freenet Project] that is designed to use encrypted network nodes to allow people to safely and anonymously retrieve and send information around the Internet. For more information, take a look at their [http://freenetproject.org/index.php?page=whatis What is Freenet?] page.
+³3newauthor³31³3minor³30³2username³2BillStClair³2host³2dcha-aa-65-219-208-102.taconic.net³2revision³21³2tscreate³21098021404³2id³21153³1cache_diff_default_major³11³1cache_diff_default_minor³11c1,3
+< Describe the new page here.
+---
+> = What is Freenet? = 
+> 
+> Freenet is software created by the folks at the [http://freenetproject.org Freenet Project] that is designed to use encrypted network nodes to allow people to safely and anonymously retrieve and send information around the Internet. For more information, take a look at their [http://freenetproject.org/index.php?page=whatis What is Freenet?] page.
