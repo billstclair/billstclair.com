@@ -1,0 +1,225 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<link rel="shortcut icon" href="images/favicon.ico" >
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=iso-8859-1">
+	<TITLE>E-Passport:  Doorway to the Panopticon</TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 1.1.5  (Linux)">
+	<META NAME="AUTHOR" CONTENT="hsean">
+	<META NAME="CREATED" CONTENT="20060914;7230000">
+	<META NAME="CHANGED" CONTENT="20061119;20370700">
+	<META NAME="SDFOOTNOTE" CONTENT="LROMAN">
+	<STYLE>
+	<!--
+		@page { size: 8.5in 11in; margin-right: 1.25in; margin-top: 1in; margin-bottom: 1in }
+		P { margin-bottom: 0.08in; direction: ltr; color: #000000; widows: 2; orphans: 2 }
+		P.western { font-family: "Times New Roman", "Times New Roman", serif; font-size: 12pt; so-language: en-US }
+		P.cjk { font-family: "Times New Roman", "Times New Roman", serif; font-size: 12pt }
+		P.ctl { font-family: "Times New Roman", "Times New Roman", serif; font-size: 12pt; so-language: ar-SA }
+		H1 { margin-bottom: 0.04in; direction: ltr; color: #000000; widows: 2; orphans: 2 }
+		H1.western { font-family: "Arial", "Arial", sans-serif; font-size: 16pt; so-language: en-US }
+		H1.cjk { font-family: "Times New Roman", "Times New Roman", serif; font-size: 16pt }
+		H1.ctl { font-family: "Arial", "Arial", sans-serif; font-size: 16pt; so-language: ar-SA }
+		H2 { margin-bottom: 0.04in; direction: ltr; color: #000000; widows: 2; orphans: 2 }
+		H2.western { font-family: "Arial", "Arial", sans-serif; font-size: 14pt; so-language: en-US; font-style: italic }
+		H2.cjk { font-family: "Times New Roman", "Times New Roman", serif; font-size: 14pt; font-style: italic }
+		H2.ctl { font-family: "Arial", "Arial", sans-serif; font-size: 14pt; so-language: ar-SA; font-style: italic }
+		H3 { margin-bottom: 0.04in; direction: ltr; color: #000000; widows: 2; orphans: 2 }
+		H3.western { font-family: "Arial", "Arial", sans-serif; font-size: 13pt; so-language: en-US }
+		H3.cjk { font-family: "Times New Roman", "Times New Roman", serif; font-size: 13pt }
+		H3.ctl { font-family: "Arial", "Arial", sans-serif; font-size: 13pt; so-language: ar-SA }
+		P.sdfootnote-western { margin-bottom: 0in; font-family: "Times New Roman", "Times New Roman", serif; font-size: 10pt; so-language: en-US }
+		P.sdfootnote-cjk { margin-bottom: 0in; font-family: "Times New Roman", "Times New Roman", serif; font-size: 10pt }
+		P.sdfootnote-ctl { margin-bottom: 0in; font-family: "Times New Roman", "Times New Roman", serif; font-size: 10pt; so-language: ar-SA }
+		A:link { color: #0000ff }
+		A.sdfootnoteanc { font-size: 57% }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" TEXT="#000000" LINK="#0000ff" DIR="LTR">
+
+<H1 CLASS="western" ALIGN=CENTER>E-Passport:<br>  Doorway to the
+Panopticon<br>Part III</H1>
+
+<P CLASS="western" STYLE="margin-bottom: 0in"><center>By Scarmig<br>scarmig at fastmail.fm</center><BR>
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0in">In Part II, I covered
+the basics of facial recognition, the biometric piece of the
+e-Passport, and how the technology works and is implemented.  Unless
+you have never had a government photo taken of you in your adult
+life, or are willing to alter the bone structure of your face, the
+technology will probably be able to match you fairly accurately.  In
+these parts, I cover the technical details of the e-Passport itself. 
+It gets a bit dry.  I cover document security, chip technology,
+encryption, and data security.  So if the technical readouts of this
+battle station are of no interest, I won&rsquo;t get my feelings hurt
+if you skip parts III and IV.  Neither will the dead Bothans. 
+Promise.</P>
+
+<P CLASS="western" STYLE="margin-bottom: 0in">The goal of the
+passport specifications as developed by ICAO are meant, quite simply,
+to create the most secure document in the world.  No small
+undertaking, and quite a distant goal to meet, but that&rsquo;s the
+goal and they&rsquo;ve made some effective decisions to try and reach
+it.</P>
+
+<P CLASS="western" STYLE="margin-bottom: 0in">Now, anyone who has
+studied security in any depth probably realizes that nothing is
+secure.  Security is a measure of how expensive it is to thwart the
+security measures.  Previously, thwarting passport security was a
+fairly cheap endeavor.  My current passport is a simple printed
+booklet with a paper photo laminated into the inside cover.  I could
+probably create one with a decent photo copier, some scissors, and a
+laminating machine.  But the new passport specs are designed to be
+more difficult to forge, tamper with, or steal than ever before.  It
+will be easier to counterfeit money than to counterfeit a passport.</P>
+
+<H3 CLASS="western">The physical e-Passport.</H3>
+
+<P CLASS="western" STYLE="margin-bottom: 0in">There are three threats
+to the security of the e-Passport; forgeries, falsifications, and
+illegal issuance.  Forgeries involve the complete creation of a false
+passport.  Falsifications take an existing legally issued passport
+and change the data on it.  And illegal issuance is to convince the
+government to actually issue a legal passport to someone they didn&rsquo;t
+want to, or to steal blank passports and issue them fraudulently.</P>
+
+<P CLASS="western" STYLE="margin-bottom: 0in">The substrate of the
+passport, or the paper, is highly recommended to include several
+features that you&rsquo;ll probably recognize from all the Monopoly&trade;
+money floating around the globe nowadays.  UV reactive paper lights
+up all special and pretty under an ultraviolet lamp.  Dual-tone
+watermarks are difficult for all but the top-end photocopiers to
+duplicate.  Chemical reactions like those special pens they use to
+check a $20 can be built into the paper.  Fluorescent fibers, colored
+flecks, and plastic threads are all options to make it difficult to
+reproduce legitimate looking passport paper.</P>
+<P CLASS="western" STYLE="margin-bottom: 0in"><BR>
+</P>
+<TABLE WIDTH=590 BORDER=0 CELLPADDING=7 CELLSPACING=0>
+	<COL WIDTH=427>
+	<COL WIDTH=135>
+	<TR>
+		<TD WIDTH=427 VALIGN=TOP>
+			<P CLASS="western"><IMG SRC="images/scarmigpassport05.png" NAME="Graphic5" ALIGN=BOTTOM WIDTH=427 HEIGHT=284 BORDER=0></P>
+		</TD>
+		<TD WIDTH=135>
+			<P CLASS="western"><B><I><FONT SIZE=2>An example of UV reactive,
+			chemically sensitive substrate with security threads.</FONT></I></B><SUP><B><I><FONT SIZE=2><A CLASS="sdfootnoteanc" NAME="sdfootnote5anc" HREF="scarmigpassport03.html#sdfootnote5sym"><SUP>v</SUP></A></FONT></I></B></SUP></P>
+		</TD>
+	</TR>
+</TABLE>
+
+<P CLASS="western" STYLE="margin-bottom: 0in">The printing on the
+passport is also subject to a wide variety of security methods. 
+These include background art and text, often in rainbow colored
+print.  There can be UV printing that is invisible to the naked eye
+but shows up clearly under the same UV lamp.  Micro printing and
+printed watermarks are also included.  In addition, today&rsquo;s
+printing techniques allow all of the above to be <I>personalized</I>
+to the passport.  So there could be the bearer&rsquo;s name
+micro-printed or UV-printed into the paper.  Or perhaps the
+background art includes a UV version of the photograph. 
+Personalization makes it impossible to get a generic template for the
+printer to run off a bunch of legitimate looking passports, because
+each one must be customized.  And printing the data for the passport
+is not printing <I>on</I> the paper, but <I>into</I> the paper,
+laminate, or plastic.  The result is that an ink-jet printed passport
+actually has ink injected into the substrate.  You can&rsquo;t scrape
+the ink off without damaging the paper, and the paper changes color
+and shows tampering very easily.  Laser engraving into the laminate
+offers the same challenges, particularly when that laser engraving is
+personalized.</P>
+
+<DIV ALIGN=RIGHT>
+	<TABLE WIDTH=464 BORDER=0 CELLPADDING=7 CELLSPACING=0>
+		<COL WIDTH=249>
+		<COL WIDTH=187>
+		<TR>
+			<TD WIDTH=249 HEIGHT=200 VALIGN=TOP>
+				<P CLASS="western" ALIGN=RIGHT><IMG SRC="images/scarmigpassport06.png" NAME="Graphic6" ALIGN=BOTTOM WIDTH=249 HEIGHT=193 BORDER=0></P>
+			</TD>
+			<TD WIDTH=187>
+				<P CLASS="western" STYLE="margin-bottom: 0in"><B><I><FONT SIZE=2>An
+				example of laser engraving into the laminate.</FONT></I></B><SUP><B><I><FONT SIZE=2><A CLASS="sdfootnoteanc" NAME="sdfootnote6anc" HREF="scarmigpassport03.html#sdfootnote6sym"><SUP>vi</SUP></A></FONT></I></B></SUP></P>
+				<P CLASS="western"><BR>
+				</P>
+			</TD>
+		</TR>
+	</TABLE>
+</DIV>
+
+<P CLASS="western" STYLE="margin-bottom: 0in">And of course, there
+are the neat-looking OVDs, or Optical Variable Devices such as
+holograms and foil printing.  Previously we&rsquo;ve seen OVDs on
+credit cards where they are a generic template.  But on the passport,
+the OVDs can also be personalized, commonly to be either a hologram
+of the photo or even the entire visual passport.  Another twist on
+this is using lasers to print refractive OVDs into the laminate of
+the data page.  Obviously this all requires some very specialized
+equipment.  Not so obviously, the equipment isn&rsquo;t very big, and
+would fit fully assembled onto an average sized dinner table.</P>
+
+<TABLE WIDTH=590 BORDER=0 CELLPADDING=7 CELLSPACING=0>
+	<COL WIDTH=281>
+	<COL WIDTH=281>
+	<TR>
+		<TD WIDTH=281>
+			<P CLASS="western" ALIGN=RIGHT STYLE="margin-bottom: 0in"><B><I><FONT SIZE=2>An
+			example of a personalized OVD.</FONT></I></B><SUP><B><I><FONT SIZE=2><A CLASS="sdfootnoteanc" NAME="sdfootnote7anc" HREF="scarmigpassport03.html#sdfootnote7sym"><SUP>vii</SUP></A></FONT></I></B></SUP></P>
+			<P CLASS="western" ALIGN=RIGHT><BR>
+			</P>
+		</TD>
+		<TD WIDTH=281 VALIGN=TOP>
+			<P CLASS="western"><IMG SRC="images/scarmigpassport07.png" NAME="Graphic7" ALIGN=BOTTOM WIDTH=242 HEIGHT=253 BORDER=0></P>
+		</TD>
+	</TR>
+</TABLE>
+
+<P CLASS="western" STYLE="margin-bottom: 0in">Obviously these
+measures make forging or altering a passport much more expensive and
+difficult than previously.  And that leads us to the weakest link in
+the chain, by ICAO&rsquo;s own admission, fraudulent issuance of a
+real passport.</P>
+
+<P CLASS="western" STYLE="margin-bottom: 0in">As in all automated
+systems, and all security systems, and indeed, all systems anywhere
+and everywhere, human beings can be both the strongest or weakest
+links in the chain. In order to secure against the fraudulent issue
+of legitimate passports, governments are encouraged to greatly
+tighten their issuance security at every point.  From the ordering
+and storage of passport materials to the printing process to the
+application processing agents, they need to maximize security.  They
+are also encouraged to make multiple people responsible for the
+approval of a passport so that anyone wanting to bribe their way into
+a fraudulent passport must bribe two or three or five people instead
+of just one.</P>
+<P CLASS="western" STYLE="margin-bottom: 0in">Additionally,
+governments are encouraged to track all passports from cradle to
+grave, including spoiled and blank passports.  Interpol&rsquo;s
+I-24/7 Stolen and Lost Passport database will track any and all
+non-valid passports and is already in operation catching criminals
+with false passports today.  And the passport itself is protected
+against unauthorized issuance by the RFID chip embedded within it. 
+And that, in turn, leads us to the digital technology.</P><br><br>
+
+<DIV ID="sdfootnote5">
+	<P CLASS="sdfootnote-western"><A CLASS="sdfootnotesym" NAME="sdfootnote5sym" HREF="scarmigpassport03.html#sdfootnote5anc">v</A>
+	Image provided by International Civil Aviation Organization</P>
+</DIV>
+<DIV ID="sdfootnote6">
+	<P CLASS="sdfootnote-western"><A CLASS="sdfootnotesym" NAME="sdfootnote6sym" HREF="scarmigpassport03.html#sdfootnote6anc">vi</A>
+	Image provided by International Civil Aviation Organization</P>
+</DIV>
+<DIV ID="sdfootnote7">
+	<P CLASS="sdfootnote-western"><A CLASS="sdfootnotesym" NAME="sdfootnote7sym" HREF="scarmigpassport03.html#sdfootnote7anc">vii</A>
+	Image provided by International Civil Aviation Organization</P>
+
+<br><br>
+
+   <DIV align=center><B><FONT 
+            face="Geneva, Arial, Helvetica, san-serif" color=#666699 
+            size=1>COPYRIGHT© 2006 <a href="index.html" target="_blank">Clairewolfe.com</a> AND SCARMIG<br>This article may be freely reprinted and distributed, provided that no changes whatsoever are made to any part of the text or titles and that the reprint carries this copyright line in full.
+     </FONT></B></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE></BODY></HTML>
+</BODY>
+</HTML>

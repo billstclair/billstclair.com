@@ -1,0 +1,80 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<link rel="shortcut icon" href="../images/favicon.ico" >
+<TITLE>Archived Weblog Entry - 09/03/2005: "Monkeywrenching web beacons"</TITLE>
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+<META NAME="Generator" CONTENT="Greymatter 1.3.1">
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF">
+
+<P ALIGN=CENTER>
+<!-- SiteSearch Google 
+
+
+<form method="get" action="http://www.google.com/custom" target="_top">
+<table border="0" bgcolor="#ffffff">
+<tr><td nowrap="nowrap" valign="top" align="left" height="32">
+<a href="http://www.google.com/">
+<img src="http://www.google.com/logos/Logo_25wht.gif"
+border="0" alt="Google"></img></a>
+<br/>
+<input type="hidden" name="domains" value="clairewolfe.com"></input>
+<input type="text" name="q" size="31" maxlength="255" value=""></input>
+<input type="submit" name="sa" value="Search"></input>
+</td></tr>
+<tr>
+<td nowrap="nowrap">
+<table>
+<tr>
+<td>
+<input type="radio" name="sitesearch" value="" checked="checked"></input>
+<font size="-1" color="#000000">Web</font>
+</td>
+<td>
+<input type="radio" name="sitesearch" value="clairewolfe.com"></input>
+<font size="-1" color="#000000">clairewolfe.com</font>
+</td>
+</tr>
+</table>
+<input type="hidden" name="client" value="pub-4022324202908779"></input>
+<input type="hidden" name="forid" value="1"></input>
+<input type="hidden" name="channel" value="5298382855"></input>
+<input type="hidden" name="ie" value="ISO-8859-1"></input>
+<input type="hidden" name="oe" value="ISO-8859-1"></input>
+<input type="hidden" name="cof" value="GALT:#333333;GL:1;DIV:#37352E;VLC:000000;AH:center;BGC:C6B396;LBGC:8E866F;ALC:000000;LC:000000;T:44423A;GFNT:663333;GIMP:663333;FORID:1;"></input>
+<input type="hidden" name="hl" value="en"></input>
+
+</td></tr></table>
+</form>
+
+
+     SiteSearch Google -->
+</P><P ALIGN=CENTER>
+[<A HREF="00001633.html" onMouseOver="window.status='09/03/05: Ham radio for SHTF times';return true" onMouseOut="window.status='';return true">Previous entry: "Ham radio for SHTF times"</A>] [<A HREF="../blog.html">Main Index</A>] [<A HREF="00001635.html" onMouseOver="window.status='09/03/05: Laissez Fair?';return true" onMouseOut="window.status='';return true">Next entry: "Laissez Fair?"</A>]
+</P>
+
+<P ALIGN=CENTER>
+<FONT SIZE=4><B>09/03/2005 Archived Entry: "Monkeywrenching web beacons"</B></FONT>
+</P><P ALIGN=JUSTIFY>
+<b>THE OTHER DAY I POSTED A WARNING ABOUT YAHOO WEB BEACONS</B> <a href="00001619.html" target="_blank">and how to opt out of them</a>. Enemyofthestate responded:</P><P ALIGN=JUSTIFY><blockquote>While I certainly share your concern over the 'web beacons' Yahoo has been using for several years, I think it also offers a chance to monkey wrench the database. Before I stopped reading HTML formatted mail, I used to extract the beacon URL's and embed them in comments I'd leave on popular sites like Free Republic and Slashdot. That way every time the article was acessed, Yahoo gets a phoney hit.</blockquote></P><P ALIGN=JUSTIFY>I like it. "But for us non-technoids," I asked, "how do you do it?" This friendly enemy then said what to look for and what to do with the nasty little bugs. And offered further info about exactly how these nasty critters are used to invade your life:
+</P><P ALIGN=JUSTIFY>
+<blockquote>I tried several times today to get a real honest to gosh web beacon from Yahoo but no success.  Maybe they figure I'm not worth tracking. (Not sure if I am insulted or not  :-) </P><P ALIGN=JUSTIFY>Nevertheless I can give you some generic example of what a web beacon would look like.  The simplest kind is just a small images -- usually a 1 pixel by 1 pixel gif.  The source looks like:</P><P ALIGN=JUSTIFY>IMG SRC="http://ad.doubleclick.com/beacons/we45ftr678ues.gif" height="1" width="1"</P><P ALIGN=JUSTIFY>(When you copy such a beastie, be sure also to grab the little brackets on the ends (< >). I had to take them out for the blog software to display the text properly.)</P><P ALIGN=JUSTIFY>This beacon can only tell you which computer has accessed the message or page the beacon is embedded in.  It is adequate for determining if a message has been read but not for any level of detail on tracking a person's surfing habits.  It also requires a separate GIF file for each message being tracked.</P><P ALIGN=JUSTIFY>The gif doesn't have to be invisible either. Any image will do and I've read some place's use those animated smileys as web beacons.</P><P ALIGN=JUSTIFY>The next kind is more sophisticated since it can sets a cookie as well.  It look something like:</P><P ALIGN=JUSTIFY>IMG SRC="http://ad.doubleclick.com/cgi-beacons/webtrack.cgi" height="1" width="1"</P><P ALIGN=JUSTIFY>This retrieves the image from a server side executable which will request any previously set cookies on your system and try to set a new one.  Depending on the level of information sharing the tracker has with his partners, this technique can lead to a detailed picture of your browsing habits.</P><P ALIGN=JUSTIFY>For example, suppose you go to www.rescuesupplies.com which is partnered with doubleclick and has a web beacon like the above embedded in the source.  Further suppose that rescuesupplies shares names, addresses and phone numbers with doubleclick.  You make a purchase, enter your information and -- voila! -- you are now listed in doubleclick's database as a purchaser of rescue supplies and there is traceable cookie on your system.</P><P ALIGN=JUSTIFY>Two weeks from now you visit another site and look around a page listing prices for aluminum.  You don't buy anything but this page has a web beacon for doubleclick which retrieves your previous cookie and sets another. Ten minutes later, your phone rings and it is a telemarketer trying to sell you aluminum siding!</P><P ALIGN=JUSTIFY>Coincidence?  No.  The first cookie was tied to the personal information you gave rescuesupplies and retrieving from a different page enabled doubleclick to find your name and number and pass it to the telemarketer.</P><P ALIGN=JUSTIFY>Image tags are not the only way a web beacon can be set so just blocking images is not enough. The iframes tag can be also be used and there are some javascript tricks as well.</P><P ALIGN=JUSTIFY>One way to monkeywrench the beacons is to locate the snippet of code and embedd it in a message posted to a high volume site.  I liked to use FreeRepublic.com.  This is not foolproof of course but it does give the abusers lots of false hits they need to filter out to get useful data.</P><P ALIGN=JUSTIFY>Years ago a friend told me about desiging ECM for aircraft.  When you cannot hide from the radar, create a whole bunch of blips that looks just like you so their computer has to drop out the decoys to isolate you.  Hopefully, you will get dropped out and the missiles will target a decoy instead.</P><P ALIGN=JUSTIFY>Some precautions I use:</P><P ALIGN=JUSTIFY>I never read HTML email.  If it cannot be read as plain text, I trash it.  It's probably spam anyway.</P><P ALIGN=JUSTIFY>I block 'third party' cookies on my browser.</blockquote></P><P ALIGN=JUSTIFY>I ditto enemyofthestate on <i>never</i> reading HTML mail (my e-mail program is set to text-only -- as everybody's should be). And I not only block all third-party cookies, but reject all cookies, period, unless I'm positive they're needed for some function that benefits me -- like telling me which posts on a forum are new, or enabling me to create a personal wish list.
+</P>
+
+
+
+
+
+<P ALIGN=RIGHT><b>Posted by</b> <a href="../index.html" >Claire</a> @ 08:46 AM CST<br>
+<A HREF="00001634.html" onMouseOver="window.status='09/03/05: Monkeywrenching web beacons';return true" onMouseOut="window.status='';return true">Link</A> 
+
+<P ALIGN=CENTER>
+<a href="http://www.greymatterforums.com/" target="_top"><img border="0" src="../gm-icon.gif" alt="Powered By Greymatter" /></a>
+</P><P ALIGN=CENTER>
+
+</P>
+
+</BODY>
+</HTML>

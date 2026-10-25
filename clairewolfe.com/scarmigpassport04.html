@@ -1,0 +1,284 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<link rel="shortcut icon" href="images/favicon.ico" >
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=iso-8859-1">
+	<TITLE>E-Passport:  Doorway to the Panopticon</TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 1.1.5  (Linux)">
+	<META NAME="AUTHOR" CONTENT="hsean">
+	<META NAME="CREATED" CONTENT="20060914;7230000">
+	<META NAME="CHANGED" CONTENT="20061119;20370700">
+	<META NAME="SDFOOTNOTE" CONTENT="LROMAN">
+	<STYLE>
+	<!--
+		@page { size: 8.5in 11in; margin-right: 1.25in; margin-top: 1in; margin-bottom: 1in }
+		P { margin-bottom: 0.08in; direction: ltr; color: #000000; widows: 2; orphans: 2 }
+		P.western { font-family: "Times New Roman", "Times New Roman", serif; font-size: 12pt; so-language: en-US }
+		P.cjk { font-family: "Times New Roman", "Times New Roman", serif; font-size: 12pt }
+		P.ctl { font-family: "Times New Roman", "Times New Roman", serif; font-size: 12pt; so-language: ar-SA }
+		H1 { margin-bottom: 0.04in; direction: ltr; color: #000000; widows: 2; orphans: 2 }
+		H1.western { font-family: "Arial", "Arial", sans-serif; font-size: 16pt; so-language: en-US }
+		H1.cjk { font-family: "Times New Roman", "Times New Roman", serif; font-size: 16pt }
+		H1.ctl { font-family: "Arial", "Arial", sans-serif; font-size: 16pt; so-language: ar-SA }
+		H2 { margin-bottom: 0.04in; direction: ltr; color: #000000; widows: 2; orphans: 2 }
+		H2.western { font-family: "Arial", "Arial", sans-serif; font-size: 14pt; so-language: en-US; font-style: italic }
+		H2.cjk { font-family: "Times New Roman", "Times New Roman", serif; font-size: 14pt; font-style: italic }
+		H2.ctl { font-family: "Arial", "Arial", sans-serif; font-size: 14pt; so-language: ar-SA; font-style: italic }
+		H3 { margin-bottom: 0.04in; direction: ltr; color: #000000; widows: 2; orphans: 2 }
+		H3.western { font-family: "Arial", "Arial", sans-serif; font-size: 13pt; so-language: en-US }
+		H3.cjk { font-family: "Times New Roman", "Times New Roman", serif; font-size: 13pt }
+		H3.ctl { font-family: "Arial", "Arial", sans-serif; font-size: 13pt; so-language: ar-SA }
+		P.sdfootnote-western { margin-bottom: 0in; font-family: "Times New Roman", "Times New Roman", serif; font-size: 10pt; so-language: en-US }
+		P.sdfootnote-cjk { margin-bottom: 0in; font-family: "Times New Roman", "Times New Roman", serif; font-size: 10pt }
+		P.sdfootnote-ctl { margin-bottom: 0in; font-family: "Times New Roman", "Times New Roman", serif; font-size: 10pt; so-language: ar-SA }
+		A:link { color: #0000ff }
+		A.sdfootnoteanc { font-size: 57% }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" TEXT="#000000" LINK="#0000ff" DIR="LTR">
+
+<H1 CLASS="western" ALIGN=CENTER>E-Passport:<br>  Doorway to the
+Panopticon<br>Part IV</H1>
+
+<P CLASS="western" STYLE="margin-bottom: 0in"><center>By Scarmig<br>scarmig at fastmail.fm</center><BR>
+</P>
+
+<P CLASS="western" STYLE="margin-bottom: 0in">Part III covered the
+physical design and security of the e-Passport.  In Part IV, I cover
+the RFID chip, the logical data system, and the digital security
+features.  More technical read-outs.  No wamp-rats.</P>
+<H3 CLASS="western">ISO 14443 Contact-less Integrated Chip</H3>
+
+<P CLASS="western" STYLE="margin-bottom: 0in">The International
+Standards Organization has specification 14443 for contact-less chip
+design for identification.  The detailed technical specs of this
+design are available on their site for a fee, if anyone is
+interested.  ICAO took this specification and narrowed it down to
+make the passport specifications universally applicable across all
+the member nations.</P>
+
+<P CLASS="western" STYLE="margin-bottom: 0in">It is a radio-frequency
+ID chip, that&rsquo;s the contact-less part.  Mandatory minimum data
+size is 32k, although 64k is recommended, and some countries are
+implementing even larger storage capacities for their own purposes.</P>
+
+<P CLASS="western" STYLE="margin-bottom: 0in">ICAO has specified the
+LDS, or Logical Data System so that all countries will implement data
+on the chip the same way.  The LDS consists of 16 data groups.  And
+here they are:</P>
+
+<OL><font size ="-1"
+	<LI><B>MRZ</B> &ndash;
+	the same data that is in the Machine Readable Zone visible on the
+	passport.  Mandatory.
+	<LI><B>Facial image
+	sample</B> &ndash; this is the mandatory digital photograph sample
+	to be used for facial recognition.  Usually about 20k in size. 
+	Conforms to ISO image standard SC37.
+	<LI><B>Fingerprint
+	image sample</B> &ndash; Optional storage for fingerprint
+	biometrics, should the issuing country choose to include it.  Also
+	ISO SC37 standard.
+	<LI><B>Iris image
+	sample</B> &ndash; Optional storage for iris biometrics, should the
+	issuing country choose to include it.  Also ISO SC37 standard.
+	<LI><B>Secondary
+	facial image storage</B> &ndash; Optional storage of a second image.
+	 This is for profile images, angled images much like the multiple
+	angles taken for mug shots.  Not SC37 standard as this will be
+	country-specific (think National ID images).
+	<LI>Reserved.
+	<LI><B>Signature image
+	storage</B> &ndash; Optional image of the bearer&rsquo;s signature.
+	<LI><B>Substrate
+	security features</B> &ndash; Optional.  This tells a chip reader
+	what security measures to look for in the paper.
+	<LI><B>Data structure
+	security features</B> &ndash; Optional.  This tells a chip reader
+	what security measures to look for in the data structure.
+	<LI><B>Data security
+	features</B> &ndash; Optional.  This tells a chip reader what
+	security measures to look for in the data itself.
+	<LI><B>Additional
+	personal details</B> &ndash; Optional name, alias, address, or
+	document numbers.  This is stored in national characters (whereas
+	the rest of the document is stored in the Latin alphabet).  This
+	means that Arabic language names or Kanji could be reproduced
+	accurately in the native alphabet and length here.
+	<LI><B>Additional
+	details about the document</B> &ndash; Issuing agency, issue date,
+	image of the document, observations, and amendments.  Also in
+	national alphabet instead of Latin.
+	<LI><B>Optional data
+	field</B> &ndash; Anything the country wants to put here.
+	<LI>Reserved.
+	<LI><B>Active
+	Authentication Public Key</B> (in the future, this will be used to
+	verify an authorize <I>reader</I> is attempting to access the chip).
+	<LI><B>Emergency
+	contact information</B> &ndash; People to contact in case of
+	emergency and their contact information.
+</font></OL>
+
+<P CLASS="western" STYLE="margin-bottom: 0in">In addition, there are
+six Secure Object Data fields that are stored in the protected memory
+of the chip.  This is where the hash values and private keys for the
+encryption are stored.</P>
+
+<P CLASS="western" STYLE="margin-bottom: 0in">So as you can see,
+there&rsquo;s quite a bit of potential in these chips.  Lots of room
+for governments to add what they want, and many of them are taking
+advantage of it.  Germany is using the fingerprint field and the
+optional fields to tie their e-Passport to their National ID.  Other
+governments will use them to tie into social service accounts and
+records.  We can probably expect that someone will tie it into
+medical records.</P>
+
+<P CLASS="western" STYLE="margin-bottom: 0in">But how is this chip
+authenticated and secured?  So glad you asked.</P>
+
+<H2 CLASS="western">Hashes, Encryption and Keys, Oh My!</H2>
+
+<P CLASS="western" STYLE="margin-bottom: 0in">The data on a passport
+includes a <I>hash value</I> of the data in the MRZ (Machine Readable
+Zone).  What is a hash value?  Pretty simple concept.  A hash takes a
+string of characters and performs a calculation on them to get the
+hash value.  For example, if we say each letter of the alphabet&rsquo;s
+numeric value is its position, A = 1, B = 2, C = 3, and we have a
+hash formula of +4, then the hash value of &ldquo;ABD&rdquo; = 568,
+because A (1) + 4 = 5, and B (2) + 4 = 6.  Usually hash formulas are
+far more complicated than that, but that&rsquo;s the idea.</P>
+
+<P CLASS="western" STYLE="margin-bottom: 0in">So the passport
+contains the data, plus the hash value of the data.  If you want to
+verify that the data hasn&rsquo;t been changed, you take the data,
+perform the hash calculation on it, and check and see if it is the
+same as the hash value stored on the passport.  So in our example, if
+the hash value presented is 568, but the data on the passport is ABC,
+when we apply +4 to ABC we get 567 as a result, which is different
+than 568, and we know the data has been changed. Of course, the key
+to this, is keeping the hash formula a secret.  If the formula gets
+out, a counterfeiter could alter the data, apply the formula, and
+then alter the hash value to match the forged data.</P>
+
+<P CLASS="western" STYLE="margin-bottom: 0in">So the next step is to
+secure the hash value.  This is done by encrypting the hash value
+with a 2048 bit encryption scheme.  If you&rsquo;re familiar with
+PGP, this stuff is the same.  The hash is encrypted with a 2048 bit
+private key, which can only be unlocked using the appropriate public
+key.  So when a government issues a passport, it calculates the hash
+value, and then encrypts it with its ultra-secure private key.  That
+private key is recorded in the inaccessible-to-all-but-itself private
+memory of the chip (any hackers feel their spidey-sense tingling?).  
+</P>
+
+<P CLASS="western" STYLE="margin-bottom: 0in">When a reader wants to
+validate a passport, it looks at the data on the passport and applies
+the hash calculation.  Then it takes the country&rsquo;s public key
+and uses it to try and open the encrypted hash value stored in the
+passport.  The chip matches the public key presented by the reader to
+the private key stored in secured memory and if they match, decrypts
+the hash value.  The reader then compares the two hash values to see
+if they match.</P>
+
+<P CLASS="western" STYLE="margin-bottom: 0in">So who secures the
+public keys?  I am utterly ecstatic that you asked.</P>
+<P CLASS="western" STYLE="margin-bottom: 0in">The public keys are
+shared among the issuing countries and to ICAO in what is called the
+Public Key Directory (PKD).  This is a wide open directory of keys
+and anyone can download all the keys.  Anyone.  You, me, Joe Blow. 
+This is because the keys are used to authenticate the data on the
+passport, not provide privacy protection.</P>
+
+<P CLASS="western" STYLE="margin-bottom: 0in">Did you get that?</P>
+
+<P CLASS="western" STYLE="margin-bottom: 0in">The idea is that anyone
+who needs to validate your passport can download these keys and use
+them to check that the passport was authentically issued and that the
+visible and machine readable data matches the data stored on the
+chip.</P>
+
+<P CLASS="western" STYLE="margin-bottom: 0in">What&rsquo;s to keep
+someone from using the public keys to reverse engineer the private
+keys and make their stolen passports authenticate?  Fantastic
+question.  My giblets quiver with joy.  The ICAO PKD also keeps the
+Country Certificate Authority, which validates that the public keys
+are still valid.  The recommendation is that each key be used for 90
+days or a couple hundred thousand passports.  When using a public key
+to decrypt a passport, the software should validate the key is still
+usable with ICAO.  If the key is compromised, the validation fails
+and the software notifies the operator that the passport may be
+compromised as well.  Yes, this means that if someone hacks a public
+key, several hundred thousand people will get pulled aside when they
+try to use their passports for extra special questioning.</P>
+
+<P CLASS="western" STYLE="margin-bottom: 0in">So who secures the
+Country Certificates?  Lots of men with lots of guns, knives, and
+sharp, pointy sticks.  You knew it would come to that.  It always
+does.</P>
+
+<P CLASS="western" STYLE="margin-bottom: 0in">So what about privacy,
+now that I&rsquo;ve brought it up?</P>
+
+<P CLASS="western" STYLE="margin-bottom: 0in">Privacy was one of the
+biggest complaints about RFID enabled passports brought to bear by
+critics.  And while the solution is not perfect, it does appear to
+satisfy at least some of the complaints.</P>
+
+<P CLASS="western" STYLE="margin-bottom: 0in">ICAO recommends
+(recommends, not mandates), that e-Passports be designed with Basic
+Access Control (BAC) in mind.  Basic Access Control is designed to
+prevent skimming of the passport.  Skimming is what they call it when
+someone with a chip reader in their pocket waves it over you hoping
+to trigger the RFID chip and capture its data surreptitiously.  BAC
+consists of two protections.  One is that the front and back cover of
+the passport be lined with aluminum to shield the chip; an
+honest-to-goodness, official, tinfoil hat.  This means that the book
+must be opened in order to transmit energy to the chip.  The other
+part is the implementation of a read key consisting of the MRZ.  The
+idea is that not only does the book have to be opened, but the
+Machine Readable Zone must be scanned and transmitted to the chip
+accurately before the chip will respond to requests.  So even if your
+passport is open in your pocket, a skimmer wouldn&rsquo;t be able to
+send the right sequence of characters to open the chip except if they
+were able to accurately predict the data in your passport right down
+to the check digits in the MRZ.  Most countries are including BAC in
+their passport design.  Some are not.</P>
+
+<P CLASS="western" STYLE="margin-bottom: 0in">The other threat to
+privacy that ICAO acknowledges is the threat of eavesdropping, this
+being where, while a legitimate authority (boy do I hate that phrase)
+is reading your passport&rsquo;s chip, someone with a hidden reader
+nearby is also receiving the transmission.  Unfortunately, the
+recommendation to protect against this threat is a little weaker and
+consists of, &ldquo;<I>Make sure you buy passport readers that are
+shielded from eavesdropping</I>&rdquo;, thus putting you and me at
+the mercy of government competence and forethought.  You can sense my
+confidence all the way over there, can&rsquo;t you.</P>
+
+<P CLASS="western" STYLE="margin-bottom: 0in">Unfortunately, ICAO,
+being a governmental agency, seems to have a rather convenient blind
+spot regarding privacy.  Yes, they&rsquo;ve selected standards and
+recommended guidelines that help protect my passport data from you,
+and you from me, but nothing, absolutely nothing, addresses the fact
+that a few million government agents at entry-level grunt-work border
+and security jobs will have access to our data through one of the
+most potentially abusive data networks in the world.  They simply
+assume that each and every one of us can trust each and every one of
+them with our absolute holistic transnational identities.  And
+considering the security levels in place, how hard to you think it
+will be prove &ldquo;them&rdquo; wrong if someone on the inside
+abuses the system?</P>
+
+<P CLASS="western" STYLE="margin-bottom: 0in">Yeah, that&rsquo;s my
+thought too.</P>
+
+<br><br>
+
+   <DIV align=center><B><FONT 
+            face="Geneva, Arial, Helvetica, san-serif" color=#666699 
+            size=1>COPYRIGHT© 2006 <a href="index.html" target="_blank">Clairewolfe.com</a> AND SCARMIG<br>This article may be freely reprinted and distributed, provided that no changes whatsoever are made to any part of the text or titles and that the reprint carries this copyright line in full.
+     </FONT></B></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE></BODY></HTML>
+</BODY>
+</HTML>
