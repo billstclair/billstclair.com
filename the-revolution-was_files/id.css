@@ -1,0 +1,28 @@
+
+#idc-container div.idc-text_noresize
+{
+   -moz-border-radius-bottomleft:4px;
+   -moz-border-radius-bottomright:4px;
+   -moz-border-radius-topleft:4px;
+   -moz-border-radius-topright:4px;
+   -x-system-font:none;
+   background:#FFFFFF url(http://s.intensedebate.com/themes/universal/images/idc-grey-0926.png) no-repeat scroll -713px -121px;
+   border-color:#B0B0B0 #CCCCCC #CCCCCC;
+   border-style:solid;
+   border-width:1px;  
+   color:#333333;  
+   float:left;             
+   font-family:Helvetica,Arial,sans-serif;
+   font-size:12px;  
+   font-size-adjust:none;         
+   font-style:normal;  
+   font-variant:normal;
+   font-weight:normal;
+   height:100px !important;
+   line-height:1.3em;
+   margin:0 0 4px;
+   padding:3px;
+   width:97.8%;
+   white-space: pre-wrap;
+   overflow: auto;
+}

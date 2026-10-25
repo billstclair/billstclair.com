@@ -1,0 +1,85 @@
+var IDHost = "http://www.intensedebate.com/";
+var scripts = document.getElementsByTagName("script");
+var parentObj891366f6-9d0b-444c-8c0e-f2c996fde742 = null;
+var theObj891366f6-9d0b-444c-8c0e-f2c996fde742 = null;
+var acct = 'f3b523a2c7233ba02ce890689c979799';
+var thisdate = new Date();
+
+function checkIn891366f6-9d0b-444c-8c0e-f2c996fde742()
+{
+	if(!newImage)
+	{
+		var newImage = document.createElement("img");
+		newImage.src ="http://intensedebate.com/remoteVisit.php?acct="+acct+"&time="+thisdate.getTime();
+		newImage.style.display = "none";
+		document.body.appendChild(newImage);
+	}
+}
+
+function IDGetCommentCounts891366f6-9d0b-444c-8c0e-f2c996fde742()
+{
+	for(var i=0; i<scripts.length; i++)
+	{
+		if(scripts[i].src.toLowerCase()=="http://www.intensedebate.com/js/getCommentLink.php?acct=f3b523a2c7233ba02ce890689c979799&posturl=http://mises.org/daily/2726".toLowerCase() || scripts[i].src.toLowerCase()=="http://www.intensedebate.com/js/getCommentLink.php?acct=f3b523a2c7233ba02ce890689c979799&posturl=http%3a%2f%2fmises.org%2fdaily%2f2726".toLowerCase() || scripts[i].src.toLowerCase()=="http://www.intensedebate.com/js/getCommentLink.php?acct=f3b523a2c7233ba02ce890689c979799&postid=891366f6-9d0b-444c-8c0e-f2c996fde742&posttitle=&posturl=http://mises.org/daily/2726".toLowerCase() || scripts[i].src.toLowerCase()=="http://www.intensedebate.com/js/getCommentLink.php?acct=f3b523a2c7233ba02ce890689c979799&postid=891366f6-9d0b-444c-8c0e-f2c996fde742&posttitle=&posturl=http%3a%2f%2fmises.org%2fdaily%2f2726".toLowerCase() || scripts[i].src.toLowerCase().indexOf("http://www.intensedebate.com/js/getcommentlink.php?acct=f3b523a2c7233ba02ce890689c979799&postid=891366f6-9d0b-444c-8c0e-f2c996fde742&".toLowerCase())>=0)
+		{
+			parentObj891366f6-9d0b-444c-8c0e-f2c996fde742 = scripts[i].parentNode; 
+			theObj891366f6-9d0b-444c-8c0e-f2c996fde742 = scripts[i];
+			found=true;
+			break;		
+		}	
+	}
+	
+	if(!found)
+		alert(scripts[i].src);
+	
+	if(parentObj891366f6-9d0b-444c-8c0e-f2c996fde742.href && parentObj891366f6-9d0b-444c-8c0e-f2c996fde742.href.length>0)
+	{	
+		parentObj891366f6-9d0b-444c-8c0e-f2c996fde742.innerHTML += "Comments (1)";
+		parentObj891366f6-9d0b-444c-8c0e-f2c996fde742.href = "http://mises.org/daily/2726#idc-container";
+		parentObj891366f6-9d0b-444c-8c0e-f2c996fde742.id='IDShowCommentLink891366f6-9d0b-444c-8c0e-f2c996fde742';
+		parentObj891366f6-9d0b-444c-8c0e-f2c996fde742.target='';		
+		
+	}
+	else
+	{
+		
+		newA891366f6-9d0b-444c-8c0e-f2c996fde742 = document.createElement("a");
+		newA891366f6-9d0b-444c-8c0e-f2c996fde742.innerHTML = "Comments (1)";
+		newA891366f6-9d0b-444c-8c0e-f2c996fde742.href = "http://mises.org/daily/2726#idc-container";
+		newA891366f6-9d0b-444c-8c0e-f2c996fde742.id='IDShowCommentLink891366f6-9d0b-444c-8c0e-f2c996fde742';
+		newA891366f6-9d0b-444c-8c0e-f2c996fde742.target='';
+		if(parentObj891366f6-9d0b-444c-8c0e-f2c996fde742 && theObj891366f6-9d0b-444c-8c0e-f2c996fde742)
+			parentObj891366f6-9d0b-444c-8c0e-f2c996fde742.insertBefore(newA891366f6-9d0b-444c-8c0e-f2c996fde742, theObj891366f6-9d0b-444c-8c0e-f2c996fde742);	
+		
+	}
+}
+
+if (window.addEventListener) 
+{ 
+    window.addEventListener("load", IDGetCommentCounts891366f6-9d0b-444c-8c0e-f2c996fde742, false); 
+} 
+else if (window.attachEvent) 
+{
+    window.attachEvent('onload', IDGetCommentCounts891366f6-9d0b-444c-8c0e-f2c996fde742);
+}
+	
+if (window.addEventListener) 
+{ 
+    window.addEventListener("load", checkIn891366f6-9d0b-444c-8c0e-f2c996fde742, false); 
+} 
+else if (window.attachEvent) 
+{
+    window.attachEvent('onload', checkIn891366f6-9d0b-444c-8c0e-f2c996fde742);
+}
+if( typeof(IDCounted) == "undefined" ) {
+	var IDCounted;
+	_qoptions = [{ labels:"comment-links", qacct:"p-94D6e1NDscLvI"},{qacct:"p-18-mFEk4J448M", labels:"type.intensedebate.embed"}];
+	IDcountIT();
+}
+	
+function IDcountIT() {
+	var newScript  = document.createElement('script');
+	newScript.type = 'text/javascript';
+	newScript.src  = '//edge.quantserve.com/quant.js';
+	document.getElementsByTagName('head')[0].appendChild(newScript);
+}
