@@ -1,0 +1,38 @@
+<html>
+<head>
+<title>billstclair.com archives</title>
+</head>
+<body>
+<h2>billstclair.com archives</h2>
+
+<p>This directory contains archives of billstclair.com as of 21 June, 2012</p>
+<table border='1'>
+<tr><th>File</th><th>Size</th><th>Description<th></tr>
+<tr>
+  <td><a href="www.tar.gz">www.tar.gz</a></td>
+  <td>360,593,700</td>
+  <td>Top-level site, excluding mirrors and blog</td>
+</tr>
+<tr>
+  <td><a href="blog.tar.gz">blog.tar.gz</a></td>
+  <td>116,760,135</td>
+  <td>blog: End the War on Freedom</td>
+</tr>
+<tr>
+  <td><a href="mirrors.tar.gz">mirrors.tar.gz</a></td>
+  <td>119,344,816</td>
+  <td>Mirrors of other sites</td>
+</tr>
+</table>
+
+<p>Typical shell commands to get the whole site:</p>
+<pre>
+wget http://billstclair.com/archives/www.tar.gz
+tar -xzf www.tar.gz             # dearchives to www/...
+wget http://billstclair.com/archives/blog.tar.gz
+tar -xzf blog.tar.gz            # dearchives to www/blog/...
+wget http://billstclair.com/archives/mirrors.tar.gz
+tar -xzf mirrors.tar.gz         # dearchives to www/.../...
+</pre>
+</body>
+</html>
