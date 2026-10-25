@@ -1,0 +1,338 @@
+.c0F0 {
+	color:#00FF00!important; /* green */	
+}
+.c0F0-B {
+color: #00FF00!important; /* green */
+FONT-WEIGHT:bold;		 
+}	
+.cFF0 {
+COLOR: #FFFF00!important; /* yellow */		
+}
+ .cF6F {
+ COLOR: #FF66FF!important; /* almost magenta */		 
+}
+ .cF6F-B {
+COLOR: #FF66FF!important; /* almost magenta */
+font-weight: bold;
+}		
+.F33 {
+color: #FF3333!important;  /* almost red */
+}
+.FC0 {
+	COLOR: #FFCC00!important;  /* orange */
+}
+.FC0-B {
+	COLOR: #FFCC00!important;  /* orange */
+	font-weight: bold;
+}
+.c9F9 {
+	COLOR: #99FF99!important;  /* editorial green*/
+}
+.c9F9-B {
+	COLOR: #99FF99!important;
+	font-weight: bold;
+}
+.F0F {
+	color: #FF00FF!important; 	
+}
+.F00 {
+	color: #FF0000!important;  /* hard red */	
+}
+.head-red {
+	font-family: "Century Gothic", Arial, sans-serif;
+	font-size: large;
+	font-weight: bold;
+	color: #FF3333!important;
+}
+.c9F3-B { 
+	font-weight: bold;
+	color: #99FF33!important; /* briefing green */
+	
+}
+.smaller-lt {
+	font-size: 12px;
+	color: #CCCCCC!important;
+}
+.c00F {
+	color: #0000FF!important;
+}
+.cF60 {
+	color: #FF6600!important;
+}
+.cF60-b {
+	font-weight: bold;
+	color: #FF6600!important;
+}
+.red-org-b {
+	font-weight: bold;
+	color: #FF9933!important;
+}
+.C9F {
+	color: #CC99FF!important;
+}
+.cF0C {
+	color: #FF00CC!important;
+}
+.c33F {
+	color: #3333FF!important;
+}
+.cC0C {
+	color: #CC00CC!important;
+}
+.c9C6 {
+	color: #99CC66!important;
+}
+.greynorm {
+	color: #888888!important;
+}
+.c00F-b {
+	font-weight: bold;
+	color: #0000FF!important;
+}
+.F33-b {
+	font-weight: bold;
+	color: #FF3333;
+}
+.c9C6-b {
+	font-weight: bold;
+	color: #99CC66!important;
+}
+.FFF-b {
+	font-weight: bold;
+	color: #FFFFFF!important;
+}
+.CFC-b {
+	font-weight: bold;
+	color: #CC99CC!important;
+}
+.F00-b {
+	font-weight: bold;
+	color: #FF0000!important;
+}
+.F90 {
+	color: #FF9900!important;
+}
+.purp-lg {
+	font-size: large;
+	color: #9900CC!important;
+	font-weight: bold;
+}
+.c90C {
+	font-weight: bold;
+	color: #9900CC!important;
+}
+.greyblock {
+	background-color: #666666;
+}
+.cF0C {
+	color: #FF00CC!important;
+}
+.dk-grn-b {
+	font-weight: bold;
+	color: #009900!important;
+}
+.c3F3 {
+	color: #33FF33!important;
+}
+.c6C6 {
+	color: #66CC66!important;
+}
+.c69F-b {
+	font-weight: bold;
+	color: #6699FF!important;
+}
+.F9F {
+	color: #FF99FF!important;
+}
+.rose {
+	color: #FFCCFF!important;
+}
+.FF9 {
+	color: #FFFF99!important;
+}
+.FF9-cen {
+	font-family: "Century Gothic", Arial, sans-serif;
+	font-weight: bold;
+	color: #FFFF99!important;
+}
+.aoiko-cen-bld {
+	font-family: "Century Gothic", Arial, sans-serif;
+	font-weight: bold;
+	color: #66FFFF!important;
+}
+.FC0--B-cen {
+	font-family: "Century Gothic", Arial, sans-serif;
+	font-weight: bold;
+	color: #FFCC00!important;
+}
+.cen-bd-smr {
+	font-family: "Century Gothic", Arial, sans-serif;
+	font-size: smaller;
+	font-weight: bold;
+}
+.cen-smr {
+	font-family: "Century Gothic", Arial, sans-serif;
+	font-size: smaller;
+}
+.greyblock-dk {
+	background-color: #222222!important;
+}
+.smr-whi {
+	font-size: 12px;
+	color: #CCCCCC!important;
+}
+.bgr-whi {
+	font-size: 18px;
+	color: #CCCCCC!important;
+}
+.c09F {
+	color: #0099FF!important;
+}
+.aoikowriter {
+	color: #6699FF!important;
+}
+.sums-header {
+	font-family: "Century Gothic", Arial, sans-serif;
+	color: #CC00CC!important;
+}
+.cfff-b {
+	font-weight: bold;
+	color: #FFFFFF!important;
+}
+.F90-B {
+	font-weight: bold;
+	color: #FF9900!important;
+}
+.ltyel {
+	font-weight: bold;
+	color: #DDCCBB;
+}
+.FC0smr {
+	font-size: smaller;
+	color: #FFCC00;
+}
+.F33smr {
+	font-size: smaller;
+	color: #FF3333;
+}
+.RedCenBld {
+	font-family: "Century Gothic";
+	font-weight: bold;
+	color: #FF3333;
+
+}
+.cen-wh-bd-smr {
+	font-family: "Century Gothic";
+	font-size: large;
+	font-weight: bold;
+	color: #FFFFFF;
+	text-decoration: none;
+
+}
+.counter {
+	font-family: "Century Gothic";
+	font-weight: bold;
+	color: #FFFFFF!important;
+}
+.greynorm2 {
+	font-weight: bold;
+	color: #999999;
+}
+.fundi2 {
+	font-weight: bold;
+	background-color: #A60068;
+}
+.cenb066 {
+	font-weight: bold;
+	font-family: "Century Gothic";
+	background-color: 006666;
+}
+.cenb906 {
+	font-family: "Century Gothic";
+	font-weight: bold;
+	background-color: #990066;
+}
+.cena60068 {
+	font-family: "Century Gothic";
+	font-weight: bold;
+	background-color: #a60068;
+}
+.fundi2-emph {
+	font-weight: bold;
+	color: #FFFFFF;
+	background-color: #A60068;
+}
+.fundi1emph {
+	font-weight: bold;
+	color: #FFFFFF;
+	background-color: #990066;
+}
+.pol1emph {
+	font-weight: bold;
+	color: #FFFFFF;
+	background-color: #990033;
+}
+.editorial-sm {
+	font-size: smaller;
+	color: #99ff99;
+}
+.giro1 {
+	font-family: "Century Gothic";
+	font-style: normal;
+	color: #EE6688;
+	font-size: x-large;
+
+}
+.giro2 {
+	color: #EE6688;
+}
+
+.section {
+	font-family: "Century Gothic", Arial, sans-serif;
+	color: #FFFFFF!important;
+	background-color: #FF9900;
+	font-weight: bold;
+	background-position: center;
+}
+
+.top {
+	font-family: "Century Gothic", Arial, sans-serif;
+	font-weight: bold;
+	color: #FFFFFF!important;
+	background-color: #FF6600;
+	background-position: center;
+}
+
+.section2{
+	font-family: "Century Gothic", Arial, sans-serif;
+	color: #FFFFFF!important;
+	background-color: #ffcc55;
+	font-weight: bold;
+	background-position: center;
+}
+
+.section3{
+	font-family: "Century Gothic", Arial, sans-serif;
+	color: #FFFFFF!important;
+	background-color: #ffbb77;
+	font-weight: bold;
+	background-position: center;
+}
+
+.section4{
+	font-family: "Century Gothic", Arial, sans-serif;
+	color: #FFFFFF!important;
+	background-color: #ff99aa;
+	font-weight: bold;
+	background-position: center;
+}
+.cen-dk-red {
+	font-family: "Century Gothic", Arial, sans-serif;
+	color: #660033!important;
+	font-weight: bold;
+}
+.cen-dk-blu {
+	font-family: "Century Gothic", Arial, sans-serif;
+	color: #3333CC!important;
+	font-weight: bold;
+}

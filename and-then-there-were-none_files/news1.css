@@ -1,0 +1,486 @@
+.pol1 {
+background-color: #990033;
+font-weight: bold;
+}
+.sci1 {
+background-color: #006600;
+font-weight: bold;
+}
+.behav1{
+background-color: #000066;
+font-weight: bold;
+}
+.fun1 {
+background-color: #CC00CC;
+font-weight: bold;
+}
+.engy1 {
+font-weight: bold;
+background-color: #994400;
+}
+.sitemap {
+font-weight: bold;
+color: #FF0000!important;
+font-family: "Century Gothic", Arial, sans-serif;
+font-size: large;
+text-transform: lowercase;
+}
+.century {
+font-family: "Century Gothic", Arial, sans-serif;
+color: #CCCCCC!important;
+}
+.latest {
+font-weight: bold;
+color: #FFFF00!important;
+}
+.headline {
+font-size: small;
+font-weight: bold;
+color: #99FF99!important;
+}
+.dateline {
+color: #FFCC00!important;
+background-color: #333333;
+}
+.dateline-ex {
+color: #CCCCCC!important;
+background-color: #333333;
+}
+.newsline {
+background-color: #000022;
+font-weight: normal;
+}
+.newsline2 {
+background-color: #001100;
+}
+.newsdate {
+color: #FFCC00!important;
+}
+.ab-edl {
+color: #99FF99!important;
+}
+.ecol1 {
+background-color: #0000CC;
+font-weight: bold;
+}
+.oil1 {
+font-weight: bold;
+background-color: #CC6600;
+}
+.editorial {
+	color: #AAFFAA!important;
+}
+.editorial2 {
+color: #AAFFAA!important;
+font-weight: bold;
+}
+.lite1 {
+font-weight: bold;
+background-color: #6600CC;
+}
+.health1 {
+font-weight: bold;
+background-color: #009900;
+}
+.prestigebl {
+color: #0000CC!important;
+font-weight: bold;
+}
+.unlnkd {
+font-weight: bold;
+color: #FFFF99!important;
+}
+.extlnk-bld {
+font-weight: bold;
+color: #00FF00!important;
+}
+.extlnk {
+color: #00FF00!important;
+}
+.rel-lnk {
+font-weight: bold;
+color: #FF3333!important;
+}
+.yel1 {
+color: #FFFF00!important;
+}
+.fundi1 {
+font-weight: bold;
+background-color: #990066;
+}
+.head-5 {
+font-family: "Century Gothic", Arial, sans-serif;
+font-size: 24px;
+font-weight: bold;
+color: #99FF99!important;
+}
+.head-4 {
+font-family: "Century Gothic", Arial, sans-serif;
+font-size: 18px;
+font-weight: bold;
+color: #99FF99!important;
+}
+.subsectionhead {
+font-family: "Century Gothic", Arial, sans-serif;
+font-size: medium;
+font-weight: bold;
+text-transform: lowercase;
+color: #FFCC00!important;
+}
+.qut-cite {
+font-size: x-small;
+color: #FFFF00!important;
+}
+.new {
+font-weight: bold;
+background-color: #FF0033;
+font-size: medium;
+}
+.econcs1 {
+font-weight: bold;
+background-color: #CC3300;
+}
+.bold {
+font-weight: bold;
+}
+.water {
+font-weight: bold;
+background-color: #0066CC;
+}
+.imgcrdt {
+font-size: x-small;
+color: #666666!important;
+}
+.new-txt {
+font-weight: bold;
+color: #FF0033!important;
+background-color: #333333;
+}
+.editorial-bold {
+font-weight: bold;
+color: #AAFFAA!important;
+font-family: "Century Gothic", Arial, sans-serif;
+}
+.century-bld {
+font-family: "Century Gothic", Arial, sans-serif;
+font-weight: bold;
+}
+.cen-bd-y {
+font-family: "Century Gothic", Arial, sans-serif;
+font-weight: bold;
+color: #FFFF00!important;
+}
+.greytxt {
+color: #666666!important;
+font-family: "Century Gothic", Arial, sans-serif;
+font-weight: bold;
+}
+.smaller {
+font-size: 12px;
+color: #666666!important;
+}
+.credit-grey {
+font-family: "Century Gothic", Arial, sans-serif;
+font-size: xx-small;
+color: #666666!important;
+}
+.yel-bld {
+font-weight: bold;
+color: #FFFF00!important;
+}
+.blk-bld {
+font-weight: bold;
+	color: #000033!important;
+}
+.black {
+color: #000033!important;
+}
+.cite-lnk {
+font-style: italic;
+color: #FFFF00!important;
+}
+.purp-bld {
+font-weight: bold;
+color: #CC66FF!important;
+}
+.france-n {
+background-color: #550033;
+font-weight: bold;
+color: #FFFFFF!important;
+}
+.query {
+color: #9966FF!important;
+}
+.cent-bd-bk {
+font-family: "Century Gothic", Arial, sans-serif;
+font-size: large;
+font-weight: bold;
+color: #000033!important;
+}
+.edl-lite {
+	color: #CAFFCA!important;
+}
+.cen-b-sm-y {
+font-family: "Century Gothic", Arial, sans-serif;
+font-size: 12px;
+font-weight: bold;
+color: #FFFF00!important;
+}
+.cen-sm-pur {
+font-family: "Century Gothic", Arial, sans-serif;
+font-size: 12px;
+font-weight: bold;
+color: #CC66FF!important;
+}
+.cen-b-sm-wh {
+font-family: "Century Gothic", Arial, sans-serif;
+font-size: 12px;
+font-weight: bold;
+color: #FFFFFF!important;
+}
+.hed-lt-y {
+font-size: large;
+font-weight: bold;
+color: #FFFFCC!important;
+font-family: "Century Gothic", Arial, sans-serif;
+}
+.emph-pnk {
+color: #FF66FF!important;
+}
+.bld-5 {
+font-size: 16pt;
+font-weight: bold;
+}
+.creditgry2 {
+font-size: 12px;
+color: #999999!important;
+}
+.extlnk-sm {
+font-size: 12px;
+color: #00CC00!important;
+}
+.aoiko {
+color: #66FFFF!important;
+}
+.civ-rts {
+font-weight: bold;
+background-color: #006666;
+}
+.rev {
+font-weight: bold;
+color: #CCCCCC!important;
+background-color: #DF4F00;
+}
+.url {
+font-size: 80%;
+color: #6699FF!important;
+}
+.inlinenote {
+}
+.page-addr {
+color: #6699FF!important;
+}
+.hd-lnk {
+font-size: 40%;
+color: #6699FF!important;
+}
+.CenBd-wh {
+font-family: "Century Gothic", Arial, sans-serif;
+font-weight: bold;
+color: #FFFFFF!important;
+}
+.hd-lnk {
+	font-size: 40%;
+	color: #6699FF!important;
+}
+.CenBd-wh {
+	font-family: "Century Gothic", Arial, sans-serif;
+	font-weight: bold;
+	color: #FFFFFF!important;
+}
+.url {
+	font-size: 80%;
+	color: #6699FF!important;
+}
+.inlinenote {
+}
+.page-addr {
+	color: #6699FF!important;
+}
+.hd-lnk {
+	font-size: 40%;
+	color: #6699FF!important;
+}
+.CenBd-wh {
+	font-family: "Century Gothic", Arial, sans-serif;
+	font-weight: bold;
+	color: #FFFFFF!important;
+}
+.metaA2 {
+	font-weight: bold;
+	color: #00FFCC!important;
+}
+.metaA4 {
+	font-weight: bold;
+	color: #CC99FF!important;
+}
+.metaA1 {
+	font-weight: bold;
+	color: #CCFF99!important;
+}
+.oneliner {
+	font-weight: bold;
+	background-color: #339900;
+	color: #E2E2E2!important;
+}
+.yel-smr {
+	font-size: smaller;
+	color: #FFFF00!important;
+}
+.smr-norm {
+	font-size: 12px;
+}
+.cen-ext {
+	font-family: "Century Gothic", Arial, sans-serif;
+	font-weight: bold;
+	color: #00FF00!important;
+}
+.section {
+	font-family: "Century Gothic", Arial, sans-serif;
+	color: #FFFFFF!important;
+	background-color: #FF9900;
+	font-weight: bold;
+	background-position: center;
+
+}
+.top {
+	font-family: "Century Gothic", Arial, sans-serif;
+	font-weight: bold;
+	color: #FFFFFF!important;
+	background-color: #FF6600;
+	background-position: center;
+}
+
+UL.comment LI {
+  list-style-type:none;
+}
+
+TABLE.comment {
+  border:1px solid white;
+  margin:10px;
+}
+
+TABLE.comment TD {
+  padding:10px;
+}
+.facts {
+	font-weight: bold;
+	color: #CCCCCC!important;
+	background-color: #EE2200;
+}
+
+.phonetics {
+	font-weight: normal;
+	color: #FFFF00!important;
+	font-size: 150%;
+}
+.socializer1 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: small;
+	font-weight: normal;
+	color: #CC99FF;
+
+}
+.socializer2 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: small;
+	text-transform: none;
+	color: #00FF00;
+}
+.socializer3 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: x-small;
+	color: #FFFF00;
+}
+.emph-pnk-cen {
+	font-family: "Century Gothic";
+	font-weight: bold;
+	color: #FF00FF;
+}
+.emph-pnk-smr {
+	font-family: "Times New Roman", Times, serif;
+	font-size: smaller;
+	color: #FF00FF;
+}
+.emph-or-smr {
+	font-family: "Century Gothic";
+	font-size: smaller;
+	color: FFCC00;
+}
+.emph-yel {
+	font-family: "Century Gothic";
+	font-size: smaller;
+	color: #FFFF00;
+}
+.extlnk-smhdg {
+	font-family: "Century Gothic";
+	font-weight: bold;
+	color: #00FF00;
+}
+.smrfc0 {
+	font-size: 12px;
+	color: #FFCC00;
+}
+.comments {
+font-weight: bold;
+color: #FF0000!important;
+font-family: "Century Gothic", Arial, sans-serif;
+font-size: xx-large;
+text-transform: lowercase;
+}
+.comments2 {
+font-weight: bold;
+color: #FF0000!important;
+font-family: "Century Gothic", Arial, sans-serif;
+text-transform: lowercase;
+}
+.vincy-cen {
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	color: #CC99FF;
+}
+.cenFC0smr {
+	font-family: "Century Gothic";
+	font-size: 12px;
+	font-style: normal;
+	font-weight: bold;
+	color: #FFCC00;
+}
+.RedCenBldSm {
+	font-family: "Century Gothic";
+	font-size: 12px;
+	font-style: normal;
+	font-weight: bold;
+	color: #FF3333;
+}
+.civ-rts2 {
+	font-family: "Times New Roman", Times, serif;
+	font-weight: bold;
+	background-color: #006688;
+}
+#cookie-law { 
+    max-width:940px;
+    background:#BBBBBB; 
+    margin:10px auto 0; 
+    border-radius: 0px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+}
+#cookie-law p { 
+    padding:10px; 
+    font-size:1.2em; 
+    font-weight:bold; 
+    text-align:center; 
+    color:#FFCC00; 
+    margin:0;
+}
