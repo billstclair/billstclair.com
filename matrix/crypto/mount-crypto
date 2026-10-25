@@ -1,0 +1,18 @@
+#!/bin/bash
+stty -echo
+retval=1
+while [ $retval -ne 0 ];
+do
+  /sbin/cryptsetup remove cryptfs >& /dev/null
+  echo -e "Enter FS Password: \c"
+  read tmpres
+  echo -n $tmpres  | /usr/bin/gpg --no-tty --passphrase-fd 0 -o - -q /mnt/usb/keys/fs.gpg | /sbin/cryptsetup -v -c aes create cryptfs /dev/md1
+  /bin/mount /dev/mapper/cryptfs /crypto -o ro,nosuid
+  retval=$?
+  tmpres="shitonastick";
+done
+stty echo
+/bin/umount /dev/mapper/cryptfs
+/sbin/fsck.ext3 -y /dev/mapper/cryptfs
+/bin/mount /dev/mapper/cryptfs /crypto -o rw,nosuid
+

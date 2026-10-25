@@ -1,0 +1,46 @@
+#!/usr/bin/perl -w
+# AE GPL 2005
+
+use strict;
+
+# these must be IPs, not hostnames. If DNS fails, ping hangs. That's bad.
+my @host = (
+        "64.233.167.99", # google
+        "64.233.167.104",  # ..
+        "64.233.167.147",  # ..
+        "216.239.37.99",
+        "216.239.57.99",
+        "216.239.39.99",
+        "66.94.234.13", # yahoo..
+        "216.109.112.135",
+        "216.109.118.79",
+        "216.109.118.74",
+        "216.109.118.72",
+        "216.109.118.69", 
+        "216.109.118.68",
+        "216.109.118.67",
+        "216.109.117.106",
+        "64.233.167.147");
+my $i = 0;
+
+while(1)
+{
+    my $last = "100% packet loss";
+    print "Pinging $host[$i] $i of " . $#host . "\n";
+    open(PING, "ping -w 1 -i 0.4 -c 5 $host[$i]|");
+
+    while(<PING>) {
+        if(/packet loss/) {
+            $last = $_;
+        }
+    }
+
+    if($last =~ /100% packet loss/) {
+        print "OH NO! We've been seized\n";
+        system("/usr/local/sbin/crypt-stop");
+    } else {
+        print "A-OK!: $last\n";
+    }
+    $i++;
+    $i = $i % ($#host+1);
+}

@@ -1,0 +1,130 @@
+Linux Kernel Auditor v0.2.1
+GPL 2006
+
+
+This package contains two modules. You can build them with 'make'. You will
+need kernel source or a kernel-devel package installed.
+
+
+1. module_hunter.c - Checks for hidden modules
+
+This module will search though the vmalloc memory region for structures that
+look like 'struct module' entries. It will print any 'struct module' entries
+that it finds that ARE NOT LISTED in the system module list.
+
+This module is not failsafe. Just because it reports nothing is present
+does not mean you are clean.
+
+
+
+2. scprint.c - Prints out the syscall table
+
+This module can verify the syscall table using a few different means. 
+
+ A. IDT Lookup 
+    The module can look up the syscall_call function call in position 0x80
+    of the interrupt table and finds the sys_call_table call inside this
+    function. This method covers the two major ways syscalls can be subverted.
+
+    This method creates the file /proc/idt_syscall. When you cat this file,
+    the module traverses the IDT and reads the syscall table to 'dmesg'.
+    
+    The module parameter system_call=<address> can be used to manually specify
+    the system_call symbol instead of traversing the IDT.
+
+ B. Sysenter Lookup
+    For systems that use the sysenter instruction, the same basic technique 
+    can be done using the sysenter MSR and following the sysenter_entry
+    function.
+
+    This method creates the file /proc/sysenter_syscall. Catting this file
+    traverses the sysenter MSR and reads the syscall table to 'dmesg'. 
+
+    The module parameter se_entry=<address> can be used to manually specify
+    the sysenter_entry symbol instead of reading it from the MSR.
+
+ C. User Specified Address
+    You can specify the sys_call_table parameter table=0. This is not very
+    robust, because a rootkit can hijack the IDT or the code it calls.
+
+    This method uses the module paramter table=<address> to read the
+    sys_call_table directly when you cat /proc/user_syscall.
+
+A quick_diff.sh file has been provided for you that creates 3 diffs:
+
+ kern-map.diff - The differences between the kernel and System.map
+ kern-syms.diff - The differences between the kernel and /proc/kallsyms
+ map-syms.diff - The differences between kallsyms and System.map (should be 0)
+
+It is normal that there are some minor differences between the kernel and the
+symbol files. The crucial symbols that SHOULD NOT differ are:
+
+  sys_read
+  sys_write
+  sys_open
+  sys_getdents
+  sys_socketcall
+  sys_query_module
+  sys_setuid
+  sys_execve
+  sys_chdir
+  sys_fork
+  sys_ioctl
+  sys_kill
+  system_call
+  sysenter_entry
+
+
+To help detect the technique discussed in 
+
+http://www.securiteam.com/unixfocus/5FP022A4KW.html 
+
+Each of these files will also accept input in the form of a syscall followed
+by a length. Ie:
+
+echo "sys_read 100" > /proc/idt_syscall
+
+This will cause a char array sys_read to be printed to dmesg that contains the
+bytecode of the system call sys_read. You can then cut and paste this to the
+bottom of the analyze_this.c file and run 'make'.
+
+Once the file is built, you can run the following:
+
+$ gdb ./analyze_this
+
+(gdb) disass sys_read
+
+
+You can then run 
+
+$ gdb /path/to/kernel/vmlinux 
+
+(gdb) disass sys_read
+
+And compare the two outputs. The most important thing to watch for is that the
+first 2-3 lines are push, sub and mov instructions and not a jmp or a call
+instruction to some random address.
+
+Note that the addresses for calls and such will be off, since they are
+relative, but the rest of the structure should be the same. 
+
+
+
+NOTE: People running stock kernels may not have a vmlinux file. For rpm based
+systems, you will have to download the kernel source rpm and run 
+
+# rpmbuild --target i686 -bc kernel-<version>.src.rpm
+
+This will create a vmlinux file in 
+/usr/src/redhat/BUILD/kernel-<version>/linux-<version>/vmlinux
+
+
+
+
+Good luck and happy hunting!
+
+P.S. 
+
+This does not cover all your bases. Future versions of this auditor will
+need to address hooking the keyboard interrupt directly and hooking the page
+fault handler.

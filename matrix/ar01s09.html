@@ -1,0 +1,401 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ANSI_X3.4-1968"><title>Key points to learn from this document</title><meta name="generator" content="DocBook XSL Stylesheets V1.68.1"><link rel="start" href="index.html" title="Network Forensics Evasion: How to Exit the Matrix"><link rel="up" href="index.html" title="Network Forensics Evasion: How to Exit the Matrix"><link rel="prev" href="ar01s08.html" title="Physical Interaction"><link rel="next" href="ar01s10.html" title="Further Information"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Key points to learn from this document</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ar01s08.html">Prev</a>&#160;</td><th width="60%" align="center">&#160;</th><td width="20%" align="right">&#160;<a accesskey="n" href="ar01s10.html">Next</a></td></tr></table><hr></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="FAQ"></a>Key points to learn from this document</h2></div></div></div><p>
+
+As this HOWTO has grown in size and scope it has occurred to me that it now
+requires at least some form of topical index, especially since it is very easy
+to skim over some crucial point without realizing that it is key to
+maintaining your anonymity. As such, I've provided a "Self Quiz" that contains
+questions about anonymity best-practices that you should be able to answer off
+the top of your head. Answers are in the following section with links to
+relevant sections of the HOWTO.
+
+
+  </p><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="Quiz"></a>Anonymity Self-Quiz</h3></div></div></div><div class="orderedlist"><ol type="1"><li><p>
+
+You are on an open wireless network. Name 3 ways you can be tracked.
+
+     </p></li><li><p>
+
+Name 3 ways your IP address can be revealed through your web browser even
+if you use Tor for http.
+
+     </p></li><li><p>
+
+Sometimes you find Tor unbearably slow and turn it off, or have <a href="http://archives.seul.org/or/talk/Apr-2006/msg00127.html" target="_top">a filter</a>
+in place to only use Tor for certain sites.  Why is this dangerous, and what
+measures can you take to protect yourself?
+
+     </p></li><li><p>
+
+Why is Javascript dangerous? Give 2 ways it can be used to track you and 
+one way you can easily protect yourself without globally disabling it.
+
+     </p></li><li><p>
+
+What are some ways you can eliminate the hassle and worry over a particular
+application bypassing your proxy settings, yet still use Tor?
+
+     </p></li><li><p>
+
+Name 4 local services that can reveal your identity to your local network or
+VPN endpoint.
+
+     </p></li><li><p>
+
+A service you intend to access blocks Tor. Name at least two things you can
+do to circumvent this ban while still achieving Tor-caliber protection.
+
+     </p></li><li><p>
+
+You want to set up an anonymous email account. What providers are
+dangerous to use, and why? What dangers do you face no matter what provider?
+
+     </p></li><li><p>
+
+You need to anonymously access a public IRC server. What properties of
+your client of choice are dangerous, if any?
+
+     </p></li><li><p>
+
+You wish to use google groups to post to usenet or to watch for responses
+to a post you have made through some other means. What should you do before
+and after access?
+
+     </p></li><li><p>
+   
+You are behind a corporate firewall that monitors your internet access and
+prohibits you from using certain ports and applications. What can you do?
+
+     </p></li><li><p>
+
+You also suspect that they may be monitoring your access of the computer
+itself via a keylogger. What can you do if you want to enter a
+password to your bank account or home machine?
+
+     </p></li><li><p>
+
+Give a generic, easy way to detect a self-concealing rootkit on your
+filesystem.
+
+     </p></li><li><p>
+
+What is dangerous about purchasing books online? What can you do about it?
+
+     </p></li></ol></div></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="QuizAnswers"></a>Anonymity Self-Quiz Answers</h3></div></div></div><div class="orderedlist"><ol type="1"><li><p>
+
+You are on an open wireless network. Name 3 ways you can be tracked.
+
+     </p><p>
+     <span class="emphasis"><em>
+
+You can be tracked via your <a href="ar01s03.html#MAC" title="MAC Address">MAC address</a>,
+your <a href="ar01s03.html#nickname" title='802.11 "nickname"'>802.11 Nickname</a> (hostname), and your
+<a href="ar01s03.html#DHCP" title="DHCP Properties">DHCP properties</a> (hostname, previous lease,
+version, etc).given that some localities have recently begun to
+<a href="http://rrstar.com/apps/pbcs.dll/article?AID=/20060323/NEWS0107/103230036/1011" target="_top">criminalize
+usage of open wireless points</a>, changing these attributes is probably a
+good idea no matter what.
+
+     </em></span>
+     </p></li><li><p>
+
+Name 3 ways your IP address can be revealed through your web browser even
+if you use Tor for http.
+
+     </p><p>
+     <span class="emphasis"><em>
+
+Basically this answer boils down to <a href="ar01s05.html#webbugs" title="Web bugs">various types of
+webbugs</a>. The three main ways are: via java applets; via media objects
+such as video player and flash plugins; and via https, ftp, gopher, or other
+protocols used to load images and things from the page. Make sure your browser
+is configured to use Tor for ALL protocols, not just HTTP. Also, you probably
+want to globally disable Java from your browser's preferences, and have a look
+at the next question as well.
+
+     </em></span>
+     </p></li><li><p>
+
+Sometimes you find Tor unbearably slow and turn it off, or have <a href="http://archives.seul.org/or/talk/Apr-2006/msg00127.html" target="_top">a filter</a> in
+place to only use Tor for certain sites.  Why is this dangerous, and what
+measures can you take to protect yourself?
+
+     </p><p>
+     <span class="emphasis"><em>
+
+The main issue at stake here is <a href="ar01s05.html#cookies" title="Cookies">cookies</a> from ad
+sites. Consider the case where you only use Tor for your private email
+account. If that email account displays an ad banner, google adwords, and so
+on, that ad banner has the ability to set a cookie. If you then visit a site
+without Tor that displays an ad banner from that same ad company, the cookie
+created during your visit to your email account will be sent from your real
+IP, thus destroying any anonymity you had. This process can also happen in the
+reverse (where cookies are created while Tor is off, and then sent when Tor is
+switched on). You can be sure that ad server marketing data is sold all over
+the place, and is readily available to private investigators who can be hired
+by anyone. There goes your anonymity. The moral of the story is that you must
+clear all your cookies <span class="emphasis"><em>both when you turn Tor ON, and ALSO when you
+turn it OFF</em></span>. The <a href="http://cookieculler.mozdev.org/" target="_top">cookie culler</a> Firefox extension
+can make this easier, because it allows you to protect certain cookies such as
+news sites that you would like to keep.
+
+     </em></span>
+     </p></li><li><p>
+
+Why is Javascript dangerous? Give 2 ways it can be used to track you and 
+one way you can easily protect yourself without globally disabling it.
+
+     </p><p>
+     <span class="emphasis"><em>
+
+Javascript is nasty. While there is currently no known way it can be used to
+directly reveal your IP address, it can be used to gather enough information
+to profile you and determine where you have been. For several examples, visit
+<a href="http://gemal.dk/browserspy/" target="_top">BrowserSpy</a>. The primary
+countermeasure is to use <a href="http://www.noscript.net" target="_top">NoScript</a>
+to enable Javascript for only those sites you trust. Unfortunately, NoScript
+does not provide the ability to separately whitelist Java and other plugin
+objects. It's all or nothing.
+
+     </em></span>
+     </p></li><li><p>
+
+What are some ways you can eliminate the hassle and worry over a particular
+application bypassing your proxy settings, yet still use Tor?
+
+     </p><p>
+     <span class="emphasis"><em>
+
+Your main options here are to combine <a href="ar01s03.html#OpenVPNPlusTor" title="OpenVPN over Tor or HTTP Proxy">OpenVPN
+and Tor</a> or <a href="ar01s03.html#SLiRPPlusTor" title="SLiRP over Tor or HTTP Proxy">SLiRP and Tor</a>. Some
+people even go so far as to set up a Linux router which routes their traffic
+through Tor for them. In this case, you can use either of two methods on the
+gateway and have the gateway do regular NAT, or you can turn the gateway into
+a transparent socks proxy, or you can just use it as a regular socks proxy and
+have your client machine have no other means to access the Internet. FIXME:
+Future versions of this HOWTO will include details on transparent proxying,
+but for now, see the (rather gimpy) <a href="http://wiki.noreply.org/noreply/TheOnionRouter/Transocks" target="_top">Tor wiki page
+on the subject</a> and <a href="http://archives.seul.org/or/talk/Jan-2006/msg00050.html" target="_top">this mailinglist
+post</a>. Also, be aware that SLIRP will soon be unnecessary, as OpenSSH
+4.3 provides a <a href="http://www.securityfocus.com/columnists/375" target="_top">built-in tun/tap
+VPN</a>, which you can combine with Tor as is described in <a href="ar01s03.html#TorPlusSSHHop" title="Tor followed by SSH-tunneled SOCKS4 Proxy">this section</a>.
+
+     </em></span>
+     </p></li><li><p>
+
+Name 4 local services that can reveal your identity to your local network or
+VPN endpoint.
+
+     </p><p>
+     <span class="emphasis"><em>
+
+This depends on your OS. Have a look at <a href="ar01s04.html" title="Local Services">this
+section</a>.
+
+     </em></span>
+     </p></li><li><p>
+
+A service you intend to access blocks Tor. Name at least two things you can
+do to circumvent this ban while still achieving Tor-caliber protection.
+
+     </p><p>
+     <span class="emphasis"><em>
+
+There are several ways of combining Tor with other proxy mechanisms such that
+your IP is not a member of the Tor network. They are documented in <a href="ar01s03.html#DoubleBlackMagicIP" title="Double Black Magic IP Wizardry">this section</a>.
+
+     </em></span>
+     </p></li><li><p>
+
+You want to set up an anonymous email account. What providers are
+dangerous to use, and why? What dangers do you face no matter what provider?
+
+     </p><p>
+     <span class="emphasis"><em>
+
+In general, you want to avoid any provider whose services you use for other
+things. In particular, I would avoid yahoo and gmail, since it is common to
+use either provider's map or yellow page services, which can be a dead
+giveaway of your location if you are not extremely careful about <a href="ar01s05.html#cookies" title="Cookies">cookies</a>. 
+
+     </em></span>
+     </p><p>
+     <span class="emphasis"><em>
+
+Last, but definitely not least, note that email is only protected for 180 DAYS
+if it is served on a server other than your own. This mind bogglingly short
+limit is a <a href="http://www.templetons.com/brad/gmail.html" target="_top">result of
+the ECPA</a>. After 180 days, your email can be obtained by
+anyone WITHOUT A WARRANT. EVEN IF YOU DELETE THIS MAIL, IT IS STILL POSSIBLE
+TO RETRIEVE IT OFF OF THE SENDER/RECIPIENT'S ACCOUNT. I provide links to some
+services that provide "self destructing" email capability in the <a href="ar01s07.html#anonemail" title="Anonymous Email">email
+section.</a>
+
+     </em></span>
+     </p></li><li><p>
+
+You need to anonymously access a public IRC server. What properties of
+your client of choice are dangerous, if any?
+
+     </p><p>
+     <span class="emphasis"><em>
+
+The main three are DCC, CTCP TIME, and hostname/username info upon connection.
+For more information, see the <a href="ar01s07.html#IRC" title="IRC/Instant Messaging">IRC section</a>.
+
+     </em></span>
+     </p></li><li><p>
+
+You wish to use google groups to post to usenet or to watch for responses
+to a post you have made through some other means. What should you do before
+and after access?
+
+     </p><p>
+     <span class="emphasis"><em>
+
+Much like email, in this situation you need to be extremely careful about
+purging <a href="ar01s05.html#cookies" title="Cookies">cookies</a>.
+
+     </em></span>
+     </p></li><li><p>
+   
+You are behind a corporate firewall that monitors your internet access and
+prohibits you from using certain ports and applications. What can you do?
+
+     </p><p>
+     <span class="emphasis"><em>
+
+This depends on your environment. I would say that your best options are
+either using <a href="ar01s03.html#Tor" title="Tor">Tor</a> with the 
+<span><strong class="command">FascistFirewall</strong></span> config option, or using an <a href="ar01s03.html#SshHopping" title="SSH Hopping">SSH Proxy</a> or <a href="ar01s03.html#OpenVPN" title="OpenVPN">OpenVPN</a> to home. 
+
+     </em></span>
+     </p></li><li><p>
+
+You also suspect that they may be monitoring your access of the computer
+itself via a keylogger. What can you do if you want to enter a
+password to your bank account or home machine?
+
+     </p><p>
+     <span class="emphasis"><em>
+
+There are basically a <a href="ar01s06.html#KeyLogGeneral" title="General Techniques Against Keyloggers">couple of things</a> 
+you can do in this situation. You can switch between windows while typing your
+password, and type a few characters into each window. You can also cut and
+paste letters from other windows. 
+
+     </em></span>
+     </p></li><li><p>
+
+Give a generic, easy way to detect a self-concealing rootkit on your
+filesystem.
+
+     </p><p>
+     <span class="emphasis"><em>
+
+Self-concealing rootkits/keyloggers are easy to find if you use a <a href="ar01s06.html#BootCD" title="Throwaway Computing">boot cd</a>
+to compare a directory listing from the live system versus the system while it
+is being examined from the CD. The Windows UBCD provides a utility called
+RootKitty to do this for you. See the <a href="ar01s06.html#rootkits" title="Root Kits">Rootkits
+section</a> for more info.
+
+     </em></span>
+     </p></li><li><p>
+
+What is dangerous about purchasing books online? What can you do about it?
+
+     </p><p>
+      <span class="emphasis"><em>
+
+Buying books online, especially through sophisticated recommendation sites
+such as Amazon.com is incredibly dangerous. <a href="http://www.eff.org/patriot/sunset/505.php" target="_top">National Security
+Letters</a> enable the FBI to demand records of anyone for whom Amazon
+might recommend a particular book. Even this aside, it is possible for anyone 
+to <a href="http://www.applefritter.com/bannedbooks" target="_top">mine your
+favorites and recommendations quite easily</a> without any special access.
+
+
+      </em></span>
+     </p><p>
+      <span class="emphasis"><em>
+
+Also, assume mail order booksellers WILL SELL YOUR INFORMATION to
+third parties. Obviously this is incredibly dangerous, but it happens.
+
+      </em></span>
+     </p><p>
+      <span class="emphasis"><em>
+
+Your best bet is to obtain a <a href="ar01s08.html#Cash" title="Using Anonymous Money">prepaid debit or gift
+card</a> and a mailbox in an <a href="ar01s08.html#Mail" title="Anonymous Snail Mail">alternate name.</a> If
+you are reluctant to bend various mail resellers ID rules, many do have an
+option to have a fictitious business name added to a mailbox. This probably
+only provides minimal protection, however, since most likely they will sell
+this data at some point, or have it regularly collected en-masse via 
+National Security Letters.
+
+      </em></span>
+     </p></li></ol></div></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="Extns"></a>Must-Have Firefox Extensions</h3></div></div></div><p>
+Several Firefox extensions are crucial to enabling you to maintain your
+anonymity and privacy on the web. Again, these are all mentioned in the text,
+but it is easy to skim over them and miss them, so I've decided to include the
+entire collection here.
+   </p><div class="orderedlist"><ol type="1"><li><p><a href="http://www.noscript.net" target="_top">NoScript</a></p><p>
+
+NoScript is an extremely useful extension that filters out all Java,
+Javascript and Flash for all sites except the ones you explicitly allow. The
+only downside is that you cannot enable just Javascript, you have to enable
+everything at once.
+     </p></li><li><p><a href="http://proxybutton.mozdev.org/" target="_top">ProxyButton</a></p><p>
+
+ProxyButton is an extremely handy little extension that allows you to quickly
+turn your proxy settings on and off via a button on your toolbar. Be sure to
+clear cookies every time you switch Tor both on and off, however, since
+cookies created for an ad banner displayed in one proxy mode can of course be
+retransmitted in another proxy mode.
+
+     </p></li><li><p><a href="http://cookieculler.mozdev.org/" target="_top">Cookie Culler</a></p><p>
+
+Cookie culler provides a toolbar button that allows you to "protect" certain
+specified cookies while making it easy to purge all the rest. It also allows
+you to specify that you do not wish to receive cookies from sites you have
+already deleted. Very useful.
+ 
+     </p></li><li><p><a href="http://addneditcookies.mozdev.org/" target="_top">Add N' Edit Cookies</a></p><p>
+
+This extension allows you to search for, edit, and delete cookies from
+particular sites. Very handy if you would like to quickly purge a single
+site's cookies without losing all your cookies. Also has a toolbar button you
+can install for easy access. Does not conflict with Cookie Culler.
+ 
+     </p></li><li><p><a href="http://basic.mozdev.org/cookiebutton/" target="_top">CookieButton</a></p><p>
+
+CookieButton is another toolbar button that allows you to delete/block cookies
+from the current domain.
+
+     </p></li><li><p><a href="https://addons.mozilla.org/extensions/moreinfo.php?id=59" target="_top">User Agent Switcher</a></p><p>
+
+User Agent Switcher allows you to change your user agent on the fly. Also has
+a toolbar button you can install. Unfortunately, they don't provide any
+options that resemble a modern Mozilla-compatible browser. For that, you're
+stuck creating your own (or importing <a href="misc/useragentswitcher.xml" target="_top">this one</a>).. 
+
+     </p></li><li><p><a href="http://adblockplus.mozdev.org/" target="_top">Adblock Plus</a> and <a href="http://www.pierceive.com/" target="_top">Filterset.G</a></p><p>
+
+Adblock Plus is an extension that you can configure to block just about any
+regular expression you can dream of. The Filterset.G extension automatically
+updates the Adblock Plus white and black lists of your browser. Not only makes
+the web more bearable, but reduces the chances that you may be tracked by an
+ad banner server that happens to appear when you have turned off Tor.
+
+     </p></li><li><p><a href="http://roachfiend.com/archives/2005/02/07/bugmenot/" target="_top">BugMeNot</a></p><p>
+
+Bugmenot is an impressive service that provides user-submitted logins to
+websites that have annoying compulsory registration. As these sites grow in
+number, the web becomes increasingly annoying and unnavigable, not to mention
+the privacy implications of someone's ability to profile the types of news
+articles and other information that you typically obtain from a given
+website. The extension is very slick, and now allows you to report logins that
+fail, which was a severe problem with the service in the past.
+
+     </p></li></ol></div></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ar01s08.html">Prev</a>&#160;</td><td width="20%" align="center">&#160;</td><td width="40%" align="right">&#160;<a accesskey="n" href="ar01s10.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Physical Interaction&#160;</td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top">&#160;Further Information</td></tr></table></div></body></html>
+

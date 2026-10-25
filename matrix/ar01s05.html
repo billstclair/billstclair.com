@@ -1,0 +1,189 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ANSI_X3.4-1968"><title>Web-based leaks</title><meta name="generator" content="DocBook XSL Stylesheets V1.68.1"><link rel="start" href="index.html" title="Network Forensics Evasion: How to Exit the Matrix"><link rel="up" href="index.html" title="Network Forensics Evasion: How to Exit the Matrix"><link rel="prev" href="ar01s04.html" title="Local Services"><link rel="next" href="ar01s06.html" title="Intrusive Surveillance"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Web-based leaks</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ar01s04.html">Prev</a>&#160;</td><th width="60%" align="center">&#160;</th><td width="20%" align="right">&#160;<a accesskey="n" href="ar01s06.html">Next</a></td></tr></table><hr></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="WebLeaks"></a>Web-based leaks</h2></div></div></div><p>
+
+Your web browser leaks a frighteningly large amount of information about you.
+For example, even after you protect yourself by concealing your IP address
+through Tor, it is still possible for someone to use a <a href="misc/superipbug.java" target="_top">Java program</a> to obtain your actual source
+IP and hostname. And this is only the beginning. An excellent test utility to
+test all the different types of information that can be obtained from your
+browser is available at <a href="http://gemal.dk/browserspy/" target="_top">BrowserSpy</a>. Most of these can be
+handled by the excellent Firefox extension <a href="http://www.noscript.net/whats" target="_top">NoScript</a>.
+You are encouraged to test out your browser there in addition to looking over
+the following material.
+
+  </p><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="cookies"></a>Cookies</h3></div></div></div><p>
+
+Cookies can be used to track your web usage across even a Tor session, where
+each connection originates from a different IP. This can be both a blessing and
+a curse. A blessing because if you are actually logged in, you usually won't
+have to keep doing so. But a curse in that if someone then obtains
+your computer, they can use the cookie values to prove you were at a given
+website at a given time. 
+<span class="emphasis"><em>They are also extremely dangerous if you have a
+tendency to turn off Tor or your proxy config from time to time, and then
+wander back to a site that has a unique ID for you.</em></span>
+
+   </p><p>
+
+In particular, sites with ad banners can catch you off guard, since often they
+can have a small ad banner with a piece of javascript you don't notice. If they
+set a cookie in this banner, they can easily correlate your Tor traffic with
+your non-Tor traffic. For sites like these, the best thing you can do allow
+cookies from the originating website only in your web browser preferences
+window.
+
+   </p><p>
+
+There also are a few Firefox extensions you can use to mitigate an arbitrary
+site's ability to track you via cookies. The first, <a href="http://cookieculler.mozdev.org/" target="_top">Cookie Culler</a> provides a toolbar
+button that allows you to
+purge all but selected "protected" cookies, and also provides you with the
+option of blocking cookies you have deleted before.
+
+ <a href="http://addneditcookies.mozdev.org/" target="_top">Add N' Edit Cookies</a> will
+allow you to search for cookies by site, modify, remove, and add them. Also
+useful is <a href="http://basic.mozdev.org/cookiebutton/" target="_top">CookieButton</a>, which is a
+handy toolbar option that allows you do access control and clear cookies for a
+given site right off of the toolbar. You can permanently disable cookies for
+entire domains, such as doubleclick.net or google.com.
+
+   </p></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="useragent"></a>Browser User Agent And Capability Info</h3></div></div></div><p> 
+
+Sometimes a very unique User Agent string (Ex: "Mozilla/5.0 (X11; U; Linux
+i686; en-US; rv:1.7.5) Gecko/20041107 Firefox/1.0 RealMedia 1.1.3") can be a
+giveaway. How many people will have that Gecko build date combined with that
+version RealMedia? On Linux? The solution is the <a href="https://addons.mozilla.org/extensions/moreinfo.php?id=59" target="_top">User
+Agent Switcher</a>, which will allow you to set your user agent to
+<a href="misc/useragentswitcher.xml" target="_top">whatever you wish</a> (be sure to
+pick something common to avoid <a href="http://archives.seul.org/or/talk/May-2006/msg00301.html" target="_top">fragmenting your
+anonymity set</a>). Be sure to check the "Reset User Agent When Browser Closes"
+option, or <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=83376" target="_top">bad
+things will happen</a>. Even still, you may find yourself stuck with a
+browser that doesn't want to start. In which case, you might have to edit
+prefs.js by hand, and remove all the lines that contain "agent".. It's been a
+while since this has happened for me, so perhaps they've finally gotten all
+the edge cases where it can exit with the wrong agent set. 
+   
+   </p><p>
+
+As mentioned above, another possibility is a malicious site can use Javascript
+to detect <a href="http://gemal.dk/browserspy/" target="_top">all sorts of
+information</a> about your browser. This can also be used to track you.
+The best defense against this is to use <a href="http://www.noscript.net/whats" target="_top">NoScript</a>.
+
+   </p></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="refurl"></a>Referrer Url</h3></div></div></div><p>
+
+Likewise, your referrer can be used to track your session path from page to
+page as well. In order to prevent Firefox from transmitting referrer
+information, go to <a href="../../error.dod.net/index.html" target="_top">about:config</a> and set
+<span><strong class="command">network.http.sendRefererHeader</strong></span> to the value 0.
+
+   </p><p>
+
+<a href="http://tmp.garyr.net/" target="_top">Tab Mix Plus</a> can also be used to block referrer forwarding for the
+lifetime of any given tab. Simply right click on the tab, and go down to
+Permissions.  The option to block referrer is there, along with several other
+options we will use later.
+
+   </p><p>
+
+Sometimes, however, it is useful to outright lie about where you came from.
+For example, if you frequently visit your own blog/website by typing in the
+URL, those visits are distinguishable by the lack of referrer URL. In
+those instances, you may wish to use <a href="http://refspoof.mozdev.org/" target="_top">refspoof</a> instead. Refspoof adds the
+ability to specify your referrer in a URL. For example, 
+<span><strong class="command">spoof://nytimes.com;ref://google.com</strong></span> connects you to
+the New York Times, making them think you came from google. 
+
+   </p></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="history"></a>Browser History</h3></div></div></div><p>
+
+This should be obvious. Delete your browser history, cache, cookies and other
+personal information after doing sensitive things. A frightening <a href="http://gemal.dk/browserspy/css.html" target="_top">javascript hack</a> can actually
+reveal if you have been to select sites, which can be used to fingerprint you.
+The best way to deal with this is to run <a href="https://addons.mozilla.org/extensions/moreinfo.php?id=722&application=firefox" target="_top">NoScript</a>.
+
+   </p></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="webbugs"></a>Web bugs</h3></div></div></div><p>
+
+A common technique (<a href="http://seclists.org/lists/politech/2004/Jan/0024.html" target="_top">used by</a>
+the FBI and others) to discover someone's identity is to send them an email
+with an image or some other document attribute that their email client or
+browser will attempt to load. Usually, this image will be located on a server
+that the sender controls, which means they will then have your IP address once
+your browser makes the connection.  Of course, for normal images, these will
+obey your proxy settings. However, note that even using Tor is <a href="http://thread.gmane.org/gmane.network.tor.user/387" target="_top">sometimes
+insufficient</a>. <span class="emphasis"><em>Make sure your proxy settings have an entry
+for FTP, especially.</em></span>
+
+   </p><p>
+
+You need to be particularly careful about Java
+plugins. Have a look at this <a href="misc/superipbug.java" target="_top">clever java
+applet</a> that turned up at <a href="http://www.inet-police.com/cgi-bin/env.cgi" target="_top">this odd website</a>.
+This is an improvement on previous Java bugs in that it is able to select one
+of several potential ways to make an external internet connection and bypass
+your proxy settings based on capability information provided by the JVM. Even
+if the JVM has been secured (most, including Sun's, are not), it can still
+query the local interface of your machine and get the IP address without even
+making an internet connection. It then submits results back to the server that
+served the applet. In the case where the JVM is not secure, the JVM will
+<span class="emphasis"><em>IGNORE YOUR PROXY SETTINGS AND MAKE A DIRECT CONNECTION TO THE
+ORIGINAL WEBSITE</em></span>.
+
+   </p><p>
+
+You basically have two options when dealing with web bugs of this nature. One
+is to <a href="http://wiki.noreply.org/noreply/TheOnionRouter/FireFoxJavaFix" target="_top">install</a>
+the <a href="https://addons.mozilla.org/extensions/moreinfo.php?id=722&application=firefox" target="_top">NoScript
+Firefox Extension</a>, which allows you to whitelist Java, Javascript, and
+Flash objects on an as-needed basis. This is the recommended option, as it
+covers all your bases all the time unless you say so. <span class="emphasis"><em>The one
+downfall</em></span> is that if you enable permissions on a site, you enable it
+for <span class="emphasis"><em>everything</em></span>. This means that if you enable Javascript
+for your email provider (most don't work too well without it), and they do not
+scrub HTML properly, someone could still feed you this Java applet. According
+to the <a href="http://www.noscript.net/whats" target="_top">NoScript Website</a>,
+the ability to split permissions for Java from Javascript is being developed
+for an upcoming release. Your best bet until then is to globally disable Java
+from your Firefox preferences.
+
+   </p><p>
+
+The other option is to use <a href="http://tmp.garyr.net/" target="_top">Tab Mix Plus</a> tab permissions to disable
+plugins on the current tab (right click on the tab). You get finer granularity here, but your choice
+only persists in the current tab. This is annoying and easy to forget.
+
+   </p><p>
+
+Also be aware that some media objects can reveal your IP address, depending on
+how the plugin was written. On Windows, I have tested Windows Media Player,
+Realplayer, Quicktime, and Flashplayer. Of those, I have discovered that only
+<span class="emphasis"><em>Realplayer did not honor proxy settings</em></span>, since it
+launched an entirely new application. I have tested mplayer-plugin and Flash
+on Linux, and unfortunately the <span class="emphasis"><em>mplayer plugin does not obey browser
+proxy settings</em></span> (but does obey the <a href="http://www.linux.net.nz/lists/NZLUG/2005/03/0236.html" target="_top">http_proxy</a>
+environment variable). In general, the best way to determine if a plugin/media
+type is obeying your proxy settings is to use <a href="http://www.ethereal.com/download.html" target="_top">Ethereal</a> to watch network
+traffic. The display filter <span><strong class="command">tcp.port == 80 or tcp.port ==
+443</strong></span> can make it easier to find traffic that is bypassing Tor, though
+note that some media apps will use other ports and possibly even UDP.
+
+   </p></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="extensions"></a>Desktop and Web Browser Extensions</h3></div></div></div><p>
+
+The major threat with web browser extensions and desktop plugins is that they
+will transmit a unique user id over the same Tor circuit that you happen to be
+using to anonymously access a website. Weather monitoring extensions are
+particularly dangerous because they can transmit zip codes or even address
+information to retrieve local weather conditions. Likewise for link collection
+services such as delicious, stumbleupon, and flickr.
+
+   </p><p>
+
+It is also possible to install a malicious Firefox extension to track your
+whereabouts on the web. The most surefire way to watch for this is to manually
+view the Extensions.rdf file in your extensions directory under your Firefox
+profile. Each cryptically named subdirectory of the extensions directory
+should have an entry in the RDF file. Make sure that the plugin name is
+something you remember installing. 
+
+   </p></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ar01s04.html">Prev</a>&#160;</td><td width="20%" align="center">&#160;</td><td width="40%" align="right">&#160;<a accesskey="n" href="ar01s06.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Local Services&#160;</td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top">&#160;Intrusive Surveillance</td></tr></table></div></body></html>
+
+

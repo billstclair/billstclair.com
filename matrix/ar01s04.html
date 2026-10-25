@@ -1,0 +1,158 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ANSI_X3.4-1968"><title>Local Services</title><meta name="generator" content="DocBook XSL Stylesheets V1.68.1"><link rel="start" href="index.html" title="Network Forensics Evasion: How to Exit the Matrix"><link rel="up" href="index.html" title="Network Forensics Evasion: How to Exit the Matrix"><link rel="prev" href="ar01s03.html" title="Network Attributes"><link rel="next" href="ar01s05.html" title="Web-based leaks"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Local Services</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ar01s03.html">Prev</a>&#160;</td><th width="60%" align="center">&#160;</th><td width="20%" align="right">&#160;<a accesskey="n" href="ar01s05.html">Next</a></td></tr></table><hr></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="LocalServices"></a>Local Services</h2></div></div></div><p>
+The programs running on your computer can give away information about your
+identity. Particularly those involved in file transfer and logging in to other 
+computers.
+  </p><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="ident"></a>ident lookups</h3></div></div></div><p>
+ident is the TCP identification service. It allows a remote host to determine
+the local username associated with any TCP connection involving that remote
+host.  Naturally this is a concern, especially if your username reveals your
+true identity.  So when do ident lookups happen?  Well technically your
+machine's ident server will answer any request for a (server, client) port
+pair for which the destination IP is the same as the ident request source IP.
+However, normally is only used with FTP, SMTP and IRC traffic, if that. Some
+web and ssh servers also have it enabled. The best thing to do here is to kill
+your ident server, or add a firewall entry for port 113. Even better, you may
+wish to create an obfuscated or common username for regular use. Something like
+bob, jane, Acidburn, or ZeroCool, perhaps. ;) 
+   </p><pre class="screen">
+     <code class="prompt">[root@machine ~/dir]#</code> <strong class="userinput"><code>iptables -A INPUT -p tcp --dport ident -j DROP</code></strong>
+   </pre></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="ftp"></a>ftp logins</h3></div></div></div><p>
+Be aware that your FTP client may also transmit your username or email
+address as the anonymous password independent of your ident response. So far
+I've tested Firefox, links, and ncftp, and none of them report your username
+OR hostname in the login. So that's good.
+   </p></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="telnet"></a>Telnet</h3></div></div></div><p>
+It is possible for a telnet server to query any arbitrary environment
+variables from your telnet client. These include USER, HOSTNAME, DISPLAY, etc.
+However, the default behavior of Linux telnet is to only send DISPLAY and
+PRINTER. Note that in some cases, DISPLAY may contain your hostname.
+   </p></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="ssh"></a>ssh keys</h3></div></div></div><p>
+
+The major threat with ssh keys for Mac OS and Linux users is your ssh host
+key. This can be used to fingerprint you by connecting to port 22 of
+your IP to verify that you are using the same machine as some other previous
+IP, either at your ISP or over VPN.
+
+   </p><p>
+
+On both operating systems, you should be able to regenerate new ssh host keys
+with the commands:
+
+      </p><pre class="screen">
+<code class="prompt">[root@machine ~/dir]#</code> <strong class="userinput"><code>ssh-keygen -t rsa -f ssh_host_key.pub</code></strong>
+<code class="prompt">[root@machine ~/dir]#</code> <strong class="userinput"><code>ssh-keygen -t rsa -f ssh_host_rsa_key.pub</code></strong>
+<code class="prompt">[root@machine ~/dir]#</code> <strong class="userinput"><code>ssh-keygen -t dsa -f ssh_host_dsa_key.pub</code></strong>
+      </pre><p>
+
+   </p><p>
+
+On Mac OS, these commands should be issued while you are in the
+<code class="filename">/etc</code> directory, and you should use a sudo before them. On
+Linux, run them as root in the <code class="filename">/etc/ssh</code> directory. Use no
+password for the keys.
+
+   </p><p>
+ssh login attempts reveal information about your machine <span class="emphasis"><em>only
+if</em></span> you have created ssh private keys and the ssh client attempts
+to use them to log in to the remote host. Password-based login leaks no
+information about the client other than the IP address.
+   </p><p>
+
+Realistically, even the scenarios for proving a client's identity via an ssh
+key exchange are very unlikely. In the case of unsuccessful private key
+attempts, the only way it could be done is if the attacker's ssh exchange were
+logged, and then the attacker's private key was seized and demonstrated to
+provide the same signature as given to the remote host. To do this would
+require an obscene amount of data collection at the remote host end, just
+waiting for the attacker to connect. However, if an attacker logged in
+successfully via an ssh key, all that would need to be shown is that the ssh
+key existed on your machine to prove you were the attacker. Your local
+username is never sent as part of the ssh key exchange, even if it is a part
+of the public key.
+
+    </p></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="TS"></a>Terminal Services/rdesktop</h3></div></div></div><p>
+
+By default, both rdesktop (for Linux) and Microsoft's Terminal Services
+Client (mstsc.exe) will send your hostname and username to the machine you
+connect to. In rdesktop, you can override the username with the
+<span><strong class="command">-u</strong></span> switch, and the hostname with the <span><strong class="command">-n</strong></span>
+switch. In the MS Terminal Services Client, you can change your username in the
+"Options" button, but it's not clear that there is any way to avoid
+transmitting your machine name. Again, in Windows you can change your
+hostname via either <a href="http://www.sysinternals.com/Utilities/NewSid.html" target="_top">NewSid</a> or via
+<a href="http://wiki.havenite.net/wiki/index.php?title=Common_commandline_tasks#Change_Windows_Hostname" target="_top">the
+registry</a>.
+
+   </p></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="SMB"></a>SMB/NMBD</h3></div></div></div><p>
+
+Machines running windows file serving broadcast their computer name
+and description in SMB Master Browser Elections.  You probably don't want this
+traffic spewing across your network connection if you wish to be anonymous.
+This is how you <a href="http://www.cs.cf.ac.uk/systems/html/813/node5.html" target="_top">turn it off</a>
+in Windows.
+
+   </p><p>
+
+In general, it's a good idea not to name your machine something like "Bob
+Fnord's Evil Hacking Box of Doom", or "JoeSmithsLinuxBox".
+
+   </p><p>
+Under Mac OS, these services can be turned off under the "Sharing" icon in
+System Preferences. I would turn just about all of those off if I were you.
+   </p><p>
+Under Linux, you can either remove smbd and nmbd from
+<code class="filename">/etc/rcN.d/</code> or you can run <span><strong class="command">chkconfig smbd
+off</strong></span> and <span><strong class="command">chkconfig nmbd off</strong></span>. Note that this just
+prevents the services from starting. To shut them off, run
+<span><strong class="command">/etc/init.d/smbd stop</strong></span> (and again for nmbd). 
+   </p><p>
+
+FIXME_WIN32: Server and TCP/IP netbios helper? Is netbios EPM?.. 
+Also check snmp.
+
+   </p></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="ZeroConf"></a>mDNSResponder (Bounjour/Rendezvous/ZeroConf)</h3></div></div></div><p>
+mDNSResponder is Apple's implementation of <a href="http://en.wikipedia.org/wiki/ZeroConf" target="_top">ZeroConf</a>, which is used to configure your computer on a network
+automatically. It also can be used to announce information about your iTunes,
+iPhoto, and iChat profiles. Obviously this may be undesirable. To turn it off:
+
+   </p><pre class="screen">
+<code class="prompt">[user@machine ~/dir]$</code> <strong class="userinput"><code>sudo /System/Library/StartupItems/mDNSResponder/mDNSResponder stop</code></strong>
+   </pre><p>
+
+And to re-enable it:
+
+   </p><pre class="screen">
+<code class="prompt">[user@machine ~/dir]$</code> <strong class="userinput"><code>sudo /System/Library/StartupItems/mDNSResponder/mDNSResponder start</code></strong>
+   </pre><p>
+
+To permanently disable it, you can erase or move the mDNSResponder directory
+from the StartupItems folder.
+
+   </p><p>
+
+It should be noted there is also an mDNSResponder installed by default on some
+Linux systems. You probably want to remove it from
+<code class="filename">/etc/rcN.d</code>, or run
+<span><strong class="command">chkconfig mDNSResponder off</strong></span>. Don't forget you also have to
+stop it with <span><strong class="command">/etc/init.d/mDNSResponder stop</strong></span>, since
+chkconfig only removes it from bootup.
+
+   </p><p>
+
+An mdnsresponder.exe is also installed with the Windows version of iTunes. You
+probably want to remove it/rename it so it is not started. You can check with
+Task Manager or <a href="http://www.sysinternals.com/Utilities/ProcessExplorer.html" target="_top">Process
+Explorer</a> to see if you have a copy running.
+
+   </p></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="UPNP"></a>UPNP</h3></div></div></div><p>
+
+UPNP is Microsoft's half-assed attempt at a <a href="http://en.wikipedia.org/wiki/ZeroConf" target="_top">ZeroConf</a> protocol. It
+basically does the same thing ZeroConf does, and probably should be disabled.
+Here is a <a href="http://grc.com/unpnp/unpnp.htm" target="_top">utility to turn it
+off.</a> Note that you don't need their utility to turn it off. You can go 
+into <span><strong class="command">Control Panel-&gt;Administrative Tools-&gt;Services</strong></span>
+and first STOP and then DISABLE the "Universal Plug and Play Device Host"
+service. Do the same with "SSDP Directory Services".
+
+   </p></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ar01s03.html">Prev</a>&#160;</td><td width="20%" align="center">&#160;</td><td width="40%" align="right">&#160;<a accesskey="n" href="ar01s05.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Network Attributes&#160;</td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top">&#160;Web-based leaks</td></tr></table></div></body></html>
+

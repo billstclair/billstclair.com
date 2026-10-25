@@ -1,0 +1,106 @@
+#!/usr/bin/perl
+# Seized-Client v1.0
+# AE GPL 2005
+
+use FileHandle;
+use IPC::Open2;
+use IO::Socket;
+
+use strict;
+
+# User config
+my $PORT=6969;
+my $UNMOUNT="/usr/local/sbin/crypt-stop";
+my $RAND_DEVICE="/dev/urandom";
+my $HASH_FUNCTION="md5sum"; # sha1sum also works
+my $TIMEOUT=1; # How long to wait before we give up, in seconds
+my $verbose=0;
+# End user config
+
+sub seized
+{
+	my $arg = shift;
+	system($UNMOUNT);
+	print "Seized: $arg\n";
+	exit(1);
+}
+
+sub md5 
+{
+	my $string = shift;
+
+	open2(*MD5_IN, *MD5_OUT, $HASH_FUNCTION);
+
+	print MD5_OUT "$string\n";
+	close(MD5_OUT);
+
+	my $val = <MD5_IN>;
+	
+	close(MD5_IN);
+
+	chomp($val);
+
+	return $val;
+}
+
+sub main
+{
+	my $peer = shift;
+
+	print "Enter today's peer password: ";
+	system("stty -echo");
+	my $pass = <STDIN>;
+	system("stty echo");
+	print "\n\n";
+
+	open(RAND, "<", $RAND_DEVICE);
+
+	my $remote = IO::Socket::INET->new(
+			Proto    => "tcp",
+			PeerAddr => "$peer",
+			PeerPort => "$PORT");
+
+	local $SIG{CHLD} = sub { wait };
+	local $SIG{PIPE} = sub { seized("Connection lost to server!"); };
+	local $SIG{ALRM} = sub { seized("Conection timeout"); };
+	local $SIG{STOP} = sub { seized("Process stopped"); };
+	local $SIG{SUSP} = sub { seized("Process suspended"); };
+	alarm $TIMEOUT;
+	
+	my $challenge;
+	read(RAND, $challenge, 128);
+	$challenge = md5($challenge);
+
+	if(not $remote) { seized("Server refused connection!"); }	
+	print $remote "$challenge\n";
+
+	while(<$remote>) {
+		alarm $TIMEOUT;
+		my $response = $_;
+		chomp($response);
+		my $local_response = md5("$challenge . $pass");
+
+		if(($response cmp $local_response)) {
+			seized("Mismatch |$response| vs |$local_response|\n");
+			return;
+		} else {
+			if($verbose) { print "A-OK!\n"; }
+		}
+
+		read(RAND, $challenge, 128);
+		$challenge = md5($challenge);
+		print $remote "$challenge\n";
+		if($verbose) { print "Sent |$challenge|\n"; }
+	}
+
+	seized("TCP connection closed");
+
+}
+
+if($#ARGV != 0) {
+	print "Usage: $0 <server>\n";
+	exit(1);
+}
+
+
+main(@ARGV);

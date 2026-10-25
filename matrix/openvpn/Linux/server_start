@@ -1,0 +1,5 @@
+/usr/local/sbin/openvpn --daemon --writepid /var/run/openvpn/server.pid --config /etc/openvpn/server.conf --cd /etc/openvpn --log-append /etc/openvpn/my.log
+
+echo 1 > /proc/sys/net/ipv4/ip_forward
+
+/sbin/iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE 

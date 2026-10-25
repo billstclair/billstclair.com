@@ -1,0 +1,1042 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ANSI_X3.4-1968"><title>Intrusive Surveillance</title><meta name="generator" content="DocBook XSL Stylesheets V1.68.1"><link rel="start" href="index.html" title="Network Forensics Evasion: How to Exit the Matrix"><link rel="up" href="index.html" title="Network Forensics Evasion: How to Exit the Matrix"><link rel="prev" href="ar01s05.html" title="Web-based leaks"><link rel="next" href="ar01s07.html" title="Anonymous Communication"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Intrusive Surveillance</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ar01s05.html">Prev</a>&#160;</td><th width="60%" align="center">&#160;</th><td width="20%" align="right">&#160;<a accesskey="n" href="ar01s07.html">Next</a></td></tr></table><hr></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="Surveillance"></a>Intrusive Surveillance</h2></div></div></div><p>
+</p><div class="blockquote"><blockquote class="blockquote"><p>
+THOMAS: What is this thing?
+</p><p>
+TRINITY: We think you're bugged. Try to relax. Come on, come on...
+</p><p>
+TRINITY: CLEAR!
+</p><p>
+THOMAS: Jesus Christ! That thing is real?! 
+</p></blockquote></div><p>
+  </p><p>
+
+Intrusive Surveillance basically means any type of surveillance that is
+occurring due to some form of intrusion into your machine. As such, it is the
+most difficult form of "forensics" to defend against, since doing so involves
+the securing and hardening of your operating system against attack. While
+keeping up with security patches is a necessary condition to be secure, sadly
+it is not sufficient. In spite of this, there are several obvious indicators
+that someone is investigating you/watching what you do with your computer.
+
+  </p><p>
+
+I should probably start this section off by saying that if you need anonymity,
+you should probably reinstall your system <span class="emphasis"><em>now. Especially</em></span>
+if you use Windows and Internet Explorer. It is way to easy for those machines
+to become infected with spyware if you haven't been practicing safe computing
+up to this point. I've even seen spyware that modifies the Internet Explorer
+<a href="ar01s05.html#useragent" title="Browser User Agent And Capability Info">user agent</a> string to contain a unique 128bit identifier.
+
+  </p><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="rootkits"></a>Root Kits</h3></div></div></div><p>
+Root Kits are the most intrusive and stealthy form of system
+surveillance around. They are typically designed to take complete control of
+your operating system kernel, causing it to lie to you about what processes
+are running, what network connections it is making, system diagnostics, and so
+on.  Luckily, if someone just wants to spy on you, they are much more likely
+to only install a keylogger rather than a full blown rootkit. However,
+knowing some basic info about how to detect rootkit installation is helpful
+for finding keyloggers as well, especially since as keyloggers grow in
+sophistication, the line between them and complete rootkits will blur.
+
+  </p><p>
+
+For most users, this section probably covers a threat model they do not need
+to worry about (although with <a href="http://www.schneier.com/blog/archives/2005/11/sonys_drm_rootk.html" target="_top">rootkits
+being used</a> by RIAA goons, this is
+rapidly changing). Many users will want to just skip to the section on
+<a href="ar01s06.html#watchback" title="Watching Your Back">watching your back</a>, which describes how to
+use rootkits to hide various items on your system from a fascist administrator
+and for plausible deniability ("a hacker did it! Who installs a rootkit on
+their own machine?"). Still, even in this case a read over this section is
+recommended, since it will tell you how to undo what you have done.
+
+   </p><div class="orderedlist"><ol type="1"><li><p>Linux</p><p>
+
+On Linux, there are a couple of things you can do to protect yourself from
+rootkits. The easiest, least technical method is to do an <span><strong class="command">ls -laR / &gt;
+dirty.list</strong></span> on your live system, and then compare this to an
+<span><strong class="command"> ls -laR /mnt/hdd &gt; clean.list</strong></span> on a <a href="ar01s06.html#BootCD" title="Throwaway Computing">Knoppix</a> live CD. The command line utility
+<span><strong class="command">diff -u clean.list dirty.list</strong></span> can be used to compare the
+two listings. The utility <a href="http://furius.ca/xxdiff/" target="_top">xxdiff</a>
+may make this easier to view if there are lots of differences due to an
+encrypted filesystem not being mounted, proc missing, udev, etc.
+
+     </p><p>
+
+If you intend to audit your machine while it's live,
+the very first thing you need to do is ensure that your kernel
+hasn't been modified via a rogue driver module. While <span><strong class="command">lsmod</strong></span>
+will list loaded modules, it is possible (and quite trivial) to remove module
+names from this list while keeping the module in the kernel. For this reason,
+if you are concerned about local surveillance, you are advised to build a 
+kernel without module support (preferably with <a href="http://www.grsecurity.org" target="_top">grsec</a>, which adds protection against
+ways to force modules into a module-free kernel). This will prevent someone 
+from 
+loading a module that could hide processes and network
+connections, log keys, etc. 
+
+     </p><p>
+
+If this is not an option (it is very difficult to get a monolithic kernel
+running, especially on systems that require closed-source drivers), you can
+perform a manual audit. I provide a <a href="misc/kernel_auditor-current.tar.gz" target="_top">couple Linux kernel modules</a>
+that can aid in the <a href="misc/kernel_auditor/README" target="_top">auditing
+process</a>. They will help you check for common ways
+rootkit modules hide themselves, and also can help you to ensure your kernel
+syscall path has not been tampered with. The ideas are based on <a href="http://www.securityfocus.com/infocus/1811" target="_top">this Security Focus
+article</a> and this article on <a href="http://la-samhna.de/library/rootkits/basics.html#FLOW" target="_top">rootkit
+operation</a>. All methods discussed there can be examined with those
+modules. The reason I created these modules is that Fedora's policy of
+disabling <code class="filename">/dev/kmem</code> has broken <a href="http://la-samhna.de/library/rootkits/detect.html" target="_top">existing
+utilities</a> that
+performed these functions. In particular, <a href="http://la-samhna.de/samhain/" target="_top">samhain</a> is capable of performing
+these checks automatically for you on non-Fedora and *BSD systems.
+
+     </p><p>
+
+Once you know your kernel hasn't been subverted, you can check the output of
+<span><strong class="command">netstat -natup</strong></span> to see if any strange programs have
+established network connections to external hosts.  <span><strong class="command">ps xa</strong></span>
+will show you all the processes running on your system. If you don't recognize
+something, scroogle it. 
+      
+     </p><p>
+
+To help watch for modification of your userland programs, you can run <a href="http://www.chkrootkit.org/" target="_top">Chkrootkit</a> and/or <a href="http://www.rootkit.nl/projects/rootkit_hunter.html" target="_top">Rootkit
+Hunter</a>, and also periodically run <span><strong class="command">rpm -Va</strong></span> to verify
+checksums of your installed packages. <a href="http://www.tripwire.org" target="_top">TripWire</a> and 
+<a href="http://aide.sf.net" target="_top">AIDE</a> are also 
+options for maintaining system integrity.
+
+
+     </p></li><li><p>Mac OS X</p><p>
+
+If you have a second Mac, the easiest way to scan for a rootkit that is hiding
+files is to run an <span><strong class="command">ls -laR / &gt; dirty.list</strong></span> on your live
+system and compare this to an <span><strong class="command">ls -laR /path/to/disk &gt;
+clean.list</strong></span> run from a "clean" Mac that has mounted your hard disk
+drive in <a href="http://guides.macrumors.com/Target_Disk_Mode" target="_top">Target Disk
+Mode</a>.  The command line utility <span><strong class="command">diff -u clean.list
+dirty.list</strong></span> can be used to compare the two listings. Compiling the
+utility <a href="http://furius.ca/xxdiff/" target="_top">xxdiff</a> may make this
+easier, but you have to run it in the <a href="http://www.apple.com/macosx/features/x11/" target="_top">X windows emulator</a>,
+which is painful.
+
+     </p><p>
+
+As far as live inspection and countermeasures, unfortunately, Mac OS doesn't
+have the advantage Linux has in being able to compile a monolithic kernel.
+This means that it is much more difficult to ensure that your system integrity
+is still valid. Just like on Linux, it is possible to write a kernel extension
+that goes in and verifies that none of the system calls have been hooked, and
+that the keyboard interrupt vector is still intact, but I don't think such a
+extension has been written yet.  FIXME_MAC: any takers? FIXME_MAC: how about
+gdb + the syscall table? Is there a map file?
+
+     </p><p>
+
+There is a piece of malware that exists for Mac OS X called 
+<a href="http://www.macintouch.com/opener.html" target="_top">Opener</a>. It functions as a trojan, spyware, and a keylogger. It's worth searching your filesystem for
+it's presence. FIXME_MAC: more details on how it works..
+
+     </p><p>
+However, since opener is not a kernel-level rootkit, it can be detected with
+system monitoring software such as <a href="http://brianhill.dyndns.org/site/modules.php?op=modload&name=News&file=article&sid=5&mode=thread&order=0&thold=0" target="_top">CheckMate</a>.
+Additionally, you can check for suspicious TCP and UDP connections via
+<span><strong class="command">lsof -i TCP -i UDP</strong></span>. However, note that kernel-level
+rootkits like <a href="http://packetstorm.security-guide.de/filedesc/wX.tar.html" target="_top">WeaponX</a>
+are able to make themselves invisible from these checks.
+     </p></li><li><p>Windows</p><p>
+
+There are a few rootkits for Windows available which are capable of hiding
+processes, services, files, etc. In addition, most rootkits come with some
+form of device driver that is installed in order for them to do their cloaking
+by directly manipulating kernel objects.
+
+
+     </p><p>
+
+For general rootkit detection, Sysinternals puts out a tool called
+<a href="http://www.sysinternals.com/Utilities/RootkitRevealer.html" target="_top">Rootkit
+Revealer</a> that uses various Windows APIs to check for inconsistencies
+(ie comparing raw registry data to API reported, etc). It does not use this
+information to detect rootkits by name, but instead prints a list of
+anomalies. If you have a clever rootkit implementer, be aware that they can
+hide among the noise.
+
+     </p><p>
+
+If you are interested in looking for hidden files, or executables, your best bet
+is to <a href="ar01s06.html#BootCD" title="Throwaway Computing">create a bootable CDROM</a> from your Windows XP install
+media. You can then look through your directories after booting from this CD
+and ensure they match your system under normal boot. UBCD has a tool called
+<a href="http://www.ubcd4win.com/forum/index.php?showtopic=2424" target="_top">RootKitty</a>
+which basically compares file listings of your computer from
+the CD versus while it is running on a normal boot.
+
+     </p><p>    
+
+Specific rootkit removal tools exist also. Currently the most popular of these
+are <a href="http://www.f-secure.com/blacklight/" target="_top">BlackLight</a> and <a href="http://xfocus.net/tools/200509/1085.html" target="_top">ICESword</a> which both
+check for changes made to kernel memory to detect rootkits like FU, as well as
+hooks to functions in kernel space. In 3rd place is <a href="http://www.rootkit.com/vault/fuzen_op/vice.zip" target="_top">VICE</a>, which
+checks for hooks in commonly targeted kernel and userland functions. The main
+issue with VICE is that for usermode, it will spew out one hell of a lot of
+false positives, as it is common for the Windows DLLs to "hook" one another.
+
+     </p><p>
+
+The <a href="http://bagpuss.swan.ac.uk/comms/RKDetectorv0%5B1%5D.62.zip" target="_top">RKDetector</a>
+utility linked off of this <a href="http://bagpuss.swan.ac.uk/comms/hxdef.htm" target="_top">Hacker Defender
+Removal</a> page is also pretty nice. While it has been written primarily to
+detect the <a href="http://hxdef.czweb.org/download.php" target="_top">Hacker
+Defender</a> rootkit, it is also capable of finding hidden processes and
+services that may have been cloaked by other rootkits (such as <a href="http://www.rootkit.com/project.php?id=12" target="_top">FU</a>).
+
+     </p><p>
+
+Also available is <a href="http://www.greatis.com/unhackme/download.htm" target="_top">UnHackMe</a>, a
+shareware tool designed for <a href="http://www.greatis.com/unhackme/afxrootkitremoval.htm" target="_top">AFX
+removal</a>.
+
+     </p><p>
+Lastly, just like Linux and Mac OS, Windows enables you to list active
+Internet connections and their associated processes. <span><strong class="command">netstat
+-nab</strong></span> should do the trick.
+     </p><p>
+FIXME_WIN32: Do AppInit_DLLs show up in procexp? How about other injected code? How
+do you know what is injected?
+     </p></li></ol></div></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="keyloggers"></a>Keyloggers and Spyware</h3></div></div></div><p>
+If someone is out to spy on you, by far the most likely thing they will do is
+install a keylogger. Some keyloggers can be easy to find, some almost
+impossible. There are two types of keyloggers, software and hardware.
+   </p><div class="sect3" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="id2757352"></a>Hardware</h4></div></div></div><p>
+
+he main thing to watch for is an <a href="http://www.thinkgeek.com/gadgets/electronic/5a05/" target="_top">extra extension
+jack</a> coming <a href="http://www.amecisco.com/hkstandalone.htm" target="_top">between</a> your keyboard
+and the back of your computer. However, also be wary of <a href="http://www.amecisco.com/normal_keyboard.htm" target="_top">internally installable
+keyloggers</a>. If your physical environment can't be trusted (note that
+depending on your situation, this may or may not include <a href="ar01s06.html#SandS" title="Search and Seizure">your home</a>), buy a new
+keyboard and seal it with epoxy, or some tamper evident mechanism. Also
+periodically check the inside of your computer for dangling pieces of
+electronics coming between your keyboard port and your motherboard. Normally
+there should only be wires or nothing at all. People have been prosecuted
+using keylogged data as evidence.
+
+
+     </p></div><div class="sect3" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="id2757432"></a>Software</h4></div></div></div><div class="orderedlist"><ol type="1"><li><p>Windows</p><p>
+
+Your best bet for guarding against software keyloggers in Windows is to
+install some form of anti-spyware software. My personal favorites are <a href="http://www.pctools.com/spyware-doctor/" target="_top">Spyware Doctor</a>, <a href="http://www.microsoft.com/athome/security/spyware/software/default.mspx" target="_top">Microsoft's
+AntiSpyware</a>, <a href="http://www.lavasoftusa.com/software/adaware/" target="_top">AdAware</a> and <a href="http://www.safer-networking.org/en/download/" target="_top">SpyBot</a> (in that
+order), since they
+all provide free versions that are fully capable of removing spyware they
+discover and also have received good reviews on the web. Although I have not
+tried it, Symmatec's Antivirus+AntiSpyware is <a href="http://www.zdnet.com.au/reviews/software/security/0,39023452,39225147-9,00.htm" target="_top">supposedly
+very good</a> as well, though pricey.
+
+       </p><p>
+
+Because these scanners are unlikely to detect custom spyware, you probably
+should also give <a href="http://www.sysinternals.com/Utilities/autoruns.html" target="_top">Sysinternals
+AutoRuns</a> a try, to catch anything that may be scheduled to run that
+has not been signed/verified. And of course, don't forget to use the
+techniques discussed in the <a href="ar01s06.html#rootkits" title="Root Kits">rootkits section</a>
+to detect anything that may be attempting to hide itself via a rootkit.
+
+       </p><p>
+
+For the technically curious and/or those concerned about custom keyloggers,
+there are two main types of windows keyloggers:</p><div class="orderedlist"><ol type="a"><li><p>Message-Hook Based</p><p>Being relatively <a href="http://www.codeguru.com/Cpp/W-P/system/keyboard/article.php/c5699/" target="_top">easy
+to code</a>, message-hook based keyloggers are the most common form
+available. It is estimated they comprise 90% of keylogger installs.
+         </p><p>
+Their simplistic nature means that they are relatively easy to detect as well. 
+Follow the same steps involved in looking for a Windows root kit: Check for
+strange processes, and check the AppInit_Dlls registry key. Alternatively, you
+could install <a href="http://www.anti-keyloggers.com/download.html" target="_top">this
+anti-keylogger</a>. It will run for 4 hours per reboot for 10 reboots
+before you have to pay for the registered version. It actually watches members
+of your message queues and notifies you when processes attach to listen for
+events. FIXME_WIN32: Are there more subtle ways to inject DLLs using hooks such that
+you can hijack, say, explorer.exe to do your keylogging? Yes. How do we
+enumerate them? SetWindowsHookEx with WM_DEBUG. Also !chkimg in kd..
+<a href="https://secure.codeproject.com/system/KeyLogger.asp" target="_top">CodeMe</a>.
+         </p></li><li><p>Device Driver Based</p><p>
+
+To date, I've only run into one <a href="http://www.amecisco.com/iks2000.htm" target="_top">commercially available
+implementation</a> of a device driver based keylogger on Windows.
+Basically the way it works is it hooks itself onto your keyboard device driver
+and then writes the keys to a file, which can be viewed with an external
+program.
+
+         </p><p>
+While in theory a kernel mode driver can be made next to impossible to detect,
+in this case it is quite easy to find. You have a few options. The
+easiest thing to do is go to Control Panel, click on Keyboard, and then click
+on the "Driver Details..." button. That will list all the .sys files involved
+in making your keyboard work. The ones with a green checkmark are signed by
+Microsoft, and clicking on them will tell you so. If you see any that lack a
+green checkmark, they are most likely a keylogger. Alternatively, you can run
+<span><strong class="command">regedit.exe</strong></span> to search your registry under
+<code class="filename">HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Class</code> for either
+"Keyboard" or "kbdclass". This is where all your device drivers live. Once you
+find the keyboard driver, check to make sure it ONLY has kbdclass under the
+<code class="filename">UpperFilters</code> value. If it has anything else after kbdclass
+(specifically the unsigned driver from control panel) edit it and remove it.
+Then search again for that name under
+<code class="filename">HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services</code> and delete any subtrees
+that come up. 
+FIXME_WIN32: Screenshots
+         </p></li></ol></div></li><li><p>Linux</p><p>
+
+For Linux, the <a href="ar01s06.html#rootkits" title="Root Kits">rootkit detection techniques</a> described above apply for
+keyloggers as well. Most Linux keyloggers will take the form of rootkits. 
+Also, you should watch out for trojaned binaries (use
+<span><strong class="command">rpm -Va</strong></span> or install <a href="http://www.tripwire.org/" target="_top">tripwire</a> or <a href="http://aide.sf.net" target="_top">AIDE</a>), especially ssh. You
+should also keep an eye on your aliases and shell rc files (eg ~/.bashrc and
+~/.bash_profile) to make sure no one is sneaking an LD_PRELOADed library in on
+you. Last, but <span class="emphasis"><em>DEFINITELY</em></span> not least, you want to make
+sure your ~/.Xauthority file is not world readable, and that you don't have any
+bizarre <span><strong class="command">xhost</strong></span> entries.  It is possible to remotely <a href="http://hpux.connect.org.uk/hppd/hpux/X11/Networking/xwatchwin-1.1.1/" target="_top">capture X
+events</a> (and thus <a href="http://www.acm.vt.edu/~jmaxwell/programs/xspy/xspy.html" target="_top">keystrokes</a>).
+
+
+       </p></li></ol></div></div><div class="sect3" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="KeyLogGeneral"></a>General Techniques Against Keyloggers</h4></div></div></div><p>
+
+Keyloggers are typically pretty blind. Especially kernel and hardware
+keyloggers. If you are at a machine you cannot trust and do not feel like
+making it trustworthy, you do have some options to at least protect your
+passwords. For example, switching windows mid-password, cutting and pasting
+characters, and using the mouse to delete sections of text randomly are all
+effective against hardware and kernel keyloggers, which will only focus on
+actual keyboard events. 
+
+     </p><p>
+
+Message-hook and other application-level keyloggers can also be fooled in this
+way, but they can attempt to do things like sort keystrokes by destination
+window, target only specific apps, take screenshots, and even attempt to
+capture cut and paste events. In fact, most commercially available software
+keyloggers have advanced to the point where they are able to track both cut
+and paste activity and sort keystrokes according to their destination window.
+You can still attempt to confuse them by entering keys into other fields in
+the same window, however.
+
+     </p></div></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="watchback"></a>Watching Your Back</h3></div></div></div><p>
+Ok, now that we know how to find and remove keyloggers and rootkits, we're
+going to talk about how to use them to conceal what you are doing, and to
+watch for evidence of nosy coworkers. Using <a href="http://hxdef.czweb.org/download.php" target="_top">Hacker Defender</a> with this <a href="openvpn/Windows/hxdef100.ini" target="_top">config file</a> will
+hide an OpenVPN installation. <span><strong class="command">copy c:\windows\system32\cmd.exe
+Desktop\mycmd.exe</strong></span> will give you a command shell on your desktop that
+is still able to see the Hacker Defender config files.
+   </p><p>
+Be aware that antivirus software may
+detect hacker defender, especially before it has a chance to run. The README
+advises you insert &lt;, &gt;, ", and &amp; characters randomly into the config file fields to help avoid detection, though obviously this is not fool proof. To
+conceal the Hacker Defender executable, you may wish to run it through <a href="http://hxdef.czweb.org/download.php" target="_top">Morphine</a>, which is an
+executable encryptor. Even this is probably not foolproof, so use with caution
+if you are in an environment where the network administrator receives virus
+information on your PC.
+   </p><p>
+
+FIXME: In a future revision, write up how to turn a webcam (and/or audio mic)
+into a security camera, to watch over your computer while you are gone in
+order to catch a <a href="ar01s06.html#SandS" title="Search and Seizure">3rd party</a> in the act of
+installing/retrieving a hardware or software keylogger at your computer. An
+<a href="http://www.engadget.com/2005/02/22/how-to-turn-your-laptop-into-a-home-security-system/" target="_top">excellent
+writeup for Mac OS</a> can be found at engadget. For Linux there is <a href="http://gspy.sourceforge.net/" target="_top">Gspy</a>, <a href="http://www.geocities.com/neofpo/scrap.html" target="_top">SCRAP</a>, and <a href="http://www.lavrsen.dk/twiki/bin/view/Motion/WebHome" target="_top">Motion</a>.  A
+HOWTO on building a mini computer dedicated just to video surveillance on
+Linux is available at <a href="http://www.magicitx.com/zoneminder/installation/part1.html" target="_top">MagicITX</a>.
+Windows?? 
+
+   </p><p>
+
+On Windows, it is also possible to install monitoring software such as
+those <a href="http://www.programurl.com/software/spy4.htm" target="_top">listed
+here</a> to monitor your computer. Promising candidates include <a href="http://www.ematrixsoft.com/pcspy.htm" target="_top">PCSpy</a>, <a href="http://www.benutec.com/products/spymypc/" target="_top">SpyMyPC</a>, <a href="http://www.relytec.com/" target="_top">All in One Keylogger</a> and <a href="http://www.blazingtools.com/bpk.html" target="_top">BlazingTools Perfect
+Keylogger</a>.
+
+   </p><p>
+
+FIXME_WIN32: maybe also write a section on how to elevate privs on your own
+machine.  Can OpenVPN be installed from a <a href="ar01s06.html#BootCD" title="Throwaway Computing">BartPE</a>? Many people will not have
+Administrator access on their machines. Test on vmware.  You probably can't
+add yourself to Administrators, since that is a Domain group.. Can you create a RunAs.. shell?
+
+   </p></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="BootCD"></a>Throwaway Computing</h3></div></div></div><p>
+
+In certain situations where you have freedom over the computer but do not
+trust it, you might consider using a bootable CD. The obvious choice is 
+<a href="http://www.knoppix.org" target="_top">Knoppix</a> or a <a href="http://www.knoppix.net/wiki/Knoppix_Customisations" target="_top">Knoppix
+derivative</a>. I prefer <a href="http://new.remote-exploit.org/index.php/Auditor_main" target="_top">Auditor
+Linux</a> since it automatically supports my wireless card (unlike
+Knoppix) and comes with lots of useful security tools right on disc.  It is
+possible to customize Knoppix using a USB key, so a Knoppix
+CD+tor on your USB key might be helpful if you frequently find yourself in
+shady labs. The <a href="http://www.knoppix.net/wiki/Wish_List" target="_top">Knoppix
+Wishlist</a> includes Tor, so maybe that will happen someday. 
+
+    </p><p>
+
+For pre-configured, pre-tested Tor environments, you can try out <a href="http://theory.kaos.to/projects.html" target="_top">Anonym.OS</a>, which is an
+OpenBSD-based boot cd that includes Tor and has everything preconfigured to
+use it.  Alternatively, you can save yourself some effort and <a href="http://www.virtualprivacymachine.com/products.html" target="_top">purchase a bootable
+USB Key with Tor and other privacy software pre-installed</a>.
+
+   </p><p>
+
+Alternatively, you can build a <a href="http://www.nu2.nu/pebuilder/" target="_top">BartPE image</a> for the same purpose
+if you prefer Windows. While there are <a href="http://www.reatogo.de/BartPE/BartPE_plugins/repository.htm" target="_top">a
+couple</a> of <a href="http://www.bootcd.us/BartPE_Plugins_Repository.php" target="_top">massive plugin
+directories</a>, my favorite route is to use <a href="http://www.ubcd4win.com/" target="_top">The UBCD Installer</a> (which contains many
+of those plugins) and then just keep any extra apps I want (such as Tor) on my
+USB Key. The <a href="http://torpark.nfshost.com/" target="_top">TorPark project</a>
+is excellent for this purpose.
+
+   </p><p>
+
+Either of these methods provide maximum protection and assurance
+against software trojans and viruses. In addition, you automatically get
+protection against cookie logging and browser history data for free.
+
+   </p><p>
+
+An alternate (and possibly more convenient for home use) method is to use
+<a href="http://www.vmware.com" target="_top">VMWare</a> (or <a href="http://www.cl.cam.ac.uk/Research/SRG/netos/xen/" target="_top">Xen</a>) to create
+an innocuous looking operating system to interact with the real world. This
+has the advantage that if you need to use your original setup for something,
+you can, but for all other communications you have a system that you wouldn't
+mind being attacked.  Furthermore, VMWare has a feature that allows you revert
+to a known safe snapshot of the OS at any time, which can be useful to ensure
+you haven't been trojaned or acquired any persistent cookies during your
+session.  The snapshot feature of Xen is still in development, but <a href="http://wiki.xensource.com/xenwiki/COWHowTo" target="_top">various hacks</a> are
+possible to get the same effect.
+
+
+   </p></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="SandS"></a>Search and Seizure</h3></div></div></div><p>
+
+The last and most perilous threat to your privacy is when The Man <a href="http://www.ipsnews.net/interna.asp?idnews=25889" target="_top">busts in</a> and
+<a href="http://www.indymedia.org.uk/en/2005/06/315041.html" target="_top">takes all your
+gear</a> (and they will take <a href="http://geeksunite.net" target="_top">all of
+it</a>). This sucks, and will often leave you without computer equipment
+for the <a href="http://www.cybercrime.gov/s&smanual2002.htm#_IID2_" target="_top">better part of a
+year</a>. There are <a href="http://www.cybercrime.gov/s&smanual2002.htm#_IIC1_" target="_top">limits on
+scope</a> of warrants, but the courts have proved to err on the side of
+The Man.  Of course, it is always advisable to practice good Kung Foo so that
+he's never able to trace you in the first place, but luck favors the prepared.
+You never know when <a href="http://www.freepickard.org/skinner.html" target="_top">some
+scumbag</a> decides to turn states evidence, or some enemy of yours
+<a href="https://tips.fbi.gov" target="_top">decides</a> it might be funny to see you sweat out an investigation for no reason.
+As such, lets spend a bit of time discussing how search and seizure functions
+in the US. 
+
+
+    </p><div class="sect3" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="criminal"></a>Warranted and Warrantless Search</h4></div></div></div><p>
+There are several methods by which an Agent can obtain the legal right to
+search and seize your digital goods, most of which are conveniently outlined
+in the US DOJ <a href="http://www.cybercrime.gov/s&smanual2002.htm" target="_top">Search
+and Seizure Manual</a> (<a href="http://n4ez7vf37i2yvz5g.onion/books/s&smanual2002.pdf" target="_top">local copy</a>). There are a couple instances
+where they can get away with searching you <span class="emphasis"><em>WITHOUT A
+WARRANT</em></span> that you might not have
+anticipated:
+    </p><div class="orderedlist"><ol type="1"><li><p><a href="http://www.cybercrime.gov/s&smanual2002.htm#_IB4_" target="_top">Private
+Searches</a></p><p>
+
+These are probably the most dangerous type of warrantless search, because it
+is most likely to catch you off guard. Essentially a private search is a
+search conducted by <a href="https://tips.fbi.gov/" target="_top">someone</a> who is 
+not acting as an agent of the government (ie <a href="http://www.govexec.com/dailyfed/0405/042905nj1.htm" target="_top">a vigilante</a>).
+In this case, a neighbor, roommate, officemate, janitor, repairman, maid,
+sysadmin, etc can be snooping around on your computer, discover what they
+might think is criminal
+evidence (such as this HOWTO :), and call the police. The police are then legally authorized to
+<span class="emphasis"><em>repeat</em></span> the search conducted by the private citizen
+without warrant
+(unless it was a search of a residence), and arrest you for both the original
+and any additional contraband (within the scope of the original search). Bad
+news all around.
+
+      </p></li><li><p><a href="http://www.cybercrime.gov/s&smanual2002.htm#_ID1_" target="_top">Searches/Consent by
+Employers/Coworkers</a></p><p>
+In this case, not only can employers and coworkers conduct "private searches",
+but they can also consent to search of your office space for you. How nice.
+Don't forget: you're their slave, coppertop.
+      </p></li><li><p><a href="http://www.cybercrime.gov/s&smanual2002.htm#_IC1c_" target="_top">Implied
+Consent</a></p><p>
+This is another beauty. If you've signed away or otherwise have been warned of
+a reduced right to privacy (ie through a work contract or login banner), you can be considered to implicitly consent to
+search. I wonder if this is why AOL changed its <a href="http://www.benstanfield.com/thrash/2005/03/aol_eavesdrops_.html" target="_top">Terms of
+Service</a> (before
+changing them back due to prompt public outcry, and zero corporate media
+coverage).
+      </p></li><li><p><a href="http://www.cybercrime.gov/s&smanual2002.htm#_IC2_" target="_top">Exigent
+Searches</a></p><p>
+If the feds have reason to believe that there is extreme urgency in
+obtaining the data due to either danger to person or threat of 
+its destruction, they can
+search without a warrant. Thankfully "laptop batteries
+might be about to run out" was ruled not to be an exigent circumstance. But
+note that some Agent did try to use that as an excuse.. Gotta love The Man.
+      </p></li><li><p><a href="http://www.cybercrime.gov/s&smanual2002.htm#_IIB5_" target="_top">No-Knock/"Sneak and
+Peak" Searches</a></p><p>
+
+If the feds can show that there is either danger of violence or threat of
+destruction of evidence if they announce their search, they can obtain a
+"No-Knock" warrant, which allows them to barge right in if you are home or
+not. Also, with the passage of the Patriot Act, they are also able to conduct
+"Sneak and Peak" searches. Typically "Sneak and Peak" search cannot involve
+seizure, and the authorities must typically notify you within 90 days. For
+defensive techniques against "Sneak and Peak" searches, consult the section on
+<a href="ar01s06.html#watchback" title="Watching Your Back">watching your back</a>.
+
+      </p></li><li><p><a href="http://www.cybercrime.gov/s&smanual2002.htm#_IIID1_" target="_top">Subpoena of ISP
+Records</a></p><p>
+
+A subpoena is a court order to testify or produce evidence. The downside is it
+can be used if you are not suspected of a crime but instead may only have
+evidence relating to a crime. It is possible for the feds to obtain your ISP
+records, files, and "opened" emails via subpoena. However, they do have to
+notify you of this fact immediately, <a href="http://www.cybercrime.gov/s&smanual2002.htm#_IIIG2_" target="_top">unless</a>
+there is fear of danger to person, flight, destruction of evidence, or
+otherwise jeopardizing the investigation.
+
+      </p></li><li><p><a href="misc/94JAN006-ConsentToSearchViaDeception.TXT" target="_top">Deception of
+Purpose</a></p><p>
+
+This little doosey was a fun one to discover. <a href="http://www.howtobeinvisible.com" target="_top">How to Be Invisible</a> cites a
+<a href="misc/94JAN006-ConsentToSearchViaDeception.TXT" target="_top">January 1994 FBI
+Law Enforcement Bulletin</a> that states agents may
+disguise themselves as utility repairmen, delivery personnel, distressed
+motorists, etc, and ask for entrance into your home to make a phone call, look
+up something on the web, etc. Once you grant them entrance, anything they
+happen to see (or claim to smell) in plain view can be used to go back and get an actual warrant.
+Good times! 
+
+      </p></li><li><p><a href="misc/WarrantlessTrashInspection.txt" target="_top">Trash
+Inspection</a></p><p>
+
+Ruling that there is no expectation of privacy for discarded items, the
+Supreme Court has held that trash is not protected by the 4th amendment.
+This ruling has allowed the government to tell garbage collectors that certain
+trash bins are to be delivered directly to their doorstep, without warrant.
+They do not even have to collect it themselves.
+
+      </p></li><li><p><a href="http://www.fff.org/comment/com0601c.asp" target="_top">Retroactive FISA
+Warrants</a></p><p>
+
+The USA Patriot Act has expanded the ability for the FBI to obtain secret
+warrants against "terrorism" suspects. At the direction of the Attorney
+General, the FBI is able to conduct a secret search of your residence, phone
+communications, and/or Internet activity and then 72 hours later, apply for a
+secret search warrant to do so from the FISA court. Since the FISA court is
+secret, and has only turned down <a href="http://www.dailykos.com/story/2005/12/19/12305/484" target="_top">4 requests in the
+past 5 years</a>, this power has essentially destroyed any guarantee
+against unreasonable search.  The Patriot Act also amended <a href="http://www4.law.cornell.edu/uscode/html/uscode18/usc_sec_18_00002518----000-.html" target="_top">18
+USC 2518-7</a> to allow for "specially designated" law enforcement
+officers to conduct warrantless search and surveillance for 36 hours in
+situations of suspicion of organized crime, national security interest, and
+threat of serious physical injury to a person.
+
+      </p></li><li><p><a href="http://www.reason.com/0311/fe.jb.show.shtml" target="_top">Search of Corporate
+Records</a></p><p>
+
+In an <a href="http://consumerlawpage.com/article/privacy.shtml" target="_top">astounding
+display</a> of new advances in Constitutional interpretation, the <a href="http://supreme.justia.com/us/425/435/" target="_top">Supreme Court ruled</a> in
+1976 that since corporations are not natural persons, they (nor even their
+owners!) enjoy any protection from the search and seizure of their records. My
+oh my, that certainly makes it convenient to fetch just about any information
+on anyone. With this ruling, the US government is able to enumerate just about
+everything in your home simply by demanding purchase records from your credit
+card company. The ruling also extends to <a href="http://www.eff.org/Censorship/Indymedia/" target="_top">subpoenas of logs and other
+files</a> at colocation providers, and also provides the basis for the
+"constitutionality" of National Security Letters.
+
+      </p></li></ol></div><p>
+It should also be noted that anything uncovered while executing a warrant is
+admissible in court, even if it was not what the agents were looking for.
+    </p></div><div class="sect3" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="civil"></a>Civil Procedure</h4></div></div></div><p>
+
+In addition to the above, you need to be at least peripherally aware of the
+<a href="http://cyber.law.harvard.edu/digitaldiscovery/digdisc_library_4.html" target="_top">rules
+of discovery</a> in <a href="http://www.law.cornell.edu/wex/index.php/Civil_procedure" target="_top">civil
+procedure</a>, especially if it is likely that someone may seek to sue you
+for damages instead of (or in addition to) pressing charges. In civil
+procedure, if there is reason to believe that you may have evidence supporting
+the plaintiffs claim, the process of discovery enables them to demand
+evidence/records from you. If you destroy this evidence, then not only are you
+potentially liable for criminal charges, but the plaintiff also is allowed to
+assume that the destroyed records contained the proof they sought. In the case
+of civil litigation by large corporations against individual people, the
+police are sometimes called in to immediately seize relevant materials without
+warning. Isn't that great?
+
+    </p></div></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="crypto"></a>Encrypted Filesystems</h3></div></div></div><p>
+
+The solution to these perils hinges on cryptography, and each system has its
+own way of accomplishing this. Depending upon your threat model for The Man,
+you may want different levels of assuredness that he cannot obtain your data.
+As described above, your two main classes of threat are civil action, and
+criminal action.
+    
+    </p><p>
+
+In the case of threat of civil action, it may be desirable to employ some form
+of steganographic filesystem so that the process of discovery cannot be used
+to assume you have destroyed incriminating evidence. Your best bet for this is
+<a href="http://www.truecrypt.org" target="_top">TrueCrypt</a>, which has an
+appealing hidden volume mode which can provide deniability for civil
+situations where you are compelled to give up the key during discovery. It
+exists for Windows and Linux, but since it is the only non-broken
+implementation of an encrypted filesystem for Windows, the writeup for it is
+<a href="ar01s06.html#TrueCrypt" title="TrueCrypt">right below the Windows sub-section</a>. If you
+decide to use TrueCrypt for Linux, you should be aware that there are
+secondary logs (ie bash history on Linux) that can be used to demonstrate that
+files exist if they are not carefully purged. 
+
+    </p><p>
+
+In a criminal situation the rules are a bit different. In the US, you may have
+<a href="http://swissnet.ai.mit.edu/6095/articles/froomkin-metaphor/partIIICDE.html#ToC59" target="_top">some
+luck</a> in claiming that your encryption key is protected by your <a href="http://en.wikipedia.org/wiki/United_States_Constitution/Amendment_Five" target="_top">5th
+amendment</a> right to not incriminate/testify against yourself. However,
+be aware that if you are subpoenaed to testify against another individual, you
+can be ordered to give up their key, unless they are <a href="http://www.law.upenn.edu/bll/ulc/ure/ev505.htm" target="_top">your spouse</a>.  In
+the event that you are ordered to testify against someone else, you can
+request <a href="http://en.wikipedia.org/wiki/United_States_Constitution/Amendment_Five#Grants_of_immunity" target="_top">immunity</a>
+from the prosecution to protect you from any incriminating evidence found as a
+result of the key disclosure.
+
+    </p><p>
+
+Your ability to assert your 5th amendment right (and thus be eligible for
+immunity) ultimately rests with the decision of the judge. If he thinks your
+5th amendment right does not apply to the key due to the lack of real threat
+of incrimination or some other twisted legal logic and you still refuse to
+surrender it, you can be sentenced to <a href="http://www.fsmlaw.org/fsm/code/title04/T04_Ch01.htm#119" target="_top">up to 6 months
+in jail</a> for contempt of court. Note that you can still be charged with
+contempt for refusing to obey even if you believe a higher court would rule in
+your favor. However, refusing to comply would get you a good deal of (most
+likely positive) press attention. Nobody likes to see people imprisoned for
+refusing to testify against themselves, even if some legal loophole would
+allow it.
+
+    </p><p>
+
+There has been <a href="http://news.zdnet.com/2100-1009_22-6073654.html" target="_top">recent political
+maneuvering</a> in the UK to attempt to enable Part III of the <a href="http://rechten.uvt.nl/koops/cryptolaw/cls2.htm#uk_ripa" target="_top">Regulation of
+Investigatory Powers Act</a> to give the government the power to demand
+your keys even in the cases where it may incriminate you. 
+
+    </p><p>
+
+This is particularly short sighted for a number of reasons, the most obvious
+being: the ramifications of the damage of trust in SSL certificates and
+banking communications; the inability to discern what is encrypted data and
+what is simply random application data; the inability to discover or prove
+with any certainty exactly how many passwords there are; the unspecified
+language as to whether key files count as password, and what happens if they
+are lost or destroyed; and the inability to prove that the subject hasn't
+legitimately forgotten the password (which, with the infrequent use patterns
+of filesystem passwords, is entirely possible and even common among users).
+The rest of the world should thank the UK if decides to take it upon itself to
+prove the stupidity of this action for us. I have no doubt that this measure
+cannot survive in any country with a legitimate constitution or other
+declaration of human rights, for good reason. Get ready, hilarity is about to
+ensue.
+
+    </p><p>
+
+So enough of that. Lets discuss filesystem cryptography on each of the 3 major
+platforms, as well how to erase data securely as you move it from
+non-encrypted storage to encrypted storage. As usual, *BSD users are left to
+<a href="http://www.netbsd.org/guide/en/chap-cgd.html" target="_top">fend for
+themselves</a>. If anyone would like to submit a quick and dirty BSD
+writeup for this HOWTO, don't hesitate.
+
+    </p><p>
+
+Under all of the following systems, you will need to make one or more
+passwords for each encrypted volume. <span class="emphasis"><em>You should avoid writing these
+passwords down at all costs</em></span>, but note that filesystem passwords are
+particularly easy to forget, since they are used infrequently. As mentioned
+above, this fact
+makes mandatory key disclosure particularly short sighted. It is very possible
+to forget filesystem keys and risk complete data loss. For this reason, you
+should mentally rehearse your passwords every day for several weeks after you
+create them to make sure you do not forget them.  I consider myself fairly
+mentally competent, but I have still lost more than one encrypted volume
+after creating it because the password was used once for creation and then
+forgotten.
+
+    </p><div class="sect3" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="id2758681"></a>Linux</h4></div></div></div><p>
+
+There are two main cryptographic filesystem solutions for Linux: 
+<a href="http://www.saout.de/tikiwiki/tiki-index.php" target="_top">dm-crypt</a> and <a href="http://www.truecrypt.org" target="_top">TrueCrypt</a>. TrueCrypt setup is <a href="ar01s06.html#TrueCrypt" title="TrueCrypt">covered
+below</a>, and arguably it has some more appealing features than dm-crypt, but
+since it is not included in any major distributions, typically you will have
+to recompile your kernel to support it.
+      </p><p>
+Setting up dm-crypt is relatively easy to do (at least for a simple <a href="http://www.saout.de/tikiwiki/tiki-index.php?page=looptutorial" target="_top">loop-back
+filesystem</a>), and their wiki has several good HOWTOs. Unfortunately,
+setting it up right can be extremely hard and involved. <span class="emphasis"><em>Please read
+this guide carefully, as there are many subtleties than can catch you
+off-guard.</em></span>
+      
+      </p><p>
+
+To protect against the legal snafus mentioned above, I prefer a bit different
+approach than that given on the Wiki for actual device creation. I
+prefer to use GPG to encrypt the filesystem key, and have the passphrase I
+type into the keyboard be the password to the GPG key. This enables you to
+change the password without having to rebuild the filesystem. It also enables
+you to carry the key with you on a <a href="http://www.swissbit.com/" target="_top">USB
+microdrive</a> to ensure its safety and also to prevent anyone from
+mounting the fs even if they know the password. In emergency situations, the
+USB key can be destroyed, and the data can never be recovered. In this way,
+you can be in full compliance with a court order requiring the password for
+the filesystem and still not reveal your data. Note that if you destroy a key
+after a court demands to see it (or simply refuse to give up the password) you
+can be held in contempt of court and sentenced to jail time (in the US, this
+is <a href="http://www.fsmlaw.org/fsm/code/title04/T04_Ch01.htm#119" target="_top">6
+months or less</a>, however).  However, if the key/data is a substantial
+portion of the prosecution's case, and the sentence you are facing is more
+than 6 months (or if you are a hardcore civil libertarian type), you may want
+to tell them to fuck off anyway. Probably would get you a good deal of
+(most likely positive) press attention. Nobody likes to see people imprisoned
+for refusing to testify against themselves, even if some legal loophole would
+allow it.
+
+  </p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
+
+Since The Man will usually attempt to take all of your electronic gear right
+away, you will have to find some mechanism to either store the key some place
+safe or have an instantaneous mechanism to destroy it as soon as you hear the
+knock. Be advised that if your key media fails, you will lose all your data. 
+Floppies are a no-no, but can be used to provide plausible deniability.
+ 
+       </p></div><p>
+
+Here are the steps to generate such a key that can be destroyed on a moment's
+notice:
+
+      </p><pre class="screen">
+<code class="prompt">[root@machine ~/dir]#</code> <strong class="userinput"><code>dd if=/dev/random bs=4k count=1 | gpg -a --cipher-algo AES256 -c - &gt; /mnt/usb/keys/fs.gpg</code></strong>
+<code class="prompt">[root@machine ~/dir]#</code> <strong class="userinput"><code>gpg -q -o - /mnt/usb/keys/fs.gpg | cryptsetup -v -c aes create cryptfs /dev/hdxN</code></strong>
+<code class="prompt">[root@machine ~/dir]#</code> <strong class="userinput"><code>mkfs.ext3 /dev/mapper/cryptfs</code></strong>
+<code class="prompt">[root@machine ~/dir]#</code> <strong class="userinput"><code>mount /dev/mapper/cryptfs /crypto</code></strong>
+     
+      </pre><p>
+
+So basically what this does is get some random data for the fs key material,
+and use gpg and AES256 to symmetrically encrypt (-c) it with your passphrase.
+The next command then decrypts your key file and uses the key material to initialize the
+dmcrypt driver using <code class="filename">/dev/hdxN</code>, where
+<span class="emphasis"><em>x</em></span> is one of a-d, and N is the partition number. Note you
+can also use files instead of partitions, but it is not recommended,
+especially if that file resides on a journaled filesystem.  After that, the
+<code class="filename">/dev/mapper/cryptfs</code> block device will appear, and you can
+format it for whatever FS you like, and then mount it. 
+
+      </p><p>
+For added safety, I prefer to move /var, /tmp, and /home to /crypto and create
+symlinks back to /, so that .bash_history and system logs aren't available to
+someone who might want to prove you have certain files or access times. You
+should run <span><strong class="command">telinit 1</strong></span> before doing this, to ensure that no
+daemons are running and actively using those directories when you move them.
+     </p><pre class="screen">
+        <code class="prompt">[root@machine ~/dir]#</code> <strong class="userinput"><code>telinit 1 [or reboot into single user mode]</code></strong>
+        <code class="prompt">[root@machine ~/dir]#</code> <strong class="userinput"><code>[killall rpc.idmapd]</code></strong>
+        <code class="prompt">[root@machine ~/dir]#</code> <strong class="userinput"><code>[umount /var/lib/nfs/rpc_pipefs]</code></strong>
+        <code class="prompt">[root@machine ~/dir]#</code> <strong class="userinput"><code>mv /var /tmp /home /crypto</code></strong>
+        <code class="prompt">[root@machine ~/dir]#</code> <strong class="userinput"><code>ln -s /crypto/* /</code></strong>
+        <code class="prompt">[root@machine ~/dir]#</code> <strong class="userinput"><code>[vim /etc/selinux/config]</code></strong>
+        <code class="prompt">[root@machine ~/dir]#</code> <strong class="userinput"><code>telinit 3 [or reboot]</code></strong>
+      </pre><p>
+
+On Fedora Core 4 systems, you'll need to <span><strong class="command">killall rpc.idmapd</strong></span>
+and possibly <span><strong class="command">umount /var/lib/nfs/rpc_pipefs</strong></span> before the
+<span><strong class="command">mv</strong></span>, or just reboot into <a href="http://www.linuxgeek.net/beginners/node80.phtml" target="_top">single user mode</a>. In addition, this whole setup is likely to cause SELinux
+conflicts, so you should probably set <span><strong class="command">SELINUX=permissive</strong></span> or
+<span><strong class="command">SELINUX=disabled</strong></span> in
+<code class="filename">/etc/selinux/config</code> (or add <span><strong class="command">selinux=0</strong></span>
+to the kernel boot parameters in <code class="filename">/etc/grub.conf</code>).
+
+      </p><p>
+
+Once this is complete, you'll want to make sure that your crypto fs is mounted
+before anything tries to use /var. The way I prefer is to create a <a href="crypto/mount-crypto" target="_top">script
+interface</a> to gpg that has the right options to enable it to work from
+<code class="filename">/etc/rc.d/rc.sysinit</code>. For Fedora Core users, you can
+typically just call that script right after the rest of the local filesystems
+are mounted. Search the <code class="filename">rc.sysinit</code> file for "mount -a -t" or "Mounting local filesystems". You should end up somewhere near a bunch
+of mount -f lines and an SELINUX relabeling call. Stick a call to
+<span><strong class="command">/path/to/mount-crypto</strong></span> right before the
+SELINUX stuff. If you prefer to run your system in runlevel 5 (with graphical
+login), you will need to edit <code class="filename">/etc/grub.conf</code> and remove the
+<span><strong class="command">rhgb</strong></span> option from the kernel config line in order to be able to enter
+your FS password. Note that you will probably want to have a boot disk handy or
+be ready to do <span><strong class="command"><a href="http://lists.debian.org/debian-user/2001/05/msg01993.html" target="_top">linux
+init=/bin/bash</a></strong></span> from the boot command
+line in case something goes wrong.
+      </p><p>
+Alternatively, if you don't wish to be prompted for a password at bootup
+because the machine is a remote server, you can use 
+<span><strong class="command">chkconfig</strong></span> or edit
+<code class="filename">/etc/rc.d/rcN.d</code> (where N is your runlevel -- type
+<span><strong class="command">runlvl</strong></span> as root if unsure) to remove
+syslog, sendmail, crond, atd, and any other daemon that shows up in an
+<span><strong class="command">lsof -n | grep var</strong></span> and <span><strong class="command">lsof -n | grep
+tmp</strong></span>. In summary:
+      </p><pre class="screen">
+        <code class="prompt">[root@machine ~/dir]#</code> <strong class="userinput"><code>runlvl</code></strong>
+        <code class="prompt">[root@machine ~/dir]#</code> <strong class="userinput"><code>lsof -n | grep var</code></strong>
+        <code class="prompt">[root@machine ~/dir]#</code> <strong class="userinput"><code>chkconfig --level 3 syslog off</code></strong>
+        <code class="prompt">[root@machine ~/dir]#</code> <strong class="userinput"><code>chkconfig --level 3 sendmail off</code></strong>
+        <code class="prompt">[root@machine ~/dir]#</code> <strong class="userinput"><code>chkconfig --level 3 crond off</code></strong>
+        <code class="prompt">[root@machine ~/dir]#</code> <strong class="userinput"><code>...</code></strong>
+      </pre><p>
+Unfortunately, there are likely to be a crapload of daemons you're going to have
+to do this for, especially if you run Fedora Core 4. Once you finish this,
+you'll want to make a script that mounts and then starts all the needed
+daemons. As a starting point, you
+can have a look at my <a href="crypto/crypt-start" target="_top">crypt-start</a> and <a href="crypto/crypt-stop" target="_top">crypt-stop</a>.
+      </p><p>
+Note that if your system is running remotely, it may not be too
+happy about brining sshd up for you after the unmount or upon bootup, unless you
+<span><strong class="command">mkdir -p /crypto/var/empty/sshd/</strong></span>, and <span><strong class="command">mkdir -p
+/crypto/var/lock/subsys</strong></span> in the <span class="emphasis"><em>unmounted</em></span> 
+dm-crypt directory.
+      </p><p>
+
+It should go without saying, but if you go through all this trouble to encrypt
+your harddisk, you shouldn't leave backups lying around on unencrypted media.
+If you have to transfer a backup to unencrypted media, tar it up, and then use
+<span><strong class="command">gpg --cipher-algo AES256 -c</strong></span> to encrypt it. GPG does
+compression before encryption.
+
+      </p><p>
+
+Last, but not least, you should also consider encrypting your swap so that
+pieces of programs you run aren't recoverable after shutdown. I prefer
+to use the lazy route and just <a href="http://www.netadmintools.com/part1.html" target="_top">make a swapfile</a> on the
+encrypted filesystem. 
+ 
+      </p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
+
+An alternate procedure to protect /var and /tmp is to encrypt your entire root
+filesystem and place the decryption scripts on an initial ramdisk. I have
+not done this, because it means that you cannot reboot your servers remotely,
+but it requires a hell of a lot less hacking with initscripts and SELinux
+permissions. As you saw above, this process can get pretty involved.
+
+     </p><p>
+
+The Gentoo Wiki has a page on <a href="http://gentoo-wiki.com/SECURITY_Encrypting_Root_Filesystem_with_DM-Crypt" target="_top">setting
+up an encrypted root filesystem</a> for Gentoo, and Linux Journal has an
+article on setting up an <a href="http://www.linuxjournal.com/article/7743" target="_top">encrypted
+root for Fedora Core 3</a>. This <a href="http://www.ubuntuforums.org/showthread.php?t=120097" target="_top">Ubuntu Forum Post</a>
+describes the same process for Ubuntu.
+
+      </p></div></div><div class="sect3" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="id2759279"></a>Mac OS</h4></div></div></div><p>
+
+In MacOS you have two options. If you trust Apple (and your sysadmin, where
+applicable), and really believe there is no master password set, you can use
+the built-in <a href="http://www.apple.com/macosx/features/filevault/" target="_top">FileVault</a>
+feature to encrypt your entire home directory with 128 bit AES, or you can
+attempt to <a href="http://josh.tumaz.com/content/view/17/46/" target="_top">do it
+yourself</a>. Given the amount of work involved in doing it yourself, I
+would suggest trusting Apple and going the FileVault route.
+
+      </p></div><div class="sect3" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="WinCrypt"></a>Windows</h4></div></div></div><p>
+
+In Windows, everything is easy. Unfortunately, everything also sucks. For some
+reason, Windows implements encryption at the filesystem layer, and you can
+enable it by right clicking on a file/folder and going to
+<span><strong class="command">Properties-&gt;Advanced</strong></span>.
+Unfortunately, all of the file names in an encrypted directory are still
+viewable without the key. Worse still, the Administrator account has access to
+all these files through a special recovery key, and there seems to be no
+option to disable this.
+
+      </p><p>
+
+If you do choose to run Windows on your desktop, an alternative you might
+consider is building a Linux fileserver that houses all your sensitive
+documents on an encrypted Samba share, but be aware that Samba does not
+encrypt traffic. You can set up an <a href="ar01s03.html#OpenVPN" title="OpenVPN">OpenVPN
+tunnel</a> between your Linux and Windows machine, however, if there is
+danger of someone monitoring your network.
+
+      </p></div><div class="sect3" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="TrueCrypt"></a>TrueCrypt</h4></div></div></div><p>
+
+Another alternative is to use <a href="http://www.truecrypt.org/" target="_top">TrueCrypt</a>, which actually provides the
+benefits of both crypto and steganography in that it has an emergency password
+that you can use if ordered to reveal your filesystem password under threat of
+force. TrueCrypt is a very nice piece of software, and more than makes up for
+the pile of suck that is NTFS encryption, and now also has a Linux version.
+Creation of hidden volumes is pretty straight forward. There is <a href="http://www.truecrypt.org/documentation.php" target="_top">online documentation</a>,
+but really you only need to be aware of a couple of things. First, it is best
+to create the hidden and the outer volumes at the same time, using the "hidden
+volume" radio button. The outer volume is created first, and is populated (by
+you) with non-sensitive files and encrypted with the emergency password. Note
+that if you place more data on the outer volume later, you must remember to
+specify your hidden volume password as well, so TrueCrypt is able to find
+areas unused by the hidden volume to store the new data.  Once the volumes are
+created, you can mount the same volume file/partition with either password to
+test it out.
+
+      </p><p>
+
+Additionally, TrueCrypt has recently added support for keyfiles. The support
+for this feature is particularly excellent. You can combine an arbitrary
+number of keyfiles along with a password to yield the actual key to the
+filesystem. This allows you to create a collection of both fake and real
+keyfiles such that your adversary has to know <a href="http://en.wikipedia.org/wiki/Combination" target="_top">which subset</a> are
+actually required (assuming they can even find any of them), in addition to
+knowing your password. It can be seen from <a href="http://en.wikipedia.org/wiki/Binomial_coefficient#Formulas_involving_binomial_coefficients" target="_top">this
+formula</a> (or by visualizing keyfile "fake/real" as a binary string), that
+for N keyfiles, the total number of combinations of keyfiles is
+2<sup>N</sup>. Thus you can easily provide for a large number
+of possible combinations of both keyboard and mouse input (which is
+particularly comforting if keyloggers are a possibility). Couple this with
+hidden volume support and clever concealment of encrypted volume files amongst
+other large and unintelligible program data files, and you have yourself a
+pretty secure and undetectable encrypted setup. Just remember to frequently
+mentally rehearse all of your passwords (instead of writing them down), as
+mentioned above. Filesystem passwords are used much less often than login
+passwords. It is easy to forget them.
+
+      </p><p>
+
+The only real drawback is that TrueCrypt cannot encrypt the Windows Swap
+file. This means that it is possible for programs to write pieces of their
+memory to disk unencrypted. This obviously can leak sensitive information.
+However, the swap file can be disabled in Windows XP by navigating through
+<span><strong class="command">Start-&gt;Properties-&gt;Advanced tab-&gt;Performance
+section-&gt;Settings-&gt;Advanced tab-&gt;Virtual Memory
+section-&gt;Change-&gt;No Paging File-&gt;Set-&gt;OK</strong></span>. 
+
+      </p><p>
+
+On Linux, however, a TrueCrypt volume can of course contain a <a href="http://www.netadmintools.com/part1.html" target="_top">swapfile</a> as discussed
+above.
+
+      </p></div><div class="sect3" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="seized"></a>SeizeD</h4></div></div></div><p>
+
+For the extra paranoid, you can write a quick perl script to monitor network
+connectivity, and immediately unmount and remove the crypto device as soon as
+pings fail (or execute any other arbitrary command). I've done this already for you. My first cut was a <a href="crypto/ping-check" target="_top">simple script</a> that pinged a series of
+hosts and executed your <a href="crypto/crypt-stop" target="_top">crypt-stop</a> script
+from <a href="ar01s06.html#crypto" title="Encrypted Filesystems">above</a>. This script gave The Man
+one second to move your machine to a network that would also respond to all
+those pings while he transported it.
+
+      </p><p>
+
+This is problematic in that The Man could simply throw in a hub with a bunch
+of machines that would also respond to those IPs and turn it on as soon as
+they disconnected your box from the network (assuming they figured out what to
+do about power). So after thinking about it for a bit, I decided I didn't even
+want to make it that easy for that bastard. So I wrote a pair of scripts you
+can run on various machines on your LAN (or across the Internet) to ensure
+network connectivity.
+
+      </p><p>
+
+The way this works is there is a <a href="crypto/seized-client" target="_top">client script</a> and a <a href="crypto/seized-server" target="_top">server script</a>. The client script
+is the one you run on your secure machine, and the server script you run on
+any host on the Internet. The scripts are written in standard perl, and
+depends
+upon the Unix utility md5sum, which is available on Linux, Mac OS, and <a href="http://www.cygwin.com" target="_top">cygwin</a>. You should be able to replace
+md5sum with any command line hashing program, such as <a href="http://www.slavasoft.com/fsum/" target="_top">FSUM</a> if you do not want to
+install all of cygwin.
+
+      </p><p>
+
+When you start the pair (start the server first), they ask you for a password
+to be used for that session. The client script then periodically (every 0.25
+seconds by default) sends the MD5 (or SHA1) hash of a random number (from
+/dev/urandom) to the server script, and the server script appends this random
+number to your password. It then hashes this combined value, and sends the
+result back to the client. The client compares this value to one it generates
+locally via the same manner. If they match, the process is repeated with a new
+random hash, if they do not match, a script you specify (such as <a href="crypto/crypt-stop" target="_top">crypt-stop</a> to unmount your drives) is run. The
+script is also run after a timeout period (1 second) or if the TCP connection
+otherwise dies. 
+
+      </p><p>
+This is a common cryptographically secure authentication technique that is
+used to prove two people know a password without revealing it to a third party
+(The Man). 
+      </p><p>
+Note that there is nothing stopping you from running multiple copies of this
+program on a given machine to connect to multiple servers with different
+passwords, in case there is concern a password could be recovered by attacking
+a particular server. It won't hurt your
+volume to attempt to unmount it twice.
+      </p></div></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="Deletion"></a>Secure Deletion</h3></div></div></div><p>
+
+Oftentimes you will have old or temporary copies of data left on your hard
+disk after you finish making your encrypted filesystem. Sometimes applications
+will save data to unencrypted locations by default before you realize what
+they are doing. In these cases you need to have a mechanism to wipe traces of
+this data clean. Simply deleting files is not enough, since deletion only
+removes files from the directory listing and does nothing to actually remove
+their contents until they are overwritten by some new file. 
+
+    </p><p>
+
+Whenever the topic of secure deletion comes up, an argument will inevitably be
+raised as to how many times a file must be overwritten and what must it be
+overwritten with in order for it to be truly gone. The tinfoil hat crowd will
+tell you all sorts of horror stories about this or that government agency that
+has the power to read through N+X layers of random overwritten data, where N
+was the number you asserted was secure and X is some arbitrary additional
+amount they made up to make you feel bad.
+
+    </p><p>
+
+My personal opinion is that somewhere between 2 and 5 really is all you need.
+As drives become larger, the cost factor involving finding data below an
+arbitrary number of writes over the span of the entire disk grows
+tremendously. And then who's to say that the data wasn't there from a previous
+owner, possibly even someone who returned a drive back to the manufacturer
+because of some defect that was corrected and the drive resold. The other
+factor is that if secure deletion takes forever, you will find yourself doing
+it less and less, and postponing it more and more because it will interfere
+with your real work. This is obviously much worse than minimally wiping
+something quickly right away and getting it over with.
+
+   </p><div class="sect3" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="id2759620"></a>Linux</h4></div></div></div><p>
+
+On Linux, the relevant utility is called wipe. There are two versions of this
+utility. The more popular one is <a href="http://wipe.sourceforge.net/" target="_top">hosted at sourceforge</a>, and the
+other is <a href="http://abaababa.ouvaton.org/wipe/" target="_top">available here</a>.
+
+    </p><p>
+
+For most uses, I would just accept the defaults. To wipe a file, <span><strong class="command">wipe
+filename</strong></span> should be fine. <span><strong class="command">wipe -r directory</strong></span> will
+get an entire directory recursively. To wipe all free space on a drive,
+<span><strong class="command">wipe -a some_file</strong></span> should do the trick.
+
+    </p></div><div class="sect3" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="id2759664"></a>Mac OS</h4></div></div></div><p>
+On Mac OS, secure file deletion is built right in to the trash bin. You need
+to ensure that you <a href="http://docs.info.apple.com/article.html?artnum=301416" target="_top">do not
+interrupt</a> this process, however, or you may loose
+access to any FileVault volumes you may have. Keep the power plugged in.
+    </p><p>
+
+It is also possible to erase free space on your Mac if you emptied the trash
+bin without using the secure file deletion option. For instructions on how to
+do this, go to <span><strong class="command">Applications/Utilities</strong></span> and select
+<span><strong class="command">Disk Utility</strong></span> and search the help for information on erasing
+free space. FIXME: Better description. Can it do free space?
+
+    </p></div><div class="sect3" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="id2759703"></a>Windows</h4></div></div></div><p>
+On Windows, far and away the best option is <a href="http://www.heidi.ie/eraser/" target="_top">Eraser</a>, since it adds right-click
+context menus to wipe a file or directory, and allows you to schedule tasks to
+wipe all free space as well. Very nice piece of software.
+    </p></div></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ar01s05.html">Prev</a>&#160;</td><td width="20%" align="center">&#160;</td><td width="40%" align="right">&#160;<a accesskey="n" href="ar01s07.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Web-based leaks&#160;</td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top">&#160;Anonymous Communication</td></tr></table></div></body></html>
+

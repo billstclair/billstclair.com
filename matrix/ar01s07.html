@@ -1,0 +1,829 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ANSI_X3.4-1968"><title>Anonymous Communication</title><meta name="generator" content="DocBook XSL Stylesheets V1.68.1"><link rel="start" href="index.html" title="Network Forensics Evasion: How to Exit the Matrix"><link rel="up" href="index.html" title="Network Forensics Evasion: How to Exit the Matrix"><link rel="prev" href="ar01s06.html" title="Intrusive Surveillance"><link rel="next" href="ar01s08.html" title="Physical Interaction"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Anonymous Communication</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ar01s06.html">Prev</a>&#160;</td><th width="60%" align="center">&#160;</th><td width="20%" align="right">&#160;<a accesskey="n" href="ar01s08.html">Next</a></td></tr></table><hr></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="AnonymousComm"></a>Anonymous Communication</h2></div></div></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="anonemail"></a>Anonymous Email</h3></div></div></div><p>
+Low-grade anonymous email can effectively be achieved by creating a <a href="http://mail.yahoo.com" target="_top">Yahoo</a> or
+<a href="http://www.gmail.com" target="_top">gmail</a> account and only accessing it through Tor. BEWARE however, that many
+webmail services will append your IP to the mail headers. So be absolutely
+sure to never send any messages (or even log in) without using Tor.
+
+  </p><p>
+
+Worse still, the mainstream webmail services typically offer other services
+that <a href="http://www.scroogle.org/" target="_top">"conveniently"</a> allow you to
+share the same <a href="http://www.imilly.com/google-cookie.htm" target="_top">account/cookie</a> between them. For this reason, if you opt to use
+a major webmail service, you need to be careful with things like entering your
+street address/zip code into their corresponding <a href="http://maps.google.com" target="_top">mapping</a> <a href="http://maps.yahoo.com" target="_top">services</a>, or for that matter, ever using a
+<a href="http://yp.yahoo.com" target="_top">yellow pages</a>. Careful and judicious
+use of various <a href="ar01s05.html#cookies" title="Cookies">cookie control mechanisms</a> or 
+<a href="ar01s06.html#BootCD" title="Throwaway Computing">throwaway computing</a> is required.
+It is also rumored that hotmail will <a href="http://gemal.dk/browserspy/date.html" target="_top">pull your browser time info</a>
+and place it on emails, thus narrowing your geographical location.
+
+  </p><p>
+
+As the final nail in the coffin against gmail and company, these providers
+will often keep deleted emails in storage for advertising classification and
+who knows what other reasons. This opens up the possibility that even emails
+you have though you had deleted <a href="http://news.com.com/Police+blotter+Judge+orders+Gmail+disclosure/2100-1047_3-6050295.html" target="_top">can
+be obtained in a court order</a>.
+
+  </p><p>
+
+If you desire more anonymity with less hassle, you have a couple of options.
+<a href="http://www.hushmail.com" target="_top">HushMail</a> and <a href="http://www.mailvault.com" target="_top">MailVailt</a> provide limited free accounts
+that automatically support <a href="http://www.gnupg.org/documentation/faqs.html.en" target="_top">GPG</a>. HushMail
+unfortunately uses some kind of hokey Java interface, and I have difficulty
+getting it to reliably work on many OS/browser combos. Also, note that some
+Java implementations may not pass your connections through your proxy
+settings, which would may mean that Tor is not sufficient protection. Check
+<span><strong class="command">netstat</strong></span> to be sure. MailVault does not use Java, and thus
+is fully Tor-friendly. It's also lighter and quicker. <span class="emphasis"><em>However, I
+would not rely on mailvault OR hushmail (or any other provider) to ensure your
+email is private.</em></span> While both of these companies are outside of the
+USA (which at least should provide protection against a <a href="http://www.eff.org/patriot/sunset/505.php" target="_top">National Security
+Letter</a>), they still could fall prey to some other coercive tactic. If you need
+a high level of assurance of secrecy, you must manage your own GPG key using a
+<a href="http://www.gnupg.org/related_software/frontends.html" target="_top">front end or
+plugin to your mail client.</a>
+
+  </p><p>
+
+Your last option for anonymous mail is to use a proper mix network. However,
+these networks require a good deal of configuration and setup to join, and
+once you do, they are only one way.  There are two main anonymous remailer
+networks in existence, <a href="http://mixmaster.sf.net" target="_top">MixMaster</a>
+and <a href="http://www.mixminion.net" target="_top">MixMinion</a> MixMinion is
+designed to succeed MixMaster, but it is still in development and thus
+has debug logs, etc in place that can be confiscated and used to betray
+anonymity. There are <a href="https://riot.eu.org/anon/remailer.html.en" target="_top">web</a> <a href="http://www.gilc.org/speech/anonymous/remailer.html" target="_top">gateways</a>
+available to use, but again they are only one way.
+
+   </p><p>
+It is also possible to set up a return path, or 
+<a href="http://riot.eu.org/anon/doc/nym.html" target="_top">Nym</a> through certain
+mix networks.
+Hushmail
+provides nym service as part of their paid accounts, and <a href="http://www.panta-rhei.eu.org/" target="_top">Panta Rhei</a> maintains a <a href="http://www.panta-rhei.eu.org/pantawiki/NymServers" target="_top">list of
+NymServers</a> as well. 
+   </p><p>
+
+If you only need a throwaway email address for or for signing up for a <a href="ar01s07.html#usenet" title="Posting to Usenet">google groups</a> or
+other forum account, you can use <a href="http://www.mailinator.com" target="_top">Mailinator.com</a>, <a href="http://dodgeit.com/" target="_top">dodgeit.com</a> or <a href="http://www.pookmail.com/" target="_top">pookmail.com</a>.
+Note that these temporary mailboxes have no passwords. Also 
+don't forget to use Tor or some other <a href="ar01s03.html#IP" title="IP Address">IP
+obfuscater</a>
+
+   </p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
+
+<span class="emphasis"><em>If you use a webmail account, you should expect that your email is
+NOT PRIVATE.</em></span> <a href="http://www.templetons.com/brad/gmail.html" target="_top">According to the ECPA</a>,
+after 180 days it becomes possible to demand email from a server without a
+warrant, and for non-criminal matters. This means all that has to happen is a
+civil attorney decides they want to see your email because they might have a
+reason to sue you, so they write a subpoena demanding all email older than 180
+days from your provider, and it is theirs.
+
+    </p><p>
+
+A few interesting anonymity/privacy mailing services have also arisen lately
+because of this loophole.
+<a href="http://www.stealthmessage.com/" target="_top">StealthMessage</a>, <a href="http://www.self-destructing-email.com/" target="_top">Self Destructing Email</a> and <a href="http://www.mailjedi.com/mj/index.jsp" target="_top">MailJedi</a> all provide
+"self-destruct" capabilities for email, so that you don't have to worry about
+messages you send sitting in someone's inbox to be discovered later.
+StealthMessage for some reason does not work for me, however. It also requires
+Javascript and is pretty clunky.
+
+   </p><p>
+
+Once again, <span class="emphasis"><em>I would not rely on any of these services to actually
+destroy your mail or otherwise keep it private, especially in the case of
+subpoena, National Security Letter, or coercive tactics.</em></span> If you
+need this level of assurance, you must manage your own GPG key using a <a href="http://www.gnupg.org/related_software/frontends.html" target="_top">front end or plugin
+to your mail client.</a>
+
+   </p></div></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="usenet"></a>Posting to Usenet</h3></div></div></div><p>
+
+For the benefit of the unwashed: Usenet is a massive collection of discussion
+groups spanning all sorts of topics. Just about any type of discussion you
+might imagine takes place on Usenet, and you can browse and
+search all posts ever made <a href="http://groups.google.com" target="_top">via
+google.</a> There's just one problem. You can browse and search all posts
+ever made via google. This means that if you ever post something to Usenet, it
+remains there. Forever. Thus anonymity is highly desirable.
+  </p><p>
+Posting to Usenet is actually easier than writing anonymous email, because you
+don't have to set up the return path. In this case, you can simply use a
+<a href="http://www.gilc.org/speech/anonymous/remailer.html" target="_top">MixMaster web
+interface</a> or some <a href="http://www.xmaily.com/" target="_top">other</a>
+<a href="http://www.mytrashmail.com/anonymous_email.aspx" target="_top">remailer</a>
+(use Tor) and send mail to one of the <a href="https://ssl.dizum.com/help/mail2news.html" target="_top">mail2news gateways.</a>
+You can then view your results on <a href="http://groups.google.com" target="_top">Google
+Groups</a> or one of any number of <a href="http://www.newzbot.com/" target="_top">public NNTP
+servers.</a>   
+ </p><p>
+
+To post a reply to a given post, you need to enter an "In-Reply-To:
+&lt;MessageId&gt;" header line with the Message ID of the message you would
+like to reply to (in addition to the usual "Re:" subject prefix). You can find
+a message's ID via google groups by clicking on "Options" and then "Show
+Original". Since it's relatively easy to screw this up, please practice this in
+<a href="http://groups.google.com/group/misc.test" target="_top">misc.test</a>
+or <a href="http://groups.google.com/group/alt.test" target="_top">alt.test</a>
+before posting to real groups.
+
+  </p><p>
+
+Unfortunately, many newsgroups are unavailable via the mail2news gateways. To
+post to these groups, you will either have to create a google account (which
+is problematic due to a universal cookie google creates discussed previously),
+or sign up to a <a href="http://www.newsrover.com/service.htm" target="_top">commercial
+Usenet provider</a> and pay via Money order. If you plan on signing up to
+a commercial usenet provider, you should ensure that they enable web access,
+because there are few Tor exit servers that will allow you to access the NNTP
+(Usenet) port. Some examples that may meet your needs include <a href="http://www.usenet.com/SignUpMO.htm" target="_top">Usenet.com</a>, <a href="http://www.newsfeeds.com/money_order.htm" target="_top">NewsFeeds.com</a>, <a href="http://www.newsgroups.com" target="_top">NewsGroups.com</a>,
+<a href="http://www.binaries.net/SignupMO.htm" target="_top">Binaries.net</a>, and
+<a href="https://www.meganetnews.com/altsub.html" target="_top">MegaNetNews.com</a>.
+Be sure to avoid the temptation of using the same account for anonymous
+posting as you use for downloading warez/movies/etc from the binaries groups,
+since most likely you will be unable to do the latter over Tor.
+
+  </p><p>
+
+Also be aware that there are two limitations with google's news server. The
+first is that google.com keeps a cookie that tracks which groups you have
+visited.  This cookie persists for multiple sessions and is potentially shared
+with their main search page, and every other google service. It's not too much
+of a stretch for them to also track IPs that have used that cookie as well (or
+worse, save info about map queries), meaning that if you forget to use Tor and
+access google groups, or any google service, they can potentially correlate
+your interest in one particular anonymous post to your IP via the cookie that
+was used both times. The solution is to either use a <a href="ar01s06.html#BootCD" title="Throwaway Computing">bootable CD</a> for this sort of work, or be diligent
+about <a href="ar01s05.html#cookies" title="Cookies">purging cookies</a>. The same goes for
+posting to web forums.
+
+   </p><p>
+The second issue with google groups 
+is that some people configure their clients to append an X-No-Archive header,
+which prevents google from keeping the post on its servers. This means you may
+be unable to see replies unless you use a public NNTP server, especially in 
+some privacy conscious newsgroups.
+  </p></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="IRC"></a>IRC/Instant Messaging</h3></div></div></div><p>
+
+If you need to talk to a bunch of people quicker than Usenet allows, or wish
+to meet with a particular person anonymously, then IRC is probably your best
+bet. You most likely want to avoid Instant Messaging, since it is too easy for
+a third party to profile your <a href="http://www.buddytree.com/" target="_top">social
+network</a>. Furthermore some IM networks enable you to put in an alias
+for your friends. Many people will just set this as your real name. The
+problem with this is that it is <span class="emphasis"><em>transmitted to the IM
+server</em></span>, which means all that has to happen is for anyone who knows
+your real identity to set an alias, and bingo, your real name has been
+revealed. 
+
+  </p><div class="sect3" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="IRCClient"></a>Choosing an IRC Client</h4></div></div></div><p>
+For Linux and Windows IRC clients, I recommend <a href="http://gaim.sf.net" target="_top">Gaim</a>. Veterans may balk at my choice, but Gaim is
+nice for a few reasons:
+   </p><div class="orderedlist"><ol type="1"><li><p>It supports <a href="http://www.cypherpunks.ca/otr/" target="_top">OTR</a> and <a href="http://gaim-encryption.sf.net" target="_top">Gaim Encryption</a></p><p>
+
+OTR and Gaim Encryption are person-to-person encryption methods. 
+This is useful
+when you need to be on an IRC server that you can't trust.
+
+Gaim
+Encryption works a lot better as far as enabling itself automatically, but it
+tends to be worse off at handling two locations for the same buddy than OTR
+is. 
+Both of them have the nasty property of getting confused when either you
+or your buddy use different clients (like at work and at home, for example),
+but OTR is easier to reset.
+
+     </p></li><li><p>It supports Tor hidden services</p><p>
+Gaim speaks SOCKS5, which means you can use any of the Tor hidden service IRC
+servers. You can either set a global SOCKS5 server under Preferences-&gt;Network,
+or you can set it per account that you add, under "Show More Settings".
+     </p></li><li><p>It doesn't respond to CTCP TIME</p><p>
+
+CTCP TIME is a request you give to a client to ask it what time it thinks it
+is. This can reveal your timezone and thus general geographic location. In
+general, when discussing time or planning meetings with people, you should
+give the time in <a href="http://tycho.usno.navy.mil/cgi-bin/anim" target="_top">UTC</a>, to be both
+considerate of their timezone being different than yours, and to avoid giving
+your location away.
+
+     </p></li></ol></div><p>
+A close second to Gaim is <a href="http://www.xchat.org/" target="_top">X-Chat</a>,
+which is available for Linux, Windows, and <a href="http://sourceforge.net/projects/xchataqua/" target="_top">Mac OS</a>. X-Chat
+doesn't support OTR or client-based encryption, but it does support IRC over
+SSL, where as Gaim currently does not. X-Chat supports SOCKS5, so hidden
+services should be accessible. X-Chat WILL respond to CTCP TIME, but
+it has a convenient menu option that allows you to edit it (hidden under
+Settings-&gt;Lists.. CTCP Replies).
+   </p><p>
+Also for Mac OS, <a href="http://adiumx.com/" target="_top">Adium</a> does support OTR, but most likely won't
+support IRC until the v1.5 milestone for group chat is reached.
+   </p><p>
+
+Diehard command line users can use <a href="http://www.irssi.org/" target="_top">irssi</a> or any other client with 
+<a href="http://totalinfosecurity.com/patches/tor.php" target="_top">tsocks</a>
+(that version supports hidden services!), but they should remember to do
+<span><strong class="command">/ignore * CTCPS</strong></span> and <span><strong class="command">/ignore * DCC</strong></span> to
+block CTCP and DCC as well. irssi can also <a href="http://wiki.noreply.org/noreply/TheOnionRouter/TorifyHOWTO#Irssi" target="_top">be
+configured</a> to use privoxy as an http proxy directly without the need
+for tsocks. Note that for this to work, you need to dig
+through the privoxy default.action config file to change the
+<span><strong class="command">limit-connect</strong></span> line to be
+<span><strong class="command">+limit-connect{1-}</strong></span> (to instruct privoxy that it is OK to
+forward non-web ports).
+
+   </p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
+
+Both Gaim and X-Chat <span class="emphasis"><em>WILL send both your username and your hostname
+to the IRC server</em></span> by default. Both can be configured to send a
+different username, however. X-Chat's config is right in the server list menu,
+where as Gaim's is under "Show More Options.." in the preferences for the
+account. I'm not sure how to solve the hostname problem, short of running
+<span><strong class="command">hostname foo</strong></span> as root on Unix, or <a href="http://ugha.i2p.tin0.de/HowTo/IrcAnonymityGuide" target="_top">editing the
+source</a>.  Hopefully you followed the advice <a href="ar01s04.html#SMB" title="SMB/NMBD">above</a> about not naming your machine after your self or
+your street address.
+
+    </p><p>
+
+Also, you want to make sure your IRC client never responds to DCC file
+transfers or chats automatically. A DCC connection is a direct connection over
+the Internet to your IRC client. Naturally, this will give away your IP
+address. Gaim typically will ask you if you want to accept the connection,
+where as X-Chat users will need to enter <span><strong class="command">/ignore * DCC</strong></span>.
+
+    </p></div></div><div class="sect3" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="id2760493"></a>Choosing an IRC Network</h4></div></div></div><p>
+
+Unfortunately, <a href="http://wiki.noreply.org/noreply/TheOnionRouter/BlockingIrc" target="_top">a few</a>
+of the <a href="http://irc.netsplit.de/networks/" target="_top">major IRC
+networks</a>, have been abused by script kiddies to the point where they
+had to ban Tor. Braindead solution if you ask me (what's wrong with an
+email-confirmed NickServ?), but when you're dealing with monkeys fighting
+monkeys, what can you expect but that they hurl shit at each other.
+Unfortunately, legitimate folks in need of anonymous communication get caught
+in the crossfire. However, if you need to get on to either of these networks,
+you can try to use a <a href="ar01s03.html#ProxyHopping" title="Proxy Hopping">regular open proxy</a>, or for
+stronger anonymity you can try to bounce off one of these proxies <a href="ar01s03.html#DoubleBlackMagicIP" title="Double Black Magic IP Wizardry">after Tor</a>, and/or bounce off a <a href="ar01s03.html#SshHopping" title="SSH Hopping">UNIX shell</a>.
+
+   </p><p>
+If you use X-Chat, you can conveniently choose a network from the "Server
+List" menu. Otherwise, pick a network from that site and go to its website for
+a server list. 
+   </p><p>
+You can also pick one of the hidden service
+servers listed on the <a href="http://6sxoyfb3h2nvok2d.onion/tor/" target="_top">Hidden
+Wiki</a>. I'm a fan of the OFTC site, because it also has a public
+interface so that non-tor users can still talk with you. 
+   </p></div></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="WebContent"></a>Creating Web Content</h3></div></div></div><div class="sect3" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="id2760571"></a>On the Public Web</h4></div></div></div><p>
+
+If being on the "real web" is your goal, there is at least <a href="http://host.ecomstudio.net/" target="_top">one hosting provider</a> that will
+accept e-gold, and will register your domain and provide anonymous hosting for
+you. Alternatively, by using a combination of money orders and other <a href="ar01s08.html" title="Physical Interaction">physical interaction techniques</a>, it may
+be possible to achieve the same end from cheaper hosting providers who do not
+explicitly offer anonymous service. For example, <a href="http://www.csoft.net/" target="_top">Csoft</a> and <a href="http://www.dreamhost.com" target="_top">Dreamhost</a> will accept payment via money
+order and will register your domain for you.
+
+   </p><p>
+
+However, if you are hosting content that may anger a large US corporation or
+otherwise could be construed to violate US law (even if you believe you are
+doing something completely legal, the First Amendment is no protection against
+lawsuits from a company with far more dollars than sense), you are best served
+by finding hosting in another country. Surprisingly, freedom of speech fares
+much better in Eastern Europe and the former Soviet Union than it does in the
+good old USA.  Russian-based <a href="http://www.best-hosting.net/unix_prices.asp" target="_top">Best-Hosting.net</a>
+provides affordable UNIX hosting with domain registration, for example. 
+
+   </p><p>
+
+A google search for <a href="http://www.google.com/search?q=offshore+hosting" target="_top">offshore hosting</a>
+yields several hits, the number one being the promising-looking Hong
+Kong-based <a href="http://www.zentek-international.com/" target="_top">Zentek</a>.
+Incidentally, you should verify that any offshore hosting provider you go with
+is actually offshore, especially if you are seeking offshore hosting to escape
+censorship (some companies provide offshore hosting, but are in fact
+incorporated in the US, making them subject to DMCA takedowns and the like).
+The best way to verify this is to query their domain name via <a href="http://www.whoisd.com/" target="_top">whois</a> and their IP address via <a href="http://www.arin.net/whois/" target="_top">ARIN</a>.
+
+   </p><p>
+
+Yet another option you might consider using to add an extra layer of
+obfuscation is to get an account with one of the <a href="ar01s03.html#OpenVPN" title="OpenVPN">aforementioned OpenVPN providers</a>. You can then host
+your website at any physical location you choose, independent of the server IP
+address.  Note that it won't take much work for someone who can monitor
+traffic at the server to determine your source IP, so this technique should
+only be used in combination with an anonymous co-location account above if
+true anonymity is required. And then at this point all you buy yourself is a
+little advance warning when the VPN service shuts you down before the Colo
+provider does. 
+
+   </p><p>
+
+Another interesting (but ultimately not very effective) option is to take a
+page from the spammer's book, and <a href="http://thespamdiaries.blogspot.com/2006/02/new-host-cloaking-technique-used-by.html" target="_top">combine
+a VPN solution with some ARP wizardry</a>. This only buys you minimal
+anonymity though. It is probably only a matter of hours before jack
+disconnection trial and error at the ISP reveals the real destination of the
+packets. But an interesting technique nonetheless.
+
+   </p><p>
+
+If you are dead-set on using OpenVPN, one possibility is to connect to your
+<a href="ar01s03.html#OpenVPNPlusTor" title="OpenVPN over Tor or HTTP Proxy">OpenVPN provider over Tor</a> or HTTP proxy,
+allowing you to host content as if your IP was at the OpenVPN provider's
+network, yet your server is at some other anonymous location concealed by the
+Tor network. This process is only slightly more complicated than setting up
+OpenVPN by itself, although the resulting connection will most likely be
+neither speedy nor stable.
+
+   </p></div><div class="sect3" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="id2760715"></a>Over Tor</h4></div></div></div><p>
+
+To serve content on the Tor network, you have to set up your own web server
+and configure a <a href="http://tor.eff.org/docs/tor-hidden-service.html.en" target="_top">tor hidden
+service</a>. When you start tor, it should print where
+it expects to find a torrc and that one doesn't exist. Copy torrc.sample to
+this location, and uncomment the <span><strong class="command">HiddenServiceDir</strong></span> and
+<span><strong class="command">HiddenServicePort</strong></span> options.  HiddenServiceDir should be an
+empty directory. The first time you start tor after this modification has been
+made, two files will be created in this directory. The
+<code class="filename">hostname</code> file will contain your hidden service name. 
+   </p><p>
+Once your service is configured, you will need to set up Apache. If you run a
+Linux box, doing this should be pretty straight forward. There is some <a href="http://httpd.apache.org/docs/windows.html" target="_top">Windows documentation</a>
+for it as well.
+   </p><p>
+
+After your hidden service is configured, it should be available to anyone who
+uses Tor via the .onion hostname, and also via the <a href="http://serifos.eecs.harvard.edu/proxy/http://6sxoyfb3h2nvok2d.onion" target="_top">proxy
+gateway at serifos</a>. This means if you link to your hidden service from
+the hidden wiki, it should be searchable via google.
+
+   </p><p>
+
+When running a hidden service, you have two <a href="http://wiki.noreply.org/noreply/TheOnionRouter/TorFAQ#RemainingAttacks" target="_top">major
+threats</a>: Intersection attacks, and predecessor attacks. Intersection
+attacks narrow in on your identity by using ("intersecting") various
+characteristics deduced from your uptime, update frequency, web server version
+information, etc. The most dangerous type of intersection attack applies if
+you run a Tor node on the same machine as your hidden service. In this case,
+it is possible for an attacker to record uptime/reachability of all Tor nodes
+in the database, and find the node that most closely matches the reachability
+history of your hidden service. If you want to run a Tor node, it is best not
+to run it on the same machine as your hidden service.
+   
+   </p><p>
+
+Predecessor attacks are most applicable if you are not running a Tor node.
+Essentially the adversary will make repeated requests to your hidden service
+in some detectable timing pattern, and attempt to correlate this with how
+often one of their malicious Tor nodes is used to create a new circuit and
+sends this timing signature of encrypted cells. Given the number of users on
+the Tor network, this attack is probably very difficult to mount effectively
+(though it supposedly <a href="http://archives.seul.org/or/announce/Jan-2006/msg00001.html" target="_top">has been
+done</a>). It can be mitigated by choosing trustworthy entry nodes from
+the <a href="http://serifos.eecs.harvard.edu/cgi-bin/exit.pl?sortbw=1" target="_top">Tor
+Node Status page</a> for use in an <span><strong class="command">EntryNodes
+nick1,nick2,nick3</strong></span> directive in your torrc (also, remember to set
+<span><strong class="command">StrictEntryNodes 1</strong></span>). The torrc option EntryGuards can be
+used to simulate this effect, but it is not as reliable as explicitly picking
+trusted nodes. The two can be used in combination, however.
+
+   </p><p>
+
+You might also want to take the extra step to only allow SSL connections to
+your service. This may be excessively paranoid, since there is end-to-end
+encryption for hidden services, but nonetheless it may be desired to provide
+another layer of authentication of the hidden service itself. To do this, you
+will need to <a href="http://www.modssl.org/example/" target="_top">install</a> and
+<a href="http://www.modssl.org/docs/2.8/ssl_reference.html" target="_top">configure</a>
+mod_ssl, and generate a <a href="http://www.tc.umn.edu/~brams006/selfsign.html" target="_top">self-signed</a> <a href="http://www.rpatrick.com/tech/makecert/" target="_top">certificate</a> with the
+Common Name being the same as your .onion hostname.
+
+   </p></div><div class="sect3" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="id2760876"></a>Over I2P</h4></div></div></div><p>
+
+Setting up an I2P "eepsite" is similar to setting up a Tor hidden service,
+except they have a <a href="http://localhost:7657/i2ptunnel/index.jsp" target="_top">web
+console</a> that allows you to create the public key. <a href="http://www.i2p.net/i2ptunnel" target="_top">This HOWTO</a> walks you through using
+that web interface, and <a href="http://forum.i2p.net/viewtopic.php?t=194#578" target="_top">this forum post</a> then
+gives you the relevant vhost section to add to your Apache http.conf. 
+
+   </p><p>
+
+Once you are set up, you should post your key to the <a href="http://forum.i2p.net/viewforum.php?f=17" target="_top">i2p forum</a> (use either Tor
+or <a href="http://forum.i2p/viewforum.php?f=17" target="_top">I2P</a>).
+
+   </p><p>
+
+Note that I2P has its own set of <a href="http://www.i2p.net/how_threatmodel" target="_top">possible vulnerabilities</a>.  I
+personally regard I2P eepsites as less safe than Tor hidden services, at least
+currently. Their network has much fewer users, and its distributed node
+directory makes it vulnerable to partitioning attacks that can gradually
+narrow in on eepsite hosters. I2P also does not support the ability to choose
+your trusted peers (ie the <span><strong class="command">EntryNodes</strong></span> option in Tor) or to
+not be listed in the node directory. Supposedly these features are
+<a href="http://www.i2p.net/todo#fullRestrictedRoutes" target="_top">planned
+eventually</a>, but I wouldn't recommend hosting extremely sensitive
+material on I2P until they are implemented.
+
+   </p></div><div class="sect3" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="id2760955"></a>Apache Tidbits</h4></div></div></div><p>
+
+There are a few Apache config file tags you should make sure are set to
+reasonable values. These include <span><strong class="command">ServerAdmin</strong></span>,
+<span><strong class="command">ServerTokens Prod</strong></span>, <span><strong class="command">ServerSignature Off</strong></span>,
+and for Tor/I2P, make sure all your virtualhosts bind to localhost. Also, you
+will probably want to disable modification time reporting if you allow access
+to directories without index.html files, since this can be
+used to narrow in on your location. <span><strong class="command">IndexOptions IgnoreClient
+SuppressLastModified</strong></span> will do this. Note that HTTP/1.1
+<span><strong class="command">HEAD</strong></span> requests will still reveal modification time, but
+these times are given in GMT.
+
+   </p><p>
+
+It should also be noted that for both I2P and Tor, any vulnerabilities in your
+web server/web applications are direct threats to your anonymity. All an
+attacker needs is a way to execute <span><strong class="command">ifconfig</strong></span> through your
+cgi scripts, and your anonymity is gone. So take great care to secure your
+website if you are going the I2P or Tor route.
+
+   </p></div><div class="sect3" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="Weblogs"></a>Anonymous Blogging</h4></div></div></div><p>
+
+For those who don't really want a full website, but instead a forum to post
+information, setting up a blog account is a good alternative. Typically all
+that is involved is <a href="ar01s07.html#anonemail" title="Anonymous Email">creating an email
+address</a>, and then creating an account at a blog provider such as <a href="http://www.blogger.com" target="_top">Blogger</a> or <a href="http://www.livejournal.com" target="_top">LiveJournal</a>. 
+
+   </p><p>
+
+Blogger seems to not display the <a href="http://www.blogger.com/signup.g" target="_top">signup link</a> unless you have
+javascript enabled, which is annoying if you use <a href="http://www.noscript.net" target="_top">NoScript</a>. However, the rest of posting
+functionality, etc seems to be just fine without Javascript, which is
+comforting, especially when reading comments to your entries. Also, they don't
+require the email address to be valid, which is a plus.
+
+   </p><p>
+
+<a href="http://invisiblog.com/" target="_top">Invisiblog</a> is also a potential
+place to host your blog as well, though it is considerably <a href="http://invisiblog.com/info/start/" target="_top">more involved</a> than Blogger.com
+or LiveJournal. The anonymity comes from the fact that you post via the <a href="http://mixmaster.sf.net" target="_top">MixMaster</a> anonymous remailer network.
+However, in my opinion, this service has three pretty sizable problems:
+   
+   </p><div class="orderedlist"><ol type="1"><li><p>You have to use Tor anyway</p><p>
+
+As they mention numerous times in their docs and <a href="http://invisiblog.com/info/faq/" target="_top">FAQ</a>, you should not make a
+habit of visiting your blog to check if posts arrive, since your IP would
+thus show up more often than anyone else's, especially for new posts/a new
+blog. In my opinion, you should not access your blog unprotected <span class="emphasis"><em>at
+all</em></span>, because any hits without a <a href="ar01s05.html#refurl" title="Referrer Url">refurl</a> indicate that that visitor
+is either a regular or a maintainer.
+
+     </p></li><li><p>They do not allow web-based remailer gateways</p><p>
+
+This is a major stumbling block. Mixmaster is really difficult to set up for
+your average user, at least compared to Tor. I'm not quite sure why they ban
+web based remailers. Perhaps they are not aware that people can access them
+through anonymous means.
+
+     </p></li><li><p>The URLs are cryptic and hard to communicate</p><p>
+
+I realize it probably was easier to just take the GPG key ID as a unique ID
+than to allow users to try to pick a unique title and handle rejection of
+duplicates, but this is a barrier to communicating the URL effectively.
+
+     </p></li></ol></div><p>
+
+I should also mention that the EFF has published <a href="http://www.eff.org/Privacy/Anonymity/blog-anonymously.php" target="_top">some
+information about anonymous blogging</a>. All of the anonymity stuff is
+covered in this HOWTO, of course, but they also give some <a href="http://www.eff.org/bloggers/lg/" target="_top">legal information</a>
+that may be of use to you. 
+
+   </p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
+Blogging in general is seeing increased mixing with social network software.
+As such, you need to be especially careful about your <a href="ar01s07.html#SocialNet" title="The Social Network">Social Network</a> and your audience of your blog. If
+most of the people who end up viewing and posting to your "anonymous" blog 
+are your friends, family and coworkers, you don't really have any anonymity.
+    </p></div></div></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="DocScrubbing"></a>Scrubbing Document Formats</h3></div></div></div><p>
+
+Many document formats conveniently embed personally identifying attributes,
+and sometimes even attempt to limit redistribution. This can be problematic to
+whistleblowers who need to produce/deliver incriminating memos and photos to
+journalists, and also to academic researchers who wish to electronically
+publish their work anonymously.
+
+  </p><div class="sect3" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="id2761209"></a>Microsoft Office</h4></div></div></div><p>
+
+Microsoft Office embeds your name, machine name, initials, company name, and
+revision information in documents that you create.
+  
+   </p><p>
+
+According to Microsoft's <a href="http://support.microsoft.com/kb/825576/" target="_top">knowledge base article</a> on the Metadata, the best way
+to remove all personal metadata from a document is to go to <span><strong class="command">Tools | Options |
+Security Tab | "Remove personal information from this file on save"</strong></span>. Be warned
+that this does NOT remove hidden text and comment text that may have been
+added, but those tasks are also covered in that article.
+
+   </p><p>
+
+Microsoft also provides the <a href="http://support.microsoft.com/default.aspx?kbid=834427" target="_top">Remove Hidden Data
+Tool</a> that apparently accomplishes those same functions but from
+outside of Microsoft Office.
+
+   </p><p>
+
+This <a href="http://www.fas.org/sgp/othergov/dod/nsa-redact.pdf" target="_top">NSA Guide
+to sanitizing documents</a> might also be of some interest, but I
+think the Microsoft KB articles cover the info better and in more depth.
+
+   </p></div><div class="sect3" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="id2761265"></a>StarOffice/OpenOffice</h4></div></div></div><p>
+
+By default, users of StarOffice/OpenOffice are not safe
+either. Both of these programs will save personal information in
+XML markup at the top of documents. It can be removed by going to <span><strong class="command">File |
+Properties</strong></span> and unchecking <span><strong class="command">"Apply User Data"</strong></span>, and
+also clicking on <span><strong class="command">"Delete"</strong></span>.
+Unfortunately it does not remove creation and modification times. It's not
+clear how to do this without editing the file raw in a plain text editor such
+as notepad.
+
+   </p></div><div class="sect3" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="id2761297"></a>Document DRM</h4></div></div></div><p>
+
+Document DRM can come in all shapes and sizes, mostly with the intent to
+restrict who can view a document and how many times they can view or print it
+(<a href="http://www.informationweek.com/blog/main/archives/2006/02/yes_trusted_com.html" target="_top">in
+some cases</a> even keeping track of everyone who has handled a document). For
+whistleblowers who need to circumvent DRM to distribute a document, the most
+universal approach is to use the "Print Screen" key to take a screenshot of
+your desktop with each page of the document and paste each screenshot into
+Windows Paint and save it. Some DRM software will attempt to prevent this
+behavior. This can be circumvented by installing the 30 day trial of the
+product <a href="http://www.vmware.com/download/ws/eval.html" target="_top">VMWare
+Workstation</a> and installing a copy of Windows and the DRM reader onto
+it. You can then happily take screenshots using VMWare's "Capture Screen" or
+even the "Capture Movie" feature, and the DRM software will be none the wiser.
+With a little image cropping, you can produce a series of images that can be
+distributed or printed freely. 
+
+   </p><p>
+
+The VMWare approach may be problematic for DRM that relies on a TPM chip. The
+current versions of VMWare neither emulate nor provide pass-through access to
+the TPM. However, TPM-based DRM systems are still in the prototype stage, and
+since it is possible to <a href="http://tpm-emulator.berlios.de/" target="_top">emulate</a> and <a href="http://article.gmane.org/gmane.comp.emulators.xen.devel/13490" target="_top">virtualize</a>
+a TPM, it should only be a matter of time before some form of support is
+available in VMWare.
+
+   </p><p>
+
+Depending on the DRM software itself, cracks may also be available to make
+this process much more expedient. Casual searching doesn't turn up much, most
+likely due the relative novelty (and public scarcity) of document-oriented
+DRM. Note that when doing your own google searching for this type of material,
+be sure to check the bottom of the page for notices of <a href="http://www.chillingeffects.org/keyword.cgi?KeywordID=2" target="_top">DMCA 512
+takedowns</a> censoring search results. It is usually possible to recover
+URLs from chillingeffects' C&amp;D postings. That, or use a google
+interface from another country such as <a href="http://www.google.de" target="_top">Germany</a>.
+
+   </p></div><div class="sect3" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="Images"></a>Image Metadata</h4></div></div></div><p>
+
+Metadata automatically recorded by digital cameras and photo editing utilities
+may also be <a href="http://fishbowl.pastiche.org/2006/02/19/the_perils_of_metadata" target="_top">problematic
+for anonymity</a>. There are three main <a href="http://www.sno.phy.queensu.ca/~phil/exiftool/TagNames/" target="_top">formats</a>
+for image metadata: <a href="http://www.sno.phy.queensu.ca/~phil/exiftool/TagNames/EXIF.html" target="_top">EXIF</a>,
+<a href="http://www.sno.phy.queensu.ca/~phil/exiftool/TagNames/IPTC.html" target="_top">IPTC</a>,
+and <a href="http://www.sno.phy.queensu.ca/~phil/exiftool/TagNames/XMP.html" target="_top">XMP</a>.
+Each format has several fields that should be removed from any image produced
+by a photographer or depicting a subject who requires anonymity.  Fields such
+as camera model and serial numbers, owner names, locations, date, time and
+timezone information are all directly detrimental to anonymity. In fact, there
+is even a metadata spec for <a href="http://www.sno.phy.queensu.ca/~phil/exiftool/TagNames/GPS.html" target="_top">encoding
+GPS data</a> in images. Camera equipped cell phones with GPS units
+installed for E911 purposes could conceivably add GPS tags automatically to
+pictures.
+
+   </p><p>
+
+The WikiMedia Commons <a href="http://commons.wikimedia.org/wiki/How_use_the_IPTC-fields" target="_top">contains a
+page</a> with information on programs capable of editing this data for
+each OS. My preferred method is to use the perl program <a href="http://www.sno.phy.queensu.ca/~phil/exiftool/" target="_top">ExifTool</a>, which
+can strip all metadata from an image with a single command: <span><strong class="command">exiftool
+-All= image.jpg</strong></span>. MacOS and Linux users should be able to download
+and run the exiftool program without any fuss. Windows users will have to
+install <a href="http://www.activeperl.com/Products/ActivePerl/" target="_top">ActivePerl</a> and
+run <span><strong class="command">perl exiftool -All= image.jpg</strong></span> instead. Running exiftool
+without the -All= switch will display existing metadata. The -U switch will
+show raw tags that the tool does not yet fully understand. As far as I can
+tell, the -All= switch is in fact able remove tags that the tool does not
+fully understand.
+
+   </p></div></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="BitTorrents"></a>Bit Torrents/P2P apps</h3></div></div></div><div class="sect3" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="id2761493"></a>Over Tor</h4></div></div></div><p>
+A few different Bit Torrent programs are beginning to support routing tracker
+(and data) traffic over Tor. <a href="http://azureus.sourceforge.net/doc/AnonBT/" target="_top">This
+HOWTO</a> describes doing so using Azureus.
+However, <span class="emphasis"><em>PLEASE DO NOT ROUTE DATA TRAFFIC OVER TOR</em></span>. The
+Tor network is still small, and cannot support the additional strain. At some
+point in the future, Tor may implement some form of load balancing to support
+bulk traffic, but this has not happened yet. So please be polite and only send
+tracker traffic over the Tor net. FIXME: That HOWTO is pretty bad. Find/write
+a better one.
+   </p><p>
+This means that you should only really follow the instructions in <a href="http://azureus.sourceforge.net/doc/AnonBT/Tor/howto_0.5.htm#_Toc87587508" target="_top">Section
+4.1</a>. The instructions are a little confusing, but basically you want
+to edit your preferences to tell Azureus that your tracker server's external
+IP is your .onion address from Tor. So long as the port here matches the
+public port in your tor hidden service config, you should then be able to give
+people the .onion address. If they set up Azureus to <a href="http://azureus.sourceforge.net/doc/AnonBT/Tor/howto_0.5.htm#_Toc87587518" target="_top">use tor to proxy tracker
+data</a> (<span class="emphasis"><em>NOT TORRENT DATA</em></span>), they should be able to connect to your torrent.
+   </p><p>
+Be aware, however, that it is still possible for the MPAA to connect to your
+torrent through tor, and then watch the IP addresses of where data is coming
+from. However, it remains to be seen if they will actually put the effort
+forth to do this for every torrent everywhere.
+   </p></div><div class="sect3" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="id2761557"></a>Over I2P</h4></div></div></div><p>
+
+Unlike Tor, the I2P network is designed to handle client bittorrent traffic
+running over it, and thus providing maximum anonymity (at the expense of
+roughly 1/3 the bandwidth efficiency).
+
+
+   </p><p>
+
+Once you're connected to I2P, you can use <a href="http://search.i2p" target="_top">search.i2p</a> and <a href="http://orion.i2p" target="_top">orion.i2p</a> to track down torrents. Be sure to
+contribute and create your own torrents when possible.
+
+   </p><p>
+
+Incidentally, an anonymous I2P hacker has altered the Java-based gnutella
+filesharing program Phex in order to make it run entirely over I2P. I2PHex 
+<a href="http://forum.i2p.net/viewforum.php?f=25" target="_top">can
+be found</a> on the I2P forum.
+
+   </p><p>
+
+FIXME: At some point make a new section dedicated to comparing/contrasting
+<a href="http://waste.sourceforge.net/" target="_top">WASTE</a>, <a href="http://mute-net.sourceforge.net/" target="_top">MUTE</a>, 
+<a href="http://forum.i2p.net/viewforum.php?f=25" target="_top">I2PHex</a>, <a href="http://irn3aef5h3bfc3qa.onion/" target="_top">DC++/Tor</a>, <a href="http://gnunet.org/" target="_top">GNUNet</a> (which has the unbelievably idiotic
+property of case-sensitive searches) and other
+anonymous filesharing nets. Everything but I2PHex is broken right now
+though, so perhaps this is all that needs to be written. I2PHex actually works
+pretty well.
+
+   </p></div></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="DataEx"></a>Guerrilla Data Exchange</h3></div></div></div><p>
+
+If P2P doesn't provide a targeted enough distribution for you yet you do not
+wish to set up a full scale website, it is possible to exchange large files
+via data exchange services. 
+
+  </p><p>
+
+So far, the best services I've found are <a href="http://www.badongo.net/" target="_top">badongo</a> (1GB limit), <a href="http://www.verzend.be/" target="_top">verzend.be</a> (1GB limit), and <a href="http://www.megashares.com/" target="_top">megashares</a> (1.5GB limit). None of
+those require either login or javascript. <a href="http://www.oxyshare.com/" target="_top">Oxyshare</a> (700M limit) also will provide
+an ftp account with free registration.
+
+  </p><p>
+
+Of course, all these services should only be accessed through Tor, and you
+should not trust them to keep your data confidential. If you wish to control
+distribution of your particular item, encrypting it symmetrically with <a href="http://www.gnupg.org/" target="_top">GPG</a> is your best bet. <span><strong class="command">gpg
+-c</strong></span> will do symmetric password-based encryption from the command
+line, and <a href="http://www.gnupg.org/related_software/frontends.html#gui" target="_top">GUI
+versions</a> are also available. I would not rely on weaker encryption
+such as zipfile encryption, since it has been repeatedly broken in the past.
+However, a new, open zip format called <a href="http://www.7-zip.org/" target="_top">7-zip</a> supports AES-256 encryption, and is
+probably more widely installed than GPG.
+
+  </p><p>
+
+For video content, both <a href="http://video.google.com" target="_top">Google
+Video</a> and <a href="http://www.youtube.com" target="_top">YouTube</a> are
+options. But again, use tor. The legal climate of the US <a href="http://news.com.com/American+Airlines+subpoenas+Google,+YouTube/2100-1030_3-6048032.html" target="_top">is
+such that</a> 
+neither of these services are whistleblower-safe.
+Again, in the case of Google Video, you need to be especially
+careful about <a href="ar01s05.html#cookies" title="Cookies">cookies</a> (and subsequent
+correlation of search engine usage with your Video account).
+
+  </p></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="InfoVector"></a>The Vector of Information</h3></div></div></div><p>
+When publishing information anonymously, the biggest threat you need to watch
+for is the vector of information. Every piece of information has a source and
+thus a path. The more people know about the source, the more likely your
+physical identity to be discovered as being a part of this path.
+  </p><p>
+
+For example, if you are one of a few people who should have had access to a
+given piece of data, then attempting to post it anonymously may be dangerous.
+Depending on the nature of the data, you may wish to either hold on to it
+while things 'cool down' (and other people might have a chance to come across
+it and also be implicated), or you may wish you disseminate it as rapidly as
+possible. If it is material of a nature where the source will seek legal
+action (or <a href="http://morphemetales.blogspot.com/2004/12/statistics-on-fired-bloggers.html" target="_top">fire</a> 
+<a href="http://wired-vig.wired.com/news/politics/0,1283,60122,00.html?tw=wn_story_related" target="_top">you</a>),
+you may be better served by being patient to allow solid and circumstantial
+evidence to disintegrate, and/or covert enough to make proving anything
+impossible. However, if it is material that the source may be <a href="http://www.truthout.org/cgi-bin/artman/exec/view.cgi/37/11658" target="_top">willing
+to</a> <a href="http://www.indybay.org/news/2003/03/1579613.php" target="_top">kill
+for</a> in order to keep secret, you should aim for as rapid and wide a
+distribution as possible, so as to take the heat off of you as soon as
+possible.
+
+  </p><p>
+
+Oftentimes many pieces of data or many publications can combine to form a more
+detailed profile of you than they could on their own. Consider the subset of
+people that would be able to publish information about corruption at your
+work, information about the networks at your former school, and also info on
+how to hack a regional wireless provider that has coffee shops near your home.
+Taken alone, any one of these topics could provide a comfortable cushion to
+keep you relatively safe from direct suspicion and scrutiny, but taken
+together, it is easy to see that even any two of them could point the finger
+directly at you. For this reason, if you are publishing a mix of topics, you
+may wish to serve each as a separate Tor hidden service or Usenet identity.
+
+  </p><p>
+
+Note that it is also possible to use <a href="http://freshmeat.net/search/?q=classifier&section=projects" target="_top">machine
+learning</a> and <a href="http://www.cs.uic.edu/~liub/NSF/PSC-IIS-0307239.html" target="_top">artificial</a>
+<a href="http://mathforum.org/~ken/bayes/bayes.html" target="_top">intelligence</a> <a href="http://rubyforge.org/projects/classifier/" target="_top">techniques</a> to determine if the same author has written two
+different documents. This means that <span class="emphasis"><em>if</em></span> your life depends
+upon your anonymity, <span class="emphasis"><em>and</em></span> it is likely that big government
+and/or very wealthy corporations will do anything to try to track you down
+over the long run,
+you are advised to attempt to <a href="http://thesaurus.reference.com/" target="_top">alter your vocabulary</a> and
+sentence structure (and possibly spelling) if you publish both anonymously and
+publicly. However, for most situations this level of paranoia is completely
+uncalled for. For example, it almost certainly won't hold up in court unless
+supporting evidence is provided. 
+
+  </p><p>
+
+Of course, all of this paranoia about AI tracking you down is completely
+irrelevant if you do something stupid like post your Tor service URL to a
+mailinglist under your physical name, post an article on the public web or
+mailinglist and then also post it on your "anonymous" web site, or post a
+tarball full of sourcecode where all file ownership and CVS info contain your
+username. Use your head.
+
+  </p><p>
+
+One particularly easy mistake to make that I have come close to making once or
+twice myself is to be discussing a topic on IRC, Usenet, etc, and then turn
+around and discuss it as another identity on another forum or mailinglist, to
+a degree of detail that it is clear to someone who is also on both forums that
+the two identities are the same. Think twice, post once. ;)
+
+  </p></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="SocialNet"></a>The Social Network</h3></div></div></div><p>
+
+<a href="http://www.prisonplanet.com/articles/june2005/090605thefacebook.htm" target="_top">The
+Social Network</a> is The Man's favorite method of tracking you down. Everyone
+likes to <a href="http://www.msnbc.msn.com/id/12335363/site/newsweek/" target="_top">impress their
+friends</a>, but if you do so at the cost of revealing your
+pseudonym to them, you put yourself at risk. The Man (and more dangerously his paid informants) like to hang out on IRC
+networks and be regaled with tales of danger and intrigue. Be wary of people
+who seem over eager to hear about your exploits, and do NOT fall into the trap
+of feeling you need to "prove" yourself to anyone who challenges your
+credibility or skill. While it's fucking badass you hacked <a href="http://www.theregister.co.uk/2005/01/12/hacker_penetrates_t-mobile/" target="_top">Paris
+Hilton's cellphone</a> and the very Agents who were chasing you, you're
+gonna have to learn to be an unknown hero and not brag about it. It sucks, but
+it's better than jail. Learn to practice Zen and/or dose on some Ego
+destroying drugs, but keep your mouth shut. Try to take silent comfort in the
+fact that The Man had it coming. If you really must brag, create a brand-new
+nym and <a href="ar01s07.html#usenet" title="Posting to Usenet">post to Usenet</a> or something. Maybe drop
+some "accidental" clues that might lead an investigation down a blind alley
+while you're at it. But do be careful.
+
+  </p><p>
+
+The social network can also be used in more subtle ways, such as the
+fact that friends/relatives will tend to visit <a href="ar01s07.html#WebContent" title="Creating Web Content">web
+content</a> you publish without a <a href="ar01s05.html#refurl" title="Referrer Url">referrer
+URL</a>, since they most likely will receive the link directly from you.
+If they do not use Tor, their IP addresses can be harvested in this way,
+creating a trail that begins to single you out.
+
+  </p><p>
+
+Note that your pseudonym can also be revealed via <a href="ar01s07.html#InfoVector" title="The Vector of Information">Vector of Information</a>. For example, if all you do is
+rant about conspiracy theory with your friends and coworkers, if you then go
+and publish information about these conspiracy theories anonymously on the
+web, if any of your coworkers happen to stumble upon your anonymous site, they
+are likely to be able to determine it is you. More seriously, any other
+information you publish on that site will also be attributable to you. For
+this reason, you may wish to use a variety of online personalities and
+publishing points.  Doing this may be overkill, however, especially if you
+trust those who would recognize your material not to divulge your true
+identity to others. If jail time is involved (and sadly, it almost always is
+these days), trust no one.
+
+  </p><p>
+
+However, at the same time, note that a properly controlled social network can
+be an enormous benefit to your ability to conduct certain types of
+transactions. Especially if the members of the network never
+learn who you actually are or where you reside. Having a publicly accessible
+social network is <a href="http://internetweek.cmp.com/166401648" target="_top">unbelievably stupid</a>,
+however. The key is you must develop some way to control access. This control
+is what keeps organized crime in existence, and it has the notable
+disadvantage of existing in the physical world.
+
+  </p></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ar01s06.html">Prev</a>&#160;</td><td width="20%" align="center">&#160;</td><td width="40%" align="right">&#160;<a accesskey="n" href="ar01s08.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Intrusive Surveillance&#160;</td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top">&#160;Physical Interaction</td></tr></table></div></body></html>
+

@@ -1,0 +1,985 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ANSI_X3.4-1968"><title>Network Attributes</title><meta name="generator" content="DocBook XSL Stylesheets V1.68.1"><link rel="start" href="index.html" title="Network Forensics Evasion: How to Exit the Matrix"><link rel="up" href="index.html" title="Network Forensics Evasion: How to Exit the Matrix"><link rel="prev" href="ar01s02.html" title="The Matrix"><link rel="next" href="ar01s04.html" title="Local Services"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Network Attributes</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ar01s02.html">Prev</a>&#160;</td><th width="60%" align="center">&#160;</th><td width="20%" align="right">&#160;<a accesskey="n" href="ar01s04.html">Next</a></td></tr></table><hr></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="NetworkAttributes"></a>Network Attributes</h2></div></div></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="MAC"></a>MAC Address</h3></div></div></div><p>
+
+Every 802.x network card (wireless, ethernet, token ring) has a unique 48 bit
+identifier known as a MAC address. This address is burned into the EEPROM on
+the card, and oftentimes is used by networking equipment to track users as
+they come and go, frequently associating MAC address to hotel or dorm room #,
+credit card number, login info, etc. This means hopping on a network that has
+authenticated your hardware before and expecting to be anonymous this time
+around is pure idiocy.
+
+  </p><p>
+
+In fact, even most consumer wireless gear will record the MAC addresses of all
+computers that have ever issued DHCP requests to them, and these logs usually
+cannot be purged, even by the owner! When you combine this with the fact that
+most Cable/DSL service providers will also record your MAC address and bind it
+to your billing information, and the fact that <a href="http://www.techdirt.com/articles/20050414/158240_F.shtml" target="_top">some of
+them</a> don't even seem to wait for a court order to turn your info over,
+it becomes apparent that your MAC address essentially is your name. This isn't
+even counting the possibility of databases maintained by the major laptop
+manufactures. 
+
+  </p><p>
+
+One particularly useful hack I have discovered is that if you change your MAC
+address, cable and DSL providers typically will give you a new IP address via
+DHCP. This can be useful if you are a heavy user of P2P networks, since
+changing your IP regularly can help keep you off the RIAA/MPAA's
+"big fish" watchlists, since without access to the ISPs internal databases
+they will be unable to correlate your identity across IP address changes. That
+is, unless you keep the same "nickname" in whatever P2P app you use...
+
+  </p><p>
+
+Thus, changing your MAC address is highly desirable for a number of reasons.
+However, note that you really only have to concern yourself with your MAC
+address if you do not wish the local network administrator to be able to
+identify you.  MAC addresses do not cross router boundaries, so anything
+outside of your LAN will never see it. If your adversary is not internal to
+the LAN or cannot trace your <a href="ar01s03.html#IP" title="IP Address">IP address</a> back to the
+LAN, don't worry about your MAC. 
+
+  </p><p>
+
+Here are the commands to change your MAC for the three major platforms:
+
+  </p><div class="itemizedlist"><ul type="disc"><li><p>Linux</p><p>
+In Linux, you just need to issue two commands, and then re-run dhcp or
+reconfigure the interface. This works for both wired and wireless cards.
+    </p><pre class="screen">
+     <code class="prompt">[root@machine ~/dir]#</code> <strong class="userinput"><code>ifconfig eth0 down </code></strong>
+     <code class="prompt">[root@machine ~/dir]#</code> <strong class="userinput"><code>ifconfig eth0 hw ether de:ad:be:ef:f0:0d</code></strong> 
+    </pre></li><li><p>Windows</p><p>
+Under Windows, however, things are a bit more involved.. There are a few
+ways to do it. One involves wading through your registry, and will not be
+discussed here. If you're lucky, you might be able to do it right from <a href="http://www.nthelp.com/NT6/change_mac_w2k.htm" target="_top">control
+panel.</a> If this is not an option,
+you can try <a href="http://ntsecurity.nu/toolbox/etherchange/" target="_top">this ntsecurity.nu
+utility</a> or <a href="http://www.gorlani.com/publicprj/macmakeup/macmakeup.asp" target="_top">this
+utility</a>.
+    </p></li><li><p>Mac OS</p><p>
+In Mac OS, for some reason it is easy to change the MAC address of your
+wired interface. One of the following two commands should work:
+    </p><pre class="screen">
+     <code class="prompt">[user@machine ~/dir]$</code> <strong class="userinput"><code> sudo ifconfig en0 ether aa:bb:cc:dd:ee:ff</code></strong>
+     <code class="prompt">[user@machine ~/dir]$</code> <strong class="userinput"><code> sudo ifconfig en0 lladdr 00:01:02:03:04:05</code></strong>
+    </pre><p>
+However, to change the MAC of a wireless interface, you will need to <a href="http://slagheap.net/etherspoof/" target="_top">patch
+your kernel</a>, and then <a href="http://www.ppcnerds.org/Article40.html" target="_top">recompile
+it</a>. 
+    </p><p>
+
+Some OS X users have informed me that USB wireless adapters often allow you to
+change the MAC address via the command line just like a wired interface. The
+one most commonly mentioned is the <a href="http://catalog.belkin.com/IWCatProductPage.process?Merchant_Id=&Product_Id=179211" target="_top">Belkin
+F5D7050</a>.
+
+
+    </p></li></ul></div><p>
+
+I should also note that many routers will allow you to clone or specify a MAC
+address from their web interface.
+
+  </p></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="nickname"></a>802.11 "nickname"</h3></div></div></div><p>
+The 802.11 Nickname field is a little-known feature of the wireless spec
+that sends your hostname to the AP. This is obviously bad.
+  </p><div class="itemizedlist"><ul type="disc"><li><p>Linux</p><pre class="screen">
+     <code class="prompt">[root@machine ~/dir]#</code> <strong class="userinput"><code> iwconfig ath0 nickname "Fucko The Clown"</code></strong>
+    </pre></li><li><p>Mac OS</p><p>Under Mac OS, your wireless nickname is your hostname. You can
+change it with <span><strong class="command">sudo hostname -s "Fucko The Clown"</strong></span>
+    </p></li><li><p>Windows</p><p>I think your only option is to choose an obscure machine
+name. If you wish to change your hostname, you can either edit <a href="http://wiki.havenite.net/wiki/index.php?title=Common_commandline_tasks#Change_Windows_Hostname" target="_top">these registry
+keys</a> or run the <a href="http://www.sysinternals.com/Utilities/NewSid.html" target="_top">NewSID utility</a></p></li></ul></div></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="DHCP"></a>DHCP Properties</h3></div></div></div><p>
+
+Upon obtaining an IP address, your DHCP client will sometimes send information
+about you in DHCP requests. In many cases, this includes your hostname and
+possibly your MAC address, but can include your operating system and DHCP
+version, which can potentially be very damaging to your anonymity set on your
+local network. Once again, much like MAC address, if you are unconcerned about
+your local network discovering your identity, then you probably needn't worry
+too much about this. However, in many cases it is necessary to obscure this
+information.
+
+  </p><p>
+
+Also, as part of the DHCP standard, all operating systems will provide their
+most recent IP address to the DHCP server. Usually this is harmless, since it
+is typically just an internal IP address, but if you use your laptop to DHCP
+directly to your ISP, it is possible it may then hand this IP to an open
+access point you associate to. If you are changing your MAC address to
+minimize risk for P2P activity, you may want to wipe previous IP leases on
+your router machine every time you obtain a new lease. Typically router
+devices have a 'release DHCP' button somewhere on the web interface. If you
+need to change these settings on your computer itself, follow the appropriate
+instructions below:
+
+  </p><div class="itemizedlist"><ul type="disc"><li><p>Linux</p><p>
+
+Unfortunately under Linux, the details of DHCP client properties vary from
+distribution to distribution. In the general case for dhclient, the values are
+read from <code class="filename">/etc/dhclient-interface.conf</code>, but this is
+typically created at runtime.  In Fedora, for example, only the hostname is
+transmitted, and this value is read from
+<code class="filename">/etc/sysconfig/networks/ifcfg-ethN</code> where N is the
+relevant interface number.
+
+    </p><p>
+
+Gentoo (and likely any other distro that uses dhcpcd), however, will transmit
+the entire OS and kernel version. One contributor suggested changing your
+<code class="filename">/etc/init.d/net.eth0</code> (or equivalent) file to include 
+
+    </p><pre class="screen">
+VID=`fortune -o|head -c 30|tr "\"'\n" ' ' 2&gt;/dev/null`
+/sbin/dhcpcd -i ${VID} ${dhcpcd_IFACE} ${IFACE}
+    </pre><p>
+
+    </p><p>
+
+Previous IP/Lease information is typically found under
+<code class="filename">/var/lib/dhcp/</code>. Blowing these files away between
+interface restarts (<span><strong class="command">/sbin/ifdown ethN ; [change mac addr] ; [change
+hostname] ; rm /var/lib/dhcp/* ; /sbin/ifup ethN</strong></span>) should do the
+trick.
+
+    </p></li><li><p>Windows</p><p>
+
+Windows sends your MAC address and an OS and version string (though the
+version is something nonsensical, like "MSFT 5.0", which means it might not
+map to exact Windows versions, but some DHCP implementation version).
+Unfortunately, Windows also transmits hostname. I don't believe there is any
+way to stop this, but you should not have picked a hostname that easily
+identifies you anyways. Unfortunately, it can be used to correlate successive
+connections, which makes it easier to track you down eventually.
+It seems as though the utility <a href="http://www.sysinternals.com/Utilities/NewSid.html" target="_top">NewSID</a> can be
+used to change your hostname on the fly. Alternatively, you can edit a <a href="http://wiki.havenite.net/wiki/index.php?title=Common_commandline_tasks#Change_Windows_Hostname" target="_top">few
+registry keys</a>.
+
+    </p><p>
+
+To kill a previous lease, usually all you have to do is go to <span><strong class="command">Control
+Panel-&gt;Network Connections</strong></span> and right click on the interface, and
+go to <span><strong class="command">Disable</strong></span>, and then <span><strong class="command">Enable</strong></span>. This
+will blow away any previous lease state and IP address information. If you
+prefer the command line, <span><strong class="command">ipconfig /release</strong></span> followed by
+<span><strong class="command">ipconfig /renew</strong></span> does the trick.
+
+    </p></li><li><p>Mac OS</p><p>
+
+Mac OS sends just the MAC address and hostname, but you should be aware that
+it also has some option codes that can serve to identify the OS type as well.
+Again, to change the hostname, issue something like <span><strong class="command">sudo hostname -s
+"Fucko The Clown"</strong></span>, and don't forget to <a href="ar01s03.html#MAC" title="MAC Address">change
+your mac address</a>.
+
+    </p><p>
+
+As far as leasing/IP information, go to <span><strong class="command">System
+Preferences-&gt;Network</strong></span> and select <span><strong class="command">Network Port
+Configurations</strong></span> under <span><strong class="command">Show:</strong></span>. Then, click the
+checkbox next to the relevant connection to disable the interface, and then
+click it again to enable it, and the lease will be blown away and renewed.
+From the command line, <span><strong class="command">sudo ipconfig set en0 BOOTP</strong></span> followed
+by <span><strong class="command">sudo ipconfig set en0 DHCP</strong></span> will essentially the same
+thing (of course, substitute the appropriate interface name for en0).
+
+    </p></li></ul></div><p>
+
+If you want to be absolutely sure you have set everything properly, you can
+download <a href="http://www.ethereal.com" target="_top">Ethereal</a> to monitor your
+network traffic. Set the filter line to <span><strong class="command">bootp</strong></span> while a
+capture is running. This will display only dhcp requests and responses, which
+you can then inspect for information to make sure everything is OK.
+
+  </p></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="IP"></a>IP Address</h3></div></div></div><p>
+The most obvious way you can be tracked across the Internet at large is
+through your IP address. <a href="ar01s07.html#anonemail" title="Anonymous Email">Yahoo Mail</a>, for example appends an extra header on
+your email messages that contains the IP of the computer your web browser is
+on. So much for that anonymous email account, eh? 
+  </p><p>
+
+Luckily, there are at least three ways to change your IP address for Internet
+traffic. They are (in order of increasing preference):
+
+  </p><div class="sect3" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="ProxyHopping"></a>Proxy Hopping</h4></div></div></div><p>
+
+While easy, Proxy hopping fucking sucks. The basic idea is to find a <a href="http://nntime.com/realtime/" target="_top">reliable</a>
+<a href="http://www.samair.ru/proxy/" target="_top">list</a> of 
+
+<a href="http://www.shroomery.org/ythan/proxylist.php" target="_top">open proxies</a>
+and change your <a href="http://www.freeproxy.ru/en/free_proxy/howuse.htm" target="_top">browser's proxy
+settings</a> to tunnel your connections through the proxy, thus
+obfuscating your IP address. <span class="emphasis"><em>BE CAREFUL</em></span>. Some proxies
+will <span class="emphasis"><em>REPORT YOUR IP ADDRESS</em></span> in the form of a
+cookie/session variable to hosts you connect to. Always test out a new proxy
+with either of <a href="http://www.astalavista.net/new/network.php?cmd=proxy" target="_top">these</a>
+<a href="http://www.samair.ru/proxy/proxychecker/results.htm" target="_top">two</a>
+proxy checkers. I believe the shroomery list only includes proxies that don't
+provide identifying information, so it is readily usable by the Firefox
+extension <a href="http://www.roundtwo.com/product/switchproxy" target="_top">Switch
+Proxy</a>. Unfortunately, Switch Proxy has a rather annoying bug that
+<a href="http://www.roundtwo.com/node/355" target="_top">slows new window
+creation</a> down to a crawl.. They don't seem like they are maintaining
+it anymore either.
+
+   </p><p>
+If you're on a Linux machine, there is a utility that will allow you to also
+use all your command line applications with various proxy types, and will also
+allow you to chain multiple proxies together, for better protection.  This
+utility is called <a href="http://proxychains.sourceforge.net/" target="_top">ProxyChains</a>.  It is
+basically a library that you LD_PRELOAD to intercept socket calls and forward
+them to a list of HTTP or SOCKS proxies. Sadly, most of these proxies will 
+only allow you to connect to port 80 or 443. Also note that the proxy chain is
+not encrypted. <span class="emphasis"><em>THIS MEANS THAT A LOCAL OBSERVER AT ANY PROXY HOST 
+CAN VIEW THE REMAINDER OF YOUR PROXY CHAIN, INCLUDING THE DESTINATION 
+HOST!</em></span>
+    </p><p>
+
+<a href="http://www.ufasoft.com/socks/" target="_top">SocksChains</a>, a similar tool
+to Proxychains also is available for Windows. FIXME_WIN32: test
+
+    </p></div><div class="sect3" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="SshHopping"></a>SSH Hopping</h4></div></div></div><p>
+It is possible to accomplish the same thing as ProxyChaining by connecting
+numerous <a href="http://www.google.com/search?q=define%3A+ssh" target="_top">SSH</a>
+connections together. If you have lots of <a href="http://www.ductape.net/~mitja/freeunix.shtml" target="_top">UNIX shells</a>, you may be able to use
+them to obfuscate your network connection by using ssh's -L and -D options. -L
+tells ssh to listen on a local port and forward those connections to another
+host and port through the ssh connection. -D tells ssh to open up a SOCKS 4
+server where you specify. So an example session might look like this:
+    </p><pre class="screen">
+  <code class="prompt">[you@home ~]$</code> <strong class="userinput"><code>ssh -L 4242:127.0.0.1:4242 user1@machine1</code></strong>
+  <code class="prompt">[user1@machine1 ~]$</code> <strong class="userinput"><code>ssh -L 4242:127.0.0.1:4242 user2@machine2</code></strong>
+  <code class="prompt">[user2@machine2 ~]$</code> <strong class="userinput"><code>ssh -L 4242:127.0.0.1:4242 user3@machine3</code></strong>
+  <strong class="userinput"><code>...</code></strong>
+  <code class="prompt">[userN-1@machineN-1 ~]$</code> <strong class="userinput"><code>ssh -D 4242 userN@machineN</code></strong>
+    </pre><p>
+
+So in this case, the first ssh command is run on your home machine. It opens
+up port 4242 locally, which you will then tell your web browser and other
+applications to use as a SOCKS4 proxy. Any connection made to this port will
+be forwarded to port 4242 on machine1. The ssh command on machine1 causes this
+to be redirected to port 4242 machine2, which has a SOCKS4 server listening,
+forwarding all connections out through machineN. Of course, if you only need
+one hop, you can just only use the -D command from localhost. Note that this
+technique should work on Linux and Mac OS natively, and also Windows, if you
+install <a href="http://www.cygwin.com" target="_top">Cygwin</a>. If you set up
+<a href="http://www.securitydocs.com/library/3385" target="_top">ssh
+keys</a>, you can pack this whole procedure onto one line for quick
+execution.
+
+    </p><p>
+
+Apparently <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_top">Putty</a>
+can also be used as the first hop in the chain.  Port forwarding can be done
+from the 'Tunnels' item under 'SSH'. You basically enter the local port and
+then 127.0.0.1:4242 as the destination (don't forget to click 'Add'). To make things quicker, you can save a
+profile named 'MyTunnel' with these settings (and perhaps also 'Don't start a
+shell' and 'Don't allocate a pseudo-terminal' if you just want to make the
+window real small and don't want to show up in the wtmp of the remote
+machine). Once a profile is saved, you can run putty from the command line or
+make a shortcut to run 'putty -load MyTunnel'. You can do this for a
+bunch of different tunnels so you can pick and choose which IP you want to
+have right from your desktop.
+
+    </p><p>
+<a href="http://www.metropipe.net/anonymous.php" target="_top">MetroPipe.net</a> has
+packaged this whole setup behind a nice GUI interface, but before you sign up,
+you should be aware that the long-lived nature of these circuits,
+and the fact that a single path shares all your traffic makes this a far less
+desirable option than <a href="ar01s03.html#Tor" title="Tor">Tor</a>, discussed shortly. They
+do however also provide VPN service.
+    </p></div><div class="sect3" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="OpenVPN"></a>OpenVPN</h4></div></div></div><p>
+<a href="http://openvpn.net/" target="_top">OpenVPN</a> is awesome.
+It provides an encrypted tunnel from your computer to the OpenVPN server.
+While it is not a perfect anonymity service, it is at least useful when you
+only need "one hop" of anonymous surfing, or when you need to
+dodge restrictive firewalls. For example, if your employer either
+blocks or watches your network traffic, you can create an OpenVPN tunnel going
+to port 53 (DNS, which should be open in just about any firewall) and route
+all your traffic through it. 
+    </p><p>
+In order to make use of OpenVPN, you will need an endpoint running the server.
+You can either set this up on your home machine as described below, or sign up
+for an account at a <a href="http://witopia.net/aboutpersonal.html" target="_top">commercial</a> <a href="http://www.netheaven.com/Tunnel.html" target="_top">VPN</a>
+ <a href="http://www.jtan.com" target="_top">service</a> <a href="http://vpn-service.us" target="_top">provider</a>. Vpn-service.us only seems to have
+a Russian language order page, but I have seen them advertised in English on
+certain boards. If you ICQ them, they may give you a price in $USD.
+    </p><p>
+
+Here is a quickstart on setting up a Routed IP OpenVPN v2.0 tunnel for an
+endpoint you control. This quickstart generates two certificate authorities
+and 2048 bit keys, making it the most secure way to create an OpenVPN tunnel.
+It should be immune to MITM attacks, even if one of the hosts is compromised
+and its keys are taken.
+
+    </p><p>Windows</p><div class="orderedlist"><ol type="1"><li><p>Download <a href="openvpn/openssl.cnf" target="_top">this openssl config
+file</a> and place it where you intend to
+keep your openvpn config files.
+      </p></li><li><p>
+<a href="openvpn/Windows/keygen.bat" target="_top">Generate the server and client
+keys</a>. You can accept the defaults for all those bullshit info fields,
+but be careful to say 'y' to the question asking to sign the
+certificates. The default is No.
+      </p></li><li><p>
+After that script is run, copy all the files that start with
+<span><strong class="command">client</strong></span> to the
+client side, and all the files that start with <span><strong class="command">server</strong></span> to the
+server side. All config files and keys go in <code class="filename">C:\Program
+Files\OpenVPN\config</code>. Be a dear, and use a secure channel, will ya?
+      </p></li><li><p><a href="openvpn/Windows/server.ovpn" target="_top">Configure server to use
+192.168.69.1</a></p></li><li><p><a href="openvpn/Windows/client.ovpn" target="_top">Configure client to use 192.168.69.2, and
+to connect to the server</a>. Replace VPN_SERVER_IP in client.ovpn with your
+server's IP.</p></li><li><p>Place this <a href="openvpn/Windows/client-up.bat" target="_top">script to
+rewrite the client's routes</a> upon connect in your openvpn conf
+directory. It will be called automatically. However, you need to edit it and
+replace LOCAL_GATEWAY_IP with your Internet gateway IP (use the top line from <span><strong class="command">route
+print</strong></span> if unsure) and also replace VPN_SERVER_IP with your server's
+IP.</p></li><li><p>Go to <span><strong class="command">Control Panel-&gt;Network Connections</strong></span> and right click on the
+TAP network device to manually set the IP address to 192.168.69.2 and the
+gateway 192.168.69.1. If you need a DNS server, use <a href="http://www.opennic.unrated.net/public_servers.html" target="_top">one of these</a>.
+      </p></li><li><p>
+If your server is a Windows machine, right click on its network interface and enable Internet Connection Sharing.
+      </p></li><li><p>
+Go to <span><strong class="command">Control Panel-&gt;Administrative Tools-&gt;Services</strong></span> and 
+start the OpenVPN service on both client and server.
+      </p></li></ol></div><p>Mac OS</p><div class="orderedlist"><ol type="1"><li><p><a href="http://openvpn.net/download.html" target="_top">Download</a> the
+latest OpenVPN source. Install it by opening a terminal, and issuing:
+      </p><pre class="screen">
+     <code class="prompt">[user@machine ~/dir]$</code> <strong class="userinput"><code>tar -zxvf openvpn-2.0.5.tar.gz</code></strong>
+     <code class="prompt">[user@machine ~/dir]$</code> <strong class="userinput"><code>cd openvpn-2.0.5</code></strong>
+     <code class="prompt">[user@machine ~/dir]$</code> <strong class="userinput"><code>./configure --disable-lzo &amp;&amp; make</code></strong>
+     <code class="prompt">[user@machine ~/dir]$</code> <strong class="userinput"><code>sudo make install</code></strong>
+      </pre></li><li><p>Download the <a href="http://www-user.rhrk.uni-kl.de/~nissler/tuntap/" target="_top">Tun/Tap driver</a>
+by Mattias Nissler. Install it with:
+      </p><pre class="screen">
+     <code class="prompt">[user@machine ~/dir]$</code> <strong class="userinput"><code>mkdir tuntap</code></strong>
+     <code class="prompt">[user@machine ~/dir]$</code> <strong class="userinput"><code>cd tuntap</code></strong>
+     <code class="prompt">[user@machine ~/dir]$</code> <strong class="userinput"><code>tar -zxvf ../tuntap.tar.gz</code></strong>
+     <code class="prompt">[user@machine ~/dir]$</code> <strong class="userinput"><code>open tuntap_installer.mpkg</code></strong>
+      </pre></li><li><p>Download <a href="openvpn/openssl.cnf" target="_top">this openssl config
+file</a> and place it where you intend to
+keep your OpenVPN config files (ie /etc/openvpn).
+      </p></li><li><p>
+<a href="openvpn/keygen" target="_top">Generate the server and client
+keys</a>. You can accept the defaults for all those bullshit info fields,
+but be careful to say 'y' to the question asking to sign the
+certificates. The default is No.
+      </p></li><li><p>
+After that script is run, copy all the files that start with
+<span><strong class="command">client</strong></span> to the
+client side, and all the files that start with <span><strong class="command">server</strong></span> to the server side. Be a
+dear, and use a secure channel, will ya?
+      </p></li><li><p><span><strong class="command">sudo chown -R nobody:nobody /etc/openvpn</strong></span> to get
+all config files to be owned by nobody, then <span><strong class="command">sudo chmod 755
+client-osx-up</strong></span></p></li><li><p><a href="openvpn/MacOS/server-osx.conf" target="_top">Configure server to use
+192.168.69.1</a></p></li><li><p><a href="openvpn/MacOS/client-osx.conf" target="_top">Configure client to use 192.168.69.2, and
+to connect to the server</a>. Replace VPN_SERVER_IP in client.conf with your
+server's IP.</p></li><li><p>Place this <a href="openvpn/MacOS/client-osx-up" target="_top">script to
+rewrite the client's routes</a> upon connect in your openvpn conf
+directory. It will be called automatically, but you might have to
+<span><strong class="command">chmod 755 client-up</strong></span>. Replace VPN_SERVER_IP with your
+server's IP, and replace LOCAL_GATEWAY_IP with your local gateway to the
+Internet..</p></li><li><p><a href="openvpn/MacOS/server-osx_start" target="_top">Start openvpn on server, and enable
+NAT</a></p></li><li><p><a href="openvpn/MacOS/client-osx_start" target="_top">Start openvpn on client</a></p></li><li><p>
+Add a
+<a href="http://www.opennic.unrated.net/public_servers.html" target="_top">publicly available
+nameserver</a> to /etc/resolv.conf.
+      </p></li></ol></div><p>Linux</p><div class="orderedlist"><ol type="1"><li><p>Download <a href="openvpn/openssl.cnf" target="_top">this openssl config
+file</a> and place it where you intend to
+keep your OpenVPN config files (ie /etc/openvpn).
+      </p></li><li><p>
+<a href="openvpn/keygen" target="_top">Generate the server and client
+keys</a>. You can accept the defaults for all those bullshit info fields,
+but be careful to say 'y' to the question asking to sign the
+certificates. The default is No.
+      </p></li><li><p>
+After that script is run, copy all the files that start with
+<span><strong class="command">client</strong></span> to the
+client side, and all the files that start with <span><strong class="command">server</strong></span> to the server side. Be a
+dear, and use a secure channel, will ya?
+      </p></li><li><p>'<span><strong class="command">adduser openvpn</strong></span>' to add an openvpn user and group to both server and
+client machines.</p></li><li><p><span><strong class="command">chown -R openvpn:openvpn /etc/openvpn</strong></span> to get
+all config files to be owned by nobody.</p></li><li><p>Run '<span><strong class="command">modprobe tun</strong></span>' or recompile kernels to 
+support CONFIG_TUN (The Universal Tun/Tap
+Driver) as needed.
+      </p></li><li><p><a href="openvpn/Linux/server.conf" target="_top">Configure server to use
+192.168.69.1</a></p></li><li><p><a href="openvpn/Linux/client.conf" target="_top">Configure client to use 192.168.69.2, and
+to connect to the server</a>. Replace VPN_SERVER_IP in client.conf with your
+server's IP.</p></li><li><p>Place this <a href="openvpn/Linux/client-up" target="_top">script to
+rewrite the client's routes</a> upon connect in your openvpn conf
+directory. It will be called automatically, but you might have to
+<span><strong class="command">chmod 755 client-up</strong></span>. Replace VPN_SERVER_IP with your
+server's IP, and replace LOCAL_GATEWAY_IP with your local gateway to the
+Internet. Replace eth0 with your appropriate interface.</p></li><li><p><a href="openvpn/Linux/server_start" target="_top">Start openvpn on server, and enable
+NAT</a></p></li><li><p><a href="openvpn/Linux/client_start" target="_top">Start openvpn on client</a></p></li><li><p>
+Add a
+<a href="http://www.opennic.unrated.net/public_servers.html" target="_top">publicly available
+nameserver</a> to /etc/resolv.conf.
+      </p></li></ol></div><p>
+
+<span class="emphasis"><em>WARNING</em></span>: An attentive and fascist network administrator
+will still be able to determine that you are tunneling packets over an openvpn
+tunnel by watching your traffic (rest assured, they won't be able to see what
+you are doing, just that you're doing something). If you work in an
+environment this oppressive, change the <span><strong class="command">proto udp</strong></span> and
+<span><strong class="command">port 53</strong></span> lines in your server and client configuration file
+to <span><strong class="command">proto tcp-server</strong></span>/<span><strong class="command">proto tcp-client</strong></span> and
+<span><strong class="command">port 443</strong></span> (or <span><strong class="command">port 22</strong></span>) to make your
+openvpn session look more like a secure web (or ssh) connection. Note that
+this comes at a performance price, which is why it is turned off by default.
+See also: <a href="ar01s06.html#watchback" title="Watching Your Back">Watching Your Back</a>
+
+    </p><p>
+For problems in general, the following checklist can help you narrow down the
+problem to the relevant component:
+ </p><div class="orderedlist"><ol type="1"><li><p>ping LOCAL_GATEWAY_IP</p><p>
+Pinging the local gateway should be your first check. Sometimes it will be
+configured not to reply to pings, however it should reply to ARP requests. You
+should be able to check for ARP entries on all 3 OS's with <span><strong class="command">arp
+-a</strong></span>.
+   </p></li><li><p>ping VPN_SERVER_IP</p><p>
+This should ensure you can connect to the VPN server through your specific
+route for that IP. Hopefully it responds to pings, otherwise check arp.
+   </p></li><li><p>ping 192.168.69.1</p><p>
+This should check that the VPN tunnel is working. You can also check
+<code class="filename">my.log</code> in your OpenVPN config directory, which should tell
+if you if the remote VPN server passed the key exchange, etc.
+   </p></li><li><p>ping DNS.SERVER.IP</p><p>
+The last item you should check is that your DNS server is reachable. If it is
+reachable, but you still don't have net access, perhaps you forgot to update
+<code class="filename">/etc/resolv.conf</code> or enter a DNS server in your IP
+properties.
+   </p></li></ol></div><p>
+If you still are having no luck,
+consult the <a href="http://forums.gentoo.org/viewtopic.php?t=233080" target="_top">Gentoo OpenVPN
+FAQ</a>.
+    </p></div><div class="sect3" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="Tor"></a>Tor</h4></div></div></div><p> 
+
+<a href="http://tor.eff.org/" target="_top">Tor</a> is magnificent.
+Plus, setting it up is surprisingly easy for what it accomplishes.
+
+    </p><p>
+
+<span class="emphasis"><em>WARNING: DO NOT BE A JACKASS OVER TOR</em></span>. Recently there
+have been a couple of reports of people using Tor to hack and deface websites.
+This is not cool, and usually ends up forcing whatever Tor node(s) the attack
+exited from to shut down. If you insist on using Tor as a cracking/penetration
+testing utility, PLEASE read the <a href="ar01s03.html#DoubleBlackMagicIP" title="Double Black Magic IP Wizardry">Combining
+Approaches</a> section for some pointers on how to put a proxy or ssh host
+after your Tor exit.
+
+    </p><p>
+
+Both Windows and Mac OS/Linux setup should be pretty similar. For the Windows
+folk, Tor comes prebuilt as an installer, and <a href="http://tor.eff.org/docs/tor-doc-win32.html.en" target="_top">these
+instructions</a> will hold
+your hand through the process. All you have to do is <a href="http://tor.eff.org/download.html" target="_top">download</a> the exe file,
+and run it, and Tor should be installed. Mac OS people can follow the
+<a href="http://tor.eff.org/docs/tor-doc-osx.html.en" target="_top">these
+instructions</a> for their package.
+
+Linux people will have to <a href="http://tor.eff.org/docs/tor-doc-unix.html.en" target="_top">compile and install</a>
+the Tor source code. 
+    
+     </p><p>
+
+From this point, any user on the system
+can run tor. Once you do so, your machine is connected to the network as a
+client node. If you have at least 1Mb of upstream bandwidth, you are
+encouraged to run a tor server, which is <a href="http://tor.eff.org/docs/tor-doc-server.html.en" target="_top">more
+involved</a>. Note that you <span class="emphasis"><em>do not</em></span> have to run a tor
+server to run a <a href="http://tor.eff.org/docs/tor-hidden-service.html.en" target="_top">tor
+service</a>, which can come in handy if you have material you wish to
+<a href="ar01s07.html#WebContent" title="Creating Web Content">publish anonymously</a>.
+
+    </p><p>
+
+The next step is getting applications to use Tor. Tor
+creates a local Version 4A/5 SOCKS server, listening on port 9050 by default.
+This means any application that supports SOCKS can be told to use
+localhost:9050 as your proxy server.  However, this is not always desirable or
+possible. Most web browsers don't support forwarding host name lookups over
+SOCKS. <span class="emphasis"><em>This means that it is possible for a local observer to
+determine which hosts you connect to</em></span>. So for full protection, you
+must install a go-between proxy that does forward host name lookups over
+SOCKS, such as <a href="http://www.privoxy.org/" target="_top">privoxy</a>. Windows
+and Mac OS users will have Privoxy already installed and configured as an HTTP
+Proxy listening on port 8118 as part of the Tor Bundle.
+   </p><p>
+
+Linux users and DIY
+folk will want to download this
+<a href="tor/config" target="_top">config file</a> for privoxy that starts the proxy
+server on port 8118 and forwards your requests to port 9050 for Tor. (The
+thing that has to be changed from the default is to add a
+<span><strong class="command">forward-socks4a / localhost:9050 .</strong></span> line to it).
+
+   </p><p>
+ 
+ Newer web
+browsers such as Firefox 1.5 can be instructed to use SOCKS to do DNS
+lookups. Go to <a href="aboutconfig" target="_top">about:config</a> and search for
+"dns". Set the option <span><strong class="command">network.proxy.socks_remote_dns</strong></span> to
+true. If you do decide to abandon privoxy, you need to be sure to install
+<a href="ar01s05.html#extensions" title="Desktop and Web Browser Extensions">several extensions</a> to protect yourself from cookies, ads, javascript, etc.
+    </p><p>
+
+
+Once you decide how to handle remote DNS, you can then tell your web browser
+to use HTTP localhost:8118 (if Privoxy) or SOCKS localhost:9050 (if remote
+DNS) as its proxy server, and you're good to go. Again, you may want to verify
+your setup with <a href="http://www.astalavista.net/new/network.php?cmd=proxy" target="_top">this handy
+checker</a> or <a href="http://whatismyip.com" target="_top">whatismyip.com</a>.
+
+    </p><p>
+
+If you intend to use Privoxy to access non-web ports (such as <a href="ar01s07.html#IRC" title="IRC/Instant Messaging">IRC</a>, you may want to edit
+<code class="filename">default.action</code> and replace the line containing
+<span><strong class="command">limit-connect</strong></span> with <span><strong class="command">+limit-connect{1-}</strong></span> to
+allow privoxy to connect to all ports.
+
+    </p><p>
+
+If you are looking for an easy way to switch back and forth between Tor and a
+direct internet connection, the Firefox extension <a href="http://proxybutton.mozdev.org/" target="_top">ProxyButton</a> is pretty nice.
+<a href="http://www.roundtwo.com/product/switchproxy" target="_top">Switch
+Proxy</a> is also available, and is a lot more flexible in switching
+between multiple proxy settings and being able to use a list of proxies in
+rotation. Unfortunately it
+<a href="http://www.roundtwo.com/node/355" target="_top">slows new window creation</a> down to a crawl.. They don't seem like they are
+maintaining it anymore either.
+
+
+    </p><p>
+If you run Linux or one of the other free Unixes, you can install <a href="http://totalinfosecurity.com/patches/tor.php" target="_top">tsocks</a>, which is an application
+layer SOCKS proxy. There are <a href="http://wiki.noreply.org/noreply/TheOnionRouter/TSocksPatches" target="_top">several
+patches available</a> for tsocks, including
+patches to support Mac OS X (does not work out of the box, sadly).
+
+This <a href="tor/tsocks.conf" target="_top">config file</a> for
+tsocks tells it to use port 9050.  Once tsocks is installed and configured,
+you can use it to enable any application (ssh, telnet, netcat, nmap, etc) to
+connect over the Tor network simply by prefixing the command with "tsocks".
+Note that while the default tsocks does not support SOCKS4A, the Total
+Information Security version does in fact route DNS requests over Tor.
+
+    </p><p>
+
+Some command line applications such as wget, links, lynx and curl will honor
+the <a href="http://www.linux.net.nz/lists/NZLUG/2005/03/0236.html" target="_top">http_proxy</a>
+environment variable. So you might want to <span><strong class="command">export
+http_proxy=http://localhost:8118</strong></span> if you use these commands often, so
+that they run through Privoxy.
+
+    </p><p>
+
+Windows users may have some luck using  <a href="http://www.vv.carleton.ca/~cat/code/TorCap2-readme.txt" target="_top">TorCap2</a>,
+which provides SOCKS4A support transparently to applications that lack SOCKS
+support. Presumably since it does SOCKS4A, DNS requests are not leaked, though
+I have not verified this personally.
+
+    </p><p>
+
+Some web sites have taken to banning the Tor network. Most recently google has
+started routinely presenting catchpas to Tor users, which require cookies to
+persist and also javascript to be enabled. In the case of google, <a href="http://www.scroogle.org/scraper.html" target="_top">Scroogle</a> is available to
+circumvent the catchpas, cookies, javascript and other nonsense google throws
+at you. For other sites, you may want to consider writing <a href="ar01s03.html#TorPlusProxy" title="Tor followed by HTTP Proxy">custom privoxy rules</a> to combine Tor with an HTTP
+proxy.
+
+    </p><p>
+
+Additional information on connecting specific applications to Tor is covered
+in the <a href="http://wiki.noreply.org/noreply/TheOnionRouter/TorifyHOWTO" target="_top">Torify
+HOWTO</a> and also later on in the <a href="ar01s07.html" title="Anonymous Communication">Anonymous
+Communication</a> section. One thing you should pay particular attention to is that
+<a href="ar01s05.html#webbugs" title="Web bugs">various browser plugins</a> might not pass through
+Tor. 
+
+    </p><p>
+In some environments, you may only be able to connect to web or ssl through
+your firewall. If this is the case (or if you have a network administrator
+that you believe may watch for "suspicious" employee behavior), edit your
+torrc and add <span><strong class="command">FascistFirewall 1</strong></span> to it. This will cause Tor
+to only make outbound connections to port 80 or port 443. You can tune which
+ports it uses through <span><strong class="command">FirewallPorts</strong></span>.
+    </p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
+
+Just about everywhere on the Tor website, you are advised that Tor is not to
+be used if you require <a href="http://wiki.noreply.org/noreply/TheOnionRouter/TorFAQ#TotallyAnonymous" target="_top">true
+anonymity</a>. Further sections of this HOWTO address (almost) all of the
+application level issues involved in anonymity, so pretty much all that
+remains of that paranoia are <a href="http://wiki.noreply.org/noreply/TheOnionRouter/TorFAQ#RemainingAttacks" target="_top">attacks
+on the tor network</a> itself, which, unless you are trying to hide from
+the NSA itself, you really don't have much to worry about.
+
+     </p><p>
+
+You should, however, be aware of the possibility of malicious exit nodes. 
+Exit nodes can both observe and modify traffic, which
+means they can do things like keep AIM/non-SSL web sessions open after you
+close them. You should also be aware of is that it is somewhat dangerous to mix
+traffic that can identify you with traffic you wish to be completely
+anonymous. Since Tor multiplexes multiple TCP sessions over a few circuits, 
+<a href="http://archives.seul.org/or/talk/Jan-2005/msg00007.html" target="_top">it is
+possible</a> for the exit nodes to determine that the two were sent from the
+same host.
+
+     </p></div></div><div class="sect3" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="id2754848"></a>I2P</h4></div></div></div><p>
+<a href="http://www.i2p.net" target="_top">I2P</a> is a complementary network to Tor. While Tor is useful for establishing
+anonymous connections to the external Internet but doesn't have the
+bandwidth/architecture to support Peer to Peer and bulk traffic, I2P is
+designed specifically to provide an anonymous internal network upon which you
+can run any normal Internet server, including Peer to Peer applications.
+    </p><p>
+
+While <a href="http://www.i2p.net/download" target="_top">the install itself</a> is
+typically straightforward, I2P's setup is a little more involved than Tor's,
+mostly because every client node is also a relay node, and as such you may
+need to have a hole punched in your firewall to forward port 8887 for UDP. I2P
+does have NAT and firewall traversal mechanisms, but they do not work in all
+cases (especially symmetric NATs). Once you have it installed, 
+you can go to <a href="http://localhost:7657/index.jsp" target="_top">the config
+page</a> and check to see if it is able to connect.
+
+    </p><p>
+
+I2P opens a proxy server on localhost:4444, but most likely you will want to
+add a line to your privoxy config so you can use both I2P and tor. Placing
+<span><strong class="command">forward .i2p localhost:4444</strong></span> (no period) below your Tor line
+will allow all requests to .i2p domains to go through I2P. <span class="emphasis"><em>DO NOT
+configure privoxy to only filter .i2p domains without also using Tor for
+everything else</em></span>. It is possible for eepsites to have images, cgi,
+or iframes from non-i2p servers that they control, and can thus discover
+visitor's IPs that way.
+
+    </p><p>
+
+Note that I2P does have gateways to the external web, so you technically don't
+need a Tor line at all if you want to forward everything to localhost:4444,
+but there are only two I2P exit points, and they are not nearly as reliable as
+Tor's. Once Privoxy is set, you can go to <a href="http://orion.i2p/" target="_top">Orion.i2p</a> to browse the list of all .i2p sites
+on the net, or to <a href="http://search.i2p" target="_top">search.i2p</a> or <a href="http://eepsites.i2p" target="_top">eepsites.i2p</a> to search the I2P web. 
+Note that by default, you will not have the host entries for many sites listed
+in orion and the search engines. You can fix this by adding
+<span><strong class="command">http://orion.i2p/hosts.txt</strong></span> to <a href="http://localhost:7657/susidns/subscriptions.jsp" target="_top">your addressbook
+subscriptions</a>
+
+    </p><p>
+
+If you would like to search/browse the I2P web without installing I2P itself,
+you can use <a href="http://inproxy.tino.i2p.tin0.de/" target="_top">tino's DNS-based I2P
+in-proxy</a> by appending "tin0.de" to any i2p domain name to access it
+from the public internet.
+
+    </p><p>
+
+The really beautiful thing about I2P is that it is effectively an anonymous
+networking layer that applications can be developed on top of, including
+<a href="http://i2p-bt.postman.i2p.tin0.de/" target="_top">Bittorrent</a> and <a href="http://forum.i2p.net/viewforum.php?f=25" target="_top">Gnutella</a>. In addition,
+through a feature called <a href="http://www.i2p.net/i2ptunnel" target="_top">I2PTunnel</a>, you can create a tunnel
+to just about any TCP based service you wish, including <a href="ar01s07.html#WebContent" title="Creating Web Content">anonymous .i2p site of your own</a>. In particular,
+you can point your <a href="ar01s07.html#IRC" title="IRC/Instant Messaging">IRC client</a> at localhost:6668 and
+you will then be on the I2P anonymous IRC network (note that your IRC client
+does not need a proxy server for this).
+
+    </p><p>
+
+Once you're all set up with the basics, you
+can browse over to <a href="http://ugha.i2p/HowTo" target="_top">The Ugha Wiki</a>
+and check out some HOWTOs for doing various tricks over I2PTunnel and I2P in
+general.
+
+    </p></div><div class="sect3" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="SLIRP"></a>SLIRP</h4></div></div></div><p>
+
+<a href="http://slirp.sourceforge.net" target="_top">SLIRP</a> is a magical tool that
+converts a normal non-root UNIX shell account into a PPP session. While
+obviously the conversion isn't 100% (for example pings don't work), it does
+allow you to set up a pseudo-VPN to a machine you don't have root on (and thus
+couldn't run OpenVPN).  Unfortunately this technique is likely to only work on
+Linux/UNIX and Mac OS, since it requires that your PPP setup use an ssh
+session as the serial device. I doubt Windows PPP can do this, but I could be
+wrong.
+
+    </p><p>
+
+For our limited purposes, we'll just discuss using SLIRP over ssh. To do this,
+you need to do a couple things. First, you must download and compile SLIRP on your UNIX shell (not your home
+machine). This is pretty straightforward and does not require root. You can
+just run configure and then copy the slirp binary to someplace like
+<code class="filename">~/bin</code>. If you need to be covert, you could try calling it
+zsh or mutt or something.
+
+    </p><pre class="screen">
+     <code class="prompt">[user@machine ~/dir]$</code> <strong class="userinput"><code>tar -zxvf slirp-1.0.16.tar.gz</code></strong>
+     <code class="prompt">[user@machine ~/dir]$</code> <strong class="userinput"><code>cd slirp-1.0.16/src</code></strong>
+     <code class="prompt">[user@machine ~/dir]$</code> <strong class="userinput"><code>./configure &amp;&amp; make</code></strong>
+     <code class="prompt">[user@machine ~/dir]$</code> <strong class="userinput"><code>cp slirp ~/bin/zsh</code></strong>
+    </pre><p>
+
+Next, you will have to make sure the host you connect to is in your
+<code class="filename">known_hosts</code> file. Usually this means you have to connect
+to it using root on your home machine (ie <span><strong class="command">sudo ssh
+user@shellhost</strong></span>). If you get an error to the effect of
+"Host key verification failed" during connection, this is the reason for it.
+
+    </p><p>
+   
+You might also have to set up <a href="http://dcs.nac.uci.edu/~strombrg/ssh-keys.html" target="_top">passwordless ssh</a>
+to your UNIX shell. It makes things more convenient, and for some broken
+versions of ssh it is required (such as the one that ships with MacOS 10.3).
+If you don't get a password prompt or get some ssh error when running the
+following scripts, you probably need ssh keys.
+
+    </p><p>
+
+Once this is accomplished, you can run a script to start pppd using ssh: <a href="slirp/Linux/slirp.sh" target="_top">Linux version</a>, <a href="slirp/MacOS/slirp.sh" target="_top">MacOS version</a>. FIXME: The Mac OS version is
+causing problems with pppd either hanging up (10.3) or not connecting at all
+(10.4). Is this an issue common to FreeBSD as well? Could any BSD users give
+this a whirl and report back?
+    
+    </p><p>
+
+Run this script as root on your local computer. It runs PPPD, calling SLIRP
+through ssh on the other side. Note the variables you must set at the top. You
+can obtain your local router in Linux or Mac OS by issuing <span><strong class="command">netstat
+-r</strong></span> and looking for the entry at the bottom for default. For
+<span><strong class="command">PUBLIC_NAMESERVER</strong></span> you can <span><strong class="command">cat
+/etc/resolv.conf</strong></span> on your UNIX Shell, or you can use one of the
+<a href="http://www.opennic.unrated.net/public_servers.html" target="_top">publicly
+available nameservers.</a> I've already filled in two public nameservers
+for you.  Also, the pppd should attempt to grab the remote shell's DNS server
+and write it to resolv.conf for you, but this doesn't always work. Hence I
+write to resolv.conf in the script before calling pppd, just in case pppd
+fails to write it.
+
+    </p></div></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="DoubleBlackMagicIP"></a>Double Black Magic IP Wizardry</h3></div></div></div><p>
+
+Sometimes one approach is not sufficient by itself to both protect your
+identity and grant you access to all the services you would like. For example,
+Tor does not carry UDP traffic, nor is it really an all-encompassing VPN
+solution, which can lead to <a href="ar01s05.html#webbugs" title="Web bugs">lots of problems</a>
+with browser plugins ignoring your proxy settings, spyware, webbugs, etc.
+
+   </p><p>
+
+In some cases, it is also not possible to use Tor to connect to
+services due to banning. In other cases, it may actually be desirable to
+conceal the fact that you are exiting from the Tor network to protect it from
+abuse complaints, which usually have the side effect of forcing
+Tor nodes to shut down.
+
+   </p><div class="sect3" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="TorPlusProxy"></a>Tor followed by HTTP Proxy</h4></div></div></div><p>
+
+This is probably the easiest way to conceal the fact that you came from the
+Tor network.  If you are using Privoxy, you can chain a regular HTTP proxy
+from a list <a href="ar01s03.html#ProxyHopping" title="Proxy Hopping">mentioned above</a> (<a href="http://www.aliveproxy.com/irc-proxy-list/" target="_top">this
+one</a> provides IRC capable proxies, while <a href="http://www.shroomery.org/ythan/proxylist.php" target="_top">this one</a>
+automatically builds a list of currently active "high-anonymous" proxies) after the Tor line in your config to
+bounce off the HTTP proxy before hitting the server you wish to access. 
+
+    </p><p>
+
+To connect to fascist.torhater.com through an HTTP proxy at
+somehost.net:8080, add <span><strong class="command">forward-socks4a fascist.torhater.com
+localhost:9050 somehost.net:8080</strong></span> to the end of your privoxy config
+file. Note that with Privoxy 3.0.3, somehost.net:8080 must be an HTTP
+proxy and cannot be SOCKS.
+
+    </p><p>
+
+If you are having problems locating a proxy that is not already banned by your
+desired service, you can attempt to scan for a fresh one using either <a href="http://www.monkey.org/~provos/scanssh/" target="_top">ScanSSH</a> or <a href="http://yaph.sourceforge.net/" target="_top">YAPH</a>. Once you find a proxy, you
+can either google for the IP to see if it's in any proxy lists, or if you're
+ambitious, use a <a href="http://moensted.dk/spam/drbcheck.txt" target="_top">perl
+script</a> to check to see if it has been listed yet in <a href="http://www.moensted.dk/spam/" target="_top">the DNS RBLs</a> by doing DNS queries
+for it. (For those writing their own script from scratch, note that the IP
+must be backwards. So query 5.13.42.23.dnsrbl.org to check 23.42.13.5).
+
+    </p></div><div class="sect3" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="TorPlusSSHHop"></a>Tor followed by SSH-tunneled SOCKS4 Proxy</h4></div></div></div><p>
+
+Unfortunately, many IRC servers ban known proxy servers, and some will even
+scan your source IP for an open proxy before allowing you to connect.
+However, what you can do is combine the <a href="ar01s03.html#SshHopping" title="SSH Hopping">SSH
+hopping</a> approach with Tor if you need Tor-caliber anonymity. Basically
+the procedure is to <a href="http://www.ductape.net/~mitja/freeunix.shtml" target="_top">obtain a UNIX shell</a>
+(using Tor and an <a href="ar01s07.html#anonemail" title="Anonymous Email">anonymous email address</a>),
+and then use tsocks to connect to it with <span><strong class="command">tsocks ssh -D 4242
+user@someshell.net</strong></span>.
+
+    </p><p>
+
+Once this is done, you can add <span><strong class="command">forward-socks4 fascist.torhater.com
+localhost:4242 .</strong></span> (the dot is not a typo) to your Privoxy config if the service
+is a website, or otherwise inform your <a href="ar01s07.html#IRC" title="IRC/Instant Messaging">IRC client</a>
+to use localhost:4242 as a SOCKS4 proxy. In this way, you are connecting to
+your locally listening ssh client, which routes it through the Tor connection
+to someshell.net, at which point your traffic exits on to the Internet with
+the IP address of someshell.net.
+
+    </p><p>
+
+Once again, note that SSH only supports SOCK4, and thus DNS queries will be
+made locally and thus can be observed. Also, if you are using one of the free
+UNIX shell accounts, please be courteous and don't make a nuisance of
+yourself.  These people don't want to and shouldn't have to take time out of
+their day to answer abuse emails about your account. They do this for free.
+
+    </p><p>
+
+Also, note that Putty can be used with Tor to perform this same technique by
+setting localhost:9050 as your SOCKS4 proxy. Then you can set up the SSH proxy
+by going to 'Tunnels', and filling in 4242 as the destination port, and
+clicking 'Dynamic', with no destination or hostname. When you click 'Add',
+D4242 should show up. As <a href="ar01s03.html#SshHopping" title="SSH Hopping">discussed before</a>,
+you can save this profile and make a shortcut to 'putty.exe -load myprofile'
+to quickly establish your tunnel. Once you run putty, you can use
+localhost:4242 as your SOCKS proxy, or add the above line to your privoxy
+config.
+
+    </p></div><div class="sect3" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="OpenVPNPlusTor"></a>OpenVPN over Tor or HTTP Proxy</h4></div></div></div><p>
+
+A few people have mailed me asking about using OpenVPN over Tor.  It turns out
+this is not as hard as I originally thought. There are several reasons you
+might want to do this. In my opinion, the main one would be to obtain
+protection against plugins/non-SOCKSified applications making connections that
+reveal your address. If you are running OpenVPN, all of these applications 
+will go through the VPN.
+
+     </p><p>
+
+Essentially the main problem is that you want your normal Internet traffic to
+go over the OpenVPN interface, but you need your Tor traffic to travel over
+your regular Internet interface. Essentially this involves setting up routes
+for every Tor server you intend to use as an entrance point. This can be very
+problematic, because there are many Tor servers. However, you can limit Tor's
+choice of entrance servers with the torrc config options
+<span><strong class="command">EntryNodes nick1,nick2,nick3</strong></span> and <span><strong class="command">StrictEntryNodes 1</strong></span>. I would
+recommend picking a couple high bandwidth servers off of the <a href="http://serifos.eecs.harvard.edu/cgi-bin/exit.pl?sortbw=1" target="_top">Tor
+Network Status</a> page. If you are running Tor 0.1.1.x or greater, you
+should also use <span><strong class="command">LongLivedPorts</strong></span> and add your VPN server port
+to the list (or just run the VPN server port on one of the ports mentioned in
+the manpage, such as 5190, 5050 or 6667). <span class="emphasis"><em>Remember that Tor exit
+servers block most ports below 1024, and also common
+P2P ports. Be careful not to choose one of these as your OpenVPN server port,
+or you will be unable to connect.</em></span>
+
+    </p><p>
+
+Once you have selected a few nodes and edited your torrc accordingly, you
+basically can follow the <a href="ar01s03.html#OpenVPN" title="OpenVPN">OpenVPN</a> instructions
+exactly, except for 3 differences:
+
+    </p><div class="orderedlist"><ol type="1"><li><p>
+
+You need to edit the server.conf (<a href="openvpn/Linux/server.conf" target="_top">Linux</a>, <a href="openvpn/MacOS/server-osx.conf" target="_top">Mac OS</a>, <a href="openvpn/Windows/server.ovpn" target="_top">Windows</a>) to have the line
+<span><strong class="command">proto tcp-server</strong></span> instead of <span><strong class="command">proto udp</strong></span>.
+
+      </p></li><li><p>
+
+You need to edit the client.conf (<a href="openvpn/Linux/client.conf" target="_top">Linux</a>, <a href="openvpn/MacOS/client-osx.conf" target="_top">Mac OS</a>, <a href="openvpn/Windows/client.ovpn" target="_top">Windows</a>) to have the lines
+<span><strong class="command">proto tcp-client</strong></span>, <span><strong class="command">socks-proxy 127.0.0.1
+9050</strong></span>, and <span><strong class="command">socks-proxy-retry</strong></span>.
+
+      </p></li><li><p>
+
+You need to modify the client-up script (<a href="openvpn/Linux/client-up" target="_top">Linux</a>, <a href="openvpn/Windows/client-up.bat" target="_top">Windows</a>, <a href="openvpn/MacOS/client-osx-up" target="_top">Mac OS</a>) and instead of just one
+<span><strong class="command">route</strong></span> line with your VPN_SERVER_IP, you need a
+<span><strong class="command">route</strong></span> line for the IP of each node you chose for
+<span><strong class="command">EntryNodes</strong></span>.
+
+      </p></li></ol></div><p>
+
+After that, you're pretty much good to go.
+Doing this over HTTP proxy is essentially the same as Tor, except you only
+need one route, and the config options are <span><strong class="command">http-proxy</strong></span> and
+<span><strong class="command">http-proxy-retry</strong></span> instead of socks.
+
+    </p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
+Using OpenVPN over Tor can be considerably weaker than simply using only Tor.
+On the one hand, you don't have to worry as much about applications/plugins 
+not using Tor, but on the
+other hand, you do have to worry about <a href="ar01s04.html" title="Local Services">OS-level leaks</a>
+through the VPN interface, and also the fact that there is a fixed endpoint to
+correlate traffic through. If you use OpenVPN for more than just one-hop 
+encryption, I would recommend only using it over a <a href="ar01s06.html#BootCD" title="Throwaway Computing">throwaway
+computing setup</a>,
+to avoid risks of attacks, trojans, and other leaks through the interface.
+     </p></div></div><div class="sect3" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="SLiRPPlusTor"></a>SLiRP over Tor or HTTP Proxy</h4></div></div></div><p>
+
+Running SLiRP over Tor is desirable for similar reasons as running OpenVPN
+over Tor, but has the benefit that you only need a shell account on some UNIX
+machine. Unfortunately, it has the disadvantage that it is only possible under
+Linux and Mac OS. As far as I can tell, Windows cannot use an arbitrary
+terminal to run PPP over. However, it is still possible to set up a Linux box
+doing SLiRP over Tor, and have it NAT for your windows desktop, if you were so
+inclined. 
+
+    </p><p>
+
+But I digress. Again, like OpenVPN over Tor, you have to choose a few
+high-bandwidth, reliable and trustworthy entrance nodes from off of the <a href="http://serifos.eecs.harvard.edu/cgi-bin/exit.pl?sortbw=1" target="_top">Tor
+Network Status</a> page. Then you have to
+add these servers to your torrc with <span><strong class="command">EntryNodes
+nick1,nick2</strong></span>, and also set <span><strong class="command">StrictEntryNodes 1</strong></span>.
+
+    </p><p>
+
+Then, follow the instructions for <a href="ar01s03.html#SLIRP" title="SLIRP">SLIRP setup</a>,
+but instead use a different client script: <a href="slirp/Linux/slirp-tor.sh" target="_top">Linux version</a>, <a href="slirp/MacOS/slirp-tor.sh" target="_top">MacOS version</a> (FIXME: again, MacOS
+version has bugs.. See <a href="ar01s03.html#SLIRP" title="SLIRP">SLIRP</a> for details). The
+script needs the variables at the top to be filled in, as well as the routes
+that are added for FIRST_TOR_IP, SECOND_TOR_IP and so on. These must be
+replaced with the numerical IP addresses for the Tor nodes you added in your
+<span><strong class="command">EntryNodes</strong></span> list.
+
+    </p><p>
+
+Remember that pings will not work, so test this with telnet or something,
+rather than ping.
+
+    </p></div><div class="sect3" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="SLiRPPlusSSHHopPlusTor"></a>SLiRP over SSH hopping [and Tor]</h4></div></div></div><p>
+
+An alternative approach is to ssh hop to one shell, and then use
+<span><strong class="command">tsocks</strong></span> to ssh to the next shell where you either are using -L to forward to an
+OpenVPN server, or where you are running a SLIRP host. You then tell the
+OpenVPN/SLIRP client side that localhost:4242 (or whatever) is your server and
+adjust the routes accordingly.
+
+    </p><p>
+
+Here is how to accomplish this for SLIRP, which I expect to be the more common
+use case. If anyone does this for OpenVPN, please send me your scripts and I
+will post them. I imagine it should be pretty similar. You start by
+constructing the typical SSH hop chain:
+
+     </p><pre class="screen">
+  <code class="prompt">[you@home ~]$</code> <strong class="userinput"><code>ssh -L 4242:127.0.0.1:4242 user1@machine1</code></strong>
+  <code class="prompt">[user1@machine1 ~]$</code> <strong class="userinput"><code>[tsocks] ssh -L 4242:127.0.0.1:4242 user2@machine2</code></strong>
+  ...
+  <code class="prompt">[userN-1@machineN-1 ~]$</code> <strong class="userinput"><code>ssh -L 4242:127.0.0.1:22 userN@machineN</code></strong>
+    </pre><p>
+
+
+You then can use <a href="slirp/Linux/slirp-hop.sh" target="_top">this script</a>
+(<a href="slirp/MacOS/slirp-hop.sh" target="_top">Mac OS</a>) to launch
+SLIRP across the SSH hopped link. Notice that the parameters are a bit
+different than with the vanilla SLIRP setup. <span><strong class="command">FIRST_IP</strong></span> is
+the IP of your first SSH hop (machine1). The rest of the hosts do not matter.
+The rest of the options are the same <a href="ar01s03.html#SLIRP" title="SLIRP">as above</a>.
+
+     </p><p>
+
+One thing that may improve your security is to make the first SSH hop to a box
+you control. From there, you can install tor and use tsocks for the SSH
+connection to the host that will be running SLIRP. This is a good way to get
+Tor-level security for UDP applications and apps that don't support SOCKS.
+Technically the first hop doesn't have to be your box, since you don't need
+root to install Tor as a client, but the first node might be able to reveal
+who you are if they decide to cooperate with the destination host of your
+tsocks connection for some reason (which they may do, if they believe you
+compromised them or something).
+
+    </p></div></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ar01s02.html">Prev</a>&#160;</td><td width="20%" align="center">&#160;</td><td width="40%" align="right">&#160;<a accesskey="n" href="ar01s04.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">The Matrix&#160;</td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top">&#160;Local Services</td></tr></table></div></body></html>
+

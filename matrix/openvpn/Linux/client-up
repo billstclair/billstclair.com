@@ -1,0 +1,14 @@
+#!/bin/bash
+GW=`route  -n | perl -e 'while(<>) { if(/^0.0.0.0[\s]+([\S]+)[\s]+0.0.0.0/) { print $1 } }'`
+
+
+route del default
+
+if [ ! -z "$GW" ] ;
+then 
+route add VPN_SERVER_IP gw $GW
+else
+route add VPN_SERVER_IP gw LOCAL_GATEWAY_IP
+fi
+
+route add default gw 192.168.69.1 dev tap0

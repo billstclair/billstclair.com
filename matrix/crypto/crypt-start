@@ -1,0 +1,18 @@
+/etc/init.d/sshd stop
+
+
+# Calls mount-crypto script to read the password, fsck and mount the volume
+mount-crypto
+
+
+/etc/init.d/syslog start
+/etc/init.d/auditd start
+/etc/init.d/sendmail start
+/etc/init.d/crond start
+/etc/init.d/sshd start
+/etc/init.d/acpid start
+/etc/init.d/atd start
+/etc/init.d/rpcidmapd start
+/etc/init.d/nfs start
+/etc/init.d/messagebus start
+/etc/init.d/xfs start

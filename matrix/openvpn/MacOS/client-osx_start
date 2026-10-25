@@ -1,0 +1,1 @@
+sudo /usr/local/sbin/openvpn --daemon --config /etc/openvpn/client-osx.conf --cd /etc/openvpn/ --log-append ./my.log

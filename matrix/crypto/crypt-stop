@@ -1,0 +1,14 @@
+/etc/init.d/syslog stop
+/etc/init.d/sendmail stop
+/etc/init.d/crond stop
+/etc/init.d/sshd stop
+/etc/init.d/acpid stop
+/etc/init.d/auditd stop
+/etc/init.d/atd stop
+/etc/init.d/nfs stop
+/etc/init.d/rpcidmapd stop
+/etc/init.d/messagebus stop
+/etc/init.d/xfs stop
+umount /dev/mapper/cryptfs
+cryptsetup remove /dev/mapper/cryptfs
+/etc/init.d/sshd start

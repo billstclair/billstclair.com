@@ -1,0 +1,78 @@
+#!/usr/bin/perl
+# Seized-Server v1.0
+# AE GPL 2005
+
+use FileHandle;
+use IPC::Open2;
+use IO::Socket;
+use strict;
+
+# User config
+my $PORT=6969;
+my $HASH_FUNCTION="md5sum"; # sha1sum also works
+my $FREQ = 0.25; # How often to send responses, seconds
+my $verbose = 0;
+# End user config
+
+sub md5 
+{
+	my $string = shift;
+
+	open2(*MD5_IN, *MD5_OUT, $HASH_FUNCTION);
+
+	print MD5_OUT "$string\n";
+	close(MD5_OUT);
+
+	my $val = <MD5_IN>;
+	
+	close(MD5_IN);
+
+	chomp($val);
+	return $val;
+}
+
+sub main
+{
+	print "Enter today's peer password: ";
+	system("stty -echo");
+	my $pass = <STDIN>;
+	system("stty echo");
+	print "\n\n";
+
+	
+	local $SIG{PIPE} = 'IGNORE';
+	local $SIG{CHLD} = sub { wait };
+
+	my $server = IO::Socket::INET->new( Proto     => 'tcp',
+			LocalPort => $PORT,
+			Listen    => SOMAXCONN,
+			Reuse     => 1);
+
+
+	while(my $client = $server->accept()) {
+		$client->autoflush(1);
+
+		while(<$client>) {
+			my $challenge = $_;
+			chomp($challenge);
+
+			if($verbose) {
+				print "Read Challenge |$challenge|\n";
+			}
+
+			print $client md5("$challenge . $pass") . "\n";
+
+			my $n = 1;
+			my $left = $FREQ;
+			do {
+				if($left < 0 || $left > $FREQ) { $left = $FREQ; }
+				($n, $left) = select(undef, undef, undef, $left);
+			} while($n != 0);
+		}
+
+		close(NC_IN);
+		close(NC_OUT);
+	}
+}
+
+main();
