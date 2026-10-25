@@ -1,0 +1,4 @@
+AuthName "Protected Area"
+AuthType Basic
+AuthUserFile /nfsn/content/billstclair/htdocs/feedonfeeds/.htpasswd
+require valid-user
