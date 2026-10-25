@@ -1,0 +1,3 @@
+#!/bin/bash
+./runlisplog.bin
+echo "Lisplog started"

@@ -1,0 +1,8 @@
+#!/bin/bash
+echo "Content-type: text/html"
+echo ""
+echo "<pre>"
+echo `pwd`
+./runlisplog.bin
+echo "Lisplog started"
+echo "</pre>"

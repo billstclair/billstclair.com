@@ -1,0 +1,157 @@
+#!/usr/bin/perl -w
+#
+# CGI commenting system.  Inspired by DotComments and Phil Ulrich
+#
+# Version 1.0 - Initial release to the public.
+# Version 2.0 - Cookies to remember people, 
+# select the order which comments are displayed, comment counts.
+# 
+# Copyright 2001 Aaron Chan.  All Rights Reserved.
+
+use strict;
+use CGI;
+use Template;
+
+#------------------------------------------
+# EDIT HERE
+# $comment_directory - Directory where you want the comments stored.
+# The directory must be created.
+#
+# @class - Array containing alternate classes for comments.
+# If you want all posts to look the same, just use one class.
+# ex. my(@class) = ('class1');
+# If you want more than 2 looks, just add more.
+# ex. my(@class) = ('class1', 'class2', 'class3');
+# $order = 0 - oldest to newest
+# $order = 1 - newest to oldest
+#------------------------------------------
+my($order) = 0;
+my($comment_directory) = '/home/htdocs/cgi-data/commentsdb/';
+my(@class) = ('class1', 'class2');
+#------------------------------------------
+
+my($cgiquery) = new CGI;
+
+my($blog_id) = $cgiquery->param('blog_id');
+if ($blog_id !~ /^\d+$/)
+{
+    print $cgiquery->header;
+    print "Invalid Blog ID<br>\n";
+    exit;
+}
+if ($cgiquery->param('showcount'))
+{
+    print $cgiquery->header;
+    if (-e "$comment_directory$blog_id")
+    {
+	open (COMMENTFILE, "<$comment_directory$blog_id");
+	my(@all_lines) = <COMMENTFILE>;
+	close(COMMENTFILE);
+	my($count) = scalar(@all_lines);
+	print "document.write($count);";
+    }
+    else
+    {
+	print "document.write(0);";
+    }	
+    exit;
+}
+
+if ($cgiquery->param('add') && $cgiquery->param('name') && $cgiquery->param('comments'))
+{
+    if ($cgiquery->param('remember_me'))
+    {
+	my($cookie_value) = $cgiquery->param('name') . "[+]" . $cgiquery->param('email') . "[+]" . $cgiquery->param('url');
+	my($set_cookie) = $cgiquery->cookie(-name    => "cgicomments",
+					     -value   => $cookie_value,
+					     -expires => "+6M",
+					     -secure  => 0);
+	print $cgiquery->header(-cookie => $set_cookie);
+    }
+    my($comments) = $cgiquery->param('comments');
+    $comments =~ s/\n/<BR>/g; # \r represents a newline
+    my($sec,$min,$hour,$mday,$mon,$year,$wday,$yday,$isdst) = localtime(time);
+    my($recorded) = sprintf("%.2d-%.2d-%.4d %d:%.2d", $mon+1, $mday, $year+1900, $hour, $min);
+    open (COMMENTS, ">>$comment_directory$blog_id") or die ("Can't write to file $blog_id");
+    seek (COMMENTS, 0, 0);
+    print COMMENTS $cgiquery->param('name') . "[$blog_id]";
+    print COMMENTS $cgiquery->param('email') . "[$blog_id]";
+    print COMMENTS $cgiquery->param('url') . "[$blog_id]";
+    print COMMENTS $comments . "[$blog_id]";
+    print COMMENTS $recorded . "\n";
+    close(COMMENTS);
+}
+if (!$cgiquery->param('remember_me'))
+{
+	print $cgiquery->header;
+}
+my($headertemplate) = new Template("cgicommentsheader.html");
+my($headerhtml) = $headertemplate->cast();
+my($outputtemplate) = new Template("cgicommentsoutput.html");
+open (COMMENTS, "<$comment_directory$blog_id");
+my($count) = 0;
+my(@outputhtml);
+my($outputcount) = 0;
+while (<COMMENTS>)
+{
+    my(@variable) = split(/\[$blog_id\]/);
+    my($email, $url);
+    if ($variable[1])
+    {
+	$email = "| <a href='mailto:$variable[1]'>Email</a>";
+    }
+    if (($variable[2] !~ /^http:\/\/$/) && ($variable[2]))
+    {
+	if ($variable[2] !~ /^http:\/\//)
+	{
+	    $url = "| <a href='http://$variable[2]' target='new'>Website</a>";
+	}
+	else
+	{
+	    $url = "| <a href='$variable[2]' target='new'>Website</a>";
+	}
+    }
+    my(%data) = (name     => $variable[0],
+		 email    => $email,
+		 url      => $url,
+		 comments => $variable[3],
+		 recorded => $variable[4],
+		 class    => $class[$count]);
+    $outputhtml[$outputcount] .= $outputtemplate->cast(\%data);
+    $outputcount++;
+    if ($count == $#class)
+    {
+	$count = 0;
+    }
+    else
+    {
+	$count++;
+    }
+}
+close(COMMENTS);
+my($get_cookie) = $cgiquery->cookie("cgicomments");
+my($name_value, $email_value, $url_value);
+if ($get_cookie)
+{
+    my(@cookie_array) = split(/\[\+\]/,$get_cookie);
+    $name_value = $cookie_array[0];
+    $email_value = $cookie_array[1];
+    $url_value = $cookie_array[2];
+}
+my($footertemplate) = new Template("cgicommentsfooter.html");
+my(%data) = (blog_id     => $blog_id,
+	     name_value  => $name_value,
+	     email_value => $email_value,
+	     url_value   => $url_value);
+my($footerhtml) = $footertemplate->cast(\%data);
+
+print $headerhtml;
+if ($order)
+{
+    @outputhtml = reverse(@outputhtml);
+}
+for my $i (0 ..$#outputhtml)
+{
+    print $outputhtml[$i];
+}
+print $footerhtml;

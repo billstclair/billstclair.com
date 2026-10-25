@@ -1,0 +1,20 @@
+<form method='post' action='cgicomments.cgi'>
+<input type='hidden' name='blog_id' value='[% blog_id %]'>
+<table class='inputtable' width=350>
+<tr>
+<td width="10%">Name:</td><td width="90%"><input size="30" type='text' name='name' value='[% name_value %]'></td>
+</tr>
+<tr><td width="10%">Email:</td><td width="90%"><input size="30" type='text' name='email' value='[% email_value %]'></td>
+</tr>
+<tr><td width="10%">Website:</td><td width="90%"><input size="30" type='text' name='url' value='[% url_value %]'></td>
+</tr>
+<tr><td colspan=2>Comments (HTML enabled)</td></tr>
+<tr><td colspan=2><textarea name='comments' rows='12' cols='40'></textarea></td></tr>
+<tr><td colspan=2><input type='submit' name='add' value='Submit'>
+<input type='button' name='cancel' onclick='void(window.close())' value='Cancel'>
+&nbsp;&nbsp;Remember Me<input type="checkbox" name="remember_me">
+</td>
+</tr>
+</form>
+</table>
+</body>

@@ -1,0 +1,25 @@
+#!/usr/local/bin/perl
+#-------------------------------------------
+# helloWorld.pl by Zhanshou Yu
+# http://zhanshou.hypermart.net/CGITutorial/perl.html
+#-------------------------------------------
+
+import sys
+import cgi
+import os
+
+sys.stderr = sys.stdout
+
+ #This is a html file
+ print"Content-type: text/html\n\n";
+
+ #The html output 
+ print "<html>\n";
+ print "<head><title>Where Am I</title></head>\n";
+ print "<body>\n";
+ print "Your address: ";
+ print os.environ["REMOTE_HOST"]
+ print "\n";
+ print "</body>\n";
+ print "</html>\n";
+ exit;
