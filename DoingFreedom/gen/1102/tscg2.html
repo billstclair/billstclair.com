@@ -1,0 +1,512 @@
+<HTML>
+<HEAD>
+<TITLE>DOING FREEDOM! -- Top Secret Crypto Gold Revisited</TITLE>
+<meta name="author" content="Carl Bussjaeger, Editor">
+<meta name="description" content="An excahnge between programmer and reviewer">
+<META NAME="Keywords" CONTENT="libertarian, liberty, freedom, how-to, news, cypto, encryption, privacy, review rebuttal, response, Top Secret Crypto, Gallivant">
+</HEAD>
+<BODY BGCOLOR=WHITE LINK=black ALINK=red VLINK=black FONT=#34019E>
+[this page is a mirror of
+<a href="http://www.doingfreedom.com/gen/1102/tscg2.html">
+this original</a>]<p>
+<a href="../1102/index.html"><IMG SRC="minimast.gif" border=0></a>
+<!-- NEVER CHANGE ANYTHING TO THIS POINT! -->
+
+
+<P>
+
+<center>
+<p>
+<font size=5><b>Top Secret Crypto Gold Revisited</b></font><br>
+an exchange between<br>
+<em>MacGregor K. Phillips, TAN$TAAFL Software Company</em><br>
+and<br>
+<em>Peter Gallivant, Reviewer</em><br>
+
+<p>
+</center>
+
+<center>
+<table width=1415><tr><td>
+
+<table width=700><tr><td width=15></td>
+<td>
+In the October, 2002 issue of <i>Doing Freedom!</i>, we published a <a href="../1002/topsecret.html">review</a> of Top Secret Crypto Gold, an encryption software product for the Windows environment. MacGregor K. Phillips of TAN$TAAFL Software was rather vehement in his objections to some elements of Mr. Gallivant's review, and the two gentlemen have exchanged some messages attempting to clarify their positions. I was caught in the middle, playing forwarder and referee; it occurred to me that if these points were so important to these men, our readers would likely appreciate the clarifications as well.
+<p>
+Happily, both Phillips and Gallivant agreed to their emails being published here. I've redacted header and addressing information to protect everyone's privacy, and also the software registration codes which Mr. Phillips graciously provided to Mr. Gallivant free of charge.
+<p>
+I've chosen this horizontal layout for the sequence of the emails because I felt it would allow the reader to track exchanges on specific points more easily.
+<p>
+<i> - Carl Bussjaeger, Editor</i>
+<p>
+</td></tr></table>
+<p>
+
+
+<!-- exchange table -->
+
+<table border=1>
+<tr>
+<td width=15></td>
+<td width=350>
+<b>Phillips</b> (1)
+</td>
+
+<td width=350>
+<b>Gallivant</b> (2)
+</td>
+
+<td width=350>
+<b>Phillips</b> (3)
+</td>
+
+<td width=350>
+<b>Gallivant</b> (4)
+</td>
+</tr>
+
+<td width=15></td>
+<td valign=top width=350>
+From: MacGregor K. Phillips - Creator of Top Secret Crypto Gold<br>
+Date: Mon Oct 21 13:25:07 2002 GMT<br>
+Subject: Re: [3] Review of Top Secret Crypto Gold
+<p>
+Thank you for your in-depth review of my program Top Secret Crypto Gold (TSCG). The one thing that is the hardest to accomplish in the cryptographic community is to get a new program reviewed in the first place. When I submitted the suggestion to Doing Freedom to review my program I did not think they actually would. So thanks to Peter Gallivant for providing my first review. Sorry to see that you cannot recommend it, but perhaps you may change your mind some day.
+<p>
+I would like to address some of the issue brought up in your review to help clarify them for your readers. Right now TSCG is compatible with the RSA public and secret key formats for PGP 2.6.3 and below. When I can find the latest key formats used by PGP for Windows I will include it in the program. If anyone has a link to the latest format please let me know.
+<p>
+The missing 700 KB of files you could not find on installation are not DLLs but help files placed in the Windows Help folder, which is where they belong. There are three of them: TscHelp.chm, TscHelp.chw, and Viewer.chm.
+<p>
+The file association issue is a known problem that does not have a ready solution. When you click on a file associated with TSCG, the program is launched and you have to manually perform any operation on the file in question. The main problem is that so many functions require that a set of Public and Secret Keys be loaded into the program before you can perform any of them. The last set of key rings used by the program can be stored in the registry and loaded the next time you run the program. If you turn this feature off and then click on an encrypted file with the expectation that TSCG would automatically decrypt it, the program would have no way of knowing where the key rings required to decrypt the file are. Back to square one. When you click on an encrypted file you may also want to view the contents of the encrypted file instead of decrypt it or perform a Phi Test. The program cannot read your mind to see what you actually want to do. If I come up with a solution I will put it in the program.
+<p>
+It seems that not all MAPI compliant email programs are 100% compliant. When you click on the Encrypt and Send Message button after composing a message in TSCG, the message gets compressed, encrypted, and converted to Radix-64 format for insertion into an email message. Once this is complete, the encrypted message will be displayed in the Mail window (if you are using Outlook Express) and all you have to do is click on Send to send the message. I am sorry that the email program you used did not let you see how easy it really is. I assume that you had the same problems when trying to read and decrypt email in TSCG.
+<p>
+One such email program I found is Incredimail. It says it is 100% MAPI compliant but it copies and converts your address book to a propriety format that only it can use. This makes the Address Book button in TSCG produce an error when you try to use it, and when you manually enter the address it is converted to the proper MAPI format which Incredimail does not accept when you try to send it. If your present email program has problems with the MAPI message format, you will have to make an email program like Outlook, Outlook Express, or Eudora your default email client.
+<p>
+You are the first one to bring up the difficulty of selecting public and secret keys for use by the program. Just click on the Help button or Help menu to bring up the instructions which tells you how to select keys and close the selection window. But in one respect you are right. It is not intuitive. With this in mind I will put the key selection procedures in dialog boxes with OK and Cancel buttons in the next release.
+<p>
+I would love to know the nefarious situations where you do not want to sign a document or email, but I digress. This feature of always signing a document or email is a security feature that tells your recipients that the message did in fact originate from a known and trusted source. Public keys are meant to be public. Anyone could send you a message pretending to be someone you know and trust, but if that known and trusted person does not sign it with their secret key, how do you really know for sure.
+<p>
+The larger the keys created, the slower the process. Many people are used to PGP and key sizes of only 2,048 bits or less, which is very fast. When you get in the range of 8,192 to 16,384 bits, the process really gets slow. Key generation increases by a factor of about 7 every time you double the size of the keys. If you do not want to take the time to generate a large key, generate a smaller one that will go just as fast as PGP. The dialog boxes displayed during key generation show you the progress you are making. It is much better than staring at a blank screen and wondering when it is all going to end. What size key did you generate that took so long? The first time I generated a 16,384 bit key on my 400 MHz Pentium II it took 12 hours. Key generation for 2,048 bit keys or less usually takes less than a minute while a 4,096 bit key usually takes under 5 minutes. It also depends on how far away the initial set of random bits are from a prime number. I have generated a 16,384 bit key in under 1 hour, but I was lucky.
+<p>
+The bane of anyone writing a new encryption program and doing something new is an old one. You are expected to wait years and years to get peer reviewed, if you ever do, before you publish your program. In my opinion this is just an effective way for the cryptographic establishment to stifle new ways of doing things. The complete explanation of how the Random Bits Bin File is created and randomized is in the Help Topics. For empirical evidence all you have to do is look at the contents of the file in Notepad or a program that will display the contents in binary or hexadecimal format. Make a copy of you current Random Bits Bin File (it is in the programs folder unless you changed it), run TSCG for 20 to 60 seconds and close the program, and then compare the two files and you will have your empirical evidence. Running a Phi Text on an encrypted file also gives you empirical evidence on the encryption formulas used.
+<p>
+TSCG is not a "resource hog". What it does is use all the unused computer cycles that other programs are not using when they are just sitting by waiting for input from the mouse or keyboard. The Random Bits Bin Thread in the program runs at normal thread priority (one priority level below its parent process) and does not relinquish time to the operating system for other programs until a thread or process with an equal or higher priority requests time, or the operating system decides to give time to another process. This is why other programs are a little slow.
+<p>
+TSCG does have a menu item to set the Random Bits Bin Thread to idle thread priority that speeds up other processes quite a bit. The reason they seem slower than normal is the time it takes for Windows to perform task switching between an application that needs attention only a few times a second when getting input from the keyboard and the Random Bits Bin Thread that will use all the available computer cycles to keep randomizing the Random Bits Bin. Right now I have TSCG running, The Oxford English Dictionary v3.0, Microsoft Visual Studio 6.0, an instance of IE 6.0, and Microsoft Word, and I do not perceive any slowness while composing this message. When TSCG is not the active program, or it is minimized, the Random Bits Bin Thread is automatically set to idle thread priority. Another example of a program that does the same thing is Seti@home, a popular program to help in the search for intelligent life in outer space. When they are running they both display 100% CPU Usage Rate at all times as indicated by Norton Utilities.
+<p>
+If TSCG automatically deleted intermediate compressed files and original files after they are encrypted without giving you the choice to delete them or not, I would never hear the end of it. Either way you go someone will prefer the other way. The safe way is to give people a choice.
+<p>
+You completely miss the point of the One Time Pad Key Files that are only 5 KB in length. The plaintext files are not encrypted against the content of the One Time Pad Key File. The content consists of 1,303 randomly generated numbers in the range of 100,000,001 to 4,294,967,295. 768 of these are pseudo-randomly selected to seed 256 pseudo-random number generators. The output of these 256 pseudo-random number generators is used to encrypt a file or email message. This is in effect a steam cipher that generates a keystream as long as the message you are encrypting. Some call it a pseudo one-time pad. It is not a 5 KB key that keeps repeating. It is all explained in the Help Topics that come with the program.
+<p>
+You state "Many times, I find it desirable to [select] multiple files, yet not every one in a directory". Well, you can pick and choose which files to compress and encrypt through the regular compress and encipher functions. Due to Windows this does have its limitations when selecting files through their Open File Dialog Box. You are limited to a return string of 64 KB that will limit the number of files you can select depending on the length of each file name. That is why I included the menu item to compress and encrypt entire folders that gets around this limitation. Again, you have the choice.
+<p>
+The subject of source code is another source of contention with a lot of people, and I understand it. TSCG uses the C source code from PGP 2.6.3 to generate the RSA Keys and public and secret key encrypted packets. All the other encryption algorithms, including the generation of random bits for the Random Bits Bin, are published in the Help Topics. All the file formats are also in the Help Topics. The glue that binds all of these procedures together to form a workable program is not easy to write and counts for the bulk (90%) of the program. So, no, it will not be released. If I were to release it I would be out of business the next day. Anyone could them compile the program and give it away. Any libertarian knows that if you cannot make a profit from an endeavor, it will not be undertaken.
+<p>
+Current versions of PGP, to my knowledge, can now generate different types of Public and Secret Keys. They are not all RSA keys and therefore these other types of keys will not be compatible with TSCG. A lot of people that use PGP probably do not even know the actual type of keys they are using.
+<p>
+With reviews like this one, and hopefully more input from others, I will be able to make TSCG easier to use, and more useful to everyone. Features that I would like to add are two-way encrypted chat over the Internet between any two computers (which will be easy to write but very difficult for novice computers users to understand and use), setting the computers clock from the Internet (done), and adding what I call Top Secret Notes, a sort of free form searchable database where you can keep encrypted notes about anything you want.
+<p>
+Encryption programs are a special breed. In order for a person to use an encryption program properly, they have to know what they are doing. You cannot just sit down, install an encryption program, and hit the encryption button and think that now your files and email are secure. Too many of the encryption programs seem to work this way. You have to understand the overall encryption process and all the related computer security issues that come with it. Only then can you make a decision of which encryption program is best for you to use. I try to address a lot of these issues in the Help Topics that come with the program.
+<p>
+There are two good articles by Lee Adams in the 9 Oct 2000 issue of Doing Freedom that can teach you a lot about computer security and encrypting email. They are http://www.doingfreedom.com/gen/1000/ht.uncrackableemail1.html and
+http://www.doingfreedom.com/gen/1000/ht.uncrackableemail2.html. They will be an eye opener for most people.
+<p>
+
+As to my using a Military FPO address, I plead guilty. I am a retired Senior Chief in the U.S. Navy currently living with my wife and daughter in Olongapo City, Philippines which is the company address listed on the web site. The Navy and Air Force bases were kicked out by the Philippine government over 11 year ago. The reason why I can still use an FPO address is because the Status of Forces Agreement between the U.S. and the Philippines permits military retirees to receive some FPO mail through the U.S. Embassy. So, no, it is not the address of an U.S. Naval Facility. Our volunteer Retired Affairs Office workers make the trip to Manila twice a week to pick up the mail for all the military retirees living in the area. Believe me, if someone wants to make a payment by mail this is much safer than using the Philippine mail system.
+<p>
+Time to cut this off. It is getting way too long. If anyone has any questions or suggestions about the program give me a call (not collect) or drop me an email. I will be more than glad to answer any and all questions. While I would be delighted to make a pile of money off of TSCG, it is more of a way to keep very busy during my retirement. Anyone looking to retire without something to keep them completely occupied is looking at an early grave due to complete boredom.
+<p>
+Sincerely,<br>
+MacGregor K. Phillips<br>
+TAN$TAAFL Software Company<br>
+mkp@topsecretcrypto.com<br>
+mkp@subic.piol.net<br>
+MacGregor@free-maket.net<br>
+macknight999@yahoo.com<br>
+
+
+</td>
+
+
+<td valign=top width=350>
+Response to Mr Phillips:
+<p>
+Regarding PGP Compatibility: Perhaps you should contact the PGPi and GPG people regarding key formats.
+<p>
+MAPI Compliance: Being aware that compliance is not always 100%, I tested with the email client (FoxMail) with several other programs on my system. Only TSCG failed to interface.
+<p>
+Not Signing Messages: Hardly nefarious, sir. Prefering to avoid the rewards oft-garnered by whistleblowers, I sometimes prefer anonymity, even while wrapping my message in an encryption envelope for privacy.
+<p>
+Resource Hog: I fear I must stand by this. As I am beyond the 45 day evaluation period, the program no longer functions. Therefore, I am unable to provide specific numbers on resource usage. But when TSCG ran, the processor was so burdened that it became necessary to engage the auxillary cooling fan. This is a condition that is not called for even when I run a total of 10 browser sessions with my email client and word processor running simultaneously. When TSCG ran, other programs slowed so drastically that I stopped bothering to run even NotePad during the testing.
+<p>
+File Deletion: Yes, people should have the option. But once one has made the choice, it is unnecessary to continue prompting for a repeat of the choice.
+<p>
+5k One Time Pad Key Files: I confess confusion. You say that two separate computers (the encrypting machine, and that one decrypting), starting with the same 5k seed file, will each randomly select 768 numbers from their respective  copies of the file, use those numbers independently to seed 256 RNGs, and produce the same encryptio/decryption key? It would seem to me that the process must be somewhat less than pseudo-random for both machines to hit upon the same key.
+<p>
+Multiple File Encryption: The limit on number of files appears to be "one", when I selected two files, of 8x3 name format, TSCG would only process one. The only ways that TSCG would process more than one file per operation was to use the entire folder encryption option from Windows Explorer. Perhaps you need to do more testing with various Windows versions. I am running Microsoft Windows 98 4.10.2222 A.
+<p>
+Source Code: I do understand your position. But you should also be aware that a great many people who feel that they require encryption will not trust a product that is not fully open-sourced. That is so very important to so many people that I would have failed them if I did not mention this issue in the review.
+<p>
+Other PGP Keys: Yes, for quite some time now, PGP has supported Diffie-Hellman/DSS keys. In fact, to judge by the public keys on my ring, RSA is falling out of favor. Of the six RSA keys, three date to a time years ago before DH/DSS PGP was available; I keep those old keys from persons with whom I have lost touch out of nostalgia.
+<p>
+Key Compatibility: As it happens, I am aware of the difference between RSA and DH/DSS. When I attempted the import tests between PGP 6.5.8 and TSCG, I specifically used 2048 bit RSA.
+<p>
+FPO Address: This is an issue akin to the open source question. It is a choice you made, and I can understand part of why you so chose. But you should also accept that the encryption market caters to "professional paranoids" who very often choose encryption as protection against privacy infringement by government. Using an address formally reserved for an agency of the government that brought us DCS1000, ECHELON, and the NSA will limit your access to this market.
+<p>
+     P. Gallivant
+
+</td>
+
+
+<td valign=top width=350>
+Mr. Bussjaeger,
+<p>
+I would appreciate it if you would please forward this message to Peter
+Gallivant. I am also including registrations codes so he can continue
+testing and or using TSCG. Thank you.
+<p>
+Sincerely,<br>
+MacGregor K. Phillips<br>
+TAN$TAAFL Software Company<br>
+http://www.topsecretcrypto.com<br>
+<p>
+----- Original Message -----
+<p>
+I have found the formats on the Internet and if I can I will modify TSCG to
+accept Version 4 formatted RSA keys from PGP.
+<p>
+> MAPI Compliance: Being aware that compliance is not always 100%, I<br>
+> tested with the email client (FoxMail) with several other programs on<br>
+> my system. Only TSCG failed to interface.<br>
+<p>
+I downloaded FoxMail and tried it out. While it works with POP3 email
+accounts it is in no way MAPI or Simple MAPI compliant. In fact, it does not
+even use MAPI at all. While its output can be used on a POP3 email account,
+it does not accept input formatted for a MAPI client. MAPI stands for
+Messaging Application Programming Interface which is provided through the
+Mapi32.dll. When a program wants to send an email using the MAPISendMail
+procedure, this email message must be in a specific format. Once the
+Mapi32.dll receives the procedure call with the MAPI formatted message, it
+will transfer this formated message to your email client which will output
+the message formated for a POP3 email account. If an email program does not
+accept this format or does not even use MAPI, like FoxMail, it will not be
+compatible with TSCG.
+<p>
+I made FoxMail my default email client and when I clicked on a file with the
+"eml" extension up pops Outlook Express, not FoxMail. It does not even
+recognize the regular "eml" file extension.
+<p>
+If you use WinZip try to use their Mail Archieve command with FoxMail. I bet
+it will not work either, since WinZip relies on the Simple MAPI protocol
+too.
+<p>
+> Not Signing Messages: Hardly nefarious, sir. Prefering to avoid the<br>
+> rewards oft-garnered by whistleblowers, I sometimes prefer anonymity,<br>
+> even while wrapping my message in an encryption envelope for privacy.<br>
+<p>
+I can understand that, but what about the recipients of these messages? Do
+not they want some assurance that the message comes from a specific person.
+<p>
+> Resource Hog: I fear I must stand by this. As I am beyond the 45 day<br>
+> evaluation period, the program no longer functions. Therefore, I am<br>
+> unable to provide specific numbers on resource usage. But when TSCG<br>
+> ran, the processor was so burdened that it became necessary to engage<br>
+> the auxillary cooling fan. This is a condition that is not called for<br>
+> even when I run a total of 10 browser sessions with my email client<br>
+> and word processor running simultaneously. When TSCG ran, other<br>
+> programs slowed so drastically that I stopped bothering to run even<br>
+> NotePad during the testing.<br>
+p>
+You now have a key so you can do further testing. I am living in the
+Philippines with no air conditioning and I run my 400 MHz Pentium II
+computer in 95 to 100 degree heat and the same humidity with only a fan on
+the power supply and the one on the processor. I have never had any heat
+problems with my computer.
+<p>
+Any computer that cannot handle the processor running at 100% for days on
+end it not designed very well.
+<p>
+All of the programs you listed like 10 browser sessions, etc. mostly wait
+for input from the keyboard or mouse. They are not doing any heavy duty
+computations. As I said, SETI@home does the same thing and you do not hear
+any complaints from the many tens of thousands of people that run this
+program.
+<p>
+> File Deletion: Yes, people should have the option. But once one has<br>
+> made the choice, it is unnecessary to continue prompting for a repeat<br>
+> of the choice.<br>
+<p>
+And the next time it automatically wiped, not deleted, an original file
+without prompting, which got sent as an email attachment, and that person
+then tried to access the original file which is no longer there...you get
+the picture. They would blame me and the program but not themselves for
+forgetting. A wiped file cannot be recovered.
+<p>
+> 5k One Time Pad Key Files: I confess confusion. You say that two<br>
+> separate computers (the encrypting machine, and that one decrypting),<br>
+> starting with the same 5k seed file, will each randomly select 768<br>
+> numbers from their respective  copies of the file, use those numbers<br>
+> independently to seed 256 RNGs, and produce the same<br>
+> encryptio/decryption key? It would seem to me that the process must<br>
+> be somewhat less than pseudo-random for both machines to hit upon the<br>
+> same key.<br>
+<p>
+When you read the fine documentation you can see that when two people use
+the One Time Pad Key or True One Time Pad Files they both must have copies
+(duplicates) of the same files. One person encrypts with his copy, sends the
+encrypted message or file, and the other person decrypts with his copy. The
+name of the required file to use is encrypted within the Public Key
+Encrypted Packet. It is clearly stated in the documentation time and time
+again. See Help Topic Create One Time Pad Key Files step 5 and Tips on Using
+TSCG in the Real World, etc. When using any "symmetric" key both sender and
+recipient must have duplicate copies.
+<p>
+> Multiple File Encryption: The limit on number of files appears to be<br>
+> "one", when I selected two files, of 8x3 name format, TSCG would only<br>
+> process one. The only ways that TSCG would process more than one file<br>
+> per operation was to use the entire folder encryption option from<br>
+> Windows Explorer. Perhaps you need to do more testing with various<br>
+> Windows versions. I am running Microsoft Windows 98 4.10.2222 A.<br>
+<p>
+I use the exact same operating system and have no problems. I use the
+standard Windows dialog box for getting the file names. The files you select
+are first compressed into one file, then encrypted. Each file is not
+compressed and encrypted separately.
+<p>
+> Source Code: I do understand your position. But you should also be<br>
+> aware that a great many people who feel that they require encryption<br>
+> will not trust a product that is not fully open-sourced. That is so<br>
+> very important to so many people that I would have failed them if I<br>
+> did not mention this issue in the review.<br>
+<p>
+You cannot make money on open-sourced software. Look at Network Assoc. and
+PGP. I predict that the new company formed to market PGP with not make it
+either if they provide the source code for downloading.
+<p>
+> Other PGP Keys: Yes, for quite some time now, PGP has supported<br>
+> Diffie-Hellman/DSS keys. In fact, to judge by the public keys on my<br>
+> ring, RSA is falling out of favor. Of the six RSA keys, three date to<br>
+> a time years ago before DH/DSS PGP was available; I keep those old<br>
+> keys from persons with whom I have lost touch out of nostalgia.<br>
+> Key Compatibility: As it happens, I am aware of the difference<br>
+> between RSA and DH/DSS. When I attempted the import tests between PGP<br>
+> 6.5.8 and TSCG, I specifically used 2048 bit RSA.<br>
+<p>
+This is when they changed the format of the keys. You probably tried with a
+version 4 key format and not the old version 3 key format for 2.6.2 and
+earlier. I will try to get TSCG to recognized version 4 format for RSA keys
+in the next version.
+<p>
+> FPO Address: This is an issue akin to the open source question. It is<br>
+> a choice you made, and I can understand part of why you so chose. But<br>
+> you should also accept that the encryption market caters to<br>
+> "professional paranoids" who very often choose encryption as<br>
+> protection against privacy infringement by government. Using an<br>
+> address formally reserved for an agency of the government that<br>
+> brought us DCS1000, ECHELON, and the NSA will limit your access to<br>
+> this market.<br>
+<p>
+There is a difference between being "paranoid" and cautious. OED v3.0
+defines paranoia as "Mental derangement; spec. chronic mental unsoundness
+characterized by delusions or hallucinations, esp. of grandeur, persecution,
+etc". A person like this would never accept the word of anyone about an
+encryption program and therefore would never find one that he would use.
+<p>
+
+</td>
+
+
+<td valign=top width=350>
+Mr Phillips.
+<p>
+
+>I would appreciate it if you would please forward this<br>
+>message to Peter Gallivant. I am also including<br>
+>registrations codes so he can continue testing and or<br>
+>using TSCG. Thank you. <br>
+<p>
+Thank you for this good faith effort, sir. I do think that is only fair to advise you that TSCG does not meet my needs at this time. Your offer is generous, but I shall not avail myself of it.
+<p>
+>I have found the formats on the Internet and if I can I will<br>
+>modify TSCG to accept Version 4 formatted RSA keys from PGP. <br>
+<p>
+That shall go far towards extending acceptance of TSCG
+<p>
+
+>I downloaded FoxMail and tried it out. While it works<br>
+>with POP3 email accounts it is in no way MAPI or Simple<br>
+>MAPI compliant. In >fact, it does not even use MAPI at all.<br>
+<p>
+I stand corrected, sir. The product description given at the download site specified that it is MAPI compliant, and I suppose I was misled by the fact that it did indeed interface to every other application with which I performed testing. TSCG was the only product which could not operate with FoxMail.
+<p> 
+>I made FoxMail my default email client and when I clicked<br>
+>on a file with the "eml" extension up pops Outlook<br>
+> Express, not FoxMail. It does not even recognize the regular<br>
+> "eml" file extension. <br>
+<p>
+It has been my own experience over several years, that many email clients do not use the eml extension; setting a client as the email default typically sets it as the client opened when one clicks a "mailto" hyperlink.
+<p>
+By any chance though, sir, I do not think I want to change my email client - which operates with my preferred encryption products - simply because it fails to interface to TSCG alone. And other obvious security concerns dissuade me from the use of Outlook, in any of its incarnations.
+<p>
+>I can understand that, but what about the recipients of<br>
+>these messages? Do not they want some assurance that the<br>
+>message comes from a specific person. <br>
+<p>
+I'm sure that some governmental agencies would very much like to know that. I though, sir, do not wish to be imprisoned. Might I inquire as to which portion of "anonymous whistleblower" it is that you do not understand? I was under the impression that your own country is rather fond of anonymous telephonic hotlines; why then should not such protections be extended to email?
+<p>
+
+
+>You now have a key so you can do further testing.<br>
+>I am living in the Philippines with no air<br>
+>conditioning and I run my 400 MHz Pentium II computer<br>
+>in 95 to 100 degree heat and the same humidity with<br>
+>only a fan on the power supply and the one on the<br>
+>processor. I have never had any heat problems with my<br>
+>computer. <br>
+<p>
+I operate a laptop computer, typically under far harsher conditions. It has one cooling fan, on the processor, which operates only under high processor usage periods as a power conservation measure. As stated, I can run multiple instances of my browser, as well as the email client, word processor, and other applications without invoking the fan. But when TSCG runs, even alone, it immediately invokes the fan, even when I am performing no TSCG functions.
+<p>
+This does give the impression of a "resource hog," sir.
+<p>
+
+>And the next time it automatically wiped, not deleted,<br>
+>an original file without prompting, which got sent as<br>
+>an email attachment, and that person then tried to<br>
+>access the original file which is no longer there...<br>
+>you get the picture. They would blame me [...]<br>
+<p>
+Then eliminate the option selection at the beginning of the process which misleads one into believing that the choice is made at that time, and settle for choosing later. Choosing twice is a pointless annoyance.
+<p>
+
+>When you read the fine documentation you can see that<br>
+>when two people use the One Time Pad Key or True One<br>
+>Time Pad Files they both must have copies (duplicates)<br>
+>of the same files. One person encrypts with his >copy,<br>
+>sends the encrypted message or file [...]<br>
+<p>
+This does not address my current concern. You have now dscribed the 5k files as mere seed files. Which somehow magically produce identical keys on different computers when fed into PRNGs. I still find this disturbing in the extreme. I was much more comfortable with your original help file which seemed to indicate that these files were merely small keys.
+<p>
+
+
+>I use the exact same operating system and have no<br>
+>problems. I use the standard Windows dialog box for<br>
+>getting the file names. The files you select are<br>
+>first compressed into one file, then encrypted. Each<br>
+>file is not compressed and encrypted separately. <br>
+<p>
+Correct, sir. I wish to select multiple files for "batch conversion," if you will, and have them processed as individual files without having to manually process each and every one invididually. I do not wish to end up, in this case, with a single large encrypted archive, which I must open later to find the one or two files desired. This is a function available in numerous packages. Therefore, I felt this minor lack in TSCG deserved mention.
+<p>
+
+>You cannot make money on open-sourced software.<br>
+<p>
+perhaps, but that is not the question here. Encryption users around the world have become accustomed to open-source code for their applications. It has become a standard feature. Whether or not you think open-source can make money, proprietary code encryption products almost definitely <i>will not</i>.
+<p>
+
+>There is a difference between being "paranoid" and<br>
+>cautious. OED v3.0 defines paranoia as "Mental derangement [...]<br>
+<p>
+The use of quotation marks is intended to indicate a figure of speech, not a medical diagnosis.
+<p>
+
+>A person like this would never accept the word of<br>
+>anyone about an encryption program and therefore<br>
+>would never find one that he would use. <br>
+<p>
+Possibly not. But you are producing an application for a market, by definition, which is very cautious. This is how I intended the phrase,  "professional paranoid." Consider that your own country has publicly admitted that it now monitors email traffic without a magistrate's order, and that it even targets for its "no fly" list nuns who have protested peacefully against questionable actions by this government. Subject to such monitoring, such people want protection from their government. By using an address reserved for that government, you <i>will</i> frighten away otherwise potential customers. They <i>will</i> seek privacy protection from someone who does not appear to be part of their problem.
+<p>
+You may think such people to be paranoiacs, but what does it speak of for your own grip on reality if you refuse to understand your intended market?
+<p>
+These are my opinions. You clearly disagree. I suggest you observe market forces at work - does your product sell - to determine whether or not my questions and observations reflect those of the market you wish to access.
+<p>
+
+ P. Gallivant
+<p>
+</td>
+
+</tr>
+</table>
+
+
+
+
+<p>
+
+________________________________
+
+<P><A HREF="/scripts/cmtproc.pl?article=/gen/1102/tscg2.html&title=TSCG+Revisited">Comment on this article</a><BR>
+
+
+<A HREF="/scripts/cmtproc.pl?view=/gen/1102/tscg2.html&title=TSCG+Revisited">View all comments on this article</A>
+
+<p>
+
+________________________________
+<p>
+
+<font color=blue size=2><b>
+Do you like <i>Doing Freedom!</i>?<br>
+Please consider helping us<br>
+out with a small donation.<br>
+</b></font>
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+<input type="hidden" name="cmd" value="_xclick">
+<input type="hidden" name="business" value="bussjaeger@free-market.net">
+<input type="hidden" name="item_name" value="DF! Article Donation 1102 TSCG Revisited">
+<input type="hidden" name="item_number" value="Thanks!">
+<input type="image" src="https://www.paypal.com/images/x-click-but21.gif" border="0" name="submit" alt="PayPal"><br>
+<a href="https://www.paypal.com/refer/pal=VQQLYPNCLZRYA"><font size=1>Don't have PayPal yet?</font>
+</a>
+</form>
+
+<p>
+
+
+<!-- FEEDBACK FORM -->
+
+<FORM action="/cgi-bin/feedback.pl" METHOD=POST>
+<INPUT TYPE=HIDDEN NAME="CtlMailTo" VALUE="bussjaeger@free-market.net"></INPUT>
+<INPUT TYPE=HIDDEN NAME="CtlMailSubject" VALUE="1102 TSCG Revisited Feedback"></INPUT>
+________________________________
+<p>
+Please rate this article!<br>
+Knowing what you like will help<br>
+us provide the content you want.
+</p>
+ 
+<input TYPE="RADIO" NAME="Rating" VALUE="Bad"> Bad
+<input TYPE="RADIO" NAME="Rating" VALUE="Poor"> Poor
+<input TYPE="RADIO" NAME="Rating" VALUE="Average" CHECKED> Average
+<input TYPE="RADIO" NAME="Rating" VALUE="Good"> Good
+<input TYPE="RADIO" NAME="Rating" VALUE="Excellent"> Excellent
+</P>
+<p>If there's anything specific you'd like to say about this<br>
+article, please do so here. Comments may be used in an<br>
+upcoming Letters to the Editor.</p>
+
+<p><textarea NAME="General Comments" ROWS="5" COLS="40"></textarea> <br>
+
+<p>
+  
+<input TYPE="SUBMIT" VALUE="Tell us!">   
+     <input TYPE="RESET" VALUE="Clear Form"> </p>
+<INPUT TYPE=HIDDEN NAME="CtlNextURL" VALUE="/articlethanks.html"></INPUT>
+</form>
+
+
+
+
+<p></td></tr></table>
+<p>
+
+
+
+
+
+
+<!-- NEVER CHANGE ANYTHING PAST THIS POINT -->
+<FONT SIZE=1 COLOR=#34019E>Copyright &copy; 2002 by <A HREF="mailto:bussjaeger@free-market.net">Doing Freedom! magazine</A>. All rights reserved.</FONT>
+</BODY>
+</HTML>
+
+

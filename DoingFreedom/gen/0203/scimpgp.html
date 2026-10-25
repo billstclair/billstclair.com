@@ -1,0 +1,187 @@
+<HTML>
+<HEAD>
+<TITLE>DOING FREEDOM! -- Secure Instant Messaging, by John Michaels</TITLE>
+<meta name="author" content="John Michaels">
+<meta name="description" content="secure messaging and PGP tips">
+<META NAME="Keywords" CONTENT="libertarian, liberty, freedom, how-to, news, tips, PGP, SCIM IM, instant messaging, Project SCIM, crypto, encryption, decryption, Michaels, email, files, plug-in">
+</HEAD>
+<BODY background=bkgd.gif BGCOLOR=WHITE LINK=black ALINK=red VLINK=black FONT=#34019E>
+<a href="index.html"><IMG SRC="minimast.gif" border=0></a>
+<!-- NEVER CHANGE ANYTHING TO THIS POINT! -->
+
+
+<P>
+
+<center>
+<p>
+<font size=5><b>Secure Instant Messaging</b></font><br>
+<b>with other PGP tips</b><br>
+by<br>
+<em>John Michaels</em>
+<p></center>
+
+<center>
+<table width=600><tr><td>
+<p>
+<b>Secure Messaging</b><br>
+Someone recently asked for my opinion of <a href="http://www.projectscim.com">Project SCIM</a>'s Secure Cryptographic Instant Messenger. As you can see by the very name, this is meant as a privacy enhancing competitor to the better known commercial instant messaging applications such as AOL IM, Yahoo messenger, or ICQ.
+<p>
+Let me be straight up about this: SCIM is not a product I'd care to use.
+<p>
+On the bright side, SCIM is a comparatively small download at just 1.5 MB. Better yet, it's freeware (for private use). And I tend to be forgiving about software that I don't have to shell out for. But not this forgiving.
+<p>
+Three out of four times, SCIM crashed my system when I tried to run it. This sucks even by Microsoft standards. The other issue that concerns me is the source code. Specifically, SCIM does not appear to be open source.
+<p>
+The Project SCIM website states that SCIM uses open source algorithms from <a href="www.cryptix.org">Cryptix</a>, but the source code for the complete messenger application can't be found on the site. Nor was Project SCIM responsive to a source code inquiry sent to their contact address. I have a tendency to mistrust crypto products that won't open source their code. So much for SCIM
+<p>
+
+<b>Faking It</b><br>
+But is a fancy messenger with questionable built-in crypto <i>necessary</i>? Not... necessarily.
+<p>
+The fact is, if you have PGP  (<a href="http://www.pgp.com">commercial</a> or <a href="http://bs.mit.edu:8001/pgp-form.html">freeware</a>), or its variants (<a href="http://www.pgpi.org/download/">PGPi</a>, for instance), installed on your computer you can already encrypt your IM traffic without too much trouble.
+<p>
+Go down to your Windows system tray and right click on the PGPTray icon, select <b>Options</b>, then click the <b>HotKeys</b> tab. See those choices for "Encrypt current window" and "Decrypt & verify current window"? Select their check boxes, and pick a keystroke sequence you find convenient. (I use Ctl+Shift+C and Ctl+Shift+D, respectively).
+<p>
+Now, when you're messaging away, before you hit <b>send</b>, do a Ctl+Shift+C. You'll get the PGP public key selection screen. Once you've picked your keys, your message text will be encrypted. <i>Now</i> hit <b>send</b>.
+<p>
+Likewise, when you receive an encrypted IM, make sure your cursor is in the message text block, and press Ctl+Shift+D. <i>Voila!</i> IM decrypted.
+<p>
+All that, and you didn't have to download yet another proprietary software package, <b>and</b> make sure your friends got the same one.
+<p>
+
+<b>Other Uses for those HotKeys</b><br>
+I've got an acquaintance who often uses a Yahoo webmail account from his own computer. He's forever sending his encrypted messages as attachments. Mildly annoying and unnecessary: He could be drafting his mails in the Yahoo window, and <i>Ctl+Shift+C</i>ing, saving himself the extra steps of drafting the message in Notepad, saving, encrypting the file, creating a Yahoo email, and attaching the encrypted file. <i>Typety-type, click</i> is so much easier.
+<p>
+Now for most of my email, I use Eudora, which happens to have a handy-dandy plug-in to automatically interface with PGP. Neat, eh? Your POP client probably has that, too.
+<p>
+But I only use the plug-in to <b>encrypt</b> mails I send.  See, I can set it up to default to signed and encrypted mails so I never forget and send an email in the clear when it really <i>has</i> to be private; I have to consciously opt to send something in the clear. So the plug-in is great for outgoing mail.
+<p>
+<i>Incoming mail</i> is another matter for me. Your mileage may vary, but I'm not entirely comfortable with the fact that the plug-in leaves me with unencrypted mails in my folders. Maybe I'm overly cautious, but I keep thinking, <i>"What if someone else got access to my computer? Do I want my wife to see what's in those letters from Shel..."</i> Never mind; let's just say, "Better safe than sorry." Instead of letting the PGP plug-in permanently open my virtual "envelopes," I just <i>Ctl+Shift+D</i>. Now I get the cleartext in a another window, from which I can copy the text to a email reply window, which gets encrypted in turn. This way, I never leave a cleartext message on my system.
+<p>
+Here's another little tip: Go to the PGP <b>Options</b> again. On the <b>General</b> tab, make sure you check <i>"Always encrypt to default key"</i>. Now when you encrypt your email to me, you can go back and read your own message, too. I don't know how many times I've gotten an email that was encrypted only with my public key, but not the sender's own, and the sender then needed me to give him something from his own - now inaccessible - message.
+
+<p>
+<b>Key Length</b><br>
+Years back, when computers were wimpier, it was often worthwhile to generate and use 1024 bit keys; large keys took forever to process. Generally, it seemed like the sensitivity of the message didn't justify the hassle.
+<p>
+That isn't the case anymore. My own computer is pretty far behind on the power curve, but it's still cranking along at 366 MHz. There's no excuse not to use 4096 bit keys. 2048 bit D-H/DSS is probably going to be pretty secure for quite a while (barring the appearance of a transcendental mathematical genius who devises  a new way to factor primes), but why not go for the gusto? Repeat after me: <i>"Better safe than sorry."</i>
+
+<p>
+<b>Who are you?</b><br>
+Don't worry; I'm not the B5 Inquisitor. Just bringing up another point about keys. Now that I've convinced you to generate a brand new 4096 bit key pair... <b>Stop!</b>
+<p>
+Please don't just generate a whole, brand new, stand-alone keypair, and revoke your old one.
+<p>
+Try this instead: Use the tray icon to open PGPKeys. Right click on your own key in the list, and select </b>Key Properties</b>. Click the <b>Subkeys</b> tab. You'll see a list of your encryption keys; probably you'll only have one.
+<p>
+Press that <b>New</b> button below the list. Here's where you generate your new 4096 bit key. Type "4096" into the <b>Key Size</b> block (the pull-down list probably only goes to 3072). Click <b>OK</b>. You'll be prompted for you passphrase. Once you've typed that in, your new key is made, and you'll see it in the list. To get rid of your old short key, find it in the list, click on it to highlight it, then click either the <b>Revoke</b> or <b>Remove</b> button. <b>Revoke</b> leaves the key in place but unusable for encryption, while <b>Remove</b> gets rid of it altogether.
+<p>
+Why make your new key through this roundabout method? <i>Signatures</i>.
+<p>
+Odds are, lots of other people signed your old key, verifying that you are really you. If you made up an entirely new keyset, you'd lose all those signatures and have to start over again. But attaching the new encryption pair to your existing keyset leaves the signatures intact. When you distribute your updated key to all your friends, they can verify immediately that this really is Joe Blow's key, and not some third party trying a spoof.
+
+<p>
+<b>Let's see some picture ID, buddy.</b><br>
+If you're expecting real-world meetings with PGP correspondents whom you've never met before, here's a neat feature. PGP allows you to embed your picture in your public key (PGPKeys, right click your key, <b>Add</b>, select <b>Photo</b>). Instant digital photo ID.
+
+<p>
+<b>What's in a name?</b><br>
+When you're encrypting an email, the plug-in looks at the recipient's email address to try to figure out which key to use. If it can't match the address to any names on the PGP keyring, you have to manually select the appropriate key(s). If you use multiple email addresses, you can save your friends a few seconds by tagging your key with all your addresses: PGPKeys, right click your key, <b>Add</b>, select <b>Name</b>. Of course, any address that you use for anonymity, which you don't want to publicly link to your PGP identity - should <b>not</b> be added to your key.
+
+<p>
+<b>Me, Myself, and I</b><br>
+You can have as many public/private keypairs on your keyring as you want. This is handy for folks running multiple nyms (electronic identities) online. Just open PGPKeys, select <b>Keys</b> from the main menu, then <b>New</b>.
+<p>
+<b>But....</b> If you have more than one private key on your ring, you may want to set one as the default: right click on key, <b>Set as default</b>. Do this with caution. If you set PGP to always sign/encrypt with your key, it'll always include the default key in the encryption list, even if you were trying to use the other one key. No big deal; just remember to remove extra keys from the encrypt-to list before you press <b>OK</b>.
+<p>
+<b>Wipe that grin off your face.</b><br>
+This may sound silly, but you have noticed <b>PGP</b> in your Windows Explorer right-click menu, haven't you? Right there at your fingertips (literally) is the ability to sign and encrypt <i>any</i> file on your hard drive. Even if you don't have PGPDisk, this can darned near give you all the file security you need. But the best feature is <b>un</b>-file security: <b>Wipe</b>.
+<p>
+When you "delete" a file in Windows, all you've really done is move it from whatever folder it was in to a folder named <i>Recycled</i>, where it sits forever if you never remember to "empty" your Recycle Bin. And even if you do empty the trash occasionally, that doesn't really delete the file either; only the data telling your drive where it once stored that file goes away. The data itself stays on the drive until it happens to get overwritten by something else that needs the space. Until that happens, your data can be read with a file recovery program.
+<p>
+Unless you <b>Wipe</b> it. <b>Wipe</b> not  only "deletes" the file; it overwrites the data making it nonrecoverable. Your wife's divorce lawyer won't be getting those shots of you and Carmen at the office Christmas party now. To make sure you've thoroughly overwritten a file, you should tell PGP to make at least three "passes" (overwrite three times); you can set this as a default: Click the tray icon, select <b>Options</b>, <b>General</b> tab, <i>File Wiping</i>, <i>Number of passes</i>.
+<p>
+It's also a good idea to periodically wipe all the free space on your hard drive. This gets anything you missed, and any fragments of program temp files or Windows virtual memory. Run FreeSpace Wipe by right clicking the tray icon, select <b>PGPTools</b>, and click the FreeSpace Wipe button. Select the drive to be wiped, and set the number of passes.
+<p>
+<b>Warning</b>: A complete free space wipe can take quite a long time. If you can spare your computer now, press <b>Begin</b>. But you may want to press <b>Schedule</b> and set a time during the middle of the night for the wipe to be performed automatically.
+
+<p>
+<b>Play around</b><br>
+PGP is a handy tool, and if you mainly use it through a POP mail client, you may be missing some things. Next time you have a few minutes to spare, try exploring the PGP menus.
+
+
+<p>
+<CENTER>
+________________________________
+
+<P><A HREF="/scripts/cmtproc.pl?article=/gen/0203/scimpgp.html&title=Secure+Messaging">Comment on this article</a><BR>
+
+
+<A HREF="/scripts/cmtproc.pl?view=/gen/0203/scimpgp.html&title=Secure+Messaging">View all comments on this article</A>
+</CENTER>
+<p>
+<CENTER>
+________________________________
+<p>
+
+<font color=blue size=2><b>
+Did you like this article?<br>
+Please consider rewarding the author's<br>
+hard work with a donation.<br>
+</b><font>
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+<input type="hidden" name="cmd" value="_xclick">
+<input type="hidden" name="business" value="doingfreedom@gbronline.com">
+<input type="hidden" name="item_name" value="DF! Donation 0203 Secure messaging Michaels">
+<input type="hidden" name="item_number" value="Thanks!">
+<input type="image" src="https://www.paypal.com/images/x-click-but21.gif" border="0" name="submit" alt="PayPal"><br>
+<a href="https://www.paypal.com/refer/pal=VQQLYPNCLZRYA"><font size=1>Don't have PayPal yet?</font>
+</a>
+</form>
+</center>
+<p>
+
+<!-- banner ads here -->
+
+
+<!-- FEEDBACK FORM -->
+<center>
+<FORM action="/cgi-bin/feedback.pl" METHOD=POST>
+<INPUT TYPE=HIDDEN NAME="CtlMailTo" value="doingfreedom@gbronline.com"></INPUT>
+<INPUT TYPE=HIDDEN NAME="CtlMailSubject" VALUE="DF Feedback 0203 Secure Messaging Michaels Feedback"></INPUT>
+________________________________
+<p>
+Please rate this article! Knowing what you like will help us provide the content you want.</p>
+<blockquote>
+<input TYPE="RADIO" NAME="Rating" VALUE="Bad"> Bad
+<input TYPE="RADIO" NAME="Rating" VALUE="Poor"> Poor
+<input TYPE="RADIO" NAME="Rating" VALUE="Average" CHECKED> Average
+<input TYPE="RADIO" NAME="Rating" VALUE="Good"> Good
+<input TYPE="RADIO" NAME="Rating" VALUE="Excellent"> Excellent</blockquote></P>
+<p>If there's anything specific you'd like to say about this article, please do so here. Comments may be used in an upcoming Letters to the Editor.</p>
+<blockquote>
+<p><textarea NAME="General Comments" ROWS="5" COLS="40"></textarea> <br>
+</p>
+  </blockquote>
+  <p><input TYPE="SUBMIT" VALUE="Tell us!"><br>
+     <input TYPE="RESET" VALUE="Clear Form"> </p>
+<INPUT TYPE=HIDDEN NAME="CtlNextURL" VALUE="/articlethanks.html"></INPUT>
+</form>
+</center>
+
+
+<p></td></tr></table>
+</center>
+<p>
+
+
+
+
+
+
+<!-- NEVER CHANGE ANYTHING PAST THIS POINT -->
+<CENTER><FONT SIZE=1 COLOR=#34019E>Copyright &copy; 2003 by <A HREF="mailto:doingfreedom@gbronline.com">Doing Freedom! magazine</A>. All rights reserved.</FONT></CENTER>
+</BODY>
+</HTML>
+
+

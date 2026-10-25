@@ -1,0 +1,354 @@
+<HTML>
+<HEAD>
+<TITLE>DOING FREEDOM! -- CYA -- Reliable, portable, and Cheap backup under Linux using CDR, by Lee N. Field</TITLE>
+<meta name="author" content="Lee N. Field">
+<meta name="description" content="Simplified backup for Linux">
+<META NAME="Keywords" CONTENT="libertarian, liberty, freedom, how-to, news, Linux, CDR backup, CYA">
+</HEAD>
+<BODY background=bkgd.gif BGCOLOR=WHITE LINK=black ALINK=red VLINK=black FONT=#34019E>
+<a href="index.html"><IMG SRC="minimast.gif" border=0></a>
+<!-- NEVER CHANGE ANYTHING TO THIS POINT! -->
+
+
+<P>
+
+<center>
+<p>
+<font size=5><b>CYA</b></font><br>
+<font size=4><b>Reliable, portable, and Cheap backup under Linux using CDR</b></font><br>
+by<br>
+<em>Lee N. Field</em>
+<p>
+</center>
+
+<center>
+<table width=600><tr><td>
+
+<p>
+
+What I do in this article is describe a method of doing backups to
+inexpensive CDR drives under Linux in a fast and portable way.  You
+can restore a system to a useful state in minimal time, with all your
+data, on any random computer capable of running Linux with a CDROM
+drive.
+
+<center><table width=400 border=0><tr><td>
+<p><font size=2><i>
+(This is Linux specific.  If you get this far, Windows users should
+look at Novabackup (http://www.novastor.com), a commercial package
+which directly supports CDR and CDRW.  They have a 30 day trial
+version for download.  The full version costs about $60.  None of the
+freebies I've seen work very well.  Mac users are on their own.)
+</i></font></p>
+</td></tr></table></center>
+<p>
+
+<b>The Problem</b><br>
+
+If you're somebody who actually uses your computer, as opposed to just
+playing with it, over time you accumulate information of value.
+Murphy's Law suggests that this information would be difficult, time
+consuming, or outright impossible to replace if you lost access to it.
+<p>
+You and your information can be separated in any number of ways.  You
+goof up.  Hard disks fail.  Houses burn down.  Computers get stolen.
+If you're suspected of a computer related crime, kiss your computer
+goodbye.
+<p>
+To cover these possibilities you need to keep a backups of your data.
+<p>
+The traditional way to backup for many years has been to backup to
+tape.  Historically tape has been relatively inexpensive per megabyte.
+Access to individual files is not very fast, but it doesn't need to
+be.
+<p>
+Backup to tape has disadvantages for the individual user.
+<p>
+Tape drives are expensive for the individual computer user.  Currently
+an entry level tape drive (a IDE interface Seagate TR-5 drive) costs
+~$250.  Better tape drives (ex. SCSI DAT drives, SLR drives and
+whatnot) cost $600 and up.  Way up.
+<p>
+Tape media is also relatively expensive.  A single "20GB" (actually
+10GB native, an optimistic 20GB compressed) TR-5 tape will cost you
+about $40 each.  100GB SLR tapes will cost over $100 each.  This is
+fine for a business, pricey for an individual.
+<p>
+There are too many different types of tape.  Capacities range from
+&lt;100MB to at least 100GB.  Compatibility problems are the <i>rule</i>.  Any
+given tape drive will usually read (but not necessarily write to) a
+few slightly older and lower capacity tape formats.  To be able to
+restore from old tapes, you have to keep have a tape drive of the same
+type around.  Over the years I've used a variety of tape drives for
+backup -- a 40MB Archive, an Irwin Accutrak, a Connor 250, A Conner
+QIC-3080, A Tandberg quarter inch 1.2GB, Iomega TR1, Seagate TR3 and
+others.  At this date I would have a hard time reading <i>anything</i> from
+<i>any</i> of those tapes, because I would have to rustle up a functioning
+compatible drive to read them with.
+<p>
+If my house burns down, if my computer is stolen or confiscated, if
+I'm hiding out and on the run, if I for any reason loose access to my
+computer and my backups were on some obscure tape format I would be
+paddleless up the proverbial creek.
+<p>
+
+<b>My Current Solution</b><br>
+
+IDE CDRW drives are currently very common.  Half the new computers out
+there come with one.  If you don't have one they are cheap to buy
+outright ($60 to $90 or so).  Media capacity per disk is 650-700 MB,
+and price per disk can be as low as $.10/disk.
+<p>
+I do not have a huge stash of pornography, MP3 files or warez to save.
+10+ years worth of accumulated email, documents, other files and my
+personal library of text files and images in my case amounts to about
+1.2GB of data to be backed up.
+<p>
+For a while I depended on an inelegant script I wrote that would 1)
+make a tar archive of half of my stuff, 2)make an iso image of the tar
+file, 3) burn the iso image to CDR using cdrecord, and 4) do it again
+with the other half.
+<p>
+In looking for something better I found cdbackup.  From the manual
+page: "cdbackup is a utility to make streaming backups to CD-R(W)
+disks. It's designed to work with any backup tool which writes the
+backup to stdout (like tar/cpio/afio)."  Cdbackup is not itself a
+backup program.  Cdbackup lets a traditional backup utility like tar
+write directly to the CDR drive.
+<p>
+
+<b>An Outline of The Gory Details of Getting This To Work</b><br>
+<ol>
+<li> If you haven't already, get your CDR drive to work on your Linux
+box.
+<p>
+There's a CDR HOWTO out there (see the Linux Documentation Project
+page at http://www.tldp.org/HOWTO/CD-Writing-HOWTO.html).  Read over
+the first chapter at least.  It's somewhat outdated.  You should not,
+for instance, need to recompile your kernel to get SCSI emulation
+support -- every modern distribution supports it out of the box.
+Chances are, all you will need to do is add the line
+'append=3D"hdc=3Dide-scsi"' (but see the HOWTO for exactly where and the
+syntax) to the appropriate section of your /etc/lilo.conf file, run
+lilo to finalize the change, reboot, and load the the ide-scsi module
+("insmod ide-scsi").
+<p>
+<li>Install cdbackup.
+<p>
+Under Debian Linux (my current distribution of choice), while logged
+in as root (the privileged administrative user) run "apt-get install
+cdbackup".  The apt package manager will install the most recent
+version it knows about, and any package that it depends on (like
+cdrecord and mkisofs).
+<p>
+With a Linux that doesn't use the Debian packaging system, download
+the cdbackup source tar file from http://www.muempf.de/cdbackup.html,
+unpack it and follow the instructions for installing it.  Also, make
+sure to install the cdrecord and mkisofs packages.
+<p>
+<li>Write a script to automate your backup.  Compose it in a text
+editor and save it to disk.
+<p>
+The script I currently use consists of a single line: "tar -c -v -f -
+/root /etc /home/lnf | cdbackup -d /dev/scd0 -r 0,0,0 -s 4 -v -l 640
+-m".
+<p>
+What's happening here?
+<p>
+"tar -c -v -f - /root /etc /home/lnf" creates an tar archive of the
+root user's home directory (/root), system configuration directory
+(/etc) and my personal home directory (/home/lnf), and routes it to
+the standard output.
+<p>
+The standard output is piped ("|") to. . . .
+<p>
+the cdbackup program ("cdbackup") which writes it out to the burner
+("-d /dev/scd0 -r 0,0,0"), at 4x speed ("-s 4"), using a media 640MB
+in size (-l 640).  "-m" indicates that the backup can be larger than a
+single disk.  "-v" makes it display enough information for you to
+follow what's going on.
+<p>
+<li>Make the script executable ("chmod 700 backupscript" where
+"backupscript" is whatever file name you saved your script as).
+<p>
+<li>Run it as root ("./backupscript").
+</ol>
+
+<p>
+<b>The far side -- restoring from backup onto a new system</b><br>
+
+Assume the worse.  You've come home.  Someone's been there while you
+were gone.  The place is trashed.  And you PC is gone.  Buy, beg,
+borrow or cobble together a replacement.
+<ol>
+<li>Install Linux.  Set up any users that need to be set up.
+<p>
+<li>Install cdbackup.
+<p>
+With Debian or a Debian derived Linux run "apt-get install cdbackup".
+The cdbackup package includes cdrestore.  Cdbackup depends on
+cdrecord, and the package manager will install it even if you don't
+have a cd burner on the target system.  This is OK.
+<p>
+If your version of Linux does not use the Debian packaging system
+(ex. Redhat) you will have to download the source code tar file from
+http://www.muempf.de/cdbackup.html, unpack it and follow the
+instructions for installing it.
+<p>
+<li>While logged in as root, put in the first backup CD and run
+cdrestore.  Ex. "cdrestore -d /dev/cdrom -l 640 -t 1 -m | tar xvf -"
+<p>
+What's happening here?
+<p>
+Cdrestore reads track 1 ("-t 1") of a 640MB disk ("-l 640") in the
+cdrom drive ("-d /dev/cdrom").  "-m" indicates that the archive can be
+larger than a single disk.  The output is piped ("|") to tar which
+extracts the archive to the current directory ("tar xvf -").  Restore
+to a temporary directory, not the original location.
+<p>
+<li>Move restored files to their proper places.  I find Midnight
+Commander ("mc") to be the easiest program to use for this. If you've
+got a new system up and running, you will probably <i>not</i> want to
+blindly overwrite all the configuration files in your /etc directory.
+Likewise, be careful overwriting the configuration files in your
+personal directory.
+</ol>
+<p>
+
+
+<b>Caveats and advice:</b><br>
+<ol>
+<li>Test your backup.  Test your ability to restore.  4X works reliably
+with most brands of CDR on my cheap old 8X Philips burner in my 500MHz
+system.  You'll need to experiment on your own system to see what is
+reliable.
+<p>
+<li>You should test your backup when you change to a different brand of
+media.  I'm currently working through a stack of Maxell 650MB disks
+that don't seem to work well on my system at 4X, but work fine at 2X.
+<p>
+<li>The backup program does not have to be tar.  It can be <i>any</i>
+program that writes to the standard output.  I use tar because I'm
+familiar with it.  Tar is also very portable.  Tar does not handle
+compression very well, so I don't use compression.
+<p>
+<li>RTFM, always.  Read the cdbackup and cdrestore man pages.  The
+exact options I use may not be what you would use on your system.
+Read the tar info page ("info tar") -- it's more comprehensive and
+better organized than the man page.
+<p>
+<li>Security: It can be as important to keep your data out of the hands
+of others as to be able to retrieve it yourself.
+<p>
+Any random individual trying to read a disk made with cdbackup will
+see <i>nothing</i> on the disk.  This provides some small amount of
+"security through obscurity".
+<p>
+The cdbackup man page specifically mentions cpio and afio as
+alternatives to tar.  I've experimented a bit with afio.  Afio has
+some interesting capabilities.  Among them is the option to encrypt
+the backup by running files through pgp or gpg (see the example
+scripts in /usr/share/doc/afio/examples/script3). 
+<p>
+<li>Watch sale fliers for computer and office supply stores for deals
+on media.  There will often be rebate deals that bring the price per
+disk down to $.10 or less.  I have yet to pay more than $15 for a 50
+pack of CDR disks.
+<p>
+<li>What to backup, what not to backup.
+<ul>
+<li>Back up your personal directory (/home/<your user id>).  Back up the system configuration directory (/etc).  If you have anything
+significant in the root user's directory (/root), back it up.  If you
+need to keep system logs, back up /var/log.  If you have mail in the
+mail spool, back up /var/spool/mail.
+<p>
+<li>You should not need to back up /bin, /sbin, /usr/bin, /lib, /boot or any other directory off of / that I haven't mentioned.  These will get remade with the new OS install.
+<p>
+<li>Do <i>not</i> try to backup /dev and /proc.  They're special.
+</ul>
+</ol>
+<p>
+<hr width=300 align=left>
+<p>
+<font size=2>
+<i>Copyright Anno Domini 2003 by "Lee N. Field" under<br>
+the terms of the Gnu <a href="http://www.fsf.org/licenses/fdl.txt" target=_top>Free Documentation License</a>.</i>
+</font>
+
+
+
+<p>
+<CENTER>
+________________________________
+
+<P><A HREF="/scripts/cmtproc.pl?article=/gen/0203/backup.html&title=Backup">Comment on this article</a><BR>
+
+
+<A HREF="/scripts/cmtproc.pl?view=/gen/0203/backup.html&title=Backup">View all comments on this article</A>
+</CENTER>
+<p>
+<CENTER>
+________________________________
+<p>
+
+<font color=blue size=2><b>
+Did you like this article?<br>
+Please consider rewarding the author's<br>
+hard work with a donation.<br>
+</b><font>
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+<input type="hidden" name="cmd" value="_xclick">
+<input type="hidden" name="business" value="doingfreedom@gbronline.com">
+<input type="hidden" name="item_name" value="DF! Donation 0203 Backup Field">
+<input type="hidden" name="item_number" value="Thanks!">
+<input type="image" src="https://www.paypal.com/images/x-click-but21.gif" border="0" name="submit" alt="PayPal"><br>
+<a href="https://www.paypal.com/refer/pal=VQQLYPNCLZRYA"><font size=1>Don't have PayPal yet?</font>
+</a>
+</form>
+</center>
+<p>
+
+<!-- banner ads here -->
+
+
+<!-- FEEDBACK FORM -->
+<center>
+<FORM action="/cgi-bin/feedback.pl" METHOD=POST>
+<INPUT TYPE=HIDDEN NAME="CtlMailTo" value="doingfreedom@gbronline.com"></INPUT>
+<INPUT TYPE=HIDDEN NAME="CtlMailSubject" VALUE="DF Feedback 0203 Backup Field Feedback"></INPUT>
+________________________________
+<p>
+Please rate this article! Knowing what you like will help us provide the content you want.</p>
+<blockquote>
+<input TYPE="RADIO" NAME="Rating" VALUE="Bad"> Bad
+<input TYPE="RADIO" NAME="Rating" VALUE="Poor"> Poor
+<input TYPE="RADIO" NAME="Rating" VALUE="Average" CHECKED> Average
+<input TYPE="RADIO" NAME="Rating" VALUE="Good"> Good
+<input TYPE="RADIO" NAME="Rating" VALUE="Excellent"> Excellent</blockquote></P>
+<p>If there's anything specific you'd like to say about this article, please do so here. Comments may be used in an upcoming Letters to the Editor.</p>
+<blockquote>
+<p><textarea NAME="General Comments" ROWS="5" COLS="40"></textarea> <br>
+</p>
+  </blockquote>
+  <p><input TYPE="SUBMIT" VALUE="Tell us!"><br>
+     <input TYPE="RESET" VALUE="Clear Form"> </p>
+<INPUT TYPE=HIDDEN NAME="CtlNextURL" VALUE="/articlethanks.html"></INPUT>
+</form>
+</center>
+
+
+<p></td></tr></table>
+</center>
+<p>
+
+
+
+
+
+
+<!-- NEVER CHANGE ANYTHING PAST THIS POINT -->
+<CENTER><FONT SIZE=1 COLOR=#34019E>Copyright &copy; 2003 by <A HREF="mailto:doingfreedom@gbronline.com">Doing Freedom! magazine</A>. All rights reserved.</FONT></CENTER>
+</BODY>
+</HTML>
+
+

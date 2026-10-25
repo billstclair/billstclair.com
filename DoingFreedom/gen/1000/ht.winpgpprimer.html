@@ -1,0 +1,71 @@
+<!doctype html public "-//w3c//dtd html 3.2//en">
+
+<html>
+
+<head>
+<title>Doing Freedom! 'zine: Windows PGP Primer</title>
+<meta name="GENERATOR" content="Arachnophilia 4.0">
+<meta name="FORMATTER" content="Arachnophilia 4.0">
+<META NAME="Author" CONTENT="Don Henson">
+<META NAME="keywords" CONTENT="freedom, PT, encryption, PGP, security, privacy, e-mail, private e-mail">
+<META NAME="description" CONTENT="A short primer on how to get started with Windows-based PGP.">
+</head>
+
+<body bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#800080" alink="#ff0000">
+
+<p>
+[This page is a mirror of
+<a href="http://www.doingfreedom.com/gen/1000/ht.winpgpprimer.html">
+this original</a>]
+</p>
+
+<CENTER><P><IMG SRC="../../images/masthead.gif" ALT="Doing Freedom masthead" HEIGHT=126 WIDTH=540></P></CENTER>
+
+<center><h1><FONT FACE="Palatino, Times New Roman, Georgia, Times, serif">So You Finally Got (Windows) PGP, Now What?</font></h1></center>
+
+<div align=right><FONT FACE="Palatino, Times New Roman, Georgia, Times, serif"><font size="+1"><b>Don Henson</b></font></div>
+
+<P><i>Editors' note: This article is designed to help people get started with PGP. It's brief enough to print out and hand out to people who aren't very computer-literate and need help getting started. It's also a great reference to give folks who've downloaded PGP but don't know what to do next, or who haven't even tried PGP because they think it's difficult. As a routine matter of ensuring privacy, we use PGP for as much correspondence as we can, and we encourage all sovereign individuals to do likewise. We encourage wide dissemination of this article!</i></font></P>
+
+<P><FONT FACE="Palatino, Times New Roman, Georgia, Times, serif">The first thing after installation is to create a public/private key pair. You keep the private half of the key and publish the other key (or send it to the people you want to send <i>you</i> private messages). The install probably already walked you through this, but if not, the Help system (see below) has instructions on it.
+
+<P>Now click on the icon that looks like a small padlock in your 'System Tray' (bottom right corner of your screen, where the clock is)--voila, the important PGP functions. Near the top of the menu, you should see 'Help'. Click on the Find tab near the top of the Help window and you will be able to search for help on different subjects. It's a good idea to read about passphrases here.</P>
+
+<P>Just as people need your public key to be able to encrypt to you, you need the public keys of people you want to send private messages to. Send an email to someone whom you know has PGP and ask them to send you their public key. If you don't know anyone, write me at <a href="mailto:wepin@wepin.com">wepin@wepin.com</a> and I'll send you my public key.  When you get the key, it will look like this:</p>
+
+<P>-----BEGIN PGP PUBLIC KEY BLOCK-----<br>
+Version: PGPfreeware X.x.x for non-commercial use &lthttp://www.pgp.com&gt</p>
+
+<P>CRCwXG43OvqykzcvAKC9bKdnfCxnCkLjI47mnY+/3yl/BQCg7ZPX2d9Q5rSdZSUl<br>
+PZEjh5QJz7o=
+<i> [THIS PART WILL BE MUCH LONGER!]</i><br>
+=rzY8<br>
+-----END PGP PUBLIC KEY BLOCK-----<P>
+
+<P>Highlight the entire key, including the ----- lines at the beginning and end and copy it to your clipboard (click/type "copy"). Then click on the PGP menu, click on "Clipboard" (the first menu selection upwards), and click on "Decrypt/Verify" (the fourth selection). You will get a dialog box asking if you want to import the key. Click on the 'Import' button and you're done. Sometimes, the key is attached to the email. In this case, just double-click on the attached file and you'll get the dialog box as above. Now you can encrypt to someone!</P>
+
+<P>To send your public key to someone else, create a normal email to that person. In PGPkeys, click on your key, and then copy it to the clipboard. Go back to your message and click/type "paste". Your public key will be pasted into your e-mail, which you can now send in the usual way and the recipient. Now they can encrypt to you!</P>
+
+<P>Now that you can send encrypted messages to the person you've exchanged keys with, and receive them, how do you do it? It's just like sending a key:  Create a normal e-mail message, then select all the text and <b>cut</B> it to the clipboard. (<i><b>Don't</b></i> <b>copy</b> it to the clipboard, because when you paste the encrypted message back in, you may accidentally end up with both the encrypted and clear messages in your e-mail.) Click on the PGP menu, and select "Clipboard", then select "encrypt". PGP has now replaced the clear message with an encrypted one on your clipboard.  All you have to do is paste it into your message and send it.</P>
+
+<P>To decrypt a message, you do the same thing you did with the key you received: highlight the message, including the ----- lines at the beginning and end and copy it to your clipboard. Then click on the PGP menu, click on "Clipboard", and click on "Decrypt/Verify". You'll get a box showing the decrypted message, which you can read and discard, or click on "Copy to Clipboard" and then paste it into your word processor, or an e-mail composition window to work on.</P>
+
+<P><font size="+1">That's <i>it</i>!</font></P>
+
+<P>There are easier ways to do some of these things if you have the Outlook Express, Eudora, or other plug-ins, but this <i>will</i> work and will get you going.
+
+<P><FONT FACE="Palatino, Times New Roman, Georgia, Times, serif">(c) 2000</FONT></P>
+
+<CENTER><P><IMG SRC="../../images/hbarblue.gif" ALT="hbar" HEIGHT=8 WIDTH=509></P></CENTER>
+
+<CENTER><P><FONT FACE="Palatino, Times New Roman, Georgia, Times, serif"><A HREF="1000.toc.html">Table
+of Contents</A></FONT></P></CENTER>
+
+<CENTER><P><FONT FACE="Palatino, Times New Roman, Georgia, Times, serif"><A HREF="mailto:sunni@free-market.net?subject=LTE Windoze PGP Primer">Write a Letter to the Editor</A></FONT></P></CENTER>
+
+<CENTER><P><FONT FACE="Palatino, Times New Roman, Georgia, Times, serif"><A HREF="../../scripts/cmtproc.pl?article=ht.winpgpprimer.html&title=Windows+PGP+Primer">Comment on this article<BR>
+</A><A HREF="../../scripts/cmtproc.pl?view=ht.winpgpprimer.html&title=Windows+PGP+Primer">View all comments on this article</A></FONT></P></CENTER>
+
+</body>
+
+</html>
