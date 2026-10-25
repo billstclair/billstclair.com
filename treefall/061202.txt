@@ -1,0 +1,32 @@
+<!--Technorati-->
+{pl "technorati"}
+The imacPr0n blog now has a
+<a href="http://www.technorati.com/claim/iepthjrjst" rel="me">Technorati Profile</a>.
+
+{pl "apps"}
+Luis at The Blog from Another Dimension -
+<a href="http://www.blogd.com/archives/002195.html">
+Cool Free Mac Apps</a> - nice list of free apps for your Macintosh,
+with informative descriptions:
+<a href="http://amarsagoo.info/namely/index.shtml">
+Namely</a> (quick app launcher),
+<a href="http://www.yousoftware.com/itunes/">
+You Control iTunes</a> (menu bar iTunes controller),
+<a href="http://skype.com/">
+Skype</a> (Voice, text & video over IP, 2.0 & 2.5 beta available for OSX),
+<a href="http://jedict.com/">
+JEDict (Japanese dictionary)</a>,
+<a href="http://www.titanium.free.fr/pgs2/english/onyx.html">
+Onyx (more system preferences)</a>,
+<a href="http://burn-osx.sourceforge.net/">
+Burn</a> (Toast-like CD burner),
+<a href="http://www.metaquark.de/aurora/">
+Aurora</a> (alarm clock),
+<a href="http://www.videolan.org/">
+VLC</a> (Media Player),
+<a href="http://www.flip4mac.com/">
+Flip4Mac</a> (QuickTime WMV plug-in),
+<a href="http://perian.org/">
+Perian</a> (QuickTime AVI & Flash plug-in). I installed Namely,
+Aurora, and Flip4Mac. 
+
