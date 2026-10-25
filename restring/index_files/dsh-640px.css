@@ -1,0 +1,38 @@
+@charset "UTF-8";
+
+#container {
+	max-width: 960px;
+	width:auto;
+}
+
+img {
+	max-width: 93%; /* Leave space for frame */
+	height: auto;
+	width: auto\9; /* ie8 */
+}
+img.door {
+	width:auto;
+	max-width:none;
+}
+
+/* Undo the floats on selected items */
+.float-2-boxes, .float-350-r, .float-450-r {
+	float:none;
+	clear:both;
+	width:auto;
+}
+
+
+#footer-l, #footer-r {
+	clear:both;
+	float:none;
+	width:auto;
+}
+#footer-l {
+	text-align:center;
+}
+
+p.mobile {
+	display:block;
+	color:red;
+}

@@ -1,0 +1,50 @@
+@charset "UTF-8";
+
+#footer {
+	border-top: 1px solid #E8E;
+	border-bottom: 1px solid #D7D;
+}
+
+.background {
+	background: #EBE;
+	border-top: 1px solid #F9F;
+	border-bottom: 1px solid #D7D;
+}
+.topcolour {
+	border-top: 1px solid #E8E;
+}
+
+a:link {
+	color: #A6A;
+	font-weight: bold;
+}
+a:hover {
+	text-decoration: underline;
+	color: #DAD;
+}
+
+/* Menu colours for this floor */
+#navcontainer li.active a, #subnavcontainer li.active a {
+	background-color:#EBE;
+	background: -webkit-linear-gradient(#DAD, #FCF); /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient(#DAD, #FCF); /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(#DAD, #FCF); /* For Firefox 3.6 to 15 */
+	background: linear-gradient(#DAD, #FCF); /* Standard syntax */
+	border-top: 1px solid #DAD;
+	border-bottom: 1px solid #FCF;
+}
+
+#navcontainer li.active a:hover, #subnavcontainer li.active a:hover {
+	background-color:#DAD;
+	background: -webkit-linear-gradient(#C9C, #EBE); /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient(#C9C, #EBE); /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(#C9C, #EBE); /* For Firefox 3.6 to 15 */
+	background: linear-gradient(#C9C, #EBE); /* Standard syntax */
+	border-top: 1px solid #C9C;
+	border-bottom: 1px solid #EBE;
+}
+
+#subnavcontainer {
+	border-top: 2px solid #EBE;
+}
+

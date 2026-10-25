@@ -1,0 +1,21 @@
+@charset "UTF-8";
+
+#container {
+	max-width: 960px;
+	width:auto;
+}
+
+#masthead h1 {
+	clear:both; /* Tuck under the other items */
+}
+
+img {
+	max-width: 93%; /* Leave space for frame */
+	height: auto;
+	width: auto\9; /* ie8 */
+}
+
+img.door {
+	width:auto;
+	max-width:none;
+}
