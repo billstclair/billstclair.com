@@ -1,0 +1,189 @@
+<html>
+
+<head>
+<title>California Aquaculture</title>
+<meta http-equiv="Content-style-type" content="text/css">
+<link Rel="stylesheet" HREF="../aqua.css" type="text/css">
+
+
+<script language="JavaScript">
+<!--
+////////////////
+
+function round(n)
+{
+	number = new Number(n);
+	return Math.round(number*100000000)/100000000;
+}
+
+function calc()
+{
+	var W  = new Number(document.frm.W.value);
+	var WU = new Number(document.frm.WU.selectedIndex);
+	var W0,W1,W2,W3,W4,W5;
+	var kwhr = 0;
+	
+	W0=W1=W2=W3=W4=W5=W6=0;
+	
+	// convert the WORK to common kwhr first
+	if(WU == 0) kwhr = W / (3413 * 100000);		// therm
+	if(WU == 1) kwhr = W / (3413 * 778.3); 		// ft*lb
+	if(WU == 2) kwhr = W / 3413; 			// BTU
+	if(WU == 3) kwhr = W / 860; 			// kcal
+	if(WU == 4) kwhr = W / 1.341; 			// hp*hr
+	if(WU == 5) kwhr = W; 				// kw*hr
+	
+
+	// convert from watt to various units
+	W0 = kwhr * (3413 * 100000);
+	W1 = kwhr * (3413 * 778.3);
+	W2 = kwhr * 3413;
+	W3 = kwhr * 860;
+	W4 = kwhr * 1.341;
+	W5 = kwhr;
+	
+	// set the form values
+	document.frm.W0.value = round(W0);
+	document.frm.W1.value = round(W1);
+	document.frm.W2.value = round(W2);
+	document.frm.W3.value = round(W3);
+	document.frm.W4.value = round(W4);
+	document.frm.W5.value = round(W5);
+}
+
+// --></script>
+</head>
+
+<body onLoad="calc()">
+
+<table border="0" width="100%">
+  <tr>
+    <td width="100%" colspan="2">
+
+<p><img SRC="../images/logo2.gif" ALIGN="left" ALT="California Aquaculture Logo." WIDTH="123" HEIGHT="150"> </p>
+
+<p class="heading1">California Aquaculture</p>
+
+<p class="heading2">University of California Davis
+</td><td><img SRC="../images/ucdavis_seal_blue_med_trans.gif" ALIGN="right" ALT="UC Davis Seal" width="110" height="110" >
+</td>
+  </tr>
+  <tr>
+    <td width="20%" valign="top">
+
+<table border="0">
+  <tr>
+    <td><a HREF="../default.html"><img src="../images/homef.gif" class="test" width="164" height="25" alt="Homepage"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="../dbweb/outreach/aqua/default.htm"><img src="../images/pubf.gif" width="164" height="25" alt="Publications"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="toolsnf.html"><img src="../images/convf.gif" width="164" height="25" alt="Publications"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="../publications/publicationsnf.html"><img src="../images/libf.gif" width="164" height="25" alt="Publications"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="../links/linksnf.html"><img src="../images/linksf.gif" width="164" height="25" alt="Links"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="../koi-wg/koinf.html"><img src="../images/koif.gif" width="164" height="25" alt="Koi &amp; Watergardens"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="../organizations/organizationsnf.html"><img src="../images/orgf.gif" class="test" width="164" height="25" alt="Organizations and Centers"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="../education/educationnf.html"><img src="../images/educf.gif" width="164" height="25" alt="Education"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="../government/governmentnf.html"><img src="../images/govf.gif" width="164" height="25" alt="Government and Agencies"></a></td>
+  </tr>
+  
+  <tr>
+    <td><a HREF="../aboutnf.html"><img src="../images/aboutf.gif" width="164" height="25" alt="About Our Site"></a></td>
+  </tr>
+    <tr>
+    <td><a HREF="../searchnf.html"><img src="../images/searchf.gif" width="164" height="25" alt="Search Our Site"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="../tools/ftptoolsnf.html"><img src="../images/toolsf.gif" width="164" height="25" alt="FTP Tools"></a></td>
+  </tr>
+</table>
+</td>
+    <td width="80%" valign="top">
+<form method="POST" name="frm">
+  <table cellspacing="0" cellpadding="0" border="0" bdgcolor="white">
+    <tr>
+      <td style="background-color: teal;color: black" colspan="2"><h1>Conversion: <small>Work</small></h1>
+      </td>
+      <td style="background-color: teal" valign="top" align="left" rowspan="3">&nbsp;&nbsp;&nbsp;
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" align="center" style="background-color: teal">&nbsp;</td>
+      <td><div align="left"><table border="1" cellpadding="3" cellspacing="0">
+        <tr>
+          <td><div align="left"><table border="1" cellpadding="3" width="620">
+            <tr>
+              <td valign="top" align="left" width="113"><input type="text" name="W" size="15" OnKeyup="calc()" onChange="calc()" onKeyup="calc()" value="1"></td>
+              <td valign="top" align="left" width="74"><select name="WU" size="1" onChange="calc()">
+                <option value="therm">Therm</option>
+                <option value="ft*lb">Foot Pound</option>
+                <option value="Btu">Btu</option>
+                <option value="kcal">Kilocalorie</option>
+		<option value="hp*hr">Horse Power Hour</option>
+                <option selected value="kw*hr">Kilowatt Hour</option>
+              </select></td>
+              <td valign="top" align="left" width="9" colspan="2"><b>IS:<b></td></tr>
+<tr>
+<td colspan="4">&nbsp;</td></tr>
+<tr>
+<tr>
+              <td valign="top" align="left">Therm</td>
+<td valign="top" align="left" >Foot Pound (ft&middot;lb)</td>
+<td valign="top" align="left" >Btu</td>
+
+            </tr>
+              <td valign="top" align="left" width="150"><input type="text" name="W0" size="15" onChange="calc()" onKeyup="calc()"></td>
+<td valign="top" align="left" width="150"><input type="text" name="W1" size="15" onChange="calc()" onKeyup="calc()"></td>
+<td valign="top" align="left" width="150"><input type="text" name="W2" size="15" onChange="calc()" onKeyup="calc()"></td>
+</tr>
+
+
+
+
+
+
+
+<tr>
+<td colspan="4">&nbsp;</td></tr>
+<tr>
+ <tr>
+<td valign="top" align="left">Kilocalorie (kcal)</td>
+<td valign="top" align="left">Horse Power Hour (hp&middot;hr)</td>
+<td valign="top" align="left">Kilowatt Hour (kw&middot;hr)</td>
+</tr>        
+<tr>
+<td width="30%" valign="top" align="left" width="150"><input type="text" name="W3" size="15" onChange="calc()" onKeyup="calc()"></td>
+<td width="30%" valign="top" align="left" width="150"><input type="text" name="W4" size="15" onChange="calc()" onKeyup="calc()"></td>
+<td width="30%" valign="top" align="left" width="150"><input type="text" name="W5" size="15" onChange="calc()" onKeyup="calc()"></td>
+
+</tr>
+
+          </table>
+          </div></td>
+        </tr>
+      </table>
+      </div></td>
+    </tr>
+    <tr align="center">
+      <td valign="top" align="left" style="background-color: teal" colspan="2">&nbsp;</td>
+    </tr>
+  </table>
+</form>
+</td>
+  </tr>
+</table>
+</body>
+</html>

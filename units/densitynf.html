@@ -1,0 +1,157 @@
+<html>
+
+<head>
+<title>California Aquaculture</title>
+<meta http-equiv="Content-style-type" content="text/css">
+<link Rel="stylesheet" HREF="../aqua.css" type="text/css">
+
+
+<script language="JavaScript">
+<!--
+////////////////
+
+function round(n)
+{
+	number = new Number(n);
+	return Math.round(number*100000000)/100000000;
+}
+
+function calc()
+{
+	var V  = new Number(document.frm.V.value);
+	var VU = new Number(document.frm.VU.selectedIndex);
+	var W0,W1;
+	var l = 0;
+	
+	W0=W1=0;
+	
+	// convert the Volume to pound
+	if(VU == 0) W0 = V * 62.36;	// ft^3
+	if(VU == 1) W0 = V * 8.336; 	// gal
+	if(VU == 2) W0 = V * 2.205;	// l
+	
+	// convert the Volume to kilogram
+	if(VU == 0) W1 = V * 28.29;	// ft^3
+	if(VU == 1) W1 = V * 3.781; 	// gal
+	if(VU == 2) W1 = V * 1;		// l	
+
+	
+	
+	// set the form values
+	document.frm.W0.value = round(W0);
+	document.frm.W1.value = round(W1);
+}
+
+// --></script>
+</head>
+
+<body onLoad="calc()">
+
+<table border="0" width="100%">
+  <tr>
+    <td width="100%" colspan="2">
+
+<p><img SRC="../images/logo2.gif" ALIGN="left" ALT="California Aquaculture Logo." WIDTH="123" HEIGHT="150"> </p>
+
+<p class="heading1">California Aquaculture</p>
+
+<p class="heading2">University of California Davis
+</td><td><img SRC="../images/ucdavis_seal_blue_med_trans.gif" ALIGN="right" ALT="UC Davis Seal" width="110" height="110" >
+</td>
+  </tr>
+  <tr>
+    <td width="20%" valign="top">
+
+<table border="0">
+  <tr>
+    <td><a HREF="../default.html"><img src="../images/homef.gif" class="test" width="164" height="25" alt="Homepage"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="../dbweb/outreach/aqua/default.htm"><img src="../images/pubf.gif" width="164" height="25" alt="Publications"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="toolsnf.html"><img src="../images/convf.gif" width="164" height="25" alt="Publications"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="../publications/publicationsnf.html"><img src="../images/libf.gif" width="164" height="25" alt="Publications"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="../links/linksnf.html"><img src="../images/linksf.gif" width="164" height="25" alt="Links"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="../koi-wg/koinf.html"><img src="../images/koif.gif" width="164" height="25" alt="Koi &amp; Watergardens"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="../organizations/organizationsnf.html"><img src="../images/orgf.gif" class="test" width="164" height="25" alt="Organizations and Centers"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="../education/educationnf.html"><img src="../images/educf.gif" width="164" height="25" alt="Education"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="../government/governmentnf.html"><img src="../images/govf.gif" width="164" height="25" alt="Government and Agencies"></a></td>
+  </tr>
+  
+  <tr>
+    <td><a HREF="../aboutnf.html"><img src="../images/aboutf.gif" width="164" height="25" alt="About Our Site"></a></td>
+  </tr>
+    <tr>
+    <td><a HREF="../searchnf.html"><img src="../images/searchf.gif" width="164" height="25" alt="Search Our Site"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="../tools/ftptoolsnf.html"><img src="../images/toolsf.gif" width="164" height="25" alt="FTP Tools"></a></td>
+  </tr>
+</table>
+</td>
+    <td width="80%" valign="top">
+<form method="POST" name="frm">
+  <table cellspacing="0" cellpadding="0" border="0" bdgcolor="white">
+    <tr>
+      <td style="background-color: teal;color: black" colspan="2"><h1>Conversion: <small>Density of Water<sup>*</sup></small></h1>
+      </td>
+      <td style="background-color: teal" valign="top" align="left" rowspan="3">&nbsp;&nbsp;&nbsp;
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" align="center" style="background-color: teal">&nbsp;</td>
+      <td><div align="left"><table border="0" cellpadding="3" cellspacing="0">
+        <tr>
+          <td><div align="left"><table border="0" cellpadding="3" width="441">
+            <tr>
+              <td valign="top" align="left" width="113"><input type="text" name="V" size="15" OnKeyup="calc()" onChange="calc()" onKeyup="calc()" value="1"></td>
+              <td valign="top" align="left" width="74"><select name="VU" size="1" onChange="calc()">
+                <option selected value="ft^3">Cubic Feet</option>
+                <option value="gal">Gallon</option>
+                <option value="l">Liter</option>
+              </select></td>
+              <td valign="top" align="left" width="9" colspan="2"><b>IS:<b></td></tr>
+<tr>
+<td colspan="4">&nbsp;</td></tr>
+
+<tr>
+              <td valign="top" align="left">Pound (lb)</td>
+<td valign="top" align="left" >Kilogram (kg)</td>
+            </tr>
+              <td valign="top" align="left" width="150"><input type="text" name="W0" size="15" onChange="calc()" onKeyup="calc()"></td>
+<td valign="top" align="left" width="150"><input type="text" name="W1" size="15" onChange="calc()" onKeyup="calc()"></td>
+</tr>
+<tr>
+	<td><sup>*</sup> at 17&deg;C (~62&deg;F)</td>
+</td>
+
+
+          </table>
+          </div></td>
+        </tr>
+      </table>
+      </div></td>
+    </tr>
+    <tr align="center">
+      <td valign="top" align="left" style="background-color: teal" colspan="2">&nbsp;</td>
+    </tr>
+  </table>
+</form>
+</td>
+  </tr>
+</table>
+</body>
+</html>

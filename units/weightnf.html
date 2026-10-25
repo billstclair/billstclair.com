@@ -1,0 +1,200 @@
+<html>
+
+<head>
+<title>California Aquaculture</title>
+<meta http-equiv="Content-style-type" content="text/css">
+<link Rel="stylesheet" HREF="../aqua.css" type="text/css">
+
+
+<script language="JavaScript">
+<!--
+////////////////
+
+function round(n)
+{
+	number = new Number(n);
+	return Math.round(number*1000000)/1000000;
+}
+
+function calc()
+{
+	var W  = new Number(document.frm.W.value);
+	var WU = new Number(document.frm.WU.selectedIndex);
+	var W1,W2,W3,W4,W5,W6,W7,W8;
+	var grams = 0;
+	
+	W1=W2=W3=W4=W5=W6=W7=W8=0;
+	
+	// convert the weight to common gram first
+	if(WU == 0) grams = W * 1000000;		// Metric Ton
+	if(WU == 1) grams = W * 1000; 			// kg
+	if(WU == 2) grams = W * 1; 			// g
+	if(WU == 3) grams = W / 1000; 			// mg
+	if(WU == 4) grams = W * 2000 * 453.6; 		// English Ton
+	if(WU == 5) grams = W * 453.6; 			// lb
+	if(WU == 6) grams = W * 28.35; 			// oz
+	if(WU == 7) grams = W * .06481			// grains
+
+	// convert from gram to various things
+	W1 = grams /1000000;
+	W2 = grams /1000;
+	W3 = grams;
+	W4 = grams * 1000;
+	W5 = grams /(.06481);
+	W6 = grams /(2000 * 453.6);
+	W7 = grams /(453.6);
+	W8 = grams /(28.35);
+
+	// set the form values
+	document.frm.W1.value = round(W1);
+	document.frm.W2.value = round(W2);
+	document.frm.W3.value = round(W3);
+	document.frm.W4.value = round(W4);
+	document.frm.W5.value = round(W5);
+	document.frm.W6.value = round(W6);
+	document.frm.W7.value = round(W7);
+	document.frm.W8.value = round(W8);
+}
+
+// --></script>
+</head>
+
+<body onLoad="calc()">
+
+<table border="0" width="100%">
+  <tr>
+    <td width="100%" colspan="2">
+
+<p><img SRC="../images/logo2.gif" ALIGN="left" ALT="California Aquaculture Logo." WIDTH="123" HEIGHT="150"> </p>
+
+<p class="heading1">California Aquaculture</p>
+
+<p class="heading2">University of California Davis
+</td><td><img SRC="../images/ucdavis_seal_blue_med_trans.gif" ALIGN="right" ALT="UC Davis Seal" width="110" height="110" >
+</td>
+  </tr>
+  <tr>
+    <td width="20%" valign="top">
+
+<table border="0">
+  <tr>
+    <td><a HREF="../default.html"><img src="../images/homef.gif" class="test" width="164" height="25" alt="Homepage"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="../dbweb/outreach/aqua/default.htm"><img src="../images/pubf.gif" width="164" height="25" alt="Publications"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="toolsnf.html"><img src="../images/convf.gif" width="164" height="25" alt="Publications"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="../publications/publicationsnf.html"><img src="../images/libf.gif" width="164" height="25" alt="Publications"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="../links/linksnf.html"><img src="../images/linksf.gif" width="164" height="25" alt="Links"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="../koi-wg/koinf.html"><img src="../images/koif.gif" width="164" height="25" alt="Koi &amp; Watergardens"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="../organizations/organizationsnf.html"><img src="../images/orgf.gif" class="test" width="164" height="25" alt="Organizations and Centers"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="../education/educationnf.html"><img src="../images/educf.gif" width="164" height="25" alt="Education"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="../government/governmentnf.html"><img src="../images/govf.gif" width="164" height="25" alt="Government and Agencies"></a></td>
+  </tr>
+  
+  <tr>
+    <td><a HREF="../aboutnf.html"><img src="../images/aboutf.gif" width="164" height="25" alt="About Our Site"></a></td>
+  </tr>
+    <tr>
+    <td><a HREF="../searchnf.html"><img src="../images/searchf.gif" width="164" height="25" alt="Search Our Site"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="../tools/ftptoolsnf.html"><img src="../images/toolsf.gif" width="164" height="25" alt="FTP Tools"></a></td>
+  </tr>
+</table>
+</td>
+    <td width="80%" valign="top">
+<form method="POST" name="frm">
+  <table cellspacing="0" cellpadding="0" border="0" bdgcolor="white">
+    <tr>
+      <td style="background-color: teal;color: black" colspan="2"><h1>Conversion: <small>Weight</small></h1>
+      </td>
+      <td style="background-color: teal" valign="top" align="left" rowspan="3">&nbsp;&nbsp;&nbsp;
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" align="center" style="background-color: teal">&nbsp;</td>
+      <td><div align="left"><table border="0" cellpadding="3" cellspacing="0">
+        <tr>
+          <td><div align="left"><table border="0" cellpadding="3" width="441">
+            <tr>
+              <td valign="top" align="left" width="113"><input type="text" name="W" size="15" OnKeyup="calc()" onChange="calc()" onKeyup="calc()" value="1"></td>
+              <td valign="top" align="left" width="74"><select name="WU" size="1" onChange="calc()">
+                <option value="Metric Ton">Metric Ton</option>
+                <option value="kg">kg</option>
+                <option selected value="g">g</option>
+                <option value="mg">mg</option>
+		<option value="English Ton">English Ton</option>
+                <option value="lb">lb</option>
+                <option value="oz">oz</option>
+		<option value="grains">grains</option>
+              </select></td>
+              <td valign="top" align="left" width="9" colspan="2"><b>IS:<b></td></tr>
+<tr>
+<td colspan="4">&nbsp;</td></tr>
+<tr>
+<tr>
+              <td valign="top" align="left">MetricTon (t)</td>
+<td valign="top" align="left" >Kilogram (kg)</td>
+<td valign="top" align="left" >Gram (g)</td>
+<td valign="top" align="left" >Milligram (mg)</td>
+
+            </tr>
+              <td valign="top" align="left" width="150"><input type="text" name="W1" size="15" onChange="calc()" onKeyup="calc()"></td>
+<td valign="top" align="left" width="150"><input type="text" name="W2" size="15" onChange="calc()" onKeyup="calc()"></td>
+<td valign="top" align="left" width="150"><input type="text" name="W3" size="15" onChange="calc()" onKeyup="calc()"></td>
+<td valign="top" align="left" width="150"><input type="text" name="W4" size="15" onChange="calc()" onKeyup="calc()"></td>
+
+</tr>
+
+
+
+
+
+
+
+<tr>
+<td colspan="4">&nbsp;</td></tr>
+<tr>
+ <tr>
+<td valign="top" align="left">EnglishTon</td>
+<td valign="top" align="left">Pound (lb)</td>
+<td valign="top" align="left">Ounce (oz)</td>
+<td valign="top" align="left">Grains</td>
+</tr>        
+<tr>
+<td valign="top" align="left" width="150"><input type="text" name="W6" size="15" onChange="calc()" onKeyup="calc()"></td>
+<td valign="top" align="left" width="150"><input type="text" name="W7" size="15" onChange="calc()" onKeyup="calc()"></td>
+<td valign="top" align="left" width="150"><input type="text" name="W8" size="15" onChange="calc()" onKeyup="calc()"></td>
+<td valign="top" align="left" width="150"><input type="text" name="W5" size="15" onChange="calc()" onKeyup="calc()"></td>
+</tr>
+
+          </table>
+          </div></td>
+        </tr>
+      </table>
+      </div></td>
+    </tr>
+    <tr align="center">
+      <td valign="top" align="left" style="background-color: teal" colspan="2">&nbsp;</td>
+    </tr>
+  </table>
+</form>
+</td>
+  </tr>
+</table>
+</body>
+</html>

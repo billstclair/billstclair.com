@@ -1,0 +1,154 @@
+<html>
+
+<head>
+<title>California Aquaculture</title>
+<meta http-equiv="Content-style-type" content="text/css">
+<link Rel="stylesheet" HREF="../aqua.css" type="text/css">
+
+
+<script language="JavaScript">
+<!--
+////////////////
+
+function round(n)
+{
+	number = new Number(n);
+	return Math.round(number*100)/100;
+}
+
+function calcetom()
+{
+	var lbacre  = new Number(document.frm.E.value);
+	var YM;
+	
+	YM = lbacre / .8922;
+	
+	// set the form values
+	document.frm.YM.value = round(YM);
+	
+}
+
+function calcmtoe()
+{
+	var kgha  = new Number(document.frm.M.value);
+	var YE;
+	
+	YE = kgha / 1.121;
+	
+	// set the form values
+	document.frm.YE.value = round(YE);
+}
+
+// --></script>
+</head>
+
+<body onLoad="calcmtoe(),calcetom()">
+
+<table border="0" width="100%">
+  <tr>
+    <td width="100%" colspan="2">
+
+<p><img SRC="../images/logo2.gif" ALIGN="left" ALT="California Aquaculture Logo." WIDTH="123" HEIGHT="150"> </p>
+
+<p class="heading1">California Aquaculture</p>
+
+<p class="heading2">University of California Davis
+</td><td><img SRC="../images/ucdavis_seal_blue_med_trans.gif" ALIGN="right" ALT="UC Davis Seal" width="110" height="110" >
+</td>
+  </tr>
+  <tr>
+    <td width="20%" valign="top">
+
+<table border="0">
+  <tr>
+    <td><a HREF="../default.html"><img src="../images/homef.gif" class="test" width="164" height="25" alt="Homepage"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="../dbweb/outreach/aqua/default.htm"><img src="../images/pubf.gif" width="164" height="25" alt="Publications"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="toolsnf.html"><img src="../images/convf.gif" width="164" height="25" alt="Publications"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="../publications/publicationsnf.html"><img src="../images/libf.gif" width="164" height="25" alt="Publications"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="../links/linksnf.html"><img src="../images/linksf.gif" width="164" height="25" alt="Links"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="../koi-wg/koinf.html"><img src="../images/koif.gif" width="164" height="25" alt="Koi &amp; Watergardens"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="../organizations/organizationsnf.html"><img src="../images/orgf.gif" class="test" width="164" height="25" alt="Organizations and Centers"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="../education/educationnf.html"><img src="../images/educf.gif" width="164" height="25" alt="Education"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="../government/governmentnf.html"><img src="../images/govf.gif" width="164" height="25" alt="Government and Agencies"></a></td>
+  </tr>
+  
+  <tr>
+    <td><a HREF="../aboutnf.html"><img src="../images/aboutf.gif" width="164" height="25" alt="About Our Site"></a></td>
+  </tr>
+    <tr>
+    <td><a HREF="../searchnf.html"><img src="../images/searchf.gif" width="164" height="25" alt="Search Our Site"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="../tools/ftptoolsnf.html"><img src="../images/toolsf.gif" width="164" height="25" alt="FTP Tools"></a></td>
+  </tr>
+</table>
+</td>
+    <td width="80%" valign="top">
+<form method="POST" name="frm">
+  <table cellspacing="0" cellpadding="0" border="0" bdgcolor="white" width="100%">
+    <tr>
+      <td style="background-color: teal;color: black" colspan="2"><h1>Conversion: <small>Yield</small></h1>
+      </td>
+      <td style="background-color: teal" valign="top" align="left" rowspan="3">&nbsp;&nbsp;&nbsp;
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" align="center" style="background-color: teal">&nbsp;</td>
+      <td><div align="left"><table border="0" cellpadding="3" cellspacing="0" width="100%">
+        <tr>
+          <td><div align="left"><table border="0" cellpadding="3" width="100%">
+<tr>
+<td>&nbsp;</td>
+</tr>
+            <tr>
+              <td valign="top" align="left" ><input type="text" name="E" size="15" OnKeyup="calcetom()" onChange="calcetom()" onKeyup="calcetom()" value="1"></td>
+              <td valign="top" align="left" width="35%"><b>Pounds per Acre (lb/acre) &nbsp;&nbsp;IS:<b></td>
+<td valign="top" align="left" ><input type="text" name="YM" size="15" onChange="calcetom()" onKeyup="calcetom()"></td>
+<td swidth="40%"><b>Kilograms per Hectare (kg/ha)<b></td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+</tr>
+<tr>
+              <td valign="top" align="left" ><input type="text" name="M" size="15" OnKeyup="calcmtoe()" onChange="calcmtoe()" onKeyup="calcmtoe()" value="1"></td>
+              <td valign="top" align="left"><b>Kilograms per Hectare (kg/ha) &nbsp;&nbsp;IS: <b></td>
+<td valign="top" align="left" ><input type="text" name="YE" size="15" onChange="calcmtoe()" onKeyup="calcmtoe()"></td>
+<td><b>Pounds per Acre (lb/acre)<b></td>
+<tr>
+<td>&nbsp;</td>
+</tr>
+          </table>
+          </div></td>
+        </tr>
+      </table>
+      </div></td>
+    </tr>
+    <tr align="center">
+      <td valign="top" align="left" style="background-color: teal" colspan="2">&nbsp;</td>
+    </tr>
+  </table>
+</form>
+</td>
+  </tr>
+</table>
+</body>
+</html>

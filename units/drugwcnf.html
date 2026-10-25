@@ -1,0 +1,155 @@
+<html>
+
+<head>
+<title>California Aquaculture</title>
+<meta http-equiv="Content-style-type" content="text/css">
+<link Rel="stylesheet" HREF="../aqua.css" type="text/css">
+
+
+<script language="JavaScript">
+<!--
+////////////////
+
+function round(n)
+{
+	number = new Number(n);
+	return Math.round(number*100000)/100000;
+}
+
+function calc()
+{
+	var W  = new Number(document.frm.W.value);
+	var D = new Number(document.frm.D.value);
+	var T = new Number(document.frm.T.value);
+	var W0 = 0;
+	
+
+	//Multiply values
+	W0 = (W / 100) * D * T
+
+	
+	// set the form values
+	document.frm.W0.value = round(W0);
+}
+
+// --></script>
+</head>
+
+<body onLoad="calc()">
+
+<table border="0" width="100%">
+  <tr>
+    <td width="100%" colspan="2">
+
+<p><img SRC="../images/logo2.gif" ALIGN="left" ALT="California Aquaculture Logo." WIDTH="123" HEIGHT="150"> </p>
+
+<p class="heading1">California Aquaculture</p>
+
+<p class="heading2">University of California Davis
+</td><td><img SRC="../images/ucdavis_seal_blue_med_trans.gif" ALIGN="right" ALT="UC Davis Seal" width="110" height="110" >
+</td>
+  </tr>
+  <tr>
+    <td width="20%" valign="top">
+
+<table border="0">
+  <tr>
+    <td><a HREF="../default.html"><img src="../images/homef.gif" class="test" width="164" height="25" alt="Homepage"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="../dbweb/outreach/aqua/default.htm"><img src="../images/pubf.gif" width="164" height="25" alt="Publications"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="toolsnf.html"><img src="../images/convf.gif" width="164" height="25" alt="Publications"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="../publications/publicationsnf.html"><img src="../images/libf.gif" width="164" height="25" alt="Publications"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="../links/linksnf.html"><img src="../images/linksf.gif" width="164" height="25" alt="Links"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="../koi-wg/koinf.html"><img src="../images/koif.gif" width="164" height="25" alt="Koi &amp; Watergardens"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="../organizations/organizationsnf.html"><img src="../images/orgf.gif" class="test" width="164" height="25" alt="Organizations and Centers"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="../education/educationnf.html"><img src="../images/educf.gif" width="164" height="25" alt="Education"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="../government/governmentnf.html"><img src="../images/govf.gif" width="164" height="25" alt="Government and Agencies"></a></td>
+  </tr>
+  
+  <tr>
+    <td><a HREF="../aboutnf.html"><img src="../images/aboutf.gif" width="164" height="25" alt="About Our Site"></a></td>
+  </tr>
+    <tr>
+    <td><a HREF="../searchnf.html"><img src="../images/searchf.gif" width="164" height="25" alt="Search Our Site"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="../tools/ftptoolsnf.html"><img src="../images/toolsf.gif" width="164" height="25" alt="FTP Tools"></a></td>
+  </tr>
+</table>
+</td>
+    <td width="80%" valign="top">
+<form method="POST" name="frm">
+  <table cellspacing="0" cellpadding="0" border="0" bdgcolor="white">
+    <tr>
+      <td style="background-color: teal;color: black" colspan="2"><h1>Calculator: <small>Drug Weight Needed</small></h1>
+      </td>
+      <td style="background-color: teal" valign="top" align="left" rowspan="3">&nbsp;&nbsp;&nbsp;&nbsp;
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" align="center" style="background-color: teal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+      <td><div align="left"><table border="1" cellpadding="3" cellspacing="0">
+        <tr>
+          <td><div align="left"><table border="1" cellpadding="3">
+	    <tr>
+		<td valign="bottom" align="left">Total weight of fish</td>
+		<td valign="top" align="left">Dosage (g/100lb fish)</td>
+		<td valign="bottom" align="left">Treatment length in days</td>	
+            <tr>
+              <td valign="top" align="left" width="113"><input type="text" name="W" size="15" OnKeyup="calc()" onChange="calc()" onKeyup="calc()" value="1"></td>
+	      <td valign="top" align="left" width="130"><input type="text" name="D" size="15" OnKeyup="calc()" onChange="calc()" onKeyup="calc()" value="1"></td>
+	      <td valign="top" align="left" width="130"><input type="text" name="T" size="15" OnKeyup="calc()" onChange="calc()" onKeyup="calc()" value="1"></td>
+	      
+              <td valign="top" align="left" width="80" colspan="2"><b>NEED:<b></td></tr>
+<tr>
+<td colspan="6">&nbsp;</td></tr>
+<tr>
+<tr>
+              <td valign="top" align="left">Grams of drug needed</td>
+            </tr>
+              <td valign="top" align="left" width="150"><input type="text" name="W0" size="15" onChange="calc()" onKeyup="calc()"></td>
+              
+</tr>
+<tr>
+	<td colspan="6">&nbsp;</td>
+</tr>
+<tr>
+	<td colspan="6">Based on the formula: Amount of chemical needed = (W/100) x D x T</td></tr>
+<tr>
+	<td width="160" >Where W = Total weight of fish to be treated</td>
+	<td width="160">D = Dosage rate in grams of active drug per 100 pounds of fish</td>
+	<td width="160">T = Length of treatment in days</td></tr>
+
+
+
+          </table>
+          </div></td>
+        </tr>
+      </table>
+      </div></td>
+    </tr>
+    <tr align="center">
+      <td valign="top" align="left" style="background-color: teal" colspan="2">&nbsp;</td>
+    </tr>
+  </table>
+</form>
+</td>
+  </tr>
+</table>
+</body>
+</html>

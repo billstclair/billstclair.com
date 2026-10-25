@@ -1,0 +1,194 @@
+<html>
+
+<head>
+<title>California Aquaculture</title>
+<meta http-equiv="Content-style-type" content="text/css">
+<link Rel="stylesheet" HREF="../aqua.css" type="text/css">
+
+
+<script language="JavaScript">
+<!--
+////////////////
+
+function round(n)
+{
+	number = new Number(n);
+	return Math.round(number*1000000)/1000000;
+}
+
+function calc()
+{
+	var L  = new Number(document.frm.L.value);
+	var LU = new Number(document.frm.LU.selectedIndex);
+	var L1,L2,L3,L4,L5,L6;
+	var meters = 0;
+	
+	L1=L2=L3=L4=L5=L6=L7=L8=0;
+	
+	// convert the weight to common gram first
+	if(LU == 0) meters = L * 1000;		// km
+	if(LU == 1) meters = L * 1; 		// m
+	if(LU == 2) meters = L / 100; 		// cm
+	if(LU == 3) meters = L / 1000; 		// mm
+	if(LU == 4) meters = L * 1609.344; 	// miles
+	if(LU == 5) meters = L * .9144; 	// yards
+	if(LU == 6) meters = L * .3048; 	// feet
+	if(LU == 7) meters = L * .0254;		// inches
+
+	// convert from gram to various things
+	L0 = meters /1000;		// km
+	L1 = meters;			// m
+	L2 = meters * 100;		// cm 
+	L3 = meters * 1000;		// mm
+	L4 = meters /(1609.344);	// miles
+	L5 = meters /(.9144);		// yards
+	L6 = meters /(.3048);		// feet
+	L7 = meters /(.0254);		// inches
+
+	// set the form values
+	document.frm.L0.value = round(L0);
+	document.frm.L1.value = round(L1);
+	document.frm.L2.value = round(L2);
+	document.frm.L3.value = round(L3);
+	document.frm.L4.value = round(L4);
+	document.frm.L5.value = round(L5);
+	document.frm.L6.value = round(L6);
+	document.frm.L7.value = round(L7);
+}
+
+// --></script>
+</head>
+
+<body onLoad="calc()">
+
+<table border="0" width="100%">
+  <tr>
+    <td width="100%" colspan="2">
+
+<p><img SRC="../images/logo2.gif" ALIGN="left" ALT="California Aquaculture Logo." WIDTH="123" HEIGHT="150"> </p>
+
+<p class="heading1">California Aquaculture</p>
+
+<p class="heading2">University of California Davis
+</td><td><img SRC="../images/ucdavis_seal_blue_med_trans.gif" ALIGN="right" ALT="UC Davis Seal" width="110" height="110" >
+</td>
+  </tr>
+  <tr>
+    <td width="20%" valign="top">
+
+<table border="0">
+  <tr>
+    <td><a HREF="../default.html"><img src="../images/homef.gif" class="test" width="164" height="25" alt="Homepage"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="../dbweb/outreach/aqua/default.htm"><img src="../images/pubf.gif" width="164" height="25" alt="Publications"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="toolsnf.html"><img src="../images/convf.gif" width="164" height="25" alt="Publications"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="../publications/publicationsnf.html"><img src="../images/libf.gif" width="164" height="25" alt="Publications"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="../links/linksnf.html"><img src="../images/linksf.gif" width="164" height="25" alt="Links"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="../koi-wg/koinf.html"><img src="../images/koif.gif" width="164" height="25" alt="Koi &amp; Watergardens"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="../organizations/organizationsnf.html"><img src="../images/orgf.gif" class="test" width="164" height="25" alt="Organizations and Centers"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="../education/educationnf.html"><img src="../images/educf.gif" width="164" height="25" alt="Education"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="../government/governmentnf.html"><img src="../images/govf.gif" width="164" height="25" alt="Government and Agencies"></a></td>
+  </tr>
+  
+  <tr>
+    <td><a HREF="../aboutnf.html"><img src="../images/aboutf.gif" width="164" height="25" alt="About Our Site"></a></td>
+  </tr>
+    <tr>
+    <td><a HREF="../searchnf.html"><img src="../images/searchf.gif" width="164" height="25" alt="Search Our Site"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="../tools/ftptoolsnf.html"><img src="../images/toolsf.gif" width="164" height="25" alt="FTP Tools"></a></td>
+  </tr>
+</table>
+</td>
+    <td width="80%" valign="top">
+<form method="POST" name="frm">
+  <table cellspacing="0" cellpadding="0" border="0" bdgcolor="white">
+    <tr>
+      <td style="background-color: teal;color: black" colspan="2"><h1>Conversion: <small>Length</small></h1>
+      </td>
+      <td style="background-color: teal" valign="top" align="left" rowspan="3">&nbsp;&nbsp;&nbsp;
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" align="center" style="background-color: teal">&nbsp;</td>
+      <td><div align="left"><table border="0" cellpadding="3" cellspacing="0">
+        <tr>
+          <td><div align="left"><table border="0" cellpadding="3" width="441">
+            <tr>
+              <td valign="top" align="left" width="113"><input type="text" name="L" size="15" OnKeyup="calc()" onChange="calc()" onKeyup="calc()" value="1"></td>
+              <td valign="top" align="left" width="74"><select name="LU" size="1" onChange="calc()">
+                <option value="km">Kilometer</option>
+                <option selected value="m">Meter</option>
+                <option value="cm">Centimeter</option>
+                <option value="mm">Millimeter</option>
+		<option value="mile">Mile</option>
+                <option value="yard">Yard</option>
+                <option value="foot">Foot</option>
+		<option value="inch">Inch</option>
+              </select></td>
+              <td valign="top" align="left" width="9" colspan="2"><b>IS:<b></td></tr>
+<tr>
+<td colspan="4">&nbsp;</td></tr>
+<tr>
+<tr>
+	<td valign="top" align="left">Kilometer (km)</td>
+	<td valign="top" align="left" >Meter (m)</td>
+	<td valign="top" align="left" >Centimeter (cm)</td>
+	<td valign="top" align="left" >Millimeter (mm)</td>
+</tr>
+<tr>
+	<td valign="top" align="left" width="150"><input type="text" name="L0" size="15" onChange="calc()" onKeyup="calc()"></td>
+	<td valign="top" align="left" width="150"><input type="text" name="L1" size="15" onChange="calc()" onKeyup="calc()"></td>
+	<td valign="top" align="left" width="150"><input type="text" name="L2" size="15" onChange="calc()" onKeyup="calc()"></td>
+	<td valign="top" align="left" width="150"><input type="text" name="L3" size="15" onChange="calc()" onKeyup="calc()"></td>
+
+</tr>
+
+<tr>
+<td colspan="4">&nbsp;</td></tr>
+<tr>
+ <tr>
+<td valign="top" align="left">Mile</td>
+<td valign="top" align="left">Yard (yd)</td>
+<td valign="top" align="left">Foot (ft)</td>
+<td valign="top" align="left">Inches (in)</td>
+</tr>        
+<tr>
+<td valign="top" align="left" width="150"><input type="text" name="L4" size="15" onChange="calc()" onKeyup="calc()"></td>
+<td valign="top" align="left" width="150"><input type="text" name="L5" size="15" onChange="calc()" onKeyup="calc()"></td>
+<td valign="top" align="left" width="150"><input type="text" name="L6" size="15" onChange="calc()" onKeyup="calc()"></td>
+<td valign="top" align="left" width="150"><input type="text" name="L7" size="15" onChange="calc()" onKeyup="calc()"></td>
+</tr>
+
+          </table>
+          </div></td>
+        </tr>
+      </table>
+      </div></td>
+    </tr>
+    <tr align="center">
+      <td valign="top" align="left" style="background-color: teal" colspan="2">&nbsp;</td>
+    </tr>
+  </table>
+</form>
+</td>
+  </tr>
+</table>
+</body>
+</html>

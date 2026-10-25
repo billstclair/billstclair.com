@@ -1,0 +1,184 @@
+<html>
+
+<head>
+<title>California Aquaculture</title>
+<meta http-equiv="Content-style-type" content="text/css">
+<link Rel="stylesheet" HREF="../aqua.css" type="text/css">
+
+
+<script language="JavaScript">
+<!--
+////////////////
+
+function round(n)
+{
+	number = new Number(n);
+	return Math.round(number*100000000)/100000000;
+}
+
+function calc()
+{
+	var P  = new Number(document.frm.P.value);
+	var PU = new Number(document.frm.PU.selectedIndex);
+	var P0,P1,P2,P3,P4;
+	var kPa = 0;
+	
+	P0=P1=P2=P3=P4=0;
+	
+	// convert the PRESSURE to common kPa first
+	if(PU == 0) kPa = P;			// kPa
+	if(PU == 1) kPa = P * .09797; 		// cm H2O
+	if(PU == 2) kPa = P * 6.895; 		// lb/in^2
+	if(PU == 3) kPa = P * .2488; 		// in H2O
+	if(PU == 4) kPa = P * 2.986; 	// ft H2O
+	
+
+	// convert from watt to various units
+	P0 = kPa;
+	P1 = kPa / .09797;
+	P2 = kPa / 6.895;
+	P3 = kPa / .2488;
+	P4 = kPa / 2.986;
+	
+	// set the form values
+	document.frm.P0.value = round(P0);
+	document.frm.P1.value = round(P1);
+	document.frm.P2.value = round(P2);
+	document.frm.P3.value = round(P3);
+	document.frm.P4.value = round(P4);
+}
+
+// --></script>
+</head>
+
+<body onLoad="calc()">
+
+<table border="0" width="100%">
+  <tr>
+    <td width="100%" colspan="2">
+
+<p><img SRC="../images/logo2.gif" ALIGN="left" ALT="California Aquaculture Logo." WIDTH="123" HEIGHT="150"> </p>
+
+<p class="heading1">California Aquaculture</p>
+
+<p class="heading2">University of California Davis
+</td><td><img SRC="../images/ucdavis_seal_blue_med_trans.gif" ALIGN="right" ALT="UC Davis Seal" width="110" height="110" >
+</td>
+  </tr>
+  <tr>
+    <td width="20%" valign="top">
+
+<table border="0">
+  <tr>
+    <td><a HREF="../default.html"><img src="../images/homef.gif" class="test" width="164" height="25" alt="Homepage"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="../dbweb/outreach/aqua/default.htm"><img src="../images/pubf.gif" width="164" height="25" alt="Publications"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="toolsnf.html"><img src="../images/convf.gif" width="164" height="25" alt="Publications"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="../publications/publicationsnf.html"><img src="../images/libf.gif" width="164" height="25" alt="Publications"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="../links/linksnf.html"><img src="../images/linksf.gif" width="164" height="25" alt="Links"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="../koi-wg/koinf.html"><img src="../images/koif.gif" width="164" height="25" alt="Koi &amp; Watergardens"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="../organizations/organizationsnf.html"><img src="../images/orgf.gif" class="test" width="164" height="25" alt="Organizations and Centers"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="../education/educationnf.html"><img src="../images/educf.gif" width="164" height="25" alt="Education"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="../government/governmentnf.html"><img src="../images/govf.gif" width="164" height="25" alt="Government and Agencies"></a></td>
+  </tr>
+  
+  <tr>
+    <td><a HREF="../aboutnf.html"><img src="../images/aboutf.gif" width="164" height="25" alt="About Our Site"></a></td>
+  </tr>
+    <tr>
+    <td><a HREF="../searchnf.html"><img src="../images/searchf.gif" width="164" height="25" alt="Search Our Site"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="../tools/ftptoolsnf.html"><img src="../images/toolsf.gif" width="164" height="25" alt="FTP Tools"></a></td>
+  </tr>
+</table>
+</td>
+    <td width="80%" valign="top">
+<form method="POST" name="frm">
+  <table cellspacing="0" cellpadding="0" border="0" bdgcolor="white">
+    <tr>
+      <td style="background-color: teal;color: black" colspan="2"><h1>Conversion: <small>Pressure<sup>*</sup></small></h1>
+      </td>
+      <td style="background-color: teal" valign="top" align="left" rowspan="3">&nbsp;&nbsp;&nbsp;
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" align="center" style="background-color: teal">&nbsp;&nbsp;&nbsp;</td>
+      <td><div align="left"><table border="1" cellpadding="3" cellspacing="0">
+        <tr>
+          <td><div align="left"><table border="1" cellpadding="3" width="620">
+            <tr>
+              <td valign="top" align="left" width="113"><input type="text" name="P" size="15"
+              OnKeyup="calc()" onChange="calc()" onKeyup="calc()" value="1"></td>
+              <td valign="top" align="left" width="74"><select name="PU" size="1" onChange="calc()">
+                <option selected value="kPa">Kilopascal</option>
+                <option value="cm H20">Centimeter H2O</option>
+                <option value="lb/in^2">Pound per Square Inch</option>
+                <option value="in H2O">Inch H2O</option>
+                <option value="ft H2O">Foot H2O</option>
+              </select></td>
+              <td valign="top" align="left" width="9"><b>IS:<b></b></b></td>
+            </tr>
+            <tr>
+              <td colspan="3">&nbsp;</td>
+            </tr>
+            <tr>
+              <td valign="top" align="left">Kilopascal (kPa)</td>
+              <td valign="top" align="left" colspan="2">Centimeter Water(cm H<sub>2</sub>O)</td>
+            </tr>
+            <tr>
+              <td valign="top" align="left" width="150"><input type="text" name="P0" size="15"
+              onChange="calc()" onKeyup="calc()"></td>
+              <td valign="top" align="left" width="150" colspan="2"><input type="text" name="P1"
+              size="15" onChange="calc()" onKeyup="calc()"></td>
+            </tr>
+            <tr>
+              <td colspan="3">&nbsp;</td>
+            </tr>
+            <tr>
+              <td width="30%" valign="top" align="left">Pound per Square Inch (lb/in<sup>2</sup>)</td>
+              <td width="30%" valign="top" align="left">Inch of Water(in H<sub>2</sub>O)</td>
+              <td width="30%" valign="top" align="left">Foot of Water (ft H<sub>2</sub>O)</td>
+            </tr>
+            <tr>
+              <td valign="top" align="left" width="150"><input type="text" name="P2" size="15"
+              onChange="calc()" onKeyup="calc()"></td>
+              <td valign="top" align="left" width="150"><input type="text" name="P3" size="15"
+              onChange="calc()" onKeyup="calc()"></td>
+              <td valign="top" align="left" width="150"><input type="text" name="P4" size="15"
+              onChange="calc()" onKeyup="calc()"></td>
+            </tr>
+            <tr>
+              <td colspan="2"><sup>*</sup> at 60°F (~15.5°C)</td>
+            </tr>
+          </table>
+          </div></td>
+        </tr>
+      </table>
+      </div></td>
+    </tr>
+    <tr align="center">
+      <td valign="top" align="left" style="background-color: teal" colspan="2">&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+  </table>
+</form>
+</td>
+  </tr>
+</table>
+</body>
+</html>

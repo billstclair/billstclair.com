@@ -1,0 +1,202 @@
+<html>
+
+<head>
+<title>California Aquaculture</title>
+<meta http-equiv="Content-style-type" content="text/css">
+<link Rel="stylesheet" HREF="../aqua.css" type="text/css">
+
+
+<script language="JavaScript">
+<!--
+////////////////
+
+function round(n)
+{
+	number = new Number(n);
+	return Math.round(number*1000000)/1000000;
+}
+
+function calc()
+{
+	var V  = new Number(document.frm.V.value);
+	var VU = new Number(document.frm.VU.selectedIndex);
+	var V0,V1,V2,V3,V4,V5,V6,V7,V8;
+	var L = 0;
+	
+	V1=V2=V3=V4=V5=V6=V7=V8=0;
+	
+	// convert the AREA to common ha first
+	if(VU == 0) L = V / .001;		// m^3
+	if(VU == 1) L = V * 1; 			// l
+	if(VU == 2) L = V / 1000; 		// ml/cc/cm^3
+	if(VU == 3) L = V * 1233489;		// acre-foot
+	if(VU == 4) L = V * 764.5549; 		// yd^3
+	if(VU == 5) L = V * 28.31685; 		// ft^3
+	if(VU == 6) L = V * 3.784296607113191;	// gal
+	if(VU == 7) L = V / 33.8239872;		// fluid oz
+	if(VU == 8) L = V / 61.0237589903253;	// in^3
+
+	// convert from ha to other units
+	V0 = L * .001;			// m^3
+	V1 = L;				// l
+	V2 = L * 1000;			// ml/cc/cm^3 
+	V3 = L / 1233489;		// acre-foot
+	V4 = L / 764.5549;		// yd^3
+	V5 = L / 28.31685;		// ft^3
+	V6 = L / 3.784296607113191;	// gal
+	V7 = L * 33.8239872;		// fluid oz
+	V8 = L * 61.0237589903253;	// in^3
+
+	// set the form values
+	document.frm.V0.value = round(V0);
+	document.frm.V1.value = round(V1);
+	document.frm.V2.value = round(V2);
+	document.frm.V3.value = round(V3);
+	document.frm.V4.value = round(V4);
+	document.frm.V5.value = round(V5);
+	document.frm.V6.value = round(V6);
+	document.frm.V7.value = round(V7);
+	document.frm.V8.value = round(V8);
+}
+
+// --></script>
+</head>
+
+<body onLoad="calc()">
+
+<table border="0" width="100%">
+  <tr>
+    <td width="100%" colspan="2">
+
+<p><img SRC="../images/logo2.gif" ALIGN="left" ALT="California Aquaculture Logo." WIDTH="123" HEIGHT="150"> </p>
+
+<p class="heading1">California Aquaculture</p>
+
+<p class="heading2">University of California Davis
+</td><td><img SRC="../images/ucdavis_seal_blue_med_trans.gif" ALIGN="right" ALT="UC Davis Seal" width="110" height="110" >
+</td>
+  </tr>
+  <tr>
+    <td width="20%" valign="top">
+
+<table border="0">
+  <tr>
+    <td><a HREF="../default.html"><img src="../images/homef.gif" class="test" width="164" height="25" alt="Homepage"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="../dbweb/outreach/aqua/default.htm"><img src="../images/pubf.gif" width="164" height="25" alt="Publications"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="toolsnf.html"><img src="../images/convf.gif" width="164" height="25" alt="Publications"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="../publications/publicationsnf.html"><img src="../images/libf.gif" width="164" height="25" alt="Publications"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="../links/linksnf.html"><img src="../images/linksf.gif" width="164" height="25" alt="Links"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="../koi-wg/koinf.html"><img src="../images/koif.gif" width="164" height="25" alt="Koi &amp; Watergardens"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="../organizations/organizationsnf.html"><img src="../images/orgf.gif" class="test" width="164" height="25" alt="Organizations and Centers"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="../education/educationnf.html"><img src="../images/educf.gif" width="164" height="25" alt="Education"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="../government/governmentnf.html"><img src="../images/govf.gif" width="164" height="25" alt="Government and Agencies"></a></td>
+  </tr>
+  
+  <tr>
+    <td><a HREF="../aboutnf.html"><img src="../images/aboutf.gif" width="164" height="25" alt="About Our Site"></a></td>
+  </tr>
+    <tr>
+    <td><a HREF="../searchnf.html"><img src="../images/searchf.gif" width="164" height="25" alt="Search Our Site"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="../tools/ftptoolsnf.html"><img src="../images/toolsf.gif" width="164" height="25" alt="FTP Tools"></a></td>
+  </tr>
+</table>
+</td>
+    <td width="80%" valign="top">
+<form method="POST" name="frm">
+  <table cellspacing="0" cellpadding="0" border="0" bdgcolor="white" width="100%">
+    <tr>
+      <td style="background-color: teal;color: black" colspan="2"><h1>Conversion: <small>Volume</small></h1>
+      </td>
+      <td style="background-color: teal" valign="top" align="left" rowspan="3">&nbsp;&nbsp;&nbsp;
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" align="center" style="background-color: teal">&nbsp;</td>
+      <td><div align="left"><table border="1" cellpadding="3" cellspacing="0">
+        <tr>
+          <td><div align="left"><table border="1" cellpadding="3" width="100%">
+            <tr>
+              <td valign="top" align="left" width="113"><input type="text" name="V" size="15" OnKeyup="calc()" onChange="calc()" onKeyup="calc()" value="1"></td>
+              <td valign="top" align="left" width="74"><select name="VU" size="1" onChange="calc()">
+                <option value="m^3">Cubic Meter</option>
+                <option selected value="l">Liter</option>
+                <option value="ml">Milliliter</option>
+                <option value="acre-ft">Acre-foot</option>
+		<option value="yd^3">Cubic Yard</option>
+                <option value="ft^3">Cubic Feet</option>
+                <option value="gal">Gallon</option>
+		<option value="fluid oz">Fluid Ounce</option>
+		<option value="in^3">Cubic Inch</option>
+              </select></td>
+              <td valign="top" align="left" width="9" colspan="2"><b>IS:<b></td></tr>
+<tr>
+<td colspan="4">&nbsp;</td></tr>
+<tr>
+<tr>
+	<td valign="top" align="left" width="20%">Cubic Meter (m<sup>3</sup>)</td>
+	<td valign="top" align="left" >Liter (l)</td>
+	<td valign="top" align="left" >Milliliter (ml)</td>
+	
+</tr>
+<tr>
+	<td valign="top" align="left" width="150"><input type="text" name="V0" size="15" onChange="calc()" onKeyup="calc()"></td>
+	<td valign="top" align="left" width="150"><input type="text" name="V1" size="15" onChange="calc()" onKeyup="calc()"></td>
+	<td valign="top" align="left" width="150"><input type="text" name="V2" size="15" onChange="calc()" onKeyup="calc()"></td>
+<td colspan="3"><b>Note: 1 milliliter (ml) = 1 cubic centimeter (cc or cm<sup>3</sup>)</b></td>
+</tr>
+
+<tr>
+<td colspan="4">&nbsp;</td></tr>
+<tr>
+ <tr>
+<td valign="bottom" align="left" >Acre-foot (acre-ft)</td>
+<td valign="bottom" align="left">Cubic Yard (yd<sup>3</sup>)</td>
+<td valign="bottom" align="left">Cubic Feet (ft<sup>3</sup>)</td>
+<td valign="bottom" align="left">Gallon (gal)</td>
+<td valign="bottom" align="left">Fluid Ounce <br>(fluid oz.)</td>
+<td valign="bottom" align="left">Cubic Inch (in<sup>3</sup>)</td>
+</tr>        
+<tr>
+<td valign="top" align="left" width="150"><input type="text" name="V3" size="15" onChange="calc()" onKeyup="calc()"></td>
+<td valign="top" align="left" width="150"><input type="text" name="V4" size="15" onChange="calc()" onKeyup="calc()"></td>
+<td valign="top" align="left" width="150"><input type="text" name="V5" size="15" onChange="calc()" onKeyup="calc()"></td>
+<td valign="top" align="left" width="150"><input type="text" name="V6" size="15" onChange="calc()" onKeyup="calc()"></td>
+<td valign="top" align="left" width="150"><input type="text" name="V7" size="15" onChange="calc()" onKeyup="calc()"></td>
+<td valign="top" align="left" width="150"><input type="text" name="V8" size="15" onChange="calc()" onKeyup="calc()"></td>
+</tr>
+
+
+          </table>
+          </div></td>
+        </tr>
+      </table>
+      </div></td>
+    </tr>
+    <tr align="center">
+      <td valign="top" align="left" style="background-color: teal" colspan="2">&nbsp;</td>
+    </tr>
+  </table>
+</form>
+</td>
+  </tr>
+</table>
+</body>
+</html>

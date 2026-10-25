@@ -1,0 +1,189 @@
+<html>
+
+<head>
+<title>California Aquaculture</title>
+<meta http-equiv="Content-style-type" content="text/css">
+<link Rel="stylesheet" HREF="../aqua.css" type="text/css">
+
+
+<script language="JavaScript">
+<!--
+////////////////
+
+function round(n)
+{
+	number = new Number(n);
+	return Math.round(number*100)/100;
+}
+
+function calc()
+{
+	var H  = new Number(document.frm.H.value);
+	var L  = new Number(document.frm.L.value);
+	var MU = new Number(document.frm.MU.selectedIndex);
+	var LU = new Number(document.frm.LU.selectedIndex);
+	var V0,V1,V2;
+	var hfeet = 0;
+	var lfeet = 0;
+	var r = 0;
+	
+	V0=V1=V2=0;
+
+	//Convert height to common feet
+	if(MU == 0) hfeet = H * 3.28084; 	// meters
+	if(MU == 1) hfeet = H * .032808;  	// cm
+	if(MU == 2) hfeet = H * 3;		// yard
+	if(MU == 3) hfeet = H;			// feet
+	if(MU == 4) hfeet = H * .083333;		// inches
+
+	//Convert length to common feet
+	if(MU == 0) lfeet = L * 3.28084; 	// meters
+	if(MU == 1) lfeet = L * .032808;  	// cm
+	if(MU == 2) lfeet = L * 3;		// yard
+	if(MU == 3) lfeet = L;			// feet
+	if(MU == 4) lfeet = L * .083333;		// inches
+	
+	// convert the length to radius first
+	if(LU == 0) r = lfeet;		// radius
+	if(LU == 1) r = lfeet / 2; 	// diameter
+
+	// convert from radius to volume
+	V0 = Math.PI * r * r * hfeet;
+	V1 = V0 * 7.48;
+	V2 = V1 * 3.79;
+
+	// set the form values
+	document.frm.V0.value = round(V0);
+	document.frm.V1.value = round(V1);
+	document.frm.V2.value = round(V2);
+}
+
+// --></script>
+</head>
+
+<body onLoad="calc()">
+
+<table border="0" width="100%">
+  <tr>
+    <td width="100%" colspan="2">
+
+<p><img SRC="../images/logo2.gif" ALIGN="left" ALT="California Aquaculture Logo." WIDTH="123" HEIGHT="150"> </p>
+
+<p class="heading1">California Aquaculture</p>
+
+<p class="heading2">University of California Davis
+</td><td><img SRC="../images/ucdavis_seal_blue_med_trans.gif" ALIGN="right" ALT="UC Davis Seal" width="110" height="110" >
+</td>
+  </tr>
+  <tr>
+    <td width="20%" valign="top">
+
+<table border="0">
+  <tr>
+    <td><a HREF="../default.html"><img src="../images/homef.gif" class="test" width="164" height="25" alt="Homepage"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="../dbweb/outreach/aqua/default.htm"><img src="../images/pubf.gif" width="164" height="25" alt="Publications"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="toolsnf.html"><img src="../images/convf.gif" width="164" height="25" alt="Publications"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="../publications/publicationsnf.html"><img src="../images/libf.gif" width="164" height="25" alt="Publications"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="../links/linksnf.html"><img src="../images/linksf.gif" width="164" height="25" alt="Links"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="../koi-wg/koinf.html"><img src="../images/koif.gif" width="164" height="25" alt="Koi &amp; Watergardens"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="../organizations/organizationsnf.html"><img src="../images/orgf.gif" class="test" width="164" height="25" alt="Organizations and Centers"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="../education/educationnf.html"><img src="../images/educf.gif" width="164" height="25" alt="Education"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="../government/governmentnf.html"><img src="../images/govf.gif" width="164" height="25" alt="Government and Agencies"></a></td>
+  </tr>
+  
+  <tr>
+    <td><a HREF="../aboutnf.html"><img src="../images/aboutf.gif" width="164" height="25" alt="About Our Site"></a></td>
+  </tr>
+    <tr>
+    <td><a HREF="../searchnf.html"><img src="../images/searchf.gif" width="164" height="25" alt="Search Our Site"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="../tools/ftptoolsnf.html"><img src="../images/toolsf.gif" width="164" height="25" alt="FTP Tools"></a></td>
+  </tr>
+</table>
+</td>
+    <td width="80%" valign="top">
+<form method="POST" name="frm">
+  <table cellspacing="0" cellpadding="0" border="0" bdgcolor="white">
+    <tr>
+      <td style="background-color: teal;color: black" colspan="2"><h1>Calculator: <small>Volume of a Cylindrical Tank</small></h1>
+      </td>
+      <td style="background-color: teal" valign="top" align="left" rowspan="3">&nbsp;&nbsp;&nbsp;
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" align="center" style="background-color: teal">&nbsp;</td>
+      <td><div align="left"><table border="1" cellpadding="3" cellspacing="0">
+        <tr>
+          <td><div align="left"><table border="1" cellpadding="3" width="441">
+	    <tr>
+		<td valign="bottom" align="left">Height</td>
+		<td valign="bottom" align="left">Base</td>
+		<td valign="bottom" align="left">Units</td>
+		<td valign="top" align="left" colspan="3">Measurement type</td>		
+            <tr>
+              <td valign="top" align="left" width="113"><input type="text" name="H" size="15" OnKeyup="calc()" onChange="calc()" onKeyup="calc()" value="1"></td>
+	      <td valign="top" align="left" width="113"><input type="text" name="L" size="15" OnKeyup="calc()" onChange="calc()" onKeyup="calc()" value="1"></td>
+	      <td valign="top" align="left" width="74"><select name="MU" size="1" onChange="calc()">
+                <option value="m">Meter</option>
+                <option value="cm">Centimeter</option>
+                <option value="yard">Yard</option>
+                <option selected value="foot">Foot</option>
+		<option value="inch">Inch</option>
+              </select></td>
+              <td valign="top" align="left" width="74"><select name="LU" size="1" onChange="calc()">
+                <option selected value="radius">Radius</option>
+                <option value="diameter">Diameter</option>
+              </select></td>
+              <td valign="top" align="left" width="9" colspan="2"><b>IS:<b></td></tr>
+<tr>
+<td colspan="6">&nbsp;</td></tr>
+<tr>
+<tr>
+              <td valign="top" align="left">Cubic ft (ft)<sup>3</sup></td>
+              <td valign="top" align="left">Gallons</td>
+              <td valign="top" align="left" colspan="1">Liters</td>
+
+            </tr>
+              <td valign="top" align="left" width="150"><input type="text" name="V0" size="15" onChange="calc()" onKeyup="calc()"></td>
+              <td valign="top" align="left" width="150"><input type="text" name="V1" size="15" onChange="calc()" onKeyup="calc()"></td>
+
+              <td valign="top" align="left" width="150"><input type="text" name="V2" size="15" onChange="calc()" onKeyup="calc()"></td>
+</tr>
+<tr>
+	<td colspan="6">Based on the formula: Volume of Cylinder = &pi; r<sup>2</sup> &middot; h</td></tr>
+
+
+
+          </table>
+          </div></td>
+        </tr>
+      </table>
+      </div></td>
+    </tr>
+    <tr align="center">
+      <td valign="top" align="left" style="background-color: teal" colspan="2">&nbsp;</td>
+    </tr>
+  </table>
+</form>
+</td>
+  </tr>
+</table>
+</body>
+</html>

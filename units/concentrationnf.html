@@ -1,0 +1,290 @@
+<html>
+
+<head>
+<title>California Aquaculture</title>
+<meta http-equiv="Content-style-type" content="text/css">
+<link Rel="stylesheet" HREF="../aqua.css" type="text/css">
+
+
+<script language="JavaScript">
+<!--
+////////////////
+
+function round(n)
+{
+	number = new Number(n);
+	return Math.round(number*1000000)/1000000;
+}
+
+function calc()
+{
+	var C  = new Number(document.frm.C.value);
+	var CU = new Number(document.frm.CU.selectedIndex);
+	var C0,C1,C2,C3,C4,C5,C6,C7,C8,C9,C10,C11,C12,C13,C14,C15,C16,C17,C18,C19,C20;
+	var ppm = 0;
+	
+	C0,C1=C2=C3=C4=C5=C6=C7=C8,C9,C10,C11,C12,C13,C14,C15,C16,C17,C18,C19,C20=0;
+	
+	// convert the concentration to common ppm first
+	if(CU == 0) ppm = C;			// mg/l
+	if(CU == 1) ppm = C; 			// cm^3/m^3
+	if(CU == 2) ppm = C / .02832; 		// cm^3/ft^3
+	if(CU == 3) ppm = C / 3.785;		// mg/gal
+	if(CU == 4) ppm = C / .3785; 		// gm/100 gal
+	if(CU == 5) ppm = C / .3785; 		// cm^3/100 gal
+	if(CU == 6) ppm = C / 2.754;		// lbs/acre-ft
+	if(CU == 7) ppm = C / 8.336;		// lbs/million gal
+
+	if(CU == 8) ppm = (C /10) * 10000;	// gm/l
+	if(CU == 9) ppm = (C / 10) * 10000;	// cm^3/l
+	if(CU == 10) ppm = (C / 37.85) * 10000;	// gm/gal
+	if(CU == 11) ppm = (C / 1.335) * 10000;	// oz/gal
+	if(CU == 12) ppm = (C / 1.280) * 10000;	// fluid oz/gal
+	if(CU == 13) ppm = (C / .08336) * 10000;// lb/gal
+	if(CU == 14) ppm = (C / 37.85) * 10000;	// cm^3/gal
+	if(CU == 15) ppm = (C / 10) * 10000;	// gm/kg
+	if(CU == 16) ppm = (C / 4.536) * 10000;	// gm/lb
+	if(CU == 17) ppm = (C / .16) * 10000;	// oz/lb
+	if(CU == 18) ppm = (C / 70) * 10000;	// grains/lb
+	if(CU == 19) ppm = C;			// ppm
+	if(CU == 20) ppm = C * 10000;  		// %
+
+	
+
+	// convert from ppm to other units
+	C0 = ppm;			// mg/l
+	C1 = ppm;			// cm^3/m^3
+	C2 = ppm * .02832;		// cm^3 /ft^3
+	C3 = ppm * 3.785;		// mg/gal
+	C4 = ppm * .3785;		// gm/100 gal
+	C5 = ppm * .3785;		// cm^3/100 gal
+	C6 = ppm * 2.754;		// lbs/acre-ft
+	C7 = ppm * 8.336;		// lbs/million gal
+
+	C8 = (ppm * 10) / 10000;		// gm/l
+	C9 =  (ppm * 10) / 10000 ;		// cm^3/l
+	C10 = (ppm * 37.85) / 10000;	// gm/gal
+	C11 = (ppm * 1.335) / 10000;	// oz/gal
+	C12 = (ppm * 1.28) / 10000;	// fluid oz/ gal
+	C13 = (ppm * .08336) / 10000;	// lb/gal
+	C14 = (ppm * 37.85) / 10000;	// cm^3/gal
+	C15 = (ppm * 10) / 10000;	// gm/kg
+	C16 = (ppm * 4.536) / 10000;	// gm/lb
+	C17 = (ppm * .16) / 10000;	// oz/lb
+	C18 = (ppm * 70) / 10000;	// grains/lb
+	C19 = ppm ;			// ppm
+	C20 = ppm / 10000 ;			// %
+
+	// set the form values
+	document.frm.C0.value = round(C0);
+	document.frm.C1.value = round(C1);
+	document.frm.C2.value = round(C2);
+	document.frm.C3.value = round(C3);
+	document.frm.C4.value = round(C4);
+	document.frm.C5.value = round(C5);
+	document.frm.C6.value = round(C6);
+	document.frm.C7.value = round(C7);
+	document.frm.C8.value = round(C8);
+	document.frm.C9.value = round(C9);
+	document.frm.C10.value = round(C10);
+	document.frm.C11.value = round(C11);
+	document.frm.C12.value = round(C12);
+	document.frm.C13.value = round(C13);
+	document.frm.C14.value = round(C14);
+	document.frm.C15.value = round(C15);
+	document.frm.C16.value = round(C16);
+	document.frm.C17.value = round(C17);
+	document.frm.C18.value = round(C18);
+	document.frm.C19.value = round(C19);
+	document.frm.C20.value = round(C20);
+}
+
+// --></script>
+</head>
+
+<body onLoad="calc()">
+
+<table border="0" width="100%">
+  <tr>
+    <td width="100%" colspan="2">
+
+<p><img SRC="../images/logo2.gif" ALIGN="left" ALT="California Aquaculture Logo." WIDTH="123" HEIGHT="150"> </p>
+
+<p class="heading1">California Aquaculture</p>
+
+<p class="heading2">University of California Davis
+</td><td><img SRC="../images/ucdavis_seal_blue_med_trans.gif" ALIGN="right" ALT="UC Davis Seal" width="110" height="110" >
+</td>
+  </tr>
+  <tr>
+    <td width="20%" valign="top">
+
+<table border="0">
+  <tr>
+    <td><a HREF="../default.html"><img src="../images/homef.gif" class="test" width="164" height="25" alt="Homepage"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="../dbweb/outreach/aqua/default.htm"><img src="../images/pubf.gif" width="164" height="25" alt="Publications"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="toolsnf.html"><img src="../images/convf.gif" width="164" height="25" alt="Publications"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="../publications/publicationsnf.html"><img src="../images/libf.gif" width="164" height="25" alt="Publications"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="../links/linksnf.html"><img src="../images/linksf.gif" width="164" height="25" alt="Links"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="../koi-wg/koinf.html"><img src="../images/koif.gif" width="164" height="25" alt="Koi &amp; Watergardens"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="../organizations/organizationsnf.html"><img src="../images/orgf.gif" class="test" width="164" height="25" alt="Organizations and Centers"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="../education/educationnf.html"><img src="../images/educf.gif" width="164" height="25" alt="Education"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="../government/governmentnf.html"><img src="../images/govf.gif" width="164" height="25" alt="Government and Agencies"></a></td>
+  </tr>
+  
+  <tr>
+    <td><a HREF="../aboutnf.html"><img src="../images/aboutf.gif" width="164" height="25" alt="About Our Site"></a></td>
+  </tr>
+    <tr>
+    <td><a HREF="../searchnf.html"><img src="../images/searchf.gif" width="164" height="25" alt="Search Our Site"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="../tools/ftptoolsnf.html"><img src="../images/toolsf.gif" width="164" height="25" alt="FTP Tools"></a></td>
+  </tr>
+</table>
+</td>
+    <td width="80%" valign="top">
+
+<form method="POST" name="frm">
+  <table cellspacing="0" cellpadding="0" border="0" bdgcolor="white" width="100%">
+    <tr>
+      <td style="background-color: teal;color: black" colspan="2"><h1>Conversion: <small>Concentration</small></h1>
+      </td>
+      <td style="background-color: teal" valign="top" align="left" rowspan="3">&nbsp;&nbsp;&nbsp;
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" align="center" style="background-color: teal">&nbsp;</td>
+      <td><div align="left"><table border="0" cellpadding="10%" cellspacing="0">
+        <tr>
+          <td><div align="left"><table border="1" cellpadding="4" width="100%">
+            <tr>
+              <td valign="top" align="left" width="113"><input type="text" name="C" size="15"
+              OnKeyup="calc()" onChange="calc()" onKeyup="calc()" value="1"></td>
+              <td valign="top" align="left" width="74" colspan="2"><select name="CU" size="1"
+              onChange="calc()">
+                <option value="mg/l">Milligram per Liter</option>
+                <option value="cm^3/m^3">Cubic Centimeter per Cubic Meters</option>
+                <option value="cm^3/ft^3">Cubic Centimeter per Cubic Feet</option>
+                <option value="mg/gal">Milligram per Gallon</option>
+                <option value="g/100 gal">Gram per 100 Gallons</option>
+                <option value="cm^3/100 gal">Cubic Centimeter per 100 Gallons</option>
+                <option value="lb/acre-feet">Pound per Acre-Feet</option>
+                <option value="lb/millio-gal">Pound per Million Gallons</option>
+                <option value="gm/l">Gram per Liter</option>
+                <option value="cm^3/l">Cubic Centimeter per Liter</option>
+                <option value="g/gal">Gram per Gallon</option>
+                <option value="oz/gal">Ounce per Gallon</option>
+                <option value="fluid oz/gal">Fluid Ounce per Gallon</option>
+                <option value="lb/gal">Pound per Gallon</option>
+                <option value="cm^3/gal">Cubic Centimeter per Gallon</option>
+                <option value="g/kg">Gram per Kilogram</option>
+                <option value="g/lb">Gram per Pound</option>
+                <option value="oz/lb">Ounce per Pound</option>
+                <option value="grains/lb">Grains per Pound</option>
+                <option selected value="ppm">Parts Per Million</option>
+                <option value="%">Parts per Hundred (%)</option>
+              </select></td>
+              <td valign="top" align="left" width="9"><b>IS:<b></b></b></td>
+            </tr>
+            <tr>
+              <td valign="bottom" width="25%">Milligrams per Liter (mg/l) <b>*</b></td>
+              <td width="25%">Cubic Centimeters per Cubic meters (cm<sup>3</sup>/m<sup>3</sup>)</td>
+              <td width="25%">Cubic Centimeters per Cubic foot (cm<sup>3</sup>/ft<sup>3</sup>)</td>
+              <td width="25%">Milligrams per Gallon (mg/gal) <b>*</b></td>
+            </tr>
+            <tr>
+              <td><input type="text" name="C0" size="15" onChange="calc()" onKeyup="calc()"></td>
+              <td><input type="text" name="C1" size="15" onChange="calc()" onKeyup="calc()"></td>
+              <td><input type="text" name="C2" size="15" onChange="calc()" onKeyup="calc()"></td>
+              <td><input type="text" name="C3" size="15" onChange="calc()" onKeyup="calc()"></td>
+            </tr>
+            <tr>
+              <td>Grams per 100 gallons (g/100 gal) <b>*</b></td>
+              <td>Cubic Centimeters per 100 gallons (cm<sup>3</sup>/100 gal) <b>*</b></td>
+              <td>Pounds per Acre-Feet (lb/acre-ft) <b>*</b></td>
+              <td>Pounds per Million Gallons (lb/million gal) <b>*</b></td>
+            </tr>
+            <tr>
+              <td><input type="text" name="C4" size="15" onChange="calc()" onKeyup="calc()"></td>
+              <td><input type="text" name="C5" size="15" onChange="calc()" onKeyup="calc()"></td>
+              <td><input type="text" name="C6" size="15" onChange="calc()" onKeyup="calc()"></td>
+              <td><input type="text" name="C7" size="15" onChange="calc()" onKeyup="calc()"></td>
+            </tr>
+            <tr>
+              <td valign="bottom">Gram per Liter (g/l) <b>*</b></td>
+              <td valign="bottom">Cubic Centimeter per Liter (cm<sup>3</sup>/l) <b>*</b></td>
+              <td valign="bottom">Gram per Gallon (g/gal) <b>*</b></td>
+              <td valign="bottom">Ounce per Gallon (oz/gal) <b>*</b></td>
+            </tr>
+            <tr>
+              <td><input type="text" name="C8" size="15" onChange="calc()" onKeyup="calc()"></td>
+              <td><input type="text" name="C9" size="15" onChange="calc()" onKeyup="calc()"></td>
+              <td><input type="text" name="C10" size="15" onChange="calc()" onKeyup="calc()"></td>
+              <td><input type="text" name="C11" size="15" onChange="calc()" onKeyup="calc()"></td>
+            </tr>
+            <tr>
+              <td>Fluid Ounce per Gallon (fluid oz/gal) <b>*</b></td>
+              <td valign="bottom">Pound per Gallon (lb/gal) <b>*</b></td>
+              <td>Cubic Centimeter per Gallon (cm<sup>3</sup>/gal) <b>*</b></td>
+              <td valign="bottom">Gram per Kilogram (g/kg)</td>
+            </tr>
+            <tr>
+              <td><input type="text" name="C12" size="15" onChange="calc()" onKeyup="calc()"></td>
+              <td><input type="text" name="C13" size="15" onChange="calc()" onKeyup="calc()"></td>
+              <td><input type="text" name="C14" size="15" onChange="calc()" onKeyup="calc()"></td>
+              <td><input type="text" name="C15" size="15" onChange="calc()" onKeyup="calc()"></td>
+            </tr>
+            <tr>
+              <td>Gram per Pound (g/lb)</td>
+              <td>Ounce per Pound (oz/lb)</td>
+              <td>Grains per Pound (grains/lb)</td>
+            </tr>
+            <tr>
+              <td><input type="text" name="C16" size="15" onChange="calc()" onKeyup="calc()"></td>
+              <td><input type="text" name="C17" size="15" onChange="calc()" onKeyup="calc()"></td>
+              <td><input type="text" name="C18" size="15" onChange="calc()" onKeyup="calc()"></td>
+            </tr>
+            <tr>
+              <td valign="bottom">Parts per Million (ppm)</td>
+              <td>Parts per Hundred / Percent (%)</td>
+            </tr>
+            <tr>
+              <td><input type="text" name="C19" size="15" onChange="calc()" onKeyup="calc()"></td>
+              <td><input type="text" name="C20" size="15" onChange="calc()" onKeyup="calc()"></td>
+            </tr>
+            <tr>
+              <td colspan="4"><b>*</b> Based on water at 17°C (63°F)</td>
+            </tr>
+          </table>
+          </div></td>
+        </tr>
+      </table>
+      </div></td>
+    </tr>
+    <tr align="center">
+      <td valign="top" align="left" style="background-color: teal" colspan="2">&nbsp;</td>
+    </tr>
+  </table>
+</form>
+</td>
+  </tr>
+</table>
+</body>
+</html>

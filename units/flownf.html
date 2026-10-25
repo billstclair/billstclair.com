@@ -1,0 +1,244 @@
+<html>
+
+<head>
+<title>California Aquaculture</title>
+<meta http-equiv="Content-style-type" content="text/css">
+<link Rel="stylesheet" HREF="../aqua.css" type="text/css">
+
+
+<script language="JavaScript">
+<!--
+////////////////
+// http://www.aquatext.com/tables/flowrate.htm
+// http://www.processassociates.com/process/convert/cf_flv.htm
+// http://grapevine.abe.msstate.edu/~fto/calculator/convert3.html
+
+function round(n)
+{
+	number = new Number(n);
+	return Math.round(number*1000000)/1000000;
+}
+
+function calc()
+{
+	var F  = new Number(document.frm.F.value);
+	var FU = new Number(document.frm.FU.selectedIndex);
+	var F0,F1,F2,F3,F4,F5,F6,F7,F8,F9,F10,F11,F12,F13;
+	var FS = 0;
+	
+	F0=F1=F2=F3=F4=F5=F6=F7=F8=F9=F10=F11=F12=F13=0;
+	
+	// convert the Flow Rate to common ft^3/min first
+	if(FU == 0) FS = F / 40776.259092480;	// l/day
+	if(FU == 1) FS = F / 1699.010795520; 	// l/hr
+	if(FU == 2) FS = F / 28.316846592; 	// l/min
+	if(FU == 3) FS = F * 2.118880003;	// l/s
+	if(FU == 4) FS = F / 1440; 		// ft^3/day
+	if(FU == 5) FS = F / 60; 		// ft^3/hr
+	if(FU == 6) FS = F;			// ft^3/min
+	if(FU == 7) FS = F * 60;		// ft^3/s
+	if(FU == 8) FS = F / 10772.64;		// gal/day
+	if(FU == 9) FS = F / 448.86;		// gal/hr
+	if(FU == 10) FS = F / 7.481;		// gal/min
+	if(FU == 11) FS = F * 8.0203181392861916856035289399813;	// gal/s
+	if(FU == 12) FS = F * 30.250182;		// acre*ft/day
+	if(FU == 13) FS = F * 60;		// acre*in/hr
+
+	// convert from ft^3/min to other units
+	F0 = FS * 40776.259092480;	// l/day
+	F1 = FS * 1699.010795520;	// l/hr
+	F2 = FS * 28.316846592;		// l/min
+	F3 = FS / 2.118880003;		// l/s
+	F4 = FS * 1440;			// ft^3/day
+	F5 = FS * 60;			// ft^3/hr
+	F6 = FS;			// ft^3/min
+	F7 = FS / 60;			// ft^3/s
+	F8 = FS * 10772.64;	// gal/day
+	F9 = FS * 448.86;		// gal/hr
+	F10 = FS * 7.481;		// gal/min
+	F11 = FS / 8.0203181392861916856035289399813;		// gal/s
+	F12 = FS  * 30.250182;			// acre*ft/day
+	F13 = FS / 60;			// acre*in/hr
+
+	// set the form values
+	document.frm.F0.value = round(F0);
+	document.frm.F1.value = round(F1);
+	document.frm.F2.value = round(F2);
+	document.frm.F3.value = round(F3);
+	document.frm.F4.value = round(F4);
+	document.frm.F5.value = round(F5);
+	document.frm.F6.value = round(F6);
+	document.frm.F7.value = round(F7);
+	document.frm.F8.value = round(F8);
+	document.frm.F9.value = round(F9);
+	document.frm.F10.value = round(F10);
+	document.frm.F11.value = round(F11);
+	document.frm.F12.value = round(F12);
+	document.frm.F13.value = round(F13);
+}
+
+// --></script>
+</head>
+
+<body onLoad="calc()">
+
+<table border="0" width="100%">
+  <tr>
+    <td width="100%" colspan="2">
+
+<p><img SRC="../images/logo2.gif" ALIGN="left" ALT="California Aquaculture Logo." WIDTH="123" HEIGHT="150"> </p>
+
+<p class="heading1">California Aquaculture</p>
+
+<p class="heading2">University of California Davis
+</td><td><img SRC="../images/ucdavis_seal_blue_med_trans.gif" ALIGN="right" ALT="UC Davis Seal" width="110" height="110" >
+</td>
+  </tr>
+  <tr>
+    <td width="20%" valign="top">
+
+<table border="0">
+  <tr>
+    <td><a HREF="../default.html"><img src="../images/homef.gif" class="test" width="164" height="25" alt="Homepage"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="../dbweb/outreach/aqua/default.htm"><img src="../images/pubf.gif" width="164" height="25" alt="Publications"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="toolsnf.html"><img src="../images/convf.gif" width="164" height="25" alt="Publications"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="../publications/publicationsnf.html"><img src="../images/libf.gif" width="164" height="25" alt="Publications"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="../links/linksnf.html"><img src="../images/linksf.gif" width="164" height="25" alt="Links"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="../koi-wg/koinf.html"><img src="../images/koif.gif" width="164" height="25" alt="Koi &amp; Watergardens"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="../organizations/organizationsnf.html"><img src="../images/orgf.gif" class="test" width="164" height="25" alt="Organizations and Centers"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="../education/educationnf.html"><img src="../images/educf.gif" width="164" height="25" alt="Education"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="../government/governmentnf.html"><img src="../images/govf.gif" width="164" height="25" alt="Government and Agencies"></a></td>
+  </tr>
+  
+  <tr>
+    <td><a HREF="../aboutnf.html"><img src="../images/aboutf.gif" width="164" height="25" alt="About Our Site"></a></td>
+  </tr>
+    <tr>
+    <td><a HREF="../searchnf.html"><img src="../images/searchf.gif" width="164" height="25" alt="Search Our Site"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="../tools/ftptoolsnf.html"><img src="../images/toolsf.gif" width="164" height="25" alt="FTP Tools"></a></td>
+  </tr>
+</table>
+</td>
+    <td width="80%" valign="top">
+<form method="POST" name="frm">
+  <table cellspacing="0" cellpadding="0" border="0" bdgcolor="white" >
+    <tr>
+      <td style="background-color: teal;color: black" colspan="2"><h1>Conversion: <small>Flow Rate</small></h1>
+      </td>
+      <td style="background-color: teal" valign="top" align="left" rowspan="3">&nbsp;&nbsp;&nbsp;
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" align="center" style="background-color: teal">&nbsp;</td>
+      <td><table border="0" cellpadding="3" cellspacing="0">
+        <tr>
+          <td><table border="1" cellpadding="3" width="100%">
+            <tr>
+              <td valign="top" align="left" width="113"><input type="text" name="F" size="15" OnKeyup="calc()" onChange="calc()" onKeyup="calc()" value="1"></td>
+              <td valign="top" align="left" width="74"><select name="FU" size="1" onChange="calc()">
+                <option value="l/day">Liter per Day</option>
+                <option value="l/hr">Liter per Hour</option>
+                <option value="l/min">Liter per Minute</option>
+                <option value="l/s">Liter per Second</option>
+		<option value="ft^3/day">Cubic Feet per Day</option>
+                <option value="ft^3/hr">Cubic Feet per Hour</option>
+                <option selected value="ft^3//min">Cubic Feet per Minute</option>
+		<option value="ft^3/s">Cubic Feet per Second</option>
+		<option value="gal/day">Gallons per Day</option>
+		<option value="gal/hr">Gallons per Hour</option>
+		<option value="gal/min">Gallons per Minute</option>
+		<option value="gal/s">Gallons per Second</option>
+		<option value="acre*ft/day">Acre Feet per Day</option>
+		<option value="acre*in/min">Acre Inch per Minute</option>		
+              </select></td>
+              <td valign="top" align="left" width="9" colspan="2"><b>IS:<b></td></tr>
+<tr>
+<td colspan="4">&nbsp;</td></tr>
+<tr>
+	<td valign="top" align="left" width="20%">Liter per Day (l/day)</td>
+	<td valign="top" align="left" >Liter per Hour (l/hr)</td>
+	<td valign="top" align="left" >Liter per Minute (l/min)</td>
+	<td valign="top" align="left" >Liter per Second (l/s)</td>
+	
+</tr>
+<tr>
+	<td valign="top" align="left" width="150"><input type="text" name="F0" size="15" onChange="calc()" onKeyup="calc()"></td>
+	<td valign="top" align="left" width="150"><input type="text" name="F1" size="15" onChange="calc()" onKeyup="calc()"></td>
+	<td valign="top" align="left" width="150"><input type="text" name="F2" size="15" onChange="calc()" onKeyup="calc()"></td>
+	<td valign="top" align="left" width="150"><input type="text" name="F3" size="15" onChange="calc()" onKeyup="calc()"></td>
+</tr>
+
+<tr>
+<td colspan="4">&nbsp;</td></tr>
+ <tr>
+<td valign="top" align="left">Cubic Feet per Day (ft<sup>3</sup>/day)</td>
+<td valign="top" align="left">Cubic Feet per Hour (ft<sup>3</sup>/hr)</td>
+<td valign="top" align="left">Cubic Feet per Minute (ft<sup>3</sup>/hr)</td>
+<td valign="top" align="left">Cubic Feet per Second (ft<sup>3</sup>/s)</td>
+</tr>        
+<tr>
+<td valign="top" align="left" width="150"><input type="text" name="F4" size="15" onChange="calc()" onKeyup="calc()"></td>
+<td valign="top" align="left" width="150"><input type="text" name="F5" size="15" onChange="calc()" onKeyup="calc()"></td>
+<td valign="top" align="left" width="150"><input type="text" name="F6" size="15" onChange="calc()" onKeyup="calc()"></td>
+<td valign="top" align="left" width="150"><input type="text" name="F7" size="15" onChange="calc()" onKeyup="calc()"></td>
+</tr>
+<tr>
+<td colspan="4">&nbsp;</td></tr>
+ <tr>
+<td valign="top" align="left">Gallon per Day (gal/day)</td>
+<td valign="top" align="left">Gallon per Hour (gal/hr)</td>
+<td valign="top" align="left">Gallon per Minute (gal/hr)</td>
+<td valign="top" align="left">Gallon per Second (gal/s)</td>
+</tr>
+<tr>
+<td colspan="4">&nbsp;</td></tr>
+<tr>
+<td valign="top" align="left" width="150"><input type="text" name="F8" size="15" onChange="calc()" onKeyup="calc()"></td>
+<td valign="top" align="left" width="150"><input type="text" name="F9" size="15" onChange="calc()" onKeyup="calc()"></td>
+<td valign="top" align="left" width="150"><input type="text" name="F10" size="15" onChange="calc()" onKeyup="calc()"></td>
+<td valign="top" align="left" width="150"><input type="text" name="F11" size="15" onChange="calc()" onKeyup="calc()"></td>
+</tr>
+ <tr>
+<td valign="top" align="left">Acre Feet per Day (acre&#183;ft/day)</td>
+<td valign="top" align="left">Acre Inch per Minute (acre&#183in/min)</td>
+</tr>        
+<tr>
+<td valign="top" align="left" width="150"><input type="text" name="F12" size="15" onChange="calc()" onKeyup="calc()"></td>
+<td valign="top" align="left" width="150"><input type="text" name="F13" size="15" onChange="calc()" onKeyup="calc()"></td>
+</tr>
+
+
+          </table>
+          </td>
+        </tr>
+      </table>
+      </td>
+    </tr>
+    <tr align="center">
+      <td valign="top" align="left" style="background-color: teal" colspan="2">&nbsp;</td>
+    </tr>
+  </table>
+</form>
+</td>
+  </tr>
+</table>
+</body>
+</html>

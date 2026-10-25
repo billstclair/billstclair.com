@@ -1,0 +1,199 @@
+<html>
+
+<head>
+<title>California Aquaculture</title>
+<meta http-equiv="Content-style-type" content="text/css">
+<link Rel="stylesheet" HREF="../aqua.css" type="text/css">
+
+<script language="JavaScript">
+<!--
+////////////////
+
+function round(n)
+{
+	number = new Number(n);
+	return Math.round(number*1000000)/1000000;
+}
+
+function calc()
+{
+	var A  = new Number(document.frm.A.value);
+	var AU = new Number(document.frm.AU.selectedIndex);
+	var A0,A1,A2,A3,A4,A5,A6,A7,A8;
+	var ha = 0;
+	
+	L1=L2=L3=L4=L5=L6=L7=L8=0;
+	
+	// convert the AREA to common ha first
+	if(AU == 0) ha = A / .01;		// km^2
+	if(AU == 1) ha = A * 1; 		// ha
+	if(AU == 2) ha = A / 10000; 		// m^2
+	if(AU == 3) ha = A / 100000000;		// cm^2
+	if(AU == 4) ha = A / .003861; 		// miles^2
+	if(AU == 5) ha = A / 2.471044; 		// acre
+	if(AU == 6) ha = A / 11960.291831;	// yd^2
+	if(AU == 7) ha = A / 107642.62648;	// ft^2
+	if(AU == 8) ha = A / 15500538.213132;	// in^2
+
+	// convert from ha to other units
+	A0 = ha * .01;			// km
+	A1 = ha;			// ha
+	A2 = ha / .0001;		// m^2 
+	A3 = ha * 100000000;		// cm^2
+	A4 = ha * .003861;		// miles^2
+	A5 = ha * 2.471044;		// acre
+	A6 = ha * 11960.291831;	// yd^2
+	A7 = ha * (107642.62648);	// ft^2
+	A8 = ha * (15500538.213132);	// in^2
+
+	// set the form values
+	document.frm.A0.value = round(A0);
+	document.frm.A1.value = round(A1);
+	document.frm.A2.value = round(A2);
+	document.frm.A3.value = round(A3);
+	document.frm.A4.value = round(A4);
+	document.frm.A5.value = round(A5);
+	document.frm.A6.value = round(A6);
+	document.frm.A7.value = round(A7);
+	document.frm.A8.value = round(A8);
+}
+
+// --></script>
+</head>
+
+<body onLoad="calc()">
+
+<table border="0" width="100%">
+  <tr>
+    <td width="100%" colspan="2">
+
+<p><img SRC="../images/logo2.gif" ALIGN="left" ALT="California Aquaculture Logo." WIDTH="123" HEIGHT="150"> </p>
+
+<p class="heading1">California Aquaculture</p>
+
+<p class="heading2">University of California Davis
+</td><td><img SRC="../images/ucdavis_seal_blue_med_trans.gif" ALIGN="right" ALT="UC Davis Seal" width="110" height="110" >
+</td>
+  </tr>
+  <tr>
+    <td width="20%" valign="top">
+
+<table border="0">
+  <tr>
+    <td><a HREF="../default.html"><img src="../images/homef.gif" class="test" width="164" height="25" alt="Homepage"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="../dbweb/outreach/aqua/default.htm"><img src="../images/pubf.gif" width="164" height="25" alt="Publications"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="toolsnf.html"><img src="../images/convf.gif" width="164" height="25" alt="Publications"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="../publications/publicationsnf.html"><img src="../images/libf.gif" width="164" height="25" alt="Publications"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="../links/linksnf.html"><img src="../images/linksf.gif" width="164" height="25" alt="Links"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="../koi-wg/koinf.html"><img src="../images/koif.gif" width="164" height="25" alt="Koi &amp; Watergardens"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="../organizations/organizationsnf.html"><img src="../images/orgf.gif" class="test" width="164" height="25" alt="Organizations and Centers"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="../education/educationnf.html"><img src="../images/educf.gif" width="164" height="25" alt="Education"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="../government/governmentnf.html"><img src="../images/govf.gif" width="164" height="25" alt="Government and Agencies"></a></td>
+  </tr>
+  
+  <tr>
+    <td><a HREF="../aboutnf.html"><img src="../images/aboutf.gif" width="164" height="25" alt="About Our Site"></a></td>
+  </tr>
+    <tr>
+    <td><a HREF="../searchnf.html"><img src="../images/searchf.gif" width="164" height="25" alt="Search Our Site"></a></td>
+  </tr>
+  <tr>
+    <td><a HREF="../tools/ftptoolsnf.html"><img src="../images/toolsf.gif" width="164" height="25" alt="FTP Tools"></a></td>
+  </tr>
+</table>
+</td>
+    <td width="80%" valign="top">
+<form method="POST" name="frm">
+  <table cellspacing="0" cellpadding="0" border="0" bdgcolor="white" width="100%">
+    <tr>
+      <td style="background-color: teal;color: black" colspan="2"><h1>Conversion: <small>Area</small></h1>
+      </td>
+      <td style="background-color: teal" valign="top" align="left" rowspan="3">&nbsp;&nbsp;&nbsp;
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" align="center" style="background-color: teal">&nbsp;</td>
+      <td><div align="left"><table border="1" cellpadding="3" cellspacing="0">
+        <tr>
+          <td><div align="left"><table border="1" cellpadding="3" width="100%">
+            <tr>
+              <td valign="top" align="left" width="113"><input type="text" name="A" size="15" OnKeyup="calc()" onChange="calc()" onKeyup="calc()" value="1"></td>
+              <td valign="top" align="left" width="74"><select name="AU" size="1" onChange="calc()">
+                <option value="km^2">Sq. Kilometer</option>
+                <option value="ha">Hectare</option>
+                <option selected value="m^2">Square Meter</option>
+                <option value="cm^2">Sq. Centimeter</option>
+		<option value="mile^2">Square Mile</option>
+                <option value="acre">Acre</option>
+                <option value="yd^2">Square Yard</option>
+		<option value="ft^2">Square Foot</option>
+		<option value="in^2">Square Inch</option>
+              </select></td>
+              <td valign="top" align="left" width="9" colspan="2"><b>IS:<b></td></tr>
+<tr>
+<td colspan="4">&nbsp;</td></tr>
+<tr>
+<tr>
+	<td valign="top" align="left" width="20%">Sq. Kilometer (km<sup>2</sup>)</td>
+	<td valign="top" align="left">Hectare (ha)</td>
+	<td valign="top" align="left">Square Meter (m<sup>2</sup>)</td>
+	<td valign="top" align="left">Sq. Centimeter (cm<sup>2</sup>)</td>
+</tr>
+<tr>
+	<td valign="top" align="left" width="150"><input type="text" name="A0" size="15" onChange="calc()" onKeyup="calc()"></td>
+	<td valign="top" align="left" width="150"><input type="text" name="A1" size="15" onChange="calc()" onKeyup="calc()"></td>
+	<td valign="top" align="left" width="150"><input type="text" name="A2" size="15" onChange="calc()" onKeyup="calc()"></td>
+	<td valign="top" align="left" width="150"><input type="text" name="A3" size="15" onChange="calc()" onKeyup="calc()"></td>
+
+</tr>
+
+<tr>
+<td colspan="4">&nbsp;</td></tr>
+<tr>
+ <tr>
+<td valign="top" align="left">Square Mile (mile<sup>2</sup>)</td>
+<td valign="top" align="left">Acre</td>
+<td valign="top" align="left">Square yard (yd<sup>2</sup>)</td>
+<td valign="top" align="left">Square foot (ft<sup>2</sup>)</td>
+<td valign="top" align="left">Square Inches (in<sup>2</sup>)</td>
+</tr>        
+<tr>
+<td valign="top" align="left" width="150"><input type="text" name="A4" size="15" onChange="calc()" onKeyup="calc()"></td>
+<td valign="top" align="left" width="150"><input type="text" name="A5" size="15" onChange="calc()" onKeyup="calc()"></td>
+<td valign="top" align="left" width="150"><input type="text" name="A6" size="15" onChange="calc()" onKeyup="calc()"></td>
+<td valign="top" align="left" width="150"><input type="text" name="A7" size="15" onChange="calc()" onKeyup="calc()"></td>
+<td valign="top" align="left" width="150"><input type="text" name="A8" size="15" onChange="calc()" onKeyup="calc()"></td>
+</tr>
+
+          </table>
+          </div></td>
+        </tr>
+      </table>
+      </div></td>
+    </tr>
+    <tr align="center">
+      <td valign="top" align="left" style="background-color: teal" colspan="2">&nbsp;</td>
+    </tr>
+  </table>
+</form>
+</td>
+  </tr>
+</table>
+</body>
+</html>
