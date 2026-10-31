@@ -1,0 +1,94 @@
+<html>
+<head>
+<title>Muzzle Energy Computer</title>
+<script>
+function calc() {
+  var grains_per_lb = 6999;
+  var lb_per_slug = 32.17;
+  var grains_per_slug = grains_per_lb * lb_per_slug;
+  var pi = 3.141592654;
+  var velocity = new Number(document.mainform.velocity.value);
+  var weight = new Number(document.mainform.weight.value);
+  var diameter = new Number(document.mainform.diameter.value);
+  var energy = 0.5 * (weight / grains_per_slug) * velocity * velocity;
+  var r = diameter / 2;
+  var efficacy = energy * pi * r * r;
+  document.mainform.energy.value = Math.round(energy);
+  document.mainform.efficacy.value = Math.round(efficacy);
+}
+
+function revcalc() {
+}
+
+function modify(weight, velocity, diameter) {
+  document.mainform.weight.value = weight
+  document.mainform.velocity.value = velocity;
+  document.mainform.diameter.value = diameter;
+  calc();
+}
+</script>
+</head>
+<body onLoad="modify(150, 2820, 0.308);">
+<b>Muzzle Energy Computer</b>
+<p>
+<form name="mainform">
+<table>
+<tr>
+<td align="right">Bullet Weight (grains):</td>
+<td><input type="text" name="weight" onChange="calc();" onKeyup="calc();"></td>
+</tr>
+<tr>
+<td align="right">Muzzle Velocity (feet/second):</td>
+<td><input type="text" name="velocity" onChange="calc();" onKeyup="calc();"></td>
+</tr>
+<tr>
+<td align="right">Bullet diameter (inches):</td>
+<td><input type="text" name="diameter" onChange="calc();" onKeyup="calc();"></td>
+<tr>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td align="right">Energy (foot pounds):</td>
+<td><input type="text" name="energy" onChange="revcalc();" onKeyup="revcalc();"></td>
+</tr>
+<tr>
+<td align="right">Efficacy (energy x area):</td>
+<td><input type="text" name="efficacy" onChange="revcalc();" onKeyup="revcalc();"></td>
+</tr>
+</table>
+</form>
+
+Click a button to fill in values for the linked load. More ballistics
+for Remington ammo
+<a href="http://www.remington.com/ammo/ballistics/ballistics.htm">
+here</a>.<br>
+<br>
+Rifle:<br>
+<button onClick="modify(55, 3240, .224);">&nbsp;223 Remington (5.56 Nato)&nbsp;</button>
+<a href="http://www.remington.com/ammo/ballistics/centerfire/results.asp?cal=6">
+Remington Express & UMC</a><br>
+<button onClick="modify(150, 2820, .308);">&nbsp;308 Winchester (7.62 Nato)&nbsp;</button>
+<a href="http://www.remington.com/ammo/ballistics/centerfire/results.asp?cal=33">
+Remington Express & UMC</a><br>
+<button onClick="modify(180, 2700, .308);">&nbsp;30-06 Springfield&nbsp;</button>
+<a href="http://www.remington.com/ammo/ballistics/centerfire/results.asp?cal=30">
+Remington Express</a><br>
+<button onClick="modify(240, 2350, .429);">&nbsp;444 Marlin&nbsp;</button>
+<a href="http://www.remington.com/ammo/ballistics/centerfire/results.asp?cal=53">
+Remington Express</a><br>
+<br>
+Handgun:<br>
+<button onClick="modify(124, 1180, .355);">&nbsp;9mm Luger&nbsp;</button>
+<a href="http://www.remington.com/ammo/ballistics/pr/results.asp?cal=6">
+Remington Golden Saber +P</a><br>
+<button onClick="modify(165, 1290, .358);">&nbsp;357 Magnum&nbsp;</button>
+<a href="http://www.remington.com/ammo/ballistics/pr/results.asp?cal=5">
+Remington Core-Lokt Hunting</a><br>
+<button onClick="modify(185, 1140, .451);">&nbsp;45 Auto&nbsp;</button>
+<a href="http://www.remington.com/ammo/ballistics/pr/results.asp?cal=19">
+Remington Golden Saber +P</a><br>
+<button onClick="modify(180, 1610, .429);">&nbsp;44 Magnum&nbsp;</button>
+<a href="http://www.remington.com/ammo/ballistics/pr/results.asp?cal=16">
+Remington Express & UMC</a><br>
+</body>
+</html>

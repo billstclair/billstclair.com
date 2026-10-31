@@ -1,0 +1,720 @@
+<HTML>
+<Title>TCP/IP Port Numbers</title>
+<H1>WELL KNOWN PORT NUMBERS</H1>
+<<it>Source:<A HREF="ftp://ftp.isi.edu/in-notes/iana/assignments/port-numbers>IANA</a></it>> 
+<<A HREF="notes.html">Notes</A>> <<A HREF="http://www.con.wesleyan.edu/~triemer/triemer.html"<A>Author</A>> 
+<P>
+If you don't find what you were expecting or hoping for please provide <<A HREF="http:comment-form.html"><IT>Comments or additions</IT></A>>
+<P>Italics indicates that a protocol is rare or non-existant.<P>
+<UL>
+<LI>                  0/tcp    Reserved
+<LI>                  0/udp    Reserved
+<LI><A HREF="tcpmux/tcpmux.html">tcpmux</A>           1/tcp    TCP Port Service Multiplexer
+<LI><A HREF="compressnet/compressnet.html">compressnet</A>       2/tcp    Management Utility
+<LI><A HREF="compressnet/compressnet.html">compressnet</A>       3/tcp    Compression Process
+<LI><A HREF="rje/rje_tcp.html">rje</A>               5/tcp    Remote Job Entry
+<LI><A HREF="echo/echo_tcp.html">echo</A>              7/tcp    Echo
+<LI><A HREF="echo/echo_udp.html">echo</A>              7/udp    Echo
+<LI><A HREF="discard/discard_tcp.html">discard</A>           9/tcp    Discard
+<LI><A HREF="discard/discard_udp.html">discard</A>           9/udp    Discard
+<LI><A HREF="systat/systat.html">systat</A>           11/tcp    Active Users
+<LI><A HREF="systat/systat_udp.html>systat</A>           11/udp    Active Users
+<LI><A HREF="daytime/daytime.html">daytime</A>          13/tcp    Daytime
+<LI><A HREF="daytime/daytime_udp.html">daytime</A>          13/udp    Daytime
+<LI><A HREF="qotd/quotd.html">qotd</A>             17/tcp    Quote of the Day
+<LI><A HREF="qotd/qotd_udp.html">qotd</A>             17/udp    Quote of the Day
+<LI><A HREF="rwrite/rwrite_tcp.html">rwrite</A>		18/tcp	RWP rwrite
+<LI><A HREF="rwrite/rwrite_udp.html">rwrite</A>		18/udp	RWP rwrite
+<LI><A HREF="msp/msp_tcp.html">msp</A>              18/tcp    Message Send Protocol
+<LI><A HREF="msp/msp_udp.html">msp</A>              18/udp    Message Send Protocol
+<LI><A HREF="chargen/chargen.html">chargen</A>          19/tcp    Character Generator
+<LI><A HREF="chargen/chargen_udp.html">chargen</A>          19/udp    Character Generator
+<LI><A HREF="ftp/ftp.html">ftp-data</A>         20/tcp    File Transfer [Default Data]
+<LI><A HREF="ftp/ftp.html">ftp</A>              21/tcp    File Transfer [Control]
+<LI><A HREF="telnet/telnet_tcp.html">telnet</A>           23/tcp    Telnet
+<LI>                 24/tcp    any private mail system
+<LI>                 24/udp    any private mail system
+<LI><A HREF="smtp/smtp.html">smtp</A>             25/tcp    Simple Mail Transfer
+<LI>nsw-fe           27/tcp    NSW User System FE
+<LI>nsw-fe           27/udp    NSW User System FE
+<LI>msg-icp          29/tcp    MSG ICP
+<LI>msg-icp          29/udp    MSG ICP
+<LI>msg-auth         31/tcp    MSG Authentication
+<LI>msg-auth         31/udp    MSG Authentication
+<LI>dsp              33/tcp    Display Support Protocol
+<LI>dsp              33/udp    Display Support Protocol
+<LI>                 35/tcp    any private printer server
+<LI>                 35/udp    any private printer server
+<LI><A HREF="time/time_tcp.html">time</A>             37/tcp    Time
+<LI><A HREF="time/time_udp.html">time</A>             37/udp    Time
+<LI><A HREF="rap/rap_tcp.html">rap</A>              38/tcp    Route Access Protocol
+<LI><A HREF="rap/rap_udp.html">rap</A>              38/udp    Route Access Protocol
+<LI><A HREF="rlp/rlp.html">rlp</A>              39/udp    Resource Location Protocol
+<LI><A HREF="graphics/graphics.html">graphics</A>         41/tcp    Graphics
+<LI>graphics         41/udp    Graphics
+<LI><A HREF="nameserver/nameserver_udp.html">nameserver</A>       42/udp    Host Name Server
+<LI><A HREF="nicname/nicname.html">nicname</A>          43/tcp    Who Is
+<LI><A HREF="mpm/mpm_tcp.html">mpm-flags</a>        44/tcp    MPM FLAGS Protocol
+<LI><A HREF="mpm/mpm_tcp.html">mpm</A>              45/tcp    Message Processing Module [recv]
+<LI><A HREF="mpm/mpm_tcp.html">mpm-snd</A>          46/tcp    MPM [default send]
+<LI><A HREF="ni-ftp/ni-ftp_tcp.html">ni-ftp</A>           47/tcp    NI FTP
+<LI>ni-ftp           47/udp    NI FTP
+<LI>auditd           48/tcp    Digital Audit Daemon
+<LI>auditd           48/udp    Digital Audit Daemon
+<LI><A HREF="login/login_tcp.html">login</A>            49/tcp    Login Host Protocol
+<LI>re-mail-ck       50/tcp    Remote Mail Checking Protocol
+<LI>re-mail-ck       50/udp    Remote Mail Checking Protocol
+<LI><A HREF="la-maint/la-maint_udp.html">la-maint</A>         51/udp    IMP Logical Address Maintenance
+<LI><A HREF="xns/xns.html">xns-time</A>         52/tcp    XNS Time Protocol
+<LI><A HREF="xns/xns.html">xns-time</A>         52/udp    XNS Time Protocol
+<LI><A HREF="domain/domain_tcp.html">domain</A>           53/tcp    Domain Name Server
+<LI><A HREF="domain/domain_udp.html">domain</A>           53/udp    Domain Name Server
+<LI><A HREF="xns/xns.html">xns-ch</A>           54/tcp    XNS Clearinghouse
+<LI><A HREF="xns/xns.html">xns-ch</A>           54/udp    XNS Clearinghouse
+<LI>isi-gl           55/tcp    ISI Graphics Language
+<LI>isi-gl           55/udp    ISI Graphics Language
+<LI><A HREF="xns/xns.html">xns-auth</A>         56/tcp    XNS Authentication
+<LI><A HREF="xns/xns.html">xns-auth</A>         56/udp    XNS Authentication
+<LI>                 57/tcp    any private terminal access
+<LI>                 57/udp    any private terminal access
+<LI><A HREF="xns/xns.html">xns-mail</A>         58/tcp    XNS Mail
+<LI><A HREF="xns/xns.html">xns-mail</A>         58/udp    XNS Mail
+<LI>                 59/tcp    any private file service
+<LI>                 59/udp    any private file service
+<LI>                 60/tcp    Unassigned
+<LI>                 60/udp    Unassigned
+<LI>ni-mail          61/tcp    NI MAIL
+<LI>ni-mail          61/udp    NI MAIL
+<LI><A HREF="acas/acas_tcp.html">acas</A>             62/tcp    ACA Services
+<LI><A HREF="covia/covia_tcp.html">covia</A>            64/tcp    Communications Integrator (CI)
+<LI><A HREF="tacacs/tacacs_tcp.html">tacacs-ds</A>        65/tcp    TACACS-Database Service
+<LI><A HREF="SQLnet/SQLnet_tcp.html">sql*net</A>          66/tcp    Oracle SQL*NET
+<LI><A HREF="bootp/bootp_udp.html">bootps</A>           67/udp    Bootstrap Protocol Server
+<LI><A HREF="bootp/bootp_udp.html">bootpc</A>           68/udp    Bootstrap Protocol Client
+<LI><A HREF="tftp/tftp_udp.html">tftp</A>             69/udp    Trivial File Transfer
+<LI><A HREF="gopher/gopher_tcp.html">gopher</A>           70/tcp    Gopher
+<LI><A HREF="netrjs/netrjs_tcp.html">netrjs-1</A>         71/tcp    Remote Job Service
+<LI><A HREF="netjrs/netrjs_udp.html">netrjs-1</A>         71/udp    Remote Job Service
+<LI><A HREF="netrjs/netrjs_tcp.html">netrjs-2</A>         72/tcp    Remote Job Service
+<LI><A HREF="netrjs/netrjs_udp.html">netrjs-2</A>         72/udp    Remote Job Service
+<LI><A HREF="netrjs/netrjs_tcp.html">netrjs-3</A>         73/tcp    Remote Job Service
+<LI><A HREF="netrjs/netrjs_udp.html">netrjs-3</A>         73/udp    Remote Job Service
+<LI><A HREF="netrjs/netrjs_tcp.html">netrjs-4</A>         74/tcp    Remote Job Service
+<LI><A HREF="netrjs/netrjs_udp.html">netrjs-4</A>         74/udp    Remote Job Service
+<LI>                 75/tcp    any private dial out service
+<LI>                 75/udp    any private dial out service
+<LI><A HREF="deos/deos_tcp.html">deos</A>             76/tcp    Distributed External Object Store
+<LI><A HREF="deos/deos_udp.html">deos</A>             76/udp    Distributed External Object Store
+<LI>                 77/tcp    any private RJE service
+<LI>                 77/udp    any private RJE service
+<LI>vettcp           78/tcp    vettcp
+<LI>vettcp           78/udp    vettcp
+<LI><A HREF="finger/finger_tcp.html>finger</A>           79/tcp    Finger
+<LI><A HREF="http/http_tcp.html">http</A>             80/tcp    World Wide Web HTTP
+<LI><A HREF="http/http_tcp.html">www-http</A>         80/tcp    World Wide Web HTTP
+<LI>hosts2-ns        81/tcp    HOSTS2 Name Server
+<LI>hosts2-ns        81/udp    HOSTS2 Name Server
+<LI>xfer             82/tcp    XFER Utility
+<LI>xfer             82/udp    XFER Utility
+<LI>mit-ml-dev       83/tcp    MIT ML Device
+<LI>mit-ml-dev       83/udp    MIT ML Device
+<LI>ctf              84/tcp    Common Trace Facility
+<LI>ctf              84/udp    Common Trace Facility
+<LI>mit-ml-dev       85/tcp    MIT ML Device
+<LI>mit-ml-dev       85/udp    MIT ML Device
+<LI><A HREF="mfcobol/mfcobol_tcp.html">mfcobol</A>          86/tcp    Micro Focus Cobol
+<LI>                 87/tcp    any private terminal link
+<LI>                 87/udp    any private terminal link
+<LI><A HREF="kerberos/kerberos_tcp.html">kerberos</A>         88/tcp    Kerberos
+<LI><A HREF="su-mit-tg/su-mit-tg_tcp.html"><I>su-mit-tg</I></A>        89/tcp    SU/MIT Telnet Gateway
+<LI><A HREF="dnsix/dnsix_tcp.html">dnsix</A>            90/tcp    DNSIX Securit Attribute Token Map
+<LI><A HREF="mit-dov/mit-dov_tcp.html"><I>mit-dov</I></A>          91/tcp    MIT Dover Spooler
+<LI>npp              92/tcp    Network Printing Protocol
+<LI>npp              92/udp    Network Printing Protocol
+<LI>dcp              93/tcp    Device Control Protocol
+<LI>dcp              93/udp    Device Control Protocol
+<LI><A HREF="tivoli/tivoli_tcp.html">objcall</A>          94/tcp    Tivoli Object Dispatcher
+<LI>objcall          94/udp    Tivoli Object Dispatcher
+<LI><A HREF="supdup/supdup_tcp.html">supdup</A>           95/tcp    SUPDUP
+<LI>supdup           95/udp    SUPDUP
+<LI><A HREF="dixie/dixie_tcp.html"><I>dixie</I></A>            96/tcp    DIXIE Protocol Specification
+<LI>swift-rvf        97/tcp    Swift Remote Virtural File Protocol
+<LI>swift-rvf        97/udp    Swift Remote Virtural File Protocol
+<LI>tacnews          98/tcp    TAC News
+<LI>tacnews          98/udp    TAC News
+<LI>metagram         99/tcp    Metagram Relay
+<LI>metagram         99/udp    Metagram Relay
+<LI>newacct         100/tcp    [unauthorized use]
+<LI><A HREF="hostname/hostname_tcp.html">hostname</A>        101/tcp    NIC Host Name Server
+<LI>hostname        101/udp    NIC Host Name Server
+<LI>iso-tsap        102/tcp    ISO-TSAP Class 0
+<LI>iso-tsap        102/udp    ISO-TSAP Class 0
+<LI>gppitnp         103/tcp    Genesis Point-to-Point Trans Net
+<LI>gppitnp         103/udp    Genesis Point-to-Point Trans Net
+<LI><A HREF="acr-nema/acr-nema_tcp.html">acr-nema</A>        104/tcp    ACR-NEMA Digital Imag. & Comm. 300
+<LI>csnet-ns        105/tcp    Mailbox Name Nameserver
+<LI>csnet-ns        105/udp    Mailbox Name Nameserver
+<LI>3com-tsmux      106/tcp    3COM-TSMUX
+<LI>3com-tsmux      106/udp    3COM-TSMUX
+<LI><A HREF="poppassd/poppassd_tcp.html">poppassd</A>	    106/tcp    Password Server
+<LI><A HREF="rtelnet/rtelnet_tcp.html">rtelnet</A>         107/tcp    Remote Telnet Service
+<LI><A HREF="snagas/snagas_tcp.html">snagas</A>          108/tcp    SNA Gateway Access Server
+<LI><A HREF="pop/pop2.html">pop2</A>            109/tcp    Post Office Protocol - Version 2
+<LI><A HREF="pop/pop3.html">pop3</A>            110/tcp    Post Office Protocol - Version 3
+<LI><A HREF="sunrpc/sunrpc_tcp.html">sunrpc</A>          111/tcp    SUN Remote Procedure Call
+<LI>sunrpc          111/udp    SUN Remote Procedure Call
+<LI><A HREF="mcidas/mcidas_tcp.html"><I>mcidas</I></A>          112/tcp    McIDAS Data Transmission Protocol
+<LI><A HREF="auth/auth_tcp.html">auth</A>            113/tcp    Authentication Service
+<LI>audionews       114/tcp    Audio News Multicast
+<LI>audionews       114/udp    Audio News Multicast
+<LI><A HREF="sftp/sftp_tcp.html">sftp</a>            115/tcp    Simple File Transfer Protocol
+<LI>sftp            115/udp    Simple File Transfer Protocol
+<LI>ansanotify      116/tcp    ANSA REX Notify
+<LI>ansanotify      116/udp    ANSA REX Notify
+<LI><A HREF="uucp-path.html/uucp-path_tcp.html">uucp-path</A>       117/tcp    UUCP Path Service
+<LI>sqlserv         118/tcp    SQL Services
+<LI>sqlserv         118/udp    SQL Services
+<LI><A HREF="nntp/nntp_tcp.html">nntp</A>            119/tcp    Network News Transfer Protocol
+<LI>cfdptkt         120/tcp    CFDPTKT
+<LI>cfdptkt         120/udp    CFDPTKT
+<LI>erpc            121/tcp    Encore Expedited Remote Pro.Call
+<LI>erpc            121/udp    Encore Expedited Remote Pro.Call
+<LI><A HREF="smakynet/smakynet_tcp.html"><I>smakynet</I></A>        122/tcp    SMAKYNET
+<LI><A HREF="smakynet/smakynet_udp.html"><I>smakynet</I></A>        122/udp    SMAKYNET
+<LI><A HREF="ntp/ntp_tcp.html">ntp</A>             123/tcp    Network Time Protocol
+<LI>ntp             123/udp    Network Time Protocol
+<LI>ansatrader      124/tcp    ANSA REX Trader
+<LI>ansatrader      124/udp    ANSA REX Trader
+<LI><A HREF="locus-map/locus-map_tcp.html">locus-map</A>       125/tcp    Locus PC-Interface Net Map Ser
+<LI>unitary         126/tcp    Unisys Unitary Login
+<LI>unitary         126/udp    Unisys Unitary Login
+<LI><A HREF="locus-map/locus-map_tcp.html">locus-con</A>       127/tcp    Locus PC-Interface Conn Server
+<LI>gss-xlicen      128/tcp    GSS X License Verification
+<LI>gss-xlicen      128/udp    GSS X License Verification
+<LI><A HREF="pwdgen/pwdgen_tcp.html">pwdgen</A>          129/tcp    Password Generator Protocol
+<LI><A HREF="pwdgen/pwdgen_udp.html">pwdgen</A>          129/udp    Password Generator Protocol
+<LI>cisco-fna       130/tcp    cisco FNATIVE
+<LI>cisco-fna       130/udp    cisco FNATIVE
+<LI>cisco-tna       131/tcp    cisco TNATIVE
+<LI>cisco-tna       131/udp    cisco TNATIVE
+<LI>cisco-sys       132/tcp    cisco SYSMAINT
+<LI>cisco-sys       132/udp    cisco SYSMAINT
+<LI><A HREF="statsrv/statsrv_tcp.html">statsrv</A>         133/tcp    Statistics Service
+<LI><A HREF="statsrv/statsrv_udp.html">statsrv</A>         133/udp    Statistics Service
+<LI><A HREF="ingres-net/ingres-net_tcp.html">ingres-net</A>      134/tcp    INGRES-NET Service
+<LI>loc-srv         135/tcp    Location Service
+<LI>loc-srv         135/udp    Location Service
+<LI><A HREF=profile/profile_tcp.html><I>profile</I></A>         136/tcp    PROFILE Naming System           
+<LI><A HREF="netbios/netbios_tcp.html">netbios-ns</A>      137/tcp    NETBIOS Name Service    
+<LI><A HREF="netbios/netbios_udp.html">netbios-ns</A>      137/udp    NETBIOS Name Service    
+<LI><A HREF="netbios/netbios_tcp.html">netbios-dgm</A>     138/tcp    NETBIOS Datagram Service
+<LI><A HREF="netbios/netbios_udp.html">netbios-dgm</A>     138/udp    NETBIOS Datagram Service
+<LI><A HREF="netbios/netbios_tcp.html">netbios-ssn</A>     139/tcp    NETBIOS Session Service
+<LI><A HREF="netbios/netbios_udp.html">netbios-ssn</A>     139/udp    NETBIOS Session Service
+<LI><A HREF="emfis/emfis_tcp.html">emfis-data</A>      140/tcp    EMFIS Data Service
+<LI><A HREF="emfis/emfis_tcp.html">emfis-data</A>      140/udp    EMFIS Data Service
+<LI><A HREF="emfis/emfis_tcp.html">emfis-cntl</A>      141/tcp    EMFIS Control Service
+<LI><A HREF="emfis/efmis_tcp.html">emfis-cntl</A>      141/udp    EMFIS Control Service
+<LI>bl-idm          142/tcp    Britton-Lee IDM           
+<LI>bl-idm          142/udp    Britton-Lee IDM           
+<LI><A HREF="imap/imap_tcp.html">imap2</A>           143/tcp    Interactive Mail Access Protocol v2
+<LI>news            144/tcp    NewS                       
+<LI>news            144/udp    NewS                       
+<LI>uaac            145/tcp    UAAC Protocol             
+<LI>uaac            145/udp    UAAC Protocol             
+<LI>iso-tp0         146/tcp    ISO-IP0
+<LI>iso-tp0         146/udp    ISO-IP0
+<LI>iso-ip          147/tcp    ISO-IP
+<LI>iso-ip          147/udp    ISO-IP
+<LI>cronus          148/tcp    CRONUS-SUPPORT                  
+<LI>cronus          148/udp    CRONUS-SUPPORT                  
+<LI>aed-512         149/tcp    AED 512 Emulation Service           
+<LI>aed-512         149/udp    AED 512 Emulation Service           
+<LI>sql-net         150/tcp    SQL-NET                    
+<LI>sql-net         150/udp    SQL-NET                    
+<LI><A HREF="hems/hems_tcp.html">hems</A>            151/tcp    HEMS                              
+<LI><A HREF="bftp/bftp_tcp.html">bftp</A>            152/tcp    Background File Transfer Program 
+<LI>bftp            152/udp    Background File Transfer Program 
+<LI>sgmp            153/tcp    SGMP                    
+<LI>sgmp            153/udp    SGMP                    
+<LI>netsc-prod      154/tcp    NETSC                             
+<LI>netsc-prod      154/udp    NETSC                             
+<LI>netsc-dev       155/tcp    NETSC                             
+<LI>netsc-dev       155/udp    NETSC                             
+<LI><A HREF="sqlserv/sqlserv_tcp.html"><I>sqlsrv</I></A>          156/tcp    SQL Service                  
+<LI><A HREF="knet/knet.html"><I>knet-cmp</I></A>        157/tcp    KNET/VM Command/Message Protocol
+<LI><A HREF="pcmail-srv/pcmail-srv_tcp.html">pcmail-srv</A>      158/tcp    PCMail Server                 
+<LI>nss-routing     159/tcp    NSS-Routing                  
+<LI>nss-routing     159/udp    NSS-Routing                  
+<LI>sgmp-traps      160/tcp    SGMP-TRAPS                
+<LI>sgmp-traps      160/udp    SGMP-TRAPS                
+<LI><A HREF="snmp/snmp_udp.html">snmp</A>            161/udp    SNMP
+<LI><A HREF="snmp/snmp_udp.html">snmptrap</A>        162/udp    SNMPTRAP
+<LI>cmip-man        163/tcp    CMIP/TCP Manager   
+<LI>cmip-man        163/udp    CMIP/TCP Manager   
+<LI>cmip-agent      164/tcp    CMIP/TCP Agent     
+<LI>smip-agent      164/udp    CMIP/TCP Agent     
+<LI><A HREF="xns/xns.html">xns-courier</A>     165/tcp    Xerox                          
+<LI><A HREF="xns/xns.html">xns-courier</A>     165/udp    Xerox                          
+<LI>s-net           166/tcp    Sirius Systems          
+<LI>s-net           166/udp    Sirius Systems          
+<LI>namp            167/tcp    NAMP                    
+<LI>namp            167/udp    NAMP                    
+<LI>rsvd            168/tcp    RSVD                              
+<LI>rsvd            168/udp    RSVD                              
+<LI>send            169/tcp    SEND                              
+<LI>send            169/udp    SEND                              
+<LI>print-srv       170/tcp    Network PostScript              
+<LI>print-srv       170/udp    Network PostScript              
+<LI>multiplex       171/tcp    Network Innovations Multiplex
+<LI>multiplex       171/udp    Network Innovations Multiplex
+<LI>cl/1            172/tcp    Network Innovations CL/1     
+<LI>cl/1            172/udp    Network Innovations CL/1     
+<LI>xyplex-mux      173/tcp    Xyplex                          
+<LI>xyplex-mux      173/udp    Xyplex                          
+<LI>mailq           174/tcp    MAILQ                               
+<LI>mailq           174/udp    MAILQ                               
+<LI>vmnet           175/tcp    VMNET                                
+<LI>vmnet           175/udp    VMNET  
+<LI>genrad-mux      176/tcp    GENRAD-MUX                      
+<LI>genrad-mux      176/udp    GENRAD-MUX                      
+<LI><A HREF="xdmcp/xdmcp_udp.html">xdmcp</A>           177/udp    X Display Manager Control Protocol  
+<LI>nextstep        178/tcp    NextStep Window Server     
+<LI>NextStep        178/udp    NextStep Window Server     
+<LI><A HREF="bgp/bgp_tcp.html">bgp</A>             179/tcp    Border Gateway Protocol             
+<LI>ris             180/tcp    Intergraph                         
+<LI>ris             180/udp    Intergraph                         
+<LI>unify           181/tcp    Unify                  
+<LI>unify           181/udp    Unify                  
+<LI>audit           182/tcp    Unisys Audit SITP                  
+<LI>audit           182/udp    Unisys Audit SITP                  
+<LI>ocbinder        183/tcp    OCBinder                     
+<LI>ocbinder        183/udp    OCBinder                     
+<LI>ocserver        184/tcp    OCServer                     
+<LI>ocserver        184/udp    OCServer                     
+<LI>remote-kis      185/tcp    Remote-KIS                        
+<LI>remote-kis      185/udp    Remote-KIS                        
+<LI>kis             186/tcp    KIS Protocol                      
+<LI>kis             186/udp    KIS Protocol                      
+<LI>aci             187/tcp    Application Communication Interface
+<LI>aci             187/udp    Application Communication Interface
+<LI><A HREF="mumps/mumps_tcp.html">mumps</A>           188/tcp    Plus Five's MUMPS            
+<LI><A HREF="mumps/mumps_udp.html">mumps</A>           188/udp    Plus Five's MUMPS            
+<LI><A HREF="qft/qft_tcp.html">qft</A>             189/tcp    Queued File Transport        
+<LI>gacp            190/tcp    Gateway Access Control Protocol
+<LI>cacp            190/udp    Gateway Access Control Protocol
+<LI><A HREF="prospero/prospero_tcp.html">prospero</A>        191/tcp    Prospero Directory Service      
+<LI>osu-nms         192/tcp    OSU Network Monitoring System       
+<LI>osu-nms         192/udp    OSU Network Monitoring System       
+<LI>srmp            193/tcp    Spider Remote Monitoring Protocol 
+<LI>srmp            193/udp    Spider Remote Monitoring Protocol 
+<LI><A HREF="irc/irc_udp.html">irc</A>             194/udp    Internet Relay Chat Protocol        
+<LI><A HREF="dnsix/dnsix_tcp.html">dn6-nlm-aud</A>     195/tcp    DNSIX Network Level Module Audit    
+<LI><A HREF="dnsix/dnsix_tcp.html">dn6-smm-red</A>     196/tcp    DNSIX Session Mgt Module Audit Redir
+<LI><A HREF="dls/dls_tcp.html"><It>dls</it></A>             197/tcp    Directory Location Service        
+<LI><A HREF="dls/dls_udp.html"><it>dls</it></A>             197/udp    Directory Location Service        
+<LI><A HREF="dls/dls_tcp.html"><it>dls-mon</it></A>         198/tcp    Directory Location Service Monitor
+<LI><A HREF="dls/dls_udp.html"><it>dls-mon</it></A>         198/udp    Directory Location Service Monitor
+<LI>smux            199/tcp    SMUX
+<LI>smux            199/udp    SMUX
+<LI>src             200/tcp    IBM System Resource Controller
+<LI>src             200/udp    IBM System Resource Controller
+<LI><A HREF="appletalk/appletalk.html">at-rtmp</A>         201/tcp    AppleTalk Routing Maintenance       
+<LI><A HREF="appletalk/appletalk.html">at-rtmp</A>         201/udp    AppleTalk Routing Maintenance       
+<LI><A HREF="appletalk/appletalk.html">at-nbp</A>          202/tcp    AppleTalk Name Binding              
+<LI><A HREF="appletalk/appletalk.html">at-nbp</A>          202/udp    AppleTalk Name Binding              
+<LI><A HREF="appletalk/appletalk.html">at-3</A>            203/tcp    AppleTalk Unused                    
+<LI><A HREF="appletalk/appletalk.html">at-3</A>            203/udp    AppleTalk Unused                    
+<LI><A HREF="appletalk/appletalk.html">at-echo</A>         204/tcp    AppleTalk Echo                      
+<LI><A HREF="appletalk/appletalk.html">at-echo</A>         204/udp    AppleTalk Echo                      
+<LI><A HREF="appletalk/appletalk.html">at-5</A>            205/tcp    AppleTalk Unused                    
+<LI><A HREF="appletalk/appletalk.html">at-5</A>            205/udp    AppleTalk Unused                    
+<LI><A HREF="appletalk/appletalk.html">at-zis</A>          206/tcp    AppleTalk Zone Information          
+<LI><A HREF="appletalk/appletalk.html">at-zis</A>          206/udp    AppleTalk Zone Information          
+<LI><A HREF="appletalk/appletalk.html">at-7</A>            207/tcp    AppleTalk Unused                    
+<LI><A HREF="appletalk/appletalk.html">at-7</A>            207/udp    AppleTalk Unused                    
+<LI><A HREF="appletalk/appletalk.html">at-8</A>            208/tcp    AppleTalk Unused                    
+<LI><A HREF="appletalk/appletalk.html">at-8</A>            208/udp    AppleTalk Unused                    
+<LI>tam             209/tcp    Trivial Authenticated Mail Protocol
+<LI>tam             209/udp    Trivial Authenticated Mail Protocol
+<LI><A HREF="z3950/z3950_tcp.html">z39.50</A>          210/tcp    ANSI Z39.50
+<LI>z39.50          210/udp    ANSI Z39.50
+<LI>914c/g          211/tcp    Texas Instruments 914C/G Terminal
+<LI>914c/g          211/udp    Texas Instruments 914C/G Terminal
+<LI>anet            212/tcp    ATEXSSTR   
+<LI>anet            212/udp    ATEXSSTR   
+<LI>ipx             213/tcp    IPX         	                      
+<LI>ipx             213/udp    IPX                                
+<LI>vmpwscs         214/tcp    VM PWSCS                         
+<LI>vmpwscs         214/udp    VM PWSCS                         
+<LI>softpc          215/tcp    Insignia Solutions
+<LI>softpc          215/udp    Insignia Solutions
+<LI><A HREF="atls/atls_tcp.html">atls</a>            216/tcp    Access Technology License Server   
+<LI>dbase           217/tcp    dBASE Unix
+<LI>dbase           217/udp    dBASE Unix
+<LI>mpp             218/tcp    Netix Message Posting Protocol
+<LI>mpp             218/udp    Netix Message Posting Protocol
+<LI>uarps           219/tcp    Unisys ARPs               
+<LI>uarps           219/udp    Unisys ARPs               
+<LI><A HREF="imap/imap_tcp.html">imap3</A>           220/tcp    Interactive Mail Access Protocol v3
+<LI>fln-spx         221/tcp    Berkeley rlogind with SPX auth   
+<LI>fln-spx         221/udp    Berkeley rlogind with SPX auth   
+<LI>rsh-spx         222/tcp    Berkeley rshd with SPX auth      
+<LI>rsh-spx         222/udp    Berkeley rshd with SPX auth      
+<LI>cdc             223/tcp    Certificate Distribution Center  
+<LI>cdc             223/udp    Certificate Distribution Center  
+<LI>sur-meas        243/tcp    Survey Measurement          
+<LI>sur-meas        243/udp    Survey Measurement          
+<LI>link            245/tcp    LINK
+<LI>link            245/udp    LINK
+<LI>dsp3270         246/tcp    Display Systems Protocol        
+<LI>dsp3270         246/udp    Display Systems Protocol        
+<LI><A HREF="prospero/prospero_tcp.html">pdap</A>           344/tcp    Prospero Data Access Protocol
+<LI>pawserv         345/tcp    Perf Analysis Workbench
+<LI>pawserv         345/udp    Perf Analysis Workbench
+<LI><A HREF="zebra/zebra_tcp.html">zserv</A>           346/tcp    Zebra server
+<LI><A HREF="fatmen/fatmen_tcp.html">fatserv</A>         347/tcp    Fatmen Server
+<LI>csi-sgwp        348/tcp    Cabletron Management Protocol
+<LI>csi-sgwp        348/udp    Cabletron Management Protocol
+<LI>clearcase       371/tcp    Clearcase
+<LI>clearcase       371/udp    Clearcase
+<LI>ulistserv       372/tcp    Unix Listserv
+<LI>ulistserv       372/udp    Unix Listserv
+<LI>legent-1        373/tcp    Legent Corporation
+<LI>legent-1        373/udp    Legent Corporation
+<LI>legent-2        374/tcp    Legent Corporation
+<LI>legent-2        374/udp    Legent Corporation
+<LI>hassle          375/tcp    Hassle
+<LI>hassle          375/udp    Hassle
+<LI>nip             376/tcp    Amiga Envoy Network Inquiry Proto   
+<LI>nip             376/udp    Amiga Envoy Network Inquiry Proto
+<LI>tnETOS          377/tcp    NEC Corporation
+<LI>tnETOS          377/udp    NEC Corporation
+<LI>dsETOS          378/tcp    NEC Corporation
+<LI>dsETOS          378/udp    NEC Corporation
+<LI><A HREF="is-99/is-99_tcp.html">is99c</a>           379/tcp    TIA/EIA/IS-99 modem client
+<LI><A HREF="is-99/is-99_tcp.html">is99s</A>           380/tcp    TIA/EIA/IS-99 modem server
+<LI>hp-collector    381/tcp    hp performance data collector
+<LI>hp-collector    381/udp    hp performance data collector
+<LI>hp-managed-node 382/tcp    hp performance data managed node
+<LI>hp-managed-node 382/udp    hp performance data managed node
+<LI>hp-alarm-mgr    383/tcp    hp performance data alarm manager
+<LI>hp-alarm-mgr    383/udp    hp performance data alarm manager
+<LI><A HREF="arns/arns_tcp.html">arns</A>            384/tcp    A Remote Network Server System
+<LI><A HREF="arns/arns_udp.html">arns</A>            384/udp    A Remote Network Server System
+<LI>ibm-app         385/tcp    IBM Application
+<LI>ibm-app         385/tcp    IBM Application
+<LI>asa             386/tcp    ASA Message Router Object Def.
+<LI>asa             386/udp    ASA Message Router Object Def.
+<LI><A HREF="appletalk/appletalk.html">aurp</A>            387/tcp    Appletalk Update-Based Routing Pro.
+<LI><A HREF="appletalk/appletalk.html">aurp</A>            387/udp    Appletalk Update-Based Routing Pro.
+<LI><A HREF="ldm/ldm_tcp.html">unidata-ldm</A>     388/tcp    Unidata LDM Version 4
+<LI><A HREF="ldm/ldm_tcp.html">unidata-ldm     388/udp    Unidata LDM Version 4
+<LI><A HREF="ldap/ldap_tcp.html">ldap</A>            389/tcp    Lightweight Directory Access Protocol
+<LI>uis             390/tcp    UIS
+<LI>uis             390/udp    UIS
+<LI>synotics-relay  391/tcp    SynOptics SNMP Relay Port
+<LI>synotics-relay  391/udp    SynOptics SNMP Relay Port
+<LI>synotics-broker 392/tcp    SynOptics Port Broker Port
+<LI>synotics-broker 392/udp    SynOptics Port Broker Port
+<LI>dis             393/tcp    Data Interpretation System
+<LI>dis             393/udp    Data Interpretation System
+<LI>embl-ndt        394/tcp    EMBL Nucleic Data Transfer
+<LI>embl-ndt        394/udp    EMBL Nucleic Data Transfer
+<LI>netcp           395/tcp    NETscout Control Protocol
+<LI>netcp           395/udp    NETscout Control Protocol
+<LI>netware-ip      396/tcp    Novell Netware over IP
+<LI>netware-ip      396/udp    Novell Netware over IP
+<LI>mptn            397/tcp    Multi Protocol Trans. Net.
+<LI>mptn            397/udp    Multi Protocol Trans. Net.
+<LI>kryptolan       398/tcp    Kryptolan
+<LI>kryptolan       398/udp    Kryptolan
+<LI>iso-tsap-c2     399/tcp    ISO-TSAP Class 2
+<LI>iso-tsap-c2     399/udp    ISO-TSAP Class 2
+<LI>work-sol        400/tcp    Workstation Solutions
+<LI>work-sol        400/udp    Workstation Solutions
+<LI><A HREF="ups/ups_udp.html"><it>ups</it></A>             401/udp    Uninterruptible Power Supply
+<LI>genie           402/tcp    Genie Protocol
+<LI>genie           402/udp    Genie Protocol
+<LI>decap           403/tcp    decap
+<LI>decap           403/udp    decap
+<LI>nced            404/tcp    nced
+<LI>nced            404/udp    nced
+<LI>ncld            405/tcp    ncld
+<LI>ncld            405/udp    ncld
+<LI>imsp            406/tcp    Interactive Mail Support Protocol
+<LI>imsp            406/udp    Interactive Mail Support Protocol
+<LI><A HREF="timbuktu/timbuktu_tcp.html">timbuktu</A>        407/tcp    Timbuktu
+<LI><A HREF="prospero/prospero_tcp.html">prm-sm</A>          408/tcp    Prospero Resource Manager Sys. Man.
+<LI><A HREF="prospero/prospero_tcp.html">prm-nm</A>          409/tcp    Prospero Resource Manager Node Man.
+<LI><A HREF="decladebug/decladebug_udp.html">decladebug</A>      410/udp    DECLadebug Remote Debug Protocol
+<LI>rmt             411/tcp    Remote MT Protocol
+<LI>rmt             411/udp    Remote MT Protocol
+<LI>synoptics-trap  412/tcp    Trap Convention Port
+<LI>synoptics-trap  412/udp    Trap Convention Port
+<LI>smsp            413/tcp    SMSP
+<LI>smsp            413/udp    SMSP
+<LI>infoseek        414/tcp    InfoSeek
+<LI>infoseek        414/udp    InfoSeek
+<LI>bnet            415/tcp    BNet
+<LI>bnet            415/udp    BNet
+<LI>silverplatter   416/tcp    Silverplatter
+<LI>silverplatter   416/udp    Silverplatter
+<LI>onmux           417/tcp    Onmux
+<LI>onmux           417/udp    Onmux
+<LI><A HREF="hyper-g/hyper-g_tcp.html">hyper-g</A>         418/tcp    Hyper-G
+<LI><A HREF="ariel/ariel_tcp.html">ariel1</A>          419/tcp    Ariel
+<LI><A HREF="smpte/smpte_udp.html">smpte</A>           420/udp    SMPTE
+<LI><A HREF="ariel/ariel_tcp.html">ariel2</A>          421/tcp    Ariel
+<LI><A HREF="ariel/ariel_tcp.html">ariel3</A>          422/tcp    Ariel
+<LI><A HREF="opc/opc_tcp.html">opc-job-start</A>   423/tcp    IBM Operations Planning and Control Start
+<LI><A HREF="opc/opc_tcp.html">opc-job-track</A>   424/tcp    IBM Operations Planning and Control Track
+<LI><A HREF="icad/icad_tcp.html">icad-el</A>         425/tcp    ICAD
+<LI>smartsdp        426/tcp    smartsdp
+<LI>smartsdp        426/udp    smartsdp
+<LI>svrloc          427/tcp    Server Location
+<LI>svrloc          427/udp    Server Location
+<LI>ocs_cmu         428/tcp    OCS_CMU
+<LI>ocs_cmu         428/udp    OCS_CMU
+<LI>ocs_amu         429/tcp    OCS_AMU
+<LI>ocs_amu         429/udp    OCS_AMU
+<LI>utmpsd          430/tcp    UTMPSD
+<LI>utmpsd          430/udp    UTMPSD
+<LI>utmpcd          431/tcp    UTMPCD
+<LI>utmpcd          431/udp    UTMPCD
+<LI>iasd            432/tcp    IASD  
+<LI>iasd            432/udp    IASD  
+<LI>nnsp            433/tcp    NNSP
+<LI>nnsp            433/udp    NNSP
+<LI><A HREF="mobile/mobile_tcp.html">mobileip-agent</A>  434/tcp    MobileIP-Agent
+<LI><A HREF="mobile/mobile_tcp.html">mobilip-mn</A>      435/tcp    MobilIP-MN
+<LI>dna-cml         436/tcp    DNA-CML   
+<LI>dna-cml         436/udp    DNA-CML   
+<LI>comscm          437/tcp    comscm
+<LI>comscm          437/udp    comscm
+<LI>dsfgw           438/tcp    dsfgw
+<LI>dsfgw           438/udp    dsfgw
+<LI>dasp            439/tcp    dasp      Thomas Obermair
+<LI>dasp            439/udp    dasp      tommy@inlab.m.eunet.de
+<LI>sgcp            440/tcp    sgcp      
+<LI>sgcp            440/udp    sgcp      
+<LI><A HREF="decvms-sysmgt_tcp.html">decvms-sysmgt</A>   441/tcp    decvms-sysmgt
+<LI>cvc_hostd       442/tcp    cvc_hostd
+<LI>cvc_hostd       442/udp    cvc_hostd
+<LI><A HREF="https/https_tcp.html">https</A>           443/tcp    https  MCom
+<LI>snpp            444/tcp    Simple Network Paging Protocol
+<LI>snpp            444/udp    Simple Network Paging Protocol
+<LI><A HREF="microsoft-ds/microsoft-ds_udp.html">microsoft-ds</A>    445/udp    Microsoft-DS
+<LI>ddm-rdb         446/tcp    DDM-RDB
+<LI>ddm-rdb         446/udp    DDM-RDB
+<LI>ddm-dfm         447/tcp    DDM-RFM
+<LI>ddm-dfm         447/udp    DDM-RFM
+<LI>ddm-byte        448/tcp    DDM-BYTE
+<LI>ddm-byte        448/udp    DDM-BYTE
+<LI>as-servermap    449/tcp    AS Server Mapper
+<LI>as-servermap    449/udp    AS Server Mapper
+<LI><A HREF="tserver/tserver_tcp.html">tserver</A>         450/tcp    TServer
+<LI>sfs-smp-net     451/tcp    Cray Network Semaphore server
+<LI>sfs-smp-net     451/udp    Cray Network Semaphore server
+<LI>sfs-config	452/tcp    Cray SFS config server
+<LI>sfs-config	452/udp    Cray SFS config server
+<LI>creativeserver  453/tcp    CreativeServer
+<LI>creativeserver  453/udp    CreativeServer
+<LI>contentserver   454/tcp    ContentServer
+<LI>contentserver   454/udp    ContentServer
+<LI>creativepartnr  455/tcp    CreativePartnr
+<LI>creativepartnr  455/udp    CreativePartnr
+<LI>macon-tcp       456/tcp    macon-tcp
+<LI>macon-udp       456/udp    macon-udp
+<LI>scohelp         457/tcp    scohelp
+<LI>scohelp         457/udp    scohelp
+<LI>appleqtc        458/tcp    apple quick time
+<LI>appleqtc        458/udp    apple quick time
+<LI>ampr-rcmd       459/tcp    ampr-rcmd              
+<LI>ampr-rcmd       459/udp    ampr-rcmd              
+<LI>skronk          460/tcp    skronk
+<LI>skronk          460/udp    skronk
+<LI><A HREF="exec/exec_tcp.html">exec</A>            512/tcp    remote process execution;
+<LI><A HREF="biff/biff_udp.html">biff</A>            512/udp    used by mail system to notify users
+<LI><A HREF="rlogin/rlogin_tcp.html">login</A>           513/tcp    remote login a la telnet;
+<LI>who             513/udp    maintains data bases showing who's
+<LI><A HREF="cmd/cmd_tcp.html">cmd</A>             514/tcp    like exec, but automatic
+<LI>syslog          514/udp
+<LI><A HREF="printer/printer_tcp.html">printer</A>         515/tcp    spooler
+<LI><A HREF="talk/talk_udp.html">talk</A>            517/udp    
+<LI><A HREF="ntalk/ntalk_tcp.html">ntalk</A>           518/tcp
+<LI>utime           519/tcp    unixtime
+<LI>utime           519/udp    unixtime
+<LI>efs             520/tcp    extended file name server
+<LI>router          520/udp    local routing process (on site);
+<LI>timed  	        525/tcp    timeserver
+<LI>timed           525/udp    timeserver
+<LI>tempo	        526/tcp    newdate
+<LI>tempo	        526/udp    newdate
+<LI>courier         530/tcp    rpc
+<LI>courier         530/udp    rpc
+<LI>conference      531/tcp    chat
+<LI>conference      531/udp    chat
+<LI>netnews         532/tcp    readnews
+<LI>netnews         532/udp    readnews
+<LI>netwall	        533/tcp    for emergency broadcasts
+<LI>netwall	        533/udp    for emergency broadcasts
+<LI>apertus-ldp     539/tcp    Apertus Technologies Load Determination
+<LI>apertus-ldp     539/udp    Apertus Technologies Load Determination
+<LI><A HREF="uucp/uucp_tcp.html">uucp</A>	        540/tcp    uucpd		
+<LI>uucp-rlogin     541/tcp    uucp-rlogin  
+<LI>uucp-rlogin     541/udp    uucp-rlogin
+<LI>klogin          543/tcp
+<LI>klogin          543/udp
+<LI>kshell 	        544/tcp    krcmd
+<LI>kshell 	        544/udp    krcmd
+<LI>appleqtcsrvr    545/tcp    appleqtcsrvr
+<LI>appleqtcsrvr    545/udp    appleqtcsrvr
+<LI>new-rwho        550/tcp    new-who
+<LI>new-rwho        550/udp    new-who
+<LI>dsf             555/tcp
+<LI>dsf             555/udp
+<LI>remotefs        556/tcp    rfs server
+<LI>remotefs        556/udp    rfs server
+<LI>openvms-sysipc  557/tcp    openvms-sysipc
+<LI>openvms-sysipc  557/udp    openvms-sysipc
+<LI>sdnskmp         558/tcp    SDNSKMP
+<LI>sdnskmp         558/udp    SDNSKMP
+<LI>teedtap         559/tcp    TEEDTAP
+<LI>teedtap         559/udp    TEEDTAP
+<LI>rmonitor        560/tcp    rmonitord
+<LI>rmonitor        560/udp    rmonitord
+<LI>monitor         561/tcp
+<LI>monitor         561/udp
+<LI>chshell         562/tcp    chcmd
+<LI>chshell         562/udp    chcmd
+<LI><A HREF="plan9/plan9_tcp.html">9pfs</A>            564/tcp    plan 9 file service
+<LI><A HREF="plan9/plan9_udp.html">9pfs</A>            564/udp    plan 9 file service
+<LI>whoami          565/tcp    whoami
+<LI>whoami          565/udp    whoami
+<LI>meter           570/tcp    demon
+<LI>meter           570/udp    demon
+<LI>meter	        571/tcp    udemon
+<LI>meter	        571/udp    udemon
+<LI>ipcserver       600/tcp    Sun IPC server
+<LI>ipcserver       600/udp    Sun IPC server
+<LI>nqs	        607/tcp    nqs
+<LI>nqs	        607/udp    nqs
+<LI>urm             606/tcp    Cray Unified Resource Manager
+<LI>urm             606/udp    Cray Unified Resource Manager
+<LI><A HREF="sift-uft/sift-uft_tcp.html">sift-uft</A>        608/tcp    Sender-Initiated/Unsolicited File Transfer 
+<LI>npmp-trap       609/tcp    npmp-trap
+<LI>npmp-trap       609/udp    npmp-trap
+<LI>npmp-local      610/tcp    npmp-local
+<LI>npmp-local      610/udp    npmp-local
+<LI>npmp-gui        611/tcp    npmp-gui  
+<LI>npmp-gui        611/udp    npmp-gui  
+<LI>ginad           634/tcp    ginad
+<LI>ginad           634/udp    ginad
+<LI>mdqs            666/tcp	
+<LI>mdqs            666/udp	
+<LI><A HREF="doom/doom_tcp.html">doom</A>            666/tcp    doom Id Software
+<LI>elcsd	        704/tcp    errlog copy/server daemon
+<LI>elcsd	        704/udp    errlog copy/server daemon
+<LI><A HREF="entrustmanager/entrustmanager_tcp.html>entrustmanager</A>  709/tcp    EntrustManager
+<LI>netviewdm1      729/tcp    IBM NetView DM/6000 Server/Client
+<LI>netviewdm1      729/udp    IBM NetView DM/6000 Server/Client
+<LI>netviewdm2      730/tcp    IBM NetView DM/6000 send/tcp
+<LI>netviewdm2      730/udp    IBM NetView DM/6000 send/tcp
+<LI>netviewdm3      731/tcp    IBM NetView DM/6000 receive/tcp
+<LI>netviewdm3      731/udp    IBM NetView DM/6000 receive/tcp
+<LI>netgw           741/tcp    netGW
+<LI>netgw           741/udp    netGW
+<LI>netrcs          742/tcp    Network based Rev. Cont. Sys.
+<LI>netrcs          742/udp    Network based Rev. Cont. Sys.
+<LI><A HREF="flexlm/flexlm_tcp.html">flexlm</A>          744/tcp    Flexible License Manager
+<LI>flexlm          744/udp    Flexible License Manager
+<LI>fujitsu-dev     747/tcp    Fujitsu Device Control
+<LI>fujitsu-dev     747/udp    Fujitsu Device Control
+<LI>ris-cm          748/tcp    Russell Info Sci Calendar Manager
+<LI>ris-cm          748/udp    Russell Info Sci Calendar Manager
+<LI><A HREF="kerberos/kerberos_tcp.html">kerberos-adm</A>    749/tcp    kerberos administration
+<LI>rfile 	        750/tcp
+<LI>loadav          750/udp
+<LI>pump	        751/tcp
+<LI>pump	        751/udp
+<LI>qrh	        752/tcp
+<LI>qrh	        752/udp
+<LI>rrh    	        753/tcp
+<LI>rrh	        753/udp
+<LI>tell	        754/tcp	    send
+<LI>tell	        754/udp	    send
+<LI>nlogin	        758/tcp
+<LI>nlogin	        758/udp
+<LI>con	        759/tcp
+<LI>con	        759/udp
+<LI>ns	        760/tcp
+<LI>ns	        760/udp
+<LI>rxe	        761/tcp
+<LI>rxe	        761/udp
+<LI>quotad	        762/tcp
+<LI>quotad	        762/udp
+<LI>cycleserv       763/tcp
+<LI>cycleserv       763/udp
+<LI>omserv	        764/tcp
+<LI>omserv	        764/udp
+<LI>webster	        765/tcp
+<LI>webster	        765/udp
+<LI>phonebook       767/tcp	   phone
+<LI>phonebook       767/udp	   phone
+<LI>vid	        769/tcp
+<LI>vid	        769/udp
+<LI>cadlock         770/tcp
+<LI>cadlock         770/udp
+<LI>rtip 	        771/tcp
+<LI>rtip 	        771/udp
+<LI>cycleserv2      772/tcp
+<LI>cycleserv2      772/udp
+<LI>submit	        773/tcp
+<LI>notify	        773/udp
+<LI>rpasswd	        774/tcp
+<LI>acmaint_dbd     774/udp
+<LI>entomb	        775/tcp
+<LI>acmaint_transd	775/udp
+<LI>wpages		776/tcp
+<LI>wpages          776/udp
+<LI>wpgs		780/tcp
+<LI>wpgs		780/udp
+<LI>concert         786/tcp       Concert
+<LI>concert         786/udp       Concert
+<LI>mdbs_daemon	800/tcp	
+<LI>mdbs_daemon	800/udp	
+<LI>device		801/tcp
+<LI>device		801/udp
+<LI>accessbuilder   888/tcp        AccessBuilder
+<LI>accessbuilder   888/udp        AccessBuilder
+<LI>xtreelic        996/tcp	       Central Point Software
+<LI>xtreelic        996/udp	       Central Point Software 
+<LI>maitrd		997/tcp
+<LI>maitrd		997/udp
+<LI>busboy		998/tcp
+<LI>puparp		998/udp
+<LI>garcon		999/tcp
+<LI>applix		999/udp	       Applix ac
+<LI>puprouter	999/tcp
+<LI>puprouter	999/udp
+<LI>cadlock		1000/tcp
+<LI>ock		1000/udp
+<LI>                1023/tcp       Reserved
+<LI>	        1024/udp       Reserved
+</UL>
+
+For information about ports greater than 1024 see
+the list of <A HREF="http:regports.html">REGISTERED PORT NUMBERS</A>
+
+<H4>REFERENCES</H4>
+
+<A HREF="http://ds.internic.net/rfc/rfc768.txt">[RFC768]</A> Postel, J., "User Datagram Protocol", STD 6, RFC 768,
+         USC/Information Sciences Institute, August 1980.<P>
+
+<A HREF="http://ds.internic.net/rfc/rfc793.txt">[RFC793]</A>Postel, J., ed., "Transmission Control Protocol - DARPA
+         Internet Program Protocol Specification", STD 7, RFC 793,
+         USC/Information Sciences Institute, September 1981.
+</HTML>
+
+

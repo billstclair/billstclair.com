@@ -1,0 +1,698 @@
+/* Canadian Mind Products style sheet */
+a:link  /* how ordinary clickable links look */
+{
+        color : #F50A2D;
+
+        font-weight : bold;
+}
+
+a:visited
+/* how visited links look */
+{
+        color : #330099;
+
+        font-weight : bold;
+}
+
+a:active
+/* how the link under the cursor looks */
+{
+        color : #000800;
+          font-weight : bold;
+}
+
+blockquote       /* how block quotes displayed */
+{
+        color : #8B4513;
+                font-style : Italic;
+}
+
+body
+{
+        color : #000000;
+        background : #FFFFEA none;
+        font-family : "Trebuchet MS",TiresiasScreenfont,Verdana,serif;
+}
+
+body.alternate
+/* used for BookDirect simulation */
+{
+        color : #000000;
+        background : #E0FFFF none;
+}
+
+body.ringbinder
+/* simulates a ring binder with rings down the left */
+{
+        margin-left : 100px;
+        color : #000000;
+        background : url(images/binderbackground.gif) #FFFFFF Repeat-y;
+        font-family : "comic sans ms",Arial,Helvetica,sans-serif;
+}
+
+body.sidemenu a:link, body.topmenu a:link
+/* how links look in side menus */
+{
+        color : #FFFFDD;
+
+        font-weight : bold;
+}
+
+body.sidemenu a:visited , body.topmenu a:visited
+/* how visited links in a side menu */
+{
+        color : #FFFFDD;
+           font-weight : bold;
+}
+
+body.sidemenu a:active , body.topmenu a:visited
+/* how the current link looks in a side menu */
+{
+        color : #FFFFFF;
+
+        font-weight : bold;
+}
+
+body.sidemenu, body.topmenu
+/* for a vertical menu frame on the left */
+{
+        color : #FFFF00;
+        background : #006400 none;
+}
+
+body.sunset
+/* background is photo of a sunset */
+{
+        color : #000000;
+        background : url(images/sunset.jpg) #FFE4B5 repeat;
+}
+
+cite
+{
+        color : #B00000;
+              font-size : 100%;
+}
+
+dt    /* define glossary term */
+{
+        /* fake a <br> ahead of <DT> */
+        padding-top : 6pt;
+        color : #008000;
+        font-size : medium;
+        font-weight : bold;
+}
+
+h1      /* main heading */
+{
+        color : #0080FF;
+              font : bold x-large Arial,Helvetica,sans-serif;
+}
+
+h2      /* sub heading */
+{
+        color : #0080FF;
+
+        font : bold large Arial,Helvetica,sans-serif;
+}
+
+h3      /* sub sub heading,very small amount of vertical space after it */
+{
+        margin-bottom : 5px;
+        padding-bottom : 0;
+        color : #0080FF;
+           font : medium Arial,Helvetica,sans-serif;
+}
+
+h4,.miniheader,.minihead
+/* heading that does not start a new line,suitable for use in LI tags */
+{
+        /* works in Opera 5 Netscape 6 IE 5.5 not Netscape 4.7 */
+        display : inline;
+        color : #0080FF;
+
+        font : bold small Arial,Helvetica,sans-serif;
+}
+
+h5   /* heading that does not start a new line,no special colour */
+{
+        /* works in Opera 5 Netscape 6 IE 5.5 not Netscape 4.7 */
+        display : inline;
+        font : bold small Arial,Helvetica,sans-serif;
+}
+
+table   /* add blank space above and below the table */
+{
+        margin-bottom : 4px;
+        margin-top : 4px;
+}
+
+table table   /* no extra space for embedded tables */
+{
+        margin-bottom : 0px;
+        margin-top : 0px;
+}
+
+table.colourlist       /* for tables of colours and their hex equivalents,want roughly monospace */
+{
+        color : #000000;
+        background : #FFFFFF;
+        font : 75% "Lucida Console",courier,"courier new",monospace;
+}
+
+table.colourlist th       /* headers for colourlist tables */
+{
+        color : #0080FF;
+        font : bold small Arial,Helvetica,sans-serif;
+}
+
+table.gridmenu       /* tables used for creating menus of clickable buttons */
+{
+        color : #0080FF;
+        background : #FFFC77;
+        font : 120% Arial,Helvetica,sans-serif;
+}
+
+table.sellbook
+{
+        width : 50%;
+        border : thin inset;
+        background : #E0FFFF;
+        text-align : left;
+}
+
+table.sellbookcol
+{
+        width : 100%;
+        border : thin inset;
+        background : #E0FFFF;
+        text-align : left;
+}
+
+td.free
+{
+        text-align : center;
+}
+
+td.no
+{
+        text-align : center;
+}
+
+td.paid
+{
+        text-align : center;
+}
+
+td.selected
+/* special background colour to indicate this is the selected item */
+/* "selected" is not an CSS or HTML concept.  It is just a highlighting */
+{
+        background : #F0E68C;
+}
+
+td.unknown
+{
+        text-align : center;
+}
+
+td.yes
+{
+        text-align : center;
+}
+
+th,th.html    /* table header for column titles */
+{
+        color : #0080FF;
+            font : bold 120% Arial,Helvetica,sans-serif;
+}
+
+/* computer languages */
+.abundance   /* Abundance source code */
+{
+        color : #BB8811;
+                font-family : "Lucida Console",courier,"courier new",monospace;
+}
+
+.ada    /* Ada 95 source code */
+{
+        color : #446677;
+               font-family : "Lucida Console",courier,"courier new",monospace;
+}
+
+.answer  /* the answer to a question */
+{
+        color : #009933;
+
+        font-family : Arial,Helvetica,sans-serif;
+}
+
+.asm,.masm    /* Assembler source code */
+{
+        color : #BB0077;
+               font-family : "Lucida Console",courier,"courier new",monospace;
+}
+
+.bali   /* Bali source code */
+{
+        color : #BB8811;
+              font-family : "Lucida Console",courier,"courier new",monospace;
+}
+
+.bat    /* Bat files or other command scripts */
+{
+        /* saddle brown */
+        color : #8B4513;
+                font-family : "Lucida Console",courier,"courier new",monospace;
+}
+
+.bible  /* a quote from the Bible */
+{
+        color : #A52A2A;
+
+        font : larger Garamond,cursive,serif;
+}
+
+.binary /* binary constants in any computer language */
+{
+        color : #991199;
+
+        font-family : "Lucida Console",courier,"courier new",monospace;
+}
+.booktitle /* used in sellbook tables */
+{
+        color : #B00000;
+              font-size : 130%;
+        font-weight : bold;
+}
+
+.buy
+{
+               font-family : "comic sans ms",Arial,Helvetica,sans-serif;
+}
+
+.buy:before
+{
+        content : "Click to buy at: ";
+}
+
+.by /* author in sellbook table */
+{
+        color : #000082;
+
+}
+
+.by:before
+{
+        content : "by:";
+}
+
+.c      /* c source code */
+{
+        color : #00AABB;
+
+        font-family : "Lucida Console",courier,"courier new",monospace;
+}
+
+.cobol  /* COBOL source code */
+{
+        color : #006633;
+               font-family : "Lucida Console",courier,"courier new",monospace;
+}
+
+.comment,.rem /* comment/remark in any computerlanguage */
+{
+        color : #77BB77;
+               font-family : "Lucida Console",courier,"courier new",monospace;
+        font-style : Italic;
+}
+
+.css    /* examples of css style sheet coding */
+{
+        color : #AA00AA;
+               font-family : "Lucida Console",courier,"courier new",monospace;
+}
+
+.eiffel /* Eiffel source code */
+{
+        color : #0080FF;
+
+        font-family : "Lucida Console",courier,"courier new",monospace;
+}
+
+.english
+/* used to indicate text is English,not Esperanto or some other language. */
+{
+        color : #008000;
+               font-family : "Arial Eo","E Arial","Publika",Arial,sans-serif;
+}
+
+.esperanto
+/* used to indicate text is in Esperanto. */
+{
+        /* saddle brown */
+        color : #8B4513;
+
+        font-family : "Arial Eo","E Arial","Publika",Arial,sans-serif;
+}
+
+.essay, .pencil /* link to a  essay */
+{
+        border : none;
+        clear : none;
+        padding : 10px 8px 10px 40px;
+        margin : 8px 0px 8px 0px;
+        display : block;
+        color : #B22222;
+        background : url(images/essay.gif) #FFFFCC no-repeat scroll 3px 3px;
+        font-family : Arial,sans-serif;
+}
+
+.file,.member    /* file and member names */
+{
+        /* sienna */
+        color : #A0522D;
+
+        font-family : "Lucida Console",courier,"courier new",monospace;
+}
+
+.forth  /* FORTH source code */
+{
+        color : #0080FF;
+                font-family : "Lucida Console",courier,"courier new",monospace;
+}
+
+.fortran
+/* FORTRAN source code */
+{
+        color : #006633;
+
+        font-family : "Lucida Console",courier,"courier new",monospace;
+}
+
+.foxpro     /* Foxpro/dBase source code */
+{
+        color : #8811AA;
+                font-family : "Lucida Console",courier,"courier new",monospace;
+}
+
+.free   /* implies something available at no cost */
+{
+        color : #0000FF;
+
+}
+
+.god    /* words purportedly spoken by God */
+{
+        color : #9900CC;
+               font : italic bold medium Garamond,cursive,serif;
+}
+
+.html,.http    /* example HTML */
+{
+        color : #0000AA;
+
+        font-family : "Lucida Console",courier,"courier new",monospace;
+}
+
+.important{
+        border : medium ridge;
+        clear : both;
+        padding : 20px 8px 20px 40px;
+        margin : 8px 0px 8px 0px;
+        display : block;
+        color : #FF3333;
+        background : url(images/bigexclamation.gif) #FFFFCC no-repeat scroll 3px 3px;
+        font : 600 large Arial,"Arial Black",sans-serif;
+}
+
+.ini    /* ini files,or other configuration files such as properties */
+{
+        color : #1E90FF;
+                font-family : "Lucida Console",courier,"courier new",monospace;
+}
+
+.isbn
+{
+        color : #008000;
+        font-size : 90%;
+}
+
+.isbn:before
+{
+        content : "ISBN:";
+}
+
+.java   /* Java source code */
+{
+        color : #006677;
+
+        font-family : "Lucida Console",courier,"courier new",monospace;
+}
+
+.javadoc
+{
+        color : #229900;
+               font-family : "Lucida Console",courier,"courier new",monospace;
+}
+
+.javascript   /* Javascript source code */
+{
+        color : #CC3399;
+               font-family : "Lucida Console",courier,"courier new",monospace;
+}
+
+.key,.keystroke  /* keystrokes to do something */
+{
+        color : #887700;
+                font-family : "Lucida Console",courier,"courier new",monospace;
+}
+
+.keyword,.reserved  /* reserved keyword in any computer language */
+{
+        color : #000099;
+               font-family : "Lucida Console",courier,"courier new",monospace;
+}
+
+.lisp   /* LISP 95 source code */
+{
+        color : #887755;
+
+        font-family : "Lucida Console",courier,"courier new",monospace;
+}
+
+.mouse,.click /* mouse clicks to do something */
+{
+        color : #998800;
+                font : bold 110% Arial,Helvetica,sans-serif;
+}
+
+.no     /* used in column to highlight the word "no" or equivalent */
+{
+        color : #FF0000;
+       }
+
+.notes /* used in sellbook tables */
+{
+        color : #8B4513;
+
+}
+
+.onion  /*  award for bad behaviour */
+{
+        border : none;
+        clear : none;
+        padding : 10px 8px 10px 40px;
+        margin : 8px 0px 8px 0px;
+        display : block;
+        color : #B22222;
+        background : url(images/onionicon.gif) #90EE90 no-repeat scroll 3px 3px;
+}
+
+.orchid /* award for good behaviour */
+{
+        border : none;
+        clear : none;
+        padding : 10px 8px 10px 40px;
+        margin : 8px 0px 8px 0px;
+        display : block;
+        color : #B22222;
+        background : url(images/orchidicon.gif) #F0F8FF no-repeat scroll 3px 3px;
+}
+
+.output /* output of a computer program */
+{
+        color : #AA0044;
+                font-family : "Lucida Console",courier,"courier new",monospace;
+}
+
+.paid   /* implies you must pay for something */
+{
+        color : #008000;
+        }
+
+.pascal   /* Pasal/Delphi source code */
+{
+        color : #0000AA;
+
+        font-family : "Lucida Console",courier,"courier new",monospace;
+}
+
+.perl    /* Perl source code */
+{
+        color : #0000AA;
+                font-family : "Lucida Console",courier,"courier new",monospace;
+}
+
+.postscript    /* PostScipt source code */
+{
+        color : #0000AA;
+               font-family : "Lucida Console",courier,"courier new",monospace;
+}
+
+.question    /* a question */
+{
+        color : #FF0000;
+
+        font-family : "comic sans ms",TiresiasScreenfont,Verdana,Arial,Helvetica,sans-serif;
+}
+
+.quote  /* a quotation */
+{
+        /* saddle brown */
+        color : #8B4513;
+               font-style : italic;
+}
+
+.raspberry, .rasp  /*  not recommended , raspberry */
+{
+        border : none;
+        clear : none;
+        padding : 10px 8px 10px 40px;
+        margin : 8px 0px 8px 0px;
+        display : block;
+        color : #B22222;
+        background : url(images/raspberryicon.gif) #FDF5E6 no-repeat scroll 3px 3px;
+}
+
+.rec, .strawberry /* recommended,strawberry */
+{
+        border : none;
+        clear : none;
+        padding : 10px 8px 10px 40px;
+        margin : 8px 0px 8px 0px;
+        display : block;
+        color : #B22222;
+        background : url(images/strawberryicon.gif) #FFFFCC no-repeat scroll 3px 3px;
+}
+
+.roedy
+/* indicates the words stated my Roedy Green. Used in the feedback essays to */
+/* separate readers' from Roedy's commentary.*/
+{
+        color : #406A00;
+               font-family : "comic sans ms",TiresiasScreenfont,Verdana,Arial,Helvetica,sans-serif;
+}
+
+.said  /* how author of a quotes displayed */
+{
+        /* saddle brown */
+        color : #8B4513;
+
+        font-weight : bold;
+}
+
+.see  /* links to other items */
+{
+        /* top right bottom left */
+        /* pos */
+        border : none;
+        clear : none;
+        padding : 10px 8px 10px 40px;
+        margin : 8px 0px 8px 0px;
+        display : block;
+        background : url(images/seealso.gif) #FFFFFF no-repeat scroll 1px 1px;
+}
+
+.see:before
+{
+        /* inserted text */
+        content : "See: ";
+}
+
+.sql   /* SQL source code */
+{
+        color : #FF0000;
+                font-family : "Lucida Console",courier,"courier new",monospace;
+}
+
+.string /* "string" literals */
+{
+        color : #FF6666;
+
+}
+
+.term   /* define a term,not as a DT,similar to DT but smaller */
+{
+        /* 600 = teeny bit bold */
+        color : #008000;
+               font-weight : 600;
+}
+
+.txt    /* raw text,might be used to describe program output */
+{
+        color : #808000;
+                font-family : "Lucida Console",courier,"courier new",monospace;
+}
+
+.unknown    /* used in a column to highlight the word "unknown" or equivalent */
+{
+        color : #FFA500;
+       }
+
+.updated
+/* to surround the date last updated.
+Uses generated content */
+{
+        /* silvery gray,unobtrusive */
+        color : #C0C0C0;
+                font-size : 70%;
+}
+
+.updated:before
+{
+        /* inserted text,comes out silvery too */
+        content : "updated:";
+}
+
+.vb     /* Visual Basic source code */
+{
+        color : #660066;
+
+        font-family : "Lucida Console",courier,"courier new",monospace;
+}
+
+.xml    /* xml source code */
+{
+        color : #266584;
+                font-family : "Lucida Console",courier,"courier new",monospace;
+}
+
+.yes    /* used in column to highlight the word "yes" or equivalent */
+{
+        color : #008000;
+
+        font-weight : bold;
+}
+
+/* fancy css features not used in this style sheet
+include:include-source:url("http://www.example.com/testpage.htm"
+Srings enclosed in "  " ' expressed as \'\" \is continuation \n is \A
+mark external links with an icon.
+a.external
+{
+        padding-left : 12px;
+        color : #FF0000;
+        background : url(images/miniearth.gif) no-repeat 0% 0.45em;
+}
+
+*/

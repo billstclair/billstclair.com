@@ -1,0 +1,33 @@
+<html>
+<head>
+<title>HTML Redirection Example</title>
+<META HTTP-EQUIV="Refresh"
+      CONTENT="5; URL=html-redirect2.html">
+</head>
+<body>
+This page shows how to use an HTML &lt;META> tag in the header to redirect
+to another page. The &lt;META> tag goes in the &lt;HEAD> section of your
+HTML document. The &lt;META> tag on this page looks like:
+<blockquote>
+<pre>&lt;META HTTP-EQUIV="Refresh"
+      CONTENT="5; URL=html-redirect2.html"></pre>
+</blockquote>
+The "5" means to wait 5 seconds before redirecting. The
+"html-redirect2.html" after "url=" is the URL of the page to which to
+redirect.
+<p>
+These two pages, "html-redirect.html" and "html-redirect2.html", will
+continue to switch back and forth until you close the window.
+<p>
+It is customary to include a direct link to the page that will be
+switched to automatically in case you get an older browser that
+doesn't support the feature or the user doesn't want to
+wait. Something like:
+<blockquote>
+This page has moved. If your browser doesn't automatically redirect to
+its new location, click
+<a href="html-redirect2.html">
+here</a>.
+</blockquote>
+</body>
+</html>

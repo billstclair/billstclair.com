@@ -1,0 +1,2907 @@
+<!doctype html public "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+
+   <link href="mindprod.css" type="text/css" rel="stylesheet">
+   <link rev="MADE" href="mailto:roedy@mindprod.com">
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <META http-equiv="PICS-Label" content='(PICS-1.1 "http://www.icra.org/ratingsv02.html" l gen true for "http://www.mindprod.com" r (cz 1 lz 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true for "http://www.mindprod.com" r (n 0 s 0 v 0 l 0))'>
+  <meta name="AUTHOR" content="Roedy Green, roedy@mindprod.com">
+   <meta name="DESCRIPTION" content="How To Write HTML, an HTML cheat sheet">
+   <meta name="GENERATOR" content="Vslick Text editor">
+   <meta name="KEYWORDS" content="Roedy Green,HTML, HTML syntax, HTML tags, tags">
+   <title>HTML Cheat Sheet</title>
+</head>
+   <body>
+   
+
+   <h1>HTML Cheat Sheet</h1>
+
+   <a href="gloss.html" target="_top">
+      <img src="images/menubutton.gif" height="24" width="66" border="0" alt="Menu"></a>
+
+
+
+   Last updated Sunday, 10-Jun-2001 13:02:22 PDT by <a href="index.html#MENU" target="_top">Roedy
+   Green</a> &copy;2000-2001 Canadian Mind Products.
+
+
+   <a name="MENU"></a>
+
+   <table class="gridmenu" border="7" cellpadding="10">
+
+      <tr>
+         <td align="center"><a href="htmlcheat.html#INTRODUCTION">Introduction</a></td>
+
+         <td align="center"><a href="htmlcheat.html#LEARNING">Learning HTML</a></td>
+
+         <td align="center"><a href="htmlcheat.html#DOCUMENTATION">Documentation</a></td>
+
+         <td align="center"><a href="htmlcheat.html#PROOFREADING">Proofreading</a></td>
+
+         <td align="center"><a href="htmlcheat.html#CLASS">Class</a></td>
+      </tr>
+
+      <tr>
+         <td align="center"><a href="htmlcheat.html#GROUPS">Groups</a></td>
+
+         <td align="center"><a href="htmlcheat.html#LINEBREAKS">Line Breaks</a></td>
+
+         <td align="center"><a href="htmlcheat.html#FONTSELECTORS">Font selectors</a></td>
+
+         <td align="center"><a href="htmlcheat.html#ANCHORS">Anchors</a></td>
+
+         <td align="center"><a href="htmlcheat.html#LINKS">Links</a></td>
+      </tr>
+
+      <tr>
+         <td align="center"><a href="htmlcheat.html#TABLES">Tables</a></td>
+
+         <td align="center"><a href="htmlcheat.html#COLOURS">Colours</a></td>
+
+         <td align="center"><a href="htmlcheat.html#FRAMES">Frames</a></td>
+
+         <td align="center"><a href="htmlcheat.html#FIGURES">Figures</a></td>
+
+         <td align="center"><a href="htmlcheat.html#INDENTING">Indenting</a></td>
+      </tr>
+
+      <tr>
+         <td align="center"><a href="htmlcheat.html#FONTS">Fonts</a></td>
+
+         <td align="center"><a href="htmlcheat.html#FIGURES">Figures</a></td>
+
+         <td align="center"><a href="htmlcheat.html#COMPOSITIONTOOLS">Composition Tools</a></td>
+
+         <td align="center"><a href="htmlcheat.html#DECORATING">Decorating</a></td>
+
+         <td align="center"><a href="htmlcheat.html#SPECIALCHARS">Special Characters</a></td>
+      </tr>
+
+      <tr>
+         <td align="center"><a href="htmlcheat.html#ESPERANTO">Esperanto</a></td>
+
+         <td align="center"><a href="htmlcheat.html#PRELUDE">Prelude</a></td>
+
+         <td align="center"><a href="htmlcheat.html#BODY">Body</a></td>
+
+         <td align="center"><a href="htmlcheat.html#STYLES">Styles</a></td>
+
+         <td align="center"><a href="htmlcheat.html#STYLESHEETS">Style Sheets</a></td>
+      </tr>
+
+      <tr>
+         <td align="center"><a href="asciitab.html">ASCII</a></td>
+      </tr>
+
+   </table>
+
+   <h2><a name="INTRODUCTION"></a>Introduction</h2>
+
+   This essay will get you started writing HTML so you can put up a website on the
+   Internet.
+
+   HTML stands for <b>H</b>yper<b>T</b>ext <b>M</b>arkup <b>L</b>anguage,a platform
+   independent technique of distributing formatted documents via the web. The <b>bold</b>,
+   <i>italic</i> etc. in the document you are reading now (presumably on a web
+   browser), is encoded by embedding tags like &lt;B&gt; and &lt;I&gt;. This markup
+   scheme works on any brand of computer and allows web sites to send all
+   information in a standard way, without having to worry about what brand of
+   computer the recipient has, or what software she uses.
+
+   <h2><a name="LEARNING"></a>Learning HTML</h2>
+
+   I found the easiest way to learn HTML is to look at other people's examples, to
+   cut and paste from them, and to experiment by fiddling the various parameters to
+   see what the visual effects are.
+
+   <h2><a name="DOCUMENTATION"></a>Documentation</h2>
+
+   It might help to buy an introductory text, but HTML is so simple, that probably
+   is not necessary.
+
+   <ul>
+
+      <li>
+         The <a href="http://werbach.com/barebones/">bare bones html guide</a>.
+      </li>
+
+      <li>
+         the classic <a href="http://www.ncsa.uiuc.edu/General/Internet/WWW/HTMLPrimerAll.html">A
+         Beginner's Guide to HTML</a>
+      </li>
+
+      <li>
+         The <a href="http://www.ncsa.uiuc.edu/SDG/Software/Mosaic/Forms/">tutorial for
+         FORMS</a>.
+      </li>
+
+      <li>
+         For the masochists, try the official standards documents for <a href="http://www.w3.org/pub/WWW/TR/REC-html32.html">HTML
+         3.2</a> and <a href="http://www.w3.org/TR/html401/">HTML 4.01</a>.
+      </li>
+
+   </ul>
+
+   <h2><a name="PROOFREADING"></a>Proofreading</h2>
+
+   To ensure your HTML will work when you upload it to a website server, use all
+   lowercase filenames and directory names. Avoid spaces and punctuation (except _)
+   in names. Make sure you use relative links to your own files -- no C: or file:///C|/
+   style absolute references.
+
+   <p>
+
+   The W3 Consortium offers an <a href="http://validator.w3.org/">
+   <img src="images/w3clogo91x48.gif" border="0" height="48" width="91" alt="W3C_logo" align="middle">
+   online validator</a> for the various HTML dialects. It is sort of a Lint for
+   HTML. It can ensure your HTML will work properly on browsers other than the one
+   you tested it on. The W3C consortium also controls the various HTML standards.
+
+   <p>
+
+   For speed, and control, I use <a href="http://www.htmlvalidator.com/">
+   <img src="images/htmlvalidated.gif" alt="HTML Checked!" border="0" height="31" width="88" align="middle">
+   &nbsp;CSE HTMLValidator</a> to check my web pages offline and in batches.
+
+   <p>
+
+   When it comes to HTML4, and <a href="jglosscr.html#CSS">CSS style sheets</a>,
+   browser support is shaky. You have to stick to a <a href="http://webreview.com/wr/pub/guides/style/safegrid.html">subset
+   of features</a> that are commonly supported.
+
+   <h1>The Tags</h1>
+
+   This section just summarised the tags.  Sometimes what I tell you here will be
+   enough to use them. It is really just designed to jog your memory.  Look
+   elsewhere for details or <b>experiment</b>!
+
+   <h2><a name="CLASS"></a>Class</h2>
+
+   It is easiest to use the class attribute, then specify what it means in your <a href="jglosscr.html#CSS">CSS
+   style sheet</a>.
+
+   <table border="1" cellspacing="1" bordercolor="#808080" cellpadding="7">
+      <colgroup span="2" class="html">
+      </colgroup>
+
+      <thead>
+
+      <tr>
+         <th colspan="3">Use of CSS class</th>
+      </tr>
+
+      <tr>
+         <th>Start Tag</th>
+
+         <th>End Tag</th>
+
+         <th>description</th>
+      </tr>
+
+      </thead>
+
+      <tbody>
+
+      <tr>
+         <td>&lt;span class=&quot;strawberry&quot;&gt;</td>
+
+         <td>&lt;/span&gt;</td>
+
+         <td>encloses text of the strawberry class.  It will look in the style sheet to
+         figure out what attriutes should be applied to strawberry text, perhaps a size,
+         colour, alignment, font etc.</td>
+      </tr>
+
+      <tr>
+         <td>&lt;ul class=&quot;strawberry&quot;&gt;</td>
+
+         <td>&lt;/ul&gt;</td>
+
+         <td>like a regular UL except everything in it is shoud be treated as strawberry
+         text.</td>
+      </tr>
+
+      </tbody>
+
+   </table>
+
+   <h2><a name="GROUPS"></a>Groups</h2>
+
+   <table border="1" cellspacing="1" bordercolor="#808080" cellpadding="7">
+      <colgroup span="2" class="html">
+      </colgroup>
+      <thead>
+
+      <tr>
+         <th colspan="3">Groups, Lists, Glossaries</th>
+      </tr>
+
+      <tr>
+         <th>Start Tag</th>
+
+         <th>End Tag</th>
+
+         <th>description</th>
+      </tr>
+
+      </thead>
+      <tbody>
+
+      <tr>
+         <td>&lt;ol&gt;</td>
+
+         <td>&lt;/ol&gt;</td>
+
+         <td>ordered numbered list</td>
+      </tr>
+
+      <tr>
+         <td>&lt;ul&gt;</td>
+
+         <td>&lt;/ul&gt;</td>
+
+         <td>unordered bulleted list</td>
+      </tr>
+
+      <tr>
+         <td>&lt;menu&gt;</td>
+
+         <td>&lt;/menu&gt;</td>
+
+         <td>menu list, more compact than ul.</td>
+      </tr>
+
+      <tr>
+         <td>&lt;li&gt;</td>
+
+         <td>&lt;/li&gt;</td>
+
+         <td>list item</td>
+      </tr>
+
+      <tr>
+         <td>&lt;dl&gt;</td>
+
+         <td>&lt;/dl&gt;</td>
+
+         <td>dictionary list</td>
+      </tr>
+
+      <tr>
+         <td>&lt;dt&gt;</td>
+
+         <td>&lt;/dt&gt;</td>
+
+         <td>dictionary term being defined</td>
+      </tr>
+
+      <tr>
+         <td>&lt;dd&gt;</td>
+
+         <td>&lt;/dd&gt;</td>
+
+         <td>dictionary definition</td>
+      </tr>
+
+      </tbody>
+
+   </table>
+
+   <h2><a name="LINEBREAKS"></a>Line Breaks</h2>
+
+   <table border="1" cellspacing="1" bordercolor="#808080" cellpadding="7">
+      <colgroup span="1" class="html">
+      </colgroup>
+      <thead>
+
+      <tr>
+         <th colspan="2">Line Breaks</th>
+      </tr>
+
+      <tr>
+         <th>Start Tag</th>
+
+         <th>description</th>
+      </tr>
+
+      </thead>
+      <tbody>
+
+      <tr>
+         <td>&lt;br&gt;</td>
+
+         <td>new line, no extra space</td>
+      </tr>
+
+      <tr>
+         <td>&lt;br clear=&quot;all&quot;&gt;</td>
+
+         <td>gets past any flow-around illustration.</td>
+      </tr>
+
+      <tr>
+         <td>&lt;p&gt;</td>
+
+         <td>new paragraph, blank line inserted</td>
+      </tr>
+
+      <tr>
+         <td>&lt;p align=&quot;center&quot;&gt;</td>
+      </tr>
+
+      <tr>
+         <td>&lt;hr&gt;</td>
+
+         <td>horizontal rule</td>
+      </tr>
+
+      </tbody>
+
+   </table>
+
+   <h2><a name="FONTSELECTORS"></a>Font selectors</h2>
+
+   <table border="1" cellspacing="1" bordercolor="#808080" cellpadding="7">
+      <colgroup span="2" class="html">
+      </colgroup>
+      <thead>
+
+      <tr>
+         <th colspan="3">Font Colours and Size</th>
+      </tr>
+
+      <tr>
+         <th>Start Tag</th>
+
+         <th>End Tag</th>
+
+         <th>description</th>
+      </tr>
+
+      </thead>
+      <tbody>
+
+      <tr>
+         <td>&lt;h1&gt;</td>
+
+         <td>&lt;/h1&gt;</td>
+
+         <td>major heading</td>
+      </tr>
+
+      <tr>
+         <td>&lt;h6&gt;</td>
+
+         <td>&lt;/h6&gt;</td>
+
+         <td>most minor heading</td>
+      </tr>
+
+      <tr>
+         <td>&lt;b&gt;</td>
+
+         <td>&lt;/b&gt;</td>
+
+         <td>bold</td>
+      </tr>
+
+      <tr>
+         <td>&lt;i&gt;</td>
+
+         <td>&lt;/i&gt;</td>
+
+         <td>italic</td>
+      </tr>
+
+      <tr>
+         <td>&lt;tt&gt;</td>
+
+         <td>&lt;/tt&gt;</td>
+
+         <td>typewriter font</td>
+      </tr>
+
+      <tr>
+         <td>&lt;pre&gt;</td>
+
+         <td>&lt;/pre&gt;</td>
+
+         <td>preformatted</td>
+      </tr>
+
+      <tr>
+         <td>&lt;font size=&quot;+3&quot;&gt;</td>
+
+         <td>&lt;/font&gt;</td>
+
+         <td>or 3 for absolute size rather than increase</td>
+      </tr>
+
+      <tr>
+         <td>&lt;font color=&quot;red&quot;&gt;</td>
+
+         <td>&lt;/font&gt;</td>
+
+         <td>see choice of <a href="htmlcheat.html#COLOURS">colours</a>.</td>
+      </tr>
+
+      <tr>
+         <td>&lt;font face=&quot;Comic Sans MS,Helvetica&quot;&gt;</td>
+
+         <td>&lt;/font&gt;</td>
+
+         <td>suggest a typeface.  User must have it installed, can specify alternates in
+         order of preference.</td>
+      </tr>
+
+      <tr>
+         <td>&lt;big&gt;</td>
+
+         <td>&lt;/big&gt;</td>
+
+         <td>shorthand for &lt;font size=&quot;+1&quot;&gt;</td>
+      </tr>
+
+      <tr>
+         <td>&lt;small&gt;</td>
+
+         <td>&lt;/small&gt;</td>
+
+         <td>shorthand for &lt;font size=&quot;-1&quot;&gt;</td>
+      </tr>
+
+      <tr>
+         <td>&lt;dfn&gt;</td>
+
+         <td>&lt;/dfn&gt;</td>
+
+         <td>definition</td>
+      </tr>
+
+      <tr>
+         <td>&lt;em&gt;</td>
+
+         <td>&lt;/em&gt;</td>
+
+         <td>italic emphasis</td>
+      </tr>
+
+      <tr>
+         <td>&lt;cite&gt;</td>
+
+         <td>&lt;/cite&gt;</td>
+
+         <td>book titles</td>
+      </tr>
+
+      <tr>
+         <td>&lt;code&gt;</td>
+
+         <td>&lt;/code&gt;</td>
+
+         <td>program listings</td>
+      </tr>
+
+      <tr>
+         <td>&lt;kbd&gt;</td>
+
+         <td>&lt;/kbd&gt;</td>
+
+         <td>keystrokes</td>
+      </tr>
+
+      <tr>
+         <td>&lt;samp&gt;</td>
+
+         <td>&lt;/samp&gt;</td>
+
+         <td>computer status messages</td>
+      </tr>
+
+      <tr>
+         <td>&lt;strong&gt;</td>
+
+         <td>&lt;/strong&gt;</td>
+
+         <td>bold emphasis</td>
+      </tr>
+
+      <tr>
+         <td>&lt;var&gt;</td>
+
+         <td>&lt;/var&gt;</td>
+
+         <td>to be replaced by specific when used. Typically rendered in italics.</td>
+      </tr>
+
+      <tr>
+         <td>&lt;u&gt;</td>
+
+         <td>&lt;/u&gt;</td>
+
+         <td>underline</td>
+      </tr>
+
+      <tr>
+         <td>&lt;address&gt;</td>
+
+         <td>&lt;/address&gt;</td>
+
+         <td>email address, possibly street address.</td>
+      </tr>
+
+      <tr>
+         <td>&lt;blockquote&gt;</td>
+
+         <td>&lt;/blockquote&gt;</td>
+
+         <td>long quotation</td>
+      </tr>
+
+      </tbody>
+
+   </table>
+
+   <h2><a name="ANCHORS"></a>Anchors</h2>
+
+   typical target -- place where you jump TO:
+
+   <ul class="html">
+      &lt;H2&gt;&lt;a NAME=&quot;GLOSSARY&quot;&gt;Roedy's Java Glossary&lt;/a&gt;&lt;/h2&gt;
+
+   </ul>
+
+   <p>
+
+   <h2><a name="LINKS"></a>Links</h2>
+
+   typical reference that when clicked takes you to a particular spot:
+
+   <ul class="html">
+      &lt;a href=&quot;http://www.Delftware.com/roedy/gloss.htm#GLOSSARY&quot;&gt;glossary&lt;/a&gt;
+
+      <br>
+
+      or
+
+      <br>
+
+      &lt;a href=&quot;gloss.htm#GLOSSARY&quot;&gt;glossary&lt;/a&gt;
+
+      <br>
+
+      or
+
+      <br>
+
+      &lt;a href=&quot;#GLOSSARY&quot;&gt;glossary&lt;/a&gt;
+
+   </ul>
+
+   Email reference
+
+   <ul class="html">
+      &lt;a href=&quot;mailto:roedy@mindprod.com&quot;&gt;Roedy Green : roedy@mindprod.com&lt;/a&gt;
+
+   </ul>
+
+   It is a good idea to repeat the email address visibly for people whose browsers
+   don't support mailto or for people who want to copy/paste the email address into
+   their separate email or database program.
+
+   <p>
+
+   GIF or JPG image reference (often embedded in an
+   <span class="html">&lt;a href=&quot;someplace.html&quot;&gt; .. &lt;/a&gt;</span>)
+   clickable link to provide a picture button:
+
+   <ul class="html">
+      &lt;img src=&quot;email.gif&quot; width=&quot;44&quot; height=&quot;33&quot;
+      align=&quot;middle&quot; alt=&quot;Email logo&quot;
+
+      longdesc=&quot;http://www.thismachine.com/cashflowchar.txt&quot;&gt;
+
+   </ul>
+
+   The longdesc points to a text description of the image for the visually disabled.
+
+   <h2><a name="TABLES"></a>Tables</h2>
+
+   The trick to understanding tables is to realise that the entire table must be
+   contained in
+   <span class="html">&lt;table&gt;...&lt;/table&gt;</span>, each row must be
+   contained in
+   <span class="html">&lt;tr&gt; ... &lt;/tr&gt;</span>, each heading must be
+   contained in
+   <span class="html">&lt;th&gt; ... &lt;/th&gt;</span> and each data cell must be
+   contained in
+   <span class="html">&lt;td&gt; ... &lt;/td&gt;</span>.
+
+   <table border="1" cellspacing="1" bordercolor="#808080" cellpadding="7">
+      <colgroup span="2" class="html">
+      </colgroup>
+      <thead>
+
+      <tr>
+         <th colspan="3">Tables</th>
+      </tr>
+
+      <tr>
+         <th>Start Tag</th>
+
+         <th>End Tag</th>
+
+         <th>description</th>
+      </tr>
+
+      </thead>
+      <tbody>
+
+      <tr>
+         <td>&lt;table border=&quot;5&quot;
+
+            <br>
+
+            cellspacing=&quot;2&quot;
+
+            <br>
+
+            cellpadding=&quot;1&quot;
+
+            <br>
+
+            width=&quot;100&quot;
+
+            <br>
+
+            width=&quot;50%&quot;
+
+            <br>
+
+            bgcolor=&quot;#f0e68c&quot;
+
+            <br>
+
+            summary=&quot;Best places to buy toasters&quot;&gt;</td>
+
+         <td>&lt;/table&gt;</td>
+
+         <td>cellpadding is interior border of cell.
+
+            <br>
+
+            cellspacing is border _between_ cells, the width of the horizontal and vertical
+            lines separating cells.
+
+            <br>
+
+            cellpadding will appear on left side of leftmost cell and right side of the
+            rightmost cell; cellspacing will not. Summary does not display.  It is used
+            primarily to help visually disabled people navigate.</td>
+      </tr>
+
+      <tr>
+         <td>&lt;caption&gt;</td>
+
+         <td>&lt;/caption&gt;</td>
+
+         <td>caption title, appears above table, in plain font.</td>
+      </tr>
+
+      <tr>
+         <td>&lt;colgroup span=&quot;2&quot; class=&quot;strawberry&quot;&gt;</td>
+
+         <td>&lt;/colgroup&gt;</td>
+
+         <td>encloses &lt;col&gt; elements.  Also can be used to apply attributes to a
+         group of columns. Not supported in Opera 5. Must come before everything else.
+
+            HTML 4 lets you specify the attributes of an entire column. You don't have to
+            repeat them in every cell the way you do in regular HTML. See the <a href="http://www.w3.org/TR/html4/struct/tables.html#h-11.2.4">COL
+            and COLGROUP elements</a>. Have a look at this <a href="http://www.subotnik.net/tmp/raggettables.html">example</a>.</td>
+      </tr>
+
+      <tr>
+         <td>&lt;col class=&quot;strawberry&quot;  align=&quot;center&quot;&gt;</td>
+
+         <td>&nbsp;</td>
+
+         <td>tells about entire column's colour, alignment, class, colspan etc. Note you
+         put everying right in the &lt;col&gt; tag.  There is no &lt;/col&gt; tag.</td>
+      </tr>
+
+      <tr>
+         <td>&lt;thead&gt;</td>
+
+         <td>&lt;/thead&gt;</td>
+
+         <td>encloses table header rows. The THEAD TBODY and TFOOT tags let you group
+         your table in three regions, so that if the table scrolls, the header and footer
+         will always be visible.  Just the middle part will scroll.</td>
+      </tr>
+
+      <tr>
+         <td>&lt;tbody&gt;</td>
+
+         <td>&lt;/tbody&gt;</td>
+
+         <td>encloses table body rows</td>
+      </tr>
+
+      <tr>
+         <td>&lt;tr valign=&quot;baseline&quot;&gt;</td>
+
+         <td>&lt;/tr&gt;</td>
+
+         <td>table row valign can be top, middle, bottom, baseline. valign can also occur
+         on caption, tr and td.</td>
+      </tr>
+
+      <tr>
+         <td>&lt;th align=&quot;center&quot;&gt;</td>
+
+         <td>&lt;/th&gt;</td>
+
+         <td>header item, also left,center,right,justify</td>
+      </tr>
+
+      <tr>
+         <td>&lt;td align=&quot;center&quot;&gt;</td>
+
+         <td>&lt;/td&gt;</td>
+
+         <td>data item</td>
+      </tr>
+
+      <tr>
+         <td>&lt;th rowspan=&quot;2&quot;&gt;</td>
+
+         <td>&lt;/th&gt;</td>
+
+         <td>header spanning two rows</td>
+      </tr>
+
+      <tr>
+         <td>&lt;td rowspan=&quot;2&quot;&gt;</td>
+
+         <td>&lt;/td&gt;</td>
+
+         <td>data item spanning two rows</td>
+      </tr>
+
+      <tr>
+         <td>&lt;th colspan=&quot;2&quot;&gt;</td>
+
+         <td>&lt;/th&gt;</td>
+
+         <td>header spanning two columns</td>
+      </tr>
+
+      <tr>
+         <td>&lt;td colspan=&quot;2&quot;&gt;</td>
+
+         <td>&lt;/td&gt;</td>
+
+         <td>data item spanning two columns</td>
+      </tr>
+
+      <tr>
+         <td>&lt;td dp=&quot;:&quot;&gt;</td>
+
+         <td>&lt;/td&gt;</td>
+
+         <td>align data in this cell at the : char</td>
+      </tr>
+
+      <tr>
+         <td>&lt;td nowrap&gt;</td>
+
+         <td>&lt;/td&gt;</td>
+
+         <td>may not break lines in cell</td>
+      </tr>
+
+      <tr>
+         <td>&lt;td width=&quot;50%&quot;&gt;</td>
+
+         <td>&lt;/td&gt;</td>
+
+         <td>hints on how to compute column widths</td>
+      </tr>
+
+      <tr>
+         <td>&lt;tfoot&gt;</td>
+
+         <td>&lt;/tfoot&gt;</td>
+
+         <td>encloses table footer rows</td>
+      </tr>
+
+      <tr>
+         <td>&lt;spacer type=horizonal&gt;</td>
+
+         <td>&nbsp;</td>
+
+         <td>can also be vertical or block. Netscape appears to ignore spacers.</td>
+      </tr>
+
+      <tr>
+         <td>&lt;spacer size=&quot;20&quot;&gt;</td>
+
+         <td>&nbsp;</td>
+
+         <td>size in pixels</td>
+      </tr>
+
+      <tr>
+         <td>&lt;spacer width=&quot;20&quot;&gt;</td>
+
+         <td>&nbsp;</td>
+
+         <td>horizontal size in pixels</td>
+      </tr>
+
+      <tr>
+         <td>&lt;spacer height=&quot;20&quot;&gt;</td>
+
+         <td>&nbsp;</td>
+
+         <td>vertical size in pixels</td>
+      </tr>
+
+      <tr>
+         <td>&lt;spacer align=&quot;left&quot;&gt;</td>
+
+         <td>&nbsp;</td>
+
+         <td>also right and center</td>
+      </tr>
+
+      </tbody>
+
+   </table>
+
+   <h2><a name="COLOURS"></a>Colours</h2>
+
+   <p>
+
+   <a href="index.html#MENU" target="_top">
+   <img src="images/home.gif" alt="CMP_home" border="0" height="26" width="27">
+   </a> Last updated Sunday, 10-Jun-2001 13:02:22 PDT by <a href="index.html#MENU" target="_top">Roedy
+   Green</a> &copy;1998-2001 Canadian Mind Products.
+
+   <table class="gridmenu" border="0" cellspacing="4" cellpadding="4">
+
+      <tr>
+         <th align="left">Named Colours</th>
+
+         <td><a href="netscapecolours.html">
+            <img src="images/roundbutton.gif" width="25" height="25" border="0" alt="button">
+            </a></td>
+
+         <td>Alphabetically</td>
+
+         <td><a href="netscapeRGB.html">
+            <img src="images/roundbutton.gif" width="25" height="25" border="0" alt="button">
+            </a></td>
+
+         <td>Numerically</td>
+
+         <td><a href="netscapeHBS.html">
+            <img src="images/roundbutton.gif" width="25" height="25" border="0" alt="button">
+            </a></td>
+
+         <td>by hue, brightness, saturation</td>
+
+         <td><a href="netscapeHSB.html">
+            <img src="images/roundbutton.gif" width="25" height="25" border="0" alt="button">
+            </a></td>
+
+         <td>By Hue, Saturation, Brightness</td>
+
+         <td><a href="netscapeBSH.html">
+            <img src="images/roundbutton.gif" width="25" height="25" border="0" alt="button">
+            </a></td>
+
+         <td>By Brightness, Saturation, Hue</td>
+      </tr>
+
+      <tr>
+         <th align="left">Numbered Colours</th>
+
+         <td><a href="htmlcolours.html">
+            <img src="images/roundbutton.gif" width="25" height="25" border="0" alt="button">
+            </a></td>
+
+         <td>HTML 3.2</td>
+
+         <td><a href="websafe.html">
+            <img src="images/roundbutton.gif" width="25" height="25" border="0" alt="button">
+            </a></td>
+
+         <td>Websafe</td>
+
+         <td><a href="rainbowcolours.html">
+            <img src="images/roundbutton.gif" width="25" height="25" border="0" alt="button">
+            </a></td>
+
+         <td>Rainbow</td>
+      </tr>
+
+      <tr>
+         <th align="left">Selected Colours</th>
+
+         <td><a href="palecolours.html">
+            <img src="images/roundbutton.gif" width="25" height="25" border="0" alt="button">
+            </a></td>
+
+         <td>Pale</td>
+
+         <td><a href="darkcolours.html">
+            <img src="images/roundbutton.gif" width="25" height="25" border="0" alt="button">
+            </a></td>
+
+         <td>Dark</td>
+
+         <td><a href="simplecolours.html">
+            <img src="images/roundbutton.gif" width="25" height="25" border="0" alt="button">
+            </a></td>
+
+         <td>Simple</td>
+
+         <td><a href="greys.html">
+            <img src="images/roundbutton.gif" width="25" height="25" border="0" alt="button">
+            </a></td>
+
+         <td>Greys</td>
+
+         <td><a href="scheme.html">
+            <img src="images/roundbutton.gif" width="25" height="25" border="0" alt="button">
+            </a></td>
+
+         <td>Schemes</td>
+      </tr>
+
+   </table>
+   <!-- repeated in jglossco.html -->The above colour chart shows Netscape's 133
+   standard colours, and HTML 3.2's 16 standard colours. It shows the colours
+   displayed eight ways, (colour on white, colour on black, black on colour, white
+   on colour) both using alpha names and hex names. You can check out your browser
+   for Netscape colour compatibility. It shows the Standard Netscape 6.0 alpha
+   names such as &quot;aliceblue&quot; and also the hex, RGB an HSB values both as
+   HTML and raw ASCII text.
+
+   <h2><a name="FRAMES"></a>Frames</h2>
+
+   <table border="1" cellspacing="1" bordercolor="#808080" cellpadding="7">
+      <colgroup span="2" class="html">
+      </colgroup>
+      <thead>
+
+      <tr>
+         <th colspan="3">Frames</th>
+      </tr>
+
+      <tr>
+         <th>Start Tag</th>
+
+         <th>End Tag</th>
+
+         <th>description</th>
+      </tr>
+
+      </thead>
+      <tbody>
+
+      <tr>
+         <td>&lt;frameset rows=&quot;100,200&quot;&gt;</td>
+
+         <td>&lt;/frameset&gt;</td>
+
+         <td>surrounds rows of frames, pixels</td>
+      </tr>
+
+      <tr>
+         <td>&lt;frameset rows=&quot;20%,80%&quot;&gt;</td>
+
+         <td>&lt;/frameset&gt;</td>
+
+         <td>relative space for each</td>
+      </tr>
+
+      <tr>
+         <td>&lt;frameset rows=&quot;*,*&quot;&gt;</td>
+
+         <td>&lt;/frameset&gt;</td>
+
+         <td>let browser decide on spacing</td>
+      </tr>
+
+      <tr>
+         <td>&lt;frameset cols=&quot;10,20&quot;&gt;</td>
+
+         <td>&lt;/frameset&gt;</td>
+
+         <td>surrounds cols of frames, pixels</td>
+      </tr>
+
+      <tr>
+         <td>&lt;frameset cols=&quot;20%,80%&quot;&gt;</td>
+
+         <td>&lt;/frameset&gt;</td>
+
+         <td>relative space for each</td>
+      </tr>
+
+      <tr>
+         <td>&lt;frameset cols=&quot;*,*&quot;&gt;</td>
+
+         <td>&lt;/frameset&gt;</td>
+
+         <td>&nbsp;</td>
+      </tr>
+
+      <tr>
+         <td>&lt;frameset frameborder=&quot;0&quot;</td>
+
+         <td>&lt;/frameset&gt;</td>
+
+         <td>no borders around the frames</td>
+      </tr>
+
+      <tr>
+         <td>&lt;frame  src=&quot;http://mindprod.com/x.html</td>
+
+         <td>&gt;</td>
+
+         <td>where to get the html to fill the frame</td>
+      </tr>
+
+      <tr>
+         <td>&lt;frame     name=&quot;someFrame&quot;</td>
+
+         <td>&gt;</td>
+
+         <td>name a window for referencing via BASE</td>
+      </tr>
+
+      <tr>
+         <td>&lt;frame   noresize</td>
+
+         <td>&gt;</td>
+
+         <td>don't let user change frame size</td>
+      </tr>
+
+      <tr>
+         <td>&lt;frame   scrolling=&quot;auto&quot;</td>
+
+         <td>&gt;</td>
+
+         <td>yes, no, -- scroll bars?</td>
+      </tr>
+
+      <tr>
+         <td>&lt;frame    marginheight=&quot;10&quot;</td>
+
+         <td>&gt;</td>
+
+         <td>pixels in border top/bottom.</td>
+      </tr>
+
+      <tr>
+         <td>&lt;frame   marginwidth=&quot;10&quot;</td>
+
+         <td>&gt;</td>
+
+         <td>pixels in border left/right.</td>
+      </tr>
+
+      <tr>
+         <td>&lt;noframes&gt;</td>
+
+         <td>&lt;/noframes&gt;</td>
+
+         <td>sandwiches HTML to render the page if the browser does or will not support
+         frames.</td>
+      </tr>
+
+      <tr>
+         <td>&lt;BASE TARGET=&quot;someFrame&quot; HREF=&quot;http://mindprod.com/x.html&quot;&gt;</td>
+
+         <td>&nbsp;</td>
+
+         <td>In a menu frame document, one of the &quot;tiles&quot;. allows one frame to
+         load documents into another named frame for following HREFs. The HREF provide a
+         default base for any relative hrefs coming. You can also use the magic names
+         _blank, _self, _parent and _top as your frame target.  See below for details.</td>
+      </tr>
+
+      <tr>
+         <td>&lt;a HREF=&quot;xxx.html&quot; TARGET=&quot;someFrame&quot;&gt;</td>
+
+         <td>&nbsp;</td>
+
+         <td>Base is unchanged. Most browsers let you leave out the &lt;BASE HREF, which
+         allows code to work both locally and on a website, though strictly speaking the
+         href is mandatory.</td>
+      </tr>
+
+      </tbody>
+
+   </table>
+
+   <table border="1" cellspacing="1" bordercolor="#808080" cellpadding="7">
+      <colgroup span="1" class="html">
+      </colgroup>
+
+      <thead>
+
+      <tr>
+         <th colspan="2">Frame Targets</th>
+      </tr>
+
+      <tr>
+         <th>Target</th>
+
+         <th>description</th>
+      </tr>
+
+      </thead>
+      <tbody>
+
+      <tr>
+         <td>_blank</td>
+
+         <td>in a new, unnamed window.</td>
+      </tr>
+
+      <tr>
+         <td>_self</td>
+
+         <td>in this frame.</td>
+      </tr>
+
+      <tr>
+         <td>_parent</td>
+
+         <td>into parent frame (or this frame if no parent).</td>
+      </tr>
+
+      <tr>
+         <td>_top</td>
+
+         <td>into the full, original window (thus cancelling all other frames). This is
+         how you get rid of all frames.</td>
+      </tr>
+
+      </tbody>
+
+   </table>
+
+   <h2><a name="FIGURES"></a>Figures</h2>
+
+   <span class="html">&lt;fig&gt; &lt;caption&gt; &lt;credit&gt; &lt;overlay&gt;</span>
+   are not supported in the big three browsers.
+
+   <h2><a name="INDENTING"></a>Indenting</h2>
+
+   You can cheat and use
+
+   <ul class="html">
+
+      &lt;ul&gt; ... &lt;/ul&gt;
+
+   </ul>
+
+   Happily, the technique also nests properly.
+
+   <p>
+
+   The official way is to use <a href="jglosscr.html#CSS">CSS styles</a>.
+
+   <ul class="html">
+
+      &lt;p style=&quot;padding-left: 30px&quot;&gt; ... &lt;/p&gt;
+
+   </ul>
+
+   If you want to pad all paragraphs, put this in the &quot;head&quot; section or
+   in the style sheet.
+
+   <ul class="html">
+
+      &lt;style type=&quot;text/css&quot;&gt; p {padding-left: 30px} &lt;/style&gt;
+
+   </ul>
+
+   Or do this:
+
+   <ul class="html">
+      &lt;style type=&quot;text/css&quot;&gt; p.leftpad {padding-left: 30px} &lt;/style&gt;
+
+   </ul>
+
+   and then it will only indent subsequent paragraphs that are marked like this:
+
+   <ul class="html">
+      &lt;p class=&quot;leftpad&quot;&gt; ... &lt;/p&gt;
+
+   </ul>
+
+   <p>
+
+   Unfortunately, the technique does not handle nesting.
+
+   <p>
+
+   To indent just the first line of each paragraph, use:
+
+   <ul class="html">
+
+      &lt;p style=&quot;text-indent: 30px&quot;&gt;
+
+   </ul>
+
+   <h2><a name="FONTS"></a>Fonts</h2>
+
+   You can see how well your browser supports various fonts by examining this list.
+   The fonts that are supported will look different from the default font. All you
+   have to do is install more fonts in the Control Panel to make them available to
+   HTML.  Unfortunately, others may not have the fonts installed. There is no way
+   to include fonts with your HTML document.
+
+   <table border="0">
+
+      <tr>
+         <td><font face="Aldine 401 BT Eo">Aldine 401 BT Eo</font></td>
+
+         <td><font face="Courier-Bold">Courier-Bold</font></td>
+
+         <td><font face="Humanist 521 BT Eo">Humanist 521 BT Eo</font></td>
+
+         <td><font face="Symbol">Symbol</font> (Symbol)</td>
+      </tr>
+
+      <tr>
+         <td><font face="Algerian Eo">Algerian Eo</font></td>
+
+         <td><font face="Courier-BoldOblique">Courier-BoldOblique</font></td>
+
+         <td><font face="Impact">Impact</font></td>
+
+         <td><font face="Tahoma">Tahoma</font></td>
+      </tr>
+
+      <tr>
+         <td><font face="Arial Black">Arial Black</font></td>
+
+         <td><font face="Courier-Oblique">Courier-Oblique</font></td>
+
+         <td><font face="Lucida Console">Lucida Console</font></td>
+
+         <td><font face="TektonMM">TektonMM</font></td>
+      </tr>
+
+      <tr>
+         <td><font face="Arial">Arial</font></td>
+
+         <td><font face="Desdemona Eo">Desdemona Eo</font></td>
+
+         <td><font face="Lucida Sans Unicode Eo">Lucida Sans Unicode Eo</font></td>
+
+         <td><font face="Tempo Esperanto Normala">Tempo Esperanto Normala</font></td>
+      </tr>
+
+      <tr>
+         <td><font face="AvantGarde-Book">AvantGarde-Book</font></td>
+
+         <td><font face="Egyptian505 BT Eo">Egyptian505 BT Eo</font></td>
+
+         <td><font face="MS Sans Serif">MS Sans Serif</font></td>
+
+         <td><font face="Terminal">Terminal</font></td>
+      </tr>
+
+      <tr>
+         <td><font face="AvantGarde-BookOblique">AvantGarde-BookOblique</font></td>
+
+         <td><font face="Elegant Garamond BT Eo">Elegant Garamond BT Eo</font></td>
+
+         <td><font face="MS Serif">MS Serif</font></td>
+
+         <td><font face="Times New Roman">Times New Roman</font></td>
+      </tr>
+
+      <tr>
+         <td><font face="AvantGarde-Demi">AvantGarde-Demi</font></td>
+
+         <td><font face="Futura Extra Black BT Eo">Futura Extra Black BT Eo</font></td>
+
+         <td><font face="Monaco">Monaco</font></td>
+
+         <td><font face="Times">Times</font></td>
+      </tr>
+
+      <tr>
+         <td><font face="AvantGarde-DemiOblique">AvantGarde-DemiOblique</font></td>
+
+         <td><font face="Garamond">Garamond</font></td>
+
+         <td><font face="New York">New York</font></td>
+
+         <td><font face="Times-Bold">Times-Bold</font></td>
+      </tr>
+
+      <tr>
+         <td><font face="Bauer Bodoni Black BT Eo">Bauer Bodoni Black BT Eo</font></td>
+
+         <td><font face="Geneva">Geneva</font></td>
+
+         <td><font face="NewCenturySchlbk-Bold">NewCenturySchlbk-Bold</font></td>
+
+         <td><font face="Times-BoldItalic">Times-BoldItalic</font></td>
+      </tr>
+
+      <tr>
+         <td><font face="Boden Esperanto">Boden Esperanto</font></td>
+
+         <td><font face="Georgia">Georgia</font></td>
+
+         <td><font face="NewCenturySchlbk-BoldItalic">NewCenturySchlbk-BoldItalic</font></td>
+
+         <td><font face="Times-Italic">Times-Italic</font></td>
+      </tr>
+
+      <tr>
+         <td><font face="Book Antiqua Eo">Book Antiqua Eo</font></td>
+
+         <td><font face="Gill Sans">Gill Sans</font></td>
+
+         <td><font face="NewCenturySchlbk-Italic">NewCenturySchlbk-Italic</font></td>
+
+         <td><font face="Times-Roman">Times-Roman</font></td>
+      </tr>
+
+      <tr>
+         <td><font face="Bookman-Demi">Bookman-Demi</font></td>
+
+         <td><font face="Goudy Old Style Eo">Goudy Old Style Eo</font></td>
+
+         <td><font face="NewCenturySchlbk-Roman">NewCenturySchlbk-Roman</font></td>
+
+         <td><font face="Utopia Regular">Utopia Regular</font></td>
+      </tr>
+
+      <tr>
+         <td><font face="Bookman-DemiItalic">Bookman-DemiItalic</font></td>
+
+         <td><font face="Greek Symbols">Greek Symbols</font> (Greek Symbols)</td>
+
+         <td><font face="News Gothic MT Eo">News Gothic MT Eo</font></td>
+
+         <td><font face="Verdana">Verdana</font></td>
+      </tr>
+
+      <tr>
+         <td><font face="Bookman-Light">Bookman-Light</font></td>
+
+         <td><font face="Helvetica">Helvetica</font></td>
+
+         <td><font face="OCRB10PitchBT Regular">OCRB10PitchBT Regular</font></td>
+
+         <td><font face="Webdings">Webdings</font> (Webdings)</td>
+      </tr>
+
+      <tr>
+         <td><font face="Bookman-LightItalic">Bookman-LightItalic</font></td>
+
+         <td><font face="Helvetica-Bold">Helvetica-Bold</font></td>
+
+         <td><font face="Palatino">Palatino</font></td>
+
+         <td><font face="Wingdings">Wingdings</font> (Wingdings)</td>
+      </tr>
+
+      <tr>
+         <td><font face="Britannic Bold">Britannic Bold</font></td>
+
+         <td><font face="Helvetica-BoldOblique">Helvetica-BoldOblique</font></td>
+
+         <td><font face="Palatino-Bold">Palatino-Bold</font></td>
+
+         <td><font face="ZapfChancery-MediumItalic">ZapfChancery-MediumItalic</font></td>
+      </tr>
+
+      <tr>
+         <td><font face="Century Gothic Eo">Century Gothic Eo</font></td>
+
+         <td><font face="Helvetica-Narrow">Helvetica-Narrow</font></td>
+
+         <td><font face="Palatino-BoldItalic">Palatino-BoldItalic</font></td>
+
+         <td><font face="ZapfDingbats">ZapfDingbats</font> (ZapfDingbats)</td>
+      </tr>
+
+      <tr>
+         <td><font face="Comic Sans MS Bold">Comic Sans MS Bold</font></td>
+
+         <td><font face="Helvetica-Narrow-Bold">Helvetica-Narrow-Bold</font></td>
+
+         <td><font face="Palatino-Italic">Palatino-Italic</font></td>
+
+         <td><font face="Zurich Light BT Eo">Zurich Light BT Eo</font></td>
+      </tr>
+
+      <tr>
+         <td><font face="Comic Sans MS">Comic Sans MS</font></td>
+
+         <td><font face="Helvetica-Narrow-BoldOblique">Helvetica-Narrow-BoldOblique</font></td>
+
+         <td><font face="Palatino-Roman">Palatino-Roman</font></td>
+
+         <td><font face="Publika">Publika</font></td>
+      </tr>
+
+      <tr>
+         <td><font face="Courier New">Courier New</font></td>
+
+         <td><font face="Helvetica-Narrow-Oblique">Helvetica-Narrow-Oblique</font></td>
+
+         <td><font face="Perpetua">Perpetua</font></td>
+
+         <td>&nbsp;</td>
+      </tr>
+
+      <tr>
+         <td><font face="Courier">Courier</font></td>
+
+         <td><font face="Helvetica-Oblique">Helvetica-Oblique</font></td>
+
+         <td><font face="Scribble">Scribble</font></td>
+
+         <td>&nbsp;</td>
+      </tr>
+
+   </table>
+
+   <h2><a name="COMPOSITIONTOOLS"></a>Composition Tools</h2>
+
+   <p>
+
+   I like to create my web pages with a text editor , but if you want a tool to
+   help you compose HTML in a more WYSIWYG style try one of these:
+
+   <ul>
+
+      <li><a href="jglosss.html#SLICKEDIT">Slickedit</a>: This is what I use -- a general
+         purpose editor. It has HTML and Java syntax colouring which makes it much easier
+         to avoid typos, and Java and HTML beautifying to nicely indent the tags.
+      </li>
+
+      <li><a href="http://www.netscape.com">Netscape Composer:</a> part of Netscape
+         Communicator.
+      </li>
+
+      <li><a href="http://www.adobe.com/prodindex/main.html">Adobe PageMill</a>
+      </li>
+
+      <li><a href="http://www.microsoft.com">Microsoft FrontPage 2000</a>
+      </li>
+
+      <li>
+         The <a href="Quoter.html">Quoter Amanuensis</a> will automatically convert
+         HTML's reserved characters to their &amp;amp &amp;eacute; &amp;copy; etc. form.
+         You just copy your text to the clipboard, click CONVERT on the amanuensis, then
+         paste the converted text into your document in a text editor such as <a href="jglosss.html#SLICKEDIT">Slickedit</a>.
+      </li>
+
+   </ul>
+
+   <h2><a name="DECORATING"></a>Decorating</h2>
+
+   Here are some tools for snazzing up your web pages with graphics or other gismos:
+
+   <ul>
+
+      <li><a href="http://www.jasc.com">Paint Shop Pro</a>: bit map paint program, format
+         conversions.
+      </li>
+
+      <li><a href="http://www.wright.com.au/products/index.htm">Wright Design</a>: A
+         friend of mine Clinon Hussy gave a demo of it and I was very impressed. It is
+         much faster than Adobe Photoshop. It combines the virtues of vector and bitmap
+         think. It also comes in a lite version.
+      </li>
+
+      <li><a href="http://www.adobe.com/prodindex/main.html">Adobe Photoshop</a>: Touching
+         up photographs. Includes ImageReady.
+      </li>
+
+      <li><a href="http://www.alienskin.com/">Eye Candy</a>: special effects addin to
+         Paint Shop Pro or Adobe Photoshop.
+      </li>
+
+      <li><a href="http://www.mediaco.com/nvr/filters.html">NVR Border Mania</a>: simple
+         program to add borders to images.
+      </li>
+
+   </ul>
+
+   <h2><a name="SPECIALCHARS"></a>Special Characters</h2>
+
+   Here are special characters and the codes you must key to get them in HTML.
+   These work no matter what encoding the browser is using.  If you want codes that
+   change as the encoding changes see this <a href="asciitab.html">ASCII table</a>.
+
+   <p>
+
+   This table will show you how to create all the special characters like:
+
+   <ul>
+
+      &#128; &#134; &#153; &acute; &amp; &brvbar; &cedil; &cent; &copy; &curren; &deg; &divide;
+      &frac12; &frac14; &frac34; &gt; &iexcl; &iquest; &laquo; &lt; &macr; &micro; &middot;
+      &not; &ordf; &ordm; &para; &plusmn; &pound; &quot; &raquo; &reg; &sect; &shy; &sup1;
+      &sup2; &sup3; &szlig; &times; &trade; &uml; &yen;
+
+   </ul>
+
+   and all the accented characters like:
+
+   <ul>
+
+      <table border="0">
+
+         <tr>
+            <td>&Agrave;</td>
+
+            <td>&Aacute;</td>
+
+            <td>&Acirc;</td>
+
+            <td>&Atilde;</td>
+
+            <td>&Auml;</td>
+
+            <td>&Aring;</td>
+
+            <td>&AElig;</td>
+
+            <td>&Ccedil;</td>
+
+            <td>&Egrave;</td>
+
+            <td>&Eacute;</td>
+
+            <td>&Ecirc;</td>
+
+            <td>&Euml;</td>
+
+            <td>&Igrave;</td>
+
+            <td>&Iacute;</td>
+
+            <td>&Icirc;</td>
+
+            <td>&Iuml;</td>
+
+            <td>&ETH;</td>
+
+            <td>&Ntilde;</td>
+
+            <td>&Ograve;</td>
+
+            <td>&Oacute;</td>
+
+            <td>&Ocirc;</td>
+
+            <td>&Otilde;</td>
+
+            <td>&Ouml;</td>
+
+            <td>&Oslash;</td>
+
+            <td>&Ugrave;</td>
+
+            <td>&Uacute;</td>
+
+            <td>&Ucirc;</td>
+
+            <td>&Uuml;</td>
+
+            <td>&Yacute;</td>
+
+            <td>&THORN;</td>
+
+            <td>&yuml;</td>
+         </tr>
+
+         <tr>
+            <td>&agrave;</td>
+
+            <td>&aacute;</td>
+
+            <td>&acirc;</td>
+
+            <td>&atilde;</td>
+
+            <td>&auml;</td>
+
+            <td>&aring;</td>
+
+            <td>&aelig;</td>
+
+            <td>&ccedil;</td>
+
+            <td>&egrave;</td>
+
+            <td>&eacute;</td>
+
+            <td>&ecirc;</td>
+
+            <td>&euml;</td>
+
+            <td>&igrave;</td>
+
+            <td>&iacute;</td>
+
+            <td>&icirc;</td>
+
+            <td>&iuml;</td>
+
+            <td>&eth;</td>
+
+            <td>&ntilde;</td>
+
+            <td>&ograve;</td>
+
+            <td>&oacute;</td>
+
+            <td>&ocirc;</td>
+
+            <td>&otilde;</td>
+
+            <td>&ouml;</td>
+
+            <td>&oslash;</td>
+
+            <td>&ugrave;</td>
+
+            <td>&uacute;</td>
+
+            <td>&ucirc;</td>
+
+            <td>&uuml;</td>
+
+            <td>&yacute;</td>
+
+            <td>&thorn;</td>
+
+            <td>&yuml;</td>
+         </tr>
+
+      </table>
+
+   </ul>
+
+   Trademark <span class="term">&trade;</span> is tricky since it was only recently supported.  See this <a href="jglosst.html#TRADEMARK">full
+   discussion</a> of the problem.
+
+   For
+   <p>
+
+   If you can guarantee the reader is using the Latin-1 encoded character set, you
+   can get a few more characters: Trademark (
+   <span class="term">&#153;</span>
+   <span class="html">&amp;#153;</span>), Euro (
+   <span class="term">&#128;</span>
+   <span class="html">&amp;#128;</span>) and  dagger (
+   <span class="term">&#134;</span>
+
+   <span class="html">&amp;#134;</span>) There are others you can discover from the <a href="asciitab.html">ASCII
+   table</a>.
+
+   <p>
+
+   With <a href="jglossu.html#UNICODE">Unicode</a> encoding, you can get about 64,000
+   different characters! However fonts for it are not widely supported.
+
+   <p>
+
+   See <a href="jglosse.html#ENCODING">encoding</a> to learn more about all the
+   different ways glyphs can be mapped onto the 8-bit numbers 0 .. 255, (or 16-bit
+   numbers 0..65535 for Unicode). See <a href="htmlcheat.html#CONTENTTYPE">content
+   type</a> to learn how to specify the encoding you are using in your document.
+
+   <p>
+
+   The &amp;eacute; style abbreviations are not kosher in HTML3.2. They are not
+   part of the HTML 3.2 spec, but Netscape and Internet Explorer still support them.
+
+   <p>
+
+   If you can't find the character here you could try this <a href="http://www.uni-passau.de/%7Eramsch/iso8859-1.html">list
+   of special characters</a>. Please tell me about any omissions in my own table.
+
+   <table border="1" cellspacing="1" bordercolor="#808080" cellpadding="7">
+      <thead>
+
+      <tr>
+         <th colspan="3">Codes for Special Characters in HTML</th>
+      </tr>
+
+      <tr>
+         <th valign="top">Char</th>
+
+         <th valign="top">Code</th>
+
+         <th valign="top">Description</th>
+      </tr>
+
+      </thead>
+      <tbody>
+
+      <tr>
+         <td>&acute;</td>
+
+         <td>&amp;acute;</td>
+
+         <td>acute accent</td>
+      </tr>
+
+      <tr>
+         <td>&amp;</td>
+
+         <td>&amp;amp;</td>
+
+         <td>ampersand</td>
+      </tr>
+
+      <tr>
+         <td>'</td>
+
+         <td>'</td>
+
+         <td>apostrophe, single quote, use grave and acute for left/right.</td>
+      </tr>
+
+      <tr>
+         <td>&brvbar;</td>
+
+         <td>&amp;brvbar;</td>
+
+         <td>broken bar</td>
+      </tr>
+
+      <tr>
+         <td>&cedil;</td>
+
+         <td>&amp;cedil;</td>
+
+         <td>cedilla</td>
+      </tr>
+
+      <tr>
+         <td>&cent;</td>
+
+         <td>&amp;cent;</td>
+
+         <td>cent sign</td>
+      </tr>
+
+      <tr>
+         <td>&copy;</td>
+
+         <td>&amp;copy;</td>
+
+         <td>copyright sign</td>
+      </tr>
+
+      <tr>
+         <td>&curren;</td>
+
+         <td>&amp;curren;</td>
+
+         <td>currency sign</td>
+      </tr>
+
+      <tr>
+         <td>&#134;</td>
+
+         <td>&amp;#134;</td>
+
+         <td>dagger.  Only works in Latin-1</td>
+      </tr>
+
+      <tr>
+         <td>&deg;</td>
+
+         <td>&amp;deg;</td>
+
+         <td>degree sign</td>
+      </tr>
+
+      <tr>
+         <td>&uml;</td>
+
+         <td>&amp;uml;</td>
+
+         <td>dieresis</td>
+      </tr>
+
+      <tr>
+         <td>&divide;</td>
+
+         <td>&amp;divide;</td>
+
+         <td>division sign</td>
+      </tr>
+
+      <tr>
+         <td>&quot;</td>
+
+         <td>&amp;quot;</td>
+
+         <td>double quote. There is no left/right quote.</td>
+      </tr>
+
+      <tr>
+         <td>&#128;</td>
+
+         <td>&amp;#128;</td>
+
+         <td>Euro. Only works in Latin-1.</td>
+      </tr>
+
+      <tr>
+         <td>&ordf;</td>
+
+         <td>&amp;ordf;</td>
+
+         <td>feminine ordinal indicator</td>
+      </tr>
+
+      <tr>
+         <td>`</td>
+
+         <td>`</td>
+
+         <td>grave</td>
+      </tr>
+
+      <tr>
+         <td>&gt;</td>
+
+         <td>&amp;gt;</td>
+
+         <td>greater than</td>
+      </tr>
+
+      <tr>
+         <td>&iexcl;</td>
+
+         <td>&amp;iexcl;</td>
+
+         <td>inverted exclamation mark</td>
+      </tr>
+
+      <tr>
+         <td>&iquest;</td>
+
+         <td>&amp;iquest;</td>
+
+         <td>inverted question mark</td>
+      </tr>
+
+      <tr>
+         <td>&laquo;</td>
+
+         <td>&amp;laquo;</td>
+
+         <td>left guillemot</td>
+      </tr>
+
+      <tr>
+         <td>&lt;</td>
+
+         <td>&amp;lt;</td>
+
+         <td>less than</td>
+      </tr>
+
+      <tr>
+         <td>&macr;</td>
+
+         <td>&amp;macr;</td>
+
+         <td>macron overline</td>
+      </tr>
+
+      <tr>
+         <td>&ordm;</td>
+
+         <td>&amp;ordm;</td>
+
+         <td>masculine ordinal indicator</td>
+      </tr>
+
+      <tr>
+         <td>&micro;</td>
+
+         <td>&amp;micro;</td>
+
+         <td>micro sign</td>
+      </tr>
+
+      <tr>
+         <td>&middot;</td>
+
+         <td>&amp;middot;</td>
+
+         <td>middle dot</td>
+      </tr>
+
+      <tr>
+         <td>&times;</td>
+
+         <td>&amp;times;</td>
+
+         <td>multiplication sign</td>
+      </tr>
+
+      <tr>
+         <td>&nbsp;</td>
+
+         <td>&amp;nbsp;</td>
+
+         <td>non breaking space</td>
+      </tr>
+
+      <tr>
+         <td>&not;</td>
+
+         <td>&amp;not;</td>
+
+         <td>not sign</td>
+      </tr>
+
+      <tr>
+         <td>&para;</td>
+
+         <td>&amp;para;</td>
+
+         <td>paragraph sign</td>
+      </tr>
+
+      <tr>
+         <td>&plusmn;</td>
+
+         <td>&amp;plusmn;</td>
+
+         <td>plus-minus sign</td>
+      </tr>
+
+      <tr>
+         <td>&pound;</td>
+
+         <td>&amp;pound;</td>
+
+         <td>pound sign</td>
+      </tr>
+
+      <tr>
+         <td>&reg;</td>
+
+         <td>&amp;reg;</td>
+
+         <td>registered trade mark sign.  See also &trade; &amp;trade;</td>
+      </tr>
+
+      <tr>
+         <td>&raquo;</td>
+
+         <td>&amp;raquo;</td>
+
+         <td>right guillemot</td>
+      </tr>
+
+      <tr>
+         <td>&sect;</td>
+
+         <td>&amp;sect;</td>
+
+         <td>section sign</td>
+      </tr>
+
+      <tr>
+         <td>&shy;(-)</td>
+
+         <td>&amp;shy;</td>
+
+         <td>soft hyphen -. There is no non-breaking hyphen. Invisible unless the word
+         breaks over two lines.</td>
+      </tr>
+
+      <tr>
+         <td>&sup1;</td>
+
+         <td>&amp;sup1;</td>
+
+         <td>superscript 1 one</td>
+      </tr>
+
+      <tr>
+         <td>&sup2;</td>
+
+         <td>&amp;sup2;</td>
+
+         <td>superscript 2 two</td>
+      </tr>
+
+      <tr>
+         <td>&sup3;</td>
+
+         <td>&amp;sup3;</td>
+
+         <td>superscript 3 three</td>
+      </tr>
+
+      <tr>
+         <td>~</td>
+
+         <td>~</td>
+
+         <td>tilde</td>
+      </tr>
+
+      <tr>
+         <td>&trade;</td>
+
+         <td>&amp;trade</td>
+
+         <td>Trademark. &amp;trade; only recently supported. Use &lt;sup&gt;TM&lt;/sup&gt;
+         for safety.  &amp;#153; only works in Latin-1. See this <a href="jglosst.html#TRADEMARK">full
+         discussion</a> of the problems.  See &reg; &amp;reg;</td>
+      </tr>
+
+      <tr>
+         <td>&frac12;</td>
+
+         <td>&amp;frac12;</td>
+
+         <td>vulgar fraction 1/2 one half</td>
+      </tr>
+
+      <tr>
+         <td>&frac14;</td>
+
+         <td>&amp;frac14;</td>
+
+         <td>vulgar fraction 1/4 one quarter</td>
+      </tr>
+
+      <tr>
+         <td>&frac34;</td>
+
+         <td>&amp;frac34;</td>
+
+         <td>vulgar fraction 3/4 three quarters</td>
+      </tr>
+
+      <tr>
+         <td>&szlig;</td>
+
+         <td>&amp;szlig;</td>
+
+         <td>German double s, Beta.</td>
+      </tr>
+
+      <tr>
+         <td>&yen;</td>
+
+         <td>&amp;yen;</td>
+
+         <td>yen sign</td>
+      </tr>
+
+      </tbody>
+
+   </table>
+
+   <h2><a name="ESPERANTO"></a>Esperanto Accented Characters</h2>
+
+   This table will only display correctly if you have an Esperanto font installed.
+
+   <table class="esperanto" border="1" cellspacing="1" bordercolor="#808080" cellpadding="7">
+      <thead>
+
+      <tr>
+         <th colspan="4">Generating Esperanto Accented Characters in HTML</th>
+      </tr>
+
+      <tr>
+         <th>Unaccented letter</th>
+
+         <th>Accented Letter</th>
+
+         <th>ISO 8859-3 HTML code</th>
+
+         <th>Unicode HTML code</th>
+      </tr>
+
+      </thead>
+      <tbody>
+
+      <tr>
+         <td align="center">c C</td>
+
+         <td align="center">&#230; &#198;</td>
+
+         <td align="center">&amp;#230; &amp;198;</td>
+
+         <td align="center">&amp;#265; &amp;264;</td>
+      </tr>
+
+      <tr>
+         <td align="center">g G</td>
+
+         <td align="center">&#248; &#216;</td>
+
+         <td align="center">&amp;#248; &amp;;#216;</td>
+
+         <td align="center">&amp;#285; &amp;;#284;</td>
+      </tr>
+
+      <tr>
+         <td align="center">h H</td>
+
+         <td align="center">&#182; &#166;</td>
+
+         <td align="center">&amp;#182; &amp;#166;</td>
+
+         <td align="center">&amp;#293; &amp;#292;</td>
+      </tr>
+
+      <tr>
+         <td align="center">j J</td>
+
+         <td align="center">&#188; &#172;</td>
+
+         <td align="center">&amp;#188; &amp;#172;</td>
+
+         <td align="center">&amp;#309; &amp;#308;</td>
+      </tr>
+
+      <tr>
+         <td align="center">s S</td>
+
+         <td align="center">&#254; &#222;</td>
+
+         <td align="center">&amp;#254; &amp;222;</td>
+
+         <td align="center">&amp;#349; &amp;348;</td>
+      </tr>
+
+      <tr>
+         <td align="center">u U</td>
+
+         <td align="center">&#253; &#221;</td>
+
+         <td align="center">&amp;#253; &amp;221;</td>
+
+         <td align="center">&amp;#365; &amp;364;</td>
+      </tr>
+
+      </tbody>
+
+   </table>
+
+   <table border="1" cellspacing="1" bordercolor="#808080" cellpadding="7">
+      <thead>
+
+      <tr>
+         <th colspan="5">Accented Letters</th>
+      </tr>
+
+      <tr>
+         <th colspan="2">Char</th>
+
+         <th colspan="2">Code</th>
+
+         <th>&nbsp;</th>
+      </tr>
+
+      <tr>
+         <th>Upper
+
+            <br>
+
+            Case</th>
+
+         <th>Lower
+
+            <br>
+
+            Case</th>
+
+         <th>Upper
+
+            <br>
+
+            Case</th>
+
+         <th>Lower
+
+            <br>
+
+            Case</th>
+
+         <th>Description</th>
+      </tr>
+
+      </thead>
+      <tbody>
+
+      <tr>
+         <td>&Agrave;</td>
+
+         <td>&agrave;</td>
+
+         <td>&amp;Agrave;</td>
+
+         <td>&amp;agrave;</td>
+
+         <td>a grave</td>
+      </tr>
+
+      <tr>
+         <td>&Aacute;</td>
+
+         <td>&aacute;</td>
+
+         <td>&amp;Aacute;</td>
+
+         <td>&amp;aacute;</td>
+
+         <td>a acute</td>
+      </tr>
+
+      <tr>
+         <td>&Acirc;</td>
+
+         <td>&acirc;</td>
+
+         <td>&amp;Acirc;</td>
+
+         <td>&amp;acirc;</td>
+
+         <td>a circumflex</td>
+      </tr>
+
+      <tr>
+         <td>&Atilde;</td>
+
+         <td>&atilde;</td>
+
+         <td>&amp;Atilde;</td>
+
+         <td>&amp;atilde;</td>
+
+         <td>a tilde</td>
+      </tr>
+
+      <tr>
+         <td>&Auml;</td>
+
+         <td>&auml;</td>
+
+         <td>&amp;Auml;</td>
+
+         <td>&amp;auml;</td>
+
+         <td>a umlaut</td>
+      </tr>
+
+      <tr>
+         <td>&Aring;</td>
+
+         <td>&aring;</td>
+
+         <td>&amp;Aring;</td>
+
+         <td>&amp;aring;</td>
+
+         <td>a ring</td>
+      </tr>
+
+      <tr>
+         <td>&AElig;</td>
+
+         <td>&aelig;</td>
+
+         <td>&amp;AElig;</td>
+
+         <td>&amp;aelig;</td>
+
+         <td>ae ligature</td>
+      </tr>
+
+      <tr>
+         <td>&Ccedil;</td>
+
+         <td>&ccedil;</td>
+
+         <td>&amp;Ccedil;</td>
+
+         <td>&amp;ccedil;</td>
+
+         <td>c cedilla</td>
+      </tr>
+
+      <tr>
+         <td>&Egrave;</td>
+
+         <td>&egrave;</td>
+
+         <td>&amp;Egrave;</td>
+
+         <td>&amp;egrave;</td>
+
+         <td>e grave</td>
+      </tr>
+
+      <tr>
+         <td>&Eacute;</td>
+
+         <td>&eacute;</td>
+
+         <td>&amp;Eacute;</td>
+
+         <td>&amp;eacute;</td>
+
+         <td>e acute</td>
+      </tr>
+
+      <tr>
+         <td>&Ecirc;</td>
+
+         <td>&ecirc;</td>
+
+         <td>&amp;Ecirc;</td>
+
+         <td>&amp;ecirc;</td>
+
+         <td>e circumflex</td>
+      </tr>
+
+      <tr>
+         <td>&Euml;</td>
+
+         <td>&euml;</td>
+
+         <td>&amp;Euml;</td>
+
+         <td>&amp;euml;</td>
+
+         <td>e umlaut</td>
+      </tr>
+
+      <tr>
+         <td>&Igrave;</td>
+
+         <td>&igrave;</td>
+
+         <td>&amp;Igrave;</td>
+
+         <td>&amp;igrave;</td>
+
+         <td>i grave</td>
+      </tr>
+
+      <tr>
+         <td>&Iacute;</td>
+
+         <td>&iacute;</td>
+
+         <td>&amp;Iacute;</td>
+
+         <td>&amp;iacute;</td>
+
+         <td>i acute</td>
+      </tr>
+
+      <tr>
+         <td>&Icirc;</td>
+
+         <td>&icirc;</td>
+
+         <td>&amp;Icirc;</td>
+
+         <td>&amp;icirc;</td>
+
+         <td>i circumflex</td>
+      </tr>
+
+      <tr>
+         <td>&Iuml;</td>
+
+         <td>&iuml;</td>
+
+         <td>&amp;Iuml;</td>
+
+         <td>&amp;iuml;</td>
+
+         <td>i umlaut</td>
+      </tr>
+
+      <tr>
+         <td>&ETH;</td>
+
+         <td>&eth;</td>
+
+         <td>&amp;ETH;</td>
+
+         <td>&amp;eth;</td>
+
+         <td>Icelandic eth</td>
+      </tr>
+
+      <tr>
+         <td>&Ntilde;</td>
+
+         <td>&ntilde;</td>
+
+         <td>&amp;Ntilde;</td>
+
+         <td>&amp;ntilde;</td>
+
+         <td>n tilde</td>
+      </tr>
+
+      <tr>
+         <td>&Ograve;</td>
+
+         <td>&ograve;</td>
+
+         <td>&amp;Ograve;</td>
+
+         <td>&amp;ograve;</td>
+
+         <td>o grave</td>
+      </tr>
+
+      <tr>
+         <td>&Oacute;</td>
+
+         <td>&oacute;</td>
+
+         <td>&amp;Oacute;</td>
+
+         <td>&amp;oacute;</td>
+
+         <td>o acute</td>
+      </tr>
+
+      <tr>
+         <td>&Ocirc;</td>
+
+         <td>&ocirc;</td>
+
+         <td>&amp;Ocirc;</td>
+
+         <td>&amp;ocirc;</td>
+
+         <td>o cirumflex</td>
+      </tr>
+
+      <tr>
+         <td>&Otilde;</td>
+
+         <td>&otilde;</td>
+
+         <td>&amp;Otilde;</td>
+
+         <td>&amp;otilde;</td>
+
+         <td>o tilde</td>
+      </tr>
+
+      <tr>
+         <td>&Ouml;</td>
+
+         <td>&ouml;</td>
+
+         <td>&amp;Ouml;</td>
+
+         <td>&amp;ouml;</td>
+
+         <td>o umlaut</td>
+      </tr>
+
+      <tr>
+         <td>&Oslash;</td>
+
+         <td>&oslash;</td>
+
+         <td>&amp;Oslash;</td>
+
+         <td>&amp;oslash;</td>
+
+         <td>o slash</td>
+      </tr>
+
+      <tr>
+         <td>&Ugrave;</td>
+
+         <td>&ugrave;</td>
+
+         <td>&amp;Ugrave;</td>
+
+         <td>&amp;ugrave;</td>
+
+         <td>u grave</td>
+      </tr>
+
+      <tr>
+         <td>&Uacute;</td>
+
+         <td>&uacute;</td>
+
+         <td>&amp;Uacute;</td>
+
+         <td>&amp;uacute;</td>
+
+         <td>uacute</td>
+      </tr>
+
+      <tr>
+         <td>&Ucirc;</td>
+
+         <td>&ucirc;</td>
+
+         <td>&amp;Ucirc;</td>
+
+         <td>&amp;ucirc;</td>
+
+         <td>u circumflex</td>
+      </tr>
+
+      <tr>
+         <td>&Uuml;</td>
+
+         <td>&uuml;</td>
+
+         <td>&amp;Uuml;</td>
+
+         <td>&amp;uuml;</td>
+
+         <td>u umlaut</td>
+      </tr>
+
+      <tr>
+         <td>&Yacute;</td>
+
+         <td>&yacute;</td>
+
+         <td>&amp;Yacute;</td>
+
+         <td>&amp;yacute;</td>
+
+         <td>y acute</td>
+      </tr>
+
+      <tr>
+         <td>&THORN;</td>
+
+         <td>&thorn;</td>
+
+         <td>&amp;THORN;</td>
+
+         <td>&amp;thorn;</td>
+
+         <td>Icelandic thorn</td>
+      </tr>
+
+      <tr>
+         <td>&Yuml;</td>
+
+         <td>&yuml;</td>
+
+         <td>&amp;Yuml;</td>
+
+         <td>&amp;yuml;</td>
+
+         <td>y umlaut</td>
+      </tr>
+
+      </tbody>
+
+   </table>
+
+   <h2><a name="PRELUDE"></a>Standard Prelude</h2>
+
+   Here is a standard header you could use on all your HTML files.
+
+   <ul class="html">
+
+      &lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/REC-html40/loose.dtd&quot;&gt;
+
+      <br>
+
+      &lt;head&gt;
+
+      <br>
+
+      &lt;link href=&quot;mindprod.css&quot; type=&quot;text/css&quot; rel=&quot;stylesheet&quot;&gt;
+
+      <br>
+
+      &lt;link rev=&quot;MADE&quot; href=&quot;mailto:roedy@mindprod.com&quot;&gt;
+
+      <br>
+
+      &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=iso-8859-1&quot;&gt;
+
+      <br>
+
+
+         &lt;META http-equiv=&quot;S-Label&quot; content='(PICS-1.1 &quot;http://www.icra.org/ratingsv02.html&quot; l gen true for &quot;http://www.mindprod.com&quot; r (cz 1 lz 1 nz 1 oz 1 vz 1) &quot;http://www.rsac.org/ratingsv01.html&quot; l gen true for &quot;http://www.mindprod.com&quot; r (n 0 s 0 v 0 l 0))'&gt;
+
+      <br>
+
+      &lt;meta name=&quot;AUTHOR&quot; content=&quot;Roedy Green, roedy@mindprod.com&quot;&gt;
+
+      <br>
+
+      &lt;meta name=&quot;DESCRIPTION&quot; content=&quot;Glossary of Java terminology&quot;&gt;
+
+      <br>
+
+      &lt;meta name=&quot;GENERATOR&quot; content=&quot;Vslick Text editor&quot;&gt;
+
+      <br>
+
+      &lt;meta name=&quot;KEYWORDS&quot; content=&quot;Java,glossary,terminology,buzzwords,dictionary,Roedy&quot;&gt;
+
+      <br>
+
+      &lt;title&gt;Roedy Green's Java &amp;amp; Internet Glossary &lt;/title&gt;
+
+      <br>
+
+      &lt;/head&gt;
+
+   </ul>
+
+   <span class="html">&lt;BODY TEXT=&quot;#333300&quot; BGCOLOR=&quot;#FFFFCC&quot;
+   BACKGROUND=&quot;images/bg.gif&quot; LINK=&quot;#FF0000&quot; VLINK=&quot;#330099&quot;
+   ALINK=&quot;#000800&quot; MARGINHEIGHT=&quot;10&quot; MARGINWIDTH=&quot;10&quot; &gt;</span>
+
+   <p>
+
+   The  header, link, meta and body tags have the following puroses:
+
+   <ul>
+
+      <li>
+         <h4>doctype</h4>
+         says which level of HTML you are using.  If you use the <i>strict</i> DTD, you
+         must have absolutely perfect HTML 4, something quite unlikely.  If your page has
+         frames, use this DTD.
+
+         <ul class="html">
+            &lt;!doctype html public &quot;-//W3C//DTD HTML 4.01 Frameset//EN&quot; &quot;http://www.w3.org/TR/html4/frameset.dtd&quot;&gt;
+
+         </ul>
+
+      </li>
+
+      <li>
+         <h4>link href</h4>
+
+         : point to your master css style sheet.
+      </li>
+
+      <li>
+         <h4>link rev</h4>
+
+         : give author's email address. Used by Lynx browser.
+      </li>
+
+      <li>
+         <h4><a name="CONTENTTYPE"></a> Content-Type</h4>
+
+         : Tell which character set <a href="jglosse.html#ENCODING">encoding</a> you are
+         using, e.g. which accented letters you use. Normally
+         <span class="html">iso-8859-1</span> for Latin-1, sometimes
+         <span class="html">iso-8859-3</span> for Esperanto, or
+         <span class="html">unicode</span> (or
+         <span class="html">utf-8</span> for compact Unicode) to handle nearly all
+         languages, including Arabic, Thai and Chinese.
+      </li>
+
+      <li>
+         <h4>PICS-Label</h4>
+
+         : encodes your document for adult content, if any.
+      </li>
+
+      <li>
+         <h4>AUTHOR</h4>
+
+         : author's name.
+      </li>
+
+      <li>
+         <h4>DESCRIPTION</h4>
+
+         : Summary of what's on the page.  Used by search engines to summarise the page
+         for people. Should be more detailed than the title.
+      </li>
+
+      <li>
+         <h4>GENERATOR</h4>
+
+         : What tool you used to create the HTML.
+      </li>
+
+      <li>
+         <h4>KEYWORDS</h4>
+
+         : important words in the document.  Used by search engines to direct people to
+         your document. Avoid using concept words that don't actually appear in the
+         document.  Search engines think you are cheating.
+      </li>
+
+      <li>
+         <h4>title</h4>
+
+         : Title used to display a hit by a search engine.  Also used on the window bar
+         when the page is displayed.
+      </li>
+
+      <li>
+         <h4>body</h4>
+
+         : are for css-challenged browsers that don't understand the style sheet.
+      </li>
+
+   </ul>
+
+   <h2><a name="BODY"></a>Body Tags</h2>
+
+   <table border="1" cellspacing="1" bordercolor="#808080" cellpadding="7">
+      <thead>
+
+      <tr>
+         <th colspan="2">Body Tags</th>
+      </tr>
+
+      <tr>
+         <th>Field</th>
+
+         <th>Function</th>
+      </tr>
+
+      </thead>
+      <tbody>
+
+      <tr>
+         <td>link rev</td>
+
+         <td>mailto for Lynx browser</td>
+      </tr>
+
+      <tr>
+         <td>PICS-Label</td>
+
+         <td>adult content rating</td>
+      </tr>
+
+      <tr>
+         <td>BGCOLOR</td>
+
+         <td>background RGB in hex</td>
+      </tr>
+
+      <tr>
+         <td>BACKGROUND</td>
+
+         <td>gif to use as background tiled.</td>
+      </tr>
+
+      <tr>
+         <td>TEXT</td>
+
+         <td>ordinary text colour</td>
+      </tr>
+
+      <tr>
+         <td>LINK</td>
+
+         <td>clickable links not yet visited</td>
+      </tr>
+
+      <tr>
+         <td>VLINK</td>
+
+         <td>links that have already been visited</td>
+      </tr>
+
+      <tr>
+         <td>ALINK</td>
+
+         <td>active link text, what you just clicked.</td>
+      </tr>
+
+      <tr>
+         <td>MARGINHEIGHT</td>
+
+         <td>pixels in border top/bottom.</td>
+      </tr>
+
+      <tr>
+         <td>MARGINWIDTH</td>
+
+         <td>pixels in border left/right.</td>
+      </tr>
+
+      </tbody>
+
+   </table>
+
+   To make such code easier to maintain, you could use <a href="jglosss.html#SSI">SSI</a>
+   Server Side Includes.  You then need maintain only one copy of the standard
+   headers.
+
+   <h2><a name="STYLES"></a>CSS Styles</h2>
+
+   To come. In general, avoid styles, and use style sheets. That way you can make a
+   change to you style sheet and your whole website is instantly updated.
+
+   <h2><a name="STYLESHEETS"></a>CSS Style Sheets</h2>
+
+   To come. In the meantime, have a look at <a href="mindprodcss.txt">my style
+   sheet</a>. Looking at an example will probably explain nearly everything you
+   need to know.
+     <p>
+     <hr>
+
+   <table cellpadding="7">
+      <tr align="center" valign="middle">
+         <td align="center">You are visitor number
+            <br>
+            <font color="orange"><b>4826</b></font>.</td>
+      </tr>
+      <tr align="center" valign="middle">
+         <td align="center" colspan="1"><font size="-1">You can get an updated copy of
+         this page from <a href="http://mindprod.com/htmlcheat.html">http://mindprod.com/htmlcheat.html</a></font></td>
+      </tr>
+   </table>
+
+   <hr>
+
+   </body>
+</html>

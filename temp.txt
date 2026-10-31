@@ -1,0 +1,3 @@
+Last week, Claire told me that she was going to allow her web hosting account to expire. Looks like it has done so. At least [url=http://www.clairewolfe.com/]www.ClaireWolfe.com[/url] is not responding for me this morning. Claire also asked me last week if I was interested in mirroring her site, for posterity. I, of course, agreed, and aimed [font=courier]wget[/font] at it right away. My mirror is at [url=http://billstclair.com/clairewolfe.com/mirror.html]billstclair.com/clairewolfe.com[/url], linked from the "Mirrors" section of  [url=http://billstclair.com/]billstclair.com[/url].
+
+I would have preferred to let Claire make the announcement herself, but I figured somebody else would notice soon, so here 'tis. Hopefully, Claire will chime in soon.

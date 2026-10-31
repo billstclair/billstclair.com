@@ -1,0 +1,45 @@
+<?PHP
+
+
+error_reporting(E_ALL ^ E_NOTICE);
+
+/*
+simplepng.php
+Generates a 50 x 50 pixel png of the color passed in parameter 'color'
+*/
+
+// Step 1. Create a new blank image
+$im = imageCreateFromPNG ( "aic-sq.png" );
+
+// Step 2. Set background to 'color'
+$background = imageColorAllocate($im, 0, 0, 0);
+$foreground = imageColorAllocate($im, 255, 0, 0);
+$fontfile = '/nfsn/content/billstclair/htdocs/freefont/FreeSansBold.ttf';
+$fontfile = 'freefont/FreeSansBold.ttf';
+// or FreeSerifBold.ttf';
+$fontsize = 12;
+
+$now = time();
+$offset = 60 * 60 * 24;
+$then = gmmktime (5, 0, 0, 11, 7, 2006);
+$delta = $now - $then;
+$days = floor($delta / $offset);
+$text = "DAY " . $days;
+
+// Left side of box is at 70
+// Right side of box is at 155
+$bbox = imageFTBBox($fontsize, 0, $fontfile, $text);
+$x = 71 + (((155 - 70) - ($bbox[2] - $bbox[0])) / 2);
+imageFTText($im, $fontsize, 0, $x, 43, $foreground, $fontfile, $text);
+
+header('Content-type: image/png');
+
+header("Cache-Control: must-revalidate");
+$hours = 5 * 60 * 60;
+$today = $now - fmod($now, $offset);
+$ExpStr = "Expires: " . gmdate("D, d M Y H:i:s", $today + $offset + $hours) . " GMT";
+header($ExpStr);
+
+imagePNG($im);
+
+imageDestroy($im); 

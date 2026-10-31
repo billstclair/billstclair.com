@@ -1,0 +1,21 @@
+Web browsers have a bad habit of going to the server whenever anything but a hash changes (example.com#hash). Hashes are interpreted as scrolling to an anchor tag with a matching `name`:
+<p>
+    <a name='hash'>...</a>
+<p>
+In Elm, we've got to keep the same base URL, and search string, or the server will restart our code, which makes for a startup transient, especially if the caches aren't fresh. So I'll address pages with just hash changes:
+<p>
+    https://Xossbow.com#about
+<p>
+And, in order to ALSO use the browser's name scrolling feature, the hashes can have an additional dotted component:
+<p>
+    https://Xossbow.com#docs.Settings
+<p>
+This will require another Markdown extension to automatically generate named links for headings, and to be able to specify your own named links, with a way for user-code to add a wrapper around the tags that are automatically generated, so that Xossbow can turn this:
+<p>
+    *** Settings
+<p>
+Which would normally generate:
+<p>
+    ["a",{"name":"Settings"},["h3"
+<p>
+<a name="foo"><h2>foo</h2></a>

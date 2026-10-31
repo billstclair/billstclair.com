@@ -1,0 +1,36 @@
+<html>
+
+<head>
+<script type="text/javascript">
+function daycount(then, cols, fillchar) {
+  var dthen = new Date(then);
+  var dnow = new Date();
+  var ddiff = new Date(dnow-dthen);
+  var s = Math.floor(ddiff.valueOf()/1000/86400).toString();;
+  while (s.length < cols) s = fillchar + s;
+  document.write(s);
+}
+</script>
+</head>
+
+<body>
+
+<p>It has been
+<span style="color: red; font-weight: bold;">
+<script type="text/javascript">
+  daycount("11/7/2006 9:30 PM PST", 4, "0");
+</script>
+</span>
+days since the democrats took power.</p>
+
+<p>It has been
+<span style="color: blue" font-weight: bold;">
+<script type="text/javascript">
+  daycount("7/4/1776", 0, "0");
+</script>
+</span>
+days since America won its independence.</p>
+
+</body>
+
+</html>

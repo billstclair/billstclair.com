@@ -1,0 +1,20 @@
+<html>
+<head>
+<title>An HTML Form that Sends Email</title>
+</head>
+<body>
+<p>Fill in your name and password below, and click the "Submit Button". This will bring up a message in your email program. Add a subject line there and click the "Send" button.</p>
+<form method="post" action="mailto:nobody@nowhere.com">
+<table>
+<tr><th>Name:</th>
+<td><input type="text" size="20" maxlength="40" name="name"/></td>
+</tr><tr>
+<th>Password:</th>
+<td><input type="password" size="20" maxlength="20" name="password"/></td>
+</tr><tr>
+<td colspan="2"><input type="submit" name="submit" value="Submit"/></td>
+</tr>
+</table>
+</form>
+</body>
+</html>

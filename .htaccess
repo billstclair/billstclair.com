@@ -1,0 +1,15 @@
+RewriteEngine On
+
+# always use HTTPS
+RewriteCond "%{HTTPS}" "off" [NC]
+RewriteRule "^/?(.*)" "https://%{HTTP_HOST}/$1" [R,L,NE]
+
+#RewriteCond %{HTTPS} !=on
+#RewriteRule ^goldnow(.*) https://billstclair.com/goldnow$1 [R,L]
+#RewriteCond %{HTTPS} !=on
+#RewriteRule ^loom(.*) https://billstclair.com/loom$1 [R,L]
+
+#multipart/related
+#application/x-mimearchive
+#message/rfc822
+AddType multipart/related .mhtml

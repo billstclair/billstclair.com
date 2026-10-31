@@ -1,0 +1,6 @@
+User-agent: Teoma
+Disallow: /
+User-agent: *
+Disallow: /blog-new/
+Disallow: /blog/admin/
+Disallow: /archives/

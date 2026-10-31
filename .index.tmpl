@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <meta http-equiv="Content-Style-Type" content="text/css"/><!-- TMPL_IF base -->
+  <base href="<!-- TMPL_VAR base -->"/><!-- /TMPL_IF -->
+  <link rel="stylesheet" type="text/css" href="<!-- TMPL_VAR home -->/css/layout.css"/><!-- TMPL_LOOP header-links -->
+  <link rel="<!-- TMPL_VAR rel -->" type="<!-- TMPL_VAR type -->"<!-- TMPL_IF title --> title="<!-- TMPL_VAR title -->"<!-- /TMPL_IF --> href="<!-- TMPL_VAR href -->"/><!-- /TMPL_LOOP -->
+  <title><!-- TMPL_IF page-title --><!-- TMPL_VAR page-title --> | <!-- TMPL_VAR site-name --><!-- TMPL_ELSE --><!-- TMPL_VAR site-name --> | <!-- TMPL_VAR site-slogan --><!-- /TMPL_IF --></title>
+</head>
+<body bgcolor="#fefefe">
+  <!-- Fuck you NSA asscunt! With a chainsaw. -->
+  <div id="page">
+    <div id="header">
+      <div id="search">
+        <form  method="get" action="https://encrypted.google.com/search">
+          <input type="text" name="q" size="15" maxlength="255" value="">
+          <input type="submit" name="btnG" value="Search">
+          <input type="hidden" name="domains" value="billstclair.com">
+          <input type="hidden" name="sitesearch" value="billstclair.com">
+        </form><!-- TMPL_IF plusone-p -->
+        <div id="plusone"><g:plusone></g:plusone></div><!-- /TMPL_IF -->
+      </div>
+      <div id="header-content">
+        <table>
+          <tr>
+            <td>
+              <a href="<!-- TMPL_VAR home -->"><img src="<!-- TMPL_VAR site-logo -->"/></a>
+            </td><td>
+              <div class="site-name">
+                <h1 id="site-name"><!-- TMPL_VAR site-name --></h1>
+                <span id="site-slogan"><!-- TMPL_VAR site-slogan --></span>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div id="container">
+      <div id="main-content">
+        <div id="content-container">
+          <!-- TMPL_VAR page-content -->
+        </div>
+      </div>
+
+      <div id="left-sidebar">
+        <table id="sidebar-table">
+          <tr>
+            <td id="sidebar-column">
+              <!-- TMPL_LOOP blocks -->
+              <div class="sidebar-content">
+                <!-- TMPL_VAR html -->
+              </div>
+              <!-- /TMPL_LOOP -->
+            </td>
+            <td width="3px">&nbsp;</td>
+          </tr>
+        </table>
+      </div>
+
+    </div> <!--  container  -->
+
+    <div id="footer">
+      <div id="footer-content">
+        <center style="vertical-align: middle"><!-- TMPL_VAR footer-html --></center>
+      </div>
+    </div>
+
+  </div> <!-- back --><!-- TMPL_IF plusone-p -->
+  <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script><!-- /TMPL_IF -->
+</body>
+</html>

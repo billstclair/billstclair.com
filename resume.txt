@@ -1,0 +1,78 @@
+Bill St. Clair
+5 Abode Road, New Lebanon, NY 12125
+518-794-7259
+billstclair@gmail.com
+
+Employment goal
+Crafting great software in and/or implementation of dynamic languages. Stuff I've never done before. Telecommuting desirable.
+
+Highly proficient with
+Clozure Common Lisp, Java, Progress 4GL/Database/AppServer, EMACS
+
+Have been highly proficient with
+Macintosh Common Lisp, PowerPC assembler, 68K assembler, Macintosh toolbox, Symbolics Lisp Machine, RATFOR, PDP-11 assembler, RT-11, RSX-11M, oscilloscopes, logic analyzers, 8X-300, 2901, TMS-320
+
+Some experience with
+XML, Unix, HTML, Dylan, C, Pascal, APL, PL/1, MS-DOS, OS-8, Multics, FoxBase, RBase.
+
+Employment History
+
+2006-present
+Clozure Associates, Somerville, MA
+An assortment of contract work in Clozure Common Lisp on Linux.
+
+1997-2006
+Shaker Computer and Management Services, Inc. , Latham, NY
+COINS: COnstruction Industry Software, RIS: Residential Information System - designed and wrote assorted code for these Enterprise systems, wrote Technical Manual for RIS. Argon: A Java front-end for COINS job status information - designed and coded entire system. Titanium User Interface Manager (UIM), a generic user interface written in Java using XML to encode screen layouts and InfoBus to pass data around - designed and coded entire system, including Java client code and Progress server code. Wrote and presented a series of Java programming courses to Shaker's programming staff.
+
+1995-1997
+Digitool, Inc. , Cambridge, MA (contractor)
+Macintosh Common Lisp - Shipped MCL 3.9, 4.0, 4.1, shared library (CFM) interface, ported inspector/stack backtrace/WOOD to new architecture, new stack group implementation, segmented stacks, terminate-when-unreachable, ported Apple Dylan to PPC MCL, MCL demo technology, made CL-HTTP OpenTransport native, primary slots for CLOS, new table-dialog-item implementation, new shared library delivery mechanism, customer support.
+
+1989-1995
+Apple Computer, Inc., Cambridge Research Lab, Cambridge, MA
+Apple Dylan - Compiler database persistence, module system, dependency system.
+Macintosh Common Lisp - CLOS implementation, convert UI from object lisp to CLOS, hash table implementation, inspector, WOOD (a simple persistent object store with Btrees for indexing), FRED redisplay code, thread stack maintenance, bug fixing all over the system, customer support.
+
+1986-1989
+Bread & Circus whole food supermarket, Cambridge, MA
+Cashier & Shift Supervisor. A break from computing.
+
+1984-1986
+Thinking Machines Corporation , Cambridge, MA
+CDL (a circuit design language used to design the CM-2), sticks editor for VLSI design. All on the Lisp Machine.
+
+January-April, 1984
+Atari Cambridge Research Lab, Cambridge, MA
+Interfaced a Star Wars arcade game to the Lisp machine for use as a graphics output device, both sides of downloader for 6805, 3D turtles, maze game. Left because Atari closed the lab.
+
+April-November, 1983
+EMT Franz, GMBH, Kippenheim, Germany
+6 month contract to transfer audio test system technology developed at Dynatron. Designed and debugged TMS-320 based audio signal processing hardware, implemented complete RT-11 based development system including assembler, linker, downloader, PROM programmer, wrote TMS-320 code for multi-channel delay & reverberation.
+
+1978-1983
+Dynatron Corporation, Waltham, MA
+RT-11 interface code for 2901-based signal processors, microcode diagnostics, hardware debugging, file transfer protocol between RSX11-M & Varian, wire-list editor for wire-wrap robot, data collection code for handwriting recognition system, system control code for sonar array signal processing system, Fire code error correction (8X-300) for disk controller, audio test system.
+
+1975-1978
+MIT Laboratory for Computer Science, Dynamic Modeling Division
+PDP-11 Data collection for a Morse code project.
+
+Education
+MIT, 1978, BS in Mathematics. GPA 4.9/5.0. Phi Beta Kappa, Sigma Xi, Tau Beta Pi. Class projects included building a micro-coded computer on push-pin boards and Frames Reference Language (FRL) based code for heuristics-based assembly.
+
+Personal Projects
+
+2011    Lisplog.org, blogging in lisp
+2009    Truledger.com, a digitally-signed general ledger and trading system
+2008    loomclient, a PHP client to loom.cc
+2001    BlogMax, an Emacs major mode for creating a template-based weblog
+1996    mail-merge like code for converting database records into a web site.
+1995    MCL based HTML editor.
+1988    HyperArrays, a multi-dimensional array mechanism for HyperCard.
+1985    Mandelbrot explorer for Lisp machine.
+1979    Scheme interpreter for the PDP-11. Partial second interpreter based on software virtual memory.
+
+Hobbies
+My children, Christopher & Victoria. Flute & trombone.
+Last updated: 29 September, 2011

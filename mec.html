@@ -1,0 +1,329 @@
+<html>
+<head>
+<title>iPhone Muzzle Energy Computer</title>
+<meta name="viewport" content="width=320">
+<script language="JavaScript">
+addEventListener("load", function()
+{
+	setTimeout(hideAddressbar, 0);
+}, false);
+
+function hideAddressbar()
+{
+	window.scrollTo(0, 1);
+}
+
+function calc() {
+  var grains_per_lb = 7000;
+  var lb_per_slug = 32.17405;
+  var grains_per_slug = grains_per_lb * lb_per_slug;
+  var pi = 3.141592654;
+  var velocity = new Number(document.mainform.velocity.value);
+  var weight = new Number(document.mainform.weight.value);
+  var diameter = new Number(document.mainform.diameter.value);
+  var energy = 0.5 * (weight / grains_per_slug) * velocity * velocity;
+  var r = diameter / 2;
+  var efficacy = energy * Math.PI * r * r;
+  var secdens = (weight / grains_per_lb) / (diameter * diameter);
+  var jem = energy * secdens;
+  document.mainform.energy.value = Math.round(energy);
+  document.mainform.joule.value = Math.round(1.36 * energy);
+  document.mainform.efficacy.value = Math.round(efficacy);
+  document.mainform.secdens.value = round(secdens, 3);
+  document.mainform.jem.value = Math.round(jem);
+}
+
+function wchg() {
+  grcalc();
+  ozcalc();
+  calc();
+}
+
+function grchg() {
+  document.mainform.weight.value = 
+    round(15.429718 * document.mainform.gr.value, 2);
+  ozcalc();
+  calc();
+}
+
+function grcalc() {
+  document.mainform.gr.value =
+    round(document.mainform.weight.value / 15.429718, 3);
+}
+
+function ozchg1() {
+  document.mainform.weight.value = 
+    round(6999 * document.mainform.oz.value / 16, 0);
+  grcalc();
+}
+
+function ozchg() {
+  ozchg1();
+  calc();
+}
+
+function ozcalc() {
+  document.mainform.oz.value =
+    round(16 * document.mainform.weight.value / 6999, 3);
+}
+
+function dchg() {
+  mmcalc();
+  ggcalc();
+  calc();
+}
+
+function mmchg() {
+  document.mainform.diameter.value =
+    round(document.mainform.mm.value / 25.4, 3);
+  ggcalc();
+  calc();
+}
+
+function vchg() {
+  mpscalc();
+  calc();
+}
+
+function mmcalc() {
+  document.mainform.mm.value =
+    round(document.mainform.diameter.value * 25.4, 3);
+}
+
+function ggchg1() {
+  document.mainform.diameter.value =
+    round(Math.pow(4.648224 / document.mainform.gauge.value, 0.3333333), 3);
+  mmcalc();
+}
+
+function ggchg() {
+  ggchg1();
+  calc();
+}
+
+function ggcalc() {
+  document.mainform.gauge.value =
+    round(4.648224 / Math.pow(document.mainform.diameter.value, 3), 3);
+}
+
+function mpscalc() {
+  document.mainform.mps.value =
+    round(0.3048 * document.mainform.velocity.value, 1)
+}
+
+function mpschg1() {
+  document.mainform.velocity.value =
+    round(3.281 * document.mainform.mps.value, 0)
+}
+
+function mpschg() {
+  mpschg1();
+  calc();
+}
+
+function revcalc() {
+}
+
+function revdens() {
+}
+
+function revjem() {
+}
+
+function jrevcalc() {
+}
+
+function round(x, places) {
+  fac = Math.pow(10, places);
+  return Math.round(x * fac) / fac
+}
+
+function modify(weight, velocity, diameter) {
+  document.mainform.weight.value = weight
+  document.mainform.velocity.value = velocity;
+  document.mainform.diameter.value = diameter;
+  grcalc();
+  ozcalc();
+  mmcalc();
+  ggcalc();
+  mpscalc();
+  calc();
+}
+
+function shotmodify(ounces, velocity, gauge) {
+  document.mainform.oz.value = ounces;
+  document.mainform.velocity.value = velocity;
+  document.mainform.gauge.value = gauge;
+  ozchg1();
+  ggchg1();
+  mpscalc();
+  calc();
+  
+}
+</script>
+</head>
+<body onLoad="modify(150, 2820, 0.308);">
+<table width="320px"><tr><td>
+<b><center>iPhone Muzzle Energy Computer</center></b>
+<p>
+<form name="mainform">
+<table>
+<tr>
+<td align="center">Weight (gr)</td>
+<td align="center">(grams)</td>
+<td align="center">(ounces)</td>
+</tr>
+<tr>
+<td><input size="10" type="text" name="weight" onChange="wchg();" onKeyup="wchg();"></td>
+<td><input size="10" type="text" name="gr" onChange="grchg();" onKeyup="grchg();"></td>
+<td><input size="10" type="text" name="oz" onChange="ozchg();" onKeyup="ozchg();"></td>
+</tr>
+<tr>
+<td align="center">Velocity (f/s)</td>
+<td align="center">(m/s)</td>
+</tr>
+<tr>
+<td><input size="10" type="text" name="velocity" onChange="vchg();" onKeyup="vchg();"></td>
+<td><input size="10" type="text" name="mps" onchange="mpschg();" onKeyup="mpschg();"></td>
+</tr>
+<tr>
+<td align="center">Diameter (in)</td>
+<td align="center">(mm)</td>
+<td align="center">(gauge)</td>
+</tr>
+<tr>
+<td><input size="10" type="text" name="diameter" onChange="dchg();" onKeyup="dchg();"></td>
+<td><input size="10" type="text" name="mm" onChange="mmchg();" onKeyup="mmchg();"></td>
+<td><input size="10" type="text" name="gauge" onChange="ggchg();" onKeyup="ggchg();"></td>
+<tr>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td align="center">Energy (ft lbs)</td>
+<td align="center">(joules)</td>
+</tr><tr>
+<td><input size="10" type="text" name="energy" onChange="revcalc();" onKeyup="revcalc();"></td>
+<td><input size="10" type="text" name="joule" onChange="jrevcalc();" onKeyup="jrevcalc();"></td>
+</tr>
+<tr>
+<td align="center"><a href="#efficacy">Efficacy</a></td>
+<td align="center"><a href="#secdens">Sec. Dens.</a></td>
+<td align="center">E*SD</td>
+</tr>
+<tr>
+<td><input size="10" type="text" name="efficacy" onChange="revcalc();" onKeyup="revcalc();"></td>
+<td><input size="10" type="text" name="secdens" onChange="revdens();" onKeyup="revdens();"></td>
+<td><input size="10" type="text" name="jem" onChange="revjem();" onKeyup="revjem();"></td>
+</tr>
+</table>
+</form>
+
+The top three rows above are active. Change any number and everything
+dependent on it will be recomputed. Click a button below to fill in
+values for the linked load. More ballistics for Remington ammo
+<a href="http://www.remington.com/products/ammunition/ballistics/">
+here</a>.<br>
+<br>
+Rifle:<br>
+<button onClick="modify(55, 3240, .224);">223 (5.56 Nato)</button>
+<button onClick="modify(55, 2773, .224);">100 yards</button>
+<button onClick="modify(55, 2352, .224);">200</button>
+<button onClick="modify(55, 1969, .224);">300</button>
+<a href="http://www.remington.com/products/ammunition/ballistics/results/default.aspx?type=centerfire&cal=6">*</a><br>
+<button onClick="modify(125, 2365, .309);">7.62x39</button>
+<button onClick="modify(125, 2062, .309);">100 yards</button>
+<button onClick="modify(125, 1783, .309);">200</button>
+<button onClick="modify(125, 1533, .309);">300</button>
+<a href="http://www.remington.com/products/ammunition/ballistics/results/default.aspx?type=centerfire&cal=36">*</a><br>
+<button onClick="modify(150, 2820, .308);">308 (7.62 Nato)</button>
+<button onClick="modify(150, 2533, .308);">100 yards</button>
+<button onClick="modify(150, 2263, .308);">200</button>
+<button onClick="modify(150, 2009, .308);">300</button>
+<a href="http://www.remington.com/products/ammunition/ballistics/results/default.aspx?type=centerfire&cal=33">*</a><br>
+<button onClick="modify(180, 2700, .308);">30-06</button>
+<button onClick="modify(180, 2485, .308);">100 yards</button>
+<button onClick="modify(180, 2280, .308);">200</button>
+<button onClick="modify(180, 2084, .308);">300</button>
+<a href="http://www.remington.com/products/ammunition/ballistics/results/default.aspx?type=centerfire&cal=30">*</a><br>
+<button onClick="modify(240, 2350, .430);">444 Marlin</button>
+<button onClick="modify(240, 1815, .430);">100 yards</button>
+<button onClick="modify(240, 1377, .430);">200</button>
+<button onClick="modify(240, 1087, .430);">300</button>
+<a href="http://www.remington.com/products/ammunition/ballistics/results/default.aspx?type=centerfire&cal=53">*</a><br>
+<br>
+Handgun:<br>
+<button onClick="modify(90, 1000, .357);">380 Auto</button>
+<button onClick="modify(90, 910, .357);">&nbsp;50 yards&nbsp;</button>
+<button onClick="modify(90, 841, .357);">&nbsp;100&nbsp;</button>
+<a href="http://www.hornady.com/store/380-Auto-90-gr-Critical-Defense/">*</a><br>
+<button onClick="modify(124, 1180, .355);">9mm Luger</button>
+<button onClick="modify(124, 1089, .355);">50 feet</button>
+<button onClick="modify(124, 1021, .355);">100</button>
+<a href="http://www.remington.com/products/ammunition/ballistics/results/default.aspx?type=pistol&cal=6">*</a><br>
+<button onClick="modify(158, 1235, .358);">357 Magnum</button>
+<button onClick="modify(158, 1104, .358);">50 feet</button>
+<button onClick="modify(158, 1015, .358);">100</button>
+<a href="http://www.remington.com/products/ammunition/ballistics/results/default.aspx?type=pistol&cal=5">*</a><br>
+<button onClick="modify(165, 1150, .402);">40 S&W</button>
+<button onClick="modify(165, 1040, .402);">50 feet</button>
+<button onClick="modify(165, 964, .402);">100</button>
+<a href="http://www.remington.com/products/ammunition/ballistics/results/default.aspx?type=pistol&cal=14">*</a><br>
+<button onClick="modify(230, 875, .451);">45 Auto</button>
+<button onClick="modify(230, 833, .451);">50 feet</button>
+<button onClick="modify(230, 795, .451);">100</button>
+<a href="http://www.remington.com/products/ammunition/ballistics/results/default.aspx?type=pistol&cal=19">*</a><br>
+<button onClick="modify(240, 1180, .430);">44 Magnum</button>
+<button onClick="modify(240, 1081, .430);">50 feet</button>
+<button onClick="modify(240, 1010, .430);">100</button>
+<a href="http://www.remington.com/products/ammunition/ballistics/results/default.aspx?type=pistol&cal=16">*</a><br>
+<br>
+Shotgun:<br>
+<button onClick="shotmodify(1, 1680, 12);">12 Gauge Slug</button>
+<button onClick="shotmodify(1, 1285, 12);">50 yards</button>
+<button onClick="shotmodify(1, 1045, 12);">100</button>
+<a href="http://www.remington.com/products/ammunition/ballistics/shotshell_slug_loads.asp">*</a><br>
+<p>
+Note: this page is entirely self-contained. It requires no server-side
+code to operate. All the computations are done by JavaScript code
+embedded in the HTML. If you "Save As..." in your browser, you can run
+it off-line.
+<p>
+<a name="efficacy">
+<b>Efficacy</b> is a measure proposed by
+<a href="http://lneilsmith.org">
+L. Neil Smith</a>. It is defined as energy in foot pounds multiplied
+by projectile cross-sectional area in square inches. Neil says that
+this is a pretty good indicator of the relative efficacy against live
+targets of different projectiles and loads. In an email about this
+page, Neil wrote, "I'm not absolutely certain of its applicability to
+rifles (although it looks pretty good and is fine for slugs and rifles
+like .45/70). There are other factors at work above 2000-2500 feet per
+second. But every year that passes convinces me more that this is the
+perfect program for predicting handgun performance."</a>
+<p>
+<a name="secdens">
+<b>Sectional Density</b> ("Sec. Dens." above) is defined as the weight (w)
+of the bullet in pounds divided by the square of its diameter (d) in
+inches: w/d^2 = pounds per square inch.</a>
+<p>
+I used Remington ammo for the preset buttons only because the
+ballistics were easy to find on the web. I handload or use military
+surplus for most of my shooting. You can fairly easily change the
+&lt;button> tags for your favorite loads.
+<p>
+<a href="energy.html">
+billstclair.com/energy.html</a> is the original version of this page,
+sized for a standard web browser.
+<p>
+You can store a local copy of this page on your iPhone by
+<a href='data:text/html,%3Chtml%3E%0D%0A%3Chead%3E%0D%0A%3Ctitle%3EiPhone%20Muzzle%20Energy%20Computer%3C%2Ftitle%3E%0D%0A%3Cmeta%20name%3D"viewport"%20content%3D"width%3D320"%3E%0D%0A%3Cscript%20language%3D"JavaScript"%3E%0D%0AaddEventListener%28"load"%2C%20function%28%29%0D%0A%7B%0D%0A%09setTimeout%28hideAddressbar%2C%200%29%3B%0D%0A%7D%2C%20false%29%3B%0D%0A%0D%0Afunction%20hideAddressbar%28%29%0D%0A%7B%0D%0A%09window.scrollTo%280%2C%201%29%3B%0D%0A%7D%0D%0A%0D%0Afunction%20calc%28%29%20%7B%0D%0A%20%20var%20grains_per_lb%20%3D%207000%3B%0D%0A%20%20var%20lb_per_slug%20%3D%2032.17405%3B%0D%0A%20%20var%20grains_per_slug%20%3D%20grains_per_lb%20%2A%20lb_per_slug%3B%0D%0A%20%20var%20pi%20%3D%203.141592654%3B%0D%0A%20%20var%20velocity%20%3D%20new%20Number%28document.mainform.velocity.value%29%3B%0D%0A%20%20var%20weight%20%3D%20new%20Number%28document.mainform.weight.value%29%3B%0D%0A%20%20var%20diameter%20%3D%20new%20Number%28document.mainform.diameter.value%29%3B%0D%0A%20%20var%20energy%20%3D%200.5%20%2A%20%28weight%20%2F%20grains_per_slug%29%20%2A%20velocity%20%2A%20velocity%3B%0D%0A%20%20var%20r%20%3D%20diameter%20%2F%202%3B%0D%0A%20%20var%20efficacy%20%3D%20energy%20%2A%20Math.PI%20%2A%20r%20%2A%20r%3B%0D%0A%20%20var%20secdens%20%3D%20%28weight%20%2F%20grains_per_lb%29%20%2F%20%28diameter%20%2A%20diameter%29%3B%0D%0A%20%20var%20jem%20%3D%20energy%20%2A%20secdens%3B%0D%0A%20%20document.mainform.energy.value%20%3D%20Math.round%28energy%29%3B%0D%0A%20%20document.mainform.joule.value%20%3D%20Math.round%281.36%20%2A%20energy%29%3B%0D%0A%20%20document.mainform.efficacy.value%20%3D%20Math.round%28efficacy%29%3B%0D%0A%20%20document.mainform.secdens.value%20%3D%20round%28secdens%2C%203%29%3B%0D%0A%20%20document.mainform.jem.value%20%3D%20Math.round%28jem%29%3B%0D%0A%7D%0D%0A%0D%0Afunction%20wchg%28%29%20%7B%0D%0A%20%20grcalc%28%29%3B%0D%0A%20%20ozcalc%28%29%3B%0D%0A%20%20calc%28%29%3B%0D%0A%7D%0D%0A%0D%0Afunction%20grchg%28%29%20%7B%0D%0A%20%20document.mainform.weight.value%20%3D%20%0D%0A%20%20%20%20round%2815.429718%20%2A%20document.mainform.gr.value%2C%202%29%3B%0D%0A%20%20ozcalc%28%29%3B%0D%0A%20%20calc%28%29%3B%0D%0A%7D%0D%0A%0D%0Afunction%20grcalc%28%29%20%7B%0D%0A%20%20document.mainform.gr.value%20%3D%0D%0A%20%20%20%20round%28document.mainform.weight.value%20%2F%2015.429718%2C%203%29%3B%0D%0A%7D%0D%0A%0D%0Afunction%20ozchg1%28%29%20%7B%0D%0A%20%20document.mainform.weight.value%20%3D%20%0D%0A%20%20%20%20round%286999%20%2A%20document.mainform.oz.value%20%2F%2016%2C%200%29%3B%0D%0A%20%20grcalc%28%29%3B%0D%0A%7D%0D%0A%0D%0Afunction%20ozchg%28%29%20%7B%0D%0A%20%20ozchg1%28%29%3B%0D%0A%20%20calc%28%29%3B%0D%0A%7D%0D%0A%0D%0Afunction%20ozcalc%28%29%20%7B%0D%0A%20%20document.mainform.oz.value%20%3D%0D%0A%20%20%20%20round%2816%20%2A%20document.mainform.weight.value%20%2F%206999%2C%203%29%3B%0D%0A%7D%0D%0A%0D%0Afunction%20dchg%28%29%20%7B%0D%0A%20%20mmcalc%28%29%3B%0D%0A%20%20ggcalc%28%29%3B%0D%0A%20%20calc%28%29%3B%0D%0A%7D%0D%0A%0D%0Afunction%20mmchg%28%29%20%7B%0D%0A%20%20document.mainform.diameter.value%20%3D%0D%0A%20%20%20%20round%28document.mainform.mm.value%20%2F%2025.4%2C%203%29%3B%0D%0A%20%20ggcalc%28%29%3B%0D%0A%20%20calc%28%29%3B%0D%0A%7D%0D%0A%0D%0Afunction%20vchg%28%29%20%7B%0D%0A%20%20mpscalc%28%29%3B%0D%0A%20%20calc%28%29%3B%0D%0A%7D%0D%0A%0D%0Afunction%20mmcalc%28%29%20%7B%0D%0A%20%20document.mainform.mm.value%20%3D%0D%0A%20%20%20%20round%28document.mainform.diameter.value%20%2A%2025.4%2C%203%29%3B%0D%0A%7D%0D%0A%0D%0Afunction%20ggchg1%28%29%20%7B%0D%0A%20%20document.mainform.diameter.value%20%3D%0D%0A%20%20%20%20round%28Math.pow%284.648224%20%2F%20document.mainform.gauge.value%2C%200.3333333%29%2C%203%29%3B%0D%0A%20%20mmcalc%28%29%3B%0D%0A%7D%0D%0A%0D%0Afunction%20ggchg%28%29%20%7B%0D%0A%20%20ggchg1%28%29%3B%0D%0A%20%20calc%28%29%3B%0D%0A%7D%0D%0A%0D%0Afunction%20ggcalc%28%29%20%7B%0D%0A%20%20document.mainform.gauge.value%20%3D%0D%0A%20%20%20%20round%284.648224%20%2F%20Math.pow%28document.mainform.diameter.value%2C%203%29%2C%203%29%3B%0D%0A%7D%0D%0A%0D%0Afunction%20mpscalc%28%29%20%7B%0D%0A%20%20document.mainform.mps.value%20%3D%0D%0A%20%20%20%20round%280.3048%20%2A%20document.mainform.velocity.value%2C%201%29%0D%0A%7D%0D%0A%0D%0Afunction%20mpschg1%28%29%20%7B%0D%0A%20%20document.mainform.velocity.value%20%3D%0D%0A%20%20%20%20round%283.281%20%2A%20document.mainform.mps.value%2C%200%29%0D%0A%7D%0D%0A%0D%0Afunction%20mpschg%28%29%20%7B%0D%0A%20%20mpschg1%28%29%3B%0D%0A%20%20calc%28%29%3B%0D%0A%7D%0D%0A%0D%0Afunction%20revcalc%28%29%20%7B%0D%0A%7D%0D%0A%0D%0Afunction%20revdens%28%29%20%7B%0D%0A%7D%0D%0A%0D%0Afunction%20revjem%28%29%20%7B%0D%0A%7D%0D%0A%0D%0Afunction%20jrevcalc%28%29%20%7B%0D%0A%7D%0D%0A%0D%0Afunction%20round%28x%2C%20places%29%20%7B%0D%0A%20%20fac%20%3D%20Math.pow%2810%2C%20places%29%3B%0D%0A%20%20return%20Math.round%28x%20%2A%20fac%29%20%2F%20fac%0D%0A%7D%0D%0A%0D%0Afunction%20modify%28weight%2C%20velocity%2C%20diameter%29%20%7B%0D%0A%20%20document.mainform.weight.value%20%3D%20weight%0D%0A%20%20document.mainform.velocity.value%20%3D%20velocity%3B%0D%0A%20%20document.mainform.diameter.value%20%3D%20diameter%3B%0D%0A%20%20grcalc%28%29%3B%0D%0A%20%20ozcalc%28%29%3B%0D%0A%20%20mmcalc%28%29%3B%0D%0A%20%20ggcalc%28%29%3B%0D%0A%20%20mpscalc%28%29%3B%0D%0A%20%20calc%28%29%3B%0D%0A%7D%0D%0A%0D%0Afunction%20shotmodify%28ounces%2C%20velocity%2C%20gauge%29%20%7B%0D%0A%20%20document.mainform.oz.value%20%3D%20ounces%3B%0D%0A%20%20document.mainform.velocity.value%20%3D%20velocity%3B%0D%0A%20%20document.mainform.gauge.value%20%3D%20gauge%3B%0D%0A%20%20ozchg1%28%29%3B%0D%0A%20%20ggchg1%28%29%3B%0D%0A%20%20mpscalc%28%29%3B%0D%0A%20%20calc%28%29%3B%0D%0A%20%20%0D%0A%7D%0D%0A%3C%2Fscript%3E%0D%0A%3C%2Fhead%3E%0D%0A%3Cbody%20onLoad%3D"modify%28150%2C%202820%2C%200.308%29%3B"%3E%0D%0A%3Ctable%20width%3D"320px"%3E%3Ctr%3E%3Ctd%3E%0D%0A%3Cb%3E%3Ccenter%3EiPhone%20Muzzle%20Energy%20Computer%3C%2Fcenter%3E%3C%2Fb%3E%0D%0A%3Cp%3E%0D%0A%3Cform%20name%3D"mainform"%3E%0D%0A%3Ctable%3E%0D%0A%3Ctr%3E%0D%0A%3Ctd%20align%3D"center"%3EWeight%20%28gr%29%3C%2Ftd%3E%0D%0A%3Ctd%20align%3D"center"%3E%28grams%29%3C%2Ftd%3E%0D%0A%3Ctd%20align%3D"center"%3E%28ounces%29%3C%2Ftd%3E%0D%0A%3C%2Ftr%3E%0D%0A%3Ctr%3E%0D%0A%3Ctd%3E%3Cinput%20size%3D"10"%20type%3D"text"%20name%3D"weight"%20onChange%3D"wchg%28%29%3B"%20onKeyup%3D"wchg%28%29%3B"%3E%3C%2Ftd%3E%0D%0A%3Ctd%3E%3Cinput%20size%3D"10"%20type%3D"text"%20name%3D"gr"%20onChange%3D"grchg%28%29%3B"%20onKeyup%3D"grchg%28%29%3B"%3E%3C%2Ftd%3E%0D%0A%3Ctd%3E%3Cinput%20size%3D"10"%20type%3D"text"%20name%3D"oz"%20onChange%3D"ozchg%28%29%3B"%20onKeyup%3D"ozchg%28%29%3B"%3E%3C%2Ftd%3E%0D%0A%3C%2Ftr%3E%0D%0A%3Ctr%3E%0D%0A%3Ctd%20align%3D"center"%3EVelocity%20%28f%2Fs%29%3C%2Ftd%3E%0D%0A%3Ctd%20align%3D"center"%3E%28m%2Fs%29%3C%2Ftd%3E%0D%0A%3C%2Ftr%3E%0D%0A%3Ctr%3E%0D%0A%3Ctd%3E%3Cinput%20size%3D"10"%20type%3D"text"%20name%3D"velocity"%20onChange%3D"vchg%28%29%3B"%20onKeyup%3D"vchg%28%29%3B"%3E%3C%2Ftd%3E%0D%0A%3Ctd%3E%3Cinput%20size%3D"10"%20type%3D"text"%20name%3D"mps"%20onchange%3D"mpschg%28%29%3B"%20onKeyup%3D"mpschg%28%29%3B"%3E%3C%2Ftd%3E%0D%0A%3C%2Ftr%3E%0D%0A%3Ctr%3E%0D%0A%3Ctd%20align%3D"center"%3EDiameter%20%28in%29%3C%2Ftd%3E%0D%0A%3Ctd%20align%3D"center"%3E%28mm%29%3C%2Ftd%3E%0D%0A%3Ctd%20align%3D"center"%3E%28gauge%29%3C%2Ftd%3E%0D%0A%3C%2Ftr%3E%0D%0A%3Ctr%3E%0D%0A%3Ctd%3E%3Cinput%20size%3D"10"%20type%3D"text"%20name%3D"diameter"%20onChange%3D"dchg%28%29%3B"%20onKeyup%3D"dchg%28%29%3B"%3E%3C%2Ftd%3E%0D%0A%3Ctd%3E%3Cinput%20size%3D"10"%20type%3D"text"%20name%3D"mm"%20onChange%3D"mmchg%28%29%3B"%20onKeyup%3D"mmchg%28%29%3B"%3E%3C%2Ftd%3E%0D%0A%3Ctd%3E%3Cinput%20size%3D"10"%20type%3D"text"%20name%3D"gauge"%20onChange%3D"ggchg%28%29%3B"%20onKeyup%3D"ggchg%28%29%3B"%3E%3C%2Ftd%3E%0D%0A%3Ctr%3E%0D%0A%3Ctd%3E%26nbsp%3B%3C%2Ftd%3E%0D%0A%3C%2Ftr%3E%0D%0A%3Ctr%3E%0D%0A%3Ctd%20align%3D"center"%3EEnergy%20%28ft%20lbs%29%3C%2Ftd%3E%0D%0A%3Ctd%20align%3D"center"%3E%28joules%29%3C%2Ftd%3E%0D%0A%3C%2Ftr%3E%3Ctr%3E%0D%0A%3Ctd%3E%3Cinput%20size%3D"10"%20type%3D"text"%20name%3D"energy"%20onChange%3D"revcalc%28%29%3B"%20onKeyup%3D"revcalc%28%29%3B"%3E%3C%2Ftd%3E%0D%0A%3Ctd%3E%3Cinput%20size%3D"10"%20type%3D"text"%20name%3D"joule"%20onChange%3D"jrevcalc%28%29%3B"%20onKeyup%3D"jrevcalc%28%29%3B"%3E%3C%2Ftd%3E%0D%0A%3C%2Ftr%3E%0D%0A%3Ctr%3E%0D%0A%3Ctd%20align%3D"center"%3E%3Ca%20href%3D"%23efficacy"%3EEfficacy%3C%2Fa%3E%3C%2Ftd%3E%0D%0A%3Ctd%20align%3D"center"%3E%3Ca%20href%3D"%23secdens"%3ESec.%20Dens.%3C%2Fa%3E%3C%2Ftd%3E%0D%0A%3Ctd%20align%3D"center"%3EE%2ASD%3C%2Ftd%3E%0D%0A%3C%2Ftr%3E%0D%0A%3Ctr%3E%0D%0A%3Ctd%3E%3Cinput%20size%3D"10"%20type%3D"text"%20name%3D"efficacy"%20onChange%3D"revcalc%28%29%3B"%20onKeyup%3D"revcalc%28%29%3B"%3E%3C%2Ftd%3E%0D%0A%3Ctd%3E%3Cinput%20size%3D"10"%20type%3D"text"%20name%3D"secdens"%20onChange%3D"revdens%28%29%3B"%20onKeyup%3D"revdens%28%29%3B"%3E%3C%2Ftd%3E%0D%0A%3Ctd%3E%3Cinput%20size%3D"10"%20type%3D"text"%20name%3D"jem"%20onChange%3D"revjem%28%29%3B"%20onKeyup%3D"revjem%28%29%3B"%3E%3C%2Ftd%3E%0D%0A%3C%2Ftr%3E%0D%0A%3C%2Ftable%3E%0D%0A%3C%2Fform%3E%0D%0A%0D%0AThe%20top%20three%20rows%20above%20are%20active.%20Change%20any%20number%20and%20everything%0D%0Adependent%20on%20it%20will%20be%20recomputed.%20Click%20a%20button%20below%20to%20fill%20in%0D%0Avalues%20for%20the%20linked%20load.%20More%20ballistics%20for%20Remington%20ammo%0D%0A%3Ca%20href%3D"http%3A%2F%2Fwww.remington.com%2Fproducts%2Fammunition%2Fballistics%2F"%3E%0D%0Ahere%3C%2Fa%3E.%3Cbr%3E%0D%0A%3Cbr%3E%0D%0ARifle%3A%3Cbr%3E%0D%0A%3Cbutton%20onClick%3D"modify%2855%2C%203240%2C%20.224%29%3B"%3E223%20%285.56%20Nato%29%3C%2Fbutton%3E%0D%0A%3Cbutton%20onClick%3D"modify%2855%2C%202773%2C%20.224%29%3B"%3E100%20yards%3C%2Fbutton%3E%0D%0A%3Cbutton%20onClick%3D"modify%2855%2C%202352%2C%20.224%29%3B"%3E200%3C%2Fbutton%3E%0D%0A%3Cbutton%20onClick%3D"modify%2855%2C%201969%2C%20.224%29%3B"%3E300%3C%2Fbutton%3E%0D%0A%3Ca%20href%3D"http%3A%2F%2Fwww.remington.com%2Fproducts%2Fammunition%2Fballistics%2Fresults%2Fdefault.aspx%3Ftype%3Dcenterfire%26cal%3D6"%3E%2A%3C%2Fa%3E%3Cbr%3E%0D%0A%3Cbutton%20onClick%3D"modify%28125%2C%202365%2C%20.309%29%3B"%3E7.62x39%3C%2Fbutton%3E%0D%0A%3Cbutton%20onClick%3D"modify%28125%2C%202062%2C%20.309%29%3B"%3E100%20yards%3C%2Fbutton%3E%0D%0A%3Cbutton%20onClick%3D"modify%28125%2C%201783%2C%20.309%29%3B"%3E200%3C%2Fbutton%3E%0D%0A%3Cbutton%20onClick%3D"modify%28125%2C%201533%2C%20.309%29%3B"%3E300%3C%2Fbutton%3E%0D%0A%3Ca%20href%3D"http%3A%2F%2Fwww.remington.com%2Fproducts%2Fammunition%2Fballistics%2Fresults%2Fdefault.aspx%3Ftype%3Dcenterfire%26cal%3D36"%3E%2A%3C%2Fa%3E%3Cbr%3E%0D%0A%3Cbutton%20onClick%3D"modify%28150%2C%202820%2C%20.308%29%3B"%3E308%20%287.62%20Nato%29%3C%2Fbutton%3E%0D%0A%3Cbutton%20onClick%3D"modify%28150%2C%202533%2C%20.308%29%3B"%3E100%20yards%3C%2Fbutton%3E%0D%0A%3Cbutton%20onClick%3D"modify%28150%2C%202263%2C%20.308%29%3B"%3E200%3C%2Fbutton%3E%0D%0A%3Cbutton%20onClick%3D"modify%28150%2C%202009%2C%20.308%29%3B"%3E300%3C%2Fbutton%3E%0D%0A%3Ca%20href%3D"http%3A%2F%2Fwww.remington.com%2Fproducts%2Fammunition%2Fballistics%2Fresults%2Fdefault.aspx%3Ftype%3Dcenterfire%26cal%3D33"%3E%2A%3C%2Fa%3E%3Cbr%3E%0D%0A%3Cbutton%20onClick%3D"modify%28180%2C%202700%2C%20.308%29%3B"%3E30-06%3C%2Fbutton%3E%0D%0A%3Cbutton%20onClick%3D"modify%28180%2C%202485%2C%20.308%29%3B"%3E100%20yards%3C%2Fbutton%3E%0D%0A%3Cbutton%20onClick%3D"modify%28180%2C%202280%2C%20.308%29%3B"%3E200%3C%2Fbutton%3E%0D%0A%3Cbutton%20onClick%3D"modify%28180%2C%202084%2C%20.308%29%3B"%3E300%3C%2Fbutton%3E%0D%0A%3Ca%20href%3D"http%3A%2F%2Fwww.remington.com%2Fproducts%2Fammunition%2Fballistics%2Fresults%2Fdefault.aspx%3Ftype%3Dcenterfire%26cal%3D30"%3E%2A%3C%2Fa%3E%3Cbr%3E%0D%0A%3Cbutton%20onClick%3D"modify%28240%2C%202350%2C%20.430%29%3B"%3E444%20Marlin%3C%2Fbutton%3E%0D%0A%3Cbutton%20onClick%3D"modify%28240%2C%201815%2C%20.430%29%3B"%3E100%20yards%3C%2Fbutton%3E%0D%0A%3Cbutton%20onClick%3D"modify%28240%2C%201377%2C%20.430%29%3B"%3E200%3C%2Fbutton%3E%0D%0A%3Cbutton%20onClick%3D"modify%28240%2C%201087%2C%20.430%29%3B"%3E300%3C%2Fbutton%3E%0D%0A%3Ca%20href%3D"http%3A%2F%2Fwww.remington.com%2Fproducts%2Fammunition%2Fballistics%2Fresults%2Fdefault.aspx%3Ftype%3Dcenterfire%26cal%3D53"%3E%2A%3C%2Fa%3E%3Cbr%3E%0D%0A%3Cbr%3E%0D%0AHandgun%3A%3Cbr%3E%0D%0A%3Cbutton%20onClick%3D"modify%2890%2C%201000%2C%20.357%29%3B"%3E380%20Auto%3C%2Fbutton%3E%0D%0A%3Cbutton%20onClick%3D"modify%2890%2C%20910%2C%20.357%29%3B"%3E%26nbsp%3B50%20yards%26nbsp%3B%3C%2Fbutton%3E%0D%0A%3Cbutton%20onClick%3D"modify%2890%2C%20841%2C%20.357%29%3B"%3E%26nbsp%3B100%26nbsp%3B%3C%2Fbutton%3E%0D%0A%3Ca%20href%3D"http%3A%2F%2Fwww.hornady.com%2Fstore%2F380-Auto-90-gr-Critical-Defense%2F"%3E%2A%3C%2Fa%3E%3Cbr%3E%0D%0A%3Cbutton%20onClick%3D"modify%28124%2C%201180%2C%20.355%29%3B"%3E9mm%20Luger%3C%2Fbutton%3E%0D%0A%3Cbutton%20onClick%3D"modify%28124%2C%201089%2C%20.355%29%3B"%3E50%20feet%3C%2Fbutton%3E%0D%0A%3Cbutton%20onClick%3D"modify%28124%2C%201021%2C%20.355%29%3B"%3E100%3C%2Fbutton%3E%0D%0A%3Ca%20href%3D"http%3A%2F%2Fwww.remington.com%2Fproducts%2Fammunition%2Fballistics%2Fresults%2Fdefault.aspx%3Ftype%3Dpistol%26cal%3D6"%3E%2A%3C%2Fa%3E%3Cbr%3E%0D%0A%3Cbutton%20onClick%3D"modify%28158%2C%201235%2C%20.358%29%3B"%3E357%20Magnum%3C%2Fbutton%3E%0D%0A%3Cbutton%20onClick%3D"modify%28158%2C%201104%2C%20.358%29%3B"%3E50%20feet%3C%2Fbutton%3E%0D%0A%3Cbutton%20onClick%3D"modify%28158%2C%201015%2C%20.358%29%3B"%3E100%3C%2Fbutton%3E%0D%0A%3Ca%20href%3D"http%3A%2F%2Fwww.remington.com%2Fproducts%2Fammunition%2Fballistics%2Fresults%2Fdefault.aspx%3Ftype%3Dpistol%26cal%3D5"%3E%2A%3C%2Fa%3E%3Cbr%3E%0D%0A%3Cbutton%20onClick%3D"modify%28165%2C%201150%2C%20.402%29%3B"%3E40%20S%26W%3C%2Fbutton%3E%0D%0A%3Cbutton%20onClick%3D"modify%28165%2C%201040%2C%20.402%29%3B"%3E50%20feet%3C%2Fbutton%3E%0D%0A%3Cbutton%20onClick%3D"modify%28165%2C%20964%2C%20.402%29%3B"%3E100%3C%2Fbutton%3E%0D%0A%3Ca%20href%3D"http%3A%2F%2Fwww.remington.com%2Fproducts%2Fammunition%2Fballistics%2Fresults%2Fdefault.aspx%3Ftype%3Dpistol%26cal%3D14"%3E%2A%3C%2Fa%3E%3Cbr%3E%0D%0A%3Cbutton%20onClick%3D"modify%28230%2C%20875%2C%20.451%29%3B"%3E45%20Auto%3C%2Fbutton%3E%0D%0A%3Cbutton%20onClick%3D"modify%28230%2C%20833%2C%20.451%29%3B"%3E50%20feet%3C%2Fbutton%3E%0D%0A%3Cbutton%20onClick%3D"modify%28230%2C%20795%2C%20.451%29%3B"%3E100%3C%2Fbutton%3E%0D%0A%3Ca%20href%3D"http%3A%2F%2Fwww.remington.com%2Fproducts%2Fammunition%2Fballistics%2Fresults%2Fdefault.aspx%3Ftype%3Dpistol%26cal%3D19"%3E%2A%3C%2Fa%3E%3Cbr%3E%0D%0A%3Cbutton%20onClick%3D"modify%28240%2C%201180%2C%20.430%29%3B"%3E44%20Magnum%3C%2Fbutton%3E%0D%0A%3Cbutton%20onClick%3D"modify%28240%2C%201081%2C%20.430%29%3B"%3E50%20feet%3C%2Fbutton%3E%0D%0A%3Cbutton%20onClick%3D"modify%28240%2C%201010%2C%20.430%29%3B"%3E100%3C%2Fbutton%3E%0D%0A%3Ca%20href%3D"http%3A%2F%2Fwww.remington.com%2Fproducts%2Fammunition%2Fballistics%2Fresults%2Fdefault.aspx%3Ftype%3Dpistol%26cal%3D16"%3E%2A%3C%2Fa%3E%3Cbr%3E%0D%0A%3Cbr%3E%0D%0AShotgun%3A%3Cbr%3E%0D%0A%3Cbutton%20onClick%3D"shotmodify%281%2C%201680%2C%2012%29%3B"%3E12%20Gauge%20Slug%3C%2Fbutton%3E%0D%0A%3Cbutton%20onClick%3D"shotmodify%281%2C%201285%2C%2012%29%3B"%3E50%20yards%3C%2Fbutton%3E%0D%0A%3Cbutton%20onClick%3D"shotmodify%281%2C%201045%2C%2012%29%3B"%3E100%3C%2Fbutton%3E%0D%0A%3Ca%20href%3D"http%3A%2F%2Fwww.remington.com%2Fproducts%2Fammunition%2Fballistics%2Fshotshell_slug_loads.asp"%3E%2A%3C%2Fa%3E%3Cbr%3E%0D%0A%3Cp%3E%0D%0ANote%3A%20this%20page%20is%20entirely%20self-contained.%20It%20requires%20no%20server-side%0D%0Acode%20to%20operate.%20All%20the%20computations%20are%20done%20by%20JavaScript%20code%0D%0Aembedded%20in%20the%20HTML.%20If%20you%20"Save%20As..."%20in%20your%20browser%2C%20you%20can%20run%0D%0Ait%20off-line.%0D%0A%3Cp%3E%0D%0A%3Ca%20name%3D"efficacy"%3E%0D%0A%3Cb%3EEfficacy%3C%2Fb%3E%20is%20a%20measure%20proposed%20by%0D%0A%3Ca%20href%3D"http%3A%2F%2Flneilsmith.org"%3E%0D%0AL.%20Neil%20Smith%3C%2Fa%3E.%20It%20is%20defined%20as%20energy%20in%20foot%20pounds%20multiplied%0D%0Aby%20projectile%20cross-sectional%20area%20in%20square%20inches.%20Neil%20says%20that%0D%0Athis%20is%20a%20pretty%20good%20indicator%20of%20the%20relative%20efficacy%20against%20live%0D%0Atargets%20of%20different%20projectiles%20and%20loads.%20In%20an%20email%20about%20this%0D%0Apage%2C%20Neil%20wrote%2C%20"I%27m%20not%20absolutely%20certain%20of%20its%20applicability%20to%0D%0Arifles%20%28although%20it%20looks%20pretty%20good%20and%20is%20fine%20for%20slugs%20and%20rifles%0D%0Alike%20.45%2F70%29.%20There%20are%20other%20factors%20at%20work%20above%202000-2500%20feet%20per%0D%0Asecond.%20But%20every%20year%20that%20passes%20convinces%20me%20more%20that%20this%20is%20the%0D%0Aperfect%20program%20for%20predicting%20handgun%20performance."%3C%2Fa%3E%0D%0A%3Cp%3E%0D%0A%3Ca%20name%3D"secdens"%3E%0D%0A%3Cb%3ESectional%20Density%3C%2Fb%3E%20%28"Sec.%20Dens."%20above%29%20is%20defined%20as%20the%20weight%20%28w%29%0D%0Aof%20the%20bullet%20in%20pounds%20divided%20by%20the%20square%20of%20its%20diameter%20%28d%29%20in%0D%0Ainches%3A%20w%2Fd%5E2%20%3D%20pounds%20per%20square%20inch.%3C%2Fa%3E%0D%0A%3Cp%3E%0D%0AI%20used%20Remington%20ammo%20for%20the%20preset%20buttons%20only%20because%20the%0D%0Aballistics%20were%20easy%20to%20find%20on%20the%20web.%20I%20handload%20or%20use%20military%0D%0Asurplus%20for%20most%20of%20my%20shooting.%20You%20can%20fairly%20easily%20change%20the%0D%0A%26lt%3Bbutton%3E%20tags%20for%20your%20favorite%20loads.%0D%0A%3Cp%3E%0D%0A%3Ca%20href%3D"energy.html"%3E%0D%0Abillstclair.com%2Fenergy.html%3C%2Fa%3E%20is%20the%20original%20version%20of%20this%20page%2C%0D%0Asized%20for%20a%20standard%20web%20browser.%0D%0A%3Chr%3E%0D%0A%3Cp%3E%0D%0ACopyright%20%26copy%3B%202007-2009%20%3Ca%20href%3D"http%3A%2F%2Fbillstclair.com%2F"%3EBill%20St.%20Clair%3C%2Fa%3E%3Cbr%3E%0D%0ACopying%20and%20reposting%20allowed%20as%20long%20as%20this%20copyright%20remains%20intact%0D%0A%3C%2Ftr%3E%3C%2Ftd%3E%3C%2Ftable%3E%0D%0A%3C%2Fbody%3E%0D%0A%3C%2Fhtml%3E%0D%0A'>
+clicking here</a>, and saving as a bookmark. Thanks to the
+<a href="http://software.hixie.ch/utilities/cgi/data/data">
+data: URI kitchen</a>.
+<hr>
+<p>
+Copyright &copy; 2007-2009 <a href="http://billstclair.com/">Bill St. Clair</a><br>
+Copying and reposting allowed as long as this copyright remains intact
+</tr></td></table>
+</body>
+</html>

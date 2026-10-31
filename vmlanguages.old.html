@@ -1,0 +1,2242 @@
+<!DOCTYPE html 
+                       PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+                       "DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta name="generator" content="HTML Tidy, see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" /> 
+<title>Languages for the Java VM</title>
+<base href="http://www.robert-tolksdorf.de/vmlanguages.html" />
+</head>
+<body text="#000000" bgcolor="#FDF5E6" link="#0000EE" vlink=
+"#551A8B" alink="#FF0000" style="font-family:sans-serif; text-align:justify; font-size:small">
+
+<table cellspacing="0" cellpadding="0" bgcolor="#D1CCA9">
+<tr bgcolor="#c1bc99">
+<td>This page is going to be moved to another address. I will try to take care as much as possible to ensure automatic redirection then, but cannot garantee that. The stable URL for this is http://www.robert-tolksdorf.de/vmlanguages. Please correct your bookmarks.<br />
+<i>
+
+Attention users of the Open Directory Project: The dmoz site lists the wrong URL for this page.</i></td>  
+</tr>
+</table>
+
+<h3>Programming Languages for the Java Virtual Machine <a href="http://validator.w3.org/check?uri=http://grunge.cs.tu-berlin.de/~tolk/vmlanguages.html"><img border="0"
+        src="http://www.w3.org/Icons/valid-html401"
+        alt="Valid HTML 4.01!" height="31" width="88" /></a>
+<a href="http://validator.w3.org/check?uri=http://grunge.cs.tu-berlin.de/~tolk/vmlanguages.html"><img border="0"
+        src="http://www.w3.org/Icons/valid-xhtml10"
+        alt="Valid XHTML 1.0!" height="31" width="88" /></a></h3>
+
+<p style="text-align: justify">The following is a list of
+programming languages for the Java virtual machine aside of Java
+itself. Currently (spring 2004), it comprises about 189 different
+systems. It is a mix of experimental, research oriented
+implementations and of commercial ones. I excluded extensions to
+Java by the provision of class libraries implementing the
+functionality of other languages constructs. The source code of a
+program executed in the Java VM has to have a syntax different to
+Java to be included in this list.</p>
+
+<p style="text-align: justify">This list is manually compiled from
+the net. Most of the descriptions are slighlty editied parts of the
+documentation supplied at the respective sites. If you have
+comments and corrections, or want something included in the list,
+please send a <a href="mailto:tolk@inf.fu-berlin.de">mail</a>.
+Instead of doing so, you might also read and extend the <a href=
+"http://grunge.cs.tu-berlin.de/~tolk/guestbook.cgi?vmlang">remarks
+page</a> on programming languages for the Java VM.</p>
+
+<p style="text-align: justify">I do not take any guarantee about
+the quality of software referenced here. Use at your own risk.</p>
+
+<p style="text-align: justify">If you are interested in the
+original Java language only, you might check out a page on <a href=
+"http://www.dwheeler.com/java-imp.html">Alternative Java
+Implementations</a> which provides a list of implementations of
+Java Virtual Machines (JVMs), Java library implementations, Java
+compilers to byte code, and compilers of bytecode or Java source to
+machine code.</p>
+
+<p style="text-align: justify">New entries in the list are flagged
+with the <img src="new.gif" alt="[new]" height="13" width= "26" />
+icon. As proposed by Adam Kelly, links that currently point to nowhere
+now carry a <img src="unclear.gif" alt="[new]" height="13" width=
+"26" /> icon. This means, that I would be very much interested to get
+information on the new locations of these languages.</p>
+
+<table cellspacing="0" cellpadding="0" bgcolor="#D1CCA9">
+<tr bgcolor="#c1bc99">
+<td>The <a href="http://www.objectwatch.com/issue_33.htm">
+ObjectWatch Newsletter Number 33 of June 5, 2001</a> features an
+article "Is Java Language Neutral?" by Roger Sessions which does an
+in-depth analysis of the languages collected here. A reaction on that
+article is "<a
+href="http://home.labridge.com/~nikboyd/papers/bistro/neutrality.htm">Language
+Neutrality and the Java Platform</a>" by Nik Boyd which is equally
+interesting.</td>  
+</tr>
+</table>
+
+<table cellspacing="0" cellpadding="0" bgcolor="#D1CCA9">
+<tr bgcolor="#c1bc99">
+<td><b>And ...</b> it's about time to say a big thanks to all those
+people that pointed me to new systems to include here. It is
+amazing that not only the authors themselves help to keep this list
+as complete as possible, but also people that come across something
+interesting. I appreciate this very much.</td>
+</tr>
+</table>
+
+<p><a href="http://www.robert-tolksdorf.de">Robert Tolksdorf</a></p>
+
+<!--
+<table border="1" cellspacing="0" width="100%">
+<tr valign="top">
+<td>
+-->
+<h4>New and changed entries</h4>
+
+<ul>
+<li>Sleep in category <a href="#scripting">Scripting</a> (03/21/04)</li>
+<li>Simple Java Preprocessor in category <a href="#precomp">Precompilers</a> (03/21/04)</li>
+<li>Join Java in category <a href="#compjextend">Extended Java</a> (03/17/04)</li>
+<li>Jamaica in category <a href="#assemblers">Assemblers</a> (03/17/04)</li>
+<li>Flagged J-Eiffel and Bruce as unclear (03/15/04)</li>
+<li>Jatha in category <a href="#precomp">Precompilers</a> (02/23/04)</li>
+<li>ANTRL in category <a href="#various">Various languages</a> (02/23/04)</li>
+<li>Testalgo2 in category <a href="#basic">Basic</a> (02/06/04)</li>
+<li>JavaCC in category <a href="#various">Various languages</a> (02/06/04)</li>
+<li>TermWare in category <a href="#logic">Logic programming</a> (02/03/04)</li>
+<li>Mapyrus in category <a href="#basic">Basic</a> (01/15/04)</li>
+<li>Drools in category <a href="#logic">Logic programming</a> (01/13/04)</li>
+<li>Kanaputs in category <a href="#compjextend">Extended Java</a> (01/13/04)</li>
+<li>Flagged Jas as unclear (05/03/03)</li>
+</ul>
+<!--
+</td>
+<td>
+-->
+<!--
+</td>
+</tr>
+</table></form>
+-->
+<!-- End Mind It Box --><br />
+<!--$/mind-it-ignore$--> 
+
+<b>Comments?</b>
+
+Leave you comments, remarks, and additions in the <a href=
+"http://grunge.cs.tu-berlin.de/~tolk/guestbook.cgi?vmlang">
+guestbook</a>.
+
+<!--
+<p><b>Awards</b><br />
+
+<a href=
+"http://dmoz.org/Computers/Programming/Languages/Java/Development_Tools/Translators">
+<img src="cool2.gif" width="140" height="45" border="0" alt=
+"NewHoo!" /></a></p>
+</td>
+</tr></table>
+-->
+
+<p align="center">| <a href="#precomp">Precompilers</a> | <a href=
+"#tcltk">Tcl</a> | <a href="#functional">Functional programming</a>
+| <a href="#lispandco">Lisp and co</a> | <a href="#basic">Basic</a>
+| <a href="#logo">Logo</a> | <a href="#logic">Logic programming</a>
+| <a href="#ml">ML</a> | <a href="#varoo">Various OO languages</a>
+| <a href="#scripting">Scripting</a> | <a href="#compjextend">
+Extended Java</a> | <a href="#forth">Forth</a> | <a href=
+"#various">Various languages</a> | <a href="#Assemblers">
+Assemblers</a> | <a href="#papers">Papers</a> | <a href=
+"#upcoming">Upcoming</a> |</p>
+
+<h3><a name="precomp"></a>Precompilers</h3>
+
+<dl>
+
+<dt><a href="http://www.vortoj.com/sjpp/readme.html">A Simple Java preprocessor</a><img
+src="new.gif" alt="[new]" height="13" width="26" /></dt> 
+
+<dd>Preprocessor with some commands.</dd>
+
+<dt><a name="jathamacros"></a><a
+href="http://www.kimbly.com/code/jatha/">Jatha</a><img
+src="new.gif" alt="[new]" height="13" width="26" /></dt> 
+
+<dd>Jatha macros are Java programs that write Java programs.  Jatha is
+a preprocessor that runs arbitrary java code in order to generate the
+source code that the compiler sees. This one is different from the <a
+href="#jathalisp">other Jatha</a> listed here.</dd>
+
+
+
+<dt><a
+href="http://jse.sourceforge.net">The Java Syntactic Extender</a></dt> 
+
+<dd>The Java Syntactic Extender is an extension to the Java language
+that allows Java programmers to define new syntactic constructs. The
+design is based on the Dylan macro system (e.g., rule-based pattern
+matching and hygiene), but exploits Java's compilation model to offer
+a full procedural macro engine. In other words, syntax expanders may
+be implemented in, and so use all the facilities of, the full Java
+language.  </dd>
+
+
+<dt><a href=
+"http://www.loria.fr/equipes/protheo/SOFTWARES/ELAN/Toolkit/">
+Jtom</a></dt>
+
+<dd>TOM is a term rewriting tool. The tool do not impose a fixed
+term representation, rather it accepts implementation of terms (or
+term like data types) of yet existing applications and it permits
+to define and execute rewriting rules upon those types.</dd>
+
+<dt><a href=
+"http://www.reliable-systems.com/tools/iContract/iContract.htm">
+iContract</a></dt>
+
+<dd>iContract is a novel Java(tm) tool that provides developers
+with support for design by contract(tm). iContract is a freely
+available sourcecode pre-processor which instruments the code with
+checks for class invariants, pre- and postconditions that may be
+associated with methods in classes and interfaces. Special comment
+tags (e.g. @pre, @post) are interpreted by iContract and converted
+into assertion check code that is inserted into the sourcecode. The
+expressions are a superset of Java, compatible with a subset of the
+latest UML ``Object Constraint Language (OCL)''.</dd>
+
+<dt><a href=
+"http://www.ipsi.smr.ru/english/proposal/subjava_e.htm">
+SubJava</a></dt>
+
+<dd>SubJava is a pretranslator which enable one to use the
+following possibilities: operator overloading, functions, global
+constants and variables, implicit data type transformation.</dd>
+
+<dt><a href="http://staff.aist.go.jp/y-ichisugi/epp">The extensible Java
+pre-processor EPP</a></dt>
+
+<dd>EPP is an extensible Java source-to-source pre-processor which
+can introduce new language features. The user can specify "EPP
+plug-ins" at the top of Java source code in order to incorporate
+various extension of Java. Emitted source codes can be compiled by
+ordinary Java compilers, can be debugged by ordinary Java
+debuggers. Plug-ins can extend the syntax of Java by extending the
+recursive descend parser in a differential manner. EPP can also be
+used as an application framework of source code manipulation tools
+such as source level optimizer, metrics tools, obfuscating
+tools.</dd>
+
+<dt><a href=
+"http://www.geocities.com/CapeCanaveral/Hangar/4040/jpp.html">JPP -
+A preprocessor for the Java language</a><img src="unclear.gif" alt="[unclear]" height="13" width=
+"26" /></dt>
+
+<dd>JPP is a preprocessor that adds the following features to the
+Java language: 1.Block closures 2.Local variable renaming
+3.Operator overloading 4.Assert and trace macros 5.Conditional
+compilation 6.Nested comments It does this by converting an input
+.jpp file, into a standard .java file that is then compiled using
+any standard Java compiler. The .jpp file contains normal Java
+statements with syntactic extensions for the new features.</dd>
+</dl>
+
+<h4><a name="tcltk">Tcl</a></h4>
+
+<dl>
+<dt><a href="http://www.scriptics.com/java">Jacl</a></dt>
+
+<dd>Jacl, pronunced "Jackal", is a Tcl interpreter written in Java.
+You can use it for Java the same way Tcl is used for C -- a
+scripting language to glue together modules written in a low level
+language.</dd>
+
+<dt><a href="http://www.sun.com/970430/cover/index.html">Tcl/Tk
+from Sun</a></dt>
+
+<dd>Sun wanted to create a new business group called <a href=
+"http://sunscript.sun.com/">SunScript</a> to support the growing
+Tcl community with an integrated development environment for Tcl
+and a suite of products that link Tcl with the Web and Java
+technologies. Meanwhile this seems to have moved to a company
+called <a href=" http://www.scriptics.com/">Scriptics</a>.</dd>
+</dl>
+
+<h4><a name="functional">Functional programming</a></h4>
+
+<dl>
+<dt><a href="http://wouter.fov120.com/aardappel/">
+Aardappel</a></dt>
+
+<dd>Aardappel is a new language, which computes by concurrently
+reducing trees (using a form of tree-rewriting) which sit together
+in tree-spaces (bags) and communicate amongst eachother (exchanging
+parts of themselves, in Linda-like fashion), and in general having
+a jolly good time alltogether. The language is 100% graphical. Oh
+yes, the language is linear as well.</dd>
+
+<dt><a href="http://lampwww.epfl.ch/funnel/">Funnel</a></dt>
+
+<dd>Funnel is a new programming language based on Functional Nets.
+Functional Nets combine key ideas of Functional Programming and
+Petri-Nets to yield a simple and general programming notation.</dd>
+
+<!--
+<DT><A
+HREF="http://www.dcs.ex.ac.uk/~david/en/research/previous/java">Haskell</A></DT>
+<DD>A first attempt to produce a Haskell to Java Virtual Machine code
+compiler, based on a mapping between the G­machine and the Java
+Virtual Machine.  </DD>
+-->
+<dt><a href=
+"http://bcel.sourceforge.net/examples.html">Mini</a></dt>
+
+<dd>Mini is a very simple (half-functional) language written to
+test the ClassGen package of the <a href=
+"http://www.inf.fu-berlin.de/~dahm/JavaClass/">JavaClass
+API</a>.</dd>
+
+<dt><a href="http://www.cis.upenn.edu/~switchware/PLAN/">PLAN - A
+Programming Language for Active Networks</a></dt>
+
+<dd>PLAN is a resource-bounded functional programming language that
+uses a form of remote procedure call to realize active networking.
+PLAN is designed to be a public, authentication-free layer in the
+Active Network hierarchy. For this reason, we have limited the
+expressive power of PLAN in order to guarantee that all programs
+will terminate, thus reasonably permitting a router to run any PLAN
+program. However, PLAN can also be used as a "glue" layer which
+allows access to higher-level services.</dd>
+
+<dt><a href="http://www.cwi.nl/~tromp/cl/cl.html">Combinatory Logic
+Interpreter</a></dt>
+
+<dd>An interpreter for the simplest language possible: both
+functions and data are represented by combinators, built up from S
+and K by application.</dd>
+</dl>
+
+<h4><a name="lispandco"></a>Lisp and co</h4>
+
+<dl>
+
+<dt><a name="jathalisp"></a><a
+href="http://jatha.sourceforge.net/">Jatha</a></dt> 
+
+<dd>Jatha is a Java library that implements a fairly large subset of
+Common LISP, including most of the datatypes (e.g. packages, bignums)
+and their associated methods. The API allows programmatic access to
+LISP from Java, either using an eval() method or using Java methods.
+Additional LISP primitives can be written in Java and registered at
+runtime to be used in the LISP interpreter.  This one is different from the <a
+href="#jathamacros">other Jatha</a> listed here. </dd>
+
+<dt><a
+href="http://www-sop.inria.fr/mimosa/fp/Bigloo/bigloo.html">Bigloo</a></dt> 
+
+<dd>Bigloo is a Scheme implementation devoted to one goal: enabling
+Scheme based programming style where C(++) is usually required. Bigloo
+attempts to make Scheme practical by offering features usually
+presented by traditional programming languages but not offered by
+Scheme and functional programming. Bigloo compiles Scheme modules. It
+delivers small and fast stand alone binary executables. Bigloo enables
+full connections between Scheme and C programs, between Scheme and
+Java programs, and between Scheme and C# programs.
+
+(Use the version flagged as "Win32 precompiled version relying
+exclusively on the JVM back-end" for JVM version. Please inform me if
+you detect problems with its execution on platforms other than
+Win32. RT)
+
+</dd>
+
+<dt><a href="http://sisc.sourceforge.net/">SISC</a></dt>
+
+<dd>SISC is an extensible Java based interpreter of the algorithmic
+language Scheme. SISC is a complete implementation of the language.
+The entire R5RS Scheme standard is supported. SISC can also interface
+with Java through a bridge module called J2S.  </dd>
+
+
+<dt><a href=
+"http://www.cs.umb.edu/~bill/java/local-textcode/JavaByExample/applications/Lisp/">
+Lisp</a></dt>
+
+<dd>A small Lisp implementation in Java</dd>
+
+<dt><a href="http://youpou.lip6.fr/queinnec/VideoC/ps3i.html">
+PS<sup>3</sup>I</a></dt>
+
+<dd>PS<sup>3</sup>I, the Persistent Server-Side Scheme Interpreter,
+is a nearly R4RS-compliant Scheme implementation, written in Java,
+multi-users, multi-threaded and aimed to run on (Web-)servers (as
+servlets).</dd>
+
+<dt><a href="http://www.inria.fr/koala/shillion/sp/index.html">
+Scheme package</a></dt>
+
+<dd>The scheme package is a Java library implementation of the
+scheme language. It is designed so that you can easily use it in a
+Java application or applet to make it extensible.</dd>
+
+<dt><a href="http://www.stgtech.com/HotScheme/">HotScheme</a></dt>
+
+<dd>HotScheme is a Java-based interpreter for the Lisp dialect
+Scheme. It is intended as an exhibit of some of Java's power, a
+tool that schools can use to supply students with a Lisp
+interpreter, and, ultimately, an interactive Internet programming
+environment.</dd>
+
+<dt><a href="http://www.techno.net/pcl/pr-java/">webLISP</a></dt>
+
+<dd>webLISP is an experimental Implementation of reflective
+functional Programming. It contains a very simple Lexer and Parser
+for a lambda-calculus language in lisp-syntax. The Lambda terms are
+compiled to variablefree Combinator Graphs. The virtual
+Graph-Reduction-Machine that reduces the Combinator-graph
+distinguishes between strict and non-strict operations. Strict
+operations have to be evaluated even if we obey lazy evaluation and
+can thus be evaluated in parallel to the main computation. The
+parallel computations are added to a global task pool, which is
+maintained by a stochastic scheduler. In addition to this basic
+implemenation a special Combinator P is introduced which performs
+an asyncronous parallelism of two given applications.</dd>
+
+<dt><a href="http://youpou.lip6.fr/queinnec/Java/Jaja.html">
+Jaja</a></dt>
+
+<dd>Jaja is an implementation of Scheme in Java.</dd>
+
+<dt><a href="http://tigereye.cs.brandeis.edu/Applets/Jscheme.html">
+JScheme</a></dt>
+
+<dd>JScheme is a hybrid language formed by combining the core
+syntax of Scheme with the objects, methods, and lexical structure
+of Java.</dd>
+
+<dt><a href=" http://www.alphaworks.ibm.com/formula/skij">
+Skij</a></dt>
+
+<dd>Skij is a Scheme interpreter written in Java. Its strong points
+in comparision with other existing Scheme-in-Java implementations
+are its small size and its facilities for manipulating Java objects
+and controlling the Java environment. Skij includes extensions to
+Scheme that permit fully interactive dynamic invocation of methods
+on arbitrary Java objects; interfaces to threads and
+synchronization; and support for writing UI event callbacks in
+Scheme.Skij was designed to bring the hands-on interactive feel of
+Lisp programming to the Java environment, and its primary use is as
+a debugging, exploration, and scripting tool. It can also be used
+for application development where speed is not critical.</dd>
+
+<dt><a href="http://www.gnu.org/software/kawa/">Kawa</a></dt>
+
+<dd>Kawa (pronounced kava) is a compiler and run-time system for
+Scheme written completely in Java. It generates Java bytecodes
+using a "codegen" package which may be more generally useful. See
+also <a href="http://www.cygnus.com/~bothner/scm2java.html">
+Byte-compilation of Scheme using Java byte-codes</a>.</dd>
+
+<dt><a
+href="http://jscheme.sourceforge.net/jscheme/mainwebpage.html">Jscheme
+5.0</a></dt>
+
+<dd>Jscheme is a dialect of Scheme with a very simple interface to
+Java. It implements all of R4RS Scheme except that continuations
+can only be used as escape procedures and strings are not
+mutable.</dd>
+
+<dt><a href=
+"http://www.dcs.ed.ac.uk/home/cdw/phdproject/SECD/Applet/lispkit.html">
+LispkitLISP Compiler</a><img src="unclear.gif" alt="[unclear]" height="13" width=
+"26" /></dt>
+
+<dd>The LispkitLISP compiler is written in SECD byte-codes. It
+takes a LISP source file and compiles it into SECD byte-codes. The
+SECD virtual machine is used to execute both the compiler and the
+compiled programs.</dd>
+
+<dt><a href="http://drcjt.freeyellow.com/Lambda.html">Lambda
+Calculus Interpreter</a></dt>
+
+<dd>A simple lambda calculus interpreter, using call-by-name
+semantics. The language is pretty much Church's simple untyped
+lambda calculus, the only concession for usefulness is the addition
+of numbers.</dd>
+
+<!--
+<DT><A HREF="http://babbage.cs.qc.edu/Java/JavaByExample/applications/Lisp/README">Lisp
+in Java</A> </DT>
+
+<DD>This program is a simple Lisp interpreter. It implements a very minimal
+version of the scheme dialect of Lisp. It differs from scheme, however,
+in not being tail-recursive. </DD>
+-->
+<dt><a href=
+"http://www.go2net.com/internet/deep/1997/03/19/body.html">The
+UncommonLisp Interpreter</a></dt>
+
+<dd>The interpreter contains a functionally complete set of Lisp
+primitives in less than two thousand lines of Java. It delegates
+the implementation of higher level Lisp functions to Lisp itself,
+thereby bootstrapping the interpreter to implement some of its own
+functionality.</dd>
+
+<dt><!--
+<A HREF="http://www.softway.com.au/people/mjc/Interpreter/Lisp/">-->
+Lisp Interpreter in Java <!--
+</A>
+--></dt>
+
+<dd>A Lisp interpreter by Russ Ethington</dd>
+
+<dt><!--
+<A HREF="http://www.cs.indiana.edu/classes/c311/fall95/c511/shared/javasoln.html">
+--> A Scheme Interpreter in Java <!--
+</A>
+--></dt>
+
+<dt><!--
+<A HREF="http://www.bird-land.com/java/lisp/index.html">
+--> Lisp Interpreter in Java <!--
+</A>
+--></dt>
+
+<dd>Lisp interpreter in java, working. but quite alpha
+version.</dd>
+
+<dt><a href="http://www.accesscom.com/~darius/index.html">uts, the
+Useless Toy Scheme</a></dt>
+
+<dd>A Scheme bytecode interpreter, in a preliminary release. It's
+almost fully R4RS-compliant but otherwise minimal. It needs the
+Boehm garbage collector to run. In an earlier incarnation this was
+known as Plonk; there is an all-Scheme version, and a Java
+implementation of the bytecode interpreter part. It's known to not
+work right with JDK 1.1, and it will not be developed any
+further.</dd>
+</dl>
+
+<h4><a name="basic"></a>Basic</h4>
+
+<dl>
+
+<dt><a
+href="https://testalgo2.dev.java.net/">Testalgo2</a><img
+src="new.gif" alt="[new]" height="13" width="26" /></dt> 
+
+<dd>A basic programation language</a>
+
+<dt><a
+href="http://www.chenery.id.au/mapyrus/">Mapyrus</a><img
+src="new.gif" alt="[new]" height="13" width="26" /></dt> 
+
+<dd>Mapyrus is a BASIC-like language for creating plots of points,
+lines, polygons and labels to PostScript (high resolution, up to A0
+paper size), Portable Document Format (PDF) and web image output
+formats.</dd>
+
+
+
+<dt><a
+href="http://www.maverick-dbms.org/index.html">MaVerickBASIC</a></dt> 
+
+<dd>MaVerick is an Open Source Multivalue Database Management
+System. It includes MaVerickBASIC, a DataBasic compatible compiler.
+</dd>
+
+<dt><a href="http://www.blackdirt.com/">CONVERT</a></dt>
+
+<dd>With Convert 1.1 you can use your Visual Basic expertise to
+create high-powered, sophisticated Java Applets and Applications.
+Convert 1.1 is a GUI converter. Your VB screens are translated
+directly into Java Source code.</dd>
+
+<!--
+<DT><A HREF="http://www.vbix.com/">BASIC 4 JAVA TM</A></DT>
+
+<DD>BASIC 4 JAVA TM is a Microsoft&reg; Visual Basic compatible development
+environment capable of generating JAVA applets and applications. Applications
+generated by BASIC 4 JAVA, are completely platform-independent JAVA applications
+capable of running on any operating system with appropriate JAVA support.</DD>
+
+-->
+<dt><a href="http://flying-dog.com/jaba/index.htm">JBasic</a></dt>
+
+<dd>JBasic is a (see note) embeddable BASIC interpreter written
+entirely in Java. JBasic is designed for scripting Java Beans at
+runtime. You can embed JBasic in any Java application, applet or
+bean using the JBasic Runtime Engine. (NOTE: I have received a mail
+from Mike Lehman referring to some legal stuff that this is not the
+first embeddable BASIC - if you care about such important
+notions...)</dd>
+
+<dt><a href="http://www.mbay.net/~cereus7/HotTEA.html">HotTEA -
+Basic written in Java</a></dt>
+
+<dd>Mike Lehman's HotTEA is an implementation of the BASIC language
+written in Java.</dd>
+
+<dt><a href=
+"http://nanjing.isye.gatech.edu/ye/JavaBasic/start.html">
+JavaBasic</a></dt>
+
+<dd>JavaBasic is a line command interpreter, loosely using the
+BASIC command set.</dd>
+
+<dt><a href=
+"http://www.professionals.com/~cmcmanis/java/javaworld/examples/BASIC.html">
+COCOA, the Java BASIC Interpreter</a></dt>
+
+<dd>A simple BASIC interpreter written in Java. It's a primitive
+BASIC, uses line numbers, implements most of BASIC-80.<br />
+<i>Note: I do not know why it uses the same name as the Cocoa Logo.
+Mitch.Berger@gs.com commented on that: "Java as in coffee, is for
+grown-ups. Basic 80 is a beginner's language, and Logo is aimed at
+kids. It is therefore unsurprising to me that each has a version
+named after a hot brown drink often given to children."</i></dd>
+
+<dt><a href="http://ganley.org/software/trs80.html">TRS-80 Model 1
+BASIC Interpreter</a></dt>
+
+<dd>The applet is an interpreter for TRS-80 Model 1 Level 2 BASIC.
+Note that it is a BASIC interpreter, not a TRS-80 emulator; thus,
+the hardware-specific commands (PEEK, POKE, etc.) do not work.</dd>
+
+<dt><a href="http://www.tvobjects.com/products/Convert-VB-to-Java.html">Applet
+Designer</a></dt>
+
+<dd>Applet Designer is a Visual Basic add-in that converts new or
+existing VB applications into Java applets.</dd>
+</dl>
+
+<h4><a name="logo"></a>Logo</h4>
+
+<dl>
+<dt><a href="http://www.media.mit.edu/starlogo/">StarLogo</a></dt>
+
+<dd>StarLogo is a programmable modeling environment for exploring
+the workings of decentralized systems -- systems that are organized
+without an organizer, coordinated without a coordinator. With
+StarLogo, you can model (and gain insights into) many real-life
+phenomena, such as bird flocks, traffic jams, ant colonies, and
+market economies. StarLogo is a specialized version of the Logo
+programming language. With traditional versions of Logo, you can
+create drawings and animations by giving commands to graphic
+"turtles" on the computer screen. StarLogo extends this idea by
+allowing you to control thousands of graphic turtles in parallel.
+In addition, StarLogo makes the turtles' world computationally
+active: you can write programs for thousands of "patches" that make
+up the turtles' environment. Turtles and patches can interact with
+one another -- for example, you can program the turtles to "sniff"
+around the world, and change their behaviors based on what they
+sense in the patches below.</dd>
+
+<dt><a href="http://ajlogo.com">AJLogo</a></dt>
+
+<dd>AJLogo is an implementation of Logo written in Java with about
+400 primitives.</dd>
+
+<dt><a href="http://www.ugcs.caltech.edu/~dazuma/turtle/">Turtle
+Tracks</a></dt>
+
+<dd>Turtle Tracks is a modern Logo interpreter and runtime
+environment written entirely in Java. It is not a direct port of an
+existing interpreter, but written from the ground up specifically
+for Java, and designed to take advantage of the strengths of Java
+as a platform. Turtle Tracks is platform-independent and
+Internet-ready, and supports numerous advanced features such as
+multithreading and networking. Unlike some similar Java-based
+projects, Turtle Tracks is a complete implementation of true Logo,
+supporting the same basic language syntax and semantics and most of
+the same primitives as other common Logo implementations such as
+Berkeley Logo. It also supports plug-in primitive sets and can be
+integrated with outside Java code as a scripting language.</dd>
+
+<dt><a href="http://sunflower.epcs.com/rLogo/">rLogo</a></dt>
+
+<dd>rLogo is an easy to learn programming language designed for the
+World Wide Web. It is based on the Logo programming language.</dd>
+
+<dt><a href="http://lcs.www.media.mit.edu/groups/el/projects/bongo/index.html">Yoyo</a></dt>
+
+<dd>Yoyo is a programming language loosely based on Logo. Since it
+integrates Java, however, many of the more advanced features
+require knowledge of Java and how its APIs work. (Was formely
+called Bongo)</dd>
+</dl>
+
+<h4><a name="logic">Logic programming</a></h4>
+
+<dl> 
+
+<dt><a href="http://www.gradsoft.com.ua/products/termware_eng.html">TermWare</a><img src="new.gif" alt="[new]" height="13"
+width="26" /></dt>
+
+<dd>TermWare is a programming language, based on concept of term
+system: set of rewriting rules with actions.  It allows to unite logic
+and imperative programming: TermWare actions can call Java objects via
+reflection mechanism. The TermWare interpreter provides a Java API,
+for embedding rule-rewriting into Java applications.</dd>
+
+<dt><a href="http://drools.codehaus.org/">Drools: Object-Oriented Rule
+Engine for Java</a><img src="new.gif" alt="[new]" height="13"
+width="26" /></dt>
+
+<dd>Drools is an augmented implementation of Forgy's Rete algorithm
+tailored for the Java language. Adapting Rete to an object-oriented
+interface allows for more natural expression of business rules with
+regards to business objects.
+
+More importantly, Drools provides for declarative logic programming
+and is flexible enough to match the semantics of your problem
+domain. The various parts that compose a rule may be extended to lend
+domain-specific sense to the rule.</dd>
+
+
+<dt><a
+href="http://www.iro.umontreal.ca/~vaucher/XProlog/AA_README">XProlog</a></dt> 
+
+<dd>This Prolog was developped to be used the handle the knowledge and
+reasoning needs of Java based Agents.  It should be reasonably fast
+and compact so that every agent could have its own KB and inference
+engine.  </dd>
+
+
+<dt><a href="http://tuprolog.sourceforge.net/">tuProlog</a></dt>
+
+<dd>tuProlog (2P) is a Java-based light-weight Prolog interpreter (and
+related Java API) for systems engineering, suitable for open / dynamic
+environment such as Internet applications and infrastructures. 2P
+technology is an open-sourceproject.</dd>
+
+<dt><a href="http://www.insea.ac.ma/CGTools/PROLOG+CG.htm">
+PROLOG+CG</a><img src="unclear.gif" alt="[unclear]" height="13" width=
+"26" /></dt>
+
+<dd>PROLOG+CG is a logic programming language that integrates
+PROLOG, Conceptual Graph, Object-oriented programming and JAVA</dd>
+
+<dt><a href="http://www.geocities.com/SiliconValley/Campus/7816/">
+DGKS Prolog</a></dt>
+
+<dd>A prolog interpreter written in Java with an IDE.</dd>
+
+<dt><a href="http://jlogic.sourceforge.net/">
+JLog</a></dt>
+
+<dd>An implementation of a Prolog interpreter, written in Java. It's
+primary benefit is that can be run on almost any platform supporting
+Java (such as a web browser), and as such it is well suited for
+educational purposes. It works as both an application and as an
+applet. </dd>  
+
+<dt><a href="http://www.ugosweb.com/jiprolog">JIP - Java
+Internet Prolog</a></dt>
+
+<dd>JIP - Java Internet Prolog is a cross-platform PureJava100%
+prolog interpreter developed in JDK1.1 and supporting the prolog
+Edinburgh syntax. By its API you can call your predicates written
+in prolog in any java applet or application without dealing with
+JNI and, vice versa, you can invoke java methods in your prolog
+code as you call predicates.</dd>
+
+<dt><a href="http://netprolog.pdc.dk/">NetProlog</a></dt>
+
+<dd>NetProlog is a logic programming system that generates a binary
+code, executable in the Java Virtual Machine (JVM). It follows
+almost completely the syntax traditionally used in the ISO Prolog
+implementations. For each logic predicate is generated a
+corresponding Java class, which can be used as a regular code
+generated for the JVM by any means.</dd>
+
+<!--
+<DT><A HREF="http://blackcat.cat.syr.edu/~fadushin/software/jpl/">JPL</A></DT>
+
+<DD>JPL is a set of Java classes and C functions providing an interface between Java and Prolog.  JPL uses the Java Native Interface (JNI) to connect to
+a Prolog engine through the Prolog Foreign Language Interface (FLI), which is more or less in the process of being standardized in various
+implementations of Prolog.  JPL is not a pure Java implementation of Prolog; it makes extensive use of native implementations of Prolog on
+supported platforms.  The current version of JPL only works with SWI-Prolog. </DD>
+
+-->
+<dt><a href=
+"http://www.students.cs.ruu.nl/people/smotterl/prolog/index.htm">
+CKI Prolog</a></dt>
+
+<dd>CKI Prolog is a small but fine prolog implementation, running
+under Java with less than optimal, but more than acceptable speed.
+It was designed to be compatible with Sicstus, SWI and any other
+prolog implementation. The current edition, beta4 , lacks floating
+point and DCG, and some (non-essential) predicates are not
+predefined. CKI prolog can handle operator notation, integer
+arithmetic, lists, cut and dynamic assert/retract.</dd>
+
+<dt><a href="http://www.exa.unicen.edu.ar/~azunino/">
+JavaLog</a></dt>
+
+<dd>JavaLog is a Prolog interpreter written in Java(tm) designed to
+allow easy integration between Java and Prolog.</dd>
+
+<dt><a href="http://www.binnetcorp.com/Jinni">Jinni</a></dt>
+
+<dd>Jinni (Java INference engine and Networked Interactor) is a
+new, lightweight, pure logic programming language, intended to be
+used as a flexible scripting tool for gluing together knowledge
+processing components and Java objects in networked client/server
+applications and thin client environments. By supporting multiple
+threads, control mobility and inference processing, Jinni is well
+suited for quick prototyping of intelligent mobile agent
+programs.</dd>
+
+<dt><a href=
+"http://kaminari.scitec.kobe-u.ac.jp/banbara.html">
+LLPj</a></dt>
+
+<dd>The language LLP is a logic programming language based on
+intuitionistic linear logic. LLP is a superset of Prolog and a
+subset of Lolli which is another linear logic programming language.
+We are developing LLPj: A LLP to Java translator system.</dd>
+
+<dt><a href="http://www.uni-koblenz.de/~motzek/html/progsp/ll.htm">
+LL</a></dt>
+
+<dd>LL is a Prolog like logic programming language. The
+documentation is in German.</dd>
+
+<!--
+<DT><A HREF="http://clement.info.umoncton.ca/BinProlog">BinProlog</A></DT>
+
+<DD>BinProlog 5.40 is an Internet-ready and Java-connected Prolog, with
+integrated high-level distributed programming tools (client/server Linda
+operations for Windows 95/NT and Unix) and CGI-scripting facilities</DD>
+
+-->
+<dt><a href="http://www.cs.rmit.edu.au/~winikoff/wp">W-Prolog</a></dt>
+
+<dd>W-prolog is a simple Prolog interpreter written in Java. New
+version.</dd>
+
+<dt><a href="http://www.cs.kuleuven.ac.be/~bmd/PrologInJava/">
+jProlog</a></dt>
+
+<dd>jProlog is close to Clocksin-Mellish Prolog, with lots of the
+typical builtins.You need a Prolog system (SICStus, BinProlog,
+BIMprolog are ok - SWI doesn't work apparently)</dd>
+
+<dt><a href="http://herzberg.ca.sandia.gov/jess/">JESS, the Java
+Expert System Shell</a></dt>
+
+<dd>Jess is a clone of the popular CLIPS expert system shell
+written entirely in Java. With Jess, you can conveniently give your
+applets the ability to 'reason'.</dd>
+
+<dt><a href="http://www.bird-land.com/java/prolog/index.html">
+javalog</a></dt>
+
+<dd>Prolog in java(javalog) ver 0.02. To avoid paradox, javalog
+uses concept of world. You can make paradox in prolog. and
+extension, you can make truth server. The world of internet will be
+a single prolog interpreter. For data exchange, I used S
+expression. You can exchange also Lisp server.</dd>
+
+<dt>see also:</dt>
+
+<dd><a href="#minerva">MINERVA</a><br />
+<a href="#kiev">Kiev</a></dd>
+</dl>
+
+<h4><a name="ml"></a>ML</h4>
+
+<dl>
+<dt>currently empty</dt><dd></dd>
+<!--
+<DT><A HREF="http://www.dcs.ed.ac.uk/home/mlj/index.html">MLj 0.2</A></DT> 
+
+<DD>MLj 0.2 is a compiler for Standard ML which produces Java
+bytecodes. It compiles the functor-free subset of the new SML'97
+language plus some new language extensions for straightforward
+interlanguage working with Java. It produces compact standalone
+compiled code which can be run on any computer with a Java Virtual
+Machine.  </DD>
+--><!--
+<DT><A
+HREF="http://www.harlequin.co.uk/products/ads/ml/entries/applet.html">Castle</A></DT>
+
+<DD>Castle is a SML library to build applets.</DD>
+
+--></dl>
+
+<h4>Eiffel</h4>
+
+<dl><!--
+<DT><A HREF="http://www.loria.fr/projets/SmallEiffel/">SmallEiffel</A></DT>
+
+<DD>SmallEiffel is a free Eiffel compiler distributed under the terms of
+the GNU General Public License as published by the Free Software Foundation.
+In version 0.85 it can also generate JVM byte code.</DD>
+-->
+<dt><a href="http://www.eiffel-forum.org/archive/kalberer/jeiffel.htm">
+J-Eiffel - A Eiffel-to-Java compiler</a><img src="unclear.gif" alt="[unclear]" height="13" width=
+"26" /></dt>
+
+<dd>J-Eiffel is a Eiffel compiler with JVM bytecode
+generation.</dd>
+
+<dt><a href=
+"http://www.progsoc.uts.edu.au/~geldridg/eiffel/liberty/v1/n1/jp/">
+Project Bruce: Translating from Eiffel to Java</a><img src="unclear.gif" alt="[unclear]" height="13" width=
+"26" /></dt>
+
+<dd>The project Bruce was a collaborative project between the
+Microsoft Research Institute at Macquarie University in Sydney, and
+Interactive Software Engineering (ISE) and aimed at developing an
+Eiffel to Java Compiler. ISE thought about <a href=
+"http://www.progsoc.uts.edu.au/~geldridg/ea3495.html">generating
+Java Bytecode from EiffelBench</a>.</dd>
+
+<!--
+<DT><A HREF="http://www.progsoc.uts.edu.au/~geldridg/eiffel/liberty/java/visual-eiffel.html">Visual Eiffel</A></DT>
+
+<DD>The Java integration will be one of the major enhancements in
+release 3.0 of Visual Eiffel. The most important point is that Java
+objects look (from the Eiffel side) like ordinary Eiffel objects. They
+can   be created and accessed like Eiffel objects but it is not
+possible to inherit from them. </DD> 
+--></dl>
+
+<h4><a name="smalltalk">Smalltalk</a></h4>
+
+<dl>
+<dt><a href="http://www.smalltalkJVM.com/">SmalltalkJVM</a></dt>
+
+<dd>This compiler allows Smalltalk to run on any JVM. The compiler
+currently produces 100% Java class files fully compatible with the
+Sun JVM specification. This allows Smalltalk and Java code to
+interact seamlessly and allows Smalltalk programs to run anywhere
+Java runs.</dd>
+
+<dt><a href="http://www.architur.de/">Talks2</a></dt>
+
+<dd>Talks2 is a full Smalltalk Development Environment which runs
+on top of the Java Virtual Machine. It comes with a ClassBrowser,
+Workspace, Transcript and all the things you know from a Smalltalk
+Development Environment. Talks2 translates Smalltalk to Java, and
+also uses the Java GUI and IO to run in any regular Java
+environment.<br />
+<i>They have a strange Web-site which apparently can only be accessed with JavaScript enabled, so you have to click to Products and then to Talks2</i></dd>
+
+<dt><a href="http://bistro.sourceforge.net">Bistro</a></dt>
+
+<dd>Bistro is a new programming language that integrates features
+of Smalltalk and Java. Bistro is a variation of Smalltalk that runs
+on top of any Java virtual machine (VM) that conforms to Sun's Java
+specifications. Bistro offers Smalltalk developers a means by which
+to reuse the models they built with Smalltalk. Bistro provides
+mechanisms for translating Smalltalk model code into Java, so that
+models originally built with Smalltalk may be deployed on and
+execute in a Java environment.</dd>
+
+<!--
+<DT><A
+HREF="http://www.orisa.de/orisa/Projects/ST2JAVA.E.html">Smalltalk
+to JAVA Converter</A></DT> 
+<DD>This program automatically converts complete Smalltalk
+applications to JAVA code. The generated code will run without further
+modification.</DD> 
+--></dl>
+
+<h4><a name="varoo"></a>Various OO languages</h4>
+
+<dl>
+
+<dt><a
+href="http://groovy.codehaus.org">Groovy</a></dt> 
+
+<dd> Its a dynamically and/or statically typed language (i.e. static
+typing is optional, otherwise it defaults to dynamic typing) high
+level scripting language for the JVM which compiles down to bytecode
+either at run time or compile time. It features closures, neat List
+and Map syntax, integrated markup language and expression language,
+auto-boxing, operator overloading, mixins, AOP interceptors etc.
+
+</dd>
+
+<dt><a
+href="http://nice.sourceforge.net/">Nice</a></dt> 
+
+<dd>The homepage says: Nice is a new object-oriented programming
+language based on Java. It incorporates features from functional
+programming, and puts into practice state-of-the-art results from
+academic research. This results in more expressivity, modularity and
+safety.
+</dd>
+
+
+<dt><a
+href="http://lampwww.epfl.ch/scala/">Scala</a></dt> 
+
+<dd>Scala is a general purpose programming language with a special focus on web services. It combines object-oriented, functional and concurrent elements.
+</dd>
+
+
+
+<dt><a href="http://www.njet.org/site">Anvil</a></dt>
+
+<dd>From the author: "Anvil is dynamically compiled, modular,
+procedural, object oriented and functional programming language with
+semi-dynamic semantics. It has runtime typing but, for efficiency
+reasons, static binding. It contains template engine for producing
+tagged output, configurable server environment and own HTTP
+listener. Any Java class can also be used directly. Anvil is
+non-interpreted: all scripts and templates are compiled-on-the-fly and
+executed as Java bytecode."</dd>
+
+
+<dt><a href="http://ovid.tigris.org">Ephedra</a></dt>
+
+<dd>Ephedra is a C/C++ to Java migration tool. The tool reads C/C++
+source code and transliterates it to Java source code. Though it
+can convert most kinds of C/C++ source code, the focus is on C/C++
+libraries that do not use any or much GUI code. The goals of the
+transliteration are readability of the generated Java source code,
+easy integration and interfacing with native Java code, little or
+no user interaction during the transliteration process, good
+performance, and basic C++ support.</dd>
+
+<dt><a href="http://www.cs.tu-berlin.de/~tolk/dself/">
+dSelf</a></dt>
+
+<dd>dSelf is an extension to the delegation- and prototype-based
+object-oriented language SELF. It adds distributed objects and
+transparent remote reference resolution to the languages. As a
+consequence, dSelf facilitates distributed inheritance and
+instantiation mechanisms.</dd>
+
+<dt><a href="http://www.student.dtu.dk/~c971541/hojo/index.htm">
+Hojo</a></dt>
+
+<dd>Hojo (Higer-Order functions &amp; JavaTM Objects) is an
+interpreted language, which provides a high-level, dynamic
+interface to the Java Virtual Machine (JVM) on which it is run.
+Hojo allows higer-order functions, contains full syntactical
+support for collections, maps and arbitrary-precision numbers, and
+provides a wide range of automatical type conversions, as well as
+some additional built-in operators. The lexical syntax of the
+language can be dynamically configured through a meta language,
+such that e.g. custom operators can be defined.</dd>
+
+<dt><a href="http://www.memoire.com/guillaume-desnoix/foo/">
+foo</a></dt>
+
+<dd>Foo is a "new" language, and its interpreter. The main
+caracteristics are: Full object-orientation, Dynamic message,
+Written in Java, Full integration inside the JVM. It will be
+usefull to write small scripts and to build quickly a prototype,
+and it can be easily embedded inside any application.</dd>
+
+<dt><a href="http://purl.org/net/nice">Nice</a></dt>
+
+<dd>Nice is a research programming language. It demonstrates how
+the powerfull ML-Sub type system can be used in practice. Nice is
+an object-oriented language, with parametric, polymorphic types,
+higher-order functions, and more. It mixes the advantages of
+object-orientation and functional programming.</dd>
+
+<dt><a href=
+"http://www.cs.kuleuven.ac.be/~distrinet/projects/CORRELATE/">
+Correlate</a></dt>
+
+<dd>Correlate is a concurrent object-oriented language with a
+metalevel architecture that makes it easier to develop distributed
+programs</dd>
+
+<dt><a href="http://www.emn.fr/sudholt/research/metaj/">
+MetaJ</a></dt>
+
+<dd>The goal of the MetaJ project is the development of a generic
+protocol-based self-applicative interpreter for Java. The basic
+idea is to develop a generic reification procedure which can be
+used to reify any class of the interpreter. Currently, we have
+defined a reification scheme and we have built a reflective
+interpreter from a non-reflective interpreter for an essential
+subset of Java.</dd>
+
+<dt><a href=
+"http://www.ccs.neu.edu/home/lieber/Demeter-and-Java.html">
+Demeter/Java</a></dt>
+
+<dd>Demeter/Java allows you to write your Java programs in a much
+more reusable form, called the adaptive form. You reuse all your
+Java knowledge and learn a design language on top of Java. The two
+important features of the design language are: Traversals and
+Visitors. Demeter/Java enforces correct use of the Visitor Design
+pattern in complex applications. The Visitor Design pattern is
+directly supported in the executable design language which is on
+top of Java.</dd>
+
+<!--
+<DT><A
+HREF="http://www.uni-vologda.ac.ru/JOB">JOB</A></DT> 
+
+<DD>JOB is an Oberon-2 to Java Virtual Machine (JVM) byte code (.class
+files) compiler execution environment on Windows-95, Windows NT
+(console application)</DD>
+-->
+<dt><a href="http://www.softwareag.com/bolero/">Bolero</a></dt>
+
+<dd>Bolero is based on Java architecture. Like Java, Bolero is
+strictly object-oriented. The Bolero Compiler generates Java byte
+code directly, rather than taking the detour via source code. This
+byte code can be ported across operating system boundaries, runs on
+any platform for which a certified JVM is available ("write once,
+run anywhere") and that is able to access a Bolero Application
+Server, and supports component-based applications with distributed
+or concurrent execution.</dd>
+
+<dt><a href=
+"http://www.tat.physik.uni-tuebingen.de/~schnette/Sather">
+Sather</a></dt>
+
+<dd><a href="http://www.icsi.berkeley.edu/~sather">Sather</a> is an
+object oriented language designed to be simple, efficient, safe,
+flexible and non-proprietary. One way of placing it in the "space
+of languages" is to say that it aims to be as efficient as C, C++,
+or Fortran, as elegant as and safer than Eiffel, and support
+higher-order functions and iteration abstraction as well as Common
+Lisp, CLU or Scheme. This compiler produces stand-alone
+applications.</dd>
+
+<!--
+<DT><A HREF="http://members.aol.com/laffra/c2j.html">C2J, a C++ to Java
+translator</A> </DT>
+
+<DD>c2j is a C++ to Java translator that translates C++ code to Java code.
+c2j translates roughly about 85-95 percent of code correctly. </DD>
+-->
+<dt><a href="http://sol.pace.edu/~tilevich/c2j.html">C2J++</a></dt>
+
+<dd>C2J++ is a C++ to Java translator that translates C++ code to
+Java code. C2J++ is based on Chris Laffra's C2J.</dd>
+</dl>
+
+<h4>COBOL</h4>
+
+<dl><!--
+<DT><A HREF="http://www.adtools.com/netcobol/">NetCOBOL</A></DT> 
+
+<DD>A COBOL compiler that generates Java Bytecode-based
+applications/applets from existing legacy COBOL programs. Generates
+Java Bytecode, COBOL programs can run as either a Java applet or Java
+application and Standards Compliant (Full ANSI Standard COBOL X3.23B
+1989) 
+</DD>
+
+-->
+<dt><a href="http://www.legacyj.com/lgcyj_perc1.html">
+PERCobol</a></dt>
+
+<dd>PERCobolTM Enterprise Edition is a robust COBOL development
+solution enabling COBOL programs to execute on the Java Virtual
+Machine (JVM). PERCobol is a fully ANSI 1985 X3.23b standard
+compliant COBOL compiler which generates Java source code. The
+resulting Java source code can then be compiled using any JDK 1.1+
+compliant Java Compiler and will run on any JDK 1.1+ implementation
+of the Java Virtual Machine as either an applet or application
+depending upon how the program is invoked (applets are subject to
+applet security restrictions).</dd>
+</dl>
+
+<h4>Ada</h4>
+
+<dl>
+<dt><a href="http://www.appletmagic.com/">AppletMagic: Ada for the Java Virtual Machine</a></dt>
+
+<dd>An alternative to the Java language
+for writing applets: a rich, tightly-standardized, dynamic
+object-oriented programming language named Ada 95, and a translator
+from Ada 95 to Java "Bytecodes". By translating Ada 95 to
+Bytecodes, we make it compatible with Java and Java-capable
+browsers.</dd>
+
+<dt><a href="http://www.gnat.com/texts/products/pjava_set.htm">
+JGNAT Ada 95</a></dt>
+
+<dd>The JGNAT system offers a complete Ada 95 development
+environment for the Java platform. JGNAT comprises a compiler
+generating Java bytecode that is compatible with Java virtual
+machines conforming to Sun's standard (JDK 1.1 and above), and a
+set of tools to aid in developing Ada programs for the Java
+platform. (see also <a href="ftp://cs.nyu.edu/pub/gnat/jgnat/">
+ftp://cs.nyu.edu/pub/gnat/jgnat/</a>)</dd>
+</dl>
+
+<h4><a name="scripting"></a>Scripting</h4>
+
+<dl>
+
+<dt><a
+href="http://jirc.hick.org/sleep/">Sleep </a><img
+src="new.gif" alt="[new]" height="13" width="26" /></dt> 
+
+<dd>Sleep is the Simple Language for Environment Extension Purposes. Sleep is a small language with perl-like syntax for integration into Java applications.
+
+The attribute that makes Sleep different is it allows an application developer to develop "bridges". A bridge is a very simple class for adding new functions, predicates, operators, and even keywords for binding blocks of code. Sleep is easily extendable to make an application's features available to end-user scripters.</dd>
+
+
+
+<dt><a href="http://www.wlshell.com">WLShell</a></dt> 
+
+<dd>WLShell is an interactive command-line shell for BEA WebLogic
+Server. WLShell provides simplified access to management beans
+(MBeans) in WebLogic Server through a scripting language. If we think
+of WebLogic Server as an operating system, WLShell can be considered
+as a telnet program to access WebLogic.</dd>
+
+<dt><a href="http://www.bambookit.com/">Bambookit</a></dt> 
+
+<dd>Bambookit's XML-GUI controls are completely scriptable via the XML
+tags. The XML scripts can be decomposed into smaller sections to
+create a complete application.</dd>
+
+
+<dt><a href="http://www.judoscript.com/">JudoScript</a></dt>
+
+<dd>JudoScript is a general-purpose, Java scripting, multi-domain
+language. It is a general-purpose programming language, fully capable
+of Java scripting, and supports many domain-specific features such as
+JDBC scripting, XML scripting, ActiveX scripting and many more.
+</dd>
+
+<dt><a href="http://sf.net/projects/jruby">JRuby</a></dt>
+
+<dd>JRuby is the effort to recreate the Ruby interpreter in Java.
+Currently, the interpreter is written in C. The Java version will
+be tightly integrated with Java to allow both to script any Java
+class and to embed the interpreter into any Java application.</dd>
+
+<dt><a href="http://objectscript.sourceforge.net/">
+ObjectScript</a></dt>
+
+<dd>ObjectScript is a weakly-typed general purpose object-oriented
+programming language. It provides private fields and methods,
+inheritance, exceptions, synchronization and threading, nested
+functions and classes (nested scope), and operator
+overloading.</dd>
+
+<dt><a href=
+"http://members.nbci.com/_XMCM/slotti/jickle/index.html">Jickle -
+Java Control Language</a></dt>
+
+<dd>Jickle is a language and runtime environment that allows
+applications to provide unlimited user control. Jickle is similar
+to a macro language for applications.</dd>
+
+<dt><a href="http://www.research.att.com/sw/tools/yoix">
+Yoix</a></dt>
+
+<dd>An interpreted C-like scripting language written in standard Java
+that provides a high-level way to write applications that use AWT,
+Swing, Java-2D, sockets, threads or other Java features. Familiar C
+language elements such as printf, scanf and (safe) pointers aim at
+making this language easy to learn and use.  </dd>
+
+<dt><a href="http://www.simkin.co.uk/">Simkin</a></dt>
+
+<dd>Simkin is a high-level lightweight embeddable scripting
+language which works with Java[tm]/XML or C++.T</dd>
+
+<dt><a href=
+"http://jakarta.apache.org/bsf/faq.html">
+Bean Scripting Framework (BSF)</a></dt>
+
+<dd>The Bean Scripting Framework (BSF) is an architecture for
+incorporating scripting into Java applications and applets.</dd>
+
+<dt><a href="http://www.metamech.com/wiki/view/Main/DawnScript">
+Dawn</a></dt>
+
+<dd>Dawn is a dynamic scripting language based on RPN, supporting
+dynamic naming to create variable and methods names from String,
+scripts can dynamically override language default functions and the
+language is based on a package set, with default ones io, err,
+loops, test, util, math, stack, string</dd>
+
+<dt><a href="http://www.inria.fr/koala/djava">DynamicJava</a></dt>
+
+<dd>DynamicJava is a Java source interpreter executing programs
+written in Java in addition with scripting features. DynamicJava
+extends the Java grammar to accept many scripting features:
+Statements and expressions can be written outside classes, at the
+top-level. The variable declaration is optional. When the left part
+of an assignment is an unknown identifier, a variable is defined.
+The type of this variable is the type of the right part of the
+assignment. The dynamic casts are optional. The package clause can
+be used anywhere at the top-levelto set the current package. The
+syntax of this clause has been extended : writing package; set the
+current package to the anonymous package.</dd>
+
+<dt><a href="http://db.cis.upenn.edu/W4F/">W4F</a></dt>
+
+<dd>W4F is a toolkit for the generation of wrappers for Web
+sources. It consists of a retrieval language to identify Web
+sources, a declarative extraction language (HEL: HTML Extraction
+Language) to express robust extraction rules and a mapping
+interface to export the extracted information into some
+user-defined data-structures.</dd>
+
+<dt><a href="http://alphaworks.ibm.com/tech/netscript">
+Netscript</a></dt>
+
+<dd>NetScript is an environment for scripting with network
+components. The NetScript environment's scripting language, which
+is an extension of the BASIC programming language, is deliberately
+kept simple, so the scripts are relatively easy to write and
+modify. In NetScript, a developer selects required components from
+a distributed catalog and then writes a script invoking methods on
+the components as if the components are local. When a script is
+launched, the NetScript run time determines component sites in the
+network and transparently moves the script as needed.</dd>
+
+<dt><a href="http://www.mozilla.org/rhino">Rhino</a></dt>
+
+<dd>Rhino is an implementation of JavaScript written entirely in
+Java. The source code for Rhino is available under the NPL. e Rhino
+project was started at Netscape in Fall 1997. At the time, Netscape
+was planning to produce a version of Navigator written entirely in
+Java and so it needed an implementation of JavaScript written in
+Java. When Netscape stopped work on "Javagator", as it was called,
+somehow Rhino escaped the axe (rumor had it that the executives
+"forgot" it existed). Since then, a couple of major companies
+(including Sun) have licensed Rhino for use in their products and
+paid Netscape to do so, allowing us to continue work on it. Now
+Rhino is planned to be part of several server products from
+Netscape as well.</dd>
+
+<dt><a href="http://www.beanshell.org">BeanShell</a></dt>
+
+<dd>BeanShell is a small, free, embeddable, Java source interpreter
+with object scripting language features, written in Java. BeanShell
+executes standard Java statements and expressions, in addition to
+obvious scripting commands and syntax.</dd>
+
+<dt><a href="http://www.plenix.org/polyjsp/">PolyJsp</a></dt>
+
+<dd>PolyJsp is an extensible JSP implementation designed to support
+multiple scripting languages and multiple JSP versions. Completely
+based on XML and XSL, PolyJsp currently supports Java and
+Javascript as scripting languages. Support is provided for the
+latest JSP spec (0.92), with version 0.91 in the works.</dd>
+
+<dt><a href="http://www.caucho.com/resin/index.xtp">Resin</a></dt>
+
+<dd>Resin weaves Java components to HTML with JavaScript and the
+Java Server Pages (JSP) interface. Resin conforms to the Servlet
+interface and can be used with the major web servers, including
+Apache. Amongst other features, it implements the bulk of ECMA-262,
+the EcmaScript standard, implements JavaScript 1.3 features,
+extends regular expressions with Perl 5 syntax and compiles scripts
+directly to JVM bytecodes.</dd>
+
+<dt><a href="http://members.tripod.com/mathias/IavaHomepage.html">
+Iava</a></dt>
+
+<dd>Iava is an interpreter that accepts a subset of the Java
+programming language which includes method declarations, all block
+statements, all statements and all expressions as specified by the
+Java language. The interpreter does not accept class or interface
+declarations. Iava is written in Java and can be embedded into any
+Java application and applet. It offers highly effective integration
+mechanisms (sharing of private fields between classes and scripts),
+declaration of "methods" in a script which can be invoced by the
+embedding application/applet, sharing of a "context" object to
+which scripts can refer to using "this", etc.</dd>
+
+<dt><a href="http://www.research.digital.com/SRC/WebL/">
+WebL</a></dt>
+
+<dd>WebL (pronounced "webble") is a scripting language for
+automating tasks on the World-Wide Web. It is an imperative,
+interpreted language that has built-in support for common web
+protocols like HTTP and FTP, and popular data types like HTML and
+XML.</dd>
+
+<dt><a href="http://home.worldcom.ch/jmlugrin/fesi/index.html">
+FESI, a Free EcmaScript Interpreter</a></dt>
+
+<dd>FESI is a full implementation of the EcmaScript language,
+defined in the standard ECMA 262 available at http://www.ecma.ch
+(edition of june 97). EcmaScript is largely equivalent to the
+JavaScript language version 1.1 or to the core part of JScript, but
+without the navigator specific extensions.</dd>
+
+<dt><a href=
+"http://www.servertec.com/products/iscript/iscript.html">
+iScript</a></dt>
+
+<dd>iScript a platform independent scripting language written
+entirely in JavaTM for creating scalable server side object
+oriented n-Tier enterprise solutions.</dd>
+
+<dt><a href="http://jython.sourceforge.net/">Jython</a></dt>
+
+<dd>Jython is an implementation of the high-level, dynamic,
+object-oriented language Python written in 100% Pure Java, and
+seamlessly integrated with the Java platform. It thus allows you to
+run Python on any Java platform. Jython is the successor to
+JPython.</dd>
+
+<!--
+<DT><A HREF="http://perl.oreilly.com/prk_index.html">Perl5</A></DT>
+<DD>A Java/Perl interface, written for the Kit by Larry Wall, creator of Perl.
+This new Java/Perl tool allows programmers to write Java classes with
+Perl implementations. Now Perl programmers can exploit Java's wide
+availability, while using Perl for the things that it does better than Java
+(such as string processing).</DD>
+-->
+<dt><a href="http://javacenter.sun.co.jp/pnuts/">Pnuts</a></dt>
+
+<dd>Pnuts is a script language for Java environment. It enables
+interaction with Java environment, simple GUI scripting, and
+customization for Java programs.</dd>
+
+<dt><a href="http://www.blackdown.org/~kbs/yassl.html">
+Yassl</a></dt>
+
+<dd>Yassl is yet another extensible scripting language to work with
+Java classes. Yassl is a non object oriented language with a syntax
+that looks somewhat like C. Some of its features: Functions are
+available as regular types, and can be passed around and embedded
+in widgets. Implements lexical scoping, stolen from Scheme.
+Variables are typed (but at this point, the interpreter does no
+static type checking.) Eval is not directly supported, but an
+instance of a Yassl interpreter can be created from within a Yassl
+script, and you can evaluate expressions in the context of the new
+interpreter instance.</dd>
+
+<dt>see also:</dt>
+
+<dd><a href="#netrexx">The NetRexx Language</a></dd>
+</dl>
+
+<h4><a name="compjextend">Extended Java</a></h4>
+
+<dl>
+
+<dt><a
+href="http://joinjava.unisa.edu.au/">Join Java</a><img
+src="new.gif" alt="[new]" height="13" width="26" /></dt> 
+
+<dd>This project is creating a superset of the Java language which is built on a process algebra, the join calculus. It provides the following features that are either absent or poorly supported in Java: * Asynchronous calls * Message passing *
+A real inheritance for concurrency in Object Oriented programming Separating of concurrency from synchronization using abstraction Rigorous linkage with formal methods including join calculus, Petri nets and statecharts </dd>
+
+
+
+<dt><a
+href="http://www.kanaputs.org/">Kanaputs</a><img
+src="new.gif" alt="[new]" height="13" width="26" /></dt> 
+
+<dd>Kanaputs is an interpreter for Java. With Kanaputs you can use
+Java as an interpreted language: no more compilation, each instruction
+is executed when you write it. Kanaputs allows to create Java objects
+and call methods on them. The grammar of the Kanaputs language is very
+close to the Java grammar. One big difference is that any variable
+handled by Kanaputs is type-less. There is no variable declaration nor
+type casting needed. Depending on the variable value, and where it is
+used, Kanaputs chooses the best internal Java basic type and tries the
+most appropriate type castings. When a variable handles a Java object,
+its type is the class of the Java object. Another key feature of
+Kanaputs is the reactivity. If the variable 'c' was defined like this
+c = a + b; and if the reactivity of 'c' is set (c.reactive = true;),
+each time the value of 'a' or 'b' changes then the value of 'c' is
+updated as the result of the addition.</dd>
+
+<dt><a
+href="http://www.disi.unige.it/person/LagorioG/jam/">Jam</a></dt> 
+
+<dd> Jam is an extension of the Java language supporting mixins, that
+is parametric heir classes. A mixin declaration in Jam is similar to a
+Java heir class declaration, apart that it does not extend a fixed
+parent class, but simply specifies the set of fields and methods a
+generic parent should provide. In this way, the same mixin can be
+instantiated on many parent classes, producing different heirs, thus
+avoiding code duplication and largely improving modularity and
+reuse.</dd>
+
+<dt><a
+href="http://jex-project.sourceforge.net/">JEX - Java Extension</a></dt> 
+
+<dd>JEX (Java Extension) is a programming language based upon Java
+with built-in extensibility. JEX is a redefinition of Java using an
+XML syntax. This allows programmers to extend their favorite
+language. It also simplifies compilers, IDEs and code generators. With
+JEX, a project is an XML document describing the various libraries,
+classes, methods, etc. JEX provides a set of XSLT transformations to
+generate the Java class files following the JVM specification.</dd>
+
+<dt><a
+href="http://www.cs.cornell.edu/Projects/jmatch/">JMatch</a></dt> 
+
+<dd>The JMatch language extends Java with support for abstract
+iterable pattern matching: a mechanism for pattern matching that is
+compatible with the data abstraction features of Java and also makes
+iteration abstractions convenient to use and to implement. JMatch
+provides abstract pattern matching; patterns are not tied to algebraic
+data constructors as in ML. A single JMatch method may be used in
+several modes that may share a common implementation as a boolean
+formula. JMatch provides modal abstraction that simplifies the
+specification and implementation of abstract data types. JMatch also
+makes the specification, implementation, and use of iteration
+abstractions convenient, by automatically finding multiple solutions
+to a formula or pattern.  </dd>
+
+
+<dt><a href="http://www.csg.is.titech.ac.jp/~chiba/javassist/">Javassist</a></dt>
+
+<dd>Javassist (Java programming assistant) is a load-time reflective
+system for Java. It is a class library for editing bytecodes in Java;
+it enables Java programs to define a new class at runtime and to
+modify a class file when the JVM loads it. Unlike other similar
+systems, Javassist provides source-level abstraction; programmers can
+modify a class file without detailed knowledge of the Java bytecode. 
+</dd>
+
+<dt><a href="http://www.cs.utah.edu/plt/jiazzi/">Jiazzi</a></dt>
+
+<dd>Jiazzi adds support for large-scale component programming in
+Java. Components in Jiazzi contain, import, and export Java classes
+and Java's in-language support for inheritance can be used across
+component boundaries.  The current implementation integrates into Java
+using a linker, which manipulates components, and a stub generator,
+which allows Jiazzi to be used with normal Java source
+compilers. JJava code for a component is written using the normal Java
+language and a separate linking language is used to manipulate
+components.</dd>
+
+
+<dt><a href="http://www.archjava.org">ArchJava</a></dt>
+
+<dd>Software architecture describes the structure of a system,
+enabling more effective design, program understanding, and formal
+analysis.  ArchJava is an extension to Java that seamlessly unifies
+software architecture with implementation, ensuring that the
+implementation conforms to architectural constraints.  </dd>
+
+<dt><a href="http://www.multijava.org/">MultiJava</a></dt>
+
+<dd>MultiJava is an extension to the Java programming language that adds 
+open classes and symmetric multiple dispatch. MultiJava retains the 
+modular static typechecking and compilation of Java.
+</dd>
+
+<dt><a href="http://javalab.cs.uni-bonn.de/research/gilgul">Gilgul</a></dt>
+
+<dd>Gilgul is an extension of Java that strictly separates the
+notions of reference and comparison that are traditionally subsumed
+in the concept of object identity. This allows for the introduction
+of new operations that open up new degrees of flexibility during
+runtime by providing means for unanticipated software evolution.
+For example, Gilgul supports dynamic replacement of objects without
+the need to explicitly deal with existing references.</dd>
+
+<dt><a href="http://www.dejay.org/">dejay</a></dt>
+
+<dd>Dejay is a dialect of Java that simplifies the development of
+distributed software applications.</dd>
+
+<dt><a href="http://www.dcc.unicamp.br/~oliva/guarana">
+Guarana</a></dt>
+
+<dd>Guaran&aacute; is a reflective architecture that aims at
+simplicity, flexibility, security and reuse of meta-level code. It
+features a run-time meta-object protocol that provides for easy
+composition of meta-objects and allows for dynamic reconfiguration.
+Meta-objects can be combined through composers, that provide the
+glue code for them to work together, delegating control to them and
+resolving conflicts when they arise. Since composers are
+meta-objects, they can be further composed.</dd>
+
+<dt><a href="http://aspectj.org">AspectJ</a></dt>
+
+<dd>AspectJ is an aspect-oriented extension to Java designed to
+simplify the development and maintenance of a wide range of
+applications. AspectJ extends Java with aspects, which are a new
+kind of programming construct that facilitates the implementation
+of concerns that cross-cut a system.</dd>
+
+<dt><a href="http://www.pmg.lcs.mit.edu/polyj/">PolyJ - Java with
+Parameterized Types</a></dt>
+
+<dd>PolyJ is a portable compiler that accepts an extended version
+of the Java language. The PolyJ language includes support for
+generic programming in the form of parameterized types. Like some
+other proposals for adding genericity to Java, PolyJ provides
+constrained parametric polymorphism. Unlike some, it uses the
+constraint mechanism of where clauses, which is important because
+it provides flexibility when composing a program. PolyJ also allows
+all types to be used as parameters, even basic types like int. A
+powerful feature of PolyJ is that instantiation types and parameter
+types are first-class types that may be used wherever a type may be
+used -- particularly, in safe run-time casts and with
+"instanceof".</dd>
+
+<dt><a href="http://www.dms.at/kjc/xkjc/index.html">xkjc</a></dt>
+
+<dd>xkjc provides various Java language extensions, operator
+overloading, and embedded SQL. It is an example for the
+extensibility of the <a href="http://www.dms.at/kjc/">KJC</a>
+compiler suite.</dd>
+
+<dt><a href="http://semantik.informatik.uni-oldenburg.de/~jass">
+Jass - 'Java with assertions'</a></dt>
+
+<dd>The language Jass ('Java with assertions') is an extension of
+Java by assertions. This concept is taken from Eiffel. It has been
+developed by Bertrand Meyer as part of the concept "design by
+contract" in order to develop correct software. For this purpose
+the assertions are checked during runtime. If they are violated,
+exceptions are triggered which can themselves be handled in the
+program.</dd>
+
+<dt><a href="http://www.cs.berkeley.edu/~darcy/Borneo/">
+Borneo</a></dt>
+
+<dd>Borneo is a dialect of the Java language designed to have true
+support for the IEEE 754 floating point standard. Java's
+specification creates several problems for numerical computation.
+Only a proper subset of IEEE 754's required features are supported
+by Java; useful IEEE 754 features are either explicitly forbidden
+or omitted from the Java specification. Java does not allow use of
+the IEEE 754 recommended double extended format on the x86. Using
+the double extended format often protects simple numerical formulas
+from floating point anomalies. Strict adherence to Java's floating
+point semantics leads to significant performance penalties on
+popular architectures, including both the x86 and PowerPC. To
+address these problems, the Borneo language changes and extends
+Java so that all IEEE 754 features can be expressed and so that new
+numeric types can be easily created.</dd>
+
+<dt><a href="http://compose.labri.fr/prototypes/jscc">
+Specialization classes for Java</a></dt>
+
+<dd>Specialization classes are a Java language extension for
+integrating forms of adaptive behavior in an existing program. An
+adaptive class is defined by attaching a number of alternative
+implementations to a regular Java class, that complement the
+existing, default implementation. Each alternative implementation
+is defined by a specialization class, and is to be used in some
+specific situation. These situations are defined in terms of the
+internal state of the (instances of the) class, via predicates on
+the instance variables.</dd>
+
+<dt><a href="http://www.inf.fu-berlin.de/~bokowski/pmgjava/">Poor
+Man's Genericity for Java</a></dt>
+
+<dd>Poor Man's Genericity is an implementation of parameterized
+classes (constrained parametric polymorphism) for Java. It is based
+on a "lowest common denominator" design that can be implemented
+easily on top of any existing Java compiler. We have implemented a
+fully working compiler that has been built by reusing Sun's Java
+compiler almost without modifications: only the way in which source
+and byte-code files are loaded was changed to perform simple
+transformations on loaded files.</dd>
+
+<dt><a href="http://lampwww.epfl.ch/gj">GJ</a></dt>
+
+<dd>GJ is an extension of the Java programming language that
+supports generic types. GJ compiles into JVM code, so GJ programs
+run on any Java platform, including Java compliant browsers. Class
+files produced by the GJ compiler can be freely mixed with those
+produced by other Java compilers.</dd>
+
+<dt><a href="http://www.list.org/jamie/">Jamie</a></dt>
+
+<dd>Jamie is a preprocessor for Java that fills the gap between
+interfaces and multiple inheritance. Jamie doesn't give you
+multiple inheritance, though; it gives you multiple delegation
+(i.e., it gives you subclassing without subtyping). Jamie is a
+preprocessor that automates delegation. You run it on your code,
+and it essentially produces the Java code you otherwise would have
+had to write yourself.</dd>
+
+<dt><a href="http://www.delftware.nl/">Scriptic</a></dt>
+
+<dd>Scriptic is a language extension that simplifies Java
+programming. Scriptic includes the following: Simple and concise
+constructs for expressing choice, parallelism, breaking, and
+iterations. Simply write an ampersand instead of a semicolon: you
+will get parallelism instead of a sequence, etc. Easy access to
+multi-threading: Java code between {* and *} simply runs in its own
+thread A refinement construct (script) with a powerful parameter
+mechanism Communication between parallel processes using shared
+scripts An event-driven execution mechanism that ideally suits user
+interfaces, simulations, and others Scriptic has a strong
+theoretical background in Process Algebra. This foundation means
+that the language constructs for parallelism are well-defined.</dd>
+
+<dt><a href=
+"http://www.hlla.is.tsukuba.ac.jp/~mich/English/openjava/">
+OpenJava</a></dt>
+
+<dd>OpenJava is an extensible language based on Java(TM). The
+OpenJava MOP (Metaobject Protocol) is the extension interface of
+the language. Through the MOP, the programmers can customize the
+language to implement a new language mechanism. It is fully written
+in Java of JDK 1.1, so it can be run on any platform which supports
+Java Virtual Machine of JDK 1.1. And, the generated codes are
+written in regular Java language, so the user's products can be run
+on any platform which supports JVM of JDK 1.0 or JDK 1.1.</dd>
+
+<dt><a name="kiev"></a><a href=
+"http://forestro.com/kiev/">Kiev</a></dt>
+
+<dd>Here is the authors description: "Kiev is an extension of Java
+language with parametriezed types, closures, multimethods, multiple
+inheritance, extended syntax and semantic of loop and switch
+statements and more. It also has an embedded, fully integrated AI
+engine."</dd>
+
+<dt><a href="http://wwwipd.ira.uka.de/JavaParty/">
+JavaParty</a></dt>
+
+<dd>JavaParty is an extension of Java for transparent parallel and
+distributed programming with remote objects and object mobility. It
+can be pre-processed into regular Java plus RMI calls.</dd>
+
+<dt><a href=
+"http://www.extreme.indiana.edu/~ajcbik/JAVAR/index.html">
+JAVAR</a></dt>
+
+<dd>JAVAR is a prototype restructuring compiler that can be used to
+make implicit parallelism in Java programs explicit by means of
+multi-threading. JAVAR relies completely on the identification of
+`implicit' parallelism by means of annotations.</dd>
+
+<dt><a href=
+"http://www.extreme.indiana.edu/~ajcbik/JAVAB/index.html">
+JAVAB</a></dt>
+
+<dd>JAVAB is a prototype bytecode tool that can automatically
+detect and automatically exploit implicit loop parallelism in
+bytecode, i.e. the architectural neutral instructions of the JVM.
+Implicit parallelism is made explicit by means of the
+multi-threading mechanism provided by the JVM.</dd>
+
+<!--
+<DT><A HREF="http://ourworld.compuserve.com/homepages/DeHoeffner/jump.htm">JUMP</A>
+</DT>
+
+<DD>JUMP is a bytecode compiler that allows JAVA developers to compile
+JAVA source code. It generates portable bytecode that conforms to the JAVA
+VM specification and can be executed by any JAVA VM. It extends the JAVA
+language ith several powerful features well known from C++. These features
+include class templates, operator overloading and default parameters.</DD>
+
+-->
+<dt><a href="http://lampwww.epfl.ch/pizza">Pizza</a></dt>
+
+<dd>Pizza is an extension of Java with parametric polymorphism,
+first-class functions, and class cases and pattern matching. Pizza
+compiles programs to ordinary Java Byte Code, and interfaces with
+existing Java code.</dd>
+</dl>
+
+<h4><a name="forth">Forth</a></h4>
+
+<dl>
+<dt><a href=
+"http://www.geocities.com/dolphinconsultant/myforth.html">
+myForth</a></dt>
+
+<dd>myForth is a basic Forth interpreter written in Java. Forth
+programs can be read from Java Applet parameters.</dd>
+
+<dt><a href="http://willware.net:8080/agj/ag.html">A Forth
+Interpreter in Java</a></dt>
+
+<dd>A Forth interpreter implemented in Java</dd>
+
+<dt><a href=
+"ftp://ftp.taygeta.com/pub/Forth/Compilers/native/misc/dforth/">
+Delta Forth</a></dt>
+
+<dd>DELTA Forth is a new Forth dialect and is intended to bring the
+Forth programming language to the Java world. Unlike Forth, DELTA
+Forth is a compiled language. This means that the source code is
+turned into a special format that is used to execute the
+program.</dd>
+
+<dt><a href="http://fiji.sourceforge.net">FIJI -
+ForthIsh Java Interpreter</a></dt>
+
+<dd>FIJI ForthIsh Java Interpreter, is written in Java and comes
+with full GPL'ed source. Running either at a command line or in an
+AWT window, FIJI accepts a syntax akin to the Forth programming
+language and uses a reference stack to push and pop all params to
+its functions. You can create Java objects and call methods on them
+from the FIJI stack. FIJI is very preliminary, quite incomplete and
+will be changing all the time. But such as it is, it works and has
+been tested on Linux Blackdown JVM 1.1.7a, VM/ESA JVM 1.1.4, and
+Windows/Sun JVM 1.1.7a.</dd>
+
+<dt><a href="http://www.mistybeach.com/Forth/JavaForth.html">Misty
+Beach Forth</a></dt>
+
+<dd>Misty Beach Forth is an implementation of the Forth programming
+language written in Java. Because it is written in Java, the Misty
+Beach Forth interpreter can be embedded in a WWW HTML page and
+launched as an applet.</dd>
+</dl>
+
+<h4><a name="comp"></a><a name="interp"></a><a name=
+"various"></a>Various languages</h4>
+
+<dl>
+
+<dt><a href="http://www.antlr.org/">ANTLR, ANother Tool for Language Recognition</a><img src="new.gif" alt="[new]" height="13" width="26"
+/></dt> 
+
+<dd>ANTLR is a language tool that provides a framework for
+constructing recognizers, compilers, and translators from grammatical
+descriptions containing Java, C#, or C++ actions.</dd>
+
+<dt><a href="https://javacc.dev.java.net">Java Compiler
+Compiler</a><img src="new.gif" alt="[new]" height="13" width="26"
+/></dt> 
+<dd>JavaCC is a parser/scanner generator for java. It is a
+tool that reads a grammar specification and converts it to a Java
+program that can recognize matches to the grammar.</dd>
+
+<dt><a
+href="http://www.informatikatelier.com/products.htm">FormsWizard</a></dt> 
+
+<dd>FormsWizard is an automated migration engine that translates
+Oracle Forms source code (PL/SQL) into Java language. It allows
+companies and organisations to bring legacy software to the web and
+achieve great savings compared to the cost of rewriting applications.
+</dd> <dt><a href="http://savtechno.com">Zigzag</a></dt>
+
+<dd>Zigzag is language of object-relational algebra for database and
+data processing applications. Zigzag expressions reflect peculiarities
+of Zigzag ORDBMS like multilevel and multi-valued attributes, data
+integrity control, class inheritance, generalization (generation of
+knowledge base).</dd>
+
+<dt><a href="http://www.cam.org/~tomlins/njpipes.html">Pipes for
+NetRexx and Java</a></dt>
+
+<dd>Pipes for NetRexx and Java implements a simple but very
+powerful piping methodology based on the one developed by John P.
+Hartmann of IBM.</dd>
+
+<dt><a href="http://xml.apache.org/xalan-j/xsltc_usage.html">
+XSLTC</a></dt>
+
+<dd>The XSLT Compiler is a Java-based tool for compiling XSLT
+stylesheets into lightweight and portable Java byte codes called
+translets.</dd>
+
+<dt><a href="http://www.plasrc.qut.edu.au/ComponentPascal/">
+Component Pascal</a></dt>
+
+<dd>Gardens Point Component Pascal (gpcp) is an implementation of
+the Component Pascal Language. Component Pascal is Oberon
+microsystems' refinement of the Oberon-2 language. Component Pascal
+is a general-purpose language in the tradition of Pascal, Modula-2
+and Oberon. Its most important features are block structure,
+modularity, separate compilation, static typing with strong type
+checking (also across module boundaries), type extension with
+methods, dynamic loading of modules, and garbage collection.</dd>
+
+<dt><a href="http://www.epcc.ed.ac.uk/research/jomp/">JOMP</a></dt>
+
+<dd>JOMP is a research project whose goal is to define and
+implement an OpenMP-like set of directives and library routines for
+shared memory parallel programming in Java. The compiler translates
+Java source code with directives to Java source code with calls to
+the runtime library, which in turn uses Java threads to implement
+parallelism.</dd>
+
+<dt><a href="http://www.itee.uq.edu.au/~cristina/uqbt.html#gcc-jvm">Java
+Backend for GCC</a></dt>
+
+<dd>A port of the GNU GCC compiler to the Java Virtual Machine
+(JVM). Gcc emits assembler code (usually that fact is hidden from
+the user); this port uses Jasmin as the "Java assembler". This
+software is highly experimental.</dd>
+
+<dt><a href="http://teatrove.sourceforge.net/tea.html">Tea</a></dt>
+
+<dd>Tea is a simple template language most commonly used for
+creating dynamic web pages in the TeaServlet. Tea is a strongly
+typed, compiled programming language, designed to work within a
+Java-based hosting environment. Tea is designed to enforce a
+separation between data acquistion and presentation, without
+sacrificing basic programming constructs.</dd>
+
+<dt><a href=
+"http://www.cs.princeton.edu/~appel/modern/java/project.html">
+Tiger</a></dt>
+
+<dd>Tiger is an example language from the book Modern Compiler
+Implementation in Java by Andrew W. Appel</dd>
+
+<dt><a href="http://www.ebb.org/perljvm">perljvm</a></dt>
+
+<dd>perljvm, the Perl to Java Virtual Machine (JVM) Compiler tries
+to support the Perl language natively on the JVM without needing
+the C perl system around.</dd>
+
+<dt><a href="http://www.cs.utk.edu/f2j/">Fortran 2 Java
+(f2j)</a></dt>
+
+<dd>f2j is part of a broader effort to provide computational
+resources over the World Wide Web. The f2j project has two facets.
+One is to emit as much compilable, verifiable, correctly running
+Java source from Fortran source code, the other is to translate
+Fortran to Jasmin assembler opcode for assembly into class files.
+The f2j compiler is currently a special purpose tool, that is,
+certain design decisions necessary to provide a general tool for
+translating Fortran to Java have been postponed until working code
+for the BLAS and LAPACK libraries has been emitted and tested.</dd>
+
+<dt><a href="http://www.novosoft-us.com/NS2B.nsf/w1/C2J">
+C2J</a></dt>
+
+<dd>C2J is a translator which translates C programs to Java
+programs. C2J is available as native executable for Win32 platforms
+as well as Java application which runs where Java Virtual Machine
+is implemented (i.e. on Win32, Unix etc.). Standard ANSI C runtime
+library fully supported. ANSI C and K"R C fully supported.</dd>
+
+<dt><a href="http://www-public.tu-bs.de:8080/~y0003879/james007/">
+JAMES 007</a></dt>
+
+<dd>JAMES 007 is an graphical editor for Message Sequence Charts.
+It aids in developing textual, but also graphical representations
+of MSCs. Its special benefit is the generation of JAVA-Sourcecode
+for a MSCs.</dd>
+
+<dt><a href="http://www.pmg.lcs.mit.edu/~ajmani/projects.html">Java
+Information Flow</a></dt>
+
+<dd>Andrew Myers' JIF (Java Information Flow) language provides
+language-based information flow control with mostly-static
+checking. Programs written in JIF can run on a standard JVM, but
+the system requires certain runtime components to provide full
+functionality. The goal of this project is to design and implement
+the principals hierarchy, I/O channels, and other runtime
+components required by the JIF system.</dd>
+
+<dt><a href=
+"http://www.ssw.uni-linz.ac.at/Research/Projects/Coco/">
+COCO/R</a></dt>
+
+<dd>Coco/R is a compiler generator which takes a compiler
+description in the form of an LL(1) attributed grammar and
+generates the scanner and the parser of the described parser.</dd>
+
+<dt><a href="http://www.dbcswc.com/jx/index.html">DB/C JX</a></dt>
+
+<dd>DB/C JX is a Java-based application development tool that
+compiles the DB/C programming language into Java class files. DB/C
+is an application development tool for the DB/C programming
+language which is based on the ANSI Standard PL/B programming
+language. The Java class files created by the DB/C JX compiler will
+run in an Java 1.1 runtime environment, including web browsers,
+network computers, handheld computers and traditional data
+processing platforms.</dd>
+
+<dt><a href="http://www.cs.arizona.edu/icon/jcon/index.htm">Jcon: A
+Java-Based Icon Implementation</a></dt>
+
+<dd>Jcon is a Java-based implementation of the Icon programming
+language. The Jcon translator, written in Icon, generates Java
+class files that execute in conjunction with a run-time system
+written in Java.</dd>
+
+<dt><a href="http://www.sqlj.org/">SQLJ - Embedded SQL in
+Java</a></dt>
+
+<dd>The term "SQLJ" refers to a series of specifications for ways
+to use the Java TM programming language with SQL. The
+specifications are in several parts: SQLJ: Embedded SQL -
+Specifications for embedding SQL statements in Java methods. SQLJ:
+SQL Routines - Specifications for calling Java static methods as
+SQL stored procedures and user-defined functions. SQLJ: SQL Types -
+Specifications for using Java classes as SQL user-defined
+datatypes. A reference implementation of SQLJ has been provided by
+Oracle.</dd>
+
+<dt><a href="http://www.webcom.com/mhc/java.html">Canterbury Pascal
+for Java</a></dt>
+
+<dd>The compiler is implemented in Java and generates plain Java.
+The evaluation versions is time-limited and has some language
+restrictions. An unrestricted version can now be ordered.</dd>
+
+<dt><a href="http://www.webcom.com/mhc/java.html">Canterbury
+Oberon-2 for Java</a></dt>
+
+<dd>The compiler is implemented in Java and generates plain Java.
+The evaluation versions is time-limited and has some language
+restrictions. An unrestricted version can now be ordered.</dd>
+
+<dt><a href="http://www.webcom.com/mhc/java.html">Canterbury
+Modula-2 for Java</a></dt>
+
+<dd>The compiler is implemented in Java and generates plain Java.
+The evaluation versions is time-limited and has some language
+restrictions. An unrestricted version can now be ordered.</dd>
+
+<dt><a href="http://www.agentsheets.com">AgentSheets</a></dt>
+
+<dd>The AgentSheets environment is an agent-based Web authoring
+tool enabling a wide range of end users, ranging from children to
+professionals, to create their own SimCity-like interactive
+simulations, domain-oriented visual programming languages,
+knowbots, cellular automata, and games. At the the blink of an eye
+these simulations can be compiled by the Ristretto compiler
+directly into Java applets that can be embedded into web
+pages.</dd>
+
+<dt><a href="http://www.deene.ufu.br/clean/applets/applets.htm">
+JavAnimator</a></dt>
+
+<dd>JavAnimator is an animation applet generator for the Java VM
+written entirely in Concurrent Clean, a functional language
+developed at the Research Institute for Declarative Systems of the
+University of Nijmegen. You can use JavAnimator to boost your WWW
+pages with impressive animated applets.</dd>
+
+<dt><a href="http://www.eng.usf.edu/~kpalbrec/luck">Luck</a></dt>
+
+<dd>Luck is a simple language which is compiled into Java code.
+Newest version 3.0</dd>
+
+<dt><a href="http://www.hnet.demon.co.uk/products/joi/index.html">
+JOI - The Java Occam Interpreter</a></dt>
+
+<dd>JOI is an Occam interpretation system coupled with a compiler
+that produces Jasmin based assembly language ready to be converted
+to Java byte code.</dd>
+
+<dt><a href=
+"http://progwww.vub.ac.be/prog/pools/agora/agora98/agora98.html">
+Agora98</a></dt>
+
+<dd>Agora98 is implemented in Java and allows full access to the
+underlying Java structures. This means that you are programming in
+your webbrowser in Agora, and that you can dynamically access all
+the API's of Java, and the entire Agora interpreter itself.</dd>
+
+<dt><a href="http://galaxy.fzu.cz/JEL/">Java Expressions
+Library</a></dt>
+
+<dd>JEL is a library for evaluating a simple single line
+expressions in Java. JEL compiles expressions directly to Java
+bytecodes, allowing their fast evaluation.</dd>
+
+<dt><a name="minerva"></a><a href=
+"http://www.ifcomputer.com/MINERVA">MINERVA</a></dt>
+
+<dd>MINERVA is a declarative language that inherits and combines
+the advantages of Java and Prolog, resulting in a very practical
+tool. MINERVA is implemented in Java and provides the core
+functionality of ISO/IEC 13211-1.</dd>
+
+<dt><a href="http://www.erights.org">The E programming
+language</a></dt>
+
+<dd>E is a programming language designed for developers who write
+distributed applications. It builds on the strength of Sun's Java
+language, an open standard that already provides some flexibility
+for developers writing World Wide Web applets. The E language
+improves on Java's security model and provides other powerful
+communications-oriented features. These include: distributed
+communication, capability semantics, optimistic computation.</dd>
+
+<dt><a name="netrexx"></a><a href=
+"http://www2.hursley.ibm.com/netrexx">The NetRexx
+Language</a></dt>
+
+<dd>NetRexx is a new programming language derived from both Rexx
+and Java(tm), written by the inventor of Rexx, Mike Cowlishaw. The
+rules of syntax closely follow those of Rexx, while the semantics
+often follow Java. It is a dialect of Rexx that can be as efficient
+and portable as Java, while preserving the low threshold to
+learning of the original Rexx language.<br />
+See also <a href=
+"http://www.geocities.com/SoHo/Studios/3599/VisualNetRexx/">Visual
+NetRexx</a> as an IDE for NetRexx.</dd>
+
+<!-- 
+<A HREF="http://www.ic.ec.musashi-tech.ac.jp/~zhurong/bamboo/bamboo.html">
+-->
+<dt><a href=
+"http://www.webtech2100.com/gamedom/arcade/bamboojava/bamboo.html">
+BAMBOO Home Page</a></dt>
+
+<dd>BAMBOO Language is a custmizable syntax, procedural
+programming, interpreted, multi-process-executed,
+GUI/telephony/database/network/mail programming supported
+language.</dd>
+</dl>
+
+<h3><a name="Assemblers"></a>Assemblers</h3>
+
+<dl>
+
+<dt><a href="http://www.judoscript.com/articles/jamaica.html">Jamaica: The Java Virtual Machine (JVM) Macro Assembler</a><img
+src="new.gif" alt="[new]" height="13" width="26" /></dt> 
+
+<dd>Jamaica, the JVM Macro Assembler, is an assembly language for JVM
+bytecode programming. It uses Java syntax to define a JVM class except
+for the method body that takes bytecode instructions, including
+Jamaica's built-in macros. In Jamaica, bytecode instructions use
+mnemonics and symbolic names for all variables, parameters, data
+fields, constants and labels. Jamaica is a simplified JVM assembly
+language. It does not support inner classes. Variables are all
+method-wide and are strongly-typed.  Jamaica is a language facade for
+a Java class creation API, JavaClassCreator. This API closely mimics
+the Jamaica language, allows users to define a Java class with the
+same flow, and supports all the Jamaica instruction set and
+macros. </dd>
+
+
+
+<dt><a href="http://siesta.cs.wustl.edu/~djh4/">Javaa</a></dt>
+
+<dd>The Java Bytecode Assembler is a program that converts code
+written in "Java Assembly Language" into a valid Java .class
+file.</dd>
+
+<dt><a href="http://www.cat.nyu.edu/meyer/jasmin/">Jasmin</a></dt>
+
+<dd>Jasmin is a Java Assembler Interface. It takes ASCII
+descriptions for Java classes, written in a simple assembler-like
+syntax and using the Java Virtual Machine instruction set. It
+converts them into binary Java class files suitable for loading
+into a Java interpreter. Jasmin was written as the companion to the
+book "Java Virtual Machine", soon to be published by O'Reilly,
+written by Troy Downing and Jonathan Meyer.</dd>
+
+<dt>
+<!--<a href="http://www.sbktech.org/jas.html">
+-->
+Jas
+<img src="unclear.gif" alt="[unclear]" height="13" width=
+"26" /><!--</a>-->
+</dt>
+
+<dd>A java bytecode assembler. Java bytecode can be generated
+either through a script which drives the assembler package, or
+directly accessing the assembler package from java. The assembler
+package is very simple, it attempts neither validation nor
+optimization of bytecode.</dd>
+</dl>
+
+<h3><a name="papers"></a>Papers</h3>
+
+<p>Here are some papers on the implementation of programming
+languages on the Java VM</p>
+
+<dl>
+<dt><a href="http://www.cs.cmu.edu/~scandal/html-papers/javanesl/">
+Java as an Intermediate Language</a></dt>
+
+<dt><a href="http://www.inmet.com/~stt/adajava_paper/">Programming
+the Internet in Ada 95 (submitted to Ada Europe '96)</a></dt>
+</dl>
+
+<h3><a name="upcoming"></a>Upcoming</h3>
+
+<ul> 
+
+<li><a
+href="http://www.research.ibm.com/people/d/dfb/papers.html#Bacon01Kava">Kava</a>
+is a backward-compatible extension to Java that allows a single object
+model to be used consistently from the bit level on up, combining the
+abstraction facilities of high-level object-oriented programming
+languages with the ability to create highly efficient value types.</li>
+
+<li><a href="http://www.hetland.org/jlua/">JLua</a> is a
+Java-implementation of the programming language Lua. Lua combines
+simple procedural syntax with powerful data description constructs
+based on associative arrays and extensible semantics. Lua is
+dynamically typed, interpreted from bytecodes, and has automatic
+memory management with garbage collection, making it ideal for
+configuration, scripting, and rapid prototyping. A fundamental
+concept in the design of Lua is to provide meta-mechanisms for
+implementing features, instead of providing a host of features
+directly in the language. For example, although Lua is not a pure
+object-oriented language, it does provide meta-mechanisms for
+implementing classes and inheritance. Lua's meta-mechanisms bring
+an economy of concepts and keep the language small, while allowing
+the semantics to be extended in unconventional ways. Extensible
+semantics is a distinguishing feature of Lua. </li>
+
+<!--
+<LI><A HREF="http://members.xoom.com/azdeveloper/">AZ</A> is simply a
+declarative language which embodies some new concepts that target
+directly the beginner and advanced programmer. It aims at being an
+Ada-like programming language but with more ease of implementation. It
+should provides ease of use and expressive power while keeping in mind
+ease of implementation. The AZ Language should be stable only after a final draft is written. This final draft is
+expected to written in late 2002.</LI>
+--> 
+<!--
+<LI><A HREF="http://www.ConsultAr.com/JSelf/">JSelf</A> is a Self language
+implementation dependents of the JavaTM Virtual Machine. Is use the
+JVM and make available the Java classes to the JSelf environment.
+-->
+</ul>
+
+<p align="center">| <a href="#precomp">Precompilers</a> | <a href=
+"#tcltk">Tcl</a> | <a href="#functional">Functional programming</a>
+| <a href="#lispandco">Lisp and co</a> | <a href="#basic">Basic</a>
+| <a href="#logo">Logo</a> | <a href="#logic">Logic programming</a>
+| <a href="#ml">ML</a> | <a href="#varoo">Various OO languages</a>
+| <a href="#scripting">Scripting</a> | <a href="#compjextend">
+Extended Java</a> | <a href="#forth">Forth</a> | <a href=
+"#various">Various languages</a> | <a href="#Assemblers">
+Assemblers</a> | <a href="#papers">Papers</a> | <a href=
+"#upcoming">Upcoming</a> |</p>
+
+<hr />
+
+<i>&copy; 1996-2003 for this collection by <a href=
+"http://www.robert-tolksdorf.de">Robert Tolksdorf</a><br />
+ <!--$mind-it-ignore$--> 
+<!-- No, this is not cheating, but taking the figure collected
+before. It _really_ was  4758 exaclty!  
+--><!-- ACCESSED CHEAT=4758
+At
+least
+--> <!-- 532860
+--> <!--$/mind-it-ignore$-->Huge amounts of accesses since Nov 2,
+1996, the counter is messed up.</i> But here is a new one that just started: 
+<!-- Begin Nedstat Basic code -->
+<!-- Title: Programming languages for the Java VM -->
+<!-- URL: http://www.robert-tolksdorf.de/vmlanguages.html -->
+<script language="JavaScript" src="http://m1.nedstatbasic.net/basic.js" type="text/JavaScript">
+</script>
+<script language="JavaScript" type="text/JavaScript">
+<!--
+  nedstatbasic("ACJnjgpUIrD0KhLmjFqYlqCrSw4A", 1);
+// -->
+</script>
+<noscript>
+<a target="_blank" href="http://v1.nedstatbasic.net/stats?ACJnjgpUIrD0KhLmjFqYlqCrSw4A"><img
+src="http://m1.nedstatbasic.net/n?id=ACJnjgpUIrD0KhLmjFqYlqCrSw4A"
+border="0" width="18" height="18" alt="Stats" /></a>
+</noscript>
+<!-- End Nedstat Basic code -->
+</body>
+</html>
+
+
+
+
+

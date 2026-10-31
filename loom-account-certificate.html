@@ -1,0 +1,12 @@
+Make a record containing all the database records, signed with the operator's PGP private key, along with a hash of the record encrypted with your passphrase. That proves that the record was made with your passphrase, and that somebody with the operator's private key signed it. This is stored in the database after each transaction. The record could include the IP address used for the transaction web request. This would allow both you and the operator to prove the state of your account at the last transaction. Unless he or somebody else compromised your passphrase. But disagreement would mean that either the operator or somebody else stole your passphrase.
+
+This is unforgeable unless the operator steals your passphrase during a transaction or somebody steals his PGP private key.
+
+Include a transaction account in the signed record and you know which of two proposed states is the more recent.
+
+Concerning the cryptographic security of the "Random" buttons on loom.cc.
+
+AES_Random.pm uses /dev/urandom, which is not as secure as /dev/random, but has predictable response time. Both are considered cryptographically secure.
+
+http://lists.gnupg.org/pipermail/gnupg-devel/2003-April/019954.html
+http://www.schneier.com/yarrow.html
